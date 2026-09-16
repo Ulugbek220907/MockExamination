@@ -288,3 +288,4 @@ class MockExamApp {
 
 // Instantiate App globally
 window.app = new MockExamApp();
+
