@@ -66,8 +66,42 @@ PORT=8000 python3 server.py
 
 Open your browser and navigate to:
 ```
-http://localhost:8000
+http://localhost:8080
 ```
+
+---
+
+## Deploy to Render (Live Server)
+
+This repository is pre-configured for zero-friction deployment to **[Render](https://render.com/)**.
+
+### Method 1: Render Blueprint (Recommended - 1-Click)
+1. Push your repository to GitHub.
+2. Log in to [Render Dashboard](https://dashboard.render.com/).
+3. Click **New +** → **Blueprint**.
+4. Connect your `MockExamination` repository.
+5. Render will automatically detect `render.yaml` and configure:
+   - **Runtime**: Python 3.11.9
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `python server.py`
+   - **Health Check**: `/api/health`
+6. Click **Apply**. Your live URL (e.g. `https://mock-exam-platform.onrender.com`) will be live in ~1-2 minutes!
+
+### Method 2: Manual Web Service on Render
+1. In Render Dashboard, click **New +** → **Web Service**.
+2. Connect your GitHub repository.
+3. Configure the following settings:
+   - **Name**: `ielts-mock-exam`
+   - **Language / Runtime**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `python server.py`
+   - **Plan**: `Free`
+4. Under **Advanced**:
+   - **Health Check Path**: `/api/health`
+5. Click **Create Web Service**.
+
+### Method 3: Deploy with Docker
+You can also choose the **Docker** runtime on Render; the repository includes an optimized multi-platform `Dockerfile` and `.dockerignore`.
 
 ---
 

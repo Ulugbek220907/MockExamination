@@ -10,6 +10,13 @@ import sys
 import json
 import sqlite3
 import datetime
+import mimetypes
+
+# Explicitly ensure correct MIME types for modern browsers
+mimetypes.add_type("application/javascript", ".js")
+mimetypes.add_type("text/css", ".css")
+mimetypes.add_type("application/json", ".json")
+mimetypes.add_type("image/svg+xml", ".svg")
 
 PORT = int(os.environ.get("PORT", 8080))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +26,8 @@ PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 
 # Initialize SQLite database for storing mock exam attempts
 def init_db():
-    conn = sqlite3.connect(DB_FILE)
+    os.makedirs(os.path.dirname(DB_FILE), exist_ok=True)
+    conn = sqlite3.connect(DB_FILE, timeout=10.0)
     c = conn.cursor()
     c.execute("""
         CREATE TABLE IF NOT EXISTS attempts (
@@ -282,8 +290,19 @@ try:
             self.set_header("Content-Type", "application/json; charset=utf-8")
             self.write(json.dumps({"attempts": attempts}))
 
+    class ApiHealthHandler(tornado.web.RequestHandler):
+        def get(self):
+            self.set_header("Content-Type", "application/json; charset=utf-8")
+            self.write(json.dumps({
+                "status": "healthy",
+                "service": "ielts-mock-exam",
+                "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
+            }))
+
     def make_app():
         return tornado.web.Application([
+            (r"/api/health", ApiHealthHandler),
+            (r"/healthz", ApiHealthHandler),
             (r"/api/tests", ApiTestsHandler),
             (r"/api/tests/([a-zA-Z0-9_\-]+)", ApiSingleTestHandler),
             (r"/api/tests/([a-zA-Z0-9_\-]+)/submit", ApiSubmitHandler),
@@ -297,9 +316,9 @@ try:
     def run_server():
         init_db()
         app = make_app()
-        app.listen(PORT)
-        print(f"IELTS Mock Exam Platform running at http://localhost:{PORT}")
-        print("Ready for tests: Cambridge 17, 18, 19 (Academic Reading)")
+        app.listen(PORT, address="0.0.0.0")
+        print(f"IELTS Mock Exam Platform running at http://0.0.0.0:{PORT}", flush=True)
+        print("Ready for tests: Cambridge 17, 18, 19 (Academic Reading)", flush=True)
         tornado.ioloop.IOLoop.current().start()
 
 except ImportError:
@@ -313,9 +332,18 @@ except ImportError:
 
         def do_GET(self):
             parsed = urllib.parse.urlparse(self.path)
-            if parsed.path == "/api/tests":
+            if parsed.path in ("/api/health", "/healthz"):
                 self.send_response(200)
-                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(json.dumps({
+                    "status": "healthy",
+                    "service": "ielts-mock-exam",
+                    "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
+                }).encode("utf-8"))
+            elif parsed.path == "/api/tests":
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
                 self.end_headers()
                 dataset = load_dataset()
                 tests_summary = [{
@@ -332,23 +360,74 @@ except ImportError:
                     "tests": tests_summary
                 }).encode("utf-8"))
             elif parsed.path.startswith("/api/tests/"):
-                test_id = parsed.path.split("/")[3]
-                dataset = load_dataset()
-                for t in dataset.get("tests", []):
-                    if t["id"] == test_id:
-                        self.send_response(200)
-                        self.send_header("Content-Type", "application/json")
-                        self.end_headers()
-                        self.wfile.write(json.dumps(t).encode("utf-8"))
-                        return
-                self.send_error(404, "Test not found")
+                parts = parsed.path.strip("/").split("/")
+                if len(parts) == 3:
+                    test_id = parts[2]
+                    dataset = load_dataset()
+                    for t in dataset.get("tests", []):
+                        if t["id"] == test_id:
+                            self.send_response(200)
+                            self.send_header("Content-Type", "application/json; charset=utf-8")
+                            self.end_headers()
+                            self.wfile.write(json.dumps(t).encode("utf-8"))
+                            return
+                    self.send_error(404, "Test not found")
+                else:
+                    self.send_error(404, "Endpoint not found")
+            elif parsed.path == "/api/attempts":
+                conn = sqlite3.connect(DB_FILE)
+                c = conn.cursor()
+                c.execute("""
+                    SELECT id, test_id, candidate_name, raw_score, total_questions, band_score, time_spent_seconds, completed_at, summary_json
+                    FROM attempts ORDER BY id DESC LIMIT 50
+                """)
+                rows = c.fetchall()
+                conn.close()
+                attempts = [{
+                    "id": r[0], "testId": r[1], "candidateName": r[2], "rawScore": r[3],
+                    "totalQuestions": r[4], "bandScore": r[5], "timeSpentSeconds": r[6],
+                    "completedAt": r[7], "summary": json.loads(r[8]) if r[8] else {}
+                } for r in rows]
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(json.dumps({"attempts": attempts}).encode("utf-8"))
             else:
                 super().do_GET()
+
+        def do_POST(self):
+            parsed = urllib.parse.urlparse(self.path)
+            parts = parsed.path.strip("/").split("/")
+            if len(parts) == 4 and parts[0] == "api" and parts[1] == "tests" and parts[3] == "submit":
+                test_id = parts[2]
+                dataset = load_dataset()
+                target_test = next((t for t in dataset.get("tests", []) if t["id"] == test_id), None)
+                if not target_test:
+                    self.send_error(404, "Test not found")
+                    return
+                content_len = int(self.headers.get("Content-Length", 0))
+                body_raw = self.rfile.read(content_len) if content_len > 0 else b"{}"
+                try:
+                    body = json.loads(body_raw.decode("utf-8"))
+                except Exception:
+                    body = {}
+                result = evaluate_test_submission(
+                    target_test,
+                    body.get("answers", {}),
+                    body.get("candidateName", "Candidate"),
+                    body.get("timeSpentSeconds", 0)
+                )
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(json.dumps(result).encode("utf-8"))
+            else:
+                self.send_error(404, "Endpoint not found")
 
     def run_server():
         init_db()
         server = HTTPServer(("0.0.0.0", PORT), FallbackHandler)
-        print(f"IELTS Mock Exam Platform (Fallback HTTP) running at http://localhost:{PORT}")
+        print(f"IELTS Mock Exam Platform (Fallback HTTP) running at http://0.0.0.0:{PORT}", flush=True)
         server.serve_forever()
 
 if __name__ == "__main__":
