@@ -11,7 +11,7 @@ import json
 import sqlite3
 import datetime
 
-PORT = int(os.environ.get("PORT", 8000))
+PORT = int(os.environ.get("PORT", 8080))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(BASE_DIR, "data", "tests.json")
 DB_FILE = os.path.join(BASE_DIR, "data", "attempts.db")
