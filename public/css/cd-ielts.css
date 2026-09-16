@@ -1,0 +1,860 @@
+/* ==========================================================================
+   COMPUTER-DELIVERED IELTS (CD-IELTS) STYLESHEET
+   Accurately replicates the official British Council / IDP test interface.
+   ========================================================================== */
+
+:root {
+  --cd-header-bg: #1f2732;
+  --cd-header-text: #ffffff;
+  --cd-bar-bg: #eef2f6;
+  --cd-border-color: #cfd8dc;
+  --cd-bg-main: #f5f7fa;
+  --cd-panel-bg: #ffffff;
+  --cd-text-color: #1a202c;
+  --cd-text-muted: #64748b;
+  --cd-accent-blue: #0284c7;
+  --cd-accent-blue-hover: #0369a1;
+  --cd-accent-red: #dc2626;
+  --cd-accent-green: #16a34a;
+  --cd-highlight-bg: #fef08a;
+  --cd-highlight-text: #1e293b;
+  --cd-nav-bg: #ffffff;
+  --cd-nav-border: #cbd5e1;
+  --cd-btn-gray: #e2e8f0;
+  --cd-btn-gray-hover: #cbd5e1;
+  
+  --cd-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --cd-base-font-size: 15px;
+  --cd-line-height: 1.65;
+}
+
+/* Accessibility: Contrast Themes */
+body.theme-default {
+  --cd-panel-bg: #ffffff;
+  --cd-text-color: #1a202c;
+  --cd-border-color: #cfd8dc;
+}
+
+body.theme-black-on-yellow {
+  --cd-bg-main: #fff799;
+  --cd-panel-bg: #fffbbf;
+  --cd-text-color: #000000;
+  --cd-border-color: #000000;
+  --cd-header-bg: #000000;
+  --cd-header-text: #fffbbf;
+  --cd-nav-bg: #fff799;
+  --cd-nav-border: #000000;
+  --cd-highlight-bg: #facc15;
+}
+
+body.theme-yellow-on-black {
+  --cd-bg-main: #000000;
+  --cd-panel-bg: #111111;
+  --cd-text-color: #fde047;
+  --cd-border-color: #ca8a04;
+  --cd-header-bg: #1e1e1e;
+  --cd-header-text: #fde047;
+  --cd-nav-bg: #111111;
+  --cd-nav-border: #ca8a04;
+  --cd-text-muted: #fef08a;
+  --cd-highlight-bg: #854d0e;
+  --cd-highlight-text: #ffffff;
+}
+
+body.theme-white-on-blue {
+  --cd-bg-main: #0c4a6e;
+  --cd-panel-bg: #075985;
+  --cd-text-color: #ffffff;
+  --cd-border-color: #38bdf8;
+  --cd-header-bg: #082f49;
+  --cd-header-text: #ffffff;
+  --cd-nav-bg: #075985;
+  --cd-nav-border: #38bdf8;
+  --cd-text-muted: #e0f2fe;
+  --cd-highlight-bg: #0284c7;
+  --cd-highlight-text: #ffffff;
+}
+
+/* Text Size Variations */
+body.text-regular {
+  --cd-base-font-size: 15px;
+}
+body.text-large {
+  --cd-base-font-size: 17.5px;
+}
+body.text-extra-large {
+  --cd-base-font-size: 20px;
+}
+
+/* Base Exam Container */
+#exam-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--cd-bg-main);
+  color: var(--cd-text-color);
+  font-family: var(--cd-font-family);
+  font-size: var(--cd-base-font-size);
+  line-height: var(--cd-line-height);
+  user-select: text;
+}
+
+/* Top Bar: Official CD-IELTS Style */
+.cd-header {
+  height: 52px;
+  background-color: var(--cd-header-bg);
+  color: var(--cd-header-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  z-index: 50;
+}
+
+.cd-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.9em;
+}
+
+.cd-candidate-info {
+  display: flex;
+  gap: 16px;
+  font-weight: 500;
+}
+
+.cd-candidate-info span {
+  opacity: 0.9;
+}
+
+.cd-candidate-info strong {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.cd-test-badge {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.cd-header-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Official CD-IELTS Timer */
+.cd-timer-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: monospace, sans-serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  color: #38bdf8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cd-timer-box.warning {
+  background: rgba(220, 38, 38, 0.4);
+  color: #fca5a5;
+  border-color: #ef4444;
+  animation: timerPulse 1s infinite alternate;
+}
+
+@keyframes timerPulse {
+  from { opacity: 0.85; }
+  to { opacity: 1; }
+}
+
+.cd-timer-hide-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75em;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.cd-timer-hide-btn:hover {
+  color: #ffffff;
+}
+
+.cd-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cd-icon-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s;
+}
+
+.cd-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Split Pane Workspace */
+.cd-workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Left Pane: Reading Passage */
+.cd-pane-left {
+  flex: 1 1 50%;
+  width: 50%;
+  overflow-y: auto;
+  padding: 24px 32px;
+  background-color: var(--cd-panel-bg);
+  border-right: 1px solid var(--cd-border-color);
+  box-sizing: border-box;
+}
+
+/* Draggable Resizer Splitter */
+.cd-resizer {
+  width: 8px;
+  background: #cbd5e1;
+  cursor: col-resize;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 0.2s;
+  user-select: none;
+  z-index: 10;
+}
+
+.cd-resizer:hover, .cd-resizer.is-dragging {
+  background: var(--cd-accent-blue);
+}
+
+.cd-resizer::after {
+  content: "⋮";
+  color: #64748b;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cd-resizer:hover::after, .cd-resizer.is-dragging::after {
+  color: #ffffff;
+}
+
+/* Right Pane: Questions */
+.cd-pane-right {
+  flex: 1 1 50%;
+  width: 50%;
+  overflow-y: auto;
+  padding: 24px 32px;
+  background-color: var(--cd-panel-bg);
+  box-sizing: border-box;
+}
+
+/* Passage Content Formatting */
+.passage-header {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--cd-border-color);
+}
+
+.passage-part-label {
+  font-size: 0.85em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cd-accent-blue);
+  letter-spacing: 0.8px;
+}
+
+.passage-title {
+  font-size: 1.6em;
+  font-weight: 700;
+  margin: 6px 0 4px 0;
+  color: var(--cd-text-color);
+}
+
+.passage-subtitle {
+  font-size: 1.05em;
+  font-style: italic;
+  color: var(--cd-text-muted);
+  margin-bottom: 12px;
+}
+
+.passage-instruction-bar {
+  background-color: #f1f5f9;
+  border-left: 4px solid var(--cd-accent-blue);
+  padding: 8px 12px;
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.passage-paragraph {
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.paragraph-label {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-right: 6px;
+  color: var(--cd-accent-blue);
+}
+
+/* Question Area Formatting */
+.question-group-header {
+  background: #f8fafc;
+  border: 1px solid var(--cd-border-color);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.question-group-title {
+  font-weight: 700;
+  font-size: 1.05em;
+  margin-bottom: 6px;
+}
+
+.question-group-instruction {
+  font-size: 0.92em;
+  color: var(--cd-text-muted);
+}
+
+.question-card {
+  background: var(--cd-panel-bg);
+  border: 1px solid var(--cd-border-color);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.question-card.active-question {
+  border-color: var(--cd-accent-blue);
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+
+.question-number-badge {
+  display: inline-block;
+  background: var(--cd-header-bg);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.question-prompt {
+  display: inline;
+  font-weight: 500;
+}
+
+/* Question Types */
+/* Multiple Choice / Radios / Checkboxes */
+.options-list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--cd-border-color);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.option-item:hover {
+  background-color: rgba(2, 132, 199, 0.05);
+  border-color: var(--cd-accent-blue);
+}
+
+.option-item input[type="radio"],
+.option-item input[type="checkbox"] {
+  margin-top: 4px;
+  cursor: pointer;
+  accent-color: var(--cd-accent-blue);
+  transform: scale(1.15);
+}
+
+.option-item.selected {
+  background-color: rgba(2, 132, 199, 0.1);
+  border-color: var(--cd-accent-blue);
+  font-weight: 500;
+}
+
+/* True / False / Not Given & Yes / No / Not Given buttons */
+.tfng-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.tfng-btn {
+  flex: 1;
+  min-width: 90px;
+  padding: 8px 14px;
+  border: 1px solid var(--cd-border-color);
+  background: #ffffff;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tfng-btn:hover {
+  border-color: var(--cd-accent-blue);
+  background: #f0f9ff;
+}
+
+.tfng-btn.active {
+  background: var(--cd-accent-blue);
+  color: #ffffff;
+  border-color: var(--cd-accent-blue);
+}
+
+/* Inline Completion / Fill in the Blanks */
+.completion-input-wrap {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 4px;
+}
+
+.completion-input {
+  width: 170px;
+  padding: 6px 10px;
+  border: 1.5px solid var(--cd-border-color);
+  border-radius: 4px;
+  font-size: 0.95em;
+  font-family: inherit;
+  outline: none;
+  background: #ffffff;
+  color: var(--cd-text-color);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.completion-input:focus {
+  border-color: var(--cd-accent-blue);
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+
+.completion-input.has-value {
+  border-color: #0284c7;
+  background: #f0fdf4;
+}
+
+/* Matching Select Dropdown */
+.matching-select {
+  padding: 6px 12px;
+  border: 1.5px solid var(--cd-border-color);
+  border-radius: 4px;
+  background: #ffffff;
+  color: var(--cd-text-color);
+  font-size: 0.95em;
+  margin-left: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.matching-select:focus {
+  border-color: var(--cd-accent-blue);
+}
+
+/* Bottom Navigation Bar: Official CD-IELTS Footer */
+.cd-footer {
+  height: 64px;
+  background: var(--cd-nav-bg);
+  border-top: 1px solid var(--cd-nav-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.04);
+  z-index: 40;
+}
+
+.cd-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Passage Navigation Tabs (Part 1, Part 2, Part 3) */
+.part-nav-tabs {
+  display: flex;
+  gap: 4px;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.part-tab-btn {
+  padding: 6px 14px;
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.85em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.part-tab-btn:hover {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.part-tab-btn.active {
+  background: #ffffff;
+  color: var(--cd-accent-blue);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Question Navigation Strip (1 to 40) */
+.cd-footer-center {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 55vw;
+  overflow-x: auto;
+  padding: 4px 8px;
+}
+
+.cd-footer-center::-webkit-scrollbar {
+  height: 4px;
+}
+
+.cd-footer-center::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.q-nav-btn {
+  min-width: 28px;
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  font-size: 0.85em;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.q-nav-btn:hover {
+  background: #f8fafc;
+  border-color: var(--cd-accent-blue);
+}
+
+/* Answered indicator (official CD-IELTS underline style) */
+.q-nav-btn.answered {
+  border-bottom: 3px solid var(--cd-accent-blue);
+  font-weight: 700;
+}
+
+/* Active current question */
+.q-nav-btn.current {
+  background: var(--cd-accent-blue);
+  color: #ffffff;
+  border-color: var(--cd-accent-blue);
+}
+
+.q-nav-btn.current.answered {
+  border-bottom: 3px solid #ffffff;
+}
+
+/* Review Flag on Question */
+.q-nav-btn.flagged::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  background-color: #ea580c;
+  border-radius: 50%;
+}
+
+.cd-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cd-review-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88em;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cd-review-checkbox-label input {
+  cursor: pointer;
+  accent-color: #ea580c;
+}
+
+.cd-arrow-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  border-radius: 4px;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.cd-arrow-btn:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.cd-arrow-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cd-submit-btn {
+  background: var(--cd-accent-blue);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cd-submit-btn:hover {
+  background: var(--cd-accent-blue-hover);
+}
+
+/* Highlighting & Sticky Notes Floating UI */
+.cd-highlight {
+  background-color: var(--cd-highlight-bg) !important;
+  color: var(--cd-highlight-text) !important;
+  border-radius: 2px;
+  padding: 1px 0;
+  cursor: pointer;
+}
+
+.cd-highlight-toolbar {
+  position: absolute;
+  display: flex;
+  gap: 4px;
+  background: #1e293b;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 1000;
+  font-size: 13px;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.cd-highlight-toolbar button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.cd-highlight-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sticky Note Popover */
+.cd-note-card {
+  position: absolute;
+  width: 240px;
+  background: #fef08a;
+  color: #713f12;
+  border: 1px solid #fde047;
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  padding: 8px;
+  z-index: 1000;
+  font-size: 13px;
+}
+
+.cd-note-card textarea {
+  width: 100%;
+  height: 70px;
+  border: 1px solid #fde047;
+  background: #fef9c3;
+  color: #1e293b;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 6px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.cd-note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.cd-note-close {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(2px);
+}
+
+.modal-box {
+  background: #ffffff;
+  color: #1e293b;
+  width: 90%;
+  max-width: 520px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  overflow: hidden;
+  animation: modalPop 0.2s ease;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  background: var(--cd-header-bg);
+  color: #ffffff;
+  padding: 14px 20px;
+  font-size: 1.1em;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  padding: 20px;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.modal-footer {
+  padding: 12px 20px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #475569;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  padding: 8px 18px;
+  border: none;
+  background: var(--cd-accent-blue);
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-danger {
+  padding: 8px 18px;
+  border: none;
+  background: var(--cd-accent-red);
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}

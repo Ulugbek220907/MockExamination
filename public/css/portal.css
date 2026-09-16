@@ -1,0 +1,649 @@
+/* ==========================================================================
+   PORTAL, VERIFICATION, & RESULTS STYLESHEET
+   Clean, focused, distraction-free environment for IELTS test preparation.
+   ========================================================================== */
+
+:root {
+  --portal-bg: #f8fafc;
+  --portal-card-bg: #ffffff;
+  --portal-text: #0f172a;
+  --portal-muted: #64748b;
+  --portal-border: #e2e8f0;
+  --portal-primary: #0284c7;
+  --portal-primary-hover: #0369a1;
+  --portal-success: #16a34a;
+  --portal-danger: #dc2626;
+  --portal-warning: #ea580c;
+  --portal-radius: 8px;
+  --portal-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --portal-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--portal-bg);
+  color: var(--portal-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Common App Containers */
+.view-container {
+  display: none;
+  min-height: 100vh;
+}
+
+.view-container.active {
+  display: block;
+}
+
+/* ==========================================================================
+   PORTAL DASHBOARD
+   ========================================================================== */
+.portal-navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--portal-border);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portal-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portal-logo-badge {
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.1em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.portal-logo-title {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.portal-tagline {
+  font-size: 0.85em;
+  color: var(--portal-muted);
+}
+
+.portal-main {
+  max-width: 1080px;
+  margin: 36px auto;
+  padding: 0 20px;
+}
+
+/* Minimal Hero */
+.portal-hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.portal-hero h1 {
+  font-size: 2em;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.portal-hero p {
+  font-size: 1.05em;
+  color: var(--portal-muted);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Module Selector Tabs */
+.modules-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.module-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  border: 1px solid var(--portal-border);
+  background: #ffffff;
+  font-weight: 600;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--portal-shadow);
+}
+
+.module-tab-btn.active {
+  background: var(--portal-primary);
+  color: #ffffff;
+  border-color: var(--portal-primary);
+}
+
+.module-badge {
+  font-size: 0.75em;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.module-tab-btn.active .module-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.module-tab-btn:not(.active) .module-badge {
+  background: #f1f5f9;
+  color: var(--portal-muted);
+}
+
+.module-tab-btn.disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Cambridge Books Grid */
+.books-section-title {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.test-card {
+  background: var(--portal-card-bg);
+  border: 1px solid var(--portal-border);
+  border-radius: var(--portal-radius);
+  padding: 24px;
+  box-shadow: var(--portal-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.test-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--portal-shadow-lg);
+}
+
+.test-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.test-card-book {
+  font-size: 0.85em;
+  font-weight: 700;
+  color: var(--portal-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.test-badge-academic {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  font-size: 0.75em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.test-card-title {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.test-passages-list {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.test-passage-item {
+  font-size: 0.9em;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.test-passage-item span.p-badge {
+  background: #f1f5f9;
+  color: #475569;
+  font-weight: 700;
+  font-size: 0.8em;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.test-card-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.85em;
+  color: var(--portal-muted);
+  margin-bottom: 20px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+}
+
+.test-card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-start-exam {
+  flex: 1;
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.15s;
+}
+
+.btn-start-exam:hover {
+  background: #b91c1c;
+}
+
+.btn-practice-mode {
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid var(--portal-border);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-practice-mode:hover {
+  background: #f1f5f9;
+}
+
+/* ==========================================================================
+   CANDIDATE IDENTITY & VERIFICATION SCREEN (CD-IELTS STYLE)
+   ========================================================================== */
+#verification-screen {
+  background-color: #1e293b;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.verification-card {
+  background: #ffffff;
+  color: #0f172a;
+  max-width: 680px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.verification-header {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 20px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.verification-body {
+  padding: 28px;
+}
+
+.verification-instructions {
+  background: #f8fafc;
+  border-left: 4px solid var(--portal-primary);
+  padding: 16px 20px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 24px;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.verification-instructions ul {
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+.candidate-field-group {
+  margin-bottom: 18px;
+}
+
+.candidate-field-group label {
+  display: block;
+  font-size: 0.88em;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.candidate-field-group input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--portal-border);
+  border-radius: 6px;
+  font-size: 1em;
+  outline: none;
+}
+
+.candidate-field-group input:focus {
+  border-color: var(--portal-primary);
+}
+
+.verification-footer {
+  padding: 20px 28px;
+  background: #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--portal-border);
+}
+
+/* ==========================================================================
+   RESULTS & REVIEW SCREEN
+   ========================================================================== */
+#results-screen {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.results-navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--portal-border);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.results-container {
+  max-width: 1080px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+.score-banner-card {
+  background: #ffffff;
+  border: 1px solid var(--portal-border);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: var(--portal-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.score-main-box {
+  text-align: center;
+}
+
+.band-score-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px auto;
+  box-shadow: 0 8px 16px rgba(2, 132, 199, 0.3);
+}
+
+.band-score-circle .band-val {
+  font-size: 2.4em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.band-score-circle .band-lbl {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.score-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.score-stat-box {
+  background: #f8fafc;
+  border: 1px solid var(--portal-border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.score-stat-val {
+  font-size: 1.6em;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.score-stat-lbl {
+  font-size: 0.85em;
+  color: var(--portal-muted);
+}
+
+/* Passage Breakdown Cards */
+.passage-breakdown-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.passage-stat-card {
+  background: #ffffff;
+  border: 1px solid var(--portal-border);
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: var(--portal-shadow);
+}
+
+.passage-stat-card h4 {
+  font-size: 0.95em;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.passage-progress-bar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.passage-progress-fill {
+  height: 100%;
+  background: var(--portal-primary);
+  border-radius: 4px;
+}
+
+/* Review Filter Controls */
+.review-filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.review-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.review-tab-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--portal-border);
+  background: #ffffff;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.review-tab-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+/* Question Review Cards */
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-card {
+  background: #ffffff;
+  border: 1px solid var(--portal-border);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--portal-shadow);
+}
+
+.review-card.is-correct {
+  border-left: 4px solid var(--portal-success);
+}
+
+.review-card.is-incorrect {
+  border-left: 4px solid var(--portal-danger);
+}
+
+.review-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.review-status-badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-correct {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.badge-incorrect {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge-unanswered {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.review-answers-box {
+  background: #f8fafc;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.review-ans-label {
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--portal-muted);
+  text-transform: uppercase;
+}
+
+.review-ans-value {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.ans-correct {
+  color: var(--portal-success);
+}
+
+.ans-incorrect {
+  color: var(--portal-danger);
+}
+
+.review-explanation {
+  font-size: 0.9em;
+  color: #334155;
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.review-explanation strong {
+  color: #854d0e;
+}

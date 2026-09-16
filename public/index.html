@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IELTS Mock Exam - Authentic Computer-Delivered Reading Practice</title>
+  <meta name="description" content="Authentic Computer-Delivered IELTS Reading Mock Exam platform featuring latest Cambridge 17, 18, and 19 tests with real exam interface, split-screen reading, highlighting, and instant official band score." />
+  
+  <link rel="stylesheet" href="css/portal.css" />
+  <link rel="stylesheet" href="css/cd-ielts.css" />
+</head>
+<body class="theme-default text-regular">
+
+  <!-- ======================================================================
+       VIEW 1: PORTAL DASHBOARD (DISTRACTION-FREE TEST SELECTOR)
+       ====================================================================== -->
+  <div id="portal-screen" class="view-container active">
+    <nav class="portal-navbar">
+      <div class="portal-brand">
+        <span class="portal-logo-badge">IELTS</span>
+        <div>
+          <div class="portal-logo-title">Official Mock Exam System</div>
+          <div class="portal-tagline">Authentic Computer-Delivered Practice Environment</div>
+        </div>
+      </div>
+      <div>
+        <span style="font-size: 0.85em; font-weight: 600; color: #16a34a; background: #dcfce7; padding: 4px 10px; border-radius: 20px;">
+          ● Free Access Mode
+        </span>
+      </div>
+    </nav>
+
+    <main class="portal-main">
+      <section class="portal-hero">
+        <h1>IELTS Academic Mock Exam</h1>
+        <p>
+          Simulate the real IELTS on Computer exam with authentic layout, timer, text highlighter, and Cambridge official tests.
+        </p>
+      </section>
+
+      <!-- Module Navigation Selector -->
+      <section class="modules-nav">
+        <button class="module-tab-btn active" data-module="Reading">
+          <span>📖</span>
+          <span>Reading</span>
+          <span class="module-badge">Active</span>
+        </button>
+        <button class="module-tab-btn disabled" data-module="Listening" title="Available soon">
+          <span>🎧</span>
+          <span>Listening</span>
+          <span class="module-badge">Soon</span>
+        </button>
+        <button class="module-tab-btn disabled" data-module="Writing" title="Available soon">
+          <span>✍️</span>
+          <span>Writing</span>
+          <span class="module-badge">Soon</span>
+        </button>
+        <button class="module-tab-btn disabled" data-module="Speaking" title="Available soon">
+          <span>🗣</span>
+          <span>Speaking</span>
+          <span class="module-badge">Soon</span>
+        </button>
+      </section>
+
+      <!-- Cambridge Tests Showcase -->
+      <section>
+        <div class="books-section-title">
+          <span>📚</span>
+          <span>Latest Cambridge Practice Tests</span>
+        </div>
+        <div class="books-grid" id="books-grid">
+          <!-- Dynamic test cards loaded via app.js -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+  <!-- ======================================================================
+       VIEW 2: CANDIDATE IDENTITY & VERIFICATION (OFFICIAL CD-IELTS CHECK)
+       ====================================================================== -->
+  <div id="verification-screen" class="view-container">
+    <div class="verification-card">
+      <div class="verification-header">
+        <div style="font-weight: 700; font-size: 1.1em; display:flex; align-items:center; gap:8px;">
+          <span style="background:#dc2626; color:#ffffff; padding:2px 8px; border-radius:3px; font-size:0.85em;">IELTS</span>
+          <span>Computer-Delivered Test Verification</span>
+        </div>
+        <span style="font-size:0.85em; opacity:0.8;">Module: Academic Reading</span>
+      </div>
+
+      <div class="verification-body">
+        <div class="verification-instructions">
+          <strong>Test Day Instructions:</strong>
+          <ul>
+            <li>The test contains <strong>3 reading passages</strong> and <strong>40 questions</strong>.</li>
+            <li>You have exactly <strong>60 minutes</strong> to complete all sections.</li>
+            <li>You can drag the vertical divider between passage and questions to resize your workspace.</li>
+            <li>Select text with your mouse to <strong>highlight</strong> or add personal <strong>notes</strong>.</li>
+            <li>Use the bottom question strip to navigate and mark questions for <strong>Review</strong>.</li>
+          </ul>
+        </div>
+
+        <form id="verification-form">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+            <div class="candidate-field-group">
+              <label for="candidate-name-input">Candidate Full Name</label>
+              <input type="text" id="candidate-name-input" value="Candidate" required />
+            </div>
+            <div class="candidate-field-group">
+              <label for="candidate-number-input">Candidate Number</label>
+              <input type="text" id="candidate-number-input" value="108429" required />
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:12px 16px; margin: 8px 0 20px 0; font-size:0.9em;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+              <span>Test Material:</span>
+              <strong id="verify-test-book">Cambridge IELTS 19</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+              <span>Test Section:</span>
+              <strong id="verify-test-title">Academic Reading Test 1</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+              <span>Allocated Time:</span>
+              <strong id="verify-test-duration">60 Minutes</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span>Question Count:</span>
+              <strong id="verify-test-questions">40 Questions</strong>
+            </div>
+          </div>
+
+          <div class="verification-footer">
+            <button type="button" class="btn-secondary" id="btn-cancel-verify">Cancel</button>
+            <button type="submit" class="btn-primary" style="background:#dc2626; padding:10px 24px; font-size:1em;">
+              I Confirm My Details &amp; Start Test
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       VIEW 3: COMPUTER-DELIVERED IELTS EXAM ENVIRONMENT
+       ====================================================================== -->
+  <div id="exam-screen" class="view-container">
+    <!-- Top Header Bar -->
+    <header class="cd-header">
+      <div class="cd-header-left">
+        <div class="cd-candidate-info">
+          <span>Name: <strong id="exam-candidate-name">Candidate</strong></span>
+          <span>Number: <strong id="exam-candidate-num">108429</strong></span>
+        </div>
+        <span class="cd-test-badge" id="exam-test-title">Reading</span>
+      </div>
+
+      <div class="cd-header-center">
+        <div class="cd-timer-box" id="exam-timer-box" title="Click to hide/show timer">
+          <span id="exam-timer-text">60:00</span>
+        </div>
+        <button type="button" class="cd-timer-hide-btn" id="btn-timer-toggle" onclick="app.examInstance && app.examInstance.toggleTimerVisibility()">Hide</button>
+      </div>
+
+      <div class="cd-header-right">
+        <button type="button" class="cd-icon-btn" id="btn-contrast" title="Change color contrast">
+          <span>🎨</span> Contrast
+        </button>
+        <button type="button" class="cd-icon-btn" id="btn-text-size" title="Change font size">
+          <span>🔠</span> Text Size
+        </button>
+        <button type="button" class="cd-icon-btn" id="btn-help" title="Keyboard shortcuts & help">
+          <span>❓</span> Help
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Resizable Workspace -->
+    <div class="cd-workspace" id="exam-workspace">
+      <!-- Left Pane: Reading Passage -->
+      <div class="cd-pane-left" id="exam-pane-left">
+        <!-- Dynamically rendered via exam.js -->
+      </div>
+
+      <!-- Draggable Resizer Splitter -->
+      <div class="cd-resizer" id="exam-resizer" title="Drag left or right to resize"></div>
+
+      <!-- Right Pane: Questions -->
+      <div class="cd-pane-right" id="exam-pane-right">
+        <!-- Dynamically rendered via exam.js -->
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Bar (Dock) -->
+    <footer class="cd-footer">
+      <div class="cd-footer-left">
+        <div class="part-nav-tabs" id="exam-part-tabs">
+          <!-- Rendered Part 1, Part 2, Part 3 tabs -->
+        </div>
+      </div>
+
+      <!-- Question Strip 1 to 40 -->
+      <div class="cd-footer-center" id="exam-question-strip">
+        <!-- Rendered pills 1-40 -->
+      </div>
+
+      <div class="cd-footer-right">
+        <label class="cd-review-checkbox-label">
+          <input type="checkbox" id="exam-review-check" />
+          <span>Review</span>
+        </label>
+        <button type="button" class="cd-arrow-btn" id="btn-prev-q" title="Previous Question (Alt+P)">&lt;</button>
+        <button type="button" class="cd-arrow-btn" id="btn-next-q" title="Next Question (Alt+N)">&gt;</button>
+        <button type="button" class="cd-submit-btn" id="btn-submit-exam">Finish Test</button>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ======================================================================
+       VIEW 4: RESULTS & PERFORMANCE REVIEW
+       ====================================================================== -->
+  <div id="results-screen" class="view-container">
+    <nav class="results-navbar">
+      <div style="font-weight: 700; font-size: 1.1em; display:flex; align-items:center; gap:8px;">
+        <span style="background:#dc2626; color:#ffffff; padding:2px 8px; border-radius:3px; font-size:0.85em;">IELTS</span>
+        <span>Mock Exam Test Report</span>
+      </div>
+      <button class="btn-secondary" id="btn-back-dashboard">
+        ← Back to Dashboard
+      </button>
+    </nav>
+
+    <div class="results-container">
+      <!-- Score Certificate Banner -->
+      <div class="score-banner-card">
+        <div class="score-main-box">
+          <div class="band-score-circle">
+            <span class="band-val" id="res-band-score">7.5</span>
+            <span class="band-lbl">Band Score</span>
+          </div>
+          <div style="font-weight:700; font-size:1.15em;" id="res-candidate-name">Candidate</div>
+          <div style="color:var(--portal-muted); font-size:0.85em;" id="res-test-title">Cambridge 19 - Test 1</div>
+        </div>
+
+        <div class="score-details-grid">
+          <div class="score-stat-box">
+            <div class="score-stat-val" id="res-raw-score">34 / 40</div>
+            <div class="score-stat-lbl">Raw Score</div>
+          </div>
+          <div class="score-stat-box">
+            <div class="score-stat-val" id="res-cefr">C1</div>
+            <div class="score-stat-lbl">CEFR Proficiency</div>
+          </div>
+          <div class="score-stat-box">
+            <div class="score-stat-val" id="res-time-spent">52m 14s</div>
+            <div class="score-stat-lbl">Time Spent</div>
+          </div>
+        </div>
+
+        <div>
+          <button class="btn-primary" id="btn-retake-test" style="padding:10px 20px; font-size:0.95em;">
+            🔄 Retake Test
+          </button>
+        </div>
+      </div>
+
+      <!-- Passage Breakdown Cards -->
+      <div class="passage-breakdown-row" id="res-passage-breakdown">
+        <!-- Rendered passage cards -->
+      </div>
+
+      <!-- Question Review Filter Tabs -->
+      <div class="review-filter-bar">
+        <h3 style="font-size: 1.2em; font-weight: 700;">Question-by-Question Analysis</h3>
+        <div class="review-tabs">
+          <button class="review-tab-btn active" data-filter="all">All (40)</button>
+          <button class="review-tab-btn" data-filter="correct">Correct</button>
+          <button class="review-tab-btn" data-filter="incorrect">Incorrect</button>
+          <button class="review-tab-btn" data-filter="unanswered">Unanswered</button>
+        </div>
+      </div>
+
+      <!-- Review List -->
+      <div class="review-list" id="res-review-list">
+        <!-- Rendered question review cards with explanations -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/highlighter.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/exam.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

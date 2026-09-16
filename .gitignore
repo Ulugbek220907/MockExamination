@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.db-journal
+.DS_Store
+*.log
+data/*.db
