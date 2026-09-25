@@ -25,7 +25,7 @@ sys.path.insert(0, BASE_DIR)
 _TMP = tempfile.mkdtemp()
 os.environ["SQLITE_PATH"] = os.path.join(_TMP, "test.sqlite3")
 os.environ["ADMIN_TOKEN"] = "test-admin-token"
-for var in ("SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "ANTHROPIC_API_KEY"):
+for var in ("SUPABASE_URL", "SUPABASE_KEY", "SUPABASE_SERVICE_ROLE_KEY", "SUPABASE_APP_SECRET", "ANTHROPIC_API_KEY"):
     os.environ.pop(var, None)
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
@@ -241,7 +241,9 @@ class WritingTests(unittest.TestCase):
 
 
 class SupabaseStoreTests(unittest.TestCase):
-    """Runs SupabaseStore against a tiny fake PostgREST server and checks the requests it sends."""
+    """Runs SupabaseStore against a tiny fake Supabase REST server and checks the RPC calls it makes."""
+
+    SECRET = "s" * 48
 
     @classmethod
     def setUpClass(cls):
@@ -249,82 +251,81 @@ class SupabaseStoreTests(unittest.TestCase):
         import threading
 
         cls.requests = []
-        test_row = {"content": READING[0]}
+        secret = cls.SECRET
 
         class Handler(http.server.BaseHTTPRequestHandler):
             def log_message(self, *args):
                 pass
 
-            def _record(self):
-                length = int(self.headers.get("Content-Length") or 0)
-                body = json.loads(self.rfile.read(length)) if length else None
-                cls.requests.append({"method": self.command, "path": self.path, "headers": {k.lower(): v for k, v in self.headers.items()}, "body": body})
-
-            def _send(self, payload, extra=None):
+            def _send(self, code, payload):
                 raw = json.dumps(payload).encode()
-                self.send_response(200 if self.command == "GET" else 201)
+                self.send_response(code)
                 self.send_header("Content-Type", "application/json")
-                for k, v in (extra or {}).items():
-                    self.send_header(k, v)
                 self.end_headers()
                 self.wfile.write(raw)
 
-            def do_GET(self):
-                self._record()
-                if self.path.startswith("/rest/v1/tests"):
-                    self._send([test_row])
-                elif "limit=1" in self.path:
-                    self._send([], {"Content-Range": "0-0/7"})
-                elif self.path.startswith("/rest/v1/reading_attempts"):
-                    self._send([{"id": 5, "test_id": "academic-reading-01", "raw_score": 30, "total_questions": 40,
-                                 "band_score": 7.0, "time_spent_seconds": 100, "mode": "exam",
-                                 "created_at": "2026-01-01T00:00:00Z"}])
-                else:
-                    self._send([])
-
             def do_POST(self):
-                self._record()
-                if self.path.startswith("/rest/v1/tests"):
-                    self.send_response(201)
-                    self.end_headers()
-                else:
-                    self._send([{"id": 42}])
+                length = int(self.headers.get("Content-Length") or 0)
+                body = json.loads(self.rfile.read(length)) if length else {}
+                fn = self.path.rsplit("/", 1)[-1]
+                cls.requests.append({"fn": fn, "path": self.path, "body": body,
+                                     "headers": {k.lower(): v for k, v in self.headers.items()}})
+                if body.get("p_key") != secret:
+                    return self._send(403, {"code": "28000", "message": "invalid app key"})
+                responses = {
+                    "app_list_tests": [READING[0]],
+                    "app_upsert_test": None,
+                    "app_save_reading_attempt": 42,
+                    "app_save_writing_submission": 43,
+                    "app_history": {"reading": [{"id": 5, "test_id": "academic-reading-01", "raw_score": 30,
+                                                 "total_questions": 40, "band_score": 7.0, "time_spent_seconds": 100,
+                                                 "mode": "exam", "created_at": "2026-01-01T00:00:00Z"}],
+                                    "writing": []},
+                    "app_stats": {"readingAttempts": 7, "writingSubmissions": 2},
+                }
+                self._send(200, responses.get(fn))
 
         cls.httpd = http.server.HTTPServer(("127.0.0.1", 0), Handler)
         threading.Thread(target=cls.httpd.serve_forever, daemon=True).start()
-        cls.store = storage.SupabaseStore(f"http://127.0.0.1:{cls.httpd.server_port}", "service-key")
+        cls.base = f"http://127.0.0.1:{cls.httpd.server_port}"
+        cls.store = storage.SupabaseStore(cls.base, "sb_publishable_test", cls.SECRET)
 
     @classmethod
     def tearDownClass(cls):
         cls.httpd.shutdown()
 
-    def test_reads_and_writes(self):
+    def test_rpc_calls(self):
         tests = self.store.list_tests()
         self.assertEqual(tests[0]["id"], READING[0]["id"])
-        get = self.requests[-1]
-        self.assertEqual(get["headers"]["apikey"], "service-key")
-        self.assertEqual(get["headers"]["authorization"], "Bearer service-key")
-        self.assertIn("is_published=eq.true", get["path"])
+        call = self.requests[-1]
+        self.assertEqual(call["path"], "/rest/v1/rpc/app_list_tests")
+        self.assertEqual(call["headers"]["apikey"], "sb_publishable_test")
+        self.assertNotIn("authorization", call["headers"])  # new-style keys only go in `apikey`
 
         self.store.upsert_test(WRITING[0])
-        post = self.requests[-1]
-        self.assertIn("on_conflict=id", post["path"])
-        self.assertIn("merge-duplicates", post["headers"]["prefer"])
-        self.assertEqual(post["body"][0]["module"], "writing")
+        self.assertEqual(self.requests[-1]["body"]["p_test"]["id"], WRITING[0]["id"])
 
-        new_id = self.store.save_reading_attempt({"test_id": "academic-reading-01", "raw_score": 30,
-                                                  "total_questions": 40, "band_score": 7.0})
-        self.assertEqual(new_id, 42)
-        self.assertEqual(self.store.save_writing_submission({"test_id": "academic-writing-01"}), 42)
+        self.assertEqual(self.store.save_reading_attempt({"test_id": "academic-reading-01"}), 42)
+        self.assertEqual(self.store.save_writing_submission({"test_id": "academic-writing-01"}), 43)
 
         items = self.store.list_history(CLIENT_ID)
         self.assertEqual(items[0]["bandScore"], 7.0)
-        self.assertIn(f"client_id=eq.{CLIENT_ID}", self.requests[-2]["path"])
-
+        self.assertEqual(self.requests[-1]["body"]["p_client"], CLIENT_ID)
         self.assertEqual(self.store.stats()["readingAttempts"], 7)
 
+    def test_jwt_keys_also_sent_as_bearer(self):
+        store = storage.SupabaseStore(self.base, "eyJ.fake.jwt", self.SECRET)
+        store.stats()
+        self.assertEqual(self.requests[-1]["headers"]["authorization"], "Bearer eyJ.fake.jwt")
+
+    def test_wrong_secret_raises_and_content_falls_back(self):
+        bad = storage.SupabaseStore(self.base, "k", "wrong" * 10)
+        with self.assertRaises(storage.SupabaseError):
+            bad.save_reading_attempt({})
+        self.assertEqual(len(bad.list_tests()), len(TESTS))  # bundled content still served
+
     def test_falls_back_to_local_content_when_unreachable(self):
-        dead = storage.SupabaseStore("http://127.0.0.1:9", "k")
+        dead = storage.SupabaseStore("http://127.0.0.1:9", "k", self.SECRET)
         self.assertEqual(len(dead.list_tests()), len(TESTS))
 
 

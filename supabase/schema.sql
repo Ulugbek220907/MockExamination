@@ -86,3 +86,159 @@ create index if not exists writing_submissions_test_idx on public.writing_submis
 alter table public.tests               enable row level security;
 alter table public.reading_attempts    enable row level security;
 alter table public.writing_submissions enable row level security;
+
+-- ============================================================================
+-- Server API (Postgres functions called through Supabase's REST /rpc endpoint)
+--
+-- The server talks to the database only through these functions, using the
+-- public "publishable"/anon key plus a server secret. The secret itself is
+-- never stored: only its SHA-256 hash lives in the private schema, which the
+-- REST API does not expose. Every function checks the secret first, so the
+-- public key alone cannot read answer keys or anyone's essays.
+--
+-- Set the secret once (replace the value, keep it identical to the
+-- SUPABASE_APP_SECRET environment variable on your server):
+--   insert into private.app_secrets (name, secret_hash)
+--   values ('server', encode(sha256(convert_to('YOUR-LONG-RANDOM-SECRET', 'UTF8')), 'hex'))
+--   on conflict (name) do update set secret_hash = excluded.secret_hash;
+-- ============================================================================
+
+create schema if not exists private;
+revoke all on schema private from public;
+revoke all on schema private from anon, authenticated;
+
+create table if not exists private.app_secrets (
+  name        text primary key,
+  secret_hash text not null,
+  created_at  timestamptz not null default now()
+);
+alter table private.app_secrets enable row level security;
+
+create or replace function private.check_app_key(p_key text) returns void
+language plpgsql security definer set search_path = '' as $$
+begin
+  if p_key is null or length(p_key) < 32 or not exists (
+    select 1 from private.app_secrets s
+    where s.name = 'server'
+      and s.secret_hash = encode(sha256(convert_to(p_key, 'UTF8')), 'hex')
+  ) then
+    raise exception 'invalid app key' using errcode = '28000';
+  end if;
+end;
+$$;
+revoke all on function private.check_app_key(text) from public, anon, authenticated;
+
+create or replace function public.app_list_tests(p_key text) returns setof jsonb
+language plpgsql security definer set search_path = '' as $$
+begin
+  perform private.check_app_key(p_key);
+  return query
+    select t.content from public.tests t
+    where t.is_published
+    order by t.module, t.sort_order, t.id;
+end;
+$$;
+
+create or replace function public.app_upsert_test(p_key text, p_test jsonb) returns void
+language plpgsql security definer set search_path = '' as $$
+begin
+  perform private.check_app_key(p_key);
+  insert into public.tests (id, module, variant, title, sort_order, is_published, content)
+  values (
+    p_test->>'id', p_test->>'module', coalesce(p_test->>'variant', 'academic'), p_test->>'title',
+    coalesce((p_test->>'sortOrder')::int, 999), true, p_test
+  )
+  on conflict (id) do update set
+    module = excluded.module, variant = excluded.variant, title = excluded.title,
+    sort_order = excluded.sort_order, is_published = true, content = excluded.content;
+end;
+$$;
+
+create or replace function public.app_save_reading_attempt(p_key text, p_row jsonb) returns bigint
+language plpgsql security definer set search_path = '' as $$
+declare v_id bigint;
+begin
+  perform private.check_app_key(p_key);
+  insert into public.reading_attempts (test_id, client_id, candidate_name, mode, raw_score,
+    total_questions, band_score, time_spent_seconds, answers, breakdown)
+  values (
+    p_row->>'test_id', nullif(p_row->>'client_id', '')::uuid, left(p_row->>'candidate_name', 80),
+    p_row->>'mode', (p_row->>'raw_score')::int, (p_row->>'total_questions')::int,
+    (p_row->>'band_score')::numeric, (p_row->>'time_spent_seconds')::int,
+    p_row->'answers', p_row->'breakdown'
+  )
+  returning id into v_id;
+  return v_id;
+end;
+$$;
+
+create or replace function public.app_save_writing_submission(p_key text, p_row jsonb) returns bigint
+language plpgsql security definer set search_path = '' as $$
+declare v_id bigint;
+begin
+  perform private.check_app_key(p_key);
+  insert into public.writing_submissions (test_id, client_id, candidate_name, task1_text, task2_text,
+    task1_words, task2_words, time_spent_seconds, analysis, assessment, overall_band)
+  values (
+    p_row->>'test_id', nullif(p_row->>'client_id', '')::uuid, left(p_row->>'candidate_name', 80),
+    p_row->>'task1_text', p_row->>'task2_text', (p_row->>'task1_words')::int,
+    (p_row->>'task2_words')::int, (p_row->>'time_spent_seconds')::int,
+    p_row->'analysis', nullif(p_row->'assessment', 'null'::jsonb), (p_row->>'overall_band')::numeric
+  )
+  returning id into v_id;
+  return v_id;
+end;
+$$;
+
+create or replace function public.app_history(p_key text, p_client uuid, p_limit int default 20) returns jsonb
+language plpgsql security definer set search_path = '' as $$
+declare v_limit int := least(greatest(coalesce(p_limit, 20), 1), 50);
+begin
+  perform private.check_app_key(p_key);
+  return jsonb_build_object(
+    'reading', coalesce((
+      select jsonb_agg(r) from (
+        select a.id, a.test_id, a.raw_score, a.total_questions, a.band_score,
+               a.time_spent_seconds, a.mode, a.created_at
+        from public.reading_attempts a
+        where a.client_id = p_client
+        order by a.created_at desc limit v_limit
+      ) r), '[]'::jsonb),
+    'writing', coalesce((
+      select jsonb_agg(w) from (
+        select s.id, s.test_id, s.task1_words, s.task2_words, s.overall_band,
+               s.time_spent_seconds, s.created_at
+        from public.writing_submissions s
+        where s.client_id = p_client
+        order by s.created_at desc limit v_limit
+      ) w), '[]'::jsonb)
+  );
+end;
+$$;
+
+create or replace function public.app_stats(p_key text) returns jsonb
+language plpgsql security definer set search_path = '' as $$
+begin
+  perform private.check_app_key(p_key);
+  return jsonb_build_object(
+    'readingAttempts', (select count(*) from public.reading_attempts),
+    'readingAvgBand', (select round(avg(band_score), 2) from public.reading_attempts),
+    'writingSubmissions', (select count(*) from public.writing_submissions),
+    'writingAvgBand', (select round(avg(overall_band), 2) from public.writing_submissions)
+  );
+end;
+$$;
+
+-- Only these functions are callable with the public key (and each checks the secret).
+revoke all on function public.app_list_tests(text) from public;
+revoke all on function public.app_upsert_test(text, jsonb) from public;
+revoke all on function public.app_save_reading_attempt(text, jsonb) from public;
+revoke all on function public.app_save_writing_submission(text, jsonb) from public;
+revoke all on function public.app_history(text, uuid, int) from public;
+revoke all on function public.app_stats(text) from public;
+grant execute on function public.app_list_tests(text) to anon, authenticated, service_role;
+grant execute on function public.app_upsert_test(text, jsonb) to anon, authenticated, service_role;
+grant execute on function public.app_save_reading_attempt(text, jsonb) to anon, authenticated, service_role;
+grant execute on function public.app_save_writing_submission(text, jsonb) to anon, authenticated, service_role;
+grant execute on function public.app_history(text, uuid, int) to anon, authenticated, service_role;
+grant execute on function public.app_stats(text) to anon, authenticated, service_role;

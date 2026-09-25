@@ -3,9 +3,9 @@ Storage backends.
 
 LocalStore     – tests from content/*.json, attempts in a local SQLite file.
                  Zero configuration; ideal for development.
-SupabaseStore  – tests and attempts in Supabase (Postgres) via its REST API.
-                 Enabled automatically when SUPABASE_URL and
-                 SUPABASE_SERVICE_ROLE_KEY are set.
+SupabaseStore  – tests and attempts in Supabase (Postgres) through the server
+                 API functions in supabase/schema.sql. Enabled when
+                 SUPABASE_URL, SUPABASE_KEY and SUPABASE_APP_SECRET are set.
 
 Both expose the same methods, and all methods are synchronous (the server
 calls them from a thread pool).
@@ -18,7 +18,6 @@ import sqlite3
 import threading
 import time
 import urllib.error
-import urllib.parse
 import urllib.request
 
 from . import content
@@ -162,41 +161,44 @@ class SupabaseError(Exception):
 
 
 class SupabaseStore:
-    """Talks to Supabase's PostgREST API with the service-role key (server-side only)."""
+    """
+    Talks to Supabase through the server API functions defined in supabase/schema.sql
+    (POST /rest/v1/rpc/app_*). Works with the public publishable/anon key: every
+    function also requires the server secret, and the tables themselves stay closed.
+    """
 
     name = "supabase"
     CACHE_SECONDS = 300
 
-    def __init__(self, url, service_key):
+    def __init__(self, url, api_key, app_secret):
         self.rest = url.rstrip("/") + "/rest/v1"
-        self.key = service_key
+        self.key = api_key
+        self.secret = app_secret
         self._cache = None
         self._cache_at = 0.0
         self._lock = threading.Lock()
 
-    def _request(self, method, path, params=None, body=None, prefer=None):
-        url = f"{self.rest}/{path}"
-        if params:
-            url += "?" + urllib.parse.urlencode(params)
+    def _rpc(self, function, **params):
         headers = {
             "apikey": self.key,
-            "Authorization": f"Bearer {self.key}",
             "Content-Type": "application/json",
             "Accept": "application/json",
         }
-        if prefer:
-            headers["Prefer"] = prefer
-        data = json.dumps(body).encode("utf-8") if body is not None else None
-        req = urllib.request.Request(url, data=data, headers=headers, method=method)
+        # Legacy anon/service keys are JWTs and also go in Authorization; new
+        # sb_publishable_/sb_secret_ keys must only be sent as `apikey`.
+        if self.key.startswith("eyJ"):
+            headers["Authorization"] = f"Bearer {self.key}"
+        body = json.dumps({"p_key": self.secret, **params}).encode("utf-8")
+        req = urllib.request.Request(f"{self.rest}/rpc/{function}", data=body, headers=headers, method="POST")
         try:
             with urllib.request.urlopen(req, timeout=15) as resp:
                 raw = resp.read()
                 return json.loads(raw) if raw else None
         except urllib.error.HTTPError as e:
             detail = e.read().decode("utf-8", "replace")[:500]
-            raise SupabaseError(f"{method} {path} failed ({e.code}): {detail}") from e
+            raise SupabaseError(f"{function} failed ({e.code}): {detail}") from e
         except urllib.error.URLError as e:
-            raise SupabaseError(f"{method} {path} failed: {e.reason}") from e
+            raise SupabaseError(f"{function} failed: {e.reason}") from e
 
     # -- content -----------------------------------------------------------
     def list_tests(self):
@@ -205,11 +207,7 @@ class SupabaseStore:
             if fresh:
                 return self._cache
         try:
-            rows = self._request(
-                "GET", "tests",
-                {"select": "content", "is_published": "eq.true", "order": "module.asc,sort_order.asc,id.asc"},
-            ) or []
-            tests = [r["content"] for r in rows]
+            tests = self._rpc("app_list_tests") or []
         except SupabaseError as e:
             log.error("Could not load tests from Supabase, using local content: %s", e)
             tests = []
@@ -228,69 +226,45 @@ class SupabaseStore:
             self._cache = None
 
     def upsert_test(self, test):
-        row = {
-            "id": test["id"],
-            "module": test["module"],
-            "variant": test.get("variant", "academic"),
-            "title": test["title"],
-            "sort_order": test.get("sortOrder", 999),
-            "is_published": True,
-            "content": test,
-        }
-        self._request("POST", "tests", {"on_conflict": "id"}, [row],
-                      prefer="resolution=merge-duplicates,return=minimal")
+        self._rpc("app_upsert_test", p_test=test)
 
     # -- attempts ----------------------------------------------------------
     def save_reading_attempt(self, rec):
-        rows = self._request("POST", "reading_attempts", body=[rec], prefer="return=representation")
-        return rows[0]["id"] if rows else None
+        return self._rpc("app_save_reading_attempt", p_row=rec)
 
     def save_writing_submission(self, rec):
-        rows = self._request("POST", "writing_submissions", body=[rec], prefer="return=representation")
-        return rows[0]["id"] if rows else None
+        return self._rpc("app_save_writing_submission", p_row=rec)
 
     def list_history(self, client_id, limit=20):
-        reading = self._request("GET", "reading_attempts", {
-            "select": "id,test_id,raw_score,total_questions,band_score,time_spent_seconds,mode,created_at",
-            "client_id": f"eq.{client_id}", "order": "created_at.desc", "limit": str(limit),
-        }) or []
-        writing = self._request("GET", "writing_submissions", {
-            "select": "id,test_id,task1_words,task2_words,overall_band,time_spent_seconds,created_at",
-            "client_id": f"eq.{client_id}", "order": "created_at.desc", "limit": str(limit),
-        }) or []
+        data = self._rpc("app_history", p_client=client_id, p_limit=limit) or {}
         items = [
             {"module": "reading", "id": r["id"], "testId": r["test_id"], "rawScore": r["raw_score"],
              "totalQuestions": r["total_questions"], "bandScore": float(r["band_score"]),
              "timeSpentSeconds": r["time_spent_seconds"], "mode": r["mode"], "createdAt": r["created_at"]}
-            for r in reading
+            for r in data.get("reading", [])
         ] + [
             {"module": "writing", "id": w["id"], "testId": w["test_id"], "task1Words": w["task1_words"],
              "task2Words": w["task2_words"],
              "bandScore": float(w["overall_band"]) if w["overall_band"] is not None else None,
              "timeSpentSeconds": w["time_spent_seconds"], "createdAt": w["created_at"]}
-            for w in writing
+            for w in data.get("writing", [])
         ]
         items.sort(key=lambda i: i["createdAt"] or "", reverse=True)
         return items[:limit]
 
     def stats(self):
-        def count(table):
-            req = urllib.request.Request(
-                f"{self.rest}/{table}?select=id&limit=1",
-                headers={"apikey": self.key, "Authorization": f"Bearer {self.key}", "Prefer": "count=exact"},
-            )
-            with urllib.request.urlopen(req, timeout=15) as resp:
-                rng = resp.headers.get("Content-Range", "*/0")
-            return int(rng.split("/")[-1] or 0)
-
-        return {"readingAttempts": count("reading_attempts"), "writingSubmissions": count("writing_submissions")}
+        return self._rpc("app_stats") or {}
 
 
 def create_store():
     url = os.environ.get("SUPABASE_URL", "").strip()
-    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "").strip()
-    if url and key:
+    # Any Supabase API key works (publishable/anon recommended); SUPABASE_SERVICE_ROLE_KEY is accepted too.
+    key = (os.environ.get("SUPABASE_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or "").strip()
+    secret = os.environ.get("SUPABASE_APP_SECRET", "").strip()
+    if url and key and secret:
         log.info("Using Supabase storage at %s", url)
-        return SupabaseStore(url, key)
-    log.info("Using local storage (content/ + SQLite). Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to use Supabase.")
+        return SupabaseStore(url, key, secret)
+    if url or key or secret:
+        log.warning("Supabase is partly configured: SUPABASE_URL, SUPABASE_KEY and SUPABASE_APP_SECRET are all required.")
+    log.info("Using local storage (content/ + SQLite).")
     return LocalStore()
