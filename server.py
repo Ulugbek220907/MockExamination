@@ -301,7 +301,10 @@ class WritingSubmitHandler(BaseHandler):
             responses[n] = text.replace("\r\n", "\n").strip()
 
         tasks = {t["taskNumber"]: t for t in test["tasks"]}
-        analyses = {n: writing.analyse_text(responses[n], n, tasks[n]["minWords"]) for n in (1, 2)}
+        analyses = {
+            n: writing.analyse_text(responses[n], n, tasks[n]["minWords"], tasks[n].get("essayType"))
+            for n in (1, 2)
+        }
         name = clean_name(body.get("candidateName"))
         seconds = clean_seconds(body.get("timeSpentSeconds"))
 

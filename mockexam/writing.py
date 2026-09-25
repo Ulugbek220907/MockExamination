@@ -67,7 +67,10 @@ def split_sentences(text):
     return [s for s in parts if count_words(s) > 0]
 
 
-def analyse_text(text, task_number, min_words):
+OPINION_FREE_ESSAYS = {"problem_solution"}
+
+
+def analyse_text(text, task_number, min_words, essay_type=None):
     text = text or ""
     lower = text.lower()
     words = re.findall(r"[a-z’'\-]+", lower)
@@ -99,9 +102,11 @@ def analyse_text(text, task_number, min_words):
         has_overview = any(m in lower for m in OVERVIEW_MARKERS)
         checks.append({"ok": has_overview, "text": "An overview of the main trends/features was found." if has_overview else "No clear overview found. Task 1 answers need a sentence summarising the main trends (e.g. starting with ‘Overall, …’)."})
     else:
-        has_position = any(m in lower for m in POSITION_MARKERS)
         has_conclusion = any(m in lower for m in CONCLUSION_MARKERS)
-        checks.append({"ok": has_position, "text": "Your position is stated clearly." if has_position else "Your own position is not clearly stated. Most Task 2 questions require a clear opinion throughout."})
+        # Causes/solutions questions do not ask for the writer's opinion.
+        if essay_type not in OPINION_FREE_ESSAYS:
+            has_position = any(m in lower for m in POSITION_MARKERS)
+            checks.append({"ok": has_position, "text": "Your position is stated clearly." if has_position else "Your own position is not clearly stated. Most Task 2 questions require a clear opinion throughout."})
         checks.append({"ok": has_conclusion, "text": "A conclusion was found." if has_conclusion else "No clear conclusion found. End with a short paragraph that sums up your position."})
     if len(linkers) < (3 if task_number == 1 else 4):
         checks.append({"ok": False, "text": "Few linking devices used. Connect your ideas with words such as ‘however’, ‘as a result’, ‘in contrast’."})

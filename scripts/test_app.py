@@ -155,7 +155,7 @@ class WritingTests(unittest.TestCase):
     def test_model_answers_pass_checks(self):
         for t in WRITING:
             for task in t["tasks"]:
-                a = writing.analyse_text(task["modelAnswer"], task["taskNumber"], task["minWords"])
+                a = writing.analyse_text(task["modelAnswer"], task["taskNumber"], task["minWords"], task.get("essayType"))
                 failed = [c["text"] for c in a["checks"] if not c["ok"]]
                 self.assertEqual(failed, [], f"{t['id']} task {task['taskNumber']}")
 

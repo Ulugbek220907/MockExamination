@@ -8,8 +8,8 @@ A free, distraction-free website for practising the **Academic Reading** and **A
 
 | Module | Content | Marking |
 |---|---|---|
-| **Reading** | 3 full Academic tests: 9 original passages, 120 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
-| **Writing** | 4 full Academic tests: Task 1 line graph, bar chart, process diagram and pie charts, plus 4 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** scores all four criteria and gives corrections |
+| **Reading** | 4 full Academic tests: 12 original passages, 160 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
+| **Writing** | 5 full Academic tests: Task 1 line graph, bar chart, process diagram, pie charts and table, plus 5 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** scores all four criteria and gives corrections |
 | Listening, Speaking | – | Coming soon |
 
 **All content is original** and written for this project. The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).

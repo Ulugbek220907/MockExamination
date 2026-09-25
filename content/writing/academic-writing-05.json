@@ -1,0 +1,48 @@
+{
+  "id": "academic-writing-05",
+  "module": "writing",
+  "variant": "academic",
+  "title": "Academic Writing Practice Test 5",
+  "shortTitle": "Practice Test 5",
+  "durationMinutes": 60,
+  "sortOrder": 5,
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "title": "Table: museum visitors",
+      "recommendedMinutes": 20,
+      "minWords": 150,
+      "prompt": "The table below shows the number of visitors to four museums in one city in 2005, 2012 and 2019.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+      "visual": {
+        "type": "table",
+        "title": "Annual visitors to four museums (thousands)",
+        "headers": ["Museum", "2005", "2012", "2019"],
+        "rows": [
+          ["Science Museum", "420", "610", "580"],
+          ["Art Gallery", "310", "280", "190"],
+          ["History Museum", "150", "240", "410"],
+          ["Children’s Museum", "90", "180", "220"]
+        ],
+        "note": "Fictional data created for practice purposes."
+      },
+      "examinerNotes": [
+        "Overview should note: the Science Museum was the most visited throughout; the History Museum and Children’s Museum grew strongly; the Art Gallery was the only one to decline.",
+        "Science Museum: 420k → 610k (2012 peak) → 580k (slight fall).",
+        "Art Gallery: 310k → 280k → 190k (steady decline; second place in 2005, last but one by 2019).",
+        "History Museum: 150k → 240k → 410k (almost tripled; second place in 2019).",
+        "Children’s Museum: 90k → 180k → 220k (more than doubled; lowest in every year)."
+      ],
+      "modelAnswer": "The table compares the number of people who visited four museums in one city in 2005, 2012 and 2019.\n\nOverall, the Science Museum attracted the most visitors in all three years, while the History Museum and the Children’s Museum grew considerably in popularity. The Art Gallery was the only museum whose visitor numbers fell over the period.\n\nIn 2005, the Science Museum received 420,000 visitors, and this figure rose to a peak of 610,000 in 2012 before falling slightly to 580,000 in 2019. The Art Gallery, by contrast, was the second most visited museum at the start of the period, with 310,000 visitors, but its numbers declined steadily to 280,000 in 2012 and just 190,000 in 2019.\n\nThe History Museum showed the most dramatic growth. Its visitor numbers rose from 150,000 in 2005 to 240,000 in 2012 and then to 410,000 in 2019, almost three times the original figure, making it the second most popular museum by the end of the period. The Children’s Museum also expanded significantly, more than doubling its visitors from 90,000 to 220,000, although it remained the least visited museum in every year."
+    },
+    {
+      "taskNumber": 2,
+      "title": "Causes and solutions essay: children outdoors",
+      "recommendedMinutes": 40,
+      "minWords": 250,
+      "essayType": "problem_solution",
+      "prompt": "Write about the following topic:\n\nIn many countries, children and young people are spending less time outdoors than in the past.\n\nWhy is this happening? What can be done to encourage them to spend more time outside?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+      "modelAnswer": "In many parts of the world, young people now spend far more of their free time indoors than previous generations did. This essay will examine the main reasons for this change and suggest some practical ways to reverse it.\n\nThe most obvious cause is the growth of digital entertainment. Smartphones, video games and streaming services offer young people constant entertainment and social contact without leaving their bedrooms, and many of these products are deliberately designed to keep users engaged for as long as possible. A second reason is parental anxiety. Many parents are worried about traffic, crime and accidents, and are therefore reluctant to let their children play outside without supervision. Finally, in large cities, there is often simply a lack of safe and attractive outdoor space, as parks and playgrounds have been lost to new housing and roads.\n\nThere are, however, several ways to encourage young people to spend more time outside. Schools can play a central role by holding more lessons outdoors and organising regular sports, gardening and nature activities, so that time outside becomes a normal part of the school day rather than an occasional treat. Local governments should also invest in well-maintained parks, safe cycling routes and car-free streets near schools, which would reassure parents and give children somewhere worth going. In addition, parents can set limits on screen time and plan family activities such as walking, cycling or camping at weekends.\n\nIt is also important to make outdoor activities appealing rather than presenting them as a duty. Clubs and community groups that combine outdoor activity with friendship, for example football teams or hiking clubs, are often more successful than simply telling young people to put down their phones.\n\nIn conclusion, the decline in outdoor activity is caused mainly by digital entertainment, safety concerns and a shortage of suitable spaces. A combination of action by schools, local authorities and families could help young people rediscover the benefits of spending time outside."
+    }
+  ]
+}

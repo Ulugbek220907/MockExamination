@@ -26,10 +26,12 @@ Facts themselves are not copyrighted. Reading widely and then writing a new pass
 | Reading 1 | The Language of the Hive · The Box That Shrank the World · The Puzzle of the Placebo |
 | Reading 2 | The Return of the Wolf · The Problem of Longitude · Does Language Shape the Way We Think? |
 | Reading 3 | Saving the Kākāpō · The Rock That Built the Modern World · Too Much of a Good Thing? |
+| Reading 4 | The Unlikely History of the Pencil · Cities That Heat Up · The Wisdom of Crowds |
 | Writing 1 | Line graph (payment methods) · Discussion essay (purpose of university) |
 | Writing 2 | Bar chart (leisure by age) · Two-part essay (living alone) |
 | Writing 3 | Process diagram (glass recycling) · Opinion essay (roads vs public transport) |
 | Writing 4 | Pie charts (household energy) · Advantages/disadvantages essay (early language learning) |
+| Writing 5 | Table (museum visitors) · Causes and solutions essay (children spending time outdoors) |
 
 All Task 1 chart data is fictional and labelled as such on the chart.
 

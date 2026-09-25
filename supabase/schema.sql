@@ -32,7 +32,7 @@ create index if not exists tests_module_sort_idx on public.tests (module, sort_o
 
 -- Keep updated_at current on every update.
 create or replace function public.touch_updated_at() returns trigger
-language plpgsql as $$
+language plpgsql set search_path = '' as $$
 begin
   new.updated_at = now();
   return new;
@@ -236,9 +236,9 @@ revoke all on function public.app_save_reading_attempt(text, jsonb) from public;
 revoke all on function public.app_save_writing_submission(text, jsonb) from public;
 revoke all on function public.app_history(text, uuid, int) from public;
 revoke all on function public.app_stats(text) from public;
-grant execute on function public.app_list_tests(text) to anon, authenticated, service_role;
-grant execute on function public.app_upsert_test(text, jsonb) to anon, authenticated, service_role;
-grant execute on function public.app_save_reading_attempt(text, jsonb) to anon, authenticated, service_role;
-grant execute on function public.app_save_writing_submission(text, jsonb) to anon, authenticated, service_role;
-grant execute on function public.app_history(text, uuid, int) to anon, authenticated, service_role;
-grant execute on function public.app_stats(text) to anon, authenticated, service_role;
+grant execute on function public.app_list_tests(text) to anon, service_role;
+grant execute on function public.app_upsert_test(text, jsonb) to anon, service_role;
+grant execute on function public.app_save_reading_attempt(text, jsonb) to anon, service_role;
+grant execute on function public.app_save_writing_submission(text, jsonb) to anon, service_role;
+grant execute on function public.app_history(text, uuid, int) to anon, service_role;
+grant execute on function public.app_stats(text) to anon, service_role;
