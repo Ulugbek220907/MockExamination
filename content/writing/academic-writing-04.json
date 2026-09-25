@@ -1,0 +1,63 @@
+{
+  "id": "academic-writing-04",
+  "module": "writing",
+  "variant": "academic",
+  "title": "Academic Writing Practice Test 4",
+  "shortTitle": "Practice Test 4",
+  "durationMinutes": 60,
+  "sortOrder": 4,
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "title": "Pie charts: household energy use",
+      "recommendedMinutes": 20,
+      "minWords": 150,
+      "prompt": "The pie charts below show how household energy use was divided among different purposes in one country in 1990 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+      "visual": {
+        "type": "pie",
+        "title": "Household energy use by purpose",
+        "unit": "%",
+        "charts": [
+          {
+            "title": "1990",
+            "slices": [
+              { "label": "Space heating", "value": 58 },
+              { "label": "Water heating", "value": 20 },
+              { "label": "Lighting and appliances", "value": 14 },
+              { "label": "Cooking", "value": 6 },
+              { "label": "Cooling", "value": 2 }
+            ]
+          },
+          {
+            "title": "2020",
+            "slices": [
+              { "label": "Space heating", "value": 42 },
+              { "label": "Water heating", "value": 18 },
+              { "label": "Lighting and appliances", "value": 26 },
+              { "label": "Cooking", "value": 5 },
+              { "label": "Cooling", "value": 9 }
+            ]
+          }
+        ],
+        "note": "Fictional data created for practice purposes."
+      },
+      "examinerNotes": [
+        "Overview should note: space heating largest in both years but its share fell; lighting/appliances and cooling grew; water heating and cooking roughly stable.",
+        "Space heating 58% → 42%. Water heating 20% → 18%.",
+        "Lighting and appliances 14% → 26% (almost doubled; second largest in 2020).",
+        "Cooling 2% → 9%. Cooking 6% → 5%."
+      ],
+      "modelAnswer": "The two pie charts compare the proportions of household energy used for five different purposes in one country in 1990 and 2020.\n\nOverall, space heating was the largest use of household energy in both years, although its share fell considerably. The proportions used for lighting and appliances and for cooling grew over the period, while the shares for water heating and cooking changed very little.\n\nIn 1990, space heating accounted for well over half of all household energy consumption (58%). By 2020, this figure had dropped to 42%, although it remained the single largest category. Water heating was the second-largest use in 1990, at 20%, and declined only slightly to 18% thirty years later.\n\nThe most significant increase was in lighting and appliances, whose share almost doubled from 14% to 26%, making it the second most important use of energy in 2020. Cooling, which represented just 2% of consumption in 1990, rose to 9%. Cooking, meanwhile, accounted for a small and fairly constant proportion of household energy, falling marginally from 6% to 5%."
+    },
+    {
+      "taskNumber": 2,
+      "title": "Advantages/disadvantages essay: early language learning",
+      "recommendedMinutes": 40,
+      "minWords": 250,
+      "essayType": "advantages_disadvantages",
+      "prompt": "Write about the following topic:\n\nIn some countries, children begin learning a foreign language at primary school rather than at secondary school.\n\nDo the advantages of this outweigh the disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+      "modelAnswer": "In a growing number of countries, children now start learning a foreign language at the age of six or seven rather than waiting until secondary school. In my opinion, the advantages of this policy clearly outweigh the disadvantages, provided that it is well implemented.\n\nThe most important advantage is that young children tend to acquire pronunciation and listening skills more naturally than teenagers. Because they are less self-conscious, they are usually happy to imitate new sounds, sing songs and take part in games, which helps them develop an accurate accent and a positive attitude towards the language. Starting early also means that by the time pupils leave school, they will have studied the language for many years, giving them a much better chance of becoming genuinely fluent. In addition, learning another language at a young age can broaden children’s understanding of other cultures.\n\nThere are, however, some potential drawbacks. Primary school timetables are already full, and time spent on a foreign language may reduce the time available for literacy and mathematics, which are fundamental. There is also a shortage of qualified language teachers at primary level in many countries, and lessons taught by teachers with weak language skills may do more harm than good. Finally, some children who are still struggling to read and write in their first language may find a second language confusing.\n\nNevertheless, I believe that these problems can be solved through careful planning. Lessons for young children can be short and focused on speaking and listening, so that they do not overload the timetable, and governments can invest in training specialist teachers.\n\nIn conclusion, although introducing foreign languages at primary school presents some practical challenges, the long-term benefits for children’s language ability and cultural awareness make it a worthwhile policy."
+    }
+  ]
+}

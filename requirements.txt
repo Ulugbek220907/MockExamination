@@ -1,1 +1,2 @@
-tornado>=6.4.0
+tornado>=6.4,<7
+anthropic>=1.8,<2

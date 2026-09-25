@@ -1,0 +1,231 @@
+{
+  "id": "academic-reading-03",
+  "module": "reading",
+  "variant": "academic",
+  "title": "Academic Reading Practice Test 3",
+  "shortTitle": "Practice Test 3",
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "sortOrder": 3,
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Saving the Kākāpō",
+      "subtitle": "The remarkable effort to rescue one of the world’s strangest birds",
+      "paragraphs": [
+        { "label": null, "text": "Of all the birds of New Zealand, few are as unusual as the kākāpō. It is a parrot, but it cannot fly. It is active mainly at night, it feeds entirely on plants, and at up to four kilograms, it is the heaviest parrot in the world. When threatened, it does not run away but freezes, relying on its moss-green feathers to blend into the vegetation of the forest floor. This strategy served it well for millions of years in a land where the main predators were birds that hunted by sight. It proved disastrous when people arrived, bringing with them mammals that hunt by smell." },
+        { "label": null, "text": "Kākāpō were once found throughout New Zealand. Their numbers began to fall after the arrival of Polynesian settlers, who hunted them for food and for their feathers, and who brought with them the Pacific rat. The decline became a collapse after European settlement in the nineteenth century, when forests were cleared for farming and cats, rats and stoats were introduced. By the 1970s, many scientists feared that the species was already extinct. Searches in the remote mountains of Fiordland located a small number of birds, but all of them turned out to be males. Then, in 1977, a larger population was found on Stewart Island, off the southern coast of the South Island, and in 1980 it was confirmed that this group included females." },
+        { "label": null, "text": "Even there, the birds were not safe: feral cats were killing them at an alarming rate. Conservationists concluded that the kākāpō could survive only on islands that were free of predators, and between 1980 and 1997 the surviving birds on Stewart Island were captured and moved to such islands. These included Whenua Hou, also known as Codfish Island, and, later, Anchor Island in Fiordland, from which introduced predators had been removed. In 1995, when the population reached its lowest recorded point of just 51 birds, the government launched the Kākāpō Recovery Programme, which has managed the species intensively ever since." },
+        { "label": null, "text": "One of the programme’s greatest challenges is the kākāpō’s unusual breeding biology. The birds do not breed every year. Instead, they breed only in years when certain trees, especially the native rimu, produce an unusually heavy crop of fruit, an event that occurs every two to four years. The fruit provides the rich food that mothers need to raise their chicks. During the breeding season, males gather on ridges and hilltops, where each digs a series of shallow bowls in the ground. Sitting in these bowls, which help to amplify sound, they inflate air sacs in their chests and produce deep ‘booming’ calls that can be heard several kilometres away, sometimes for up to eight hours a night, over a period of several months." },
+        { "label": null, "text": "Because each individual matters so much, every kākāpō is known by name, and each wears a small radio transmitter that allows rangers to monitor its location and activity. During the breeding season, nests are watched around the clock using cameras and sensors, and when a female leaves her nest to feed at night, a ranger may place an electrically heated cover over the eggs or chicks to keep them warm. Eggs that are at risk are sometimes removed to be incubated artificially and replaced with dummy eggs, some of which are designed to make tapping and chirping sounds like a chick about to hatch. Females are given supplementary food, and chicks that are not gaining weight quickly enough can be taken into care and raised by hand before being returned to the islands." },
+        { "label": null, "text": "Genetic diversity is another concern. Because the population passed through such a small number of birds, many kākāpō are closely related, and a large proportion of eggs fail to hatch, probably partly because of inbreeding. To address this, scientists have sequenced the genome of almost every living kākāpō, allowing managers to plan pairings that keep the population as genetically varied as possible. Since females choose their own mates, this sometimes means moving males between islands, and in some seasons rangers have used artificial insemination, collecting sperm from genetically valuable males and transferring it to females." },
+        { "label": null, "text": "The results have been encouraging. In 2019, an exceptional rimu season produced the most successful breeding year ever recorded, and the population rose above two hundred birds for the first time since the recovery programme began. The same season, however, showed how fragile the recovery remains: an outbreak of a fungal disease, aspergillosis, spread through the population, and several birds died despite intensive veterinary treatment. Some conservationists now argue that the long-term future of the kākāpō depends on returning it to mainland New Zealand, in large fenced sanctuaries or areas where predators are intensively controlled, and in 2023 a small group of birds was released into one such sanctuary on the North Island as a trial. Whether the species can thrive there is one of the key questions facing the programme in the years ahead." }
+      ],
+      "groups": [
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            { "number": 1, "prompt": "What does a kākāpō do when it is in danger?", "answer": ["freezes", "freeze", "it freezes"], "explanation": "‘When threatened, it does not run away but freezes.’", "reference": "Paragraph 1" },
+            { "number": 2, "prompt": "What kind of animals were the kākāpō’s main predators before people arrived?", "answer": ["birds"], "explanation": "‘The main predators were birds that hunted by sight.’", "reference": "Paragraph 1" },
+            { "number": 3, "prompt": "Where was a group of kākāpō that included females discovered?", "answer": ["Stewart Island"], "explanation": "‘In 1977, a larger population was found on Stewart Island … in 1980 it was confirmed that this group included females.’", "reference": "Paragraph 2" },
+            { "number": 4, "prompt": "How many kākāpō were alive in 1995?", "answer": ["51", "fifty-one", "just 51"], "explanation": "‘In 1995, when the population reached its lowest recorded point of just 51 birds.’", "reference": "Paragraph 3" },
+            { "number": 5, "prompt": "Which tree’s fruit is especially important in triggering breeding?", "answer": ["rimu", "the rimu", "native rimu"], "explanation": "The birds breed when trees, ‘especially the native rimu, produce an unusually heavy crop of fruit’.", "reference": "Paragraph 4" },
+            { "number": 6, "prompt": "What do male kākāpō dig in the ground during the breeding season?", "answer": ["shallow bowls", "bowls"], "explanation": "Each male ‘digs a series of shallow bowls in the ground’.", "reference": "Paragraph 4" }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "questions": [
+            { "number": 7, "prompt": "Polynesian settlers valued the kākāpō only as a source of food.", "answer": "FALSE", "explanation": "They hunted kākāpō ‘for food and for their feathers’.", "reference": "Paragraph 2" },
+            { "number": 8, "prompt": "All of the kākāpō found in Fiordland were male.", "answer": "TRUE", "explanation": "Searches in Fiordland ‘located a small number of birds, but all of them turned out to be males’.", "reference": "Paragraph 2" },
+            { "number": 9, "prompt": "Female kākāpō leave their nests at night in order to feed.", "answer": "TRUE", "explanation": "‘When a female leaves her nest to feed at night, a ranger may place an electrically heated cover over the eggs.’", "reference": "Paragraph 5" },
+            { "number": 10, "prompt": "Rangers decide which male each female will mate with.", "answer": "FALSE", "explanation": "‘Females choose their own mates’, so managers move males between islands instead.", "reference": "Paragraph 6" },
+            { "number": 11, "prompt": "Kākāpō eggs are less likely to hatch than the eggs of other New Zealand parrots.", "answer": "NOT GIVEN", "explanation": "Many kākāpō eggs fail to hatch, but no comparison with other parrots is made.", "reference": "Paragraph 6" },
+            { "number": 12, "prompt": "Veterinary treatment saved every bird that caught aspergillosis in 2019.", "answer": "FALSE", "explanation": "‘Several birds died despite intensive veterinary treatment.’", "reference": "Paragraph 7" },
+            { "number": 13, "prompt": "The birds released on the North Island in 2023 have since begun to breed there.", "answer": "NOT GIVEN", "explanation": "The release is described as a trial; nothing is said about breeding.", "reference": "Paragraph 7" }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "The Rock That Built the Modern World",
+      "subtitle": "Concrete has shaped our cities for two thousand years. Can it be reinvented for a warming planet?",
+      "paragraphs": [
+        { "label": "A", "text": "After water, concrete is the most widely used substance on Earth. Around thirty billion tonnes of it are produced every year, and it forms the foundations, frames and floors of almost every modern city. Yet concrete is so ordinary that we rarely think about it at all. In recent years, however, it has attracted growing attention from two very different groups: historians and engineers fascinated by the extraordinary durability of ancient concrete, and climate scientists concerned about the vast quantities of carbon dioxide released in making its modern equivalent." },
+        { "label": "B", "text": "Concrete is essentially artificial stone. It is made by mixing a binder, most commonly cement, with water and with ‘aggregates’ such as sand and gravel. When water is added, the cement undergoes a chemical reaction that causes it to harden and bind the aggregates together into a solid mass. The key advantage of the material is that it starts as a liquid: it can be poured into moulds of almost any shape and will then set into something resembling rock, without any of the effort of cutting and shaping real stone." },
+        { "label": "C", "text": "The Romans were not the first people to make such a material, but they were the first to use it on a grand scale. Roman builders combined lime with volcanic ash, which was found in large quantities near the town of Pozzuoli on the Bay of Naples and became known as pozzolana. The result was a concrete strong enough to build harbours, aqueducts and some of the most ambitious buildings of the ancient world. The most famous, the Pantheon in Rome, completed in the second century AD, is still crowned by a dome more than 43 metres across, the largest dome of unreinforced concrete ever built." },
+        { "label": "D", "text": "Remarkably, some Roman structures have lasted better than modern ones. Harbour walls built by the Romans have survived two thousand years of exposure to seawater, which can seriously damage modern concrete within decades. In 2017, a team led by the geologist Marie Jackson found that seawater filtering through Roman marine concrete had caused rare minerals to grow within it, strengthening the material over time. Then, in 2023, researchers at the Massachusetts Institute of Technology reported that small white lumps of lime, long thought to be a sign of careless mixing, may in fact have given Roman concrete the ability to repair itself: when cracks formed and water entered, the lime dissolved and then hardened again, sealing the crack." },
+        { "label": "E", "text": "After the fall of the Western Roman Empire, the knowledge of how to make high-quality concrete was largely lost in Europe for more than a thousand years. The modern era of concrete began in 1824, when Joseph Aspdin, a bricklayer from Leeds in England, patented a type of cement produced by heating a mixture of limestone and clay to high temperatures. He named it ‘Portland cement’ because he thought the finished material resembled a building stone quarried on the Isle of Portland on the south coast of England. Improved versions of Portland cement remain the basis of almost all concrete produced today." },
+        { "label": "F", "text": "Modern concrete has one major weakness: while it is extremely strong when squeezed, it is relatively weak when stretched or bent, and a concrete beam under load will crack easily. The solution came from an unlikely source. In the 1860s, a French gardener named Joseph Monier, looking for a way to make stronger flowerpots, embedded a mesh of iron wire in concrete. He patented the idea in 1867 and later extended it to pipes, tanks and bridges. Reinforced concrete, in which steel bars carry the tension while the concrete resists compression, made possible the skyscrapers, motorways and dams of the twentieth century." },
+        { "label": "G", "text": "This success has come at a considerable environmental cost. Cement production is responsible for around eight per cent of global carbon dioxide emissions, far more than the aviation industry. Around half of these emissions come not from the fuel burned to heat the kilns but from the chemistry of cement itself: when limestone is heated, it breaks down and releases carbon dioxide as a by-product. This means that even if cement factories were powered entirely by renewable energy, they would still produce large quantities of the gas." },
+        { "label": "H", "text": "Engineers are now pursuing several approaches to the problem. One is to replace part of the cement in concrete with other materials, such as ash from coal-fired power stations, waste from steel production, or specially treated clay, all of which can perform a similar role. Another is to capture the carbon dioxide released by cement factories and store it underground, or even inject it into fresh concrete, where it becomes permanently locked into the material as a mineral. Some researchers have also begun to study Roman techniques in the hope of creating concrete that lasts longer and therefore needs replacing less often. Replacing some of the cement is already common practice in many countries, but the other methods remain at an early stage and face significant economic and technical obstacles. With global demand for concrete expected to keep rising as cities in Asia and Africa grow, the search for a cleaner version of the material has rarely been more urgent." }
+      ],
+      "groups": [
+        {
+          "type": "matching_information",
+          "instruction": "Reading Passage 2 has eight paragraphs, **A–H**. Which paragraph contains the following information? **NB** You may use any letter more than once.",
+          "questions": [
+            { "number": 14, "prompt": "an explanation of why concrete is easy to shape", "answer": "B", "explanation": "‘It starts as a liquid: it can be poured into moulds of almost any shape.’", "reference": "Paragraph B" },
+            { "number": 15, "prompt": "a reason why switching to clean energy would not fully solve a problem", "answer": "G", "explanation": "‘Even if cement factories were powered entirely by renewable energy, they would still produce large quantities of the gas.’", "reference": "Paragraph G" },
+            { "number": 16, "prompt": "a description of how an ancient material could repair damage to itself", "answer": "D", "explanation": "Lime lumps ‘dissolved and then hardened again, sealing the crack’.", "reference": "Paragraph D" },
+            { "number": 17, "prompt": "the origin of the name of a modern product", "answer": "E", "explanation": "Aspdin named it ‘Portland cement’ after a stone quarried on the Isle of Portland.", "reference": "Paragraph E" }
+          ]
+        },
+        {
+          "type": "classification",
+          "instruction": "Classify the following events as occurring in the period described below. Choose the correct letter, **A, B or C**. **NB** You may use any letter more than once.",
+          "optionsTitle": "Periods",
+          "options": [
+            { "key": "A", "text": "before 1800" },
+            { "key": "B", "text": "between 1800 and 1900" },
+            { "key": "C", "text": "after 1900" }
+          ],
+          "questions": [
+            { "number": 18, "prompt": "the use of volcanic ash to make concrete", "answer": "A", "explanation": "Roman builders ‘combined lime with volcanic ash’ (ancient Rome).", "reference": "Paragraph C" },
+            { "number": 19, "prompt": "the invention of reinforced concrete", "answer": "B", "explanation": "Monier ‘patented the idea in 1867’.", "reference": "Paragraph F" },
+            { "number": 20, "prompt": "the discovery that minerals had grown inside ancient marine concrete", "answer": "C", "explanation": "‘In 2017, a team led by the geologist Marie Jackson found …’", "reference": "Paragraph D" },
+            { "number": 21, "prompt": "the patenting of a cement made from limestone and clay", "answer": "B", "explanation": "Aspdin’s patent dates from 1824.", "reference": "Paragraph E" },
+            { "number": 22, "prompt": "an explanation of how Roman concrete sealed its own cracks", "answer": "C", "explanation": "MIT researchers reported this ‘in 2023’.", "reference": "Paragraph D" }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO statements about Roman concrete are made in the passage?",
+          "options": [
+            { "key": "A", "text": "It was invented by the Romans." },
+            { "key": "B", "text": "Lumps of lime in it were once thought to indicate poor workmanship." },
+            { "key": "C", "text": "It was stronger than any type of modern concrete." },
+            { "key": "D", "text": "It could become stronger over time when exposed to seawater." },
+            { "key": "E", "text": "It was used only for religious buildings." }
+          ],
+          "answer": ["B", "D"],
+          "explanation": "B: the lime lumps were ‘long thought to be a sign of careless mixing’. D: seawater ‘caused rare minerals to grow within it, strengthening the material over time’. A is contradicted (‘not the first people’), C is not stated and E is contradicted (harbours, aqueducts).",
+          "reference": "Paragraphs C and D",
+          "questions": [ { "number": 23 }, { "number": 24 } ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO methods of reducing carbon dioxide emissions from concrete are mentioned in the passage?",
+          "options": [
+            { "key": "A", "text": "injecting carbon dioxide into newly made concrete" },
+            { "key": "B", "text": "using less water when mixing concrete" },
+            { "key": "C", "text": "designing buildings with thinner walls" },
+            { "key": "D", "text": "transporting cement by rail instead of road" },
+            { "key": "E", "text": "replacing some cement with industrial waste products" }
+          ],
+          "answer": ["A", "E"],
+          "explanation": "A: carbon dioxide can be injected ‘into fresh concrete, where it becomes permanently locked into the material’. E: part of the cement can be replaced with ‘ash from coal-fired power stations, waste from steel production’. B, C and D are not mentioned.",
+          "reference": "Paragraph H",
+          "questions": [ { "number": 25 }, { "number": 26 } ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "Too Much of a Good Thing?",
+      "subtitle": "Psychologists have argued that having more options can make us less happy. The evidence is more complicated than it seems.",
+      "paragraphs": [
+        { "label": null, "text": "Most people would assume that having more choice is always better than having less. If you have a greater variety of options, you are more likely to find one that matches your preferences exactly, and you can always ignore the options you do not want. This assumption lies at the heart of much economic thinking, and it helps to explain why supermarkets stock tens of thousands of products and why streaming services boast of their ever-growing libraries. Yet over the past twenty-five years, a body of psychological research has challenged it, suggesting that beyond a certain point, extra choice can become a burden rather than a benefit." },
+        { "label": null, "text": "The most famous study in this field was carried out in 2000 by the psychologists Sheena Iyengar and Mark Lepper. On two Saturdays, they set up a tasting stand in an upmarket supermarket in California, offering shoppers samples of jam. At regular intervals the display was changed: sometimes it offered 24 different flavours, sometimes only six. The larger display attracted more attention, with 60 per cent of passing shoppers stopping to taste, compared with 40 per cent for the smaller one. But when it came to buying, the pattern was reversed. Only 3 per cent of those who had stopped at the large display went on to purchase a jar, compared with 30 per cent at the small display. Having more options, it seemed, had made people less likely to choose at all." },
+        { "label": null, "text": "The jam study, together with similar experiments involving chocolates and essay topics, became the foundation of a highly influential idea. In his 2004 book The Paradox of Choice, the psychologist Barry Schwartz argued that the explosion of options in modern life was contributing to anxiety, regret and dissatisfaction. When we have many options, Schwartz suggested, we expect to find the perfect one, and we blame ourselves when our choice turns out to be less than perfect. We may also be more troubled by what economists call ‘opportunity costs’: the more attractive alternatives we reject, the more aware we become of what we have given up, which reduces our enjoyment of what we have chosen." },
+        { "label": null, "text": "Schwartz also drew on an idea developed half a century earlier by the economist and psychologist Herbert Simon. Simon argued that, because people have limited time and information, they rarely search for the best possible option; instead, they settle for one that is good enough, a strategy he called ‘satisficing’. Schwartz and his colleagues suggested that people differ in how far they follow this strategy. ‘Maximisers’ try to examine every possibility in search of the best, while ‘satisficers’ stop when they find something that meets their requirements. In one study of university graduates looking for work, maximisers found jobs with higher starting salaries, yet reported feeling less satisfied with the results than satisficers did." },
+        { "label": null, "text": "As the idea of ‘choice overload’ became popular, however, other researchers began to find it surprisingly hard to reproduce. In 2010, a team led by the psychologist Benjamin Scheibehenne combined the results of 50 experiments on the subject, many of them unpublished, and found that on average, the effect of increasing the number of options was close to zero. Some studies found that more choice discouraged people, but a similar number found the opposite, and many found no effect at all. The researchers noted that studies showing a dramatic effect were more likely to be published than those that did not, which may have given a misleading impression of how strong and common the effect was." },
+        { "label": null, "text": "This did not mean that choice overload was imaginary. A later analysis of the research, published in 2015, suggested that the effect is real but appears only under particular conditions. It is more likely to occur when the options are complex and difficult to compare, when people are unsure of their own preferences, when they are under time pressure, and when they must choose a single item rather than simply browse. Choosing between two dozen jams whose differences are hard to judge may be overwhelming; choosing between two dozen flavours of ice cream when you already know that you love chocolate is not." },
+        { "label": null, "text": "These findings have practical implications. Businesses and governments that design choices for others, from pension schemes to online shops, are increasingly aware that the way options are presented can matter as much as the number of options available. Grouping products into clear categories, providing well-chosen default options, and offering tools that allow people to filter or compare alternatives can all make large selections easier to navigate. In some cases, simply reducing the number of options may help; in others, it may frustrate customers who know exactly what they want." },
+        { "label": null, "text": "The story of choice overload also offers a lesson about science itself. A single memorable experiment, repeated in books, lectures and articles, can shape public understanding for years, even when the evidence behind it is more limited than it appears. The jam study was a well-designed piece of research, and its findings were genuine. But it was one study, carried out on two days in one shop. The question it raised was a good one; the answer, as so often in psychology, turns out to be ‘it depends’." }
+      ],
+      "groups": [
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
+          "maxWords": 2,
+          "title": "Early research on choice overload",
+          "content": "In their famous experiment, Iyengar and Lepper set up a {{27}} in a supermarket where shoppers could sample jam. The display with 24 flavours attracted more shoppers, but a far smaller proportion of them decided to {{28}} a jar. Similar results were obtained in studies involving chocolates and {{29}}. Schwartz later argued that when we have many options, we expect perfection and blame {{30}} when our choice turns out badly. He also suggested that being aware of {{31}}, or what we have given up, reduces our enjoyment of what we have chosen.",
+          "questions": [
+            { "number": 27, "answer": ["tasting stand", "stand"], "explanation": "‘They set up a tasting stand in an upmarket supermarket in California.’", "reference": "Paragraph 2" },
+            { "number": 28, "answer": ["purchase"], "explanation": "‘Only 3 per cent of those who had stopped at the large display went on to purchase a jar.’", "reference": "Paragraph 2" },
+            { "number": 29, "answer": ["essay topics"], "explanation": "‘Similar experiments involving chocolates and essay topics.’", "reference": "Paragraph 3" },
+            { "number": 30, "answer": ["ourselves"], "explanation": "‘We blame ourselves when our choice turns out to be less than perfect.’", "reference": "Paragraph 3" },
+            { "number": 31, "answer": ["opportunity costs"], "explanation": "‘What economists call “opportunity costs”: the more attractive alternatives we reject, the more aware we become of what we have given up.’", "reference": "Paragraph 3" }
+          ]
+        },
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
+          "questions": [
+            { "number": 32, "prompt": "It is commonly believed that more choice is always preferable.", "answer": "YES", "explanation": "‘Most people would assume that having more choice is always better than having less.’", "reference": "Paragraph 1" },
+            { "number": 33, "prompt": "Supermarkets make more profit when they stock a larger range of products.", "answer": "NOT GIVEN", "explanation": "Supermarkets are said to stock many products, but profit is never discussed.", "reference": "Paragraph 1" },
+            { "number": 34, "prompt": "Maximisers tend to be more satisfied with their decisions than satisficers.", "answer": "NO", "explanation": "Maximisers ‘reported feeling less satisfied with the results than satisficers did’.", "reference": "Paragraph 4" },
+            { "number": 35, "prompt": "Most of the unpublished studies analysed by Scheibehenne’s team were of poor quality.", "answer": "NOT GIVEN", "explanation": "The writer says many studies were unpublished, but does not comment on their quality.", "reference": "Paragraph 5" },
+            { "number": 36, "prompt": "The jam study was poorly designed.", "answer": "NO", "explanation": "‘The jam study was a well-designed piece of research, and its findings were genuine.’", "reference": "Paragraph 8" }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
+          "questions": [
+            {
+              "number": 37,
+              "prompt": "What was surprising about the results of the jam study?",
+              "options": [
+                { "key": "A", "text": "A smaller proportion of shoppers bought jam after seeing the larger display." },
+                { "key": "B", "text": "More shoppers stopped at the smaller display." },
+                { "key": "C", "text": "Shoppers preferred the cheaper varieties of jam." },
+                { "key": "D", "text": "Most shoppers did not notice that the display had changed." }
+              ],
+              "answer": "A",
+              "explanation": "Only 3% bought after the 24-jam display compared with 30% after the six-jam display. B is wrong: 60% stopped at the larger display.",
+              "reference": "Paragraph 2"
+            },
+            {
+              "number": 38,
+              "prompt": "What did Scheibehenne’s team conclude?",
+              "options": [
+                { "key": "A", "text": "Choice overload occurs in most situations." },
+                { "key": "B", "text": "Earlier researchers had misreported their data." },
+                { "key": "C", "text": "More options always encourage people to buy." },
+                { "key": "D", "text": "On average, the number of options made little difference." }
+              ],
+              "answer": "D",
+              "explanation": "They ‘found that on average, the effect of increasing the number of options was close to zero’.",
+              "reference": "Paragraph 5"
+            },
+            {
+              "number": 39,
+              "prompt": "According to the 2015 analysis, choice overload is more likely to occur when",
+              "options": [
+                { "key": "A", "text": "people know exactly what they want." },
+                { "key": "B", "text": "the options are hard to compare." },
+                { "key": "C", "text": "people are browsing rather than choosing." },
+                { "key": "D", "text": "there are fewer than six options." }
+              ],
+              "answer": "B",
+              "explanation": "It is more likely ‘when the options are complex and difficult to compare’. A and C describe the opposite conditions.",
+              "reference": "Paragraph 6"
+            },
+            {
+              "number": 40,
+              "prompt": "What is the writer’s main point in the final paragraph?",
+              "options": [
+                { "key": "A", "text": "Psychology experiments should be carried out in more than one place." },
+                { "key": "B", "text": "The jam study should not have been published." },
+                { "key": "C", "text": "A single well-known study can give an oversimplified picture." },
+                { "key": "D", "text": "Most findings in psychology cannot be reproduced." }
+              ],
+              "answer": "C",
+              "explanation": "‘A single memorable experiment … can shape public understanding for years, even when the evidence behind it is more limited than it appears.’",
+              "reference": "Paragraph 8"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

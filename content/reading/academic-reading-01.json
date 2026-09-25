@@ -1,0 +1,255 @@
+{
+  "id": "academic-reading-01",
+  "module": "reading",
+  "variant": "academic",
+  "title": "Academic Reading Practice Test 1",
+  "shortTitle": "Practice Test 1",
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "sortOrder": 1,
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "The Language of the Hive",
+      "subtitle": "How honeybees share the location of food, and how scientists learned to read their messages",
+      "paragraphs": [
+        { "label": null, "text": "Anyone who has kept bees will have noticed a curious pattern. When a single forager finds a rich patch of flowers, it is rarely long before dozens of her nestmates arrive at exactly the same spot, even when it lies far from the hive and out of sight behind trees or buildings. Naturalists puzzled over this for centuries. Aristotle observed that on any one trip a bee tends to visit only a single kind of flower, but neither he nor the many observers who came after him could explain how knowledge of a distant food source spread through a colony. It was not until the twentieth century that the Austrian zoologist Karl von Frisch proposed an answer so unexpected that many of his fellow scientists found it hard to accept: bees were telling each other where to go by dancing." },
+        { "label": null, "text": "Von Frisch began studying bees in the 1910s, and his early work had nothing to do with communication. He first set out to show that bees could see colour, which at the time was widely doubted, by training them to collect sugar water from a blue card placed among grey cards of varying shades. It was while running feeding experiments of this kind that he noticed something odd. After he refilled an empty feeding dish, the first bee to find it would return to the hive, and within minutes many new bees would appear. To find out what was happening inside, he built hives with glass walls and marked individual bees with small dots of paint so that he could follow their behaviour." },
+        { "label": null, "text": "What he saw was a returning forager performing a rapid, repeated movement on the vertical surface of the honeycomb. In what came to be called the ‘waggle dance’, the bee runs forward in a straight line while vigorously shaking her abdomen from side to side, then circles back to her starting point, first to the right and then to the left, before beginning the straight run again. The pattern can be repeated dozens of times, and the dancer is usually followed closely by other bees, which press their antennae against her body as she moves. Since the inside of a hive is almost completely dark, these followers cannot watch the dance in any ordinary sense; instead, they read it through touch, vibration and the faint air currents created by the dancer’s wings." },
+        { "label": null, "text": "Over many years of patient observation, von Frisch worked out that the straight ‘waggle run’ contains two separate pieces of information. Its angle encodes direction. On the vertical comb, straight up represents the direction of the sun, so a bee running straight upwards is telling her audience to fly directly towards the sun, while a run angled 40 degrees to the right of vertical indicates a food source 40 degrees to the right of the sun. The duration of the waggle run, meanwhile, encodes distance: the longer the run lasts, the further away the food is. The precise relationship varies between colonies and between the different subspecies of honeybee, but as a rough guide, a waggle run lasting one second corresponds to a flight of about a kilometre. For food very close to the hive, von Frisch described a simpler ‘round dance’, which signals that food is nearby without indicating a direction. Researchers today tend to regard this not as a separate behaviour but as a version of the waggle dance in which the runs are extremely short." },
+        { "label": null, "text": "One of the most remarkable features of the system is that the dance is adjusted as time passes. Because the sun moves across the sky during the day, a bee dancing for the same flower patch in the afternoon will point in a different direction from one dancing in the morning. Von Frisch found that experienced foragers compensate for this movement automatically, even when they have spent a long time inside the hive without seeing the sky. Bees also appear to judge distance not by the energy they use in flight but by the amount of visual movement they experience on the way. In later experiments, bees that flew through a narrow tunnel lined with a busy pattern danced as though they had travelled much further than they actually had." },
+        { "label": null, "text": "Von Frisch published his conclusions in full in the 1940s, and in 1973 he shared the Nobel Prize in Physiology or Medicine with two other pioneers in the study of animal behaviour. Yet his theory was far from universally accepted. During the 1960s, the American biologist Adrian Wenner argued that recruited bees found food by following scent alone, and that the dance, however striking, carried no useful information. The debate continued for decades, partly because it was so difficult to prove what the followers were actually doing once they had left the hive." },
+        { "label": null, "text": "Two developments finally settled the matter. In the early 1990s, a team of Danish and German researchers built a small robotic bee, which they placed in a hive and programmed to perform waggle dances. Living bees followed the robot and then searched in the locations it indicated, even though the robot carried no scent from any real flower. Then, in 2005, a British–German team attached tiny radar transponders to recruited bees and tracked their flights. The recruits flew almost directly towards the area indicated by the dance, and only then began to fly in loops, apparently searching for further clues such as scent before finding the exact source. Both sides of the old argument, it seemed, had been partly right: the dance provides a general map reference, and other senses guide the final approach." },
+        { "label": null, "text": "Today, the waggle dance is regarded as one of the most sophisticated examples of symbolic communication in the animal kingdom, and it is also proving useful to humans. By filming dances and decoding them, researchers can map where the bees of a colony are feeding across the landscape, and at which times of year. Such ‘dance decoding’ studies have shown, for example, that colonies in some regions travel much further to find food in late summer than in spring, information that can help farmers and conservationists decide which plants to grow in order to support pollinators." }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **ONE WORD AND/OR A NUMBER** from the passage for each answer.",
+          "maxWords": 1,
+          "title": "The waggle dance",
+          "content": [
+            "## Von Frisch’s early research",
+            "• first experiments aimed to prove that bees could see {{1}}",
+            "• observed bees in hives that had walls made of {{2}}",
+            "• used small dots of {{3}} to identify individual bees",
+            "## How the dance works",
+            "• followers cannot see the dance because the hive is {{4}}",
+            "• followers detect the dance through touch, vibration and air currents",
+            "• the angle of the waggle run shows the direction of the food in relation to the {{5}}",
+            "• the {{6}} of the waggle run indicates how far away the food is",
+            "• bees seem to measure distance from the amount of visual {{7}} they experience"
+          ],
+          "questions": [
+            { "number": 1, "answer": ["colour", "color"], "explanation": "He ‘first set out to show that bees could see colour, which at the time was widely doubted’.", "reference": "Paragraph 2" },
+            { "number": 2, "answer": ["glass"], "explanation": "‘He built hives with glass walls’ so he could see inside.", "reference": "Paragraph 2" },
+            { "number": 3, "answer": ["paint"], "explanation": "He ‘marked individual bees with small dots of paint’.", "reference": "Paragraph 2" },
+            { "number": 4, "answer": ["dark"], "explanation": "‘Since the inside of a hive is almost completely dark, these followers cannot watch the dance in any ordinary sense.’", "reference": "Paragraph 3" },
+            { "number": 5, "answer": ["sun"], "explanation": "‘Straight up represents the direction of the sun’, so the angle is measured relative to the sun.", "reference": "Paragraph 4" },
+            { "number": 6, "answer": ["duration"], "explanation": "‘The duration of the waggle run, meanwhile, encodes distance.’", "reference": "Paragraph 4" },
+            { "number": 7, "answer": ["movement"], "explanation": "Bees judge distance ‘by the amount of visual movement they experience on the way’.", "reference": "Paragraph 5" }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "questions": [
+            { "number": 8, "prompt": "Aristotle understood how bees informed each other about the location of food.", "answer": "FALSE", "explanation": "‘Neither he nor the many observers who came after him could explain how knowledge of a distant food source spread through a colony.’", "reference": "Paragraph 1" },
+            { "number": 9, "prompt": "Von Frisch’s first research on bees was concerned with how they communicate.", "answer": "FALSE", "explanation": "‘His early work had nothing to do with communication’; it was about colour vision.", "reference": "Paragraph 2" },
+            { "number": 10, "prompt": "Bees that had been inside the hive for a long time were still able to adjust their dances for the movement of the sun.", "answer": "TRUE", "explanation": "Experienced foragers compensate ‘even when they have spent a long time inside the hive without seeing the sky’.", "reference": "Paragraph 5" },
+            { "number": 11, "prompt": "Adrian Wenner carried out his research in several different countries.", "answer": "NOT GIVEN", "explanation": "The passage gives Wenner’s argument but says nothing about where his research took place.", "reference": "Paragraph 6" },
+            { "number": 12, "prompt": "The robotic bee was more effective at recruiting bees than living dancers were.", "answer": "NOT GIVEN", "explanation": "Living bees followed the robot, but its effectiveness is never compared with that of real dancers.", "reference": "Paragraph 7" },
+            { "number": 13, "prompt": "Information obtained from decoding dances may be of practical value to farmers.", "answer": "TRUE", "explanation": "Dance decoding provides ‘information that can help farmers and conservationists decide which plants to grow’.", "reference": "Paragraph 8" }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "The Box That Shrank the World",
+      "subtitle": "How a standard steel container transformed trade, ports and the global economy",
+      "paragraphs": [
+        { "label": "A", "text": "In the middle of the twentieth century, moving goods by sea was slow, expensive and labour-intensive. Cargo travelled as ‘break-bulk’: sacks of coffee, barrels of oil, crates of machinery and bales of cotton were loaded one by one into the hold of a ship, often by gangs of dockworkers using little more than hooks, ropes and their own muscles. A single vessel might carry many thousands of separate items, each of which had to be lifted, stacked and secured, and then unloaded and sorted again at the other end. It was not unusual for a cargo ship to spend as long tied up in port as it did at sea, and losses from breakage and theft were accepted as a routine cost of doing business." },
+        { "label": "B", "text": "The man most often credited with changing this was not a shipowner at all but a trucking entrepreneur from North Carolina named Malcolm McLean. Frustrated by the hours his drivers spent waiting at the docks while their loads were transferred to ships, McLean began to wonder whether it might be possible to lift the entire body of a truck trailer on board and leave the wheels behind. In April 1956, a converted wartime tanker called the Ideal X sailed from Newark, New Jersey, to Houston, Texas, carrying 58 metal boxes on a specially built deck. When McLean later calculated the costs of the voyage, he found that loading cargo in this way had cost less than a twentieth of the conventional price." },
+        { "label": "C", "text": "McLean was not the first person to put goods in boxes; railways and shipping lines had experimented with various kinds of containers since the nineteenth century. His innovation lay in seeing the container not as a piece of equipment but as the basis for an entirely new system. Ships, cranes, trucks and port terminals all had to be redesigned around the box, and McLean was willing to invest heavily, and to take enormous financial risks, in order to make this happen. Within a decade, his company was operating purpose-built container ships, and specialised cranes could transfer a box between ship and shore in a matter of minutes." },
+        { "label": "D", "text": "The early years of containerisation, however, were marked by confusion. Different companies used containers of different lengths and heights, with incompatible fittings for lifting and locking them together, so that a box belonging to one shipping line often could not be handled by another line’s equipment. Only after lengthy and often bad-tempered negotiations during the 1960s did international bodies agree on a set of common standards, including the now-familiar lengths of 20 and 40 feet and a standard corner fitting that allowed any container to be lifted by any crane and locked onto any ship, train or truck. Capacity in the industry is still measured today in ‘TEU’, or twenty-foot equivalent units." },
+        { "label": "E", "text": "One unexpected factor in the spread of the container was war. When the United States sent large numbers of troops to Vietnam in the mid-1960s, military supply lines were overwhelmed and ports in the region became badly congested. McLean’s company won a contract to carry military cargo by container, which dramatically reduced delays. Rather than sail back across the Pacific with empty ships, McLean looked for cargo to carry on the return journey and found it in Japan, which was then emerging as a major manufacturing economy. The container thus helped to open up the trade routes between Asia and North America that dominate world shipping today." },
+        { "label": "F", "text": "For the communities that had grown up around traditional ports, the consequences were often painful. Container terminals required vast areas of flat land for storing boxes, as well as good connections to roads and railways, and old city-centre docks, hemmed in by buildings, could rarely provide these. In city after city, activity shifted to new locations, sometimes many kilometres away: in New York, most traffic moved across the harbour to New Jersey, while in Britain, the small port of Felixstowe grew rapidly as the historic docks of London declined. Because a container terminal needed only a fraction of the labour of a break-bulk port, tens of thousands of dockworkers lost their jobs, often after bitter industrial disputes." },
+        { "label": "G", "text": "Economists continue to debate how much of the growth in international trade since the 1960s can be attributed to the container, but few doubt that its influence has been enormous. By cutting transport costs and making delivery times more reliable, the box made it practical for manufacturers to source components from factories on the other side of the world and to assemble products wherever costs were lowest. The largest vessels afloat today can carry more than 24,000 TEU, and a container of clothing or electronics can travel from a factory in Asia to a shop in Europe for a cost that adds only a few cents to the price of each item. Yet the system’s efficiency also makes it vulnerable: when a single large ship blocked the Suez Canal for six days in 2021, the disruption to global supply chains was felt for months." }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "Reading Passage 2 has seven paragraphs, **A–G**. Choose the correct heading for each paragraph from the list of headings below.",
+          "optionsTitle": "List of Headings",
+          "options": [
+            { "key": "i", "text": "Resistance from shipowners to a new idea" },
+            { "key": "ii", "text": "A problem of incompatibility" },
+            { "key": "iii", "text": "An opportunity created by a military conflict" },
+            { "key": "iv", "text": "The drawbacks of a traditional way of handling cargo" },
+            { "key": "v", "text": "A businessman looks for a solution to a practical problem" },
+            { "key": "vi", "text": "The impact on older ports and the people who worked in them" },
+            { "key": "vii", "text": "A whole system rather than a single invention" },
+            { "key": "viii", "text": "The rising cost of fuel for shipping" },
+            { "key": "ix", "text": "Wide-ranging economic effects and a hidden weakness" },
+            { "key": "x", "text": "Government support for container development" }
+          ],
+          "questions": [
+            { "number": 14, "prompt": "Paragraph A", "answer": "iv", "explanation": "Paragraph A describes the slow, costly ‘break-bulk’ method, with losses from breakage and theft.", "reference": "Paragraph A" },
+            { "number": 15, "prompt": "Paragraph B", "answer": "v", "explanation": "McLean, ‘frustrated by the hours his drivers spent waiting at the docks’, tries loading whole trailer bodies.", "reference": "Paragraph B" },
+            { "number": 16, "prompt": "Paragraph C", "answer": "vii", "explanation": "‘His innovation lay in seeing the container not as a piece of equipment but as the basis for an entirely new system.’", "reference": "Paragraph C" },
+            { "number": 17, "prompt": "Paragraph D", "answer": "ii", "explanation": "Different companies used ‘incompatible fittings’ until common standards were agreed.", "reference": "Paragraph D" },
+            { "number": 18, "prompt": "Paragraph E", "answer": "iii", "explanation": "The Vietnam War contract and return cargo from Japan opened up new trade routes.", "reference": "Paragraph E" },
+            { "number": 19, "prompt": "Paragraph F", "answer": "vi", "explanation": "City-centre docks declined and ‘tens of thousands of dockworkers lost their jobs’.", "reference": "Paragraph F" },
+            { "number": 20, "prompt": "Paragraph G", "answer": "ix", "explanation": "The container transformed global manufacturing, but its efficiency ‘also makes it vulnerable’ (the Suez Canal blockage).", "reference": "Paragraph G" }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO of the following statements about Malcolm McLean are made in the passage?",
+          "options": [
+            { "key": "A", "text": "He had previously worked in the shipping industry." },
+            { "key": "B", "text": "He was the first person to transport goods in containers." },
+            { "key": "C", "text": "He was prepared to take considerable financial risks." },
+            { "key": "D", "text": "He designed the standard corner fitting used today." },
+            { "key": "E", "text": "He found a way to avoid sending ships back from Asia empty." }
+          ],
+          "answer": ["C", "E"],
+          "explanation": "C: McLean was willing ‘to take enormous financial risks’ (Paragraph C). E: ‘Rather than sail back across the Pacific with empty ships, McLean looked for cargo … and found it in Japan’ (Paragraph E). A is wrong (he ran a trucking business), B is contradicted (‘not the first person to put goods in boxes’) and D is not stated.",
+          "reference": "Paragraphs B, C and E",
+          "questions": [ { "number": 21 }, { "number": 22 } ]
+        },
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the summary using the list of words, **A–H**, below.",
+          "title": "The consequences of containerisation",
+          "optionsTitle": "Word list",
+          "options": [
+            { "key": "A", "text": "labour" },
+            { "key": "B", "text": "price" },
+            { "key": "C", "text": "flat" },
+            { "key": "D", "text": "locations" },
+            { "key": "E", "text": "fuel" },
+            { "key": "F", "text": "expensive" },
+            { "key": "G", "text": "quality" },
+            { "key": "H", "text": "regulations" }
+          ],
+          "content": "Container terminals needed large areas of {{23}} land, which older docks in city centres were rarely able to provide. As a result, port activity moved to new {{24}}, some of them a long way from the original docks. Because the new terminals required far less {{25}}, many dockworkers became unemployed. Today, the cost of shipping a container adds very little to the {{26}} of the individual products inside it.",
+          "questions": [
+            { "number": 23, "answer": "C", "explanation": "‘Container terminals required vast areas of flat land.’", "reference": "Paragraph F" },
+            { "number": 24, "answer": "D", "explanation": "‘Activity shifted to new locations, sometimes many kilometres away.’", "reference": "Paragraph F" },
+            { "number": 25, "answer": "A", "explanation": "‘A container terminal needed only a fraction of the labour of a break-bulk port.’", "reference": "Paragraph F" },
+            { "number": 26, "answer": "B", "explanation": "Shipping ‘adds only a few cents to the price of each item’.", "reference": "Paragraph G" }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "The Puzzle of the Placebo",
+      "subtitle": "Why do inactive treatments sometimes make people feel better, and what should medicine do about it?",
+      "paragraphs": [
+        { "label": null, "text": "In modern medicine, the placebo has an awkward double identity. On the one hand, it is a tool: in a randomised controlled trial, patients who receive a new drug are compared with those who receive an inactive substitute, such as a sugar pill, so that researchers can tell whether the drug does anything beyond the effect of simply being treated. On the other hand, the placebo is a phenomenon in its own right, and a puzzling one. If a pill contains no active ingredient, why should anyone who takes it feel any better at all?" },
+        { "label": null, "text": "For much of the twentieth century, doctors were confident that placebos were powerful. The most influential statement of this view came in 1955, when the American anaesthetist Henry Beecher published a paper with the memorable title ‘The Powerful Placebo’. Having reviewed fifteen studies involving more than a thousand patients, Beecher concluded that around 35 per cent of people experienced satisfactory relief from placebos alone. The figure was repeated in textbooks for decades and helped to establish the idea that the mind could produce substantial physical improvements simply through belief." },
+        { "label": null, "text": "Later researchers, however, found serious problems with Beecher’s reasoning. Most of the studies he relied on had no group of patients who received no treatment at all, so there was no way of knowing how many of them would have improved anyway. Many illnesses get better on their own, and symptoms that are at their worst when a patient first seeks help often become milder with time, a statistical effect known as regression to the mean. In 2001, the Danish researchers Asbjørn Hróbjartsson and Peter Gøtzsche analysed well over a hundred trials that had included both a placebo group and an untreated group. They found little evidence that placebos had powerful effects in general, though there were signs of modest benefits for outcomes that patients themselves reported, particularly pain." },
+        { "label": null, "text": "Pain, indeed, is where the placebo response has been studied most closely, and where some of the clearest evidence of a biological mechanism has emerged. In a classic experiment in 1978, researchers in California gave placebos to patients recovering from dental surgery. Some patients reported less pain after the placebo, but when they were also given naloxone, a drug that blocks the action of the body’s natural painkillers, known as endorphins, the effect disappeared. The implication was that, at least in some cases, expecting relief can cause the brain to release its own pain-relieving chemicals. Since then, the Italian neuroscientist Fabrizio Benedetti and others have mapped many of the brain regions involved, showing that the placebo response is not imaginary but a real physiological event." },
+        { "label": null, "text": "The strength of the response seems to depend heavily on context. Studies have found that two placebo pills tend to have a greater effect than one, that injections are generally more effective than pills, and that the colour of a tablet can affect how patients expect it to act. Even price appears to matter: in a 2008 study at the Massachusetts Institute of Technology, volunteers who were told that a painkiller cost $2.50 per pill reported greater relief from mild electric shocks than those told it had been discounted to ten cents, although both groups received the same inactive pill. The manner of the doctor also plays a role. A warm, attentive practitioner who expresses confidence in a treatment can amplify its effect, while a brisk and distant one may reduce it." },
+        { "label": null, "text": "The same mechanisms can work in reverse. Patients who are warned that a treatment may cause side effects are more likely to report them, even when they have received only a placebo, a phenomenon known as the nocebo effect. In clinical trials of cholesterol-lowering drugs, for example, many participants who were given dummy pills reported muscle pain and abandoned the treatment. For doctors, this creates an uncomfortable dilemma: they have an ethical duty to inform patients about possible risks, yet good reason to believe that doing so may cause some of those very symptoms." },
+        { "label": null, "text": "The ethical difficulties do not end there. For a doctor to prescribe a placebo in ordinary practice has traditionally meant deceiving the patient, which most medical codes now consider unacceptable. In 2010, however, a team led by Ted Kaptchuk at Harvard Medical School published a study that challenged the assumption that deception was necessary. Patients with irritable bowel syndrome were given pills that they were openly told contained no medicine, together with an explanation that placebos had been shown to produce improvement through mind–body processes. After three weeks, these patients reported significantly greater relief from their symptoms than a comparison group who received no pills at all. Similar ‘open-label’ studies have since been carried out on conditions ranging from back pain to fatigue, though most have been small, and critics point out that patients who agree to take part may be unusually receptive to the idea." },
+        { "label": null, "text": "What, then, is a placebo? It is increasingly clear that the question has been framed in the wrong way. The sugar pill itself does nothing; what matters is everything that surrounds it: the ritual of treatment, the patient’s expectations, previous experience of medicines that worked, and the relationship with the person providing care. Seen in this light, the placebo effect is not a strange exception to the rules of medicine but a reminder that every treatment is delivered to a person as well as to a body. The challenge for medicine is to harness these effects honestly, without allowing them to become an excuse for treatments that have no genuine value of their own." }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "What does the writer say about placebos in the first paragraph?",
+              "options": [
+                { "key": "A", "text": "They are less useful in clinical trials than was once believed." },
+                { "key": "B", "text": "They serve as a research tool and are also something that needs explaining." },
+                { "key": "C", "text": "They are mainly used in trials of new painkillers." },
+                { "key": "D", "text": "They are unpopular with patients who take part in research." }
+              ],
+              "answer": "B",
+              "explanation": "The placebo ‘has an awkward double identity’: it is ‘a tool’ in trials and also ‘a phenomenon in its own right, and a puzzling one’.",
+              "reference": "Paragraph 1"
+            },
+            {
+              "number": 28,
+              "prompt": "According to the third paragraph, what was the main weakness of the studies Beecher reviewed?",
+              "options": [
+                { "key": "A", "text": "They included too few patients to be reliable." },
+                { "key": "B", "text": "They were based only on what patients reported." },
+                { "key": "C", "text": "They were carried out on a narrow range of illnesses." },
+                { "key": "D", "text": "They did not compare patients given placebos with patients given nothing." }
+              ],
+              "answer": "D",
+              "explanation": "‘Most of the studies he relied on had no group of patients who received no treatment at all, so there was no way of knowing how many of them would have improved anyway.’",
+              "reference": "Paragraph 3"
+            },
+            {
+              "number": 29,
+              "prompt": "The 1978 experiment with dental patients suggested that",
+              "options": [
+                { "key": "A", "text": "placebo pain relief may involve the body’s own chemicals." },
+                { "key": "B", "text": "naloxone can increase the effect of a placebo." },
+                { "key": "C", "text": "dental pain responds to placebos better than other types of pain." },
+                { "key": "D", "text": "patients who expect pain tend to experience more of it." }
+              ],
+              "answer": "A",
+              "explanation": "Naloxone blocked the placebo effect, implying that ‘expecting relief can cause the brain to release its own pain-relieving chemicals’.",
+              "reference": "Paragraph 4"
+            },
+            {
+              "number": 30,
+              "prompt": "What point is illustrated by the trials of cholesterol-lowering drugs?",
+              "options": [
+                { "key": "A", "text": "Many patients stop taking medicine because of its cost." },
+                { "key": "B", "text": "Placebo pills can cause physical damage to muscles." },
+                { "key": "C", "text": "Warnings about side effects can themselves produce symptoms." },
+                { "key": "D", "text": "Doctors often fail to tell patients about the risks of treatment." }
+              ],
+              "answer": "C",
+              "explanation": "The example illustrates the nocebo effect: participants given dummy pills ‘reported muscle pain and abandoned the treatment’.",
+              "reference": "Paragraph 6"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Look at the following findings (Questions 31–35) and the list of researchers below. Match each finding with the correct researcher or researchers, **A–E**. **NB** You may use any letter more than once.",
+          "optionsTitle": "List of Researchers",
+          "options": [
+            { "key": "A", "text": "Henry Beecher" },
+            { "key": "B", "text": "Asbjørn Hróbjartsson and Peter Gøtzsche" },
+            { "key": "C", "text": "Fabrizio Benedetti" },
+            { "key": "D", "text": "researchers at the Massachusetts Institute of Technology" },
+            { "key": "E", "text": "Ted Kaptchuk and his colleagues" }
+          ],
+          "questions": [
+            { "number": 31, "prompt": "Placebos may work even when patients know that they are taking one.", "answer": "E", "explanation": "Kaptchuk’s patients were ‘openly told’ the pills contained no medicine yet reported greater relief.", "reference": "Paragraph 7" },
+            { "number": 32, "prompt": "There was little evidence that placebos generally produced strong effects.", "answer": "B", "explanation": "‘They found little evidence that placebos had powerful effects in general.’", "reference": "Paragraph 3" },
+            { "number": 33, "prompt": "A person’s beliefs about how much a treatment costs may influence its effect.", "answer": "D", "explanation": "In the 2008 MIT study, the ‘$2.50 per pill’ group reported greater relief than the ‘ten cents’ group.", "reference": "Paragraph 5" },
+            { "number": 34, "prompt": "Roughly a third of patients can obtain relief from a placebo alone.", "answer": "A", "explanation": "Beecher ‘concluded that around 35 per cent of people experienced satisfactory relief from placebos alone’.", "reference": "Paragraph 2" },
+            { "number": 35, "prompt": "Particular regions of the brain are involved in the placebo response.", "answer": "C", "explanation": "Benedetti and others ‘have mapped many of the brain regions involved’.", "reference": "Paragraph 4" }
+          ]
+        },
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
+          "questions": [
+            { "number": 36, "prompt": "Beecher’s conclusions had a long-lasting influence on medical thinking.", "answer": "YES", "explanation": "His figure ‘was repeated in textbooks for decades and helped to establish the idea’.", "reference": "Paragraph 2" },
+            { "number": 37, "prompt": "Regression to the mean explains most of the improvement seen in placebo groups.", "answer": "NOT GIVEN", "explanation": "Regression to the mean is mentioned as one reason patients improve, but the writer does not say how much of the improvement it explains.", "reference": "Paragraph 3" },
+            { "number": 38, "prompt": "The placebo response to pain is purely psychological and has no physical basis.", "answer": "NO", "explanation": "The writer says ‘the placebo response is not imaginary but a real physiological event’.", "reference": "Paragraph 4" },
+            { "number": 39, "prompt": "Research into placebos receives too little funding compared with research into new drugs.", "answer": "NOT GIVEN", "explanation": "Funding for placebo research is never discussed.", "reference": "—" },
+            { "number": 40, "prompt": "Medicine should try to make use of placebo effects without deceiving patients.", "answer": "YES", "explanation": "‘The challenge for medicine is to harness these effects honestly.’", "reference": "Paragraph 8" }
+          ]
+        }
+      ]
+    }
+  ]
+}

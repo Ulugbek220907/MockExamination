@@ -1,165 +1,143 @@
 /**
- * CD-IELTS Interactive Highlighting & Sticky Notes System
- * Implements the official British Council / IDP text selection tools.
+ * Text highlighting and notes, as in the computer-delivered test.
+ * Select text inside the container → "Highlight" or "Note".
+ * Right-click (or long-press) a highlight to remove it.
  */
+(function () {
+  "use strict";
 
-class CdHighlighter {
-  constructor(containerId) {
-    this.container = document.getElementById(containerId);
-    this.toolbar = null;
-    this.currentSelection = null;
-    this.highlightCounter = 0;
-    this.notes = {};
+  const BLOCKS = "p, li, td, th, .question-card, .task-prompt, .passage-subtitle, .passage-title";
 
-    this.initToolbar();
-    this.bindEvents();
-  }
+  class CdHighlighter {
+    constructor(containerId) {
+      this.container = document.getElementById(containerId);
+      this.abort = new AbortController();
+      this.range = null;
+      this.overToolbar = false;
+      this.counter = 0;
+      this.buildToolbar();
+      this.bind();
+    }
 
-  initToolbar() {
-    this.toolbar = document.createElement("div");
-    this.toolbar.className = "cd-highlight-toolbar";
-    this.toolbar.style.display = "none";
-    this.toolbar.innerHTML = `
-      <button id="btn-do-highlight"><span>🖍</span> Highlight</button>
-      <button id="btn-do-note"><span>📝</span> Note</button>
-    `;
-    document.body.appendChild(this.toolbar);
+    on(target, type, fn) {
+      target.addEventListener(type, fn, { signal: this.abort.signal });
+    }
 
-    this.toolbar.querySelector("#btn-do-highlight").addEventListener("click", (e) => {
-      e.stopPropagation();
-      this.applyHighlight();
-    });
+    buildToolbar() {
+      this.toolbar = document.createElement("div");
+      this.toolbar.className = "cd-highlight-toolbar";
+      this.toolbar.hidden = true;
+      this.toolbar.innerHTML = `
+        <button type="button" data-act="highlight">Highlight</button>
+        <button type="button" data-act="note">Note</button>`;
+      document.body.appendChild(this.toolbar);
+      this.on(this.toolbar, "mousedown", (e) => e.preventDefault()); // keep the selection alive
+      this.on(this.toolbar, "click", (e) => {
+        const act = e.target.closest("button") && e.target.closest("button").dataset.act;
+        if (act === "highlight") this.highlight();
+        if (act === "note") this.note();
+      });
+      this.on(this.toolbar, "mouseenter", () => { this.overToolbar = true; });
+      this.on(this.toolbar, "mouseleave", () => { this.overToolbar = false; });
+    }
 
-    this.toolbar.querySelector("#btn-do-note").addEventListener("click", (e) => {
-      e.stopPropagation();
-      this.applyNote();
-    });
-  }
-
-  bindEvents() {
-    document.addEventListener("selectionchange", () => {
-      const sel = window.getSelection();
-      if (!sel.isCollapsed && this.isInsideContainer(sel)) {
-        this.currentSelection = sel.getRangeAt(0).cloneRange();
-        this.showToolbar();
-      } else {
-        if (!this.isMouseOverToolbar) {
+    bind() {
+      this.on(document, "selectionchange", () => {
+        const sel = window.getSelection();
+        const active = document.activeElement;
+        const typing = active && ["INPUT", "TEXTAREA", "SELECT"].includes(active.tagName);
+        if (sel && !sel.isCollapsed && sel.rangeCount && !typing && this.container && this.container.contains(sel.anchorNode)) {
+          this.range = sel.getRangeAt(0).cloneRange();
+          this.showToolbar();
+        } else if (!this.overToolbar) {
           this.hideToolbar();
         }
-      }
-    });
-
-    // Remove highlight on right click
-    document.addEventListener("contextmenu", (e) => {
-      const hl = e.target.closest(".cd-highlight");
-      if (hl) {
-        e.preventDefault();
-        this.removeHighlight(hl);
-      }
-    });
-
-    // Track mouse on toolbar to avoid premature hiding
-    this.toolbar.addEventListener("mouseenter", () => { this.isMouseOverToolbar = true; });
-    this.toolbar.addEventListener("mouseleave", () => { this.isMouseOverToolbar = false; });
-  }
-
-  isInsideContainer(sel) {
-    if (!sel.anchorNode || !this.container) return false;
-    return this.container.contains(sel.anchorNode);
-  }
-
-  showToolbar() {
-    if (!this.currentSelection) return;
-    const rect = this.currentSelection.getBoundingClientRect();
-    if (rect.width === 0 && rect.height === 0) return;
-
-    this.toolbar.style.top = `${window.scrollY + rect.top - 36}px`;
-    this.toolbar.style.left = `${window.scrollX + rect.left + rect.width / 2 - 60}px`;
-    this.toolbar.style.display = "flex";
-  }
-
-  hideToolbar() {
-    if (this.toolbar) {
-      this.toolbar.style.display = "none";
+      });
+      this.on(document, "contextmenu", (e) => {
+        const hl = e.target.closest && e.target.closest(".cd-highlight");
+        if (hl && this.container.contains(hl)) {
+          e.preventDefault();
+          this.unwrap(hl);
+        }
+      });
+      this.on(window, "resize", () => this.hideToolbar());
     }
-  }
 
-  applyHighlight() {
-    if (!this.currentSelection) return;
-    const range = this.currentSelection;
-    this.highlightCounter++;
+    showToolbar() {
+      const rect = this.range.getBoundingClientRect();
+      if (!rect.width && !rect.height) return;
+      this.toolbar.hidden = false;
+      const top = Math.max(8, rect.top - 42);
+      const left = Math.min(window.innerWidth - 180, Math.max(8, rect.left + rect.width / 2 - 80));
+      this.toolbar.style.top = `${top}px`;
+      this.toolbar.style.left = `${left}px`;
+    }
 
-    try {
+    hideToolbar() {
+      this.toolbar.hidden = true;
+    }
+
+    /** Wrap the current selection in a highlight span. Returns the span, or null. */
+    wrapSelection() {
+      const range = this.range;
+      if (!range) return null;
+      const startBlock = range.startContainer.parentElement && range.startContainer.parentElement.closest(BLOCKS);
+      const endBlock = range.endContainer.parentElement && range.endContainer.parentElement.closest(BLOCKS);
+      if (!startBlock || startBlock !== endBlock || range.cloneContents().querySelector("input, select, textarea, button")) {
+        U.toast("Highlight text within one paragraph at a time.", "warn");
+        return null;
+      }
       const span = document.createElement("span");
       span.className = "cd-highlight";
-      span.dataset.highlightId = `hl-${this.highlightCounter}`;
-      span.title = "Right click to remove highlight";
-
+      span.dataset.hl = String(++this.counter);
+      span.title = "Right-click to remove highlight";
       span.appendChild(range.extractContents());
       range.insertNode(span);
       window.getSelection().removeAllRanges();
-    } catch (err) {
-      console.warn("Could not apply highlight to complex selection", err);
+      this.range = null;
+      this.hideToolbar();
+      return span;
     }
 
-    this.hideToolbar();
-    this.currentSelection = null;
-  }
-
-  removeHighlight(spanElement) {
-    const parent = spanElement.parentNode;
-    while (spanElement.firstChild) {
-      parent.insertBefore(spanElement.firstChild, spanElement);
+    highlight() {
+      this.wrapSelection();
     }
-    parent.removeChild(spanElement);
-  }
 
-  applyNote() {
-    if (!this.currentSelection) return;
-    const rect = this.currentSelection.getBoundingClientRect();
-    this.highlightCounter++;
-    const noteId = `note-${this.highlightCounter}`;
-
-    // Highlight text associated with note
-    this.applyHighlight();
-
-    // Create Note Card
-    const noteCard = document.createElement("div");
-    noteCard.className = "cd-note-card";
-    noteCard.id = noteId;
-    noteCard.style.top = `${window.scrollY + rect.bottom + 8}px`;
-    noteCard.style.left = `${window.scrollX + rect.left}px`;
-
-    noteCard.innerHTML = `
-      <div class="cd-note-header">
-        <span>CANDIDATE NOTE</span>
-        <span class="cd-note-close" title="Close note">&times;</span>
-      </div>
-      <textarea placeholder="Type your observation here..."></textarea>
-    `;
-
-    document.body.appendChild(noteCard);
-    const textarea = noteCard.querySelector("textarea");
-    textarea.focus();
-
-    noteCard.querySelector(".cd-note-close").addEventListener("click", () => {
-      noteCard.remove();
-    });
-
-    this.hideToolbar();
-  }
-
-  clearAll() {
-    // Clear all highlights
-    if (this.container) {
-      const highlights = this.container.querySelectorAll(".cd-highlight");
-      highlights.forEach(h => this.removeHighlight(h));
+    note() {
+      const rect = this.range ? this.range.getBoundingClientRect() : null;
+      const span = this.wrapSelection();
+      if (!span || !rect) return;
+      span.classList.add("has-note");
+      const card = document.createElement("div");
+      card.className = "cd-note-card";
+      card.style.top = `${Math.min(window.innerHeight - 150, rect.bottom + 8)}px`;
+      card.style.left = `${Math.min(window.innerWidth - 260, Math.max(8, rect.left))}px`;
+      card.innerHTML = `
+        <div class="cd-note-header"><span>Note</span>
+          <button type="button" class="cd-note-close" aria-label="Close note">&times;</button></div>
+        <textarea placeholder="Type your note…" aria-label="Note"></textarea>`;
+      document.body.appendChild(card);
+      const ta = card.querySelector("textarea");
+      ta.focus();
+      ta.addEventListener("input", () => {
+        span.title = ta.value ? `Note: ${ta.value}` : "Right-click to remove highlight";
+      });
+      card.querySelector(".cd-note-close").addEventListener("click", () => card.remove());
     }
-    // Remove all notes
-    document.querySelectorAll(".cd-note-card").forEach(n => n.remove());
-    this.hideToolbar();
+
+    unwrap(span) {
+      const parent = span.parentNode;
+      while (span.firstChild) parent.insertBefore(span.firstChild, span);
+      parent.removeChild(span);
+      parent.normalize();
+    }
+
+    destroy() {
+      this.abort.abort();
+      this.toolbar.remove();
+      document.querySelectorAll(".cd-note-card").forEach((n) => n.remove());
+    }
   }
-}
 
-window.CdHighlighter = CdHighlighter;
-
+  window.CdHighlighter = CdHighlighter;
+})();

@@ -1,877 +1,926 @@
 /**
- * CD-IELTS Core Exam Engine
- * Replicates the complete British Council / IDP Computer-Delivered IELTS experience.
+ * Computer-delivered exam engine.
+ *
+ * ExamShell    – timer, contrast/text-size controls, help, resizable split
+ *                panes, mobile pane switcher, progress autosave, leave guard.
+ * ReadingExam  – renders passages and every question-group type, tracks answers.
+ * WritingExam  – renders Task 1/Task 2 prompts (with charts) and answer boxes.
  */
+(function () {
+  "use strict";
 
-class CdIeltsExam {
-  constructor(options) {
-    this.testData = options.testData;
-    this.candidateName = options.candidateName || "Candidate";
-    this.candidateNumber = options.candidateNumber || "108429";
-    this.mode = options.mode || "exam"; // 'exam' (strict 60m timer) or 'practice'
-    this.onFinish = options.onFinish || function () {};
+  const $ = (id) => document.getElementById(id);
+  const esc = (v) => U.escapeHtml(v);
+  const CONTRAST_THEMES = ["theme-default", "theme-black-on-yellow", "theme-yellow-on-black", "theme-white-on-blue"];
+  const TEXT_SIZES = ["text-regular", "text-large", "text-extra-large"];
 
-    this.currentPassageIndex = 0;
-    this.currentQuestionNumber = 1;
-    this.answers = {};
-    this.flaggedQuestions = new Set();
-    this.timeRemaining = this.testData.durationMinutes * 60;
-    this.timerInterval = null;
-    this.isTimerHidden = false;
-    this.highlighter = null;
-
-    this.initDOM();
-    this.initSplitter();
-    this.initHighlighter();
-    this.initShortcuts();
-    this.startTimer();
-    this.renderCurrentPassage();
-    this.renderFooterNavigation();
+  function applyPreference(list, value) {
+    list.forEach((c) => document.body.classList.remove(c));
+    document.body.classList.add(list.includes(value) ? value : list[0]);
   }
 
-  initDOM() {
-    // Header candidate info
-    document.getElementById("exam-candidate-name").textContent = this.candidateName;
-    document.getElementById("exam-candidate-num").textContent = this.candidateNumber;
-    document.getElementById("exam-test-title").textContent = `${this.testData.bookShort} - ${this.testData.title}`;
+  // Restore display preferences once at load.
+  applyPreference(CONTRAST_THEMES, U.store.get("mockexam:contrast", "theme-default"));
+  applyPreference(TEXT_SIZES, U.store.get("mockexam:textSize", "text-regular"));
 
-    // Contrast switcher
-    const contrastBtn = document.getElementById("btn-contrast");
-    if (contrastBtn) {
-      contrastBtn.onclick = () => this.cycleContrast();
+  /* ======================================================================
+     Shared shell
+     ====================================================================== */
+  class ExamShell {
+    constructor(opts) {
+      this.test = opts.test;
+      this.candidateName = opts.candidateName || "Candidate";
+      this.mode = opts.mode === "practice" ? "practice" : "exam";
+      this.onFinish = opts.onFinish || (() => {});
+      this.saved = opts.saved || null;
+      this.duration = (this.test.durationMinutes || 60) * 60;
+      this.elapsed = this.saved && this.saved.mode === this.mode ? this.saved.elapsed || 0 : 0;
+      this.timerHidden = false;
+      this.finished = false;
+      this.abort = new AbortController();
+      this.progressKey = `mockexam:progress:${this.test.id}`;
+      this.saveTimer = null;
     }
 
-    // Text size switcher
-    const textSizeBtn = document.getElementById("btn-text-size");
-    if (textSizeBtn) {
-      textSizeBtn.onclick = () => this.cycleTextSize();
+    on(target, type, handler, options = {}) {
+      target.addEventListener(type, handler, { ...options, signal: this.abort.signal });
     }
 
-    // Help button
-    const helpBtn = document.getElementById("btn-help");
-    if (helpBtn) {
-      helpBtn.onclick = () => this.showHelpModal();
+    mountShell(badge, leftLabel, rightLabel) {
+      $("exam-candidate-name").textContent = this.candidateName;
+      $("exam-test-title").textContent = badge;
+      $("pane-switch-left").textContent = leftLabel;
+      $("pane-switch-right").textContent = rightLabel;
+      $("exam-pane-left").style.flex = "";
+      $("exam-pane-right").style.flex = "";
+      $("exam-pane-left").dataset.rendered = "";
+
+      this.on($("btn-contrast"), "click", () => this.cycle(CONTRAST_THEMES, "mockexam:contrast"));
+      this.on($("btn-text-size"), "click", () => this.cycle(TEXT_SIZES, "mockexam:textSize"));
+      this.on($("btn-help"), "click", () => this.showHelp());
+      this.on($("exam-timer-box"), "click", () => {
+        this.timerHidden = !this.timerHidden;
+        this.renderTimer();
+      });
+      this.on($("btn-submit-exam"), "click", () => this.confirmFinish());
+      this.on(window, "beforeunload", (e) => {
+        if (!this.finished) {
+          this.saveProgress();
+          e.preventDefault();
+          e.returnValue = "";
+        }
+      });
+      this.initSplitter();
+      this.initPaneSwitch();
+      this.startTimer();
     }
 
-    // Timer box toggle
-    const timerBox = document.getElementById("exam-timer-box");
-    if (timerBox) {
-      timerBox.onclick = () => this.toggleTimerVisibility();
+    cycle(list, key) {
+      const idx = list.findIndex((c) => document.body.classList.contains(c));
+      const next = list[(idx + 1) % list.length];
+      applyPreference(list, next);
+      U.store.set(key, next);
     }
 
-    // Prev / Next buttons
-    const prevBtn = document.getElementById("btn-prev-q");
-    const nextBtn = document.getElementById("btn-next-q");
-    if (prevBtn) prevBtn.onclick = () => this.navigateQuestion(-1);
-    if (nextBtn) nextBtn.onclick = () => this.navigateQuestion(1);
-
-    // Review checkbox
-    const reviewCheckbox = document.getElementById("exam-review-check");
-    if (reviewCheckbox) {
-      reviewCheckbox.onchange = (e) => this.toggleReviewFlag(this.currentQuestionNumber, e.target.checked);
+    /* Timer ------------------------------------------------------------ */
+    get remaining() {
+      return this.duration - this.elapsed;
     }
 
-    // Submit button
-    const submitBtn = document.getElementById("btn-submit-exam");
-    if (submitBtn) {
-      submitBtn.onclick = () => this.showSubmitConfirmationModal();
+    startTimer() {
+      clearInterval(this.timer);
+      this.renderTimer();
+      this.timer = setInterval(() => {
+        this.elapsed++;
+        this.renderTimer();
+        if (this.mode === "exam") {
+          if (this.remaining === 600) U.toast("10 minutes remaining.", "warn");
+          if (this.remaining === 300) U.toast("5 minutes remaining.", "warn");
+          if (this.remaining <= 0) {
+            clearInterval(this.timer);
+            U.toast("Time is up. Your answers are being submitted.", "warn");
+            this.submit();
+            return;
+          }
+        }
+        if (this.elapsed % 10 === 0) this.saveProgress();
+      }, 1000);
     }
-  }
 
-  initSplitter() {
-    const resizer = document.getElementById("exam-resizer");
-    const leftPane = document.getElementById("exam-pane-left");
-    const rightPane = document.getElementById("exam-pane-right");
-    const workspace = document.getElementById("exam-workspace");
-
-    if (!resizer || !leftPane || !rightPane || !workspace) return;
-
-    let isDragging = false;
-
-    const onMouseDown = (e) => {
-      isDragging = true;
-      resizer.classList.add("is-dragging");
-      document.body.style.cursor = "col-resize";
-      document.body.style.userSelect = "none";
-    };
-
-    const onMouseMove = (e) => {
-      if (!isDragging) return;
-      const workspaceRect = workspace.getBoundingClientRect();
-      const relativeX = e.clientX - workspaceRect.left;
-      const minWidth = 240;
-      const maxWidth = workspaceRect.width - 240;
-
-      if (relativeX >= minWidth && relativeX <= maxWidth) {
-        const leftPercent = (relativeX / workspaceRect.width) * 100;
-        leftPane.style.width = `${leftPercent}%`;
-        rightPane.style.width = `${100 - leftPercent}%`;
-      }
-    };
-
-    const onMouseUp = () => {
-      if (isDragging) {
-        isDragging = false;
-        resizer.classList.remove("is-dragging");
-        document.body.style.cursor = "";
-        document.body.style.userSelect = "";
-      }
-    };
-
-    resizer.addEventListener("mousedown", onMouseDown);
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
-
-    // Touch support for tablets
-    resizer.addEventListener("touchstart", (e) => {
-      isDragging = true;
-      resizer.classList.add("is-dragging");
-    });
-    window.addEventListener("touchmove", (e) => {
-      if (!isDragging || !e.touches[0]) return;
-      const workspaceRect = workspace.getBoundingClientRect();
-      const relativeX = e.touches[0].clientX - workspaceRect.left;
-      const minWidth = 200;
-      const maxWidth = workspaceRect.width - 200;
-      if (relativeX >= minWidth && relativeX <= maxWidth) {
-        const leftPercent = (relativeX / workspaceRect.width) * 100;
-        leftPane.style.width = `${leftPercent}%`;
-        rightPane.style.width = `${100 - leftPercent}%`;
-      }
-    });
-    window.addEventListener("touchend", () => {
-      isDragging = false;
-      resizer.classList.remove("is-dragging");
-    });
-  }
-
-  initHighlighter() {
-    this.highlighter = new CdHighlighter("exam-workspace");
-  }
-
-  initShortcuts() {
-    document.addEventListener("keydown", (e) => {
-      // Don't intercept if user is typing in a text input or textarea
-      if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) {
+    renderTimer() {
+      const box = $("exam-timer-box");
+      const text = $("exam-timer-text");
+      if (this.timerHidden) {
+        text.textContent = "Show time";
+        box.classList.remove("warning");
         return;
       }
-
-      // Alt+N for Next Question, Alt+P for Previous
-      if (e.altKey && (e.key === "n" || e.key === "N")) {
-        e.preventDefault();
-        this.navigateQuestion(1);
-      } else if (e.altKey && (e.key === "p" || e.key === "P")) {
-        e.preventDefault();
-        this.navigateQuestion(-1);
-      } else if (e.altKey && (e.key === "r" || e.key === "R")) {
-        e.preventDefault();
-        const reviewBox = document.getElementById("exam-review-check");
-        if (reviewBox) {
-          reviewBox.checked = !reviewBox.checked;
-          this.toggleReviewFlag(this.currentQuestionNumber, reviewBox.checked);
-        }
-      }
-    });
-  }
-
-  /* Timer Controls */
-  startTimer() {
-    this.updateTimerDisplay();
-    this.timerInterval = setInterval(() => {
-      if (this.timeRemaining > 0) {
-        this.timeRemaining--;
-        this.updateTimerDisplay();
-
-        // 10 minutes warning alert
-        if (this.timeRemaining === 600) {
-          this.triggerTimeAlert("10 minutes remaining in the Reading test.");
-        }
-        // 5 minutes warning alert
-        if (this.timeRemaining === 300) {
-          this.triggerTimeAlert("5 minutes remaining in the Reading test.");
-        }
+      if (this.mode === "exam") {
+        text.textContent = `${U.formatClock(this.remaining)} left`;
+        box.classList.toggle("warning", this.remaining <= 600);
       } else {
-        clearInterval(this.timerInterval);
-        this.triggerTimeOut();
+        text.textContent = `Practice · ${U.formatClock(this.elapsed)}`;
+        box.classList.remove("warning");
       }
-    }, 1000);
-  }
-
-  updateTimerDisplay() {
-    const timerText = document.getElementById("exam-timer-text");
-    const timerBox = document.getElementById("exam-timer-box");
-    if (!timerText || !timerBox) return;
-
-    if (this.isTimerHidden) {
-      timerText.textContent = "⏱ Clock";
-      return;
     }
 
-    const mins = Math.floor(this.timeRemaining / 60);
-    const secs = this.timeRemaining % 60;
-    const formatted = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
-    timerText.textContent = formatted;
+    /* Layout ----------------------------------------------------------- */
+    initSplitter() {
+      const resizer = $("exam-resizer");
+      const left = $("exam-pane-left");
+      const right = $("exam-pane-right");
+      const ws = $("exam-workspace");
+      let dragging = false;
 
-    // Warning styling
-    if (this.timeRemaining <= 600) {
-      timerBox.classList.add("warning");
-    } else {
-      timerBox.classList.remove("warning");
-    }
-  }
-
-  toggleTimerVisibility() {
-    this.isTimerHidden = !this.isTimerHidden;
-    this.updateTimerDisplay();
-  }
-
-  triggerTimeAlert(msg) {
-    const banner = document.createElement("div");
-    banner.style.cssText = `
-      position: fixed; top: 60px; right: 20px;
-      background: #dc2626; color: #ffffff;
-      padding: 12px 20px; border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      z-index: 1500; font-weight: 600;
-      animation: fadeIn 0.2s ease-out;
-    `;
-    banner.textContent = msg;
-    document.body.appendChild(banner);
-    setTimeout(() => { banner.remove(); }, 6000);
-  }
-
-  triggerTimeOut() {
-    alert("Time is up! Your Reading test will now be submitted automatically.");
-    this.submitExam();
-  }
-
-  /* Accessibility & Contrast */
-  cycleContrast() {
-    const themes = ["theme-default", "theme-black-on-yellow", "theme-yellow-on-black", "theme-white-on-blue"];
-    const body = document.body;
-    let currentIdx = themes.findIndex(t => body.classList.contains(t));
-    if (currentIdx === -1) currentIdx = 0;
-
-    themes.forEach(t => body.classList.remove(t));
-    const nextTheme = themes[(currentIdx + 1) % themes.length];
-    body.classList.add(nextTheme);
-  }
-
-  cycleTextSize() {
-    const sizes = ["text-regular", "text-large", "text-extra-large"];
-    const body = document.body;
-    let currentIdx = sizes.findIndex(s => body.classList.contains(s));
-    if (currentIdx === -1) currentIdx = 0;
-
-    sizes.forEach(s => body.classList.remove(s));
-    const nextSize = sizes[(currentIdx + 1) % sizes.length];
-    body.classList.add(nextSize);
-  }
-
-  showHelpModal() {
-    const modal = document.createElement("div");
-    modal.className = "modal-overlay";
-    modal.innerHTML = `
-      <div class="modal-box">
-        <div class="modal-header">
-          <span>Test Instructions & Keyboard Shortcuts</span>
-          <span style="cursor:pointer;" id="modal-help-close">&times;</span>
-        </div>
-        <div class="modal-body">
-          <p><strong>Official CD-IELTS Navigation:</strong></p>
-          <ul style="margin: 8px 0 16px 20px; line-height: 1.8;">
-            <li><strong>Alt + N:</strong> Move to Next Question</li>
-            <li><strong>Alt + P:</strong> Move to Previous Question</li>
-            <li><strong>Alt + R:</strong> Toggle Review Checkbox for current question</li>
-            <li><strong>Tab / Shift + Tab:</strong> Jump between options and input fields</li>
-            <li><strong>Space:</strong> Select radio option or checkbox</li>
-          </ul>
-          <p><strong>Tools:</strong></p>
-          <ul style="margin: 8px 0 0 20px; line-height: 1.8;">
-            <li><strong>Highlight:</strong> Select any text with your mouse to highlight it. Right-click highlighted text to remove.</li>
-            <li><strong>Notes:</strong> Select text and click 'Note' to add a sticky observation note.</li>
-            <li><strong>Splitter:</strong> Click and drag the vertical bar between passage and questions to resize the view.</li>
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <button class="btn-primary" id="modal-help-ok">Close</button>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-
-    const close = () => modal.remove();
-    modal.querySelector("#modal-help-close").onclick = close;
-    modal.querySelector("#modal-help-ok").onclick = close;
-  }
-
-  /* Rendering Passage and Questions */
-  renderCurrentPassage() {
-    const passage = this.testData.passages[this.currentPassageIndex];
-    if (!passage) return;
-
-    // 1. Render Left Pane (Passage)
-    const leftPane = document.getElementById("exam-pane-left");
-    let passageHTML = `
-      <div class="passage-header">
-        <div class="passage-part-label">Reading Passage ${passage.passageNumber}</div>
-        <h2 class="passage-title">${passage.title}</h2>
-        ${passage.subtitle ? `<div class="passage-subtitle">${passage.subtitle}</div>` : ""}
-      </div>
-      <div class="passage-instruction-bar">
-        You should spend about 20 minutes on <strong>Questions ${this.getPassageQuestionRange(passage)}</strong>, which are based on Reading Passage ${passage.passageNumber} below.
-      </div>
-      <div class="passage-body">
-    `;
-
-    passage.paragraphs.forEach(p => {
-      passageHTML += `
-        <p class="passage-paragraph">
-          ${p.label ? `<span class="paragraph-label">${p.label}</span>` : ""}
-          ${p.text}
-        </p>
-      `;
-    });
-
-    passageHTML += `</div>`;
-    leftPane.innerHTML = passageHTML;
-    leftPane.scrollTop = 0;
-
-    // 2. Render Right Pane (Questions)
-    const rightPane = document.getElementById("exam-pane-right");
-    let questionsHTML = `
-      <div class="questions-container">
-    `;
-
-    // Group questions by instruction if applicable
-    let lastInstruction = "";
-    passage.questions.forEach(q => {
-      if (q.instruction && q.instruction !== lastInstruction) {
-        lastInstruction = q.instruction;
-        questionsHTML += `
-          <div class="question-group-header">
-            <div class="question-group-title">Questions ${this.getQuestionGroupRange(passage.questions, q.instruction)}</div>
-            <div class="question-group-instruction">${q.instruction}</div>
-          </div>
-        `;
-      }
-
-      questionsHTML += this.renderQuestionCard(q);
-    });
-
-    questionsHTML += `</div>`;
-    rightPane.innerHTML = questionsHTML;
-    rightPane.scrollTop = 0;
-
-    // Bind event handlers for all input types
-    this.bindQuestionInputs(rightPane);
-
-    // Update active question highlight
-    this.updateActiveQuestionHighlight();
-
-    // Scroll to the active question if it belongs to this passage
-    this.scrollToQuestion(this.currentQuestionNumber);
-  }
-
-  getPassageQuestionRange(passage) {
-    if (!passage.questions.length) return "";
-    const first = passage.questions[0].number;
-    const last = passage.questions[passage.questions.length - 1].number;
-    return `${first}–${last}`;
-  }
-
-  getQuestionGroupRange(questions, instruction) {
-    const group = questions.filter(q => q.instruction === instruction);
-    if (group.length === 1) return `${group[0].number}`;
-    return `${group[0].number}–${group[group.length - 1].number}`;
-  }
-
-  renderQuestionCard(q) {
-    const currentVal = this.answers[String(q.number)] || "";
-    const isFlagged = this.flaggedQuestions.has(q.number);
-
-    let contentHTML = "";
-
-    switch (q.type) {
-      case "true_false_not_given":
-      case "yes_no_not_given":
-        const options = q.type === "true_false_not_given"
-          ? ["TRUE", "FALSE", "NOT GIVEN"]
-          : ["YES", "NO", "NOT GIVEN"];
-
-        contentHTML = `
-          <div class="tfng-buttons" data-qnum="${q.number}">
-            ${options.map(opt => `
-              <button type="button" class="tfng-btn ${currentVal === opt ? 'active' : ''}" data-value="${opt}">
-                ${opt}
-              </button>
-            `).join("")}
-          </div>
-        `;
-        break;
-
-      case "multiple_choice_single":
-        contentHTML = `
-          <div class="options-list" data-qnum="${q.number}">
-            ${q.options.map((opt, idx) => {
-              const letter = opt.charAt(0);
-              const isChecked = currentVal === letter;
-              return `
-                <label class="option-item ${isChecked ? 'selected' : ''}">
-                  <input type="radio" name="q_${q.number}" value="${letter}" ${isChecked ? 'checked' : ''} />
-                  <span>${opt}</span>
-                </label>
-              `;
-            }).join("")}
-          </div>
-        `;
-        break;
-
-      case "multiple_choice_multi":
-        contentHTML = `
-          <div class="options-list multi-select" data-qnum="${q.number}">
-            ${q.options.map(opt => {
-              const letter = opt.charAt(0);
-              const isChecked = currentVal === letter;
-              return `
-                <label class="option-item ${isChecked ? 'selected' : ''}">
-                  <input type="radio" name="q_${q.number}" value="${letter}" ${isChecked ? 'checked' : ''} />
-                  <span>${opt}</span>
-                </label>
-              `;
-            }).join("")}
-          </div>
-        `;
-        break;
-
-      case "matching_info":
-      case "matching_headings":
-      case "matching_features":
-        contentHTML = `
-          <div style="margin-top: 10px;">
-            <label style="font-weight: 500; font-size: 0.9em;">Select Answer: </label>
-            <select class="matching-select" data-qnum="${q.number}">
-              <option value="">-- Select --</option>
-              ${q.options.map(opt => {
-                const val = opt.length === 1 ? opt : opt.split(":")[0].trim();
-                const isSelected = currentVal === val;
-                return `<option value="${val}" ${isSelected ? 'selected' : ''}>${opt}</option>`;
-              }).join("")}
-            </select>
-          </div>
-        `;
-        break;
-
-      case "completion":
-      default:
-        // Replace blank with inline input
-        const promptFormatted = q.prompt.replace(
-          /_{2,}/,
-          `<span class="completion-input-wrap"><input type="text" class="completion-input ${currentVal ? 'has-value' : ''}" data-qnum="${q.number}" value="${currentVal}" placeholder="answer..." /></span>`
-        );
-        return `
-          <div class="question-card" id="q-card-${q.number}" data-qnum="${q.number}">
-            <span class="question-number-badge">${q.number}</span>
-            <div class="question-prompt">${promptFormatted}</div>
-          </div>
-        `;
-    }
-
-    return `
-      <div class="question-card" id="q-card-${q.number}" data-qnum="${q.number}">
-        <div>
-          <span class="question-number-badge">${q.number}</span>
-          <div class="question-prompt">${q.prompt}</div>
-        </div>
-        ${contentHTML}
-      </div>
-    `;
-  }
-
-  bindQuestionInputs(container) {
-    // 1. TFNG Buttons
-    container.querySelectorAll(".tfng-buttons").forEach(group => {
-      const qNum = group.dataset.qnum;
-      group.querySelectorAll(".tfng-btn").forEach(btn => {
-        btn.onclick = () => {
-          const val = btn.dataset.value;
-          group.querySelectorAll(".tfng-btn").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          this.setAnswer(qNum, val);
-        };
+      this.on(resizer, "pointerdown", (e) => {
+        dragging = true;
+        resizer.setPointerCapture(e.pointerId);
+        resizer.classList.add("is-dragging");
+        document.body.style.userSelect = "none";
       });
-    });
-
-    // 2. Radio Options
-    container.querySelectorAll(".option-item input[type='radio']").forEach(input => {
-      input.onchange = () => {
-        const qNum = input.name.replace("q_", "");
-        const parentList = input.closest(".options-list");
-        parentList.querySelectorAll(".option-item").forEach(item => item.classList.remove("selected"));
-        input.closest(".option-item").classList.add("selected");
-        this.setAnswer(qNum, input.value);
+      this.on(resizer, "pointermove", (e) => {
+        if (!dragging) return;
+        const rect = ws.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        if (x < 260 || x > rect.width - 260) return;
+        left.style.flex = `0 0 ${(x / rect.width) * 100}%`;
+        right.style.flex = "1 1 0";
+      });
+      const stop = () => {
+        dragging = false;
+        resizer.classList.remove("is-dragging");
+        document.body.style.userSelect = "";
       };
-    });
-
-    // 3. Matching Dropdowns
-    container.querySelectorAll(".matching-select").forEach(select => {
-      select.onchange = () => {
-        const qNum = select.dataset.qnum;
-        this.setAnswer(qNum, select.value);
-      };
-    });
-
-    // 4. Completion Text Inputs
-    container.querySelectorAll(".completion-input").forEach(input => {
-      input.oninput = () => {
-        const qNum = input.dataset.qnum;
-        const val = input.value.trim();
-        if (val) {
-          input.classList.add("has-value");
-        } else {
-          input.classList.remove("has-value");
-        }
-        this.setAnswer(qNum, val);
-      };
-
-      input.onfocus = () => {
-        const qNum = parseInt(input.dataset.qnum, 10);
-        this.setCurrentQuestion(qNum, false);
-      };
-    });
-
-    // 5. Question card focus on click
-    container.querySelectorAll(".question-card").forEach(card => {
-      card.onclick = (e) => {
-        const qNum = parseInt(card.dataset.qnum, 10);
-        this.setCurrentQuestion(qNum, false);
-      };
-    });
-  }
-
-  setAnswer(qNumberStr, value) {
-    if (value) {
-      this.answers[String(qNumberStr)] = value;
-    } else {
-      delete this.answers[String(qNumberStr)];
-    }
-    this.updateNavigationPillState(parseInt(qNumberStr, 10));
-  }
-
-  /* Question & Passage Navigation */
-  setCurrentQuestion(qNumber, shouldScroll = true) {
-    this.currentQuestionNumber = qNumber;
-
-    // Check if target question belongs to another passage
-    const targetPassageIdx = this.findPassageIndexForQuestion(qNumber);
-    if (targetPassageIdx !== -1 && targetPassageIdx !== this.currentPassageIndex) {
-      this.currentPassageIndex = targetPassageIdx;
-      this.renderCurrentPassage();
-      this.renderFooterNavigation();
+      this.on(resizer, "pointerup", stop);
+      this.on(resizer, "pointercancel", stop);
     }
 
-    // Update active pill state
-    document.querySelectorAll(".q-nav-btn").forEach(btn => {
-      const num = parseInt(btn.dataset.qnum, 10);
-      if (num === qNumber) {
-        btn.classList.add("current");
-        btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-      } else {
-        btn.classList.remove("current");
-      }
-    });
-
-    // Update review flag checkbox
-    const reviewBox = document.getElementById("exam-review-check");
-    if (reviewBox) {
-      reviewBox.checked = this.flaggedQuestions.has(qNumber);
-    }
-
-    // Update active card highlight in questions pane
-    this.updateActiveQuestionHighlight();
-
-    if (shouldScroll) {
-      this.scrollToQuestion(qNumber);
-    }
-  }
-
-  scrollToQuestion(qNumber) {
-    const card = document.getElementById(`q-card-${qNumber}`);
-    if (card) {
-      card.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }
-
-  updateActiveQuestionHighlight() {
-    document.querySelectorAll(".question-card").forEach(card => {
-      const num = parseInt(card.dataset.qnum, 10);
-      if (num === this.currentQuestionNumber) {
-        card.classList.add("active-question");
-      } else {
-        card.classList.remove("active-question");
-      }
-    });
-  }
-
-  findPassageIndexForQuestion(qNumber) {
-    for (let i = 0; i < this.testData.passages.length; i++) {
-      const p = this.testData.passages[i];
-      const hasQ = p.questions.some(q => q.number === qNumber);
-      if (hasQ) return i;
-    }
-    return -1;
-  }
-
-  navigateQuestion(delta) {
-    const nextQ = this.currentQuestionNumber + delta;
-    if (nextQ >= 1 && nextQ <= this.testData.totalQuestions) {
-      this.setCurrentQuestion(nextQ);
-    }
-  }
-
-  toggleReviewFlag(qNumber, isFlagged) {
-    if (isFlagged) {
-      this.flaggedQuestions.add(qNumber);
-    } else {
-      this.flaggedQuestions.delete(qNumber);
-    }
-    this.updateNavigationPillState(qNumber);
-  }
-
-  updateNavigationPillState(qNumber) {
-    const btn = document.querySelector(`.q-nav-btn[data-qnum="${qNumber}"]`);
-    if (!btn) return;
-
-    const hasAnswer = Boolean(this.answers[String(qNumber)]);
-    const isFlagged = this.flaggedQuestions.has(qNumber);
-
-    if (hasAnswer) {
-      btn.classList.add("answered");
-    } else {
-      btn.classList.remove("answered");
-    }
-
-    if (isFlagged) {
-      btn.classList.add("flagged");
-    } else {
-      btn.classList.remove("flagged");
-    }
-  }
-
-  /* Render Footer Navigation */
-  renderFooterNavigation() {
-    // 1. Passage tabs
-    const tabsWrap = document.getElementById("exam-part-tabs");
-    if (tabsWrap) {
-      tabsWrap.innerHTML = this.testData.passages.map((p, idx) => `
-        <button type="button" class="part-tab-btn ${idx === this.currentPassageIndex ? 'active' : ''}" data-pidx="${idx}">
-          Part ${p.passageNumber}
-        </button>
-      `).join("");
-
-      tabsWrap.querySelectorAll(".part-tab-btn").forEach(btn => {
-        btn.onclick = () => {
-          const idx = parseInt(btn.dataset.pidx, 10);
-          this.currentPassageIndex = idx;
-          const firstQ = this.testData.passages[idx].questions[0].number;
-          this.setCurrentQuestion(firstQ);
-        };
+    initPaneSwitch() {
+      const ws = $("exam-workspace");
+      ws.classList.remove("show-right");
+      document.querySelectorAll(".pane-switch-btn").forEach((btn) => {
+        const isLeft = btn.dataset.pane === "left";
+        btn.classList.toggle("active", isLeft);
+        btn.setAttribute("aria-selected", String(isLeft));
+        this.on(btn, "click", () => this.showPane(btn.dataset.pane));
       });
     }
 
-    // 2. Question numbers strip 1 to 40
-    const strip = document.getElementById("exam-question-strip");
-    if (strip) {
-      let stripHTML = "";
-      for (let num = 1; num <= this.testData.totalQuestions; num++) {
-        const hasAnswer = Boolean(this.answers[String(num)]);
-        const isCurrent = num === this.currentQuestionNumber;
-        const isFlagged = this.flaggedQuestions.has(num);
-
-        stripHTML += `
-          <button type="button" class="q-nav-btn ${hasAnswer ? 'answered' : ''} ${isCurrent ? 'current' : ''} ${isFlagged ? 'flagged' : ''}" data-qnum="${num}">
-            ${num}
-          </button>
-        `;
-      }
-      strip.innerHTML = stripHTML;
-
-      strip.querySelectorAll(".q-nav-btn").forEach(btn => {
-        btn.onclick = () => {
-          const qNum = parseInt(btn.dataset.qnum, 10);
-          this.setCurrentQuestion(qNum);
-        };
+    showPane(which) {
+      $("exam-workspace").classList.toggle("show-right", which === "right");
+      document.querySelectorAll(".pane-switch-btn").forEach((b) => {
+        const active = b.dataset.pane === which;
+        b.classList.toggle("active", active);
+        b.setAttribute("aria-selected", String(active));
       });
     }
 
-    // Update prev/next button disabled states
-    this.updateNavButtons();
+    showHelp() {
+      U.modal({
+        title: "Help",
+        bodyHTML: this.helpHTML(),
+        buttons: [{ label: "Close", className: "btn-primary", value: true }],
+      });
+    }
+
+    helpHTML() {
+      return `
+        <p><strong>Tools</strong></p>
+        <ul class="help-list">
+          <li><strong>Timer:</strong> click the clock to hide or show it.</li>
+          <li><strong>Contrast / Text size:</strong> change the colours and font size of the test.</li>
+          <li><strong>Resize:</strong> drag the bar between the two panels.</li>
+        </ul>`;
+    }
+
+    /* Progress autosave (per browser) ----------------------------------- */
+    saveProgress() {
+      if (this.finished) return;
+      U.store.set(this.progressKey, { ...this.progressData(), elapsed: this.elapsed, mode: this.mode, savedAt: Date.now() });
+    }
+
+    saveProgressSoon() {
+      clearTimeout(this.saveTimer);
+      this.saveTimer = setTimeout(() => this.saveProgress(), 400);
+    }
+
+    clearProgress() {
+      U.store.remove(this.progressKey);
+    }
+
+    resumeTimerAfterFailedSubmit() {
+      this.finished = false;
+      if (this.mode === "practice" || this.remaining > 0) this.startTimer();
+    }
+
+    destroy() {
+      clearInterval(this.timer);
+      clearTimeout(this.saveTimer);
+      this.abort.abort();
+      if (this.highlighter) this.highlighter.destroy();
+      $("exam-pane-left").innerHTML = "";
+      $("exam-pane-right").innerHTML = "";
+      $("exam-pane-left").dataset.rendered = "";
+      $("exam-part-tabs").innerHTML = "";
+      $("exam-question-strip").innerHTML = "";
+      document.querySelectorAll(".toast").forEach((t) => t.remove());
+    }
   }
 
-  updateNavButtons() {
-    const prevBtn = document.getElementById("btn-prev-q");
-    const nextBtn = document.getElementById("btn-next-q");
-    if (prevBtn) prevBtn.disabled = this.currentQuestionNumber <= 1;
-    if (nextBtn) nextBtn.disabled = this.currentQuestionNumber >= this.testData.totalQuestions;
-  }
+  /* ======================================================================
+     Reading
+     ====================================================================== */
+  class ReadingExam extends ExamShell {
+    constructor(opts) {
+      super(opts);
+      this.answers = (this.saved && this.saved.answers) || {};
+      this.flagged = new Set((this.saved && this.saved.flagged) || []);
+      this.passageIdx = 0;
+      this.current = null;
+      this.passageCache = {};
+      this.qToPassage = {};
+      this.numbers = [];
+      this.test.passages.forEach((p, i) =>
+        p.groups.forEach((g) =>
+          g.questions.forEach((q) => {
+            this.qToPassage[q.number] = i;
+            this.numbers.push(q.number);
+          })
+        )
+      );
+      this.numbers.sort((a, b) => a - b);
+      this.mount();
+    }
 
-  /* Submission Modal & Action */
-  showSubmitConfirmationModal() {
-    const answeredCount = Object.keys(this.answers).length;
-    const unansweredCount = this.testData.totalQuestions - answeredCount;
+    mount() {
+      this.mountShell(`${this.test.shortTitle || this.test.title} · Reading`, "Passage", "Questions");
+      $("exam-question-strip").hidden = false;
+      $("exam-review-wrap").hidden = false;
+      this.highlighter = new CdHighlighter("exam-workspace");
+      this.bindReading();
+      this.renderPassage(0);
+      this.renderStrip();
+      this.renderPartTabs();
+      this.setCurrent(this.numbers[0], false);
+    }
 
-    const modal = document.createElement("div");
-    modal.className = "modal-overlay";
-    modal.innerHTML = `
-      <div class="modal-box">
-        <div class="modal-header">
-          <span>Finish Reading Test</span>
-          <span style="cursor:pointer;" id="modal-submit-cancel-x">&times;</span>
-        </div>
-        <div class="modal-body">
-          <p style="font-size: 1.05em; margin-bottom: 14px;">
-            Are you sure you want to finish the <strong>Reading</strong> test?
-          </p>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:14px; margin-bottom:14px;">
-            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
-              <span>Total Questions:</span>
-              <strong>${this.testData.totalQuestions}</strong>
-            </div>
-            <div style="display:flex; justify-content:space-between; margin-bottom:6px; color:#16a34a;">
-              <span>Answered:</span>
-              <strong>${answeredCount}</strong>
-            </div>
-            <div style="display:flex; justify-content:space-between; color:${unansweredCount > 0 ? '#dc2626' : '#64748b'};">
-              <span>Unanswered:</span>
-              <strong>${unansweredCount}</strong>
-            </div>
-          </div>
-          ${unansweredCount > 0 ? `<p style="color:#b91c1c; font-size:0.9em;">Notice: Questions left unanswered will be marked incorrect.</p>` : ""}
-        </div>
-        <div class="modal-footer">
-          <button class="btn-secondary" id="modal-submit-cancel">Return to Test</button>
-          <button class="btn-danger" id="modal-submit-confirm">Confirm and Finish</button>
-        </div>
-      </div>
-    `;
+    helpHTML() {
+      return `
+        <p><strong>Answering</strong></p>
+        <ul class="help-list">
+          <li>Click an option, choose from a drop-down list, or type into a gap.</li>
+          <li>Use the numbered buttons at the bottom to jump to any question.
+            An underlined number means you have answered it.</li>
+          <li>Tick <strong>Review</strong> to flag a question you want to come back to.</li>
+        </ul>
+        <p><strong>Highlighting</strong></p>
+        <ul class="help-list">
+          <li>Select text in the passage, then choose <em>Highlight</em> or <em>Note</em>.</li>
+          <li>Right-click (or long-press) a highlight to remove it.</li>
+        </ul>
+        <p><strong>Keyboard shortcuts</strong></p>
+        <ul class="help-list">
+          <li><kbd>Alt</kbd> + <kbd>N</kbd> next question · <kbd>Alt</kbd> + <kbd>P</kbd> previous question</li>
+          <li><kbd>Alt</kbd> + <kbd>R</kbd> mark the current question for review</li>
+        </ul>
+        ${super.helpHTML()}`;
+    }
 
-    document.body.appendChild(modal);
+    progressData() {
+      return { answers: this.answers, flagged: [...this.flagged] };
+    }
 
-    const closeModal = () => modal.remove();
-    modal.querySelector("#modal-submit-cancel-x").onclick = closeModal;
-    modal.querySelector("#modal-submit-cancel").onclick = closeModal;
-    modal.querySelector("#modal-submit-confirm").onclick = () => {
-      closeModal();
-      this.submitExam();
-    };
-  }
+    /* Events ----------------------------------------------------------- */
+    bindReading() {
+      const rp = $("exam-pane-right");
 
-  async submitExam() {
-    clearInterval(this.timerInterval);
-    const timeSpent = (this.testData.durationMinutes * 60) - this.timeRemaining;
+      this.on(rp, "click", (e) => {
+        const item = e.target.closest("[data-qnums]");
+        if (item) this.setCurrent(Number(item.dataset.qnums.split(" ")[0]), false);
+        const btn = e.target.closest(".tfng-btn");
+        if (btn) {
+          this.setAnswer(Number(btn.dataset.q), btn.dataset.value);
+          this.syncChoiceUI(Number(btn.dataset.q));
+        }
+      });
 
-    // Show loading indicator
-    const overlay = document.createElement("div");
-    overlay.className = "modal-overlay";
-    overlay.innerHTML = `
-      <div style="background:#ffffff; padding:24px 36px; border-radius:8px; text-align:center;">
-        <div style="font-size:1.4em; font-weight:700; margin-bottom:8px;">Evaluating Your Exam...</div>
-        <p style="color:#64748b;">Calculating official IELTS Band score & analysis</p>
-      </div>
-    `;
-    document.body.appendChild(overlay);
+      this.on(rp, "change", (e) => {
+        const t = e.target;
+        if (t.matches("input[type=radio][data-q]")) {
+          this.setAnswer(Number(t.dataset.q), t.value);
+          this.syncChoiceUI(Number(t.dataset.q));
+        } else if (t.matches("input[type=checkbox][data-group]")) {
+          this.onMultiChange(t);
+        } else if (t.matches("select[data-q]")) {
+          this.setAnswer(Number(t.dataset.q), t.value);
+          t.classList.toggle("has-value", Boolean(t.value));
+        }
+      });
 
-    try {
-      const res = await fetch(`/api/tests/${this.testData.id}/submit`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          candidateName: this.candidateName,
-          timeSpentSeconds: timeSpent,
-          answers: this.answers
+      this.on(rp, "input", (e) => {
+        const t = e.target;
+        if (t.matches("input.gap-input[data-q]")) {
+          const v = t.value.trim();
+          this.setAnswer(Number(t.dataset.q), v);
+          t.classList.toggle("has-value", Boolean(v));
+        }
+      });
+
+      this.on(rp, "focusin", (e) => {
+        const el = e.target.closest("[data-qnums]");
+        if (el) this.setCurrent(Number(el.dataset.qnums.split(" ")[0]), false);
+      });
+
+      this.on($("exam-question-strip"), "click", (e) => {
+        const b = e.target.closest(".q-nav-btn");
+        if (b) this.goTo(Number(b.dataset.q));
+      });
+
+      this.on($("exam-part-tabs"), "click", (e) => {
+        const b = e.target.closest(".part-tab-btn");
+        if (!b) return;
+        const idx = Number(b.dataset.p);
+        const first = this.numbers.find((n) => this.qToPassage[n] === idx);
+        this.setCurrent(first, true);
+        this.showPane("left");
+      });
+
+      this.on($("btn-prev-q"), "click", () => this.step(-1));
+      this.on($("btn-next-q"), "click", () => this.step(1));
+      this.on($("exam-review-check"), "change", (e) => this.toggleFlag(this.current, e.target.checked));
+
+      this.on(document, "keydown", (e) => {
+        if (!e.altKey || e.target.tagName === "TEXTAREA") return;
+        const k = e.key.toLowerCase();
+        if (k === "n" || e.code === "KeyN") { e.preventDefault(); this.step(1); }
+        else if (k === "p" || e.code === "KeyP") { e.preventDefault(); this.step(-1); }
+        else if (k === "r" || e.code === "KeyR") {
+          e.preventDefault();
+          const box = $("exam-review-check");
+          box.checked = !box.checked;
+          this.toggleFlag(this.current, box.checked);
+        }
+      });
+    }
+
+    onMultiChange(cb) {
+      const group = cb.dataset.group;
+      const nums = group.split(" ").map(Number);
+      const boxes = [...$("exam-pane-right").querySelectorAll(`input[data-group="${group}"]`)];
+      const chosen = boxes.filter((b) => b.checked).map((b) => b.value);
+      if (chosen.length > nums.length) {
+        cb.checked = false;
+        U.toast(`Choose ${nums.length === 2 ? "TWO" : nums.length} letters only.`, "warn");
+        return;
+      }
+      chosen.sort();
+      nums.forEach((n, i) => {
+        if (chosen[i]) this.answers[n] = chosen[i];
+        else delete this.answers[n];
+        this.updatePill(n);
+      });
+      boxes.forEach((b) => b.closest(".option-item").classList.toggle("selected", b.checked));
+      this.renderPartTabs();
+      this.saveProgressSoon();
+    }
+
+    setAnswer(n, value) {
+      if (value) this.answers[n] = value;
+      else delete this.answers[n];
+      this.updatePill(n);
+      this.renderPartTabs();
+      this.saveProgressSoon();
+    }
+
+    syncChoiceUI(n) {
+      const rp = $("exam-pane-right");
+      rp.querySelectorAll(`.tfng-btn[data-q="${n}"]`).forEach((b) => {
+        const on = b.dataset.value === this.answers[n];
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+      rp.querySelectorAll(`input[type=radio][data-q="${n}"]`).forEach((r) => {
+        r.closest(".option-item").classList.toggle("selected", r.checked);
+      });
+    }
+
+    toggleFlag(n, on) {
+      if (on) this.flagged.add(n);
+      else this.flagged.delete(n);
+      this.updatePill(n);
+      this.saveProgressSoon();
+    }
+
+    /* Navigation ------------------------------------------------------- */
+    step(delta) {
+      const i = this.numbers.indexOf(this.current);
+      const next = this.numbers[i + delta];
+      if (next !== undefined) this.goTo(next);
+    }
+
+    goTo(n) {
+      this.setCurrent(n, true);
+      this.showPane("right");
+      const el = this.questionEl(n);
+      const input = el && el.querySelector("input:not([type=checkbox]):not([type=radio]), select");
+      if (input && el.classList.contains("gap")) input.focus({ preventScroll: true });
+    }
+
+    questionEl(n) {
+      return $("exam-pane-right").querySelector(`[data-qnums~="${n}"]`);
+    }
+
+    setCurrent(n, scroll) {
+      if (n === undefined || n === null) return;
+      this.current = n;
+      const pIdx = this.qToPassage[n];
+      if (pIdx !== this.passageIdx || $("exam-pane-left").dataset.rendered !== "1") {
+        this.renderPassage(pIdx);
+        this.renderPartTabs();
+      }
+      $("exam-question-strip").querySelectorAll(".q-nav-btn").forEach((b) => {
+        const on = Number(b.dataset.q) === n;
+        b.classList.toggle("current", on);
+        if (on) b.scrollIntoView({ block: "nearest", inline: "nearest" });
+      });
+      const rp = $("exam-pane-right");
+      rp.querySelectorAll(".active-question").forEach((el) => el.classList.remove("active-question"));
+      const el = this.questionEl(n);
+      if (el) {
+        el.classList.add("active-question");
+        if (scroll) el.scrollIntoView({ block: "center", behavior: "smooth" });
+      }
+      $("exam-review-check").checked = this.flagged.has(n);
+      $("btn-prev-q").disabled = n === this.numbers[0];
+      $("btn-next-q").disabled = n === this.numbers[this.numbers.length - 1];
+    }
+
+    /* Footer ----------------------------------------------------------- */
+    renderStrip() {
+      $("exam-question-strip").innerHTML = this.numbers
+        .map((n) => `<button type="button" class="q-nav-btn" data-q="${n}" aria-label="Question ${n}">${n}</button>`)
+        .join("");
+      this.numbers.forEach((n) => this.updatePill(n));
+    }
+
+    updatePill(n) {
+      const b = $("exam-question-strip").querySelector(`.q-nav-btn[data-q="${n}"]`);
+      if (!b) return;
+      b.classList.toggle("answered", Boolean(this.answers[n]));
+      b.classList.toggle("flagged", this.flagged.has(n));
+      b.classList.toggle("in-part", this.qToPassage[n] === this.passageIdx);
+    }
+
+    renderPartTabs() {
+      $("exam-part-tabs").innerHTML = this.test.passages
+        .map((p, i) => {
+          const nums = this.numbers.filter((n) => this.qToPassage[n] === i);
+          const done = nums.filter((n) => this.answers[n]).length;
+          return `<button type="button" class="part-tab-btn ${i === this.passageIdx ? "active" : ""}" data-p="${i}">
+            Part ${p.passageNumber} <span class="part-count">${done} of ${nums.length}</span></button>`;
         })
+        .join("");
+      this.numbers.forEach((n) => {
+        const b = $("exam-question-strip").querySelector(`.q-nav-btn[data-q="${n}"]`);
+        if (b) b.classList.toggle("in-part", this.qToPassage[n] === this.passageIdx);
       });
+    }
 
-      if (!res.ok) {
-        throw new Error("Server submission failed");
+    /* Rendering -------------------------------------------------------- */
+    renderPassage(idx) {
+      const left = $("exam-pane-left");
+      if (left.dataset.rendered === "1") this.passageCache[this.passageIdx] = left.innerHTML;
+      this.passageIdx = idx;
+      const p = this.test.passages[idx];
+      left.innerHTML = this.passageCache[idx] || this.passageHTML(p);
+      left.dataset.rendered = "1";
+      left.scrollTop = 0;
+      const right = $("exam-pane-right");
+      right.innerHTML = `<div class="questions-container">${p.groups.map((g) => this.groupHTML(g, p)).join("")}</div>`;
+      right.scrollTop = 0;
+    }
+
+    passageHTML(p) {
+      const nums = this.numbers.filter((n) => this.qToPassage[n] === this.test.passages.indexOf(p));
+      return `
+        <div class="passage-header">
+          <div class="passage-part-label">Reading Passage ${p.passageNumber}</div>
+          <h2 class="passage-title">${esc(p.title)}</h2>
+          ${p.subtitle ? `<div class="passage-subtitle">${esc(p.subtitle)}</div>` : ""}
+        </div>
+        <div class="passage-instruction-bar">
+          You should spend about 20 minutes on <strong>Questions ${nums[0]}–${nums[nums.length - 1]}</strong>,
+          which are based on Reading Passage ${p.passageNumber}.
+        </div>
+        <div class="passage-body">
+          ${p.paragraphs.map((para) => `
+            <p class="passage-paragraph">${para.label ? `<span class="paragraph-label">${esc(para.label)}</span>` : ""}${esc(para.text)}</p>`).join("")}
+        </div>`;
+    }
+
+    groupHTML(g, p) {
+      const nums = g.questions.map((q) => q.number);
+      const range = nums.length > 1 ? `${nums[0]}–${nums[nums.length - 1]}` : `${nums[0]}`;
+      return `
+        <section class="q-group" data-type="${esc(g.type)}">
+          <div class="question-group-header">
+            <div class="question-group-title">Questions ${range}</div>
+            <div class="question-group-instruction">${U.richText(g.instruction)}</div>
+          </div>
+          ${this.groupBody(g, p)}
+        </section>`;
+    }
+
+    groupBody(g, p) {
+      switch (g.type) {
+        case "true_false_not_given":
+        case "yes_no_not_given":
+          return this.tfngHTML(g);
+        case "multiple_choice":
+          return g.questions.map((q) => this.mcqHTML(q)).join("");
+        case "choose_multiple":
+          return this.chooseMultipleHTML(g);
+        case "matching_headings":
+        case "matching_information":
+        case "matching_features":
+        case "matching_sentence_endings":
+        case "classification":
+          return this.matchingHTML(g, p);
+        case "note_completion":
+          return this.notesHTML(g);
+        case "summary_completion":
+          return this.summaryHTML(g);
+        case "table_completion":
+          return this.tableHTML(g);
+        case "flow_chart_completion":
+          return this.flowHTML(g);
+        case "sentence_completion":
+          return g.questions.map((q) => `<div class="question-card q-sentence">${this.fill(q.prompt, g)}</div>`).join("");
+        case "short_answer":
+          return g.questions.map((q) => this.shortAnswerHTML(q)).join("");
+        default:
+          return "";
       }
+    }
 
-      const evalData = await res.json();
-      overlay.remove();
-      this.onFinish(evalData);
-    } catch (err) {
-      console.warn("Using offline evaluation fallback:", err);
-      overlay.remove();
-      const evalData = this.evaluateOffline(timeSpent);
-      this.onFinish(evalData);
+    badge(n) {
+      return `<span class="question-number-badge">${n}</span>`;
+    }
+
+    tfngHTML(g) {
+      const opts = g.type === "true_false_not_given" ? ["TRUE", "FALSE", "NOT GIVEN"] : ["YES", "NO", "NOT GIVEN"];
+      return g.questions.map((q) => {
+        const ans = this.answers[q.number];
+        return `
+          <div class="question-card" data-qnums="${q.number}">
+            <div class="q-line">${this.badge(q.number)}<span class="question-prompt">${esc(q.prompt)}</span></div>
+            <div class="tfng-buttons" role="group" aria-label="Question ${q.number}">
+              ${opts.map((o) => `<button type="button" class="tfng-btn ${ans === o ? "active" : ""}" aria-pressed="${ans === o}" data-q="${q.number}" data-value="${o}">${o}</button>`).join("")}
+            </div>
+          </div>`;
+      }).join("");
+    }
+
+    mcqHTML(q) {
+      const ans = this.answers[q.number];
+      return `
+        <div class="question-card" data-qnums="${q.number}">
+          <div class="q-line">${this.badge(q.number)}<span class="question-prompt">${esc(q.prompt)}</span></div>
+          <div class="options-list" role="radiogroup" aria-label="Question ${q.number}">
+            ${q.options.map((o) => `
+              <label class="option-item ${ans === o.key ? "selected" : ""}">
+                <input type="radio" name="q${q.number}" value="${esc(o.key)}" data-q="${q.number}" ${ans === o.key ? "checked" : ""} />
+                <span class="opt-key">${esc(o.key)}</span><span>${esc(o.text)}</span>
+              </label>`).join("")}
+          </div>
+        </div>`;
+    }
+
+    chooseMultipleHTML(g) {
+      const nums = g.questions.map((q) => q.number);
+      const chosen = nums.map((n) => this.answers[n]).filter(Boolean);
+      const group = nums.join(" ");
+      return `
+        <div class="question-card" data-qnums="${group}">
+          <div class="q-line">${this.badge(`${nums[0]}–${nums[nums.length - 1]}`)}<span class="question-prompt">${esc(g.prompt)}</span></div>
+          <div class="options-list" role="group" aria-label="Questions ${nums.join(" and ")}">
+            ${g.options.map((o) => `
+              <label class="option-item ${chosen.includes(o.key) ? "selected" : ""}">
+                <input type="checkbox" value="${esc(o.key)}" data-group="${group}" ${chosen.includes(o.key) ? "checked" : ""} />
+                <span class="opt-key">${esc(o.key)}</span><span>${esc(o.text)}</span>
+              </label>`).join("")}
+          </div>
+        </div>`;
+    }
+
+    optionsBox(g) {
+      if (!g.options) return "";
+      return `
+        <div class="options-box">
+          <div class="options-box-title">${esc(g.optionsTitle || "Options")}</div>
+          <ul>${g.options.map((o) => `<li><span class="opt-key">${esc(o.key)}</span><span>${esc(o.text)}</span></li>`).join("")}</ul>
+        </div>`;
+    }
+
+    matchingHTML(g, p) {
+      const keys = g.options ? g.options.map((o) => o.key) : p.paragraphs.map((x) => x.label).filter(Boolean);
+      const items = g.questions.map((q) => {
+        const ans = this.answers[q.number] || "";
+        return `
+          <div class="question-card q-matching" data-qnums="${q.number}">
+            <div class="q-line">${this.badge(q.number)}<span class="question-prompt">${esc(q.prompt)}</span></div>
+            <select class="matching-select ${ans ? "has-value" : ""}" data-q="${q.number}" aria-label="Answer for question ${q.number}">
+              <option value="">Choose…</option>
+              ${keys.map((k) => `<option value="${esc(k)}" ${ans === k ? "selected" : ""}>${esc(k)}</option>`).join("")}
+            </select>
+          </div>`;
+      }).join("");
+      return this.optionsBox(g) + items;
+    }
+
+    gapHTML(n, g) {
+      const val = this.answers[n] || "";
+      if (g.options) {
+        return `<span class="gap" data-qnums="${n}"><select class="gap-select ${val ? "has-value" : ""}" data-q="${n}" aria-label="Question ${n}">
+          <option value="">${n}</option>
+          ${g.options.map((o) => `<option value="${esc(o.key)}" ${val === o.key ? "selected" : ""}>${esc(o.key)}</option>`).join("")}
+        </select></span>`;
+      }
+      return `<span class="gap" data-qnums="${n}"><input type="text" class="gap-input ${val ? "has-value" : ""}" data-q="${n}"
+        value="${esc(val)}" placeholder="${n}" aria-label="Question ${n}" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="60" /></span>`;
+    }
+
+    fill(text, g) {
+      return U.richText(text).replace(/\{\{(\d+)\}\}/g, (_, n) => this.gapHTML(Number(n), g));
+    }
+
+    notesHTML(g) {
+      let html = `<div class="notes-box">${g.title ? `<h4 class="box-title">${esc(g.title)}</h4>` : ""}`;
+      let open = false;
+      g.content.forEach((line) => {
+        if (line.startsWith("• ")) {
+          if (!open) { html += "<ul>"; open = true; }
+          html += `<li>${this.fill(line.slice(2), g)}</li>`;
+          return;
+        }
+        if (open) { html += "</ul>"; open = false; }
+        html += line.startsWith("## ") ? `<h5>${esc(line.slice(3))}</h5>` : `<p>${this.fill(line, g)}</p>`;
+      });
+      if (open) html += "</ul>";
+      return html + "</div>";
+    }
+
+    summaryHTML(g) {
+      return `
+        <div class="notes-box summary-box">
+          ${g.title ? `<h4 class="box-title">${esc(g.title)}</h4>` : ""}
+          <p>${this.fill(g.content, g)}</p>
+        </div>
+        ${this.optionsBox(g)}`;
+    }
+
+    tableHTML(g) {
+      const c = g.content;
+      return `
+        <div class="notes-box">
+          ${g.title ? `<h4 class="box-title">${esc(g.title)}</h4>` : ""}
+          <div class="table-scroll"><table class="q-table">
+            <thead><tr>${c.headers.map((h) => `<th scope="col">${esc(h)}</th>`).join("")}</tr></thead>
+            <tbody>${c.rows.map((r) => `<tr>${r.map((cell) => `<td>${this.fill(cell, g)}</td>`).join("")}</tr>`).join("")}</tbody>
+          </table></div>
+        </div>
+        ${this.optionsBox(g)}`;
+    }
+
+    flowHTML(g) {
+      return `
+        <div class="notes-box">
+          ${g.title ? `<h4 class="box-title">${esc(g.title)}</h4>` : ""}
+          <ol class="flow-steps">${g.content.map((s) => `<li>${this.fill(s, g)}</li>`).join("")}</ol>
+        </div>
+        ${this.optionsBox(g)}`;
+    }
+
+    shortAnswerHTML(q) {
+      const val = this.answers[q.number] || "";
+      return `
+        <div class="question-card" data-qnums="${q.number}">
+          <div class="q-line">${this.badge(q.number)}<span class="question-prompt">${esc(q.prompt)}</span></div>
+          <input type="text" class="gap-input short-input ${val ? "has-value" : ""}" data-q="${q.number}" value="${esc(val)}"
+            aria-label="Answer for question ${q.number}" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="60" />
+        </div>`;
+    }
+
+    /* Finish ----------------------------------------------------------- */
+    async confirmFinish() {
+      const answered = this.numbers.filter((n) => this.answers[n]).length;
+      const unanswered = this.numbers.length - answered;
+      const flagged = this.flagged.size;
+      const ok = await U.modal({
+        title: "Finish the Reading test?",
+        bodyHTML: `
+          <div class="summary-rows">
+            <div><span>Answered</span><strong>${answered} of ${this.numbers.length}</strong></div>
+            <div class="${unanswered ? "is-warn" : ""}"><span>Unanswered</span><strong>${unanswered}</strong></div>
+            <div><span>Marked for review</span><strong>${flagged}</strong></div>
+          </div>
+          ${unanswered ? `<p class="warn-text">Unanswered questions are marked as incorrect. There is no penalty for guessing.</p>` : ""}`,
+        buttons: [
+          { label: "Return to test", className: "btn-secondary", value: false },
+          { label: "Submit answers", className: "btn-danger", value: true },
+        ],
+      });
+      if (ok) this.submit();
+    }
+
+    async submit() {
+      if (this.finished) return;
+      this.finished = true;
+      clearInterval(this.timer);
+      const done = U.loadingOverlay("Marking your answers…", "Calculating your estimated band score.");
+      try {
+        const result = await U.api(`/api/reading/${encodeURIComponent(this.test.id)}/submit`, {
+          method: "POST",
+          body: JSON.stringify({
+            answers: this.answers,
+            candidateName: this.candidateName,
+            clientId: U.clientId(),
+            mode: this.mode,
+            timeSpentSeconds: this.elapsed,
+          }),
+        });
+        this.clearProgress();
+        done();
+        this.onFinish(result);
+      } catch (err) {
+        done();
+        this.saveProgress();
+        this.resumeTimerAfterFailedSubmit();
+        U.modal({
+          title: "Could not submit",
+          bodyHTML: `<p>${esc(err.message)}</p><p>Your answers are saved in this browser. Check your connection and press <strong>Finish test</strong> again.</p>`,
+        });
+      }
     }
   }
 
-  evaluateOffline(timeSpent) {
-    let rawScore = 0;
-    const passageBreakdown = {};
-    const detailedResults = [];
+  /* ======================================================================
+     Writing
+     ====================================================================== */
+  class WritingExam extends ExamShell {
+    constructor(opts) {
+      super(opts);
+      this.aiMarking = Boolean(opts.aiMarking);
+      this.responses = (this.saved && this.saved.responses) || { 1: "", 2: "" };
+      this.taskIdx = 0;
+      this.mount();
+    }
 
-    this.testData.passages.forEach(p => {
-      passageBreakdown[p.passageNumber] = {
-        title: p.title,
-        total: p.questions.length,
-        correct: 0
-      };
+    mount() {
+      this.mountShell(`${this.test.shortTitle || this.test.title} · Writing`, "Task", "Your answer");
+      $("exam-question-strip").hidden = true;
+      $("exam-review-wrap").hidden = true;
+      this.highlighter = new CdHighlighter("exam-pane-left");
 
-      p.questions.forEach(q => {
-        const candVal = this.answers[String(q.number)] || "";
-        let isCorrect = false;
-
-        if (Array.isArray(q.answer)) {
-          isCorrect = q.answer.some(alt =>
-            IeltsScoring.normalizeAnswer(alt) === IeltsScoring.normalizeAnswer(candVal)
-          );
-        } else {
-          isCorrect = IeltsScoring.normalizeAnswer(q.answer) === IeltsScoring.normalizeAnswer(candVal);
-        }
-
-        if (isCorrect) {
-          rawScore++;
-          passageBreakdown[p.passageNumber].correct++;
-        }
-
-        detailedResults.push({
-          number: q.number,
-          passageNumber: p.passageNumber,
-          type: q.type,
-          prompt: q.prompt,
-          candidateAnswer: candVal,
-          correctAnswer: q.answer,
-          isCorrect,
-          explanation: q.explanation || "",
-          passageReference: q.passageReference || ""
-        });
+      this.on($("exam-part-tabs"), "click", (e) => {
+        const b = e.target.closest(".part-tab-btn");
+        if (b) this.renderTask(Number(b.dataset.t));
       });
-    });
+      this.on($("btn-prev-q"), "click", () => this.renderTask(this.taskIdx - 1));
+      this.on($("btn-next-q"), "click", () => this.renderTask(this.taskIdx + 1));
+      this.renderTask(0);
+    }
 
-    const bandInfo = IeltsScoring.getBandScore(rawScore);
+    helpHTML() {
+      return `
+        <p><strong>Writing</strong></p>
+        <ul class="help-list">
+          <li>Use the <strong>Part 1</strong> and <strong>Part 2</strong> buttons to move between tasks. Your text is kept when you switch.</li>
+          <li>The word count updates as you type. Task 1 needs at least 150 words and Task 2 at least 250.</li>
+          <li>Spell-check is switched off, as in the real computer-delivered test.</li>
+          <li>Your answers are saved in this browser as you type.</li>
+        </ul>
+        ${super.helpHTML()}`;
+    }
 
-    return {
-      testId: this.testData.id,
-      book: this.testData.book,
-      title: this.testData.title,
-      candidateName: this.candidateName,
-      rawScore,
-      totalQuestions: this.testData.totalQuestions,
-      bandScore: bandInfo.band,
-      cefrLevel: bandInfo.cefr,
-      timeSpentSeconds: timeSpent,
-      passageBreakdown,
-      results: detailedResults
-    };
+    progressData() {
+      return { responses: this.responses };
+    }
+
+    renderTask(i) {
+      if (i < 0 || i >= this.test.tasks.length) return;
+      this.taskIdx = i;
+      const t = this.test.tasks[i];
+      const n = t.taskNumber;
+      const left = $("exam-pane-left");
+      left.innerHTML = `
+        <div class="passage-header"><div class="passage-part-label">Part ${n}</div></div>
+        <div class="passage-instruction-bar">
+          You should spend about ${t.recommendedMinutes} minutes on this task. Write at least ${t.minWords} words.
+        </div>
+        <div class="task-prompt">${U.paragraphs(t.prompt)}</div>
+        ${TaskCharts.render(t.visual)}`;
+      left.scrollTop = 0;
+
+      $("exam-pane-right").innerHTML = `
+        <div class="writing-area">
+          <label class="sr-only" for="writing-input">Your answer for Part ${n}</label>
+          <textarea id="writing-input" class="writing-input" spellcheck="false" autocomplete="off"
+            autocorrect="off" autocapitalize="off" placeholder="Type your answer here…"></textarea>
+          <div class="word-count" aria-live="polite">Words: <strong id="word-count-val">0</strong>
+            <span class="word-target">(minimum ${t.minWords})</span></div>
+        </div>`;
+      const ta = $("writing-input");
+      ta.value = this.responses[n] || "";
+      this.on(ta, "input", () => {
+        this.responses[n] = ta.value;
+        this.updateWordCount();
+        this.saveProgressSoon();
+      });
+      this.updateWordCount();
+      $("btn-prev-q").disabled = i === 0;
+      $("btn-next-q").disabled = i === this.test.tasks.length - 1;
+    }
+
+    updateWordCount() {
+      const t = this.test.tasks[this.taskIdx];
+      const words = U.countWords(this.responses[t.taskNumber]);
+      const el = $("word-count-val");
+      if (el) {
+        el.textContent = words;
+        el.parentElement.classList.toggle("is-under", words < t.minWords);
+      }
+      this.renderTabs();
+    }
+
+    renderTabs() {
+      $("exam-part-tabs").innerHTML = this.test.tasks
+        .map((t, i) => `<button type="button" class="part-tab-btn ${i === this.taskIdx ? "active" : ""}" data-t="${i}">
+            Part ${t.taskNumber} <span class="part-count">${U.countWords(this.responses[t.taskNumber])} words</span></button>`)
+        .join("");
+    }
+
+    async confirmFinish() {
+      const rows = this.test.tasks.map((t) => {
+        const w = U.countWords(this.responses[t.taskNumber]);
+        return `<div class="${w < t.minWords ? "is-warn" : ""}"><span>Task ${t.taskNumber} (min ${t.minWords})</span><strong>${w} words</strong></div>`;
+      }).join("");
+      const under = this.test.tasks.some((t) => U.countWords(this.responses[t.taskNumber]) < t.minWords);
+      let wantAi = this.aiMarking;
+      const ok = await U.modal({
+        title: "Finish the Writing test?",
+        bodyHTML: `
+          <div class="summary-rows">${rows}</div>
+          ${under ? `<p class="warn-text">At least one answer is below the minimum word count. Short answers lose marks.</p>` : ""}
+          ${this.aiMarking
+            ? `<label class="check-row"><input type="checkbox" id="ai-mark-check" checked /> Get AI examiner feedback and an estimated band score (takes about a minute)</label>`
+            : `<p class="muted-text">You will get automatic feedback, a checklist and model answers.</p>`}`,
+        buttons: [
+          { label: "Return to test", className: "btn-secondary", value: false },
+          { label: "Submit writing", className: "btn-danger", value: true },
+        ],
+        onClose: (value, root) => {
+          const box = root.querySelector("#ai-mark-check");
+          if (box) wantAi = box.checked;
+        },
+      });
+      if (ok) this.submit(wantAi);
+    }
+
+    async submit(wantAi = this.aiMarking) {
+      if (this.finished) return;
+      this.finished = true;
+      clearInterval(this.timer);
+      const done = wantAi
+        ? U.loadingOverlay("The examiner is marking your writing…", "This usually takes 30–90 seconds. Please keep this page open.")
+        : U.loadingOverlay("Analysing your writing…", "Preparing your feedback.");
+      try {
+        const result = await U.api(`/api/writing/${encodeURIComponent(this.test.id)}/submit`, {
+          method: "POST",
+          body: JSON.stringify({
+            responses: this.responses,
+            candidateName: this.candidateName,
+            clientId: U.clientId(),
+            mode: this.mode,
+            timeSpentSeconds: this.elapsed,
+            requestAssessment: wantAi,
+          }),
+        });
+        this.clearProgress();
+        done();
+        this.onFinish(result);
+      } catch (err) {
+        done();
+        this.saveProgress();
+        this.resumeTimerAfterFailedSubmit();
+        U.modal({
+          title: "Could not submit",
+          bodyHTML: `<p>${esc(err.message)}</p><p>Your writing is saved in this browser. Check your connection and press <strong>Finish test</strong> again.</p>`,
+        });
+      }
+    }
   }
 
-  destroy() {
-    if (this.timerInterval) clearInterval(this.timerInterval);
-    if (this.highlighter) this.highlighter.clearAll();
-  }
-}
-
-window.CdIeltsExam = CdIeltsExam;
-
+  window.ReadingExam = ReadingExam;
+  window.WritingExam = WritingExam;
+})();

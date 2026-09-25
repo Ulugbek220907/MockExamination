@@ -1,0 +1,49 @@
+{
+  "id": "academic-writing-03",
+  "module": "writing",
+  "variant": "academic",
+  "title": "Academic Writing Practice Test 3",
+  "shortTitle": "Practice Test 3",
+  "durationMinutes": 60,
+  "sortOrder": 3,
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "title": "Process diagram: recycling glass bottles",
+      "recommendedMinutes": 20,
+      "minWords": 150,
+      "prompt": "The diagram below shows the process by which glass bottles are recycled.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+      "visual": {
+        "type": "process",
+        "title": "How glass bottles are recycled",
+        "cycle": true,
+        "steps": [
+          { "label": "Collection", "text": "Used bottles are placed in recycling banks" },
+          { "label": "Transport", "text": "Bottles are taken by truck to a processing plant" },
+          { "label": "Sorting", "text": "Glass is sorted by colour: clear, green and brown" },
+          { "label": "Cleaning", "text": "Bottles are washed to remove labels, lids and dirt" },
+          { "label": "Crushing", "text": "Glass is crushed into small pieces called ‘cullet’" },
+          { "label": "Melting", "text": "Cullet is mixed with sand, soda ash and limestone and melted at 1,500°C" },
+          { "label": "Moulding", "text": "Molten glass is shaped into new bottles" },
+          { "label": "Distribution", "text": "New bottles are filled and delivered to shops" }
+        ]
+      },
+      "examinerNotes": [
+        "Overview should note: cyclical process, eight stages, from collection of used bottles to new bottles returning to shops/consumers.",
+        "Stages: recycling banks → truck to plant → sort by colour (clear/green/brown) → wash (labels, lids, dirt) → crush into cullet → mix with sand, soda ash, limestone and melt at 1,500°C → mould into new bottles → fill and deliver to shops.",
+        "Good answers use passive forms and sequencing language (first, then, next, finally)."
+      ],
+      "modelAnswer": "The diagram illustrates the stages involved in recycling glass bottles and turning them into new ones.\n\nOverall, the process is cyclical and consists of eight main stages, beginning with the collection of used bottles and ending with new bottles being delivered to shops, from where they can eventually be recycled again.\n\nIn the first stage, used glass bottles are deposited in recycling banks, from where they are collected and transported by truck to a processing plant. At the plant, the glass is sorted according to its colour into three categories: clear, green and brown. The bottles are then washed to remove labels, lids and any dirt before being crushed into small fragments, which are known as cullet.\n\nNext, the cullet is combined with raw materials, namely sand, soda ash and limestone, and the mixture is melted in a furnace at a temperature of 1,500°C. The resulting molten glass is poured into moulds and shaped into new bottles. Finally, these bottles are filled and delivered to shops and supermarkets, where they are bought by consumers. Once they are empty, they can be returned to recycling banks, and the cycle begins again."
+    },
+    {
+      "taskNumber": 2,
+      "title": "Opinion essay: roads or public transport",
+      "recommendedMinutes": 40,
+      "minWords": 250,
+      "essayType": "opinion",
+      "prompt": "Write about the following topic:\n\nSome people think that governments should spend more money on public transport than on building new roads.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+      "modelAnswer": "Traffic congestion is a growing problem in cities around the world, and governments must decide how best to invest in transport. I strongly agree that public transport should receive more funding than road building, for reasons of efficiency, environmental protection and fairness.\n\nFirstly, public transport is a far more efficient use of limited urban space. A single bus can carry as many passengers as dozens of cars, and a metro line can move tens of thousands of people an hour without occupying any space at street level. Building new roads, by contrast, often fails to solve congestion in the long term, because additional road space encourages more people to drive. Within a few years, the new roads are frequently as crowded as the old ones.\n\nSecondly, investing in buses, trains and trams is essential if countries are to reduce air pollution and carbon emissions. Private cars are a major source of both, and people are only likely to leave their cars at home if they have a fast, reliable and affordable alternative. Several major cities have shown that high-quality public transport can significantly reduce people’s dependence on cars.\n\nFinally, public transport is fairer. Not everyone can afford to own and run a car, and those who cannot, including many young, elderly and low-income people, depend on buses and trains to reach work, education and healthcare. Spending public money mainly on roads benefits car owners at the expense of these groups.\n\nAdmittedly, roads remain necessary, particularly in rural areas where public transport is impractical, and for the delivery of goods. Governments should therefore continue to maintain the existing road network. However, when it comes to new investment, the priority should be public transport.\n\nIn conclusion, I believe that spending more on public transport than on new roads is the most effective way to reduce congestion, protect the environment and ensure that everyone is able to travel."
+    }
+  ]
+}
