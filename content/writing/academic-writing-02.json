@@ -1,0 +1,52 @@
+{
+  "id": "academic-writing-02",
+  "module": "writing",
+  "variant": "academic",
+  "title": "Academic Writing Practice Test 2",
+  "shortTitle": "Practice Test 2",
+  "durationMinutes": 60,
+  "sortOrder": 2,
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "title": "Bar chart: leisure time by age",
+      "recommendedMinutes": 20,
+      "minWords": 150,
+      "prompt": "The chart below shows the average number of hours per week that people in four age groups spent on four leisure activities in one country in 2022.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+      "visual": {
+        "type": "bar",
+        "title": "Average weekly hours spent on leisure activities, by age group (2022)",
+        "yLabel": "Hours per week",
+        "unit": "",
+        "yMax": 25,
+        "yStep": 5,
+        "categories": ["16–24", "25–44", "45–64", "65 and over"],
+        "series": [
+          { "name": "Watching television", "values": [9, 11, 15, 24] },
+          { "name": "Using social media", "values": [18, 10, 6, 2] },
+          { "name": "Exercising", "values": [6, 4, 3, 5] },
+          { "name": "Reading", "values": [2, 3, 5, 8] }
+        ],
+        "note": "Fictional data created for practice purposes."
+      },
+      "examinerNotes": [
+        "Overview should note: TV and reading rise with age; social media falls with age; TV is the biggest activity for all groups except 16–24; exercise is low for everyone.",
+        "16–24: social media 18h (highest for this group), TV 9h, exercise 6h, reading 2h.",
+        "Social media: 18 → 10 → 6 → 2.",
+        "TV: 9 → 11 → 15 → 24 (24h for 65+ is the highest figure).",
+        "Reading: 2 → 3 → 5 → 8. Exercise: 6, 4, 3, 5 (youngest most, 45–64 least)."
+      ],
+      "modelAnswer": "The bar chart compares how many hours per week people in four age groups spent watching television, using social media, exercising and reading in one country in 2022.\n\nOverall, the time spent watching television and reading rose with age, whereas social media use showed the opposite pattern. Television was the most time-consuming activity for every group except the youngest, and exercise occupied relatively little time at all ages.\n\nThe 16–24 age group spent 18 hours a week on social media, twice as long as they spent watching television (9 hours). Social media use then fell steadily with age, to 10 hours among 25–44-year-olds, 6 hours for those aged 45–64 and just 2 hours for people aged 65 and over.\n\nTelevision viewing followed the reverse trend, increasing from 9 hours for the youngest group to 24 hours for the oldest, which was the highest figure in the chart. Reading also became more popular with age, rising from 2 to 8 hours a week. Exercise, by contrast, varied little, ranging from 3 to 6 hours, with the youngest group the most active and those aged 45–64 the least."
+    },
+    {
+      "taskNumber": 2,
+      "title": "Two-part essay: living alone",
+      "recommendedMinutes": 40,
+      "minWords": 250,
+      "essayType": "two_part",
+      "prompt": "Write about the following topic:\n\nIn many countries, an increasing number of people are choosing to live alone.\n\nWhat are the reasons for this trend? Do you think it is a positive or negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+      "modelAnswer": "In many parts of the world, single-person households are becoming more common. This trend has several causes, and although it brings some social challenges, I believe it is largely a positive development.\n\nThe main reason for the rise in people living alone is greater financial independence. As more people, especially women, gain access to education and well-paid work, they no longer need to share a home in order to afford one. Social attitudes have also changed. In the past, living alone was often seen as a sign of loneliness or failure, whereas today many young adults regard having their own space as a normal stage of life. In addition, people are marrying later, divorcing more often and living longer, which means that many older people, particularly those who have lost a partner, spend the later part of their lives alone.\n\nThis development has clear benefits. Living alone gives people the freedom to organise their time, make their own decisions and pursue their careers and interests without having to compromise. For many, it also encourages independence and self-reliance. Moreover, people who live alone are not necessarily isolated: many have active social lives and strong networks of friends.\n\nHowever, the trend is not without drawbacks. Single-person households use more land, energy and resources per person, which puts pressure on housing supply and the environment. There is also a genuine risk of loneliness, especially for elderly people with limited mobility, and this can have serious effects on physical and mental health.\n\nIn conclusion, the growth in the number of people living alone is driven by rising incomes, changing attitudes and longer lives. On balance, I believe it is a positive development because it reflects greater prosperity and personal freedom, but governments should build more small, affordable homes and support community services that help isolated people, particularly the elderly, to stay connected."
+    }
+  ]
+}

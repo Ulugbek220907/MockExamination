@@ -1,0 +1,52 @@
+{
+  "id": "academic-writing-01",
+  "module": "writing",
+  "variant": "academic",
+  "title": "Academic Writing Practice Test 1",
+  "shortTitle": "Practice Test 1",
+  "durationMinutes": 60,
+  "sortOrder": 1,
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "tasks": [
+    {
+      "taskNumber": 1,
+      "title": "Line graph: payment methods",
+      "recommendedMinutes": 20,
+      "minWords": 150,
+      "prompt": "The graph below shows the methods people in one country used to pay for purchases in shops between 2000 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+      "visual": {
+        "type": "line",
+        "title": "Payment methods used in shops, 2000–2020",
+        "yLabel": "% of all transactions",
+        "unit": "%",
+        "yMax": 80,
+        "yStep": 10,
+        "categories": ["2000", "2004", "2008", "2012", "2016", "2020"],
+        "series": [
+          { "name": "Cash", "values": [68, 62, 55, 44, 30, 15] },
+          { "name": "Debit card", "values": [18, 22, 28, 34, 40, 42] },
+          { "name": "Credit card", "values": [12, 14, 15, 17, 18, 16] },
+          { "name": "Mobile phone", "values": [0, 0, 0, 3, 10, 26] }
+        ],
+        "note": "Fictional data created for practice purposes."
+      },
+      "examinerNotes": [
+        "Overview should note: cash fell sharply and was overtaken by debit cards; mobile payments appeared around 2012 and grew rapidly; credit cards stayed fairly stable.",
+        "Cash: 68% (2000) → 15% (2020), decline accelerating after 2008.",
+        "Debit card: 18% → 42%, overtaking cash between 2012 and 2016.",
+        "Mobile phone: 0% until 2008, 3% in 2012, 26% in 2020 (second place by 2020).",
+        "Credit card: between 12% and 18% throughout; 16% in 2020."
+      ],
+      "modelAnswer": "The line graph illustrates how people in one country paid for purchases in shops between 2000 and 2020, measured as a percentage of all transactions.\n\nOverall, cash was replaced by debit cards as the most common payment method, while mobile phone payments, which did not exist at the start of the period, grew rapidly in the final decade. Credit card use changed relatively little.\n\nIn 2000, more than two thirds of transactions (68%) were made in cash. This figure fell steadily throughout the period, and the decline accelerated after 2008, so that by 2020 only 15% of purchases were paid for with notes and coins. Debit cards followed the opposite trend, rising from 18% in 2000 to 40% in 2016 and overtaking cash as the leading method at some point between 2012 and 2016. By 2020, they accounted for 42% of transactions.\n\nPayments by mobile phone first appeared in 2012, at just 3%, but increased sharply to 26% by 2020, making them the second most popular method by the end of the period. Credit cards, by contrast, remained fairly stable, fluctuating between 12% and 18% and ending the period at 16%."
+    },
+    {
+      "taskNumber": 2,
+      "title": "Discussion essay: the purpose of university",
+      "recommendedMinutes": 40,
+      "minWords": 250,
+      "essayType": "discussion",
+      "prompt": "Write about the following topic:\n\nSome people think that the main purpose of a university education is to give students academic knowledge, while others believe that universities should prepare students for the world of work.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+      "modelAnswer": "Universities have traditionally been places of scholarship, but rising tuition fees and a competitive job market have led many people to argue that their main task should be to prepare graduates for employment. Although both views have merit, I believe that universities serve students best when they combine academic depth with practical preparation.\n\nThose who emphasise academic knowledge argue that universities are unique institutions. They are among the few places where people can study a subject in depth for its own sake, learn to question assumptions and carry out original research. Many important discoveries, from vaccines to computer algorithms, began as academic enquiries with no obvious commercial use. If universities became training centres for particular jobs, this kind of long-term thinking might disappear. Furthermore, specific job skills can quickly become outdated, whereas the ability to analyse problems and evaluate evidence lasts a lifetime.\n\nOn the other hand, supporters of a more vocational approach point out that most students attend university in order to improve their career prospects. Graduates who have never written a report for a real client, worked in a team or used industry-standard software may struggle when they first enter the workplace. Employers frequently complain that they must spend time and money training new graduates in basic professional skills, and students who have taken on large debts arguably deserve an education that leads directly to a good job.\n\nIn my view, these aims are not mutually exclusive. A history student who learns to research and present an argument is developing skills that are highly valued by employers, and engineering courses have always combined theory with practical projects. The best approach is for universities to maintain rigorous academic standards while also offering work placements, careers guidance and project-based learning.\n\nIn conclusion, universities should neither abandon their academic mission nor ignore the needs of the job market; a balance between the two benefits both students and society."
+    }
+  ]
+}

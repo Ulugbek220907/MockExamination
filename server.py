@@ -1,434 +1,455 @@
 #!/usr/bin/env python3
 """
-IELTS Mock Exam Platform Server
-Provides REST API endpoints for tests, answer evaluation, band score calculation,
-and serves static web assets. Uses Tornado with fallback to standard http.server.
+Mock exam platform server (Tornado).
+
+Serves the single-page app from public/ and a small JSON API:
+
+  GET  /api/health                     health check for the host
+  GET  /api/config                     public feature flags (AI marking on/off, site name)
+  GET  /api/tests                      dashboard summaries of every published test
+  GET  /api/tests/<id>                 one test, WITHOUT answer keys / model answers
+  POST /api/reading/<id>/submit        mark a reading test, store the attempt, return results
+  POST /api/writing/<id>/submit        analyse (and optionally AI-mark) a writing test
+  GET  /api/history?clientId=<uuid>    a browser's own recent attempts
+  GET  /api/admin/stats                totals (requires ADMIN_TOKEN)
+  POST /api/admin/refresh              reload test content (requires ADMIN_TOKEN)
+
+Configuration is entirely through environment variables – see .env.example.
 """
 
-import os
-import sys
-import json
-import sqlite3
+import asyncio
+import collections
 import datetime
-import mimetypes
+import hmac
+import json
+import logging
+import os
+import re
+import sys
+import threading
+import time
 
-# Explicitly ensure correct MIME types for modern browsers
-mimetypes.add_type("application/javascript", ".js")
-mimetypes.add_type("text/css", ".css")
-mimetypes.add_type("application/json", ".json")
-mimetypes.add_type("image/svg+xml", ".svg")
+import tornado.ioloop
+import tornado.web
+
+
+def load_dotenv(path):
+    """Minimal .env support for local development (real env vars always win)."""
+    if not os.path.exists(path):
+        return
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+
+from mockexam import content, scoring, storage, writing  # noqa: E402
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+log = logging.getLogger("mockexam")
 
 PORT = int(os.environ.get("PORT", 8080))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(BASE_DIR, "data", "tests.json")
-DB_FILE = os.path.join(BASE_DIR, "data", "attempts.db")
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
+SITE_NAME = os.environ.get("SITE_NAME", "MockExam")
+ADMIN_TOKEN = os.environ.get("ADMIN_TOKEN", "")
+CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "")
+TRUST_PROXY = os.environ.get("TRUST_PROXY", "1") != "0"
 
-# Initialize SQLite database for storing mock exam attempts
-def init_db():
-    os.makedirs(os.path.dirname(DB_FILE), exist_ok=True)
-    conn = sqlite3.connect(DB_FILE, timeout=10.0)
-    c = conn.cursor()
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS attempts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            test_id TEXT NOT NULL,
-            candidate_name TEXT NOT NULL,
-            raw_score INTEGER NOT NULL,
-            total_questions INTEGER NOT NULL,
-            band_score REAL NOT NULL,
-            time_spent_seconds INTEGER NOT NULL,
-            completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            summary_json TEXT
-        )
-    """)
-    conn.commit()
-    conn.close()
+AI_PER_IP_PER_HOUR = int(os.environ.get("AI_PER_IP_PER_HOUR", 6))
+AI_DAILY_LIMIT = int(os.environ.get("AI_DAILY_LIMIT", 300))
+AI_MAX_CONCURRENT = int(os.environ.get("AI_MAX_CONCURRENT", 4))
+MAX_ESSAY_CHARS = 12000
+MAX_BODY_BYTES = 256 * 1024
 
-# Load tests dataset
-def load_dataset():
-    if not os.path.exists(DATA_FILE):
-        return {"modules": {}, "tests": []}
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+TEST_ID_PATTERN = r"([a-z0-9][a-z0-9\-]{0,80})"
 
-# Official IELTS Academic Reading Band Score conversion
-def calculate_band_score(raw_score):
-    if raw_score >= 39:
-        return 9.0
-    elif raw_score >= 37:
-        return 8.5
-    elif raw_score >= 35:
-        return 8.0
-    elif raw_score >= 33:
-        return 7.5
-    elif raw_score >= 30:
-        return 7.0
-    elif raw_score >= 27:
-        return 6.5
-    elif raw_score >= 23:
-        return 6.0
-    elif raw_score >= 19:
-        return 5.5
-    elif raw_score >= 15:
-        return 5.0
-    elif raw_score >= 13:
-        return 4.5
-    elif raw_score >= 10:
-        return 4.0
-    elif raw_score >= 8:
-        return 3.5
-    elif raw_score >= 6:
-        return 3.0
-    elif raw_score >= 4:
-        return 2.5
-    else:
-        return 2.0
+MODULES = {
+    "reading": {"name": "Reading", "status": "active"},
+    "writing": {"name": "Writing", "status": "active"},
+    "listening": {"name": "Listening", "status": "soon"},
+    "speaking": {"name": "Speaking", "status": "soon"},
+}
 
-def get_cefr_level(band_score):
-    if band_score >= 8.5:
-        return "C2 (Proficient)"
-    elif band_score >= 7.0:
-        return "C1 (Advanced)"
-    elif band_score >= 5.5:
-        return "B2 (Independent)"
-    elif band_score >= 4.0:
-        return "B1 (Intermediate)"
-    else:
-        return "A2 / Basic"
+STORE = storage.create_store()
 
-def normalize_text(val):
-    if val is None:
-        return ""
-    return str(val).strip().lower()
 
-def evaluate_test_submission(test_data, submitted_answers, candidate_name="Candidate", time_spent=0):
-    total_q = 0
-    raw_score = 0
-    passage_breakdown = {}
-    detailed_results = []
+# --------------------------------------------------------------------------
+# Rate limiting for paid AI calls
+# --------------------------------------------------------------------------
 
-    # Map questions
-    q_map = {}
-    for p in test_data["passages"]:
-        p_num = p["passageNumber"]
-        passage_breakdown[p_num] = {"title": p["title"], "total": 0, "correct": 0}
-        for q in p["questions"]:
-            q_map[str(q["number"])] = (p_num, q)
+class AiLimiter:
+    """In-memory limits: N assessments per IP per hour, and a global daily cap."""
 
-    # Handle multi-select pairs (e.g. Q20 & Q21, Q22 & Q23, Q23 & Q24, Q25 & Q26)
-    # Check each question
-    for q_num_str, (p_num, q) in q_map.items():
-        total_q += 1
-        passage_breakdown[p_num]["total"] += 1
+    def __init__(self, per_ip_per_hour, daily_limit):
+        self.per_ip = per_ip_per_hour
+        self.daily = daily_limit
+        self.hits = collections.defaultdict(collections.deque)
+        self.day = datetime.date.today()
+        self.day_count = 0
+        self.lock = threading.Lock()
 
-        cand_val = submitted_answers.get(q_num_str, "")
-        correct_ans = q["answer"]
+    def try_acquire(self, ip):
+        now = time.time()
+        with self.lock:
+            today = datetime.date.today()
+            if today != self.day:
+                self.day, self.day_count = today, 0
+            if self.day_count >= self.daily:
+                return "The daily limit for AI marking has been reached. Please try again tomorrow."
+            q = self.hits[ip]
+            while q and now - q[0] > 3600:
+                q.popleft()
+            if len(q) >= self.per_ip:
+                return f"You can request AI marking {self.per_ip} times per hour. Please try again later."
+            q.append(now)
+            self.day_count += 1
+            return None
 
-        is_correct = False
 
-        if isinstance(correct_ans, list):
-            # Either alternative correct answers OR multi-select pair
-            cand_norm = normalize_text(cand_val)
-            for alt in correct_ans:
-                if cand_norm == normalize_text(alt):
-                    is_correct = True
-                    break
-        else:
-            cand_norm = normalize_text(cand_val)
-            corr_norm = normalize_text(correct_ans)
-            if cand_norm == corr_norm:
-                is_correct = True
+AI_LIMITER = AiLimiter(AI_PER_IP_PER_HOUR, AI_DAILY_LIMIT)
+AI_SEMAPHORE = asyncio.Semaphore(AI_MAX_CONCURRENT)
 
-        if is_correct:
-            raw_score += 1
-            passage_breakdown[p_num]["correct"] += 1
 
-        detailed_results.append({
-            "number": q["number"],
-            "passageNumber": p_num,
-            "type": q["type"],
-            "prompt": q["prompt"],
-            "candidateAnswer": cand_val,
-            "correctAnswer": correct_ans,
-            "isCorrect": is_correct,
-            "explanation": q.get("explanation", ""),
-            "passageReference": q.get("passageReference", "")
+# --------------------------------------------------------------------------
+# Helpers
+# --------------------------------------------------------------------------
+
+async def in_thread(fn, *args):
+    return await tornado.ioloop.IOLoop.current().run_in_executor(None, fn, *args)
+
+
+def clean_name(value):
+    name = re.sub(r"\s+", " ", str(value or "")).strip()
+    return name[:80] or "Candidate"
+
+
+def clean_client_id(value):
+    value = str(value or "").strip().lower()
+    return value if UUID_RE.match(value) else None
+
+
+def clean_seconds(value):
+    try:
+        return max(0, min(int(value), 4 * 3600))
+    except (TypeError, ValueError):
+        return 0
+
+
+SECURITY_HEADERS = {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+    "Content-Security-Policy": (
+        "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
+        "img-src 'self' data:; connect-src 'self'; font-src 'self'; "
+        "frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    ),
+}
+
+
+class BaseHandler(tornado.web.RequestHandler):
+    def set_default_headers(self):
+        for k, v in SECURITY_HEADERS.items():
+            self.set_header(k, v)
+
+    def send_json(self, payload, status=200):
+        self.set_status(status)
+        self.set_header("Content-Type", "application/json; charset=utf-8")
+        self.set_header("Cache-Control", "no-store")
+        self.finish(json.dumps(payload, ensure_ascii=False))
+
+    def send_error_json(self, status, message):
+        self.send_json({"error": message}, status)
+
+    def body_json(self):
+        if len(self.request.body or b"") > MAX_BODY_BYTES:
+            raise tornado.web.HTTPError(413)
+        try:
+            data = json.loads(self.request.body or b"{}")
+        except (ValueError, UnicodeDecodeError):
+            raise tornado.web.HTTPError(400, "Invalid JSON")
+        if not isinstance(data, dict):
+            raise tornado.web.HTTPError(400, "Expected a JSON object")
+        return data
+
+    def write_error(self, status_code, **kwargs):
+        reason = self._reason if status_code < 500 else "Internal server error"
+        self.send_json({"error": reason}, status_code)
+
+    def client_ip(self):
+        """
+        Real client IP for rate limiting. Behind a proxy (Render, Docker ingress) the
+        proxy appends the address it saw as the LAST X-Forwarded-For entry, which a
+        client cannot forge. Set TRUST_PROXY=0 when the server is exposed directly.
+        """
+        if TRUST_PROXY:
+            forwarded = self.request.headers.get("X-Forwarded-For", "")
+            if forwarded:
+                return forwarded.split(",")[-1].strip()
+        return self.request.remote_ip
+
+    def require_admin(self):
+        supplied = self.request.headers.get("Authorization", "").removeprefix("Bearer ").strip()
+        if not ADMIN_TOKEN or not hmac.compare_digest(supplied, ADMIN_TOKEN):
+            raise tornado.web.HTTPError(401, "Admin token required")
+
+
+# --------------------------------------------------------------------------
+# Handlers
+# --------------------------------------------------------------------------
+
+class HealthHandler(BaseHandler):
+    def get(self):
+        self.send_json({
+            "status": "healthy",
+            "service": "mock-exam",
+            "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         })
 
-    detailed_results.sort(key=lambda x: x["number"])
-    band_score = calculate_band_score(raw_score)
-    cefr = get_cefr_level(band_score)
 
-    # Save to SQLite
-    try:
-        conn = sqlite3.connect(DB_FILE)
-        c = conn.cursor()
-        c.execute("""
-            INSERT INTO attempts (test_id, candidate_name, raw_score, total_questions, band_score, time_spent_seconds, summary_json)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (
-            test_data["id"],
-            candidate_name,
-            raw_score,
-            total_q,
-            band_score,
-            time_spent,
-            json.dumps({"breakdown": passage_breakdown, "cefr": cefr})
-        ))
-        conn.commit()
-        conn.close()
-    except Exception as e:
-        print(f"Error saving attempt: {e}", file=sys.stderr)
+class ConfigHandler(BaseHandler):
+    def get(self):
+        self.send_json({
+            "siteName": SITE_NAME,
+            "aiMarking": writing.ai_configured(),
+            "contactEmail": CONTACT_EMAIL,
+            "storage": STORE.name,
+        })
 
-    return {
-        "testId": test_data["id"],
-        "book": test_data["book"],
-        "title": test_data["title"],
-        "candidateName": candidate_name,
-        "rawScore": raw_score,
-        "totalQuestions": total_q,
-        "bandScore": band_score,
-        "cefrLevel": cefr,
-        "timeSpentSeconds": time_spent,
-        "passageBreakdown": passage_breakdown,
-        "results": detailed_results
-    }
 
-# Implement Tornado Application
-try:
-    import tornado.ioloop
-    import tornado.web
-    import tornado.gen
+class TestsHandler(BaseHandler):
+    async def get(self):
+        tests = await in_thread(STORE.list_tests)
+        summaries = [content.summarize_test(t) for t in tests]
+        summaries.sort(key=lambda s: (s["module"], s["sortOrder"], s["id"]))
+        self.send_json({"modules": MODULES, "tests": summaries})
 
-    class ApiTestsHandler(tornado.web.RequestHandler):
-        def get(self):
-            dataset = load_dataset()
-            tests_summary = []
-            for t in dataset.get("tests", []):
-                tests_summary.append({
-                    "id": t["id"],
-                    "book": t["book"],
-                    "bookShort": t.get("bookShort", t["book"]),
-                    "testNumber": t["testNumber"],
-                    "title": t["title"],
-                    "durationMinutes": t["durationMinutes"],
-                    "totalQuestions": t["totalQuestions"],
-                    "passages": [
-                        {"number": p["passageNumber"], "title": p["title"]}
-                        for p in t["passages"]
-                    ]
-                })
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write(json.dumps({
-                "modules": dataset.get("modules", {}),
-                "tests": tests_summary
-            }))
 
-    class ApiSingleTestHandler(tornado.web.RequestHandler):
-        def get(self, test_id):
-            dataset = load_dataset()
-            for t in dataset.get("tests", []):
-                if t["id"] == test_id:
-                    self.set_header("Content-Type", "application/json; charset=utf-8")
-                    self.write(json.dumps(t))
-                    return
-            self.set_status(404)
-            self.write({"error": "Test not found"})
+class TestHandler(BaseHandler):
+    async def get(self, test_id):
+        test = await in_thread(STORE.get_test, test_id)
+        if not test:
+            return self.send_error_json(404, "Test not found")
+        if test.get("module") == "writing":
+            self.send_json(content.public_writing_test(test))
+        else:
+            self.send_json(content.public_reading_test(test))
 
-    class ApiSubmitHandler(tornado.web.RequestHandler):
-        def post(self, test_id):
-            dataset = load_dataset()
-            target_test = None
-            for t in dataset.get("tests", []):
-                if t["id"] == test_id:
-                    target_test = t
-                    break
-            
-            if not target_test:
-                self.set_status(404)
-                self.write({"error": "Test not found"})
-                return
 
-            try:
-                body = json.loads(self.request.body)
-            except Exception:
-                body = {}
+class ReadingSubmitHandler(BaseHandler):
+    async def post(self, test_id):
+        test = await in_thread(STORE.get_test, test_id)
+        if not test or test.get("module") != "reading":
+            return self.send_error_json(404, "Reading test not found")
+        body = self.body_json()
 
-            answers = body.get("answers", {})
-            candidate_name = body.get("candidateName", "Candidate")
-            time_spent = body.get("timeSpentSeconds", 0)
+        raw_answers = body.get("answers") or {}
+        answers = {}
+        if isinstance(raw_answers, dict):
+            for k, v in raw_answers.items():
+                if str(k).isdigit() and isinstance(v, str) and v.strip():
+                    answers[str(int(k))] = v.strip()[:100]
 
-            result = evaluate_test_submission(target_test, answers, candidate_name, time_spent)
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write(json.dumps(result))
+        name = clean_name(body.get("candidateName"))
+        seconds = clean_seconds(body.get("timeSpentSeconds"))
+        mode = "practice" if body.get("mode") == "practice" else "exam"
+        result = scoring.evaluate_reading(test, answers, name, seconds)
+        result["mode"] = mode
 
-    class ApiAttemptsHandler(tornado.web.RequestHandler):
-        def get(self):
-            conn = sqlite3.connect(DB_FILE)
-            c = conn.cursor()
-            c.execute("""
-                SELECT id, test_id, candidate_name, raw_score, total_questions, band_score, time_spent_seconds, completed_at, summary_json
-                FROM attempts ORDER BY id DESC LIMIT 50
-            """)
-            rows = c.fetchall()
-            conn.close()
+        record = {
+            "test_id": test["id"],
+            "client_id": clean_client_id(body.get("clientId")),
+            "candidate_name": name,
+            "mode": mode,
+            "raw_score": result["rawScore"],
+            "total_questions": result["totalQuestions"],
+            "band_score": result["bandScore"],
+            "time_spent_seconds": seconds,
+            "answers": answers,
+            "breakdown": {"passages": result["passageBreakdown"], "types": result["typeBreakdown"]},
+        }
+        try:
+            result["attemptId"] = await in_thread(STORE.save_reading_attempt, record)
+        except Exception:
+            log.exception("Could not save reading attempt")
+            result["attemptId"] = None
+        self.send_json(result)
 
-            attempts = []
-            for r in rows:
-                attempts.append({
-                    "id": r[0],
-                    "testId": r[1],
-                    "candidateName": r[2],
-                    "rawScore": r[3],
-                    "totalQuestions": r[4],
-                    "bandScore": r[5],
-                    "timeSpentSeconds": r[6],
-                    "completedAt": r[7],
-                    "summary": json.loads(r[8]) if r[8] else {}
-                })
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write(json.dumps({"attempts": attempts}))
 
-    class ApiHealthHandler(tornado.web.RequestHandler):
-        def get(self):
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write(json.dumps({
-                "status": "healthy",
-                "service": "ielts-mock-exam",
-                "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
-            }))
+class WritingSubmitHandler(BaseHandler):
+    async def post(self, test_id):
+        test = await in_thread(STORE.get_test, test_id)
+        if not test or test.get("module") != "writing":
+            return self.send_error_json(404, "Writing test not found")
+        body = self.body_json()
 
-    def make_app():
-        return tornado.web.Application([
-            (r"/api/health", ApiHealthHandler),
-            (r"/healthz", ApiHealthHandler),
-            (r"/api/tests", ApiTestsHandler),
-            (r"/api/tests/([a-zA-Z0-9_\-]+)", ApiSingleTestHandler),
-            (r"/api/tests/([a-zA-Z0-9_\-]+)/submit", ApiSubmitHandler),
-            (r"/api/attempts", ApiAttemptsHandler),
-            (r"/(.*)", tornado.web.StaticFileHandler, {
-                "path": PUBLIC_DIR,
-                "default_filename": "index.html"
-            })
-        ])
+        raw = body.get("responses") or {}
+        responses = {}
+        for n in (1, 2):
+            text = raw.get(str(n), "") if isinstance(raw, dict) else ""
+            text = text if isinstance(text, str) else ""
+            if len(text) > MAX_ESSAY_CHARS:
+                return self.send_error_json(413, f"Task {n} is too long.")
+            responses[n] = text.replace("\r\n", "\n").strip()
 
-    def run_server():
-        init_db()
-        app = make_app()
-        app.listen(PORT, address="0.0.0.0")
-        print(f"IELTS Mock Exam Platform running at http://0.0.0.0:{PORT}", flush=True)
-        print("Ready for tests: Cambridge 17, 18, 19 (Academic Reading)", flush=True)
-        tornado.ioloop.IOLoop.current().start()
+        tasks = {t["taskNumber"]: t for t in test["tasks"]}
+        analyses = {n: writing.analyse_text(responses[n], n, tasks[n]["minWords"]) for n in (1, 2)}
+        name = clean_name(body.get("candidateName"))
+        seconds = clean_seconds(body.get("timeSpentSeconds"))
 
-except ImportError:
-    # Standard library fallback
-    from http.server import HTTPServer, SimpleHTTPRequestHandler
-    import urllib.parse
-
-    class FallbackHandler(SimpleHTTPRequestHandler):
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, directory=PUBLIC_DIR, **kwargs)
-
-        def do_GET(self):
-            parsed = urllib.parse.urlparse(self.path)
-            if parsed.path in ("/api/health", "/healthz"):
-                self.send_response(200)
-                self.send_header("Content-Type", "application/json; charset=utf-8")
-                self.end_headers()
-                self.wfile.write(json.dumps({
-                    "status": "healthy",
-                    "service": "ielts-mock-exam",
-                    "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
-                }).encode("utf-8"))
-            elif parsed.path == "/api/tests":
-                self.send_response(200)
-                self.send_header("Content-Type", "application/json; charset=utf-8")
-                self.end_headers()
-                dataset = load_dataset()
-                tests_summary = [{
-                    "id": t["id"],
-                    "book": t["book"],
-                    "bookShort": t.get("bookShort", t["book"]),
-                    "testNumber": t["testNumber"],
-                    "title": t["title"],
-                    "durationMinutes": t["durationMinutes"],
-                    "totalQuestions": t["totalQuestions"]
-                } for t in dataset.get("tests", [])]
-                self.wfile.write(json.dumps({
-                    "modules": dataset.get("modules", {}),
-                    "tests": tests_summary
-                }).encode("utf-8"))
-            elif parsed.path.startswith("/api/tests/"):
-                parts = parsed.path.strip("/").split("/")
-                if len(parts) == 3:
-                    test_id = parts[2]
-                    dataset = load_dataset()
-                    for t in dataset.get("tests", []):
-                        if t["id"] == test_id:
-                            self.send_response(200)
-                            self.send_header("Content-Type", "application/json; charset=utf-8")
-                            self.end_headers()
-                            self.wfile.write(json.dumps(t).encode("utf-8"))
-                            return
-                    self.send_error(404, "Test not found")
+        assessment, status, message = None, "not_requested", ""
+        if not writing.ai_configured():
+            status, message = "not_configured", "AI marking is not enabled on this site yet."
+        elif body.get("requestAssessment", True):
+            if all(analyses[n]["wordCount"] < writing.MIN_WORDS_FOR_AI for n in (1, 2)):
+                status, message = "too_short", "Both responses are too short to be marked."
+            else:
+                limited = AI_LIMITER.try_acquire(self.client_ip())
+                if limited:
+                    status, message = "rate_limited", limited
                 else:
-                    self.send_error(404, "Endpoint not found")
-            elif parsed.path == "/api/attempts":
-                conn = sqlite3.connect(DB_FILE)
-                c = conn.cursor()
-                c.execute("""
-                    SELECT id, test_id, candidate_name, raw_score, total_questions, band_score, time_spent_seconds, completed_at, summary_json
-                    FROM attempts ORDER BY id DESC LIMIT 50
-                """)
-                rows = c.fetchall()
-                conn.close()
-                attempts = [{
-                    "id": r[0], "testId": r[1], "candidateName": r[2], "rawScore": r[3],
-                    "totalQuestions": r[4], "bandScore": r[5], "timeSpentSeconds": r[6],
-                    "completedAt": r[7], "summary": json.loads(r[8]) if r[8] else {}
-                } for r in rows]
-                self.send_response(200)
-                self.send_header("Content-Type", "application/json; charset=utf-8")
-                self.end_headers()
-                self.wfile.write(json.dumps({"attempts": attempts}).encode("utf-8"))
-            else:
-                super().do_GET()
+                    try:
+                        async with AI_SEMAPHORE:
+                            assessment = await writing.assess_with_claude(test, responses, analyses)
+                        status = "complete"
+                    except writing.AssessmentUnavailable as e:
+                        status, message = "error", str(e)
+                    except Exception:
+                        log.exception("AI assessment failed")
+                        status, message = "error", "The AI examiner could not mark this script. Please try again later."
 
-        def do_POST(self):
-            parsed = urllib.parse.urlparse(self.path)
-            parts = parsed.path.strip("/").split("/")
-            if len(parts) == 4 and parts[0] == "api" and parts[1] == "tests" and parts[3] == "submit":
-                test_id = parts[2]
-                dataset = load_dataset()
-                target_test = next((t for t in dataset.get("tests", []) if t["id"] == test_id), None)
-                if not target_test:
-                    self.send_error(404, "Test not found")
-                    return
-                content_len = int(self.headers.get("Content-Length", 0))
-                body_raw = self.rfile.read(content_len) if content_len > 0 else b"{}"
-                try:
-                    body = json.loads(body_raw.decode("utf-8"))
-                except Exception:
-                    body = {}
-                result = evaluate_test_submission(
-                    target_test,
-                    body.get("answers", {}),
-                    body.get("candidateName", "Candidate"),
-                    body.get("timeSpentSeconds", 0)
-                )
-                self.send_response(200)
-                self.send_header("Content-Type", "application/json; charset=utf-8")
-                self.end_headers()
-                self.wfile.write(json.dumps(result).encode("utf-8"))
-            else:
-                self.send_error(404, "Endpoint not found")
+        result = {
+            "testId": test["id"],
+            "title": test["title"],
+            "candidateName": name,
+            "timeSpentSeconds": seconds,
+            "tasks": [
+                {
+                    "taskNumber": n,
+                    "title": tasks[n].get("title", f"Task {n}"),
+                    "prompt": tasks[n]["prompt"],
+                    "minWords": tasks[n]["minWords"],
+                    "visual": tasks[n].get("visual"),
+                    "response": responses[n],
+                    "analysis": analyses[n],
+                    "modelAnswer": tasks[n].get("modelAnswer", ""),
+                }
+                for n in (1, 2)
+            ],
+            "assessment": assessment,
+            "assessmentStatus": status,
+            "assessmentMessage": message,
+            "overallBand": assessment["overallBand"] if assessment else None,
+        }
 
-    def run_server():
-        init_db()
-        server = HTTPServer(("0.0.0.0", PORT), FallbackHandler)
-        print(f"IELTS Mock Exam Platform (Fallback HTTP) running at http://0.0.0.0:{PORT}", flush=True)
-        server.serve_forever()
+        record = {
+            "test_id": test["id"],
+            "client_id": clean_client_id(body.get("clientId")),
+            "candidate_name": name,
+            "task1_text": responses[1],
+            "task2_text": responses[2],
+            "task1_words": analyses[1]["wordCount"],
+            "task2_words": analyses[2]["wordCount"],
+            "time_spent_seconds": seconds,
+            "analysis": analyses,
+            "assessment": assessment,
+            "overall_band": result["overallBand"],
+        }
+        try:
+            result["submissionId"] = await in_thread(STORE.save_writing_submission, record)
+        except Exception:
+            log.exception("Could not save writing submission")
+            result["submissionId"] = None
+        self.send_json(result)
+
+
+class HistoryHandler(BaseHandler):
+    async def get(self):
+        client_id = clean_client_id(self.get_query_argument("clientId", ""))
+        if not client_id:
+            return self.send_json({"items": []})
+        try:
+            items = await in_thread(STORE.list_history, client_id, 20)
+        except Exception:
+            log.exception("Could not load history")
+            items = []
+        self.send_json({"items": items})
+
+
+class AdminStatsHandler(BaseHandler):
+    async def get(self):
+        self.require_admin()
+        stats = await in_thread(STORE.stats)
+        stats["storage"] = STORE.name
+        stats["tests"] = len(await in_thread(STORE.list_tests))
+        self.send_json(stats)
+
+
+class AdminRefreshHandler(BaseHandler):
+    async def post(self):
+        self.require_admin()
+        STORE.refresh()
+        tests = await in_thread(STORE.list_tests)
+        self.send_json({"reloaded": len(tests)})
+
+
+class ApiNotFoundHandler(BaseHandler):
+    def prepare(self):
+        self.send_error_json(404, "Endpoint not found")
+
+
+class StaticHandler(tornado.web.StaticFileHandler):
+    """Serves public/ with security headers; always revalidates so deploys show up immediately."""
+
+    def set_default_headers(self):
+        for k, v in SECURITY_HEADERS.items():
+            self.set_header(k, v)
+
+    def set_extra_headers(self, path):
+        self.set_header("Cache-Control", "no-cache")
+
+
+def make_app():
+    return tornado.web.Application(
+        [
+            (r"/api/health", HealthHandler),
+            (r"/healthz", HealthHandler),
+            (r"/api/config", ConfigHandler),
+            (r"/api/tests", TestsHandler),
+            (rf"/api/tests/{TEST_ID_PATTERN}", TestHandler),
+            (rf"/api/reading/{TEST_ID_PATTERN}/submit", ReadingSubmitHandler),
+            (rf"/api/writing/{TEST_ID_PATTERN}/submit", WritingSubmitHandler),
+            (r"/api/history", HistoryHandler),
+            (r"/api/admin/stats", AdminStatsHandler),
+            (r"/api/admin/refresh", AdminRefreshHandler),
+            (r"/api/.*", ApiNotFoundHandler),
+            (r"/(.*)", StaticHandler, {"path": PUBLIC_DIR, "default_filename": "index.html"}),
+        ],
+        compress_response=True,
+    )
+
+
+def main():
+    tests = STORE.list_tests()
+    reading_count = sum(1 for t in tests if t.get("module") == "reading")
+    writing_count = sum(1 for t in tests if t.get("module") == "writing")
+    app = make_app()
+    app.listen(PORT, address="0.0.0.0", max_body_size=MAX_BODY_BYTES)
+    log.info("%s running on http://0.0.0.0:%d (storage=%s, AI marking=%s)",
+             SITE_NAME, PORT, STORE.name, "on" if writing.ai_configured() else "off")
+    log.info("Loaded %d reading and %d writing tests", reading_count, writing_count)
+    tornado.ioloop.IOLoop.current().start()
+
 
 if __name__ == "__main__":
-    run_server()
+    if sys.version_info < (3, 10):
+        sys.exit("Python 3.10 or newer is required.")
+    main()

@@ -2,12 +2,29 @@ services:
   - type: web
     name: mock-exam-platform
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python server.py
+    healthCheckPath: /api/health
     envVars:
-      - key: PORT
-        value: 10000
       - key: PYTHON_VERSION
         value: 3.11.9
-    healthCheckPath: /api/health
-    plan: free
+      - key: SITE_NAME
+        value: MockExam
+      - key: ANTHROPIC_MODEL
+        value: claude-opus-5
+      - key: AI_PER_IP_PER_HOUR
+        value: "6"
+      - key: AI_DAILY_LIMIT
+        value: "300"
+      - key: ADMIN_TOKEN
+        generateValue: true
+      # Secrets: Render asks for these when you create the Blueprint.
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: CONTACT_EMAIL
+        sync: false

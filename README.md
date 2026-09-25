@@ -1,135 +1,98 @@
-# IELTS Mock Exam Platform (Reading Module)
+# MockExam: IELTS-style Academic Reading & Writing practice
 
-An authentic, distraction-free web platform for taking full IELTS Reading mock exams, designed to be **identical** to the official **Computer-Delivered (CD) IELTS exam** (British Council / IDP).
+A free, distraction-free website for practising the **Academic Reading** and **Academic Writing** papers under realistic computer-delivered test conditions.
 
-Includes complete, authentic Reading tests from the **3 latest Cambridge practice books**:
-- **Cambridge IELTS 19 Academic** (Test 1: *How Tennis Rackets Have Changed*, *The Pirates of the Ancient Mediterranean*, *The Persistence and Peril of Misinformation*)
-- **Cambridge IELTS 18 Academic** (Test 1: *Urban Farming*, *Forest Management in Pennsylvania*, *Conquering Earth's Space Junk Problem*)
-- **Cambridge IELTS 17 Academic** (Test 1: *The Development of the London Underground Railway*, *Stadiums: Past, Present and Future*, *To Catch a King*)
+> **Independent site.** MockExam is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press & Assessment. "IELTS" is a registered trademark of its owners and is used only to describe the exam this site helps people prepare for.
 
----
+## What's inside
 
-## Key Features
+| Module | Content | Marking |
+|---|---|---|
+| **Reading** | 3 full Academic tests: 9 original passages, 120 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
+| **Writing** | 4 full Academic tests: Task 1 line graph, bar chart, process diagram and pie charts, plus 4 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** scores all four criteria and gives corrections |
+| Listening, Speaking | – | Coming soon |
 
-### 1. Authentic Computer-Delivered (CD) IELTS Experience
-- **Official Top Bar**: Displays candidate full name, candidate ID, test title badge, and countdown timer.
-- **60:00 Countdown Timer**: Exact 60-minute countdown with:
-  - **Hide/Show Time** toggle (turns into a subtle clock icon).
-  - 10-minute and 5-minute remaining visual warning alerts.
-  - Automatic submission upon timer expiration.
-- **Interactive Highlighting & Notes**:
-  - Select any text in the reading passage or questions to apply an authentic soft yellow highlighter marker.
-  - Attach sticky observation notes to selections.
-  - Right-click or tap highlighted text to remove highlights.
-- **Resizable Split-Screen Workspace**:
-  - Independent scrolling for Reading Passage (left) and Questions (right).
-  - Smooth draggable vertical splitter divider to customize view width.
-- **Accessibility & Display Controls**:
-  - 4 Contrast Themes: Standard (Black on White), Black on Yellow, Yellow on Black, and White on Blue.
-  - 3 Font Zoom Scales: Regular (100%), Large (120%), and Extra Large (140%).
-  - Official Keyboard Navigation Shortcuts (`Alt+N` for Next, `Alt+P` for Previous, `Alt+R` for Review, `Tab`, `Space`).
-- **Bottom Navigation Dock**:
-  - Quick passage switcher: `Part 1`, `Part 2`, `Part 3`.
-  - Numbered question buttons `1` to `40`.
-  - Answered indicator (bottom blue underline / solid).
-  - "Review" checkbox (flags marked questions with an orange corner indicator).
-  - Finish Test modal displaying summary of answered vs unanswered questions.
+**All content is original** and written for this project. The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
 
-### 2. Official IELTS Band Scoring & In-Depth Review
-- Instant evaluation of all 40 questions against official Cambridge answer keys.
-- Accurate IELTS Academic Reading Band Score calculation (Band 1.0 to 9.0) and CEFR proficiency mapping (B1, B2, C1, C2).
-- Passage-by-passage performance breakdown with score bars.
-- Question-by-question review with filters: **All**, **Correct**, **Incorrect**, and **Unanswered**.
-- Explanations highlighting exact evidence quotes and paragraphs from the passage for every single question.
+### Exam experience
+- Split-screen passage/questions with a draggable divider, bottom question navigator, **Review** flags, and Part tabs with progress counts
+- 60-minute countdown with 10- and 5-minute warnings and auto-submit, or **Practice mode** with no time limit
+- Highlighting and notes, 4 contrast themes, 3 text sizes, and keyboard shortcuts (`Alt+N`, `Alt+P`, `Alt+R`)
+- Answers and essays are **autosaved** in the browser, so an attempt can be resumed after a refresh
+- Works on phones (single-pane view with a Passage/Questions switch)
 
-### 3. Distraction-Free Portal & Architecture
-- Clean, focused interface with zero advertisements or distracting popups.
-- Pre-test Candidate Verification screen mirroring official test-center procedures.
-- Clearly marks **Listening**, **Writing**, and **Speaking** modules as **"Soon"**.
-- Built with a lightweight Python backend (`server.py`) and zero-dependency modern ES6+ frontend.
+### Question types supported
+TRUE/FALSE/NOT GIVEN · YES/NO/NOT GIVEN · multiple choice · choose TWO · matching headings · matching information · matching features · matching sentence endings · classification · note, summary (with or without word list), table and flow-chart completion · sentence completion · short-answer questions.
 
----
+## Quick start (local)
 
-## Quick Start
-
-### Prerequisites
-- Python 3.8+ (no npm or external build tools required)
-
-### Launching the Application
 ```bash
-python3 server.py
+pip install -r requirements.txt
+python server.py            # http://localhost:8080
 ```
-Or specify a custom port:
+
+Nothing else is required. Without configuration, tests are read from `content/` and attempts are stored in a local SQLite file (`data/local.sqlite3`). Copy `.env.example` to `.env` to enable Supabase and AI marking.
+
+## Checks
+
 ```bash
-PORT=8000 python3 server.py
+python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts)
+python scripts/test_app.py           # 28 automated tests: scoring, API, Supabase client, AI examiner (mocked)
 ```
 
-Open your browser and navigate to:
-```
-http://localhost:8080
-```
+## Deploying
 
----
+See **[DEPLOY.md](DEPLOY.md)** for step-by-step setup of Supabase, the AI examiner and Render.
 
-## Deploy to Render (Live Server)
-
-This repository is pre-configured for zero-friction deployment to **[Render](https://render.com/)**.
-
-### Method 1: Render Blueprint (Recommended - 1-Click)
-1. Push your repository to GitHub.
-2. Log in to [Render Dashboard](https://dashboard.render.com/).
-3. Click **New +** → **Blueprint**.
-4. Connect your `MockExamination` repository.
-5. Render will automatically detect `render.yaml` and configure:
-   - **Runtime**: Python 3.11.9
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `python server.py`
-   - **Health Check**: `/api/health`
-6. Click **Apply**. Your live URL (e.g. `https://mock-exam-platform.onrender.com`) will be live in ~1-2 minutes!
-
-### Method 2: Manual Web Service on Render
-1. In Render Dashboard, click **New +** → **Web Service**.
-2. Connect your GitHub repository.
-3. Configure the following settings:
-   - **Name**: `ielts-mock-exam`
-   - **Language / Runtime**: `Python 3`
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `python server.py`
-   - **Plan**: `Free`
-4. Under **Advanced**:
-   - **Health Check Path**: `/api/health`
-5. Click **Create Web Service**.
-
-### Method 3: Deploy with Docker
-You can also choose the **Docker** runtime on Render; the repository includes an optimized multi-platform `Dockerfile` and `.dockerignore`.
-
----
-
-## Project Structure
+## Project structure
 
 ```
-MockExam/
-├── server.py              # Lightweight Python Tornado/HTTP server + REST API
-├── data/
-│   ├── tests.json         # Complete Cambridge 19, 18, 17 Reading test content (120 questions)
-│   └── attempts.db        # SQLite database recording candidate test attempts
-├── public/
-│   ├── index.html         # Single-page application entry point
-│   ├── css/
-│   │   ├── cd-ielts.css   # Pixel-perfect CD-IELTS design system & contrast themes
-│   │   └── portal.css     # Clean distraction-free dashboard and results styling
-│   └── js/
-│       ├── app.js         # Application controller and view router
-│       ├── exam.js        # CD-IELTS exam engine (timer, splitter, navigation)
-│       ├── highlighter.js # Text selection, highlighting, and sticky notes
-│       └── scoring.js     # Official IELTS Academic Band score table & analytics
-├── scripts/
-│   └── build_tests_data.py # Generator script for Cambridge test dataset
-└── README.md
+server.py                 Tornado app: static site + JSON API, rate limits, security headers
+mockexam/
+  content.py              test model: walking, validation, answer-free public views
+  scoring.py              reading marking and band conversion
+  writing.py              writing text analysis + Claude AI examiner
+  storage.py              LocalStore (JSON + SQLite) and SupabaseStore (REST)
+content/
+  reading/*.json          original Academic Reading tests
+  writing/*.json          original Academic Writing tests (with chart data and model answers)
+public/
+  index.html              single-page app shell
+  css/portal.css          site, dashboard, results
+  css/cd-ielts.css        exam environment, contrast themes, charts
+  js/app.js               router, dashboard, instructions, resources and legal pages
+  js/exam.js              reading and writing exam engines
+  js/results.js           results pages
+  js/charts.js            Task 1 charts (line, bar, pie, table, process) as SVG
+  js/highlighter.js       highlighting and notes
+  js/util.js, scoring.js  helpers
+supabase/schema.sql       database schema (run once in Supabase)
+scripts/
+  validate_content.py     content checker
+  seed_supabase.py        upload content/ to Supabase
+  test_app.py             test suite
 ```
 
----
+### Legacy files to delete
+`data/tests.json`, `data/attempts.db` and `scripts/build_tests_data.py` hold the withdrawn Cambridge material. They are no longer loaded or served. Delete them from the repository before going live:
+
+```bash
+git rm data/tests.json data/attempts.db scripts/build_tests_data.py
+```
+
+## API
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `/api/health` | health check |
+| GET | `/api/config` | site name, whether AI marking is enabled |
+| GET | `/api/tests` | test summaries |
+| GET | `/api/tests/{id}` | one test **without** answers or model answers |
+| POST | `/api/reading/{id}/submit` | mark a reading attempt |
+| POST | `/api/writing/{id}/submit` | analyse (and optionally AI-mark) a writing attempt |
+| GET | `/api/history?clientId=` | this browser's recent attempts |
+| GET | `/api/admin/stats` | totals (`Authorization: Bearer $ADMIN_TOKEN`) |
+| POST | `/api/admin/refresh` | reload content after editing it in Supabase |
 
 ## License
-MIT License. Practice materials are derived from official Cambridge IELTS academic publications for educational preparation.
-
+Code: MIT. Test content in `content/`: original work, all rights reserved by the site owner (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).

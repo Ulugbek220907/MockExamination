@@ -1,0 +1,230 @@
+{
+  "id": "academic-reading-02",
+  "module": "reading",
+  "variant": "academic",
+  "title": "Academic Reading Practice Test 2",
+  "shortTitle": "Practice Test 2",
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "sortOrder": 2,
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "The Return of the Wolf",
+      "subtitle": "What happened when grey wolves were brought back to Yellowstone National Park?",
+      "paragraphs": [
+        { "label": null, "text": "When Yellowstone was established as the world’s first national park in 1872, grey wolves were a common sight in its valleys. Within fifty years they had gone. Wolves were regarded as dangerous pests that killed livestock and competed with hunters for deer and elk, and government agencies, including the park service itself, pursued a deliberate policy of eliminating them. The last known wolves in the park were shot in 1926, and for the rest of the twentieth century, Yellowstone was a landscape without its most important predator." },
+        { "label": null, "text": "The absence of wolves had consequences that took decades to become clear. Freed from their main predator, the park’s elk multiplied, and park managers spent years trying to control their numbers, first by shooting large numbers of animals and later by leaving the population to regulate itself. Meanwhile, biologists noticed that young willow and aspen trees, which elk feed on in winter, were becoming increasingly scarce along the park’s rivers and streams. Without the roots of these trees to hold the soil together, riverbanks began to erode, and beavers, which depend on willow for food and building material, all but disappeared from the northern part of the park." },
+        { "label": null, "text": "The idea of restoring the wolf was first seriously proposed in the 1970s, but it met fierce opposition from ranchers in the surrounding states, who feared for their cattle and sheep. It took twenty years of public hearings, legal challenges and environmental studies before the plan was approved. Finally, in January 1995, fourteen wolves captured in the Canadian province of Alberta were brought to Yellowstone and released into large fenced enclosures, where they were kept for around ten weeks to allow them to become familiar with their new surroundings. A further seventeen wolves from British Columbia followed in 1996. To reduce opposition, the government classified the new population as ‘experimental’, a status which allowed ranchers to kill wolves that were caught attacking their livestock." },
+        { "label": null, "text": "The wolves adapted to their new home with remarkable speed. The first pups were born within months of the release, and by the early 2000s more than a hundred wolves were living within the park’s boundaries. Their main prey was elk, and the northern elk herd, which had numbered around 19,000 animals in the early 1990s, fell steadily over the following two decades. Wolves were not the only reason for this decline: hunting outside the park, severe winters, drought and growing numbers of bears and cougars all played a part. Nevertheless, the change was dramatic." },
+        { "label": null, "text": "What happened next made Yellowstone famous among ecologists. Researchers began to report that willows and aspens were growing back along some streams, that riverbanks were becoming more stable, and that beaver colonies were returning. The explanation they offered was a ‘trophic cascade’: by reducing elk numbers and, just as importantly, by making elk nervous about lingering in places where they could easily be ambushed, wolves had indirectly allowed vegetation to recover. According to this view, wolves had created a ‘landscape of fear’, in which elk avoided river valleys and other areas with limited visibility, giving young trees in those places a chance to grow. The story spread rapidly, and a short film claiming that wolves had even changed the course of rivers was viewed tens of millions of times online." },
+        { "label": null, "text": "More recent research has presented a more complicated picture. When scientists fitted elk with GPS collars and tracked their movements, they found little evidence that the animals systematically avoided risky areas; elk appeared to respond to wolves mainly when the predators were close by, which in practice was not very often. Some studies found that aspens were recovering in some places but not in others, and that recovery was often limited to trees growing where elk could not easily reach them. Others argued that the decline in beavers had been so severe that, even with more willow available, beavers could not recolonise many streams without help, and that where they had returned, beavers released by wildlife managers outside the park had played a role." },
+        { "label": null, "text": "None of this means that the wolves have had no effect. Most ecologists agree that the return of a top predator has changed Yellowstone in important ways, and the park’s wolves have become one of its main attractions, bringing millions of dollars each year to the local economy through wildlife tourism. But the debate has taught scientists to be cautious about simple stories. Ecosystems are shaped by many forces at once, and the effects of removing a species over many decades may not be reversed simply by bringing it back. Reintroducing wolves, in other words, did not return Yellowstone to its earlier state; it began a new chapter whose ending is still unknown." }
+      ],
+      "groups": [
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
+          "maxWords": 2,
+          "title": "Wolves in Yellowstone: a timeline",
+          "content": {
+            "headers": ["Date", "Event"],
+            "rows": [
+              ["1872", "Yellowstone becomes the world’s first {{1}}"],
+              ["1926", "the last known wolves in the park are {{2}}"],
+              ["1970s", "reintroduction is proposed but is strongly opposed by {{3}}"],
+              ["1995", "fourteen wolves from {{4}} are kept in enclosures for about {{5}}"],
+              ["1996", "a further {{6}} wolves are brought to the park"]
+            ]
+          },
+          "questions": [
+            { "number": 1, "answer": ["national park"], "explanation": "‘Yellowstone was established as the world’s first national park in 1872.’", "reference": "Paragraph 1" },
+            { "number": 2, "answer": ["shot"], "explanation": "‘The last known wolves in the park were shot in 1926.’", "reference": "Paragraph 1" },
+            { "number": 3, "answer": ["ranchers"], "explanation": "The idea ‘met fierce opposition from ranchers in the surrounding states’.", "reference": "Paragraph 3" },
+            { "number": 4, "answer": ["Alberta"], "explanation": "‘Fourteen wolves captured in the Canadian province of Alberta.’", "reference": "Paragraph 3" },
+            { "number": 5, "answer": ["ten weeks", "10 weeks"], "explanation": "They ‘were kept for around ten weeks’ in the enclosures.", "reference": "Paragraph 3" },
+            { "number": 6, "answer": ["seventeen", "17"], "explanation": "‘A further seventeen wolves from British Columbia followed in 1996.’", "reference": "Paragraph 3" }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "questions": [
+            { "number": 7, "prompt": "The organisation that managed Yellowstone took part in killing its wolves.", "answer": "TRUE", "explanation": "Government agencies, ‘including the park service itself, pursued a deliberate policy of eliminating them’.", "reference": "Paragraph 1" },
+            { "number": 8, "prompt": "Beaver numbers in the north of the park increased while wolves were absent.", "answer": "FALSE", "explanation": "Beavers ‘all but disappeared from the northern part of the park’.", "reference": "Paragraph 2" },
+            { "number": 9, "prompt": "The wolves released in 1995 were selected because they had experience of hunting elk.", "answer": "NOT GIVEN", "explanation": "The passage says where the wolves came from, but not why those particular animals were chosen.", "reference": "Paragraph 3" },
+            { "number": 10, "prompt": "Ranchers were allowed to kill wolves that attacked their animals.", "answer": "TRUE", "explanation": "The ‘experimental’ status ‘allowed ranchers to kill wolves that were caught attacking their livestock’.", "reference": "Paragraph 3" },
+            { "number": 11, "prompt": "Wolves were the only cause of the fall in elk numbers after 1995.", "answer": "FALSE", "explanation": "‘Wolves were not the only reason for this decline’: hunting, winters, drought, bears and cougars also played a part.", "reference": "Paragraph 4" },
+            { "number": 12, "prompt": "GPS tracking showed that elk consistently stayed away from river valleys.", "answer": "FALSE", "explanation": "Scientists ‘found little evidence that the animals systematically avoided risky areas’.", "reference": "Paragraph 6" },
+            { "number": 13, "prompt": "The number of tourists visiting Yellowstone has doubled since the wolves returned.", "answer": "NOT GIVEN", "explanation": "Wolves bring ‘millions of dollars each year’ through tourism, but visitor numbers are not given.", "reference": "Paragraph 7" }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "The Problem of Longitude",
+      "subtitle": "How a self-taught clockmaker helped to solve the greatest navigational challenge of his age",
+      "paragraphs": [
+        { "label": "A", "text": "For most of the history of sea travel, sailors could work out how far north or south they were with reasonable accuracy. Latitude, as this position is called, can be calculated from the height of the sun at midday or of certain stars at night, using instruments that were well established by the sixteenth century. Longitude, a ship’s position east or west, was another matter entirely. Because the Earth turns steadily from west to east, there is no fixed point in the sky that reveals it. Out of sight of land, navigators relied on ‘dead reckoning’, estimating their position from their speed, their direction and the time that had passed, a method in which small errors could quickly grow into large ones." },
+        { "label": "B", "text": "The consequences of such errors could be catastrophic. Ships ran aground on coasts they believed to be hundreds of kilometres away, or missed the islands where they had planned to take on fresh water and food, leaving their crews to die of thirst and disease. One of the worst disasters occurred in 1707, when a fleet of British warships, returning from the Mediterranean in poor weather, struck rocks off the Isles of Scilly, south-west of England. Four ships were lost, along with well over a thousand sailors. The tragedy increased public pressure for a solution, and in 1714 the British Parliament passed the Longitude Act, offering a reward of up to £20,000, a vast fortune at the time, for a practical method of finding longitude at sea." },
+        { "label": "C", "text": "In principle, the solution was well understood. Since the Earth rotates through 360 degrees in 24 hours, each hour of difference between local time and the time at a fixed reference point corresponds to 15 degrees of longitude. A navigator could find local time relatively easily, by noting when the sun reached its highest point in the sky. The difficulty lay in knowing the time at the reference point, such as the home port, at that same moment. What was needed was a clock that could keep accurate time for months on a rolling, pitching ship, through extremes of heat, cold and humidity that caused the pendulum clocks of the period to run fast or slow, or to stop altogether." },
+        { "label": "D", "text": "Many of the leading scientists of the day believed that such a clock was impossible and that the answer would be found in the heavens. Astronomers had long proposed that the movement of the Moon against the background of the stars could serve as a kind of celestial clock, and by the mid-eighteenth century, improved observations had made this ‘lunar distance’ method workable. It was, however, extremely demanding: a navigator had to take precise measurements from a moving deck and then spend hours on complex calculations. The astronomer Nevil Maskelyne, who later became Astronomer Royal, was one of the method’s most determined champions, and from the 1760s onwards he published annual tables that greatly reduced the work involved." },
+        { "label": "E", "text": "The man who proved the sceptics wrong was John Harrison, a carpenter from Lincolnshire in eastern England who had taught himself clockmaking and had no formal scientific education. Harrison spent more than forty years building a series of marine timekeepers. His first three machines, known today as H1, H2 and H3, were large, heavy clocks, each more refined than the last. H1 was tested on a voyage to Lisbon in 1736 and performed well enough to win Harrison financial support from the Board of Longitude, the body set up to administer the prize. But it was his fourth design that brought the breakthrough. H4, completed in 1759, looked like a large pocket watch, only about 13 centimetres across. On a trial voyage to Jamaica in 1761–62, it lost just five seconds over more than two months at sea." },
+        { "label": "F", "text": "Even so, Harrison did not receive his reward. The Board of Longitude, on which Maskelyne and other astronomers had considerable influence, suggested that the result might have been due to luck, demanded further trials, and insisted that Harrison explain the workings of H4 in detail and hand over his clocks so that others could build copies. Harrison, by then in his seventies, became convinced that the Board was deliberately obstructing him in order to favour the lunar method. Only in 1773, after an appeal to King George III, did Parliament award him a substantial sum, although he never officially received the prize itself." },
+        { "label": "G", "text": "In the end, both methods played a part in solving the problem of longitude. Early chronometers were so expensive that for several decades many ships continued to rely on lunar distances, using a chronometer, if they had one, as a check. A copy of H4 made by the clockmaker Larcum Kendall accompanied Captain James Cook on his second great voyage in the 1770s, and Cook praised it highly. As manufacturing techniques improved and prices fell, the marine chronometer became standard equipment, and by the middle of the nineteenth century it had become the navigator’s principal tool for finding longitude, a position it held until radio time signals and, eventually, satellite navigation made it obsolete." }
+      ],
+      "groups": [
+        {
+          "type": "matching_information",
+          "instruction": "Reading Passage 2 has seven paragraphs, **A–G**. Which paragraph contains the following information? **NB** You may use any letter more than once.",
+          "questions": [
+            { "number": 14, "prompt": "a description of the physical size of a timekeeping device", "answer": "E", "explanation": "H4 ‘looked like a large pocket watch, only about 13 centimetres across’.", "reference": "Paragraph E" },
+            { "number": 15, "prompt": "an explanation of why existing clocks were unsuitable for use at sea", "answer": "C", "explanation": "Heat, cold and humidity ‘caused the pendulum clocks of the period to run fast or slow, or to stop altogether’.", "reference": "Paragraph C" },
+            { "number": 16, "prompt": "a reference to a way of estimating position from speed and direction", "answer": "A", "explanation": "‘Dead reckoning’: ‘estimating their position from their speed, their direction and the time that had passed’.", "reference": "Paragraph A" },
+            { "number": 17, "prompt": "an account of an accident that led to government action", "answer": "B", "explanation": "The 1707 Scilly disaster ‘increased public pressure’, and Parliament passed the Longitude Act.", "reference": "Paragraph B" },
+            { "number": 18, "prompt": "a reason why a new technology was not immediately adopted by all ships", "answer": "G", "explanation": "‘Early chronometers were so expensive that for several decades many ships continued to rely on lunar distances.’", "reference": "Paragraph G" }
+          ]
+        },
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
+          "title": "The lunar distance method and the Board of Longitude",
+          "content": "Many scientists believed that the solution to the longitude problem would come from astronomy rather than from a {{19}}. They proposed that the Moon’s position relative to the {{20}} could be used to tell the time. Although the method eventually worked, it required long and complex {{21}}. Maskelyne was a strong supporter of the method and produced annual {{22}} to make it easier. When Harrison’s H4 performed well, the Board suggested that its success might have been the result of {{23}}.",
+          "questions": [
+            { "number": 19, "answer": ["clock"], "explanation": "Scientists ‘believed that such a clock was impossible and that the answer would be found in the heavens’.", "reference": "Paragraph D" },
+            { "number": 20, "answer": ["stars"], "explanation": "‘The movement of the Moon against the background of the stars could serve as a kind of celestial clock.’", "reference": "Paragraph D" },
+            { "number": 21, "answer": ["calculations"], "explanation": "A navigator had to ‘spend hours on complex calculations’.", "reference": "Paragraph D" },
+            { "number": 22, "answer": ["tables"], "explanation": "Maskelyne ‘published annual tables that greatly reduced the work involved’.", "reference": "Paragraph D" },
+            { "number": 23, "answer": ["luck"], "explanation": "The Board ‘suggested that the result might have been due to luck’.", "reference": "Paragraph F" }
+          ]
+        },
+        {
+          "type": "matching_sentence_endings",
+          "instruction": "Complete each sentence with the correct ending, **A–F**, below.",
+          "optionsTitle": "List of Endings",
+          "options": [
+            { "key": "A", "text": "made Harrison suspect that the Board was biased against him." },
+            { "key": "B", "text": "did not prevent him from producing a highly accurate clock." },
+            { "key": "C", "text": "allowed them to become standard equipment on ships." },
+            { "key": "D", "text": "led directly to the development of radio time signals." },
+            { "key": "E", "text": "persuaded Cook to make a copy of H4 himself." },
+            { "key": "F", "text": "was publicly criticised by King George III." }
+          ],
+          "questions": [
+            { "number": 24, "prompt": "Harrison’s lack of formal scientific training", "answer": "B", "explanation": "Despite having ‘no formal scientific education’, he built H4, which ‘lost just five seconds over more than two months’.", "reference": "Paragraph E" },
+            { "number": 25, "prompt": "The Board of Longitude’s demands for further trials and information", "answer": "A", "explanation": "Harrison ‘became convinced that the Board was deliberately obstructing him in order to favour the lunar method’.", "reference": "Paragraph F" },
+            { "number": 26, "prompt": "The falling price of chronometers", "answer": "C", "explanation": "‘As manufacturing techniques improved and prices fell, the marine chronometer became standard equipment.’", "reference": "Paragraph G" }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "Does Language Shape the Way We Think?",
+      "subtitle": "A century-old idea in linguistics has been rejected, revived and refined",
+      "paragraphs": [
+        { "label": null, "text": "Do speakers of different languages experience the world differently? The idea that they might is an old one, but it is most closely associated with Benjamin Lee Whorf, an American fire-prevention engineer who studied linguistics in his spare time during the 1920s and 1930s. Influenced by his teacher, the anthropologist and linguist Edward Sapir, Whorf argued that the grammatical categories of a language direct its speakers’ attention towards certain aspects of experience and away from others, so that people who speak very different languages come to perceive and understand the world in very different ways. In its strongest form, this view, often referred to as the Sapir–Whorf hypothesis, suggests that language does not merely express thought but determines it." },
+        { "label": null, "text": "Whorf’s most famous example concerned the Hopi, a Native American people of Arizona. He claimed that the Hopi language contained no words, grammatical forms or expressions that referred directly to what we call time, and that Hopi speakers therefore had a fundamentally different understanding of time from speakers of European languages. The claim was widely quoted, but it did not survive closer investigation. In 1983, the German linguist Ekkehart Malotki published a detailed study of the Hopi language, running to more than six hundred pages, which documented a rich system of tense-like forms, units of time, and words for days, months and seasons. Whorf, it appeared, had simply been wrong about the facts." },
+        { "label": null, "text": "By then, the whole idea of linguistic relativity had fallen out of favour. From the 1960s onwards, the dominant view in linguistics and psychology emphasised what all human languages have in common, and suggested that the basic structures of thought are universal and largely independent of the particular language a person happens to speak. In his popular 1994 book The Language Instinct, the psychologist Steven Pinker dismissed Whorf’s ideas as ‘wrong, all wrong’, arguing that people think in a kind of internal mental code rather than in any spoken language. For many researchers, the question of whether language influences thought seemed to have been settled." },
+        { "label": null, "text": "Over the past three decades, however, the debate has been reopened, largely because researchers have developed experimental methods that allow them to test specific claims rather than rely on general impressions. One of the most striking lines of research concerns spatial language. Speakers of English and most other European languages typically describe the location of objects in relation to their own bodies, using words such as ‘left’ and ‘right’. Speakers of Guugu Yimithirr, an Aboriginal language of north-eastern Australia, by contrast, rely almost entirely on compass directions such as north and south, even for objects close at hand, so that they might say that there is an ant on someone’s ‘southern’ leg. Studies by the linguist Stephen Levinson and his colleagues found that Guugu Yimithirr speakers keep constant track of their orientation and can point accurately towards distant places, even after travelling through unfamiliar country." },
+        { "label": null, "text": "Colour perception provides another example. Russian, unlike English, has two basic words for what English speakers call ‘blue’: goluboy for lighter shades and siniy for darker ones. In a 2007 study, a team including the psychologist Lera Boroditsky asked Russian and English speakers to decide as quickly as possible which of two blue squares matched a third. Russian speakers were faster when the two colours fell on different sides of the goluboy–siniy boundary than when they belonged to the same category, while English speakers showed no such advantage. Significantly, the Russian speakers’ advantage disappeared when they were asked to repeat a string of numbers silently to themselves during the task. This suggests that language was influencing their perception as it happened, rather than permanently altering the way they saw colour." },
+        { "label": null, "text": "Perhaps the most dramatic claims have been made about number. The Pirahã, a small group living along a river in the Amazon rainforest of Brazil, appear to have no words for exact numbers; the terms they use for quantities seem to mean something closer to ‘a small amount’ and ‘a larger amount’. In experiments carried out by the psychologist Peter Gordon and published in 2004, Pirahã participants were able to match small sets of objects accurately, but their performance declined sharply when they were asked to match sets of more than three or four items. Gordon concluded that, without number words, people cannot easily keep track of exact large quantities. Other researchers have pointed out, however, that the Pirahã have little cultural need for precise counting, and that it is difficult to separate the effects of language from those of culture and experience." },
+        { "label": null, "text": "What emerges from this research is a more modest version of Whorf’s original idea. Few researchers now believe that language imprisons thought, or that speakers of one language cannot understand concepts for which their language lacks a word; after all, English speakers have no difficulty understanding the difference between light and dark blue. The evidence suggests instead that language acts as a kind of habitual guide, encouraging speakers to pay attention to some distinctions more than others and making certain kinds of thinking faster or more automatic. That is a far cry from the strong claims of the 1930s, but it means that the question Whorf asked, once dismissed as naive, is once again one of the most interesting in the study of the human mind." }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "What does the writer say about Whorf in the first paragraph?",
+              "options": [
+                { "key": "A", "text": "He was trained as a professional linguist." },
+                { "key": "B", "text": "He rejected the views of Edward Sapir." },
+                { "key": "C", "text": "He studied language without being employed as a linguist." },
+                { "key": "D", "text": "He believed that language had little effect on perception." }
+              ],
+              "answer": "C",
+              "explanation": "Whorf was ‘an American fire-prevention engineer who studied linguistics in his spare time’.",
+              "reference": "Paragraph 1"
+            },
+            {
+              "number": 28,
+              "prompt": "What was the significance of Malotki’s study?",
+              "options": [
+                { "key": "A", "text": "It showed that Whorf’s description of the Hopi language was inaccurate." },
+                { "key": "B", "text": "It confirmed Whorf’s view of how the Hopi think about time." },
+                { "key": "C", "text": "It proved that the Hopi had no interest in measuring time." },
+                { "key": "D", "text": "It was the first detailed study of a Native American language." }
+              ],
+              "answer": "A",
+              "explanation": "Malotki documented many Hopi time expressions: ‘Whorf, it appeared, had simply been wrong about the facts.’",
+              "reference": "Paragraph 2"
+            },
+            {
+              "number": 29,
+              "prompt": "According to the fourth paragraph, why has the debate about language and thought been reopened?",
+              "options": [
+                { "key": "A", "text": "Previously unknown languages have been discovered." },
+                { "key": "B", "text": "Pinker changed his mind about Whorf’s ideas." },
+                { "key": "C", "text": "Speakers of Guugu Yimithirr challenged earlier research." },
+                { "key": "D", "text": "Researchers have found new ways of testing specific claims." }
+              ],
+              "answer": "D",
+              "explanation": "‘Researchers have developed experimental methods that allow them to test specific claims rather than rely on general impressions.’",
+              "reference": "Paragraph 4"
+            },
+            {
+              "number": 30,
+              "prompt": "What does the writer suggest about the results of the Russian colour study?",
+              "options": [
+                { "key": "A", "text": "They show that Russian speakers can see more colours than English speakers." },
+                { "key": "B", "text": "They indicate that language affects perception while a task is being carried out." },
+                { "key": "C", "text": "They could not be reproduced when the study was repeated." },
+                { "key": "D", "text": "They depend on how well participants can remember numbers." }
+              ],
+              "answer": "B",
+              "explanation": "The advantage disappeared with verbal interference, suggesting ‘language was influencing their perception as it happened, rather than permanently altering the way they saw colour’.",
+              "reference": "Paragraph 5"
+            }
+          ]
+        },
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
+          "questions": [
+            { "number": 31, "prompt": "Whorf’s claims about the Hopi were frequently repeated by others.", "answer": "YES", "explanation": "‘The claim was widely quoted.’", "reference": "Paragraph 2" },
+            { "number": 32, "prompt": "Pinker based his criticism of Whorf on his own research among the Hopi.", "answer": "NOT GIVEN", "explanation": "The writer reports Pinker’s view but says nothing about the basis of his criticism.", "reference": "Paragraph 3" },
+            { "number": 33, "prompt": "Guugu Yimithirr speakers use compass directions only for objects that are far away.", "answer": "NO", "explanation": "They use compass directions ‘even for objects close at hand’.", "reference": "Paragraph 4" },
+            { "number": 34, "prompt": "Children find Guugu Yimithirr harder to learn than English.", "answer": "NOT GIVEN", "explanation": "Language learning by children is not discussed.", "reference": "—" },
+            { "number": 35, "prompt": "People cannot understand a concept if their language has no word for it.", "answer": "NO", "explanation": "Few researchers believe ‘that speakers of one language cannot understand concepts for which their language lacks a word’.", "reference": "Paragraph 7" },
+            { "number": 36, "prompt": "The question that Whorf originally raised deserves serious attention.", "answer": "YES", "explanation": "The question ‘is once again one of the most interesting in the study of the human mind’.", "reference": "Paragraph 7" }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Look at the following statements (Questions 37–40) and the list of people below. Match each statement with the correct person, **A–F**.",
+          "optionsTitle": "List of People",
+          "options": [
+            { "key": "A", "text": "Benjamin Lee Whorf" },
+            { "key": "B", "text": "Ekkehart Malotki" },
+            { "key": "C", "text": "Steven Pinker" },
+            { "key": "D", "text": "Stephen Levinson" },
+            { "key": "E", "text": "Lera Boroditsky" },
+            { "key": "F", "text": "Peter Gordon" }
+          ],
+          "questions": [
+            { "number": 37, "prompt": "argued that people think in an internal code rather than in a spoken language", "answer": "C", "explanation": "Pinker argued ‘that people think in a kind of internal mental code rather than in any spoken language’.", "reference": "Paragraph 3" },
+            { "number": 38, "prompt": "investigated how speakers keep track of where they are facing", "answer": "D", "explanation": "Levinson’s studies ‘found that Guugu Yimithirr speakers keep constant track of their orientation’.", "reference": "Paragraph 4" },
+            { "number": 39, "prompt": "tested people’s ability to match sets of objects", "answer": "F", "explanation": "In Gordon’s experiments, participants ‘were able to match small sets of objects accurately’.", "reference": "Paragraph 6" },
+            { "number": 40, "prompt": "claimed that a language had no way of referring directly to time", "answer": "A", "explanation": "Whorf ‘claimed that the Hopi language contained no words … that referred directly to what we call time’.", "reference": "Paragraph 2" }
+          ]
+        }
+      ]
+    }
+  ]
+}
