@@ -75,6 +75,12 @@ a:hover { color: var(--primary-hover); }
 .btn-danger { background: #b91c1c; color: #fff; }
 .btn-danger:hover { background: #991b1b; }
 .btn-lg { padding: 11px 24px; font-size: 1em; }
+.btn-sm { padding: 5px 12px; font-size: 0.85em; }
+.btn-link {
+  display: inline-flex; align-items: center; gap: 6px; background: none; border: none; padding: 4px 0;
+  color: var(--primary); font-weight: 650; font-size: 0.9em; cursor: pointer; font-family: inherit;
+}
+.btn-link:hover { color: var(--primary-hover); text-decoration: underline; }
 
 /* Site navigation ---------------------------------------------------------- */
 .site-nav {
@@ -218,6 +224,15 @@ a:hover { color: var(--primary-hover); }
 .check-row { display: flex; align-items: flex-start; gap: 10px; font-size: 0.95em; margin: 12px 0; cursor: pointer; }
 .check-row input { margin-top: 4px; accent-color: var(--primary); }
 .resume-row { background: var(--warn-bg); border: 1px solid #f6d3a8; padding: 10px 14px; border-radius: 8px; }
+.sound-check {
+  display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap;
+  border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; background: #fff;
+}
+.sound-check-text { display: flex; flex-direction: column; gap: 2px; font-size: 0.93em; flex: 1 1 260px; }
+.sound-check-text span { color: var(--text-2); }
+.sound-check-controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.sound-check-volume { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88em; font-weight: 600; color: var(--text-2); }
+.sound-check-volume input { width: 120px; accent-color: var(--primary); }
 
 /* Results ------------------------------------------------------------------ */
 .results-page { display: flex; flex-direction: column; }
@@ -283,6 +298,48 @@ a:hover { color: var(--primary-hover); }
 .ans-incorrect { color: var(--danger); }
 .review-explanation { font-size: 0.92em; color: var(--text-2); background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 14px; }
 .review-explanation strong { color: #854d0e; }
+.review-actions { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 10px; }
+
+/* Listening transcript ----------------------------------------------------- */
+.transcript-section { margin-top: 36px; }
+.transcript-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.transcript {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px;
+  box-shadow: var(--shadow); margin-bottom: 72px;
+}
+.t-title { font-size: 1.05em; margin-bottom: 4px; }
+.t-context { color: var(--muted); font-size: 0.92em; margin-bottom: 12px; }
+.t-line { display: flex; gap: 10px; align-items: flex-start; padding: 7px 8px; border-radius: 8px; line-height: 1.6; }
+.t-line + .t-line { margin-top: 2px; }
+.t-line.is-narrator .t-text { color: var(--muted); font-style: italic; }
+.t-line.is-playing { background: var(--info-bg); box-shadow: inset 3px 0 0 var(--primary); }
+.t-play {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; border: 1px solid #cbd5e1; background: #fff;
+  color: var(--primary); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; margin-top: 1px;
+}
+.t-play:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.t-body { min-width: 0; }
+.t-speaker { display: block; font-size: 0.78em; font-weight: 750; text-transform: uppercase; letter-spacing: 0.4px; color: var(--muted); }
+.t-answer { border-radius: 4px; padding: 1px 3px; color: inherit; scroll-margin: 120px; }
+.t-answer.is-correct { background: var(--success-bg); box-shadow: inset 0 -2px 0 var(--success); }
+.t-answer.is-incorrect { background: var(--danger-bg); box-shadow: inset 0 -2px 0 var(--danger); }
+.t-answer.is-unanswered { background: #fef3c7; box-shadow: inset 0 -2px 0 #b45309; }
+.t-qnum {
+  display: inline-block; font-size: 0.72em; font-weight: 800; font-style: normal; color: #fff; background: var(--brand);
+  border-radius: 4px; padding: 0 5px; margin-right: 4px; vertical-align: 1px;
+}
+.t-answer.is-correct .t-qnum { background: var(--success); }
+.t-answer.is-incorrect .t-qnum { background: var(--danger); }
+.t-answer.is-unanswered .t-qnum { background: #b45309; }
+.t-answer.flash { outline: 3px solid var(--primary); outline-offset: 2px; }
+.inline-icon { display: inline-flex; vertical-align: -2px; color: var(--primary); }
+.replay-bar {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 1200; display: flex; align-items: center; gap: 10px; background: var(--brand); color: #fff;
+  padding: 8px 10px 8px 16px; border-radius: 999px; box-shadow: var(--shadow-lg); max-width: calc(100vw - 24px);
+}
+.replay-bar[hidden] { display: none; }
+.replay-text { font-weight: 650; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* Writing results ---------------------------------------------------------- */
 .task-jump { display: flex; gap: 8px; margin: 4px 0 18px; }
@@ -359,6 +416,8 @@ a:hover { color: var(--primary-hover); }
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 .toast-warn { background: #9a3412; }
+/* In the exam the top of the screen holds the timer and audio controls, so toasts sit above the footer. */
+body.in-exam .toast { top: auto; bottom: 84px; }
 
 /* Summary rows used in finish dialogs */
 .summary-rows { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 6px 14px; }

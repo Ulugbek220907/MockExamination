@@ -1,7 +1,7 @@
 """
 Storage backends.
 
-LocalStore     – tests from content/*.json, attempts in a local SQLite file.
+LocalStore     – tests from content/<module>/*.json, attempts in a local SQLite file.
                  Zero configuration; ideal for development.
 SupabaseStore  – tests and attempts in Supabase (Postgres) through the server
                  API functions in supabase/schema.sql. Enabled when
@@ -29,9 +29,12 @@ CONTENT_DIR = os.path.join(BASE_DIR, "content")
 DEFAULT_SQLITE_PATH = os.path.join(BASE_DIR, "data", "local.sqlite3")
 
 
+MODULES = ("reading", "listening", "writing")
+
+
 def load_local_tests():
     tests = []
-    for module in ("reading", "writing"):
+    for module in MODULES:
         tests += content.load_json_dir(os.path.join(CONTENT_DIR, module))
     return tests
 
@@ -80,6 +83,20 @@ class LocalStore:
                     breakdown TEXT,
                     created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
                 );
+                CREATE TABLE IF NOT EXISTS listening_attempts (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    test_id TEXT NOT NULL,
+                    client_id TEXT,
+                    candidate_name TEXT,
+                    mode TEXT,
+                    raw_score INTEGER NOT NULL,
+                    total_questions INTEGER NOT NULL,
+                    band_score REAL NOT NULL,
+                    time_spent_seconds INTEGER,
+                    answers TEXT,
+                    breakdown TEXT,
+                    created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
+                );
                 CREATE TABLE IF NOT EXISTS writing_submissions (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     test_id TEXT NOT NULL,
@@ -96,14 +113,15 @@ class LocalStore:
                     created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
                 );
                 CREATE INDEX IF NOT EXISTS idx_reading_client ON reading_attempts(client_id, created_at);
+                CREATE INDEX IF NOT EXISTS idx_listening_client ON listening_attempts(client_id, created_at);
                 CREATE INDEX IF NOT EXISTS idx_writing_client ON writing_submissions(client_id, created_at);
                 """
             )
 
-    def save_reading_attempt(self, rec):
+    def _save_scored_attempt(self, table, rec):
         with self._lock, self._connect() as conn:
             cur = conn.execute(
-                """INSERT INTO reading_attempts (test_id, client_id, candidate_name, mode, raw_score,
+                f"""INSERT INTO {table} (test_id, client_id, candidate_name, mode, raw_score,
                    total_questions, band_score, time_spent_seconds, answers, breakdown)
                    VALUES (?,?,?,?,?,?,?,?,?,?)""",
                 (rec["test_id"], rec.get("client_id"), rec.get("candidate_name"), rec.get("mode"),
@@ -111,6 +129,12 @@ class LocalStore:
                  json.dumps(rec.get("answers")), json.dumps(rec.get("breakdown"))),
             )
             return cur.lastrowid
+
+    def save_reading_attempt(self, rec):
+        return self._save_scored_attempt("reading_attempts", rec)
+
+    def save_listening_attempt(self, rec):
+        return self._save_scored_attempt("listening_attempts", rec)
 
     def save_writing_submission(self, rec):
         with self._lock, self._connect() as conn:
@@ -127,20 +151,23 @@ class LocalStore:
 
     def list_history(self, client_id, limit=20):
         with self._lock, self._connect() as conn:
-            reading = conn.execute(
-                """SELECT id, test_id, raw_score, total_questions, band_score, time_spent_seconds, mode, created_at
-                   FROM reading_attempts WHERE client_id = ? ORDER BY id DESC LIMIT ?""",
-                (client_id, limit),
-            ).fetchall()
+            scored = []
+            for module in ("reading", "listening"):
+                rows = conn.execute(
+                    f"""SELECT id, test_id, raw_score, total_questions, band_score, time_spent_seconds, mode, created_at
+                       FROM {module}_attempts WHERE client_id = ? ORDER BY id DESC LIMIT ?""",
+                    (client_id, limit),
+                ).fetchall()
+                scored += [(module, r) for r in rows]
             writing = conn.execute(
                 """SELECT id, test_id, task1_words, task2_words, overall_band, time_spent_seconds, created_at
                    FROM writing_submissions WHERE client_id = ? ORDER BY id DESC LIMIT ?""",
                 (client_id, limit),
             ).fetchall()
         items = [
-            {"module": "reading", "id": r[0], "testId": r[1], "rawScore": r[2], "totalQuestions": r[3],
+            {"module": module, "id": r[0], "testId": r[1], "rawScore": r[2], "totalQuestions": r[3],
              "bandScore": r[4], "timeSpentSeconds": r[5], "mode": r[6], "createdAt": r[7]}
-            for r in reading
+            for module, r in scored
         ] + [
             {"module": "writing", "id": w[0], "testId": w[1], "task1Words": w[2], "task2Words": w[3],
              "bandScore": w[4], "timeSpentSeconds": w[5], "createdAt": w[6]}
@@ -152,8 +179,10 @@ class LocalStore:
     def stats(self):
         with self._lock, self._connect() as conn:
             r = conn.execute("SELECT COUNT(*), AVG(band_score) FROM reading_attempts").fetchone()
+            li = conn.execute("SELECT COUNT(*), AVG(band_score) FROM listening_attempts").fetchone()
             w = conn.execute("SELECT COUNT(*), AVG(overall_band) FROM writing_submissions").fetchone()
-        return {"readingAttempts": r[0], "readingAvgBand": r[1], "writingSubmissions": w[0], "writingAvgBand": w[1]}
+        return {"readingAttempts": r[0], "readingAvgBand": r[1], "listeningAttempts": li[0], "listeningAvgBand": li[1],
+                "writingSubmissions": w[0], "writingAvgBand": w[1]}
 
 
 class SupabaseError(Exception):
@@ -232,16 +261,20 @@ class SupabaseStore:
     def save_reading_attempt(self, rec):
         return self._rpc("app_save_reading_attempt", p_row=rec)
 
+    def save_listening_attempt(self, rec):
+        return self._rpc("app_save_listening_attempt", p_row=rec)
+
     def save_writing_submission(self, rec):
         return self._rpc("app_save_writing_submission", p_row=rec)
 
     def list_history(self, client_id, limit=20):
         data = self._rpc("app_history", p_client=client_id, p_limit=limit) or {}
         items = [
-            {"module": "reading", "id": r["id"], "testId": r["test_id"], "rawScore": r["raw_score"],
+            {"module": module, "id": r["id"], "testId": r["test_id"], "rawScore": r["raw_score"],
              "totalQuestions": r["total_questions"], "bandScore": float(r["band_score"]),
              "timeSpentSeconds": r["time_spent_seconds"], "mode": r["mode"], "createdAt": r["created_at"]}
-            for r in data.get("reading", [])
+            for module in ("reading", "listening")
+            for r in data.get(module, [])
         ] + [
             {"module": "writing", "id": w["id"], "testId": w["test_id"], "task1Words": w["task1_words"],
              "task2Words": w["task2_words"],

@@ -7,8 +7,9 @@ Serves the single-page app from public/ and a small JSON API:
   GET  /api/health                     health check for the host
   GET  /api/config                     public feature flags (AI marking on/off, site name)
   GET  /api/tests                      dashboard summaries of every published test
-  GET  /api/tests/<id>                 one test, WITHOUT answer keys / model answers
+  GET  /api/tests/<id>                 one test, WITHOUT answer keys / model answers / transcripts
   POST /api/reading/<id>/submit        mark a reading test, store the attempt, return results
+  POST /api/listening/<id>/submit      mark a listening test (results include the transcript)
   POST /api/writing/<id>/submit        analyse (and optionally AI-mark) a writing test
   GET  /api/history?clientId=<uuid>    a browser's own recent attempts
   GET  /api/admin/stats                totals (requires ADMIN_TOKEN)
@@ -73,7 +74,7 @@ TEST_ID_PATTERN = r"([a-z0-9][a-z0-9\-]{0,80})"
 MODULES = {
     "reading": {"name": "Reading", "status": "active"},
     "writing": {"name": "Writing", "status": "active"},
-    "listening": {"name": "Listening", "status": "soon"},
+    "listening": {"name": "Listening", "status": "active"},
     "speaking": {"name": "Speaking", "status": "soon"},
 }
 
@@ -238,17 +239,27 @@ class TestHandler(BaseHandler):
         test = await in_thread(STORE.get_test, test_id)
         if not test:
             return self.send_error_json(404, "Test not found")
-        if test.get("module") == "writing":
-            self.send_json(content.public_writing_test(test))
-        else:
-            self.send_json(content.public_reading_test(test))
+        self.send_json(content.public_test(test))
 
 
-class ReadingSubmitHandler(BaseHandler):
+class ScoredSubmitHandler(BaseHandler):
+    """Marks a reading or listening test, stores the attempt and returns the results."""
+
+    MODULE = "reading"
+
+    def evaluate(self, test, answers, name, seconds):
+        return scoring.evaluate_reading(test, answers, name, seconds)
+
+    def breakdown(self, result):
+        return {"passages": result["passageBreakdown"], "types": result["typeBreakdown"]}
+
+    def save(self, record):
+        return STORE.save_reading_attempt(record)
+
     async def post(self, test_id):
         test = await in_thread(STORE.get_test, test_id)
-        if not test or test.get("module") != "reading":
-            return self.send_error_json(404, "Reading test not found")
+        if not test or test.get("module") != self.MODULE:
+            return self.send_error_json(404, f"{self.MODULE.title()} test not found")
         body = self.body_json()
 
         raw_answers = body.get("answers") or {}
@@ -261,7 +272,7 @@ class ReadingSubmitHandler(BaseHandler):
         name = clean_name(body.get("candidateName"))
         seconds = clean_seconds(body.get("timeSpentSeconds"))
         mode = "practice" if body.get("mode") == "practice" else "exam"
-        result = scoring.evaluate_reading(test, answers, name, seconds)
+        result = self.evaluate(test, answers, name, seconds)
         result["mode"] = mode
 
         record = {
@@ -274,14 +285,31 @@ class ReadingSubmitHandler(BaseHandler):
             "band_score": result["bandScore"],
             "time_spent_seconds": seconds,
             "answers": answers,
-            "breakdown": {"passages": result["passageBreakdown"], "types": result["typeBreakdown"]},
+            "breakdown": self.breakdown(result),
         }
         try:
-            result["attemptId"] = await in_thread(STORE.save_reading_attempt, record)
+            result["attemptId"] = await in_thread(self.save, record)
         except Exception:
-            log.exception("Could not save reading attempt")
+            log.exception("Could not save %s attempt", self.MODULE)
             result["attemptId"] = None
         self.send_json(result)
+
+
+class ReadingSubmitHandler(ScoredSubmitHandler):
+    MODULE = "reading"
+
+
+class ListeningSubmitHandler(ScoredSubmitHandler):
+    MODULE = "listening"
+
+    def evaluate(self, test, answers, name, seconds):
+        return scoring.evaluate_listening(test, answers, name, seconds)
+
+    def breakdown(self, result):
+        return {"parts": result["partBreakdown"], "types": result["typeBreakdown"]}
+
+    def save(self, record):
+        return STORE.save_listening_attempt(record)
 
 
 class WritingSubmitHandler(BaseHandler):
@@ -429,6 +457,7 @@ def make_app():
             (r"/api/tests", TestsHandler),
             (rf"/api/tests/{TEST_ID_PATTERN}", TestHandler),
             (rf"/api/reading/{TEST_ID_PATTERN}/submit", ReadingSubmitHandler),
+            (rf"/api/listening/{TEST_ID_PATTERN}/submit", ListeningSubmitHandler),
             (rf"/api/writing/{TEST_ID_PATTERN}/submit", WritingSubmitHandler),
             (r"/api/history", HistoryHandler),
             (r"/api/admin/stats", AdminStatsHandler),
@@ -442,13 +471,13 @@ def make_app():
 
 def main():
     tests = STORE.list_tests()
-    reading_count = sum(1 for t in tests if t.get("module") == "reading")
-    writing_count = sum(1 for t in tests if t.get("module") == "writing")
+    counts = collections.Counter(t.get("module") for t in tests)
     app = make_app()
     app.listen(PORT, address="0.0.0.0", max_body_size=MAX_BODY_BYTES)
     log.info("%s running on http://0.0.0.0:%d (storage=%s, AI marking=%s)",
              SITE_NAME, PORT, STORE.name, "on" if writing.ai_configured() else "off")
-    log.info("Loaded %d reading and %d writing tests", reading_count, writing_count)
+    log.info("Loaded %d reading, %d listening and %d writing tests",
+             counts["reading"], counts["listening"], counts["writing"])
     tornado.ioloop.IOLoop.current().start()
 
 

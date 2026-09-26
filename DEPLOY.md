@@ -1,6 +1,6 @@
 # Going live: step-by-step
 
-> **Current setup (already done):** Supabase project `MockExamination` has the schema, the server secret hash and all tests. The Render service `ielts-mock-exam` has its environment variables set and deploys the `claude/loving-hamilton-ho09z6` branch automatically on every push. After merging that branch into `main`, switch the service back to `main` under **Render → ielts-mock-exam → Settings → Build & Deploy → Branch**.
+> **Current setup (already done):** Supabase project `MockExamination` has the schema (including the Listening tables), the server secret hash and all tests. The Render service `ielts-mock-exam` has its environment variables set and deploys the `claude/loving-hamilton-ho09z6` branch automatically on every push. After merging that branch into `main`, switch the service back to `main` under **Render → ielts-mock-exam → Settings → Build & Deploy → Branch**.
 
 The site runs with zero configuration, but for a public launch you want:
 
@@ -16,7 +16,7 @@ Total time: about 30 minutes.
 
 1. Create a free project at <https://supabase.com> (choose the region closest to your users).
 2. In the dashboard open **SQL Editor → New query**, paste the whole of [`supabase/schema.sql`](supabase/schema.sql) and click **Run**.
-   This creates three tables (`tests`, `reading_attempts`, `writing_submissions`) with Row Level Security **on and no public policies**, plus six `app_*` database functions that the server calls.
+   This creates four tables (`tests`, `reading_attempts`, `listening_attempts`, `writing_submissions`) with Row Level Security **on and no public policies**, plus seven `app_*` database functions that the server calls. Running it again on an older database adds whatever is missing.
 3. Create a server secret and store its hash:
 
    ```bash
@@ -72,7 +72,7 @@ Free Render instances sleep after inactivity and take ~30 s to wake. Upgrade to 
 - [ ] Pick your brand name (`SITE_NAME`). Avoid putting "IELTS" in the domain name or logo, because the IELTS partners protect the trademark. Descriptive use in text ("IELTS-style practice") with the disclaimer is what the site does now.
 - [ ] Set `CONTACT_EMAIL` so users can ask for their data to be deleted (shown on the About & legal page).
 - [ ] If you target users in the EU/UK, get a proper privacy policy and cookie review. The site uses no cookies and no trackers, only local storage for autosave and preferences.
-- [ ] Run `python scripts/test_app.py` and take one reading and one writing test on the live URL.
+- [ ] Run `python scripts/test_app.py` and take one listening, one reading and one writing test on the live URL.
 
 ## Admin endpoints
 

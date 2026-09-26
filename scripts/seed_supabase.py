@@ -33,10 +33,7 @@ def main():
     tests = storage.load_local_tests()
     problems = []
     for t in tests:
-        if t["module"] == "reading":
-            problems += content.validate_reading_test(t)
-        else:
-            problems += content.validate_writing_test(t)
+        problems += content.validate_test(t, public_dir=os.path.join(BASE_DIR, "public"))
     if problems:
         print("Refusing to upload invalid content:")
         for p in problems:

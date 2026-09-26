@@ -35,6 +35,7 @@
       group: "How the test works and how it is scored",
       note: "Read these before you practise, so you know exactly what examiners look for.",
       links: [
+        { title: "Listening test format", org: "IELTS.org", url: "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-listening" },
         { title: "Academic Reading test format", org: "IELTS.org", url: "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-reading" },
         { title: "Academic Writing test format", org: "IELTS.org", url: "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-writing" },
         { title: "Writing test preparation resources", org: "IELTS.org", url: "https://ielts.org/take-a-test/preparation-resources/writing-test-resources" },
@@ -51,7 +52,18 @@
         { title: "Free e-books of classic non-fiction", org: "Project Gutenberg", url: "https://www.gutenberg.org/" },
       ],
     },
+    {
+      group: "Free listening material for daily practice",
+      note: "Short talks and discussions with transcripts. Listen once for the main idea, then again for detail.",
+      links: [
+        { title: "6 Minute English", org: "BBC Learning English", url: "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" },
+        { title: "Talks with interactive transcripts", org: "TED", url: "https://www.ted.com/talks" },
+        { title: "Science podcasts", org: "NASA", url: "https://www.nasa.gov/podcasts/" },
+      ],
+    },
   ];
+
+  const MODULE_LABELS = { reading: "Reading", listening: "Listening", writing: "Writing" };
 
   class App {
     constructor() {
@@ -149,20 +161,27 @@
 
     /* Dashboard -------------------------------------------------------- */
     renderHome() {
-      document.title = `${this.config.siteName} – IELTS-style Academic Reading & Writing practice`;
-      const mod = this.module === "writing" ? "writing" : "reading";
+      document.title = `${this.config.siteName} – IELTS-style Academic Reading, Listening & Writing practice`;
+      const mod = MODULE_LABELS[this.module] ? this.module : "reading";
       const tests = this.tests.filter((t) => t.module === mod);
       const modules = [
+        ["listening", "Listening", true],
         ["reading", "Reading", true],
         ["writing", "Writing", true],
-        ["listening", "Listening", false],
         ["speaking", "Speaking", false],
       ];
+      const sections = {
+        reading: ["Academic Reading", "3 passages · 40 questions · 60 minutes. Answers are marked instantly with explanations."],
+        listening: ["Listening", "4 parts · 40 questions · about 22 minutes. Hear each recording once in the timed test, or pause and replay in practice mode. Marked instantly, with the full transcript."],
+        writing: ["Academic Writing", `2 tasks · 60 minutes. ${this.config.aiMarking
+          ? "Get an AI examiner’s band estimate and feedback on all four criteria."
+          : "Get automatic feedback, a checklist and model answers."}`],
+      };
       this.main.innerHTML = `
         <section class="hero">
           <h1>Free IELTS-style Academic practice tests</h1>
-          <p>Timed, computer-delivered practice for Academic Reading and Writing, with original passages,
-            instant reading scores, answer explanations and detailed writing feedback.</p>
+          <p>Timed, computer-delivered practice for Listening, Academic Reading and Academic Writing, with original
+            recordings and passages, instant scores, answer explanations, transcripts and detailed writing feedback.</p>
         </section>
 
         <div class="modules-nav" role="tablist" aria-label="Choose a module">
@@ -177,10 +196,8 @@
 
         <section>
           <div class="section-head">
-            <h2 class="section-title">${mod === "reading" ? "Academic Reading" : "Academic Writing"}</h2>
-            <p class="muted-text">${mod === "reading"
-              ? "3 passages · 40 questions · 60 minutes. Answers are marked instantly with explanations."
-              : `2 tasks · 60 minutes. ${this.config.aiMarking ? "Get an AI examiner’s band estimate and feedback on all four criteria." : "Get automatic feedback, a checklist and model answers."}`}</p>
+            <h2 class="section-title">${sections[mod][0]}</h2>
+            <p class="muted-text">${esc(sections[mod][1])}</p>
           </div>
           <div class="books-grid">${tests.map((t) => this.testCard(t)).join("") || `<p class="empty-note">No tests available yet.</p>`}</div>
         </section>
@@ -193,7 +210,7 @@
           <div class="how-card"><span class="how-num">2</span><h3>Instant, honest feedback</h3>
             <p>See your estimated band, your weakest question types and why every answer is right or wrong.</p></div>
           <div class="how-card"><span class="how-num">3</span><h3>Original material</h3>
-            <p>Every passage, question and task here is written for this site, so it is new to you and legal to use.</p></div>
+            <p>Every passage, recording, question and task here is made for this site, so it is new to you and legal to use.</p></div>
         </section>`;
       this.loadHistory();
     }
@@ -204,19 +221,19 @@
 
     testCard(t) {
       const inProgress = this.hasProgress(t.id);
-      const body = t.module === "reading"
-        ? `<ul class="test-passages-list">${t.passages.map((p) => `
-            <li class="test-passage-item"><span class="p-badge">P${p.number}</span><span>${esc(p.title)}</span></li>`).join("")}</ul>`
-        : `<ul class="test-passages-list">${t.tasks.map((k) => `
-            <li class="test-passage-item"><span class="p-badge">T${k.number}</span><span>${esc(k.title)}</span></li>`).join("")}</ul>`;
-      const meta = t.module === "reading"
-        ? `<span>${t.durationMinutes} minutes</span><span>${t.totalQuestions} questions</span>`
-        : `<span>${t.durationMinutes} minutes</span><span>2 tasks</span>`;
+      const items = t.module === "reading" ? t.passages.map((p) => [`P${p.number}`, p.title])
+        : t.module === "listening" ? t.parts.map((p) => [`P${p.number}`, p.title])
+          : t.tasks.map((k) => [`T${k.number}`, k.title]);
+      const body = `<ul class="test-passages-list">${items.map(([badge, title]) => `
+            <li class="test-passage-item"><span class="p-badge">${esc(badge)}</span><span>${esc(title)}</span></li>`).join("")}</ul>`;
+      const meta = t.module === "writing"
+        ? `<span>${t.durationMinutes} minutes</span><span>2 tasks</span>`
+        : `<span>${t.module === "listening" ? "About " : ""}${t.durationMinutes} minutes</span><span>${t.totalQuestions} questions</span>`;
       return `
         <article class="test-card">
           <div>
             <div class="test-card-header">
-              <span class="test-card-book">Academic ${t.module === "reading" ? "Reading" : "Writing"}</span>
+              <span class="test-card-book">${t.module === "listening" ? "Listening" : `Academic ${MODULE_LABELS[t.module]}`}</span>
               ${inProgress ? `<span class="badge-progress">In progress</span>` : ""}
             </div>
             <h3 class="test-card-title">${esc(t.shortTitle)}</h3>
@@ -242,7 +259,7 @@
       if (!items.length || !document.body.contains(section)) return;
       const titleOf = (id) => {
         const t = this.tests.find((x) => x.id === id);
-        return t ? `${t.module === "reading" ? "Reading" : "Writing"} · ${t.shortTitle}` : id;
+        return t ? `${MODULE_LABELS[t.module] || t.module} · ${t.shortTitle}` : id;
       };
       section.hidden = false;
       section.innerHTML = `
@@ -254,7 +271,7 @@
             <tr>
               <td>${esc(U.formatDate(i.createdAt))}</td>
               <td>${esc(titleOf(i.testId))}${i.mode === "practice" ? ` <span class="muted-text">(practice)</span>` : ""}</td>
-              <td>${i.module === "reading"
+              <td>${i.module !== "writing"
                 ? `<strong>Band ${IeltsScoring.formatBand(i.bandScore)}</strong> <span class="muted-text">(${i.rawScore}/${i.totalQuestions})</span>`
                 : i.bandScore !== null && i.bandScore !== undefined ? `<strong>Band ${IeltsScoring.formatBand(i.bandScore)}</strong>` : `<span class="muted-text">Feedback only (${i.task1Words}+${i.task2Words} words)</span>`}</td>
               <td>${U.formatDuration(i.timeSpentSeconds)}</td>
@@ -276,11 +293,24 @@
 
     showVerification() {
       const { test, mode } = this.pending;
-      const reading = test.module === "reading";
+      const module = test.module;
       const timed = mode === "exam";
       const progress = U.store.get(`mockexam:progress:${test.id}`);
       const canResume = progress && progress.mode === mode;
-      const instructions = reading
+      const checkMinutes = test.checkMinutes || 2;
+      const instructions = module === "listening"
+        ? [
+          `There are <strong>4 parts</strong> and <strong>40 questions</strong>. The recording lasts about <strong>${test.durationMinutes} minutes</strong>.`,
+          timed
+            ? `You will hear each part <strong>once only</strong>. The recording cannot be paused. Before each part you have time to read the questions.`
+            : `Practice mode lets you <strong>pause, rewind and replay</strong> the recording, choose a part and change its speed.`,
+          timed
+            ? `When the recording ends you have <strong>${checkMinutes} minutes</strong> to check your answers. They are then submitted automatically.`
+            : `Press <strong>Finish test</strong> when you are ready to see your score and the transcript.`,
+          `Write your answers on screen as you listen. Spelling counts. Wrong answers do not lose marks.`,
+          `Use headphones if you can, and check the sound below before you start.`,
+        ]
+        : module === "reading"
         ? [
           `There are <strong>3 passages</strong> and <strong>40 questions</strong>.`,
           timed ? `You have <strong>60 minutes</strong>. The test is submitted automatically when time runs out.` : `Practice mode has <strong>no time limit</strong>. The clock shows how long you have spent.`,
@@ -298,7 +328,7 @@
 
       document.getElementById("verification-card").innerHTML = `
         <div class="verification-header">
-          <div class="vh-title"><span class="site-logo small" aria-hidden="true">M</span> Academic ${reading ? "Reading" : "Writing"}</div>
+          <div class="vh-title"><span class="site-logo small" aria-hidden="true">M</span> ${module === "listening" ? "Listening" : `Academic ${MODULE_LABELS[module]}`}</div>
           <span class="vh-mode">${timed ? "Timed test" : "Practice mode"}</span>
         </div>
         <form class="verification-body" id="verify-form">
@@ -307,6 +337,17 @@
             <strong>Instructions to candidates</strong>
             <ul>${instructions.map((i) => `<li>${i}</li>`).join("")}</ul>
           </div>
+          ${module === "listening" ? `
+            <div class="sound-check">
+              <div class="sound-check-text"><strong>Sound check</strong>
+                <span>Press <em>Play sound</em> and set the volume so that you can hear the voice clearly.</span></div>
+              <div class="sound-check-controls">
+                <button type="button" class="btn-secondary" id="sound-check-btn">Play sound</button>
+                <label class="sound-check-volume">Volume
+                  <input type="range" id="sound-check-volume" min="0" max="100" step="5"
+                    value="${Math.round(Number(U.store.get("mockexam:volume", 0.8)) * 100)}" /></label>
+              </div>
+            </div>` : ""}
           ${canResume ? `
             <label class="check-row resume-row"><input type="checkbox" id="resume-check" checked />
               Resume my unfinished attempt (saved ${esc(U.formatDate(new Date(progress.savedAt).toISOString()))})</label>` : ""}
@@ -320,12 +361,15 @@
           </div>
         </form>`;
       this.showView("verification");
+      const stopSoundCheck = module === "listening" ? this.bindSoundCheck() : () => {};
       document.getElementById("verify-cancel").addEventListener("click", () => {
+        stopSoundCheck();
         this.pending = null;
         location.hash = "#/";
       });
       document.getElementById("verify-form").addEventListener("submit", (e) => {
         e.preventDefault();
+        stopSoundCheck();
         const name = document.getElementById("cand-name").value.trim() || "Candidate";
         U.store.set("mockexam:name", name);
         const resumeBox = document.getElementById("resume-check");
@@ -336,10 +380,33 @@
       document.getElementById("cand-name").focus();
     }
 
+    /** Sound check on the Listening instructions screen. Returns a function that stops it. */
+    bindSoundCheck() {
+      const btn = document.getElementById("sound-check-btn");
+      const slider = document.getElementById("sound-check-volume");
+      const audio = new Audio("audio/sound-check.mp3");
+      audio.volume = Number(slider.value) / 100;
+      const setLabel = () => { btn.textContent = audio.paused ? "Play sound" : "Stop"; };
+      btn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.currentTime = 0;
+          audio.play().catch(() => U.toast("Your browser blocked the sound. Check that this tab is not muted.", "warn"));
+        } else {
+          audio.pause();
+        }
+      });
+      ["play", "pause", "ended"].forEach((ev) => audio.addEventListener(ev, setLabel));
+      slider.addEventListener("input", () => {
+        audio.volume = Number(slider.value) / 100;
+        U.store.set("mockexam:volume", audio.volume);
+      });
+      return () => audio.pause();
+    }
+
     launch(test, mode, name, saved) {
       this.pending = null;
       this.showView("exam");
-      const Exam = test.module === "writing" ? WritingExam : ReadingExam;
+      const Exam = test.module === "writing" ? WritingExam : test.module === "listening" ? ListeningExam : ReadingExam;
       this.exam = new Exam({
         test, mode, saved,
         candidateName: name,
@@ -366,6 +433,7 @@
       const r = this.lastResult;
       document.title = `Your results – ${this.config.siteName}`;
       if (r.module === "writing") Results.renderWriting(r, this.main);
+      else if (r.module === "listening") Results.renderListening(r, this.main);
       else Results.renderReading(r, this.main);
     }
 
@@ -401,8 +469,8 @@
       this.main.innerHTML = `
         <section class="page prose">
           <h1>About ${name}</h1>
-          <p class="lead-text">${name} is a free practice website for people preparing for the Academic Reading and Writing
-            papers of the IELTS test. It recreates the computer-delivered test environment so you can practise under realistic conditions.</p>
+          <p class="lead-text">${name} is a free practice website for people preparing for the Listening, Academic Reading and
+            Academic Writing papers of the IELTS test. It recreates the computer-delivered test environment so you can practise under realistic conditions.</p>
 
           <h2>Independent website</h2>
           <p>${name} is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University
@@ -413,14 +481,17 @@
           <ul>
             <li>All reading passages, questions, answer explanations, writing tasks and model answers were written specifically for this site.
               They are not copied or adapted from official IELTS tests or from published practice books.</li>
-            <li>Facts in the reading passages come from widely available public knowledge. The data in Writing Task 1 charts is fictional and exists only for practice.</li>
+            <li>Facts in the reading passages and lectures come from widely available public knowledge. The data in Writing Task 1 charts,
+              and the people and places in the recordings, are fictional.</li>
+            <li>The listening recordings are original scripts voiced by computer-generated speech, made with the open-source
+              Kokoro text-to-speech model (Apache 2.0 licence). No real person’s voice is used.</li>
             <li>For official practice material, see our <a href="#/resources">free official resources</a> page, which links to the official websites.</li>
           </ul>
 
           <h2>About your scores</h2>
           <ul>
-            <li><strong>Reading:</strong> your band is estimated from your raw score using a typical Academic Reading conversion table.
-              Official tests adjust this table slightly for each version.</li>
+            <li><strong>Listening and Reading:</strong> your band is estimated from your raw score using a typical conversion table
+              for each paper. Official tests adjust these tables slightly for each version.</li>
             <li><strong>Writing:</strong> ${this.config.aiMarking
               ? "when you request it, an AI examiner estimates a band for each of the four public Writing criteria."
               : "automatic feedback checks length, structure and language features."}

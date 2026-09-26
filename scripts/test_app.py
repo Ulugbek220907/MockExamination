@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Automated tests for content, scoring, writing assessment and the HTTP API.
+Automated tests for content, scoring (reading and listening), writing
+assessment, storage and the HTTP API.
 
     python scripts/test_app.py            # run everything
     python -m unittest scripts.test_app   # same, via unittest
@@ -35,7 +36,9 @@ import server  # noqa: E402
 
 TESTS = storage.load_local_tests()
 READING = [t for t in TESTS if t["module"] == "reading"]
+LISTENING = [t for t in TESTS if t["module"] == "listening"]
 WRITING = [t for t in TESTS if t["module"] == "writing"]
+PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 CLIENT_ID = "123e4567-e89b-12d3-a456-426614174000"
 
 
@@ -63,13 +66,41 @@ def contains_key(obj, key):
 class ContentTests(unittest.TestCase):
     def test_expected_tests_present(self):
         self.assertGreaterEqual(len(READING), 3)
+        self.assertGreaterEqual(len(LISTENING), 1)
         self.assertGreaterEqual(len(WRITING), 4)
 
     def test_all_content_valid(self):
-        for t in READING:
-            self.assertEqual(content.validate_reading_test(t), [], t["id"])
-        for t in WRITING:
-            self.assertEqual(content.validate_writing_test(t), [], t["id"])
+        for t in TESTS:
+            self.assertEqual(content.validate_test(t, public_dir=PUBLIC_DIR), [], t["id"])
+
+    def test_listening_audio_files_exist(self):
+        for t in LISTENING:
+            for part in t["parts"]:
+                path = os.path.join(PUBLIC_DIR, part["audio"]["src"])
+                self.assertTrue(os.path.getsize(path) > 100_000, path)
+                self.assertGreater(part["audio"]["duration"], 120)
+
+    def test_public_listening_view_hides_answers_and_transcript(self):
+        for t in LISTENING:
+            public = content.public_listening_test(t)
+            for key in ("answer", "explanation", "cue", "script", "speakers", "pronunciations"):
+                self.assertFalse(contains_key(public, key), f"{t['id']} leaks '{key}'")
+            self.assertTrue(all(p["audio"]["src"].endswith(".mp3") for p in public["parts"]))
+            self.assertTrue(contains_key(t, "script"))  # original untouched
+
+    def test_listening_cues_located_in_the_right_part(self):
+        for t in LISTENING:
+            cues = content.locate_listening_cues(t)
+            self.assertEqual(sorted(cues), list(range(1, 41)))
+            for pi, part in enumerate(t["parts"]):
+                for _, _, q in ((part, g, q) for g in part["groups"] for q in g["questions"]):
+                    self.assertEqual(cues[q["number"]]["part"], pi)
+
+    def test_validator_catches_missing_answer_in_transcript(self):
+        t = json.loads(json.dumps(LISTENING[0]))
+        t["parts"][0]["groups"][0]["questions"][0]["answer"] = ["Smith"]
+        errors = content.validate_listening_test(t)
+        self.assertTrue(any("Q1" in e and "transcript" in e for e in errors), errors)
 
     def test_no_cambridge_material_served(self):
         for t in TESTS:
@@ -133,6 +164,45 @@ class ReadingScoringTests(unittest.TestCase):
         self.assertTrue(q23["isCorrect"])
         self.assertEqual(q23["correctAnswer"], "C (flat)")
         self.assertIn("______", q23["prompt"])
+
+
+class ListeningScoringTests(unittest.TestCase):
+    def test_band_table(self):
+        table = scoring.LISTENING_BANDS
+        cases = {40: 9.0, 39: 9.0, 37: 8.5, 35: 8.0, 32: 7.5, 30: 7.0, 26: 6.5, 23: 6.0, 18: 5.5, 16: 5.0, 0: 2.0}
+        for raw, band in cases.items():
+            self.assertEqual(scoring.band_for_raw_score(raw, table), band, raw)
+
+    def test_perfect_and_empty_scores(self):
+        for t in LISTENING:
+            r = scoring.evaluate_listening(t, perfect_answers(t))
+            self.assertEqual((r["rawScore"], r["bandScore"]), (40, 9.0))
+            self.assertEqual(sum(p["correct"] for p in r["partBreakdown"].values()), 40)
+            r = scoring.evaluate_listening(t, {})
+            self.assertEqual((r["rawScore"], r["bandScore"]), (0, 2.0))
+
+    def test_answer_variants(self):
+        t = LISTENING[0]
+        r = scoring.evaluate_listening(t, {"1": "kowalski", "4": "six", "5": "off peak", "9": "photograph",
+                                           "36": "belly", "40": "a jellyfish", "2": "24", "8": "pilate"})
+        marks = {x["number"]: x["isCorrect"] for x in r["results"]}
+        for n in (1, 4, 5, 9, 36, 40):
+            self.assertTrue(marks[n], n)
+        self.assertFalse(marks[2])   # 24 is the distractor, 42 is correct
+        self.assertFalse(marks[8])   # spelling counts
+        self.assertEqual(r["rawScore"], 6)
+
+    def test_results_carry_transcript_and_cues(self):
+        t = LISTENING[0]
+        r = scoring.evaluate_listening(t, {})
+        self.assertEqual(len(r["transcript"]), 4)
+        self.assertTrue(all(p["lines"] and p["audio"]["src"] for p in r["transcript"]))
+        for row in r["results"]:
+            self.assertIsNotNone(row["cue"], row["number"])
+            self.assertGreaterEqual(row["cue"]["start"], 0)
+            self.assertIn("partNumber", row)
+        q17 = next(x for x in r["results"] if x["number"] == 17)
+        self.assertTrue(q17["correctAnswer"].startswith("C ("))  # option text shown with the letter
 
 
 class WritingTests(unittest.TestCase):
@@ -276,10 +346,14 @@ class SupabaseStoreTests(unittest.TestCase):
                     "app_list_tests": [READING[0]],
                     "app_upsert_test": None,
                     "app_save_reading_attempt": 42,
+                    "app_save_listening_attempt": 44,
                     "app_save_writing_submission": 43,
                     "app_history": {"reading": [{"id": 5, "test_id": "academic-reading-01", "raw_score": 30,
                                                  "total_questions": 40, "band_score": 7.0, "time_spent_seconds": 100,
                                                  "mode": "exam", "created_at": "2026-01-01T00:00:00Z"}],
+                                    "listening": [{"id": 6, "test_id": "listening-01", "raw_score": 33,
+                                                   "total_questions": 40, "band_score": 7.5, "time_spent_seconds": 1500,
+                                                   "mode": "exam", "created_at": "2026-01-02T00:00:00Z"}],
                                     "writing": []},
                     "app_stats": {"readingAttempts": 7, "writingSubmissions": 2},
                 }
@@ -307,9 +381,12 @@ class SupabaseStoreTests(unittest.TestCase):
 
         self.assertEqual(self.store.save_reading_attempt({"test_id": "academic-reading-01"}), 42)
         self.assertEqual(self.store.save_writing_submission({"test_id": "academic-writing-01"}), 43)
+        self.assertEqual(self.store.save_listening_attempt({"test_id": "listening-01"}), 44)
+        self.assertEqual(self.requests[-1]["fn"], "app_save_listening_attempt")
 
         items = self.store.list_history(CLIENT_ID)
-        self.assertEqual(items[0]["bandScore"], 7.0)
+        self.assertEqual((items[0]["module"], items[0]["bandScore"]), ("listening", 7.5))  # newest first
+        self.assertEqual((items[1]["module"], items[1]["bandScore"]), ("reading", 7.0))
         self.assertEqual(self.requests[-1]["body"]["p_client"], CLIENT_ID)
         self.assertEqual(self.store.stats()["readingAttempts"], 7)
 
@@ -351,8 +428,10 @@ class ApiTests(AsyncHTTPTestCase):
         code, data = self.get_json("/api/tests")
         self.assertEqual(code, 200)
         modules = {t["module"] for t in data["tests"]}
-        self.assertEqual(modules, {"reading", "writing"})
-        self.assertEqual(data["modules"]["writing"]["status"], "active")
+        self.assertEqual(modules, {"reading", "listening", "writing"})
+        self.assertEqual(data["modules"]["listening"]["status"], "active")
+        listening = next(t for t in data["tests"] if t["module"] == "listening")
+        self.assertEqual([p["number"] for p in listening["parts"]], [1, 2, 3, 4])
 
     def test_single_test_has_no_answers(self):
         code, data = self.get_json("/api/tests/academic-reading-01")
@@ -360,6 +439,10 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertFalse(contains_key(data, "answer"))
         code, data = self.get_json("/api/tests/academic-writing-01")
         self.assertFalse(contains_key(data, "modelAnswer"))
+        code, data = self.get_json("/api/tests/listening-01")
+        self.assertEqual(code, 200)
+        for key in ("answer", "script", "cue", "explanation"):
+            self.assertFalse(contains_key(data, key), key)
         code, _ = self.get_json("/api/tests/does-not-exist")
         self.assertEqual(code, 404)
 
@@ -375,6 +458,31 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertTrue(any(i["testId"] == t["id"] for i in hist["items"]))
         code, hist = self.get_json("/api/history?clientId=not-a-uuid")
         self.assertEqual(hist["items"], [])
+
+    def test_listening_submit_and_history(self):
+        t = LISTENING[0]
+        answers = perfect_answers(t)
+        answers["2"] = "24"
+        code, data = self.post_json(f"/api/listening/{t['id']}/submit", {
+            "answers": answers, "candidateName": "Tester", "clientId": CLIENT_ID,
+            "timeSpentSeconds": 1500, "mode": "exam"})
+        self.assertEqual(code, 200)
+        self.assertEqual((data["rawScore"], data["bandScore"]), (39, 9.0))
+        self.assertIsNotNone(data["attemptId"])
+        self.assertEqual(len(data["transcript"]), 4)
+        code, hist = self.get_json(f"/api/history?clientId={CLIENT_ID}")
+        self.assertTrue(any(i["module"] == "listening" and i["testId"] == t["id"] for i in hist["items"]))
+        code, _ = self.post_json("/api/listening/academic-reading-01/submit", {})
+        self.assertEqual(code, 404)
+        code, _ = self.post_json(f"/api/reading/{t['id']}/submit", {})
+        self.assertEqual(code, 404)
+
+    def test_audio_served_with_ranges(self):
+        src = LISTENING[0]["parts"][0]["audio"]["src"]
+        r = self.fetch(f"/{src}", headers={"Range": "bytes=0-1023"})
+        self.assertEqual(r.code, 206)
+        self.assertEqual(len(r.body), 1024)
+        self.assertEqual(r.headers["Content-Type"], "audio/mpeg")
 
     def test_writing_submit_without_ai(self):
         t = WRITING[0]
@@ -399,7 +507,9 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertEqual(self.fetch("/api/admin/stats").code, 401)
         r = self.fetch("/api/admin/stats", headers={"Authorization": "Bearer test-admin-token"})
         self.assertEqual(r.code, 200)
-        self.assertIn("readingAttempts", json.loads(r.body))
+        stats = json.loads(r.body)
+        self.assertIn("readingAttempts", stats)
+        self.assertIn("listeningAttempts", stats)
 
     def test_static_and_security_headers(self):
         r = self.fetch("/")
