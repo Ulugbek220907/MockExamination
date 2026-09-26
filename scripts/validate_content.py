@@ -51,7 +51,10 @@ def main():
             length = f"{audio['duration'] / 60:.1f} min audio" if audio.get("duration") else "audio not built"
             print(f"  Part {p['partNumber']}: {p.get('title', '')!r}  {words} words, {length}, Q{min(nums)}–{max(nums)}")
             for g in p["groups"]:
-                keys = [q.get("answer") if not isinstance(q.get("answer"), list) else "text" for q in g["questions"]]
+                if g["type"] == "choose_multiple":
+                    keys = g.get("answer", [])
+                else:
+                    keys = [q.get("answer") if not isinstance(q.get("answer"), list) else "text" for q in g["questions"]]
                 dist = dict(Counter(keys)) if g["type"] not in content.COMPLETION_TYPES or g.get("options") else ""
                 print(f"    {g['type']:<28} {dist}")
 

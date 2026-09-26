@@ -163,7 +163,8 @@ def _find_span(text, phrase):
             parts.append(r"\s+")
         else:
             parts.append(re.escape(ch))
-    m = re.search("".join(parts), text, re.IGNORECASE)
+    # Whole words only, so a short cue such as "war" never matches inside "towards".
+    m = re.search(r"(?<![A-Za-z0-9])" + "".join(parts) + r"(?![A-Za-z0-9])", text, re.IGNORECASE)
     return (m.start(), m.end()) if m else None
 
 

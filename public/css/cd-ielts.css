@@ -187,6 +187,7 @@ body.text-extra-large { --cd-base-font-size: 20px; }
 .q-table { border-collapse: collapse; width: 100%; line-height: 1.8; }
 .q-table th, .q-table td { border: 1px solid var(--cd-border-color); padding: 6px 10px; text-align: left; vertical-align: top; }
 .q-table th { background: var(--cd-soft-bg); }
+.q-table .gap-input { width: 120px; }
 .flow-steps { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 22px; }
 .flow-steps li { border: 1px solid var(--cd-border-color); border-radius: 6px; padding: 8px 14px; position: relative; width: 100%; }
 .flow-steps li:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -24px; transform: translateX(-50%); }

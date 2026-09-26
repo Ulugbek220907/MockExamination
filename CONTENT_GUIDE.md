@@ -27,6 +27,7 @@ Facts themselves are not copyrighted. Reading widely and then writing a new pass
 | Test | Passages / tasks |
 |---|---|
 | Listening 1 | Leisure centre membership form · Country park map and talk · Students plan a food-waste presentation · Lecture on bioluminescence |
+| Listening 2 | Booking a family cycle tour · Radio interview about a food festival · Tutorial on a citizen science project · Lecture on seed banks |
 | Reading 1 | The Language of the Hive · The Box That Shrank the World · The Puzzle of the Placebo |
 | Reading 2 | The Return of the Wolf · The Problem of Longitude · Does Language Shape the Way We Think? |
 | Reading 3 | Saving the Kākāpō · The Rock That Built the Modern World · Too Much of a Good Thing? |
@@ -90,9 +91,9 @@ A listening test is a script (who says what, in order) plus questions. The audio
 
 ```jsonc
 {
-  "id": "listening-02", "module": "listening", "variant": "academic",
-  "title": "Listening Practice Test 2", "shortTitle": "Practice Test 2",
-  "checkMinutes": 2, "totalQuestions": 40, "sortOrder": 2,
+  "id": "listening-03", "module": "listening", "variant": "academic",
+  "title": "Listening Practice Test 3", "shortTitle": "Practice Test 3",
+  "checkMinutes": 2, "totalQuestions": 40, "sortOrder": 3,
   "speakers": {                                   // Kokoro voices, see the list below
     "narrator": { "name": "Narrator", "voice": "bm_george", "lang": "en-gb" },
     "anna":     { "name": "Anna", "voice": "af_heart", "lang": "en-us" }
@@ -119,8 +120,8 @@ Build and check the audio (needs the Kokoro model files, about 340 MB, see the t
 
 ```bash
 pip install -r scripts/requirements-audio.txt
-python scripts/build_listening_audio.py --models ~/tts-models --only listening-02
-python scripts/check_listening_audio.py --only listening-02   # Whisper transcribes the MP3s
+python scripts/build_listening_audio.py --models ~/tts-models --only listening-03
+python scripts/check_listening_audio.py --only listening-03   # Whisper transcribes the MP3s
 python scripts/validate_content.py
 ```
 

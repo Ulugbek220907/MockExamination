@@ -8,7 +8,7 @@ A free, distraction-free website for practising the **Listening**, **Academic Re
 
 | Module | Content | Marking |
 |---|---|---|
-| **Listening** | 1 full test: 4 parts, 40 questions, 20 minutes of original recordings (form and note completion, map labelling, multiple choice, matching) | Instant: estimated band, per-part and per-question-type analysis, explanations, and the full transcript with every answer highlighted and a *Listen again* button |
+| **Listening** | 2 full tests: 8 parts, 80 questions, about 40 minutes of original recordings (form, note, table and flow-chart completion, map labelling, multiple choice, choose two, matching) | Instant: estimated band, per-part and per-question-type analysis, explanations, and the full transcript with every answer highlighted and a *Listen again* button |
 | **Reading** | 4 full Academic tests: 12 original passages, 160 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
 | **Writing** | 5 full Academic tests: Task 1 line graph, bar chart, process diagram, pie charts and table, plus 5 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** scores all four criteria and gives corrections |
 | Speaking | – | Coming soon |

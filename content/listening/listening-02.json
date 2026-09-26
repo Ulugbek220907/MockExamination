@@ -1,0 +1,1437 @@
+{
+  "id": "listening-02",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 2",
+  "shortTitle": "Practice Test 2",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 2,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "oliver": {
+      "name": "Oliver",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "helen": {
+      "name": "Helen",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "presenter": {
+      "name": "Presenter",
+      "voice": "am_puck",
+      "lang": "en-us"
+    },
+    "rachel": {
+      "name": "Rachel",
+      "voice": "af_bella",
+      "lang": "en-us"
+    },
+    "evans": {
+      "name": "Dr Evans",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "maya": {
+      "name": "Maya",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "josh": {
+      "name": "Josh",
+      "voice": "am_fenrir",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {
+    "Vavilov": "vɐvˈiːlɒf"
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a cycle tour",
+      "context": "A woman phones a company that runs guided cycle tours.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman telephoning a company that organises cycle tours. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.01
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.01,
+          "end": 39.07
+        },
+        {
+          "speaker": "oliver",
+          "text": "Good morning, Two Rivers Cycle Tours, Oliver speaking. How can I help?",
+          "start": 39.97,
+          "end": 44.45
+        },
+        {
+          "speaker": "helen",
+          "text": "Oh, hello. I'm thinking of booking one of your guided bike tours for my family this summer. I saw your advert in a travel magazine, and it looked like a lot of fun.",
+          "start": 44.95,
+          "end": 53.94
+        },
+        {
+          "speaker": "oliver",
+          "text": "That's great. I'll just take a few details first, and then I can tell you about the tours that might suit you.",
+          "start": 54.44,
+          "end": 60.99
+        },
+        {
+          "speaker": "narrator",
+          "text": "The woman saw the advert in a travel magazine, so 'travel magazine' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 61.89,
+          "end": 78.31
+        },
+        {
+          "speaker": "oliver",
+          "text": "Right. Could I have your name, please?",
+          "start": 79.21,
+          "end": 81.2
+        },
+        {
+          "speaker": "helen",
+          "text": "Yes, it's Helen Thornbury.",
+          "start": 81.7,
+          "end": 83.45
+        },
+        {
+          "speaker": "oliver",
+          "text": "And how do you spell your surname?",
+          "start": 83.95,
+          "end": 85.93
+        },
+        {
+          "speaker": "helen",
+          "text": "It's T-H-O-R-N-B-U-R-Y.",
+          "start": 86.43,
+          "end": 88.65
+        },
+        {
+          "speaker": "oliver",
+          "text": "Thank you, Mrs Thornbury. And how many of you would be coming?",
+          "start": 89.15,
+          "end": 92.9
+        },
+        {
+          "speaker": "helen",
+          "text": "Well, there's my husband and me, and our two children. Oh, wait, I nearly forgot. My nephew is staying with us that week, and he'll definitely want to come. So that's two adults and three children.",
+          "start": 93.4,
+          "end": 103.62
+        },
+        {
+          "speaker": "oliver",
+          "text": "That's fine. Children need to be at least eight years old for our tours. Is that OK?",
+          "start": 104.12,
+          "end": 109.58
+        },
+        {
+          "speaker": "helen",
+          "text": "Yes, the youngest is ten, so there's no problem there.",
+          "start": 110.08,
+          "end": 113.07
+        },
+        {
+          "speaker": "oliver",
+          "text": "Great. We collect everyone from their accommodation in the morning, so could you tell me where you'll be staying?",
+          "start": 113.57,
+          "end": 119.86
+        },
+        {
+          "speaker": "helen",
+          "text": "We wanted to stay at the Riverside Inn, but it was fully booked, so we've got rooms at the Kingfisher Hotel, in the centre of town.",
+          "start": 120.36,
+          "end": 126.98
+        },
+        {
+          "speaker": "oliver",
+          "text": "Ah, the Kingfisher. I know it well. It's right on our usual route, so that's easy. And which day were you thinking of?",
+          "start": 127.48,
+          "end": 134.73
+        },
+        {
+          "speaker": "helen",
+          "text": "We arrive on the twelfth of August. We'll be tired after the journey, so not that day. I was going to say the thirteenth, but my husband has an online meeting that morning. So could we make it the fourteenth?",
+          "start": 135.23,
+          "end": 145.96
+        },
+        {
+          "speaker": "oliver",
+          "text": "The fourteenth of August. Yes, we still have places on that day. Now, lunch is included on all our tours. Does anyone in your group have any special dietary needs?",
+          "start": 146.46,
+          "end": 157.72
+        },
+        {
+          "speaker": "helen",
+          "text": "None of us have any allergies, but my husband doesn't eat meat. He's been vegetarian for years.",
+          "start": 158.22,
+          "end": 163.51
+        },
+        {
+          "speaker": "oliver",
+          "text": "That's no problem at all. I'll make a note of that.",
+          "start": 164.01,
+          "end": 167.34
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 168.24,
+          "end": 173.96
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 193.96,
+          "end": 197.29
+        },
+        {
+          "speaker": "oliver",
+          "text": "So, there are three tours that are suitable for families. The first one is called the Valley Trail. It's 25 kilometres long, and it's the easiest of the three, because it's almost completely flat.",
+          "start": 198.19,
+          "end": 210.88
+        },
+        {
+          "speaker": "helen",
+          "text": "Why is it so flat?",
+          "start": 211.38,
+          "end": 213.02
+        },
+        {
+          "speaker": "oliver",
+          "text": "Because most of the route follows an old railway line. The trains stopped running about sixty years ago, and the track was turned into a cycle path. Children love it, because you ride through two tunnels.",
+          "start": 213.52,
+          "end": 226.71
+        },
+        {
+          "speaker": "helen",
+          "text": "That sounds perfect. How much is it?",
+          "start": 227.21,
+          "end": 229.53
+        },
+        {
+          "speaker": "oliver",
+          "text": "It's 45 pounds per person, and that includes bike hire and lunch.",
+          "start": 230.03,
+          "end": 234.62
+        },
+        {
+          "speaker": "helen",
+          "text": "OK. And the second one?",
+          "start": 235.12,
+          "end": 236.89
+        },
+        {
+          "speaker": "oliver",
+          "text": "That's the Castle Circuit. It's a bit longer. The old signs along the route say it's 30 kilometres, but they're wrong, actually. We measured it properly last year, and it's 32.",
+          "start": 237.39,
+          "end": 248.93
+        },
+        {
+          "speaker": "helen",
+          "text": "And what do you see on that one?",
+          "start": 249.43,
+          "end": 251.22
+        },
+        {
+          "speaker": "oliver",
+          "text": "In the morning you stop at Ashby Castle, and after lunch there's a visit to a vineyard, where the adults can taste the local wine. The children get grape juice, of course.",
+          "start": 251.72,
+          "end": 262.58
+        },
+        {
+          "speaker": "helen",
+          "text": "I think my children would prefer the castle to the vineyard! And the price?",
+          "start": 263.08,
+          "end": 266.9
+        },
+        {
+          "speaker": "oliver",
+          "text": "That one's 55 pounds each.",
+          "start": 267.4,
+          "end": 269.51
+        },
+        {
+          "speaker": "helen",
+          "text": "And the third tour?",
+          "start": 270.01,
+          "end": 271.44
+        },
+        {
+          "speaker": "oliver",
+          "text": "That's the Coast Road. It's the longest, at 40 kilometres, and there are a few steep hills, so it's better for older children. Lunch used to be a picnic on the beach, but these days we stop at a seafood restaurant on the harbour. People say the food there is excellent.",
+          "start": 271.94,
+          "end": 288.75
+        },
+        {
+          "speaker": "helen",
+          "text": "My husband won't eat the fish, of course.",
+          "start": 289.25,
+          "end": 291.69
+        },
+        {
+          "speaker": "oliver",
+          "text": "Don't worry, they have a very good vegetarian menu too.",
+          "start": 292.19,
+          "end": 295.77
+        },
+        {
+          "speaker": "helen",
+          "text": "And what does the Coast Road cost?",
+          "start": 296.27,
+          "end": 298.34
+        },
+        {
+          "speaker": "oliver",
+          "text": "It was 58 pounds last year, but I'm afraid it's gone up. It's now 62 pounds per person.",
+          "start": 298.84,
+          "end": 305.3
+        },
+        {
+          "speaker": "helen",
+          "text": "I see. Well, with the youngest only ten, I think the Valley Trail sounds best for us. Can I book that now?",
+          "start": 305.8,
+          "end": 311.46
+        },
+        {
+          "speaker": "oliver",
+          "text": "Of course. I'll just need a few payment details.",
+          "start": 311.96,
+          "end": 315.16
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 316.06,
+          "end": 320.58
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Two Rivers Cycle Tours – booking enquiry",
+          "content": [
+            "Example: Heard about the company in a **travel magazine**",
+            "## Customer details",
+            "• Name: Helen {{1}}",
+            "• Group: 2 adults and {{2}} children",
+            "• Staying at: the {{3}} Hotel",
+            "• Preferred date: {{4}} August",
+            "• Special diet: husband is {{5}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Thornbury"
+              ],
+              "explanation": "She spells her surname: T-H-O-R-N-B-U-R-Y.",
+              "cue": "T-H-O-R-N-B-U-R-Y"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "She says two children at first, then adds her nephew: ‘two adults and three children’.",
+              "cue": "two adults and three children"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "Kingfisher"
+              ],
+              "explanation": "The Riverside Inn was fully booked, so they are staying at the Kingfisher Hotel.",
+              "cue": "Kingfisher Hotel"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "14",
+                "14th",
+                "fourteenth"
+              ],
+              "explanation": "They arrive on the 12th and the 13th is not possible, so she asks for the fourteenth.",
+              "cue": "could we make it the fourteenth"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "vegetarian"
+              ],
+              "explanation": "‘My husband doesn’t eat meat. He’s been vegetarian for years.’ Nobody has allergies.",
+              "cue": "He's been vegetarian for years"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Family cycle tours",
+          "content": {
+            "headers": [
+              "Tour",
+              "Length",
+              "Features",
+              "Price per person"
+            ],
+            "rows": [
+              [
+                "Valley Trail",
+                "25 km",
+                "almost flat; follows an old {{6}} line",
+                "£45"
+              ],
+              [
+                "Castle Circuit",
+                "{{7}} km",
+                "stops at a castle and a {{8}}",
+                "£55"
+              ],
+              [
+                "Coast Road",
+                "40 km",
+                "some steep hills; lunch at a {{9}} restaurant",
+                "£{{10}}"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "railway"
+              ],
+              "explanation": "‘Most of the route follows an old railway line.’",
+              "cue": "follows an old railway line"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "32",
+                "thirty-two"
+              ],
+              "explanation": "The old signs say 30 kilometres, but they are wrong: ‘it’s 32’.",
+              "cue": "and it's 32"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "vineyard"
+              ],
+              "explanation": "‘After lunch there’s a visit to a vineyard.’",
+              "cue": "a visit to a vineyard"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "seafood"
+              ],
+              "explanation": "Lunch used to be a picnic; now ‘we stop at a seafood restaurant on the harbour’.",
+              "cue": "seafood restaurant on the harbour"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "62",
+                "sixty-two"
+              ],
+              "explanation": "It was £58 last year; ‘it’s now 62 pounds per person’.",
+              "cue": "It's now 62 pounds per person"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-02/part1.mp3",
+        "duration": 341.38
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A local food festival",
+      "context": "The director of a food festival is interviewed on local radio.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the director of a food festival talking on local radio. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.2
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.2,
+          "end": 39.47
+        },
+        {
+          "speaker": "presenter",
+          "text": "Good morning, and welcome back to Weekend Live. With the Portmere Food Festival just two weeks away, I'm delighted to have the festival director, Rachel Moore, here in the studio. Welcome, Rachel.",
+          "start": 40.37,
+          "end": 52.68
+        },
+        {
+          "speaker": "rachel",
+          "text": "Thanks for having me. It's lovely to be here.",
+          "start": 53.18,
+          "end": 55.65
+        },
+        {
+          "speaker": "presenter",
+          "text": "So, the festival has been going for twenty years now. How did it all start?",
+          "start": 56.15,
+          "end": 60.55
+        },
+        {
+          "speaker": "rachel",
+          "text": "Well, a lot of people assume it was set up to bring tourists to the town, and of course it does that very well now. But that wasn't the original idea. Twenty years ago, the fishing industry here was going through a really difficult time, and a group of local families decided to hold a small market on the seafront to sell their food and raise money for the fishing community. It grew from there.",
+          "start": 61.05,
+          "end": 83.79
+        },
+        {
+          "speaker": "rachel",
+          "text": "When the harbour was rebuilt, we moved everything down to the new quayside, and that's where it's been ever since.",
+          "start": 84.14,
+          "end": 90.02
+        },
+        {
+          "speaker": "presenter",
+          "text": "And what's new this year?",
+          "start": 90.52,
+          "end": 91.74
+        },
+        {
+          "speaker": "rachel",
+          "text": "Well, some people have asked us to make it a three-day event, and we did think about it, but in the end we decided to keep it to two days. And it's still on the quayside, of course. The big change is that, for the first time, entry is completely free. In the past it cost eight pounds for an adult, but this year a local company has agreed to cover our costs, so everyone can just walk in.",
+          "start": 92.24,
+          "end": 114.79
+        },
+        {
+          "speaker": "presenter",
+          "text": "That's great news. Now, the cookery demonstrations are always popular, aren't they?",
+          "start": 115.29,
+          "end": 120.15
+        },
+        {
+          "speaker": "rachel",
+          "text": "They are. Last year we had to turn a lot of people away, which was a shame. So this year, if you'd like to watch a demonstration, you'll need to reserve a seat on our website before you come. It's free, but you do have to book. The demonstrations used to take place in the town hall, but this year they'll be in a big marquee next to the harbour, so there's more room. And for younger visitors, there's a separate children's kitchen, where they can make their own pizzas.",
+          "start": 120.65,
+          "end": 145.4
+        },
+        {
+          "speaker": "presenter",
+          "text": "Any advice for people planning to come?",
+          "start": 145.9,
+          "end": 148.03
+        },
+        {
+          "speaker": "rachel",
+          "text": "Yes, a couple of things. Parking in the town centre is very limited, so please don't try to drive into town. We're running a park and ride bus from the leisure centre every ten minutes, and that's by far the easiest way to get here.",
+          "start": 148.53,
+          "end": 162.12
+        },
+        {
+          "speaker": "rachel",
+          "text": "Also, we're trying to cut down on plastic this year, so please bring your own bags for anything you buy. People often ask whether they need to bring cash, but almost all the stallholders take cards now, so that isn't necessary. Unlike some festivals, you don't need to buy tokens before you can get food. You just pay the stallholders directly. And there's no need to arrive really early. It's busy all day, but Saturday afternoon is usually a bit quieter than the morning.",
+          "start": 162.47,
+          "end": 190.95
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 191.85,
+          "end": 197.56
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 217.56,
+          "end": 221.45
+        },
+        {
+          "speaker": "presenter",
+          "text": "So, what's happening on each day?",
+          "start": 222.35,
+          "end": 223.9
+        },
+        {
+          "speaker": "rachel",
+          "text": "On Saturday morning, we open with the farmers' market, where you can buy fruit, vegetables and meat straight from local farms. That's on the Saturday only, because the farmers want to be back on their farms on Sunday.",
+          "start": 224.4,
+          "end": 237.5
+        },
+        {
+          "speaker": "rachel",
+          "text": "The cheese tasting was on Sunday last year, but this time we've moved it to Saturday, because it clashed with another event.",
+          "start": 237.85,
+          "end": 245.02
+        },
+        {
+          "speaker": "rachel",
+          "text": "There'll be live music all weekend, on both days, from midday until the festival closes.",
+          "start": 245.37,
+          "end": 250.9
+        },
+        {
+          "speaker": "rachel",
+          "text": "The chef's challenge, where local restaurants compete to cook the best fish dish, is always the last event of the festival, so that's on Sunday evening.",
+          "start": 251.25,
+          "end": 260.14
+        },
+        {
+          "speaker": "rachel",
+          "text": "And finally, the bread-making workshops. We were only going to run them on Sunday, but so many people wanted places that we've added extra sessions on Saturday as well, so they'll be on both days.",
+          "start": 260.49,
+          "end": 272.18
+        },
+        {
+          "speaker": "presenter",
+          "text": "It all sounds wonderful. Rachel Moore, thank you for joining us.",
+          "start": 272.68,
+          "end": 276.33
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 277.23,
+          "end": 281.56
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Why was the festival first held?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to attract tourists to the town"
+                },
+                {
+                  "key": "B",
+                  "text": "to support local fishing families"
+                },
+                {
+                  "key": "C",
+                  "text": "to celebrate the rebuilding of the harbour"
+                }
+              ],
+              "answer": "B",
+              "explanation": "People assume it was for tourists, ‘but that wasn’t the original idea’: families held a market to ‘raise money for the fishing community’. The harbour was rebuilt later.",
+              "cue": "raise money for the fishing community"
+            },
+            {
+              "number": 12,
+              "prompt": "What is different about the festival this year?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It will last for three days."
+                },
+                {
+                  "key": "B",
+                  "text": "It will be held in a new place."
+                },
+                {
+                  "key": "C",
+                  "text": "Visitors will not have to pay to get in."
+                }
+              ],
+              "answer": "C",
+              "explanation": "It stays at two days on the quayside; ‘for the first time, entry is completely free’.",
+              "cue": "entry is completely free"
+            },
+            {
+              "number": 13,
+              "prompt": "What does Rachel say about the cookery demonstrations?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Seats must be booked in advance."
+                },
+                {
+                  "key": "B",
+                  "text": "They are only for children."
+                },
+                {
+                  "key": "C",
+                  "text": "They will take place in the town hall."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘You’ll need to reserve a seat on our website before you come.’ They have moved from the town hall to a marquee; the children’s kitchen is separate.",
+              "cue": "you'll need to reserve a seat"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO things does Rachel advise visitors to do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrive early in the morning"
+            },
+            {
+              "key": "B",
+              "text": "bring their own bags"
+            },
+            {
+              "key": "C",
+              "text": "use the park and ride bus"
+            },
+            {
+              "key": "D",
+              "text": "bring cash"
+            },
+            {
+              "key": "E",
+              "text": "buy food tokens in advance"
+            }
+          ],
+          "answer": [
+            "B",
+            "C"
+          ],
+          "explanation": "She asks people to use the park and ride bus (C) and to bring their own bags (B). Cash is not needed, there are no tokens, and there is no need to arrive early.",
+          "questions": [
+            {
+              "number": 14,
+              "cue": "park and ride bus from the leisure centre"
+            },
+            {
+              "number": 15,
+              "cue": "please bring your own bags"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "When will each event take place? Choose the correct letter, **A, B or C**, next to Questions 16–20.",
+          "optionsTitle": "Days",
+          "options": [
+            {
+              "key": "A",
+              "text": "on Saturday only"
+            },
+            {
+              "key": "B",
+              "text": "on Sunday only"
+            },
+            {
+              "key": "C",
+              "text": "on both days"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "farmers' market",
+              "answer": "A",
+              "explanation": "‘That’s on the Saturday only.’",
+              "cue": "That's on the Saturday only"
+            },
+            {
+              "number": 17,
+              "prompt": "cheese tasting",
+              "answer": "A",
+              "explanation": "It was on Sunday last year, but ‘we’ve moved it to Saturday’.",
+              "cue": "we've moved it to Saturday"
+            },
+            {
+              "number": 18,
+              "prompt": "live music",
+              "answer": "C",
+              "explanation": "‘Live music all weekend, on both days.’",
+              "cue": "on both days, from midday"
+            },
+            {
+              "number": 19,
+              "prompt": "chef's challenge",
+              "answer": "B",
+              "explanation": "It is the last event, ‘so that’s on Sunday evening’.",
+              "cue": "that's on Sunday evening"
+            },
+            {
+              "number": 20,
+              "prompt": "bread-making workshops",
+              "answer": "C",
+              "explanation": "Planned for Sunday only, but extra sessions were added on Saturday, ‘so they’ll be on both days’.",
+              "cue": "so they'll be on both days"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-02/part2.mp3",
+        "duration": 302.36
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A project on citizen science",
+      "context": "Two students discuss their project with their tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two students, Maya and Josh, talking to their tutor about a project on citizen science. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.8
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.8,
+          "end": 42.52
+        },
+        {
+          "speaker": "evans",
+          "text": "Come in, both of you. So, how's the citizen science project going?",
+          "start": 43.42,
+          "end": 47.75
+        },
+        {
+          "speaker": "maya",
+          "text": "Quite well, I think. We've been reading about lots of projects where members of the public help scientists to collect data.",
+          "start": 48.25,
+          "end": 55.1
+        },
+        {
+          "speaker": "evans",
+          "text": "Did anything surprise you?",
+          "start": 55.6,
+          "end": 57.77
+        },
+        {
+          "speaker": "maya",
+          "text": "Yes, the national garden bird survey. I knew that huge numbers of people take part every year, but I had no idea it had been running for more than forty years. That's an amazing amount of data.",
+          "start": 58.27,
+          "end": 70.11
+        },
+        {
+          "speaker": "josh",
+          "text": "I was more interested in whether the data is actually any good.",
+          "start": 70.61,
+          "end": 74.17
+        },
+        {
+          "speaker": "evans",
+          "text": "And what did you conclude?",
+          "start": 74.67,
+          "end": 76.53
+        },
+        {
+          "speaker": "josh",
+          "text": "Well, people often say that volunteers lose interest and give up, but the research suggests most of them stay involved for years. And the projects are cheap to run, compared with paying researchers. For me, the real weakness is that every volunteer records things differently. One person counts every single bird they see, and another just writes 'lots'. So it's hard to combine the results.",
+          "start": 77.03,
+          "end": 96.36
+        },
+        {
+          "speaker": "evans",
+          "text": "That's a very good point. Now, looking at your plan, I'm a little worried. You've got notes on about ten different projects.",
+          "start": 96.86,
+          "end": 103.73
+        },
+        {
+          "speaker": "maya",
+          "text": "Is that too many?",
+          "start": 104.23,
+          "end": 105.32
+        },
+        {
+          "speaker": "evans",
+          "text": "I think so. You've already done plenty of reading, so that isn't the issue. And I know you mentioned interviewing some volunteers, which would be nice, but I don't think there's time before the deadline. What I'd really suggest is choosing just one project and looking at it in depth.",
+          "start": 105.82,
+          "end": 119.83
+        },
+        {
+          "speaker": "josh",
+          "text": "OK. So which one? The galaxy project is fascinating.",
+          "start": 120.33,
+          "end": 123.92
+        },
+        {
+          "speaker": "maya",
+          "text": "It is, but it all happens online, so we wouldn't be able to see how the data is actually used. And the bird survey is far too big for us. What about the river-testing group? They test the water in the river right next to the campus.",
+          "start": 124.42,
+          "end": 137.58
+        },
+        {
+          "speaker": "josh",
+          "text": "Oh, that's a good idea. We could even take part ourselves.",
+          "start": 138.08,
+          "end": 141.32
+        },
+        {
+          "speaker": "evans",
+          "text": "I like that. The river project it is, then. So what's your first step?",
+          "start": 141.82,
+          "end": 146.13
+        },
+        {
+          "speaker": "josh",
+          "text": "I suppose we could start writing a questionnaire for the volunteers.",
+          "start": 146.63,
+          "end": 150.24
+        },
+        {
+          "speaker": "maya",
+          "text": "I think that can wait until we've met them. And we'll go down to the river on the next testing day anyway. Before anything else, we should email the organisers and ask if they're happy for us to join them.",
+          "start": 150.74,
+          "end": 162.28
+        },
+        {
+          "speaker": "evans",
+          "text": "Yes, I'd certainly do that first.",
+          "start": 162.78,
+          "end": 165.47
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 166.37,
+          "end": 172.51
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 192.51,
+          "end": 196.35
+        },
+        {
+          "speaker": "evans",
+          "text": "Do you know how the river project actually works?",
+          "start": 197.25,
+          "end": 200.39
+        },
+        {
+          "speaker": "maya",
+          "text": "Yes, I read about it on their website. New volunteers don't need any experience. They just go to a training session, where they learn how to use the testing kit.",
+          "start": 200.89,
+          "end": 210.21
+        },
+        {
+          "speaker": "josh",
+          "text": "Then, once a month, each volunteer goes to the same point on the river and collects samples of the water. It has to be the same spot every time, so that the results can be compared.",
+          "start": 210.71,
+          "end": 221.46
+        },
+        {
+          "speaker": "maya",
+          "text": "Some volunteers also take photographs of the river bank, but that's optional.",
+          "start": 221.96,
+          "end": 226.21
+        },
+        {
+          "speaker": "josh",
+          "text": "They test the water there and then, and they upload the results to the project's website, where anyone can see them.",
+          "start": 226.71,
+          "end": 232.81
+        },
+        {
+          "speaker": "evans",
+          "text": "What happens if the results look strange?",
+          "start": 233.31,
+          "end": 236.23
+        },
+        {
+          "speaker": "maya",
+          "text": "Then another sample is taken and sent to a laboratory at the university, to check whether there really is a problem, or whether the volunteer just made a mistake.",
+          "start": 236.73,
+          "end": 246.2
+        },
+        {
+          "speaker": "josh",
+          "text": "And at the end of each year, the organisers send all the data to the local council. The council uses it to produce a map showing where the pollution problems are, so it knows which parts of the river to clean up first.",
+          "start": 246.7,
+          "end": 259.1
+        },
+        {
+          "speaker": "evans",
+          "text": "Excellent. That gives you a clear structure for your report.",
+          "start": 259.6,
+          "end": 263.14
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 264.04,
+          "end": 268.5
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What surprised Maya about the garden bird survey?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "how many people take part"
+                },
+                {
+                  "key": "B",
+                  "text": "how accurate the results are"
+                },
+                {
+                  "key": "C",
+                  "text": "how long it has been running"
+                }
+              ],
+              "answer": "C",
+              "explanation": "She already knew huge numbers take part; she ‘had no idea it had been running for more than forty years’.",
+              "cue": "it had been running for more than forty years"
+            },
+            {
+              "number": 22,
+              "prompt": "Josh thinks the main weakness of citizen science is that",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "volunteers soon lose interest."
+                },
+                {
+                  "key": "B",
+                  "text": "volunteers record data in different ways."
+                },
+                {
+                  "key": "C",
+                  "text": "projects are expensive to organise."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Most volunteers stay for years and projects are cheap; ‘the real weakness is that every volunteer records things differently’.",
+              "cue": "every volunteer records things differently"
+            },
+            {
+              "number": 23,
+              "prompt": "The tutor advises the students to",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "read some more recent research."
+                },
+                {
+                  "key": "B",
+                  "text": "interview some volunteers."
+                },
+                {
+                  "key": "C",
+                  "text": "concentrate on a single project."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Reading is not the issue and there is no time for interviews: ‘choosing just one project and looking at it in depth’.",
+              "cue": "choosing just one project"
+            },
+            {
+              "number": 24,
+              "prompt": "Which project do the students decide to study?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "river water testing"
+                },
+                {
+                  "key": "B",
+                  "text": "galaxy classification"
+                },
+                {
+                  "key": "C",
+                  "text": "the garden bird survey"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The galaxy project is all online and the bird survey is too big; ‘The river project it is.’",
+              "cue": "The river project it is"
+            },
+            {
+              "number": 25,
+              "prompt": "What will the students do first?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "contact the project organisers"
+                },
+                {
+                  "key": "B",
+                  "text": "write a questionnaire"
+                },
+                {
+                  "key": "C",
+                  "text": "visit the river"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The questionnaire can wait; ‘before anything else, we should email the organisers’.",
+              "cue": "we should email the organisers"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "How the river-testing project works",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "training"
+            },
+            {
+              "key": "B",
+              "text": "samples"
+            },
+            {
+              "key": "C",
+              "text": "map"
+            },
+            {
+              "key": "D",
+              "text": "photographs"
+            },
+            {
+              "key": "E",
+              "text": "website"
+            },
+            {
+              "key": "F",
+              "text": "laboratory"
+            },
+            {
+              "key": "G",
+              "text": "equipment"
+            }
+          ],
+          "content": [
+            "New volunteers attend a {{26}} session to learn how to use the testing kit.",
+            "Once a month, each volunteer collects {{27}} from the same point on the river.",
+            "The results are put on the project {{28}}.",
+            "Unusual results are checked in a {{29}}.",
+            "Each year, the council uses the data to produce a {{30}} of pollution problems."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": "A",
+              "explanation": "‘They just go to a training session, where they learn how to use the testing kit.’",
+              "cue": "They just go to a training session"
+            },
+            {
+              "number": 27,
+              "answer": "B",
+              "explanation": "Each volunteer ‘collects samples of the water’ at the same spot. Photographs are optional.",
+              "cue": "collects samples of the water"
+            },
+            {
+              "number": 28,
+              "answer": "E",
+              "explanation": "‘They upload the results to the project’s website.’",
+              "cue": "upload the results to the project's website"
+            },
+            {
+              "number": 29,
+              "answer": "F",
+              "explanation": "Another sample is ‘sent to a laboratory at the university’.",
+              "cue": "sent to a laboratory at the university"
+            },
+            {
+              "number": 30,
+              "answer": "C",
+              "explanation": "‘The council uses it to produce a map showing where the pollution problems are.’",
+              "cue": "produce a map showing where the pollution problems are"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-02/part3.mp3",
+        "duration": 289.3
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: seed banks",
+      "context": "A lecture about why seed banks matter and how they work.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about seed banks. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.22
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.22,
+          "end": 42.63
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today I'm going to talk about seed banks: collections of seeds that are stored so that plants can be grown again in the future, even if they disappear from farms and from the wild.",
+          "start": 43.53,
+          "end": 54.16
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Let's start with why they matter. A hundred years ago, farmers around the world grew many thousands of different varieties of crops. Today, most of our food comes from a much smaller number of high-yielding varieties. That's efficient, but it's also risky.",
+          "start": 54.51,
+          "end": 68.42
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The old varieties that farmers have abandoned often carry genes that help plants resist disease. If a new disease attacks wheat, for example, the solution might be found in a variety that nobody has grown for fifty years. But only if someone has kept its seeds.",
+          "start": 68.77,
+          "end": 83.72
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The first person to collect seeds on a really large scale was the Russian botanist Nikolai Vavilov, in the 1920s. He and his team travelled across five continents, and they built up a collection of hundreds of thousands of samples in the city that was then called Leningrad.",
+          "start": 84.07,
+          "end": 100.22
+        },
+        {
+          "speaker": "lecturer",
+          "text": "During the Second World War, the city was surrounded for almost nine hundred days, and food ran out. The scientists guarding the collection were surrounded by rice, potatoes and grain, but they refused to eat any of it. Several of them died of hunger at their desks, because they believed the seeds were too important for the future.",
+          "start": 100.57,
+          "end": 118.32
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So how are seeds stored today? When a seed bank receives a new sample, the seeds are cleaned, and then their moisture content is reduced until it is very low. This is essential, because if water remains inside a seed, it can form ice crystals when the seed is frozen, and these damage the cells.",
+          "start": 118.67,
+          "end": 135.31
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The seeds are then sealed in foil packets, which keep out air and water, and they're stored at around minus eighteen degrees Celsius. Under these conditions, the seeds of many crops can survive for decades, and some for centuries.",
+          "start": 135.66,
+          "end": 148.39
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The best-known seed bank is the Global Seed Vault on Svalbard, a group of Arctic islands that belong to Norway. It opened in 2008, and it's built deep inside a mountain, more than a hundred metres into the rock.",
+          "start": 148.74,
+          "end": 161.4
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The location was chosen very carefully. The ground there is permanently frozen, so even if the electricity supply failed, the permafrost would keep the seeds below freezing.",
+          "start": 161.75,
+          "end": 171.69
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The vault is sometimes compared to a safe-deposit box in a bank. Countries and research institutes send copies of their seeds, but they keep ownership of them, and only the depositor can take them out again.",
+          "start": 172.04,
+          "end": 183.47
+        },
+        {
+          "speaker": "lecturer",
+          "text": "For its first seven years, nothing was taken out. Then, in 2015, a research centre that had been based near Aleppo was forced to leave Syria because of the war. It asked for some of its seeds back, so that it could rebuild its collection in Lebanon and Morocco.",
+          "start": 183.82,
+          "end": 198.61
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Seed banks do have limitations, though. Some plants produce seeds that simply cannot be stored in this way. The seeds of avocado, cocoa and oak trees, for example, die if they are dried, so they can't be frozen in the normal way.",
+          "start": 198.96,
+          "end": 211.84
+        },
+        {
+          "speaker": "lecturer",
+          "text": "For species like these, scientists use other methods. One is to take tiny pieces of plant tissue and freeze them very quickly in liquid nitrogen, at around minus one hundred and ninety-six degrees. Another is simply to grow the plants in living collections, such as botanic gardens.",
+          "start": 212.19,
+          "end": 228.81
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Seed banks can't replace the protection of plants in the wild, but they are a vital insurance policy for the future of our food.",
+          "start": 229.16,
+          "end": 236.07
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 236.97,
+          "end": 241.37
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 261.37,
+          "end": 264.08
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Seed banks",
+          "content": [
+            "## Why they matter",
+            "• farmers now grow far fewer crop varieties than in the past",
+            "• old varieties may carry genes that help crops resist {{31}}",
+            "## History",
+            "• first large collection: Nikolai Vavilov, 1920s",
+            "• during the siege of Leningrad, several staff guarding the seeds died of {{32}}",
+            "## Storage",
+            "• seeds are cleaned and their {{33}} content is reduced",
+            "• kept in sealed {{34}} packets at about −18°C",
+            "## The Global Seed Vault, Svalbard",
+            "• opened in 2008; built inside a {{35}}",
+            "• if the power fails, the {{36}} keeps the seeds frozen",
+            "• depositors keep {{37}} of their seeds",
+            "• first withdrawal (2015): a research centre had to leave Syria because of the {{38}}",
+            "## Limitations",
+            "• seeds of avocado and cocoa die if they are {{39}}",
+            "• alternatives: freezing plant tissue in liquid {{40}}, or growing plants in botanic gardens"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "disease",
+                "diseases"
+              ],
+              "explanation": "Old varieties ‘often carry genes that help plants resist disease’."
+            },
+            {
+              "number": 32,
+              "answer": [
+                "hunger",
+                "starvation"
+              ],
+              "explanation": "‘Several of them died of hunger at their desks.’"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "moisture"
+              ],
+              "explanation": "‘The seeds are cleaned, and then their moisture content is reduced.’"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "foil"
+              ],
+              "explanation": "‘The seeds are then sealed in foil packets.’"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "mountain"
+              ],
+              "explanation": "‘It’s built deep inside a mountain.’"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "permafrost"
+              ],
+              "explanation": "‘Even if the electricity supply failed, the permafrost would keep the seeds below freezing.’"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "ownership"
+              ],
+              "explanation": "Depositors ‘keep ownership of them’, like a safe-deposit box."
+            },
+            {
+              "number": 38,
+              "answer": [
+                "war"
+              ],
+              "explanation": "The centre ‘was forced to leave Syria because of the war’.",
+              "cue": "because of the war"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "dried"
+              ],
+              "explanation": "Avocado, cocoa and oak seeds ‘die if they are dried’.",
+              "cue": "die if they are dried"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "nitrogen"
+              ],
+              "explanation": "Tissue is frozen ‘very quickly in liquid nitrogen’."
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-02/part4.mp3",
+        "duration": 264.88
+      }
+    }
+  ],
+  "durationMinutes": 20
+}
