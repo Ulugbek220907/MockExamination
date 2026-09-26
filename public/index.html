@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MockExam – IELTS-style Academic Reading &amp; Writing Practice</title>
-  <meta name="description" content="Free computer-delivered IELTS-style Academic Reading and Writing practice tests with original passages, instant reading scores and writing feedback. Independent practice site, not affiliated with the IELTS partners." />
+  <title>MockExam – IELTS-style Academic Reading, Listening &amp; Writing Practice</title>
+  <meta name="description" content="Free computer-delivered IELTS-style Academic Reading, Listening and Writing practice tests with original passages and recordings, instant scores, transcripts and writing feedback. Independent practice site, not affiliated with the IELTS partners." />
   <meta name="theme-color" content="#0f2a44" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MockExam – free IELTS-style Reading, Listening &amp; Writing practice" />
+  <meta property="og:description" content="Timed, computer-delivered practice tests with original passages and recordings, instant scores, answer explanations, transcripts and writing feedback." />
+  <meta name="twitter:card" content="summary" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/portal.css" />
   <link rel="stylesheet" href="css/cd-ielts.css" />
@@ -21,7 +25,7 @@
         <span class="site-logo" aria-hidden="true">M</span>
         <span>
           <span class="site-name" data-site-name>MockExam</span>
-          <span class="site-tagline">Academic Reading &amp; Writing practice</span>
+          <span class="site-tagline">Reading, Listening &amp; Writing practice</span>
         </span>
       </a>
       <nav class="site-links" aria-label="Main">
@@ -39,7 +43,7 @@
         endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press &amp; Assessment.
         IELTS is a registered trademark of its owners and is used here only to describe the exam this site helps you prepare for.
       </p>
-      <p>All passages, questions, tasks and model answers on this site are original. Band scores are practice estimates, not official results.
+      <p>All passages, recordings, questions, tasks and model answers on this site are original. Band scores are practice estimates, not official results.
         <a href="#/about">Read more</a>.</p>
     </footer>
   </div>
@@ -52,7 +56,7 @@
   </div>
 
   <!-- =====================================================================
-       COMPUTER-DELIVERED EXAM ENVIRONMENT (reading and writing)
+       COMPUTER-DELIVERED EXAM ENVIRONMENT (reading, listening and writing)
        ===================================================================== -->
   <div id="exam-screen" class="view-container">
     <header class="cd-header">
@@ -71,6 +75,8 @@
         <button type="button" class="cd-icon-btn" id="btn-help" title="Help and keyboard shortcuts">Help</button>
       </div>
     </header>
+
+    <div class="cd-audio-bar" id="exam-audio-bar" hidden></div>
 
     <div class="pane-switch" role="tablist" aria-label="Switch view">
       <button type="button" class="pane-switch-btn active" data-pane="left" role="tab" aria-selected="true" id="pane-switch-left">Passage</button>

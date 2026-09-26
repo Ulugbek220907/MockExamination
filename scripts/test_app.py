@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Automated tests for content, scoring, writing assessment and the HTTP API.
+Automated tests for content, scoring (reading and listening), writing
+assessment, storage and the HTTP API.
 
     python scripts/test_app.py            # run everything
     python -m unittest scripts.test_app   # same, via unittest
@@ -25,7 +26,7 @@ sys.path.insert(0, BASE_DIR)
 _TMP = tempfile.mkdtemp()
 os.environ["SQLITE_PATH"] = os.path.join(_TMP, "test.sqlite3")
 os.environ["ADMIN_TOKEN"] = "test-admin-token"
-for var in ("SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "ANTHROPIC_API_KEY"):
+for var in ("SUPABASE_URL", "SUPABASE_KEY", "SUPABASE_SERVICE_ROLE_KEY", "SUPABASE_APP_SECRET", "ANTHROPIC_API_KEY"):
     os.environ.pop(var, None)
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
@@ -35,7 +36,9 @@ import server  # noqa: E402
 
 TESTS = storage.load_local_tests()
 READING = [t for t in TESTS if t["module"] == "reading"]
+LISTENING = [t for t in TESTS if t["module"] == "listening"]
 WRITING = [t for t in TESTS if t["module"] == "writing"]
+PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 CLIENT_ID = "123e4567-e89b-12d3-a456-426614174000"
 
 
@@ -63,13 +66,41 @@ def contains_key(obj, key):
 class ContentTests(unittest.TestCase):
     def test_expected_tests_present(self):
         self.assertGreaterEqual(len(READING), 3)
+        self.assertGreaterEqual(len(LISTENING), 1)
         self.assertGreaterEqual(len(WRITING), 4)
 
     def test_all_content_valid(self):
-        for t in READING:
-            self.assertEqual(content.validate_reading_test(t), [], t["id"])
-        for t in WRITING:
-            self.assertEqual(content.validate_writing_test(t), [], t["id"])
+        for t in TESTS:
+            self.assertEqual(content.validate_test(t, public_dir=PUBLIC_DIR), [], t["id"])
+
+    def test_listening_audio_files_exist(self):
+        for t in LISTENING:
+            for part in t["parts"]:
+                path = os.path.join(PUBLIC_DIR, part["audio"]["src"])
+                self.assertTrue(os.path.getsize(path) > 100_000, path)
+                self.assertGreater(part["audio"]["duration"], 120)
+
+    def test_public_listening_view_hides_answers_and_transcript(self):
+        for t in LISTENING:
+            public = content.public_listening_test(t)
+            for key in ("answer", "explanation", "cue", "script", "speakers", "pronunciations"):
+                self.assertFalse(contains_key(public, key), f"{t['id']} leaks '{key}'")
+            self.assertTrue(all(p["audio"]["src"].endswith(".mp3") for p in public["parts"]))
+            self.assertTrue(contains_key(t, "script"))  # original untouched
+
+    def test_listening_cues_located_in_the_right_part(self):
+        for t in LISTENING:
+            cues = content.locate_listening_cues(t)
+            self.assertEqual(sorted(cues), list(range(1, 41)))
+            for pi, part in enumerate(t["parts"]):
+                for _, _, q in ((part, g, q) for g in part["groups"] for q in g["questions"]):
+                    self.assertEqual(cues[q["number"]]["part"], pi)
+
+    def test_validator_catches_missing_answer_in_transcript(self):
+        t = json.loads(json.dumps(LISTENING[0]))
+        t["parts"][0]["groups"][0]["questions"][0]["answer"] = ["Smith"]
+        errors = content.validate_listening_test(t)
+        self.assertTrue(any("Q1" in e and "transcript" in e for e in errors), errors)
 
     def test_no_cambridge_material_served(self):
         for t in TESTS:
@@ -135,6 +166,45 @@ class ReadingScoringTests(unittest.TestCase):
         self.assertIn("______", q23["prompt"])
 
 
+class ListeningScoringTests(unittest.TestCase):
+    def test_band_table(self):
+        table = scoring.LISTENING_BANDS
+        cases = {40: 9.0, 39: 9.0, 37: 8.5, 35: 8.0, 32: 7.5, 30: 7.0, 26: 6.5, 23: 6.0, 18: 5.5, 16: 5.0, 0: 2.0}
+        for raw, band in cases.items():
+            self.assertEqual(scoring.band_for_raw_score(raw, table), band, raw)
+
+    def test_perfect_and_empty_scores(self):
+        for t in LISTENING:
+            r = scoring.evaluate_listening(t, perfect_answers(t))
+            self.assertEqual((r["rawScore"], r["bandScore"]), (40, 9.0))
+            self.assertEqual(sum(p["correct"] for p in r["partBreakdown"].values()), 40)
+            r = scoring.evaluate_listening(t, {})
+            self.assertEqual((r["rawScore"], r["bandScore"]), (0, 2.0))
+
+    def test_answer_variants(self):
+        t = LISTENING[0]
+        r = scoring.evaluate_listening(t, {"1": "kowalski", "4": "six", "5": "off peak", "9": "photograph",
+                                           "36": "belly", "40": "a jellyfish", "2": "24", "8": "pilate"})
+        marks = {x["number"]: x["isCorrect"] for x in r["results"]}
+        for n in (1, 4, 5, 9, 36, 40):
+            self.assertTrue(marks[n], n)
+        self.assertFalse(marks[2])   # 24 is the distractor, 42 is correct
+        self.assertFalse(marks[8])   # spelling counts
+        self.assertEqual(r["rawScore"], 6)
+
+    def test_results_carry_transcript_and_cues(self):
+        t = LISTENING[0]
+        r = scoring.evaluate_listening(t, {})
+        self.assertEqual(len(r["transcript"]), 4)
+        self.assertTrue(all(p["lines"] and p["audio"]["src"] for p in r["transcript"]))
+        for row in r["results"]:
+            self.assertIsNotNone(row["cue"], row["number"])
+            self.assertGreaterEqual(row["cue"]["start"], 0)
+            self.assertIn("partNumber", row)
+        q17 = next(x for x in r["results"] if x["number"] == 17)
+        self.assertTrue(q17["correctAnswer"].startswith("C ("))  # option text shown with the letter
+
+
 class WritingTests(unittest.TestCase):
     def test_rounding(self):
         self.assertEqual(writing.round_to_half_band(6.25), 6.5)
@@ -155,7 +225,7 @@ class WritingTests(unittest.TestCase):
     def test_model_answers_pass_checks(self):
         for t in WRITING:
             for task in t["tasks"]:
-                a = writing.analyse_text(task["modelAnswer"], task["taskNumber"], task["minWords"])
+                a = writing.analyse_text(task["modelAnswer"], task["taskNumber"], task["minWords"], task.get("essayType"))
                 failed = [c["text"] for c in a["checks"] if not c["ok"]]
                 self.assertEqual(failed, [], f"{t['id']} task {task['taskNumber']}")
 
@@ -241,7 +311,9 @@ class WritingTests(unittest.TestCase):
 
 
 class SupabaseStoreTests(unittest.TestCase):
-    """Runs SupabaseStore against a tiny fake PostgREST server and checks the requests it sends."""
+    """Runs SupabaseStore against a tiny fake Supabase REST server and checks the RPC calls it makes."""
+
+    SECRET = "s" * 48
 
     @classmethod
     def setUpClass(cls):
@@ -249,82 +321,88 @@ class SupabaseStoreTests(unittest.TestCase):
         import threading
 
         cls.requests = []
-        test_row = {"content": READING[0]}
+        secret = cls.SECRET
 
         class Handler(http.server.BaseHTTPRequestHandler):
             def log_message(self, *args):
                 pass
 
-            def _record(self):
-                length = int(self.headers.get("Content-Length") or 0)
-                body = json.loads(self.rfile.read(length)) if length else None
-                cls.requests.append({"method": self.command, "path": self.path, "headers": {k.lower(): v for k, v in self.headers.items()}, "body": body})
-
-            def _send(self, payload, extra=None):
+            def _send(self, code, payload):
                 raw = json.dumps(payload).encode()
-                self.send_response(200 if self.command == "GET" else 201)
+                self.send_response(code)
                 self.send_header("Content-Type", "application/json")
-                for k, v in (extra or {}).items():
-                    self.send_header(k, v)
                 self.end_headers()
                 self.wfile.write(raw)
 
-            def do_GET(self):
-                self._record()
-                if self.path.startswith("/rest/v1/tests"):
-                    self._send([test_row])
-                elif "limit=1" in self.path:
-                    self._send([], {"Content-Range": "0-0/7"})
-                elif self.path.startswith("/rest/v1/reading_attempts"):
-                    self._send([{"id": 5, "test_id": "academic-reading-01", "raw_score": 30, "total_questions": 40,
-                                 "band_score": 7.0, "time_spent_seconds": 100, "mode": "exam",
-                                 "created_at": "2026-01-01T00:00:00Z"}])
-                else:
-                    self._send([])
-
             def do_POST(self):
-                self._record()
-                if self.path.startswith("/rest/v1/tests"):
-                    self.send_response(201)
-                    self.end_headers()
-                else:
-                    self._send([{"id": 42}])
+                length = int(self.headers.get("Content-Length") or 0)
+                body = json.loads(self.rfile.read(length)) if length else {}
+                fn = self.path.rsplit("/", 1)[-1]
+                cls.requests.append({"fn": fn, "path": self.path, "body": body,
+                                     "headers": {k.lower(): v for k, v in self.headers.items()}})
+                if body.get("p_key") != secret:
+                    return self._send(403, {"code": "28000", "message": "invalid app key"})
+                responses = {
+                    "app_list_tests": [READING[0]],
+                    "app_upsert_test": None,
+                    "app_save_reading_attempt": 42,
+                    "app_save_listening_attempt": 44,
+                    "app_save_writing_submission": 43,
+                    "app_history": {"reading": [{"id": 5, "test_id": "academic-reading-01", "raw_score": 30,
+                                                 "total_questions": 40, "band_score": 7.0, "time_spent_seconds": 100,
+                                                 "mode": "exam", "created_at": "2026-01-01T00:00:00Z"}],
+                                    "listening": [{"id": 6, "test_id": "listening-01", "raw_score": 33,
+                                                   "total_questions": 40, "band_score": 7.5, "time_spent_seconds": 1500,
+                                                   "mode": "exam", "created_at": "2026-01-02T00:00:00Z"}],
+                                    "writing": []},
+                    "app_stats": {"readingAttempts": 7, "writingSubmissions": 2},
+                }
+                self._send(200, responses.get(fn))
 
         cls.httpd = http.server.HTTPServer(("127.0.0.1", 0), Handler)
         threading.Thread(target=cls.httpd.serve_forever, daemon=True).start()
-        cls.store = storage.SupabaseStore(f"http://127.0.0.1:{cls.httpd.server_port}", "service-key")
+        cls.base = f"http://127.0.0.1:{cls.httpd.server_port}"
+        cls.store = storage.SupabaseStore(cls.base, "sb_publishable_test", cls.SECRET)
 
     @classmethod
     def tearDownClass(cls):
         cls.httpd.shutdown()
 
-    def test_reads_and_writes(self):
+    def test_rpc_calls(self):
         tests = self.store.list_tests()
         self.assertEqual(tests[0]["id"], READING[0]["id"])
-        get = self.requests[-1]
-        self.assertEqual(get["headers"]["apikey"], "service-key")
-        self.assertEqual(get["headers"]["authorization"], "Bearer service-key")
-        self.assertIn("is_published=eq.true", get["path"])
+        call = self.requests[-1]
+        self.assertEqual(call["path"], "/rest/v1/rpc/app_list_tests")
+        self.assertEqual(call["headers"]["apikey"], "sb_publishable_test")
+        self.assertNotIn("authorization", call["headers"])  # new-style keys only go in `apikey`
 
         self.store.upsert_test(WRITING[0])
-        post = self.requests[-1]
-        self.assertIn("on_conflict=id", post["path"])
-        self.assertIn("merge-duplicates", post["headers"]["prefer"])
-        self.assertEqual(post["body"][0]["module"], "writing")
+        self.assertEqual(self.requests[-1]["body"]["p_test"]["id"], WRITING[0]["id"])
 
-        new_id = self.store.save_reading_attempt({"test_id": "academic-reading-01", "raw_score": 30,
-                                                  "total_questions": 40, "band_score": 7.0})
-        self.assertEqual(new_id, 42)
-        self.assertEqual(self.store.save_writing_submission({"test_id": "academic-writing-01"}), 42)
+        self.assertEqual(self.store.save_reading_attempt({"test_id": "academic-reading-01"}), 42)
+        self.assertEqual(self.store.save_writing_submission({"test_id": "academic-writing-01"}), 43)
+        self.assertEqual(self.store.save_listening_attempt({"test_id": "listening-01"}), 44)
+        self.assertEqual(self.requests[-1]["fn"], "app_save_listening_attempt")
 
         items = self.store.list_history(CLIENT_ID)
-        self.assertEqual(items[0]["bandScore"], 7.0)
-        self.assertIn(f"client_id=eq.{CLIENT_ID}", self.requests[-2]["path"])
-
+        self.assertEqual((items[0]["module"], items[0]["bandScore"]), ("listening", 7.5))  # newest first
+        self.assertEqual((items[1]["module"], items[1]["bandScore"]), ("reading", 7.0))
+        self.assertEqual(self.requests[-1]["body"]["p_client"], CLIENT_ID)
         self.assertEqual(self.store.stats()["readingAttempts"], 7)
 
+    def test_jwt_keys_also_sent_as_bearer(self):
+        store = storage.SupabaseStore(self.base, "eyJ.fake.jwt", self.SECRET)
+        store.stats()
+        self.assertEqual(self.requests[-1]["headers"]["authorization"], "Bearer eyJ.fake.jwt")
+
+    def test_wrong_secret_raises_and_content_falls_back(self):
+        bad = storage.SupabaseStore(self.base, "k", "wrong" * 10)
+        with self.assertRaises(storage.SupabaseError):
+            bad.save_reading_attempt({})
+        self.assertEqual(len(bad.list_tests()), len(TESTS))  # bundled content still served
+
     def test_falls_back_to_local_content_when_unreachable(self):
-        dead = storage.SupabaseStore("http://127.0.0.1:9", "k")
+        dead = storage.SupabaseStore("http://127.0.0.1:9", "k", self.SECRET)
         self.assertEqual(len(dead.list_tests()), len(TESTS))
 
 
@@ -350,8 +428,10 @@ class ApiTests(AsyncHTTPTestCase):
         code, data = self.get_json("/api/tests")
         self.assertEqual(code, 200)
         modules = {t["module"] for t in data["tests"]}
-        self.assertEqual(modules, {"reading", "writing"})
-        self.assertEqual(data["modules"]["writing"]["status"], "active")
+        self.assertEqual(modules, {"reading", "listening", "writing"})
+        self.assertEqual(data["modules"]["listening"]["status"], "active")
+        listening = next(t for t in data["tests"] if t["module"] == "listening")
+        self.assertEqual([p["number"] for p in listening["parts"]], [1, 2, 3, 4])
 
     def test_single_test_has_no_answers(self):
         code, data = self.get_json("/api/tests/academic-reading-01")
@@ -359,6 +439,10 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertFalse(contains_key(data, "answer"))
         code, data = self.get_json("/api/tests/academic-writing-01")
         self.assertFalse(contains_key(data, "modelAnswer"))
+        code, data = self.get_json("/api/tests/listening-01")
+        self.assertEqual(code, 200)
+        for key in ("answer", "script", "cue", "explanation"):
+            self.assertFalse(contains_key(data, key), key)
         code, _ = self.get_json("/api/tests/does-not-exist")
         self.assertEqual(code, 404)
 
@@ -374,6 +458,31 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertTrue(any(i["testId"] == t["id"] for i in hist["items"]))
         code, hist = self.get_json("/api/history?clientId=not-a-uuid")
         self.assertEqual(hist["items"], [])
+
+    def test_listening_submit_and_history(self):
+        t = LISTENING[0]
+        answers = perfect_answers(t)
+        answers["2"] = "24"
+        code, data = self.post_json(f"/api/listening/{t['id']}/submit", {
+            "answers": answers, "candidateName": "Tester", "clientId": CLIENT_ID,
+            "timeSpentSeconds": 1500, "mode": "exam"})
+        self.assertEqual(code, 200)
+        self.assertEqual((data["rawScore"], data["bandScore"]), (39, 9.0))
+        self.assertIsNotNone(data["attemptId"])
+        self.assertEqual(len(data["transcript"]), 4)
+        code, hist = self.get_json(f"/api/history?clientId={CLIENT_ID}")
+        self.assertTrue(any(i["module"] == "listening" and i["testId"] == t["id"] for i in hist["items"]))
+        code, _ = self.post_json("/api/listening/academic-reading-01/submit", {})
+        self.assertEqual(code, 404)
+        code, _ = self.post_json(f"/api/reading/{t['id']}/submit", {})
+        self.assertEqual(code, 404)
+
+    def test_audio_served_with_ranges(self):
+        src = LISTENING[0]["parts"][0]["audio"]["src"]
+        r = self.fetch(f"/{src}", headers={"Range": "bytes=0-1023"})
+        self.assertEqual(r.code, 206)
+        self.assertEqual(len(r.body), 1024)
+        self.assertEqual(r.headers["Content-Type"], "audio/mpeg")
 
     def test_writing_submit_without_ai(self):
         t = WRITING[0]
@@ -398,7 +507,9 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertEqual(self.fetch("/api/admin/stats").code, 401)
         r = self.fetch("/api/admin/stats", headers={"Authorization": "Bearer test-admin-token"})
         self.assertEqual(r.code, 200)
-        self.assertIn("readingAttempts", json.loads(r.body))
+        stats = json.loads(r.body)
+        self.assertIn("readingAttempts", stats)
+        self.assertIn("listeningAttempts", stats)
 
     def test_static_and_security_headers(self):
         r = self.fetch("/")

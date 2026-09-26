@@ -1,6 +1,6 @@
-# MockExam: IELTS-style Academic Reading & Writing practice
+# MockExam: IELTS-style Listening, Academic Reading & Writing practice
 
-A free, distraction-free website for practising the **Academic Reading** and **Academic Writing** papers under realistic computer-delivered test conditions.
+A free, distraction-free website for practising the **Listening**, **Academic Reading** and **Academic Writing** papers under realistic computer-delivered test conditions.
 
 > **Independent site.** MockExam is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press & Assessment. "IELTS" is a registered trademark of its owners and is used only to describe the exam this site helps people prepare for.
 
@@ -8,21 +8,23 @@ A free, distraction-free website for practising the **Academic Reading** and **A
 
 | Module | Content | Marking |
 |---|---|---|
-| **Reading** | 3 full Academic tests: 9 original passages, 120 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
-| **Writing** | 4 full Academic tests: Task 1 line graph, bar chart, process diagram and pie charts, plus 4 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** scores all four criteria and gives corrections |
-| Listening, Speaking | – | Coming soon |
+| **Listening** | 2 full tests: 8 parts, 80 questions, about 40 minutes of original recordings (form, note, table and flow-chart completion, map labelling, multiple choice, choose two, matching) | Instant: estimated band, per-part and per-question-type analysis, explanations, and the full transcript with every answer highlighted and a *Listen again* button |
+| **Reading** | 4 full Academic tests: 12 original passages, 160 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
+| **Writing** | 5 full Academic tests: Task 1 line graph, bar chart, process diagram, pie charts and table, plus 5 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** scores all four criteria and gives corrections |
+| Speaking | – | Coming soon |
 
-**All content is original** and written for this project. The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
+**All content is original** and written for this project. The recordings are voiced with the open-source Kokoro text-to-speech model (Apache 2.0). The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
 
 ### Exam experience
 - Split-screen passage/questions with a draggable divider, bottom question navigator, **Review** flags, and Part tabs with progress counts
 - 60-minute countdown with 10- and 5-minute warnings and auto-submit, or **Practice mode** with no time limit
+- Listening: a sound check before the test; in the timed test the recording plays once, straight through, then 2 minutes to check answers before auto-submit. Practice mode adds a full player (pause, ±10 s, seek, part select, 0.75–1.25× speed)
 - Highlighting and notes, 4 contrast themes, 3 text sizes, and keyboard shortcuts (`Alt+N`, `Alt+P`, `Alt+R`)
 - Answers and essays are **autosaved** in the browser, so an attempt can be resumed after a refresh
 - Works on phones (single-pane view with a Passage/Questions switch)
 
 ### Question types supported
-TRUE/FALSE/NOT GIVEN · YES/NO/NOT GIVEN · multiple choice · choose TWO · matching headings · matching information · matching features · matching sentence endings · classification · note, summary (with or without word list), table and flow-chart completion · sentence completion · short-answer questions.
+TRUE/FALSE/NOT GIVEN · YES/NO/NOT GIVEN · multiple choice · choose TWO · matching headings · matching information · matching features · matching sentence endings · classification · map/plan labelling · note, summary (with or without word list), table and flow-chart completion · sentence completion · short-answer questions.
 
 ## Quick start (local)
 
@@ -36,8 +38,8 @@ Nothing else is required. Without configuration, tests are read from `content/` 
 ## Checks
 
 ```bash
-python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts)
-python scripts/test_app.py           # 28 automated tests: scoring, API, Supabase client, AI examiner (mocked)
+python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts, audio)
+python scripts/test_app.py           # 40 automated tests: scoring, API, Supabase client, AI examiner (mocked)
 ```
 
 ## Deploying
@@ -50,26 +52,30 @@ See **[DEPLOY.md](DEPLOY.md)** for step-by-step setup of Supabase, the AI examin
 server.py                 Tornado app: static site + JSON API, rate limits, security headers
 mockexam/
   content.py              test model: walking, validation, answer-free public views
-  scoring.py              reading marking and band conversion
+  scoring.py              reading/listening marking and band conversion
   writing.py              writing text analysis + Claude AI examiner
   storage.py              LocalStore (JSON + SQLite) and SupabaseStore (REST)
 content/
   reading/*.json          original Academic Reading tests
+  listening/*.json        original Listening tests: scripts, speakers, questions, line timings
   writing/*.json          original Academic Writing tests (with chart data and model answers)
 public/
   index.html              single-page app shell
   css/portal.css          site, dashboard, results
   css/cd-ielts.css        exam environment, contrast themes, charts
   js/app.js               router, dashboard, instructions, resources and legal pages
-  js/exam.js              reading and writing exam engines
+  js/exam.js              reading, listening and writing exam engines
   js/results.js           results pages
-  js/charts.js            Task 1 charts (line, bar, pie, table, process) as SVG
+  js/charts.js            Task 1 charts (line, bar, pie, table, process) and listening maps as SVG
+  audio/<test-id>/*.mp3   listening recordings (generated, see CONTENT_GUIDE.md)
   js/highlighter.js       highlighting and notes
   js/util.js, scoring.js  helpers
 supabase/schema.sql       database schema (run once in Supabase)
 scripts/
   validate_content.py     content checker
   seed_supabase.py        upload content/ to Supabase
+  build_listening_audio.py  generate listening MP3s from the scripts (Kokoro TTS)
+  check_listening_audio.py  transcribe the MP3s with Whisper and check every answer is heard
   test_app.py             test suite
 ```
 
@@ -87,8 +93,9 @@ git rm data/tests.json data/attempts.db scripts/build_tests_data.py
 | GET | `/api/health` | health check |
 | GET | `/api/config` | site name, whether AI marking is enabled |
 | GET | `/api/tests` | test summaries |
-| GET | `/api/tests/{id}` | one test **without** answers or model answers |
+| GET | `/api/tests/{id}` | one test **without** answers, transcripts or model answers |
 | POST | `/api/reading/{id}/submit` | mark a reading attempt |
+| POST | `/api/listening/{id}/submit` | mark a listening attempt (the response includes the transcript) |
 | POST | `/api/writing/{id}/submit` | analyse (and optionally AI-mark) a writing attempt |
 | GET | `/api/history?clientId=` | this browser's recent attempts |
 | GET | `/api/admin/stats` | totals (`Authorization: Bearer $ADMIN_TOKEN`) |

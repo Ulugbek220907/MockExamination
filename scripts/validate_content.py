@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Validate every reading and writing test in content/.
+Validate every reading, listening and writing test in content/.
 
 Checks question numbering, answer keys against options, completion answers
-against the passage text and word limits, gap placement, chart data, and
-model-answer lengths. Also prints word counts and answer distributions so a
+against the passage text or listening transcript and word limits, gap
+placement, that every listening answer can be located in the transcript and
+its audio has been built, chart data, and model-answer lengths. Also prints word counts and answer distributions so a
 human editor can spot unbalanced keys (e.g. too many TRUE answers).
 
 Usage: python scripts/validate_content.py
@@ -32,6 +33,23 @@ def main():
             words = content.count_words(content.passage_text(p))
             nums = [q["number"] for g in p["groups"] for q in g["questions"]]
             print(f"  Passage {p['passageNumber']}: {p['title']!r}  {words} words, Q{min(nums)}–{max(nums)} ({len(nums)})")
+            for g in p["groups"]:
+                if g["type"] == "choose_multiple":
+                    keys = g.get("answer", [])
+                else:
+                    keys = [q.get("answer") if not isinstance(q.get("answer"), list) else "text" for q in g["questions"]]
+                dist = dict(Counter(keys)) if g["type"] not in content.COMPLETION_TYPES or g.get("options") else ""
+                print(f"    {g['type']:<28} {dist}")
+
+    for test in content.load_json_dir(os.path.join(CONTENT_DIR, "listening")):
+        problems += content.validate_listening_test(test, public_dir=os.path.join(BASE_DIR, "public"))
+        print(f"\n{test['id']}  —  {test['title']}")
+        for p in test["parts"]:
+            words = content.count_words(content.passage_text(p))
+            nums = [q["number"] for g in p["groups"] for q in g["questions"]]
+            audio = p.get("audio") or {}
+            length = f"{audio['duration'] / 60:.1f} min audio" if audio.get("duration") else "audio not built"
+            print(f"  Part {p['partNumber']}: {p.get('title', '')!r}  {words} words, {length}, Q{min(nums)}–{max(nums)}")
             for g in p["groups"]:
                 if g["type"] == "choose_multiple":
                     keys = g.get("answer", [])

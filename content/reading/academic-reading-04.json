@@ -1,0 +1,217 @@
+{
+  "id": "academic-reading-04",
+  "module": "reading",
+  "variant": "academic",
+  "title": "Academic Reading Practice Test 4",
+  "shortTitle": "Practice Test 4",
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "sortOrder": 4,
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "The Unlikely History of the Pencil",
+      "subtitle": "How a remote English valley, a war and centuries of experiment produced an everyday tool",
+      "paragraphs": [
+        { "label": null, "text": "Few objects are as familiar, or as overlooked, as the pencil. Billions are made every year, and most people have used one since early childhood without ever wondering where the material in its core comes from. Despite its common name, a ‘lead’ pencil contains no lead at all. Its dark core is made of graphite, a soft form of carbon, mixed with clay, and the story of how this combination came about involves a remote English valley, a war between two European powers, and several centuries of patient experiment." },
+        { "label": null, "text": "The modern pencil can be traced back to the discovery, some time around the middle of the sixteenth century, of an unusually pure deposit of graphite at Borrowdale, in the Lake District of north-west England. Local people found that the dark, greasy substance left clear marks, and it was soon being used by farmers to mark their sheep. At the time, nobody understood what graphite was; because it looked and behaved rather like lead, it became known as ‘black lead’ or ‘plumbago’, and the name has survived to the present day." },
+        { "label": null, "text": "Borrowdale graphite quickly became valuable, not only to artists and writers but also to industry, because it could be used to line the moulds in which cannonballs were cast. The mine was flooded when it was not being worked and was guarded by armed men, and the amount extracted was deliberately limited to keep prices high. Theft became such a problem that in 1752 the British Parliament passed a law making the stealing of graphite a serious criminal offence, punishable by imprisonment or transportation to a distant colony." },
+        { "label": null, "text": "Early pencils were simple. Sticks of graphite were cut from solid lumps and wrapped in string or sheepskin, or inserted into hollow wooden holders. Because only a solid block of pure graphite could be used in this way, and Borrowdale was the only known source of such material, England enjoyed a near-monopoly on high-quality pencils for many years. Craftsmen elsewhere, particularly around the German city of Nuremberg, tried to make pencils from graphite powder mixed with substances such as sulphur and glue, but the results were brittle and scratchy." },
+        { "label": null, "text": "The breakthrough came from France. In the 1790s, France was at war with Britain, and supplies of English graphite were cut off. The French government asked Nicolas-Jacques Conté, a painter and inventor, to find an alternative. In 1795, Conté patented a method of mixing powdered graphite with clay, shaping the mixture into thin rods and baking them in a kiln. His method had two great advantages. It meant that graphite of lower quality could be used, since impurities could be removed from the powder; and by changing the proportion of clay, manufacturers could control the hardness of the core. The more clay a core contains, the harder the pencil and the paler the line it produces. Conté’s process remains the basis of pencil manufacture today, and the familiar grading system, from soft ‘B’ pencils to hard ‘H’ pencils, reflects the ratio of graphite to clay." },
+        { "label": null, "text": "The eraser has its own history. Before rubber was available, people removed pencil marks with pieces of bread. In 1770, the English scientist Joseph Priestley noted that a substance recently brought to Europe from South America was excellent for rubbing out pencil marks, which is why in Britain an eraser is still called a ‘rubber’. Attaching an eraser to the end of a pencil came much later: an American inventor, Hymen Lipman, received a patent for the idea in 1858, although the patent was later declared invalid by the United States Supreme Court on the grounds that it merely combined two existing inventions." },
+        { "label": null, "text": "Today, pencils are produced in enormous numbers, and their manufacture is largely automated. Yet they remain remarkably popular even in a digital age. They are cheap, they do not leak or dry out, they work in extreme temperatures and even upside down, and their marks can be erased. Many artists, architects and writers still prefer them for early drafts, valuing the way a pencil allows ideas to be tried out and changed. The Borrowdale mine, meanwhile, closed in the nineteenth century, its famous deposit finally exhausted." }
+      ],
+      "groups": [
+        {
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
+          "questions": [
+            { "number": 1, "prompt": "The core of a modern pencil consists of graphite mixed with {{1}}.", "answer": ["clay"], "explanation": "‘Its dark core is made of graphite, a soft form of carbon, mixed with clay.’", "reference": "Paragraph 1" },
+            { "number": 2, "prompt": "Farmers near Borrowdale used graphite to mark their {{2}}.", "answer": ["sheep"], "explanation": "It ‘was soon being used by farmers to mark their sheep’.", "reference": "Paragraph 2" },
+            { "number": 3, "prompt": "Industry used graphite to line the moulds for making {{3}}.", "answer": ["cannonballs"], "explanation": "It ‘could be used to line the moulds in which cannonballs were cast’.", "reference": "Paragraph 3" },
+            { "number": 4, "prompt": "The first pencils were made by wrapping graphite in string or {{4}}.", "answer": ["sheepskin"], "explanation": "Sticks of graphite ‘were cut from solid lumps and wrapped in string or sheepskin’.", "reference": "Paragraph 4" },
+            { "number": 5, "prompt": "Conté baked his rods of graphite and clay in a {{5}}.", "answer": ["kiln"], "explanation": "He shaped the mixture into rods ‘and baking them in a kiln’.", "reference": "Paragraph 5" },
+            { "number": 6, "prompt": "Before rubber was used, people rubbed out pencil marks with {{6}}.", "answer": ["bread"], "explanation": "‘Before rubber was available, people removed pencil marks with pieces of bread.’", "reference": "Paragraph 6" }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "questions": [
+            { "number": 7, "prompt": "The people who first used Borrowdale graphite knew that it was a form of carbon.", "answer": "FALSE", "explanation": "‘At the time, nobody understood what graphite was.’", "reference": "Paragraph 2" },
+            { "number": 8, "prompt": "Production at the Borrowdale mine was restricted in order to keep the price of graphite high.", "answer": "TRUE", "explanation": "‘The amount extracted was deliberately limited to keep prices high.’", "reference": "Paragraph 3" },
+            { "number": 9, "prompt": "The law of 1752 was the first British law to protect a mineral resource.", "answer": "NOT GIVEN", "explanation": "The 1752 law is described, but nothing is said about earlier laws protecting minerals.", "reference": "Paragraph 3" },
+            { "number": 10, "prompt": "Pencils made in Nuremberg from graphite powder were of poor quality.", "answer": "TRUE", "explanation": "The results ‘were brittle and scratchy’.", "reference": "Paragraph 4" },
+            { "number": 11, "prompt": "Conté’s method could only be used with graphite of the highest quality.", "answer": "FALSE", "explanation": "‘It meant that graphite of lower quality could be used.’", "reference": "Paragraph 5" },
+            { "number": 12, "prompt": "A pencil with a high proportion of clay in its core produces a dark line.", "answer": "FALSE", "explanation": "‘The more clay a core contains, the harder the pencil and the paler the line it produces.’", "reference": "Paragraph 5" },
+            { "number": 13, "prompt": "Lipman’s pencils sold in large numbers before his patent was cancelled.", "answer": "NOT GIVEN", "explanation": "The passage mentions the patent and the court decision, but not how many pencils were sold.", "reference": "Paragraph 6" }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "Cities That Heat Up",
+      "subtitle": "Why urban areas are warmer than the countryside, and what can be done about it",
+      "paragraphs": [
+        { "label": "A", "text": "On a still summer night, the centre of a large city can be several degrees warmer than the surrounding countryside. This phenomenon, known as the urban heat island, was first described more than two hundred years ago. In the early nineteenth century, Luke Howard, an English pharmacist and amateur scientist best remembered for naming the main types of cloud, kept careful temperature records in and around London. He noticed that the city was consistently warmer than the nearby countryside, especially at night, and attributed part of the difference to the heat produced by the city’s many fires." },
+        { "label": "B", "text": "Scientists now understand that several factors combine to produce the effect. The most important is the nature of urban surfaces. Asphalt roads, concrete pavements and dark roofs absorb a large proportion of the sunlight that falls on them and store the heat during the day. After sunset, this stored heat is slowly released, which is why the difference between urban and rural temperatures is usually greatest at night rather than during the afternoon." },
+        { "label": "C", "text": "A second factor is the lack of vegetation. In the countryside, plants and moist soil release water vapour, a process that uses energy from the sun and cools the surrounding air, much as sweating cools the human body. In cities, where much of the ground is sealed under hard surfaces and rain is quickly carried away through drains, this natural cooling is greatly reduced." },
+        { "label": "D", "text": "The shape of the city also matters. Tall buildings lining narrow streets create ‘urban canyons’, which trap heat reflected between walls and reduce the wind that would otherwise carry warm air away. In addition, cities generate a great deal of heat of their own, from vehicles, industry and air-conditioning units, which pump heat out of buildings and into the streets. This creates a vicious circle: as cities become hotter, demand for air conditioning rises, which in turn adds still more heat." },
+        { "label": "E", "text": "The consequences go far beyond discomfort. During heatwaves, high night-time temperatures prevent people’s bodies from recovering from the heat of the day, and the risk of illness and death rises sharply, particularly among elderly people and those who live alone. Higher temperatures also increase energy consumption, worsen air pollution by speeding up the chemical reactions that produce ground-level ozone, and put pressure on water supplies. As the global climate warms, these effects are expected to become more severe." },
+        { "label": "F", "text": "Fortunately, the urban heat island is one environmental problem that cities can do a great deal to reduce locally. One of the simplest measures is to make surfaces more reflective. Roofs painted white or covered with special reflective coatings can stay far cooler than conventional dark roofs in strong sunlight, reducing both the temperature inside the building and the heat released into the street. ‘Green roofs’, covered with a layer of soil and plants, offer similar benefits and also absorb rainwater. At street level, planting trees provides shade and cooling through evaporation; studies have found that tree-lined streets can be several degrees cooler than similar streets without trees." },
+        { "label": "G", "text": "A number of cities have put these ideas into practice. In Medellín, Colombia, a network of ‘green corridors’ planted along roads and waterways since 2016 has been credited with reducing local temperatures by around two degrees. Paris has begun converting school playgrounds covered in asphalt into shaded ‘oasis’ spaces with trees and permeable surfaces, which can also be opened to local residents during heatwaves. However, researchers caution that there is no single solution. Reflective surfaces work best in hot, sunny climates and can increase heating costs in winter in colder places, while trees need space, water and years of care before they provide their full benefits. The most effective strategies combine several approaches and are designed around the needs of each neighbourhood." }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "Reading Passage 2 has seven paragraphs, **A–G**. Choose the correct heading for each paragraph from the list of headings below.",
+          "optionsTitle": "List of Headings",
+          "options": [
+            { "key": "i", "text": "Early observations of a warmer city" },
+            { "key": "ii", "text": "Disagreement among scientists about the causes" },
+            { "key": "iii", "text": "Why hard surfaces release heat at night" },
+            { "key": "iv", "text": "The cooling role of plants and soil" },
+            { "key": "v", "text": "A problem found only in tropical countries" },
+            { "key": "vi", "text": "How building layout and human activity add to the problem" },
+            { "key": "vii", "text": "Risks to health and the environment" },
+            { "key": "viii", "text": "Practical ways to cool buildings and streets" },
+            { "key": "ix", "text": "The rising price of air conditioning" },
+            { "key": "x", "text": "Lessons from cities that have taken action" }
+          ],
+          "questions": [
+            { "number": 14, "prompt": "Paragraph A", "answer": "i", "explanation": "Luke Howard’s records showed London ‘was consistently warmer than the nearby countryside’.", "reference": "Paragraph A" },
+            { "number": 15, "prompt": "Paragraph B", "answer": "iii", "explanation": "Roads and roofs store heat during the day; ‘After sunset, this stored heat is slowly released’.", "reference": "Paragraph B" },
+            { "number": 16, "prompt": "Paragraph C", "answer": "iv", "explanation": "Plants and moist soil release water vapour, which ‘cools the surrounding air’.", "reference": "Paragraph C" },
+            { "number": 17, "prompt": "Paragraph D", "answer": "vi", "explanation": "‘Urban canyons’ trap heat, and vehicles, industry and air conditioning add heat of their own.", "reference": "Paragraph D" },
+            { "number": 18, "prompt": "Paragraph E", "answer": "vii", "explanation": "Heat raises ‘the risk of illness and death’ and worsens pollution and pressure on water supplies.", "reference": "Paragraph E" },
+            { "number": 19, "prompt": "Paragraph F", "answer": "viii", "explanation": "Reflective roofs, green roofs and street trees are described as cooling measures.", "reference": "Paragraph F" },
+            { "number": 20, "prompt": "Paragraph G", "answer": "x", "explanation": "Medellín and Paris are examples, followed by researchers’ cautions about what works where.", "reference": "Paragraph G" }
+          ]
+        },
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
+          "maxWords": 2,
+          "title": "Reducing urban heat",
+          "content": "One simple way to cool a city is to make its surfaces more {{21}}. Roofs can be painted white or covered with special {{22}}. Green roofs, which are covered with soil and plants, have similar benefits and also absorb {{23}}. Street trees cool the air by providing {{24}} and through evaporation. In Paris, school {{25}} covered in asphalt are being turned into shaded spaces. However, in colder places, reflective surfaces may increase {{26}} in winter.",
+          "questions": [
+            { "number": 21, "answer": ["reflective"], "explanation": "‘One of the simplest measures is to make surfaces more reflective.’", "reference": "Paragraph F" },
+            { "number": 22, "answer": ["reflective coatings", "coatings"], "explanation": "Roofs can be ‘covered with special reflective coatings’.", "reference": "Paragraph F" },
+            { "number": 23, "answer": ["rainwater"], "explanation": "Green roofs ‘offer similar benefits and also absorb rainwater’.", "reference": "Paragraph F" },
+            { "number": 24, "answer": ["shade"], "explanation": "‘Planting trees provides shade and cooling through evaporation.’", "reference": "Paragraph F" },
+            { "number": 25, "answer": ["playgrounds"], "explanation": "Paris is ‘converting school playgrounds covered in asphalt into shaded “oasis” spaces’.", "reference": "Paragraph G" },
+            { "number": 26, "answer": ["heating costs"], "explanation": "Reflective surfaces ‘can increase heating costs in winter in colder places’.", "reference": "Paragraph G" }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "The Wisdom of Crowds",
+      "subtitle": "When are groups smarter than individuals, and when do they go badly wrong?",
+      "paragraphs": [
+        { "label": null, "text": "In the autumn of 1906, the British scientist Francis Galton visited a livestock fair in Plymouth, in the south-west of England, where a competition was being held to guess the weight of an ox once it had been slaughtered and prepared. Around 800 people paid a small fee to enter, and Galton, who had a lifelong interest in measurement and statistics, obtained the tickets afterwards to analyse the guesses. Galton had little faith in the judgement of ordinary people and expected the results to confirm his view. Instead, he found that the middle value of all the estimates, the median, was 1,207 pounds, while the true weight was 1,198 pounds: an error of less than one per cent. The crowd, taken as a whole, had been remarkably accurate, even though many individual guesses were far too high or far too low." },
+        { "label": null, "text": "Galton published his findings in 1907 in the journal Nature under the title ‘Vox Populi’, Latin for ‘the voice of the people’. Nearly a century later, the American journalist James Surowiecki used the story to open his 2004 book The Wisdom of Crowds, which argued that, under the right conditions, groups can make better judgements than even their most capable members. The explanation is partly statistical. Each individual estimate combines some genuine knowledge with some error. If the errors are random, those that are too high tend to be cancelled out by those that are too low, so that the average is closer to the truth than most of the individual guesses." },
+        { "label": null, "text": "Surowiecki identified several conditions that a crowd must meet in order to be wise. Its members need to have a diversity of information and opinions, so that their errors point in different directions. They must be independent, forming their judgements without being influenced by those around them. And there must be some way of combining their judgements into a single answer, whether by taking an average, holding a vote or allowing people to trade in a market. When these conditions are not met, crowds can be spectacularly wrong." },
+        { "label": null, "text": "Independence has proved to be the most fragile of these conditions. In a 2011 study, a team of researchers in Switzerland asked groups of students to answer factual questions, such as the number of murders recorded in the country in a particular year. Some groups answered alone, while others were repeatedly shown information about the estimates of other group members and given the chance to revise their answers. Seeing what others thought made the groups’ estimates much more similar to each other, but did not make them more accurate. Worse, the participants became more confident in their answers, even though those answers were no better than before. The researchers concluded that social influence can undermine the wisdom of crowds while at the same time making people feel more certain." },
+        { "label": null, "text": "A related danger is the phenomenon known as an information cascade. When people make decisions one after another and can see the choices of those who went before them, they may reasonably conclude that others know something they do not, and ignore their own information. Once a few early decisions point in the same direction, everyone who follows may copy them, so that a group appears to agree strongly even though its judgement rests on the private information of only a handful of people. Economists have used cascades to explain sudden rushes to buy particular products, the rapid spread of fashions and, in some cases, sudden falls in financial markets." },
+        { "label": null, "text": "Despite these risks, organisations have found many ways to put collective judgement to use. Prediction markets, in which people buy and sell contracts whose value depends on whether a particular event occurs, have been used to forecast elections, film revenues and project completion dates. Since 1988, the Iowa Electronic Markets, run by the University of Iowa, have allowed traders to bet small sums on the results of American elections, and their prices have often predicted outcomes at least as accurately as opinion polls. Some companies have run internal markets in which employees trade on questions such as whether a product will be launched on time, sometimes revealing problems that managers had not been told about." },
+        { "label": null, "text": "The lesson of research on collective judgement is not that crowds are always wise, nor that experts should be ignored. It is that the way a group is organised matters as much as the knowledge of its members. A small group of independent thinkers with different backgrounds may outperform a larger group of people who share the same information and influence one another. For anyone designing a committee, a survey or a decision-making process, the challenge is to gather many independent views before discussion begins, rather than after." }
+      ],
+      "groups": [
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
+          "questions": [
+            { "number": 27, "prompt": "Galton expected ordinary people to make poor judgements.", "answer": "YES", "explanation": "‘Galton had little faith in the judgement of ordinary people and expected the results to confirm his view.’", "reference": "Paragraph 1" },
+            { "number": 28, "prompt": "Galton was the first person to study the accuracy of group estimates.", "answer": "NOT GIVEN", "explanation": "The writer does not say whether anyone had studied group estimates before Galton.", "reference": "Paragraph 1" },
+            { "number": 29, "prompt": "Combining many estimates can reduce the effect of random errors.", "answer": "YES", "explanation": "‘If the errors are random, those that are too high tend to be cancelled out by those that are too low.’", "reference": "Paragraph 2" },
+            { "number": 30, "prompt": "Surowiecki’s book was based mainly on experiments he carried out himself.", "answer": "NOT GIVEN", "explanation": "The book and its argument are described, but not how Surowiecki gathered his evidence.", "reference": "Paragraph 2" },
+            { "number": 31, "prompt": "In the Swiss study, social influence made the groups’ estimates more accurate.", "answer": "NO", "explanation": "Seeing others’ estimates ‘did not make them more accurate’.", "reference": "Paragraph 4" },
+            { "number": 32, "prompt": "The opinions of experts should generally be ignored in favour of crowds.", "answer": "NO", "explanation": "‘The lesson … is not that crowds are always wise, nor that experts should be ignored.’", "reference": "Paragraph 7" }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
+          "questions": [
+            {
+              "number": 33,
+              "prompt": "What does the writer say about the competition at Plymouth?",
+              "options": [
+                { "key": "A", "text": "Galton organised it to test his own theories." },
+                { "key": "B", "text": "The middle value of the guesses was very close to the true weight." },
+                { "key": "C", "text": "Most of the people who entered were experts in judging cattle." },
+                { "key": "D", "text": "Galton was surprised by how many people took part." }
+              ],
+              "answer": "B",
+              "explanation": "The median was 1,207 pounds and the true weight 1,198 pounds, ‘an error of less than one per cent’.",
+              "reference": "Paragraph 1"
+            },
+            {
+              "number": 34,
+              "prompt": "According to the third paragraph, the members of a wise crowd need to",
+              "options": [
+                { "key": "A", "text": "share the same sources of information." },
+                { "key": "B", "text": "have some training in statistics." },
+                { "key": "C", "text": "form their judgements without being influenced by others." },
+                { "key": "D", "text": "trust one another’s opinions." }
+              ],
+              "answer": "C",
+              "explanation": "‘They must be independent, forming their judgements without being influenced by those around them.’",
+              "reference": "Paragraph 3"
+            },
+            {
+              "number": 35,
+              "prompt": "What happens in an information cascade?",
+              "options": [
+                { "key": "A", "text": "People ignore their own information and copy earlier decisions." },
+                { "key": "B", "text": "Experts deliberately give the public misleading information." },
+                { "key": "C", "text": "People take much longer than usual to reach a decision." },
+                { "key": "D", "text": "Group members openly share all of their private information." }
+              ],
+              "answer": "A",
+              "explanation": "People ‘ignore their own information’ and ‘everyone who follows may copy them’.",
+              "reference": "Paragraph 5"
+            },
+            {
+              "number": 36,
+              "prompt": "What is the writer’s main purpose in the sixth paragraph?",
+              "options": [
+                { "key": "A", "text": "to criticise the use of markets to predict elections" },
+                { "key": "B", "text": "to explain how opinion polls are carried out" },
+                { "key": "C", "text": "to compare the costs of different forecasting methods" },
+                { "key": "D", "text": "to give examples of collective judgement being used successfully" }
+              ],
+              "answer": "D",
+              "explanation": "The paragraph describes prediction markets, the Iowa Electronic Markets and company markets as uses of collective judgement.",
+              "reference": "Paragraph 6"
+            }
+          ]
+        },
+        {
+          "type": "matching_sentence_endings",
+          "instruction": "Complete each sentence with the correct ending, **A–F**, below.",
+          "optionsTitle": "List of Endings",
+          "options": [
+            { "key": "A", "text": "increased participants’ confidence without improving their accuracy." },
+            { "key": "B", "text": "revealed problems that managers had not been told about." },
+            { "key": "C", "text": "members’ mistakes are likely to point in different directions." },
+            { "key": "D", "text": "caused several financial markets to collapse." },
+            { "key": "E", "text": "they tend to cancel each other out when estimates are combined." },
+            { "key": "F", "text": "made group members less willing to share what they knew." }
+          ],
+          "questions": [
+            { "number": 37, "prompt": "When individual errors are random,", "answer": "E", "explanation": "Errors that are too high ‘tend to be cancelled out by those that are too low’.", "reference": "Paragraph 2" },
+            { "number": 38, "prompt": "Diversity is valuable in a group because", "answer": "C", "explanation": "Members need diverse information ‘so that their errors point in different directions’.", "reference": "Paragraph 3" },
+            { "number": 39, "prompt": "In the Swiss study, seeing other people’s estimates", "answer": "A", "explanation": "Participants ‘became more confident’ although their answers ‘were no better than before’.", "reference": "Paragraph 4" },
+            { "number": 40, "prompt": "Prediction markets run inside companies have sometimes", "answer": "B", "explanation": "They have been ‘sometimes revealing problems that managers had not been told about’.", "reference": "Paragraph 6" }
+          ]
+        }
+      ]
+    }
+  ]
+}

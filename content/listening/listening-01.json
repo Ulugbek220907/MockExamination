@@ -1,0 +1,1424 @@
+{
+  "id": "listening-01",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 1",
+  "shortTitle": "Practice Test 1",
+  "durationMinutes": 20,
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 1,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "emma": {
+      "name": "Receptionist",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "daniel": {
+      "name": "Daniel",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "ranger": {
+      "name": "Park ranger",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "katie": {
+      "name": "Katie",
+      "voice": "af_bella",
+      "lang": "en-us"
+    },
+    "tom": {
+      "name": "Tom",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "af_heart",
+      "lang": "en-us"
+    }
+  },
+  "pronunciations": {
+    "Pilates": "pɪlˈɑːtiːz"
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Joining a leisure centre",
+      "context": "A conversation between a receptionist and a man who wants to join a leisure centre.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man telephoning a leisure centre to ask about membership. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.88
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.88,
+          "end": 38.95
+        },
+        {
+          "speaker": "emma",
+          "text": "Good afternoon, Westfield Leisure Centre, Emma speaking. How can I help you?",
+          "start": 39.85,
+          "end": 43.92
+        },
+        {
+          "speaker": "daniel",
+          "text": "Oh, hello. I'm calling because I'm thinking of joining the centre, and I wanted to find out a bit more about membership.",
+          "start": 44.42,
+          "end": 51.89
+        },
+        {
+          "speaker": "emma",
+          "text": "Of course. Have you been a member with us before?",
+          "start": 52.39,
+          "end": 54.65
+        },
+        {
+          "speaker": "daniel",
+          "text": "No, never. I've only just moved to the area, actually.",
+          "start": 55.15,
+          "end": 58.84
+        },
+        {
+          "speaker": "narrator",
+          "text": "The man has never been a member before, so 'no' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 59.74,
+          "end": 74.72
+        },
+        {
+          "speaker": "emma",
+          "text": "Right, well, I can take a few details now and send you some information. Could I have your name, please?",
+          "start": 75.62,
+          "end": 80.89
+        },
+        {
+          "speaker": "daniel",
+          "text": "Yes, it's Daniel Kowalski.",
+          "start": 81.39,
+          "end": 83.28
+        },
+        {
+          "speaker": "emma",
+          "text": "Could you spell your surname for me?",
+          "start": 83.78,
+          "end": 85.58
+        },
+        {
+          "speaker": "daniel",
+          "text": "Sure. It's K-O-W-A-L-S-K-I.",
+          "tts": "Sure. It's K, O, W, A, L, S, K, I.",
+          "start": 86.08,
+          "end": 89.15
+        },
+        {
+          "speaker": "emma",
+          "text": "Thank you. And what's your address?",
+          "start": 89.65,
+          "end": 91.35
+        },
+        {
+          "speaker": "daniel",
+          "text": "It's 24... no, sorry, I always get that the wrong way round. It's 42 Harbour Road, Westfield.",
+          "tts": "It's twenty-four... no, sorry, I always get that the wrong way round. It's forty-two, Harbour Road, Westfield.",
+          "start": 91.85,
+          "end": 98.94
+        },
+        {
+          "speaker": "emma",
+          "text": "42 Harbour Road. Lovely, that's quite close to us. And may I ask what you do for a living? We offer discounts for some professions.",
+          "tts": "Forty-two, Harbour Road. Lovely, that's quite close to us. And may I ask what you do for a living? We offer discounts for some professions.",
+          "start": 99.44,
+          "end": 106.86
+        },
+        {
+          "speaker": "daniel",
+          "text": "I'm a pharmacist. I work at the hospital on Mill Lane.",
+          "start": 107.36,
+          "end": 111.22
+        },
+        {
+          "speaker": "emma",
+          "text": "Ah, then you might qualify for our health-worker discount, but I'd need to check that with my manager. What's the best time to call you back?",
+          "start": 111.72,
+          "end": 119.1
+        },
+        {
+          "speaker": "daniel",
+          "text": "Well, I'm at work until five, and it takes me about an hour to get home, so any time after six would be fine.",
+          "start": 119.6,
+          "end": 126.79
+        },
+        {
+          "speaker": "emma",
+          "text": "After six. Great. Now, we have three types of membership. Standard membership lets you use all the facilities at any time. Then there's off-peak membership, which is cheaper, but you can only come in during the day on weekdays, or after eight in the evening. And finally there's family membership.",
+          "start": 127.29,
+          "end": 143.42
+        },
+        {
+          "speaker": "daniel",
+          "text": "Well, I live on my own, so family membership isn't really for me. And I usually go to the gym quite late anyway, so I think off-peak would suit me best.",
+          "start": 143.92,
+          "end": 154.48
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 155.38,
+          "end": 161.1
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 181.1,
+          "end": 184.43
+        },
+        {
+          "speaker": "daniel",
+          "text": "So how much is the off-peak membership?",
+          "start": 185.33,
+          "end": 187.89
+        },
+        {
+          "speaker": "emma",
+          "text": "It's £32 a month. It used to be £29, but our prices went up in January. Standard membership is £45, just so you can compare.",
+          "tts": "It's thirty-two pounds a month. It used to be twenty-nine pounds, but our prices went up in January. Standard membership is forty-five pounds, just so you can compare.",
+          "start": 188.39,
+          "end": 197.77
+        },
+        {
+          "speaker": "daniel",
+          "text": "That's fine. Is there anything else to pay?",
+          "start": 198.27,
+          "end": 200.79
+        },
+        {
+          "speaker": "emma",
+          "text": "There's a joining fee of £20, which you only pay once, when you sign up. But that does include a fitness assessment with one of our trainers.",
+          "tts": "There's a joining fee of twenty pounds, which you only pay once, when you sign up. But that does include a fitness assessment with one of our trainers.",
+          "start": 201.29,
+          "end": 208.97
+        },
+        {
+          "speaker": "daniel",
+          "text": "OK. I'm also interested in the classes. Do you run any yoga?",
+          "start": 209.47,
+          "end": 213.57
+        },
+        {
+          "speaker": "emma",
+          "text": "We do, but the yoga classes are all in the early evening, so they wouldn't be included in off-peak membership. What we do have is a Pilates class on Tuesday afternoons, and a later one at half past eight on Tuesday evenings.",
+          "start": 214.07,
+          "end": 226.44
+        },
+        {
+          "speaker": "daniel",
+          "text": "Pilates at half past eight sounds perfect. I'd like to sign up for that one.",
+          "start": 226.94,
+          "end": 231.97
+        },
+        {
+          "speaker": "emma",
+          "text": "Great. When you come in for your first visit, you'll need to bring a photo, so that we can make your membership card. Just a small one, passport size.",
+          "start": 232.47,
+          "end": 239.88
+        },
+        {
+          "speaker": "daniel",
+          "text": "No problem. Do I need to bring a towel as well?",
+          "start": 240.38,
+          "end": 243.56
+        },
+        {
+          "speaker": "emma",
+          "text": "No, towels are provided, and there are lockers in the changing rooms, so you don't need a padlock either.",
+          "start": 244.06,
+          "end": 249.41
+        },
+        {
+          "speaker": "daniel",
+          "text": "Brilliant.",
+          "start": 249.91,
+          "end": 250.79
+        },
+        {
+          "speaker": "emma",
+          "text": "Oh, and one last question. We're doing a quick survey. How did you hear about us? Was it through our website?",
+          "start": 251.29,
+          "end": 256.75
+        },
+        {
+          "speaker": "daniel",
+          "text": "No, I haven't actually looked at the website yet. Someone put a leaflet through my door last week, and it had a discount voucher on it.",
+          "start": 257.25,
+          "end": 265.46
+        },
+        {
+          "speaker": "emma",
+          "text": "Ah, great. Well, bring the leaflet with you when you come in, then. Thanks, Daniel. We'll be in touch.",
+          "start": 265.96,
+          "end": 270.72
+        },
+        {
+          "speaker": "daniel",
+          "text": "Thanks very much. Bye.",
+          "start": 271.22,
+          "end": 272.92
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 273.82,
+          "end": 278.35
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Westfield Leisure Centre – new member enquiry",
+          "content": [
+            "Example: Has been a member before? **no**",
+            "## Personal details",
+            "• Name: Daniel {{1}}",
+            "• Address: {{2}} Harbour Road, Westfield",
+            "• Occupation: {{3}}",
+            "• Best time to call back: after {{4}} pm",
+            "## Membership",
+            "• Type of membership: {{5}}",
+            "• Monthly cost: £{{6}}",
+            "• Must also pay a one-off {{7}} fee",
+            "## Other information",
+            "• Wants to join the {{8}} class on Tuesday evenings",
+            "• Must bring a {{9}} for the membership card",
+            "• Heard about the centre from a {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Kowalski"
+              ],
+              "explanation": "Daniel spells his surname: K-O-W-A-L-S-K-I.",
+              "cue": "K-O-W-A-L-S-K-I"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "42"
+              ],
+              "explanation": "He first says 24, then corrects himself: ‘It's 42 Harbour Road.’",
+              "cue": "It's 42 Harbour Road"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "pharmacist"
+              ],
+              "explanation": "‘I'm a pharmacist. I work at the hospital on Mill Lane.’",
+              "cue": "I'm a pharmacist"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "He works until five, so ‘any time after six would be fine’.",
+              "cue": "any time after six"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "off-peak"
+              ],
+              "explanation": "He lives alone and goes to the gym late, so ‘off-peak would suit me best’.",
+              "cue": "off-peak would suit me best"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "32"
+              ],
+              "explanation": "Off-peak costs £32 a month. £29 was the old price and £45 is for standard membership.",
+              "cue": "It's £32 a month"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "joining"
+              ],
+              "explanation": "‘There's a joining fee of £20, which you only pay once.’",
+              "cue": "a joining fee"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "Pilates"
+              ],
+              "explanation": "Yoga is not included in off-peak; he chooses ‘Pilates at half past eight’.",
+              "cue": "Pilates at half past eight"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "photo",
+                "photograph"
+              ],
+              "explanation": "‘You'll need to bring a photo, so that we can make your membership card.’ Towels are provided.",
+              "cue": "bring a photo"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "leaflet"
+              ],
+              "explanation": "Not the website: ‘Someone put a leaflet through my door.’",
+              "cue": "put a leaflet through my door"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-01/part1.mp3",
+        "duration": 299.15
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Welcome to Greenbank Country Park",
+      "context": "A park ranger gives information to a group of visitors.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a park ranger giving information to a group of visitors at a country park. First, you have some time to look at questions 11 to 16.",
+          "start": 0.6,
+          "end": 11.2
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 16.",
+          "start": 31.2,
+          "end": 35.45
+        },
+        {
+          "speaker": "ranger",
+          "text": "Good morning, everyone, and welcome to Greenbank Country Park. My name's Sophie, and I'm one of the rangers here. Before you set off to explore, I'd like to tell you where everything is, so if you look at the map in your welcome pack, I'll take you round it.",
+          "start": 36.35,
+          "end": 49.66
+        },
+        {
+          "speaker": "ranger",
+          "text": "We're standing at the main entrance, at the southern edge of the park. As you walk up the main path from here, you'll pass the car park on your left, and just beyond it, also on the left of the path, is the adventure playground. It's very popular with families, so it can get busy at weekends.",
+          "start": 50.01,
+          "end": 64.99
+        },
+        {
+          "speaker": "ranger",
+          "text": "On the other side of the main path, you can see the visitor centre, where you can pick up leaflets and buy maps. A lot of people expect the café to be inside the visitor centre, but it isn't. The café is further up the path, still on the right-hand side, about halfway between the visitor centre and the lake.",
+          "start": 65.34,
+          "end": 82.17
+        },
+        {
+          "speaker": "ranger",
+          "text": "The toilets aren't in the visitor centre either, I'm afraid. They're in a separate building to the east of the visitor centre, right in the corner of the park.",
+          "start": 82.52,
+          "end": 90.54
+        },
+        {
+          "speaker": "ranger",
+          "text": "Now, the lake is the heart of the park. There's a path that goes all the way round it, and it takes about forty minutes to walk. If you turn left when you reach the lake, and follow the path along the western shore, you'll come to the bird hide, about halfway along that side. Please don't confuse it with the old wooden shelter further to the south-west, near the woods. That used to be a bird hide too, but it's no longer safe, so it's closed.",
+          "start": 90.89,
+          "end": 113.57
+        },
+        {
+          "speaker": "ranger",
+          "text": "If you keep going round the lake, at the far end, on the northern side, you'll find the picnic area, with tables looking out over the water. It's a lovely spot for lunch. You might see a small car park in the north-east corner of the park on your map. That's an overflow car park, and it's only open at weekends in the summer.",
+          "start": 113.92,
+          "end": 130.79
+        },
+        {
+          "speaker": "ranger",
+          "text": "Finally, if you're interested in art, our new sculpture trail begins on the eastern side of the lake, just off the lakeside path. There are twelve sculptures, all made by local artists, and the trail finishes back at the visitor centre.",
+          "start": 131.14,
+          "end": 144.13
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 17 to 20.",
+          "start": 145.03,
+          "end": 150.75
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 17 to 20.",
+          "start": 170.75,
+          "end": 174.7
+        },
+        {
+          "speaker": "ranger",
+          "text": "Now, a few things you should know. Some of our regular visitors may have noticed that the gates now close at eight in the evening, rather than nine. People often assume that's to save money on staff, but that's not the reason. It's actually to give the birds that nest around the lake some peace and quiet in the evenings, which is when they're most easily disturbed.",
+          "start": 175.6,
+          "end": 194.31
+        },
+        {
+          "speaker": "ranger",
+          "text": "Dogs are very welcome in most of the park, and you don't need to keep them on a lead in the woods or on the open grassland. However, between March and August, which is the nesting season, dogs must be kept on a lead anywhere near the lake.",
+          "start": 194.66,
+          "end": 206.94
+        },
+        {
+          "speaker": "ranger",
+          "text": "We run a free guided walk every Sunday at ten o'clock. It lasts about an hour and a half. If you've got one of our old leaflets, it says the walks start from the main gate, but that's changed. They now start from the visitor centre, because there's more space for people to wait there.",
+          "start": 207.29,
+          "end": 222.27
+        },
+        {
+          "speaker": "ranger",
+          "text": "And finally, we're always looking for volunteers. We have plenty of people helping in the café and leading walks at the moment, but what we really need is help with planting trees in November. We're planting two thousand trees this year, so it's a big job. You don't need any experience, and all the tools are provided. If you're interested, you can sign up online. Right, enjoy your visit.",
+          "start": 222.62,
+          "end": 243.16
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 244.06,
+          "end": 248.4
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–H**, next to Questions 11–16.",
+          "map": {
+            "title": "Greenbank Country Park",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "trees",
+                "x": 30,
+                "y": 190,
+                "w": 90,
+                "h": 120,
+                "label": "Woods"
+              },
+              {
+                "type": "ellipse",
+                "cx": 330,
+                "cy": 150,
+                "rx": 165,
+                "ry": 95,
+                "style": "path-ring"
+              },
+              {
+                "type": "ellipse",
+                "cx": 330,
+                "cy": 150,
+                "rx": 135,
+                "ry": 68,
+                "style": "water",
+                "label": "Lake"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 430,
+                "x2": 320,
+                "y2": 245,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 340,
+                "w": 150,
+                "h": 75,
+                "style": "parking",
+                "label": "Car park"
+              },
+              {
+                "type": "rect",
+                "x": 365,
+                "y": 350,
+                "w": 130,
+                "h": 55,
+                "style": "building",
+                "label": "Visitor centre"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 430,
+                "label": "Main entrance"
+              },
+              {
+                "type": "compass",
+                "x": 50,
+                "y": 50
+              },
+              {
+                "type": "letter",
+                "x": 250,
+                "y": 330,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 120,
+                "y": 150,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 330,
+                "y": 32,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 548,
+                "y": 165,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 420,
+                "y": 290,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 575,
+                "y": 385,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 150,
+                "y": 270,
+                "letter": "G"
+              },
+              {
+                "type": "letter",
+                "x": 585,
+                "y": 45,
+                "letter": "H"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            },
+            {
+              "key": "H",
+              "text": "H"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Adventure playground",
+              "answer": "A",
+              "explanation": "Walking up the main path, you pass the car park on your left, ‘and just beyond it, also on the left of the path, is the adventure playground’.",
+              "cue": "is the adventure playground"
+            },
+            {
+              "number": 12,
+              "prompt": "Café",
+              "answer": "E",
+              "explanation": "The café is ‘on the right-hand side, about halfway between the visitor centre and the lake’, not inside the visitor centre.",
+              "cue": "The café is further up the path"
+            },
+            {
+              "number": 13,
+              "prompt": "Toilets",
+              "answer": "F",
+              "explanation": "They are ‘in a separate building to the east of the visitor centre, right in the corner of the park’.",
+              "cue": "to the east of the visitor centre"
+            },
+            {
+              "number": 14,
+              "prompt": "Bird hide",
+              "answer": "B",
+              "explanation": "Follow the path along the western shore to the bird hide. G is the old shelter, which is closed.",
+              "cue": "you'll come to the bird hide"
+            },
+            {
+              "number": 15,
+              "prompt": "Picnic area",
+              "answer": "C",
+              "explanation": "‘At the far end, on the northern side, you'll find the picnic area.’ H is the overflow car park.",
+              "cue": "you'll find the picnic area"
+            },
+            {
+              "number": 16,
+              "prompt": "Start of the sculpture trail",
+              "answer": "D",
+              "explanation": "The trail ‘begins on the eastern side of the lake, just off the lakeside path’.",
+              "cue": "begins on the eastern side of the lake"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 17,
+              "prompt": "Why does the park now close earlier in the evening?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to reduce staff costs"
+                },
+                {
+                  "key": "B",
+                  "text": "because visitors left litter"
+                },
+                {
+                  "key": "C",
+                  "text": "to protect nesting birds"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘People often assume that's to save money on staff, but that's not the reason. It's actually to give the birds … some peace and quiet.’",
+              "cue": "give the birds that nest around the lake some peace"
+            },
+            {
+              "number": 18,
+              "prompt": "What does the ranger say about dogs?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They must be on a lead near the lake at certain times of year."
+                },
+                {
+                  "key": "B",
+                  "text": "They must be on a lead everywhere in the park."
+                },
+                {
+                  "key": "C",
+                  "text": "They are not allowed in the woods."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Between March and August … dogs must be kept on a lead anywhere near the lake.’",
+              "cue": "dogs must be kept on a lead anywhere near the lake"
+            },
+            {
+              "number": 19,
+              "prompt": "Where do the guided walks now start?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the car park"
+                },
+                {
+                  "key": "B",
+                  "text": "the main gate"
+                },
+                {
+                  "key": "C",
+                  "text": "the visitor centre"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The old leaflets say the main gate, ‘but that's changed. They now start from the visitor centre’.",
+              "cue": "They now start from the visitor centre"
+            },
+            {
+              "number": 20,
+              "prompt": "Volunteers are most needed to help with",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "leading guided walks."
+                },
+                {
+                  "key": "B",
+                  "text": "planting trees."
+                },
+                {
+                  "key": "C",
+                  "text": "working in the café."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The café and walks already have plenty of helpers; ‘what we really need is help with planting trees in November’.",
+              "cue": "what we really need is help with planting trees"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-01/part2.mp3",
+        "duration": 269.2
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A student research project on food waste",
+      "context": "Two students discuss their research project on food waste in the university canteen.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two students, Katie and Tom, discussing their research project on food waste. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 11.95
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 31.95,
+          "end": 36.66
+        },
+        {
+          "speaker": "tom",
+          "text": "So, Katie, shall we go through where we are with the food waste project before we meet Dr Evans on Friday?",
+          "start": 37.56,
+          "end": 43.75
+        },
+        {
+          "speaker": "katie",
+          "text": "Good idea. Do you remember that we were originally going to do our project on student transport?",
+          "start": 44.25,
+          "end": 49.61
+        },
+        {
+          "speaker": "tom",
+          "text": "Yes, and Dr Evans did say that transport had been done by a lot of groups before.",
+          "start": 50.11,
+          "end": 55.42
+        },
+        {
+          "speaker": "katie",
+          "text": "True, but that's not really why we changed. It was that lunchtime in the canteen, when we watched the staff throw away that whole tray of pasta. I couldn't stop thinking about how much food must be wasted every day.",
+          "start": 55.92,
+          "end": 68.87
+        },
+        {
+          "speaker": "tom",
+          "text": "That's right. It was quite shocking. Anyway, the questionnaire. We got over three hundred responses, which is more than we hoped for.",
+          "start": 69.37,
+          "end": 76.64
+        },
+        {
+          "speaker": "katie",
+          "text": "Yes, the number of responses wasn't a problem at all. The problem was question seven. Quite a few people obviously didn't understand what we meant by 'plate waste'. Some thought it meant broken plates!",
+          "start": 77.14,
+          "end": 88.7
+        },
+        {
+          "speaker": "tom",
+          "text": "I know. We should have explained the term more clearly. We'll have to mention that as a limitation in the report.",
+          "start": 89.2,
+          "end": 95.31
+        },
+        {
+          "speaker": "katie",
+          "text": "And what about the canteen manager? Did you ask him whether we could weigh the waste each day?",
+          "start": 95.81,
+          "end": 100.73
+        },
+        {
+          "speaker": "tom",
+          "text": "I did. He said they actually used to weigh it every day a few years ago, but they stopped, because the kitchen staff simply haven't got time to do it. So he suggested we come in and do it ourselves for a week, which we did.",
+          "start": 101.23,
+          "end": 112.43
+        },
+        {
+          "speaker": "katie",
+          "text": "And the results were really interesting. I expected vegetables to be the worst, because students always leave them on their plates.",
+          "start": 112.93,
+          "end": 120.44
+        },
+        {
+          "speaker": "tom",
+          "text": "They were quite bad. But what really surprised me was the bread. Nearly a third of all the waste was bread rolls, and most of them hadn't even been touched. They come free with every bowl of soup, so people just take them without thinking.",
+          "start": 120.94,
+          "end": 132.57
+        },
+        {
+          "speaker": "katie",
+          "text": "Now, the presentation. I was wondering whether we should add a short video of the waste bins.",
+          "start": 133.07,
+          "end": 138.4
+        },
+        {
+          "speaker": "tom",
+          "text": "It would be powerful, but we've only got ten minutes. I think the bigger problem is that we've got twenty-five slides.",
+          "start": 138.9,
+          "end": 145.17
+        },
+        {
+          "speaker": "katie",
+          "text": "You're right. That's far too many for ten minutes. Let's cut it down to about twelve slides and forget the video.",
+          "start": 145.67,
+          "end": 152.18
+        },
+        {
+          "speaker": "tom",
+          "text": "Agreed.",
+          "start": 152.68,
+          "end": 153.71
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 154.61,
+          "end": 160.75
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 180.75,
+          "end": 184.59
+        },
+        {
+          "speaker": "katie",
+          "text": "So, the recommendations. Let's start with the bread rolls, since that was the biggest problem.",
+          "start": 185.49,
+          "end": 190.98
+        },
+        {
+          "speaker": "tom",
+          "text": "I think the answer is simple. Instead of putting a roll on every tray, the staff should only give people bread if they ask for it.",
+          "start": 191.48,
+          "end": 198.37
+        },
+        {
+          "speaker": "katie",
+          "text": "Yes, that would cut the waste straight away. What about the chips? The portions are enormous, and half of them get thrown away.",
+          "start": 198.87,
+          "end": 206.04
+        },
+        {
+          "speaker": "tom",
+          "text": "Some people want a big portion, though. So rather than making every portion smaller, why not let students choose between a small and a large portion?",
+          "start": 206.54,
+          "end": 214.92
+        },
+        {
+          "speaker": "katie",
+          "text": "Good. Then there's all the food that's left over at the end of the day. I thought we could suggest giving it to a local charity.",
+          "start": 215.42,
+          "end": 222.27
+        },
+        {
+          "speaker": "tom",
+          "text": "I looked into that, but the manager said health and safety rules make it very difficult for them to give cooked food away. He'd be happy to sell it off cheaply in the last hour before the canteen closes in the evening, though.",
+          "start": 222.77,
+          "end": 234.1
+        },
+        {
+          "speaker": "katie",
+          "text": "OK, we'll recommend that, then. What about the dishes that hardly anyone eats, like the fish curry?",
+          "start": 234.6,
+          "end": 240.61
+        },
+        {
+          "speaker": "tom",
+          "text": "I think students should have more say in what's on the menu. We could suggest an online vote each term.",
+          "start": 241.11,
+          "end": 246.72
+        },
+        {
+          "speaker": "katie",
+          "text": "I like that. And the last thing is the salad bar. People pile far too much salad on their plates and then leave most of it.",
+          "start": 247.22,
+          "end": 254.58
+        },
+        {
+          "speaker": "tom",
+          "text": "Someone suggested putting up posters about food waste, but I don't think posters really change people's behaviour.",
+          "start": 255.08,
+          "end": 261.95
+        },
+        {
+          "speaker": "katie",
+          "text": "I agree. Research shows that people take less food when they're given smaller plates, so why don't we recommend that for the salad bar?",
+          "start": 262.45,
+          "end": 270.2
+        },
+        {
+          "speaker": "tom",
+          "text": "Perfect. I'll start writing that section tonight.",
+          "start": 270.7,
+          "end": 274.07
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 274.97,
+          "end": 279.43
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did the students choose food waste as their topic?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Their tutor told them to change their topic."
+                },
+                {
+                  "key": "B",
+                  "text": "They saw a large amount of food being thrown away."
+                },
+                {
+                  "key": "C",
+                  "text": "It was related to their future careers."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The tutor's comment was ‘not really why we changed’; it was watching staff ‘throw away that whole tray of pasta’.",
+              "cue": "throw away that whole tray of pasta"
+            },
+            {
+              "number": 22,
+              "prompt": "What problem did the students have with their questionnaire?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Not enough people completed it."
+                },
+                {
+                  "key": "B",
+                  "text": "It took too long to analyse the results."
+                },
+                {
+                  "key": "C",
+                  "text": "Some people misunderstood one of the questions."
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘The number of responses wasn't a problem’; people ‘didn't understand what we meant by “plate waste”’.",
+              "cue": "didn't understand what we meant"
+            },
+            {
+              "number": 23,
+              "prompt": "The canteen manager said that food waste was no longer weighed because",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the kitchen staff were too busy."
+                },
+                {
+                  "key": "B",
+                  "text": "the scales had been broken."
+                },
+                {
+                  "key": "C",
+                  "text": "it had never been useful."
+                }
+              ],
+              "answer": "A",
+              "explanation": "They stopped ‘because the kitchen staff simply haven't got time to do it’.",
+              "cue": "the kitchen staff simply haven't got time"
+            },
+            {
+              "number": 24,
+              "prompt": "What surprised Tom most about the results?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the amount of vegetables left on plates"
+                },
+                {
+                  "key": "B",
+                  "text": "the amount of bread that was thrown away"
+                },
+                {
+                  "key": "C",
+                  "text": "the amount of soup that was wasted"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Katie expected vegetables to be worst, but ‘what really surprised me was the bread’.",
+              "cue": "what really surprised me was the bread"
+            },
+            {
+              "number": 25,
+              "prompt": "What do the students agree to do about their presentation?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "add a short video"
+                },
+                {
+                  "key": "B",
+                  "text": "reduce the number of slides"
+                },
+                {
+                  "key": "C",
+                  "text": "ask for more time"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Twenty-five slides is too many for ten minutes: ‘Let's cut it down to about twelve slides and forget the video.’",
+              "cue": "cut it down to about twelve slides"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What do the students decide to recommend for each of the following problems? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Recommendations",
+          "options": [
+            {
+              "key": "A",
+              "text": "offer a choice of portion size"
+            },
+            {
+              "key": "B",
+              "text": "use smaller plates"
+            },
+            {
+              "key": "C",
+              "text": "sell it cheaply in the evening"
+            },
+            {
+              "key": "D",
+              "text": "give it to a local charity"
+            },
+            {
+              "key": "E",
+              "text": "provide it only when asked"
+            },
+            {
+              "key": "F",
+              "text": "put up posters about food waste"
+            },
+            {
+              "key": "G",
+              "text": "let students vote on the menu"
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "bread rolls",
+              "answer": "E",
+              "explanation": "‘The staff should only give people bread if they ask for it.’",
+              "cue": "only give people bread if they ask for it"
+            },
+            {
+              "number": 27,
+              "prompt": "chips",
+              "answer": "A",
+              "explanation": "‘Why not let students choose between a small and a large portion?’",
+              "cue": "choose between a small and a large portion"
+            },
+            {
+              "number": 28,
+              "prompt": "food left at the end of the day",
+              "answer": "C",
+              "explanation": "A charity is difficult because of health and safety rules; the manager would ‘sell it off cheaply in the last hour’.",
+              "cue": "sell it off cheaply"
+            },
+            {
+              "number": 29,
+              "prompt": "unpopular dishes",
+              "answer": "G",
+              "explanation": "‘Students should have more say in what's on the menu. We could suggest an online vote.’",
+              "cue": "an online vote each term"
+            },
+            {
+              "number": 30,
+              "prompt": "the salad bar",
+              "answer": "B",
+              "explanation": "Posters are rejected; ‘people take less food when they're given smaller plates’.",
+              "cue": "given smaller plates"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-01/part3.mp3",
+        "duration": 300.23
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: bioluminescence",
+      "context": "A lecture on bioluminescence, the production of light by living things.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about bioluminescence. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.73
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.73,
+          "end": 43.14
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning, everyone. Today I'm going to talk about one of the most beautiful phenomena in nature: bioluminescence. Bioluminescence is simply light that is produced by a chemical reaction inside a living organism. It's important to distinguish it from fluorescence, where an object absorbs light and then gives it off again. Bioluminescent organisms make their own light.",
+          "start": 44.04,
+          "end": 66.89
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So how does it work? In most cases, the reaction involves a molecule called luciferin, which reacts with oxygen. This reaction is controlled by an enzyme called luciferase. The word comes from Lucifer, which in Latin means 'light-bringer'. One remarkable feature of this reaction is that it is extremely efficient. Almost all of the energy is released as light, and very little is lost as heat. That's why bioluminescence is often described as 'cold light'. If you compare it with an old-fashioned light bulb, which wasted most of its energy as heat, you can see why engineers find it so interesting.",
+          "start": 67.24,
+          "end": 104.53
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Now, where do we find bioluminescence? On land, it's actually quite rare. There are some glowing fungi and a few insects, and of course the best-known example is the firefly, which uses flashes of light to attract a mate. But the real home of bioluminescence is the ocean. When researchers in California carried out a survey of animals living between the surface and a depth of four kilometres, they found that around three-quarters of the animals they observed were able to produce light.",
+          "start": 104.88,
+          "end": 134.78
+        },
+        {
+          "speaker": "lecturer",
+          "text": "And you may notice that most of this light is blue, or blue-green. There's a good reason for this. Blue light travels furthest through water, while red light is absorbed very quickly. In fact, many deep-sea animals can't see red light at all.",
+          "start": 135.13,
+          "end": 149.59
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So why do so many marine animals produce light? Scientists have identified several purposes. The first, and perhaps the most surprising, is camouflage. You might think that producing light would make an animal easier to see, but consider a fish swimming in the twilight zone, a few hundred metres down. A predator looking up from below will see the fish as a dark shadow against the faint light from the surface. To hide this shadow, some fish and squid produce light on their bellies, which matches the light coming from above. This is known as counter-illumination.",
+          "start": 149.94,
+          "end": 183.6
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A second purpose is hunting. The most famous example is the anglerfish, which has a long spine on its head with a glowing tip. This acts as a lure. Smaller fish are attracted to the light, and when they come close enough, the anglerfish swallows its prey whole.",
+          "start": 183.95,
+          "end": 199.53
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The third purpose is defence. Some tiny plankton flash when they are disturbed, which is why waves sometimes seem to glow at night. One theory, known as the 'burglar alarm' theory, suggests that when a small animal starts eating the plankton, the flashes of light attract larger predators, which may then eat the animal that was feeding on the plankton.",
+          "start": 199.88,
+          "end": 220.55
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, I want to mention how humans have made use of bioluminescence. The enzyme from fireflies is now widely used in hygiene testing. A swab is wiped across a surface, and if the swab glows when it's mixed with the enzyme, that shows the surface isn't clean. It's used in hospitals and food factories to check whether surfaces are properly clean, and it gives results in seconds.",
+          "start": 220.9,
+          "end": 244.83
+        },
+        {
+          "speaker": "lecturer",
+          "text": "And perhaps the most important discovery came from a jellyfish. Scientists studying a glowing jellyfish off the west coast of North America identified a protein that glows green. This protein can be attached to other proteins inside cells, which allows scientists to watch processes that were previously invisible, such as how cancer cells spread. The researchers who developed this technique were awarded the Nobel Prize in Chemistry in 2008. So, from the depths of the ocean to the medical laboratory, bioluminescence has proved extremely useful. Next week, we'll look at…",
+          "start": 245.18,
+          "end": 281.42
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 282.32,
+          "end": 286.72
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 306.72,
+          "end": 309.43
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Bioluminescence",
+          "content": [
+            "## Definition and chemistry",
+            "• light produced by a chemical reaction inside a living {{31}}",
+            "• the molecule luciferin reacts with oxygen, controlled by an {{32}} called luciferase",
+            "• very little energy is lost as {{33}}, so it is called ‘cold light’",
+            "## Where it is found",
+            "• rare on land; the best-known example is the {{34}}",
+            "• in the ocean, about three-quarters of animals observed could produce light",
+            "• most light is blue because blue light travels furthest through {{35}}",
+            "## Purposes",
+            "• camouflage: some fish produce light on their {{36}} to hide their shadow (counter-illumination)",
+            "• hunting: the anglerfish uses a glowing lure to attract its {{37}}",
+            "• defence: flashing plankton may attract larger {{38}} (‘burglar alarm’ theory)",
+            "## Human uses",
+            "• firefly enzyme used to check whether surfaces are {{39}}",
+            "• a green glowing protein from a {{40}} led to a Nobel Prize in 2008"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "organism"
+              ],
+              "explanation": "‘Light that is produced by a chemical reaction inside a living organism.’",
+              "cue": "inside a living organism"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "enzyme"
+              ],
+              "explanation": "‘This reaction is controlled by an enzyme called luciferase.’",
+              "cue": "controlled by an enzyme called luciferase"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "heat"
+              ],
+              "explanation": "‘Very little is lost as heat. That's why bioluminescence is often described as “cold light”.’",
+              "cue": "very little is lost as heat"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "firefly"
+              ],
+              "explanation": "‘The best-known example is the firefly.’",
+              "cue": "the best-known example is the firefly"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "water"
+              ],
+              "explanation": "‘Blue light travels furthest through water.’",
+              "cue": "Blue light travels furthest through water"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "bellies",
+                "belly"
+              ],
+              "explanation": "‘Some fish and squid produce light on their bellies.’",
+              "cue": "produce light on their bellies"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "prey"
+              ],
+              "explanation": "‘The anglerfish swallows its prey whole’ after attracting it with a lure.",
+              "cue": "swallows its prey whole"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "predators"
+              ],
+              "explanation": "‘The flashes of light attract larger predators.’",
+              "cue": "attract larger predators"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "clean"
+              ],
+              "explanation": "It is used ‘to check whether surfaces are properly clean’.",
+              "cue": "properly clean"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "jellyfish"
+              ],
+              "explanation": "‘The most important discovery came from a jellyfish’, leading to the 2008 Nobel Prize.",
+              "cue": "came from a jellyfish"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-01/part4.mp3",
+        "duration": 310.23
+      }
+    }
+  ]
+}

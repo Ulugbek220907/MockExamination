@@ -187,6 +187,7 @@ body.text-extra-large { --cd-base-font-size: 20px; }
 .q-table { border-collapse: collapse; width: 100%; line-height: 1.8; }
 .q-table th, .q-table td { border: 1px solid var(--cd-border-color); padding: 6px 10px; text-align: left; vertical-align: top; }
 .q-table th { background: var(--cd-soft-bg); }
+.q-table .gap-input { width: 120px; }
 .flow-steps { list-style: none; display: flex; flex-direction: column; align-items: center; gap: 22px; }
 .flow-steps li { border: 1px solid var(--cd-border-color); border-radius: 6px; padding: 8px 14px; position: relative; width: 100%; }
 .flow-steps li:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -24px; transform: translateX(-50%); }
@@ -251,6 +252,82 @@ body.text-extra-large { --cd-base-font-size: 20px; }
 }
 .fig-cycle-note { text-align: center; margin-top: 10px; font-weight: 600; color: #1c5cab; }
 
+/* Listening ------------------------------------------------------------------ */
+#exam-screen.listening-mode .cd-pane-left,
+#exam-screen.listening-mode .cd-resizer,
+#exam-screen.listening-mode .pane-switch { display: none !important; }
+#exam-screen.listening-mode .cd-workspace .cd-pane-right { display: block; flex: 1 1 100%; }
+.listening-questions { max-width: 920px; margin: 0 auto; }
+.listening-part-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.listening-part-questions { color: var(--cd-text-muted); font-weight: 650; font-size: 0.92em; }
+
+.cd-audio-bar {
+  background: var(--cd-nav-bg); color: var(--cd-text-color); border-bottom: 1px solid var(--cd-nav-border);
+  padding: 8px 16px; flex-shrink: 0; font-size: 14px; font-family: var(--cd-font-family);
+}
+.cd-audio-bar[hidden] { display: none; }
+.audio-bar-inner { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; max-width: 1180px; margin: 0 auto; }
+.audio-btn {
+  min-width: 38px; height: 34px; padding: 0 10px; border: 1px solid var(--cd-nav-border); background: var(--cd-input-bg);
+  color: var(--cd-text-color); border-radius: 6px; font-weight: 700; font-size: 0.9em; cursor: pointer; font-family: inherit;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.audio-btn:hover { border-color: var(--cd-accent); }
+.audio-play { background: var(--cd-accent); color: var(--cd-accent-text); border-color: var(--cd-accent); min-width: 44px; }
+.audio-play:hover { background: var(--cd-accent-hover); }
+.audio-select {
+  height: 34px; padding: 0 6px; border: 1px solid var(--cd-nav-border); border-radius: 6px; background: var(--cd-input-bg);
+  color: var(--cd-text-color); font-family: inherit; font-size: 0.92em; cursor: pointer;
+}
+.audio-status { font-weight: 650; white-space: nowrap; }
+.audio-status.is-plain { display: none; }
+.audio-live-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: #dc2626; flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.22); animation: audio-pulse 1.6s ease-in-out infinite;
+}
+@keyframes audio-pulse { 50% { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.08); } }
+@media (prefers-reduced-motion: reduce) { .audio-live-dot { animation: none; } }
+.audio-track {
+  flex: 1 1 160px; min-width: 120px; height: 8px; background: var(--cd-soft-bg); border: 1px solid var(--cd-nav-border);
+  border-radius: 999px; overflow: hidden;
+}
+.audio-track-fill { height: 100%; width: 0; background: var(--cd-accent); transition: width 0.3s linear; }
+.audio-seek { flex: 1 1 180px; min-width: 120px; accent-color: var(--cd-accent); cursor: pointer; }
+.audio-time { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; color: var(--cd-text-muted); white-space: nowrap; }
+.audio-volume { display: inline-flex; align-items: center; gap: 6px; color: var(--cd-text-muted); cursor: pointer; }
+.audio-volume input { width: 96px; accent-color: var(--cd-accent); cursor: pointer; }
+.audio-start-btn {
+  background: var(--cd-accent); color: var(--cd-accent-text); border: none; padding: 8px 14px; border-radius: 6px;
+  font-weight: 700; font-size: 0.95em; cursor: pointer; font-family: inherit;
+}
+.audio-start-btn:hover { background: var(--cd-accent-hover); }
+.audio-start-btn[hidden] { display: none; }
+.cd-audio-bar.is-checking .audio-track, .cd-audio-bar.is-checking .audio-time,
+.cd-audio-bar.is-checking .audio-live-dot { display: none; }
+.part-tab-btn.is-playing::before {
+  content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #dc2626;
+  margin-right: 6px; vertical-align: 2px;
+}
+
+/* Map labelling: map (always on a light "paper" surface) and a letter grid */
+.map-layout { display: grid; gap: 14px; }
+@media (min-width: 1200px) {
+  .map-layout { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; }
+  .map-layout .task-figure { margin: 0; }
+}
+.map-scroll { overflow-x: auto; }
+.map-svg { min-width: 440px; }
+.map-label { font-size: 15px; font-weight: 650; fill: #0b0b0b; font-family: var(--cd-font-family); }
+.map-letter { font-size: 17px; font-weight: 800; fill: #0b0b0b; font-family: var(--cd-font-family); }
+.map-grid { border-collapse: collapse; width: 100%; background: var(--cd-panel-bg); }
+.map-grid th, .map-grid td { border: 1px solid var(--cd-border-color); padding: 6px 4px; text-align: center; }
+.map-grid thead th { background: var(--cd-soft-bg); font-weight: 800; min-width: 30px; }
+.map-grid tbody th { text-align: left; font-weight: 500; padding: 7px 10px; min-width: 150px; }
+.map-grid tbody th .q-line { align-items: center; }
+.map-grid input { width: 18px; height: 18px; accent-color: var(--cd-accent); cursor: pointer; margin: 0; vertical-align: middle; }
+.map-grid-row.active-question th, .map-grid-row.active-question td { background: var(--cd-accent-soft); }
+.map-grid-row.has-value .question-number-badge { background: var(--cd-accent); color: var(--cd-accent-text); }
+
 /* Footer navigation -------------------------------------------------------- */
 .cd-footer {
   min-height: 60px; background: var(--cd-nav-bg); color: var(--cd-text-color); border-top: 1px solid var(--cd-nav-border);
@@ -297,6 +374,12 @@ body.text-extra-large { --cd-base-font-size: 20px; }
 /* Highlighting and notes --------------------------------------------------- */
 .cd-highlight { background: var(--cd-highlight-bg); color: var(--cd-highlight-text); border-radius: 2px; cursor: context-menu; }
 .cd-highlight.has-note { border-bottom: 2px dotted #b45309; }
+.cd-highlight:focus-visible { outline: 2px solid var(--cd-accent); outline-offset: 1px; }
+.cd-note-actions { display: flex; justify-content: flex-end; margin-top: 6px; }
+.cd-note-delete {
+  background: none; border: none; color: #92400e; font-size: 12px; font-weight: 600;
+  text-decoration: underline; cursor: pointer; padding: 2px 0;
+}
 .cd-highlight-toolbar {
   position: fixed; display: flex; gap: 2px; background: #1e293b; padding: 4px; border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); z-index: 1500;
@@ -355,4 +438,17 @@ body.text-extra-large { --cd-base-font-size: 20px; }
   .cd-footer-center { order: 3; flex-basis: 100%; }
   .cd-footer-left { flex: 1; min-width: 0; overflow-x: auto; }
   .gap-input { width: 130px; }
+  .cd-audio-bar { padding: 6px 10px; }
+  .audio-bar-inner { gap: 8px; }
+  /* Two rows: controls and status, then the position bar with the time */
+  .audio-seek, .audio-track { order: 10; flex: 1 1 55%; }
+  .audio-time { order: 11; }
+  .audio-volume input { width: 72px; }
+  /* Phones have volume keys; keep the practice player on two rows. */
+  .is-practice .audio-volume { display: none; }
+  .audio-btn { min-width: 34px; padding: 0 8px; }
+  .map-grid tbody th { min-width: 108px; padding: 6px; }
+  .map-grid th, .map-grid td { padding: 5px 2px; }
+  .map-grid thead th { min-width: 24px; }
+  .map-grid input { width: 16px; height: 16px; }
 }

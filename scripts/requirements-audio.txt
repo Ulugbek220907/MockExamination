@@ -1,0 +1,7 @@
+# Tools for building and checking Listening audio. The website itself does not
+# need these; install them only on the machine where you generate recordings.
+#   pip install -r scripts/requirements-audio.txt
+kokoro-onnx==0.6.1     # Kokoro-82M text-to-speech (model: Apache-2.0; package: MIT)
+lameenc==1.8.4         # MP3 encoding
+numpy>=1.26
+faster-whisper==1.2.1  # speech recognition used by check_listening_audio.py

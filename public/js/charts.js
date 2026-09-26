@@ -1,6 +1,7 @@
 /**
  * Task 1 visual renderer: line graphs, grouped bar charts, pie charts,
  * tables and process diagrams, drawn as inline SVG/HTML from JSON specs.
+ * Also draws the maps used in Listening "label the map" questions.
  *
  * Charts sit on their own light "paper" surface (like a printed exam figure),
  * so the validated palette keeps its contrast in every contrast theme.
@@ -247,6 +248,77 @@
       ${v.cycle ? `<p class="fig-cycle-note">↻ After stage ${v.steps.length}, the cycle returns to stage 1.</p>` : ""}`;
   }
 
+  /* ----------------------------------------------------- listening map */
+  // Plan/map for "Label the map" questions. Letters are drawn on white discs;
+  // every label has a paper-coloured halo so it stays legible over any fill.
+  const MAP = {
+    grass: ["#e6f0dc", "#9fbf8a"], water: ["#cfe6f7", "#6f9fcb"], path: "#dccaa3",
+    parking: ["#eef0f3", "#8a94a3"], building: ["#f6e7c8", "#a37b3b"], tree: ["#8fbf7a", "#5f8f4c"],
+  };
+
+  function mapLabel(x, y, text, { anchor = "middle", italic = false } = {}) {
+    return `<text x="${x}" y="${y}" text-anchor="${anchor}" class="map-label" paint-order="stroke"
+      stroke="${SURFACE}" stroke-width="4" stroke-linejoin="round" ${italic ? 'font-style="italic"' : ""}>${esc(text)}</text>`;
+  }
+
+  function mapItem(it) {
+    switch (it.type) {
+      case "area": {
+        const [fill, stroke] = MAP[it.style] || MAP.grass;
+        return `<rect x="${it.x}" y="${it.y}" width="${it.w}" height="${it.h}" rx="14" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`;
+      }
+      case "trees": {
+        let out = "";
+        for (let ty = it.y + 14; ty <= it.y + it.h - 12; ty += 24) {
+          for (let tx = it.x + 14 + (((ty - it.y) / 24) % 2 ? 12 : 0); tx <= it.x + it.w - 12; tx += 24) {
+            out += `<circle cx="${tx}" cy="${ty}" r="10" fill="${MAP.tree[0]}" stroke="${MAP.tree[1]}" stroke-width="1.5"/>`;
+          }
+        }
+        return out + (it.label ? mapLabel(it.x + it.w / 2, it.y + it.h / 2 + 5, it.label) : "");
+      }
+      case "ellipse":
+        if (it.style === "path-ring") {
+          return `<ellipse cx="${it.cx}" cy="${it.cy}" rx="${it.rx}" ry="${it.ry}" fill="none" stroke="${MAP.path}" stroke-width="12"/>`;
+        }
+        return `<ellipse cx="${it.cx}" cy="${it.cy}" rx="${it.rx}" ry="${it.ry}" fill="${MAP.water[0]}" stroke="${MAP.water[1]}" stroke-width="2"/>
+          ${it.label ? mapLabel(it.cx, it.cy + 5, it.label, { italic: true }) : ""}`;
+      case "line":
+        return `<line x1="${it.x1}" y1="${it.y1}" x2="${it.x2}" y2="${it.y2}" stroke="${MAP.path}" stroke-width="12" stroke-linecap="round"/>`;
+      case "rect": {
+        const [fill, stroke] = MAP[it.style] || MAP.building;
+        return `<rect x="${it.x}" y="${it.y}" width="${it.w}" height="${it.h}" rx="4" fill="${fill}" stroke="${stroke}" stroke-width="2"/>
+          ${it.label ? mapLabel(it.x + it.w / 2, it.y + it.h / 2 + 5, it.label) : ""}`;
+      }
+      case "gate":
+        return `<rect x="${it.x - 16}" y="${it.y - 6}" width="32" height="7" rx="2" fill="${INK_2}"/>
+          ${it.label ? mapLabel(it.x + 22, it.y - 6, it.label, { anchor: "start" }) : ""}`;
+      case "compass":
+        return `<g aria-hidden="true">
+          <circle cx="${it.x}" cy="${it.y}" r="19" fill="${SURFACE}" stroke="${INK_2}" stroke-width="1.5"/>
+          <path d="M${it.x},${it.y - 13} L${it.x + 6},${it.y + 8} L${it.x},${it.y + 3} L${it.x - 6},${it.y + 8} Z" fill="${INK}"/>
+          <text x="${it.x}" y="${it.y - 24}" text-anchor="middle" class="map-label">N</text></g>`;
+      case "letter":
+        return `<circle cx="${it.x}" cy="${it.y}" r="14" fill="#ffffff" stroke="${INK}" stroke-width="2"/>
+          <text x="${it.x}" y="${it.y + 6}" text-anchor="middle" class="map-letter">${esc(it.letter)}</text>`;
+      default:
+        return "";
+    }
+  }
+
+  function renderMap(map) {
+    if (!map) return "";
+    const letters = (map.items || []).filter((i) => i.type === "letter").map((i) => i.letter);
+    const label = `Map of ${map.title || "the area"}. Letters ${letters[0]} to ${letters[letters.length - 1]} mark places on the map.`;
+    return `<div class="task-figure map-figure">
+      ${map.title ? `<div class="fig-title">${esc(map.title)}</div>` : ""}
+      <div class="map-scroll">
+        <svg class="fig-svg map-svg" viewBox="0 0 ${map.width} ${map.height}" role="img" aria-label="${esc(label)}">
+          ${(map.items || []).map(mapItem).join("")}
+        </svg>
+      </div>
+    </div>`;
+  }
+
   function render(visual) {
     if (!visual) return "";
     let body = "";
@@ -266,5 +338,5 @@
     </div>`;
   }
 
-  window.TaskCharts = { render };
+  window.TaskCharts = { render, renderMap };
 })();
