@@ -276,7 +276,8 @@
         <p><strong>Highlighting</strong></p>
         <ul class="help-list">
           <li>Select text in the passage, then choose <em>Highlight</em> or <em>Note</em>.</li>
-          <li>Right-click (or long-press) a highlight to remove it.</li>
+          <li>Click or tap a highlight to <em>remove</em> it, add or edit a note, or <em>clear all</em> highlights.</li>
+          <li>To remove several highlights at once, select the text and choose <em>Clear</em>.</li>
         </ul>
         <p><strong>Keyboard shortcuts</strong></p>
         <ul class="help-list">
@@ -490,6 +491,10 @@
     renderPassage(idx) {
       const left = $("exam-pane-left");
       if (left.dataset.rendered === "1") this.passageCache[this.passageIdx] = left.innerHTML;
+      if (this.highlighter) {
+        this.highlighter.hideMenu();
+        this.highlighter.closeNotes();
+      }
       this.passageIdx = idx;
       const p = this.test.passages[idx];
       left.innerHTML = this.passageCache[idx] || this.passageHTML(p);
@@ -773,6 +778,7 @@
       this.aiMarking = Boolean(opts.aiMarking);
       this.responses = (this.saved && this.saved.responses) || { 1: "", 2: "" };
       this.taskIdx = 0;
+      this.promptCache = {};
       this.mount();
     }
 
@@ -809,17 +815,24 @@
 
     renderTask(i) {
       if (i < 0 || i >= this.test.tasks.length) return;
+      const left = $("exam-pane-left");
+      // Keep the candidate's highlights when switching between tasks.
+      if (left.dataset.rendered === "1") this.promptCache[this.taskIdx] = left.innerHTML;
+      if (this.highlighter) {
+        this.highlighter.hideMenu();
+        this.highlighter.closeNotes();
+      }
       this.taskIdx = i;
       const t = this.test.tasks[i];
       const n = t.taskNumber;
-      const left = $("exam-pane-left");
-      left.innerHTML = `
+      left.innerHTML = this.promptCache[i] || `
         <div class="passage-header"><div class="passage-part-label">Part ${n}</div></div>
         <div class="passage-instruction-bar">
           You should spend about ${t.recommendedMinutes} minutes on this task. Write at least ${t.minWords} words.
         </div>
         <div class="task-prompt">${U.paragraphs(t.prompt)}</div>
         ${TaskCharts.render(t.visual)}`;
+      left.dataset.rendered = "1";
       left.scrollTop = 0;
 
       $("exam-pane-right").innerHTML = `

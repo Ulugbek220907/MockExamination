@@ -297,6 +297,12 @@ body.text-extra-large { --cd-base-font-size: 20px; }
 /* Highlighting and notes --------------------------------------------------- */
 .cd-highlight { background: var(--cd-highlight-bg); color: var(--cd-highlight-text); border-radius: 2px; cursor: context-menu; }
 .cd-highlight.has-note { border-bottom: 2px dotted #b45309; }
+.cd-highlight:focus-visible { outline: 2px solid var(--cd-accent); outline-offset: 1px; }
+.cd-note-actions { display: flex; justify-content: flex-end; margin-top: 6px; }
+.cd-note-delete {
+  background: none; border: none; color: #92400e; font-size: 12px; font-weight: 600;
+  text-decoration: underline; cursor: pointer; padding: 2px 0;
+}
 .cd-highlight-toolbar {
   position: fixed; display: flex; gap: 2px; background: #1e293b; padding: 4px; border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); z-index: 1500;
