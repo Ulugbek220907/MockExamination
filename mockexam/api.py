@@ -23,6 +23,12 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
   GET  /api/examiner/me, POST         examiner dashboard data / edit profile
   POST /api/examiner/checks/<id>/start|result
 
+  POST /api/speaking/<test>/start     start a Speaking test (signed in)
+  POST /api/speaking/submissions/<id>/answers/<key>   upload one recorded answer (raw audio body)
+  POST /api/speaking/submissions/<id>/complete        finish the test
+  GET  /api/speaking/submissions/<id> the questions and recordings (owner, its examiner, admin)
+  GET  /api/speaking/recordings/<id>  play one recording (same people)
+
   GET  /api/admin/orders, POST /api/admin/orders/<id>/(confirm|refund|cancel)
   GET  /api/admin/examiners, POST     list / add or update an examiner by email
   GET  /api/admin/users?q=, POST /api/admin/plan   find users / give plan days
@@ -34,7 +40,7 @@ import re
 
 import tornado.web
 
-from . import accounts, auth, billing, checks
+from . import accounts, auth, billing, checks, speaking
 from .web import BaseHandler, in_thread
 
 log = logging.getLogger("mockexam.api")
@@ -55,6 +61,11 @@ def _uuid(value):
 
 def _public_user(profile):
     return {"id": profile["id"], "email": profile["email"], "name": profile.get("name") or "", "role": profile["role"]}
+
+
+def clean_name(value):
+    name = re.sub(r"\s+", " ", str(value or "")).strip()
+    return name[:80] or "Candidate"
 
 
 def claim_attempts(db, client_id, user_id):
@@ -293,13 +304,8 @@ def _submission_view(store, db, check):
                 "words": sub.get(f"task{n}_words") or 0,
             } for n in (1, 2)],
         }
-    rows = db.select("speaking_submissions", {"id": check["submission_id"]}, limit=1)
-    if not rows:
-        return None
-    sub = rows[0]
-    test = store.get_test(sub["test_id"]) or {}
-    return {"testId": sub["test_id"], "title": test.get("title", sub["test_id"]), "candidateName": sub.get("candidate_name"),
-            "createdAt": sub.get("created_at"), "answers": sub.get("answers") or []}
+    sub = speaking.get_submission(db, check["submission_id"])
+    return speaking.submission_view(db, store, sub) if sub else None
 
 
 async def _visible_check(handler, check_id):
@@ -376,6 +382,150 @@ class ExaminerCheckActionHandler(BaseHandler):
         except checks.CheckError as e:
             _raise(e)
         self.send_json({"check": checks.public_check(check)})
+
+
+# --------------------------------------------------------------------------
+# Speaking tests
+# --------------------------------------------------------------------------
+
+class SpeakingStartHandler(BaseHandler):
+    async def post(self, test_id):
+        test = await in_thread(self.store.get_test, test_id)
+        if not test or test.get("module") != "speaking":
+            raise ApiError(404, "Speaking test not found.")
+        profile = await self.load_profile()
+        if not profile:
+            raise ApiError(401, "Sign in to record your answers. Speaking Test 1 is free.", "login_required")
+        if accounts.test_access(test) != "free":
+            plan = await in_thread(accounts.plan_status, self.db, profile["id"])
+            if not accounts.can_open_test(test, profile, plan):
+                raise ApiError(402, "This test is part of the monthly plan.", "plan_required")
+        body = self.body_json()
+        try:
+            sub = await in_thread(speaking.start_submission, self.db, profile["id"], test,
+                                  clean_name(body.get("candidateName")), body.get("mode"))
+        except speaking.SpeakingError as e:
+            _raise(e)
+        self.send_json({"submissionId": sub["id"]})
+
+
+@tornado.web.stream_request_body
+class SpeakingAnswerHandler(BaseHandler):
+    """Receives one recorded answer as the raw request body (audio/webm, audio/mp4, ...)."""
+
+    async def prepare(self):
+        # Only recorded audio is accepted. Browsers cannot send these types to another
+        # site without a CORS preflight, which this server never allows, so no CSRF.
+        self.chunks, self.size = [], 0
+        if self.request.method != "POST":
+            return
+        if speaking.base_mime(self.request.headers.get("Content-Type")) not in speaking.AUDIO_TYPES:
+            raise ApiError(415, "This audio format is not supported.")
+        try:
+            declared = int(self.request.headers.get("Content-Length") or 0)
+        except ValueError:
+            declared = 0
+        if declared > speaking.MAX_RECORDING_BYTES:
+            raise ApiError(413, "The recording is too long.")
+        self.request.connection.set_max_body_size(speaking.MAX_RECORDING_BYTES)
+        self.profile = await self.require_profile()
+
+    def data_received(self, chunk):
+        self.size += len(chunk)
+        if self.size <= speaking.MAX_RECORDING_BYTES:
+            self.chunks.append(chunk)
+
+    async def post(self, submission_id, key):
+        if self.size > speaking.MAX_RECORDING_BYTES:
+            raise ApiError(413, "The recording is too long.")
+        data = b"".join(self.chunks)
+        mime = self.request.headers.get("Content-Type")
+        duration = self.request.headers.get("X-Duration")
+
+        def save():
+            sub = speaking.own_submission(self.db, submission_id, self.profile["id"])
+            test = self.store.get_test(sub["test_id"])
+            if not test:
+                raise speaking.SpeakingError("Speaking test not found.", 404)
+            return speaking.save_recording(self.db, self.store.files, sub, test, key, data, mime, duration)
+        try:
+            rec = await in_thread(save)
+        except speaking.SpeakingError as e:
+            _raise(e)
+        self.send_json({"recording": rec})
+
+
+class SpeakingCompleteHandler(BaseHandler):
+    async def post(self, submission_id):
+        profile = await self.require_profile()
+        body = self.body_json()
+        try:
+            seconds = max(0, min(int(body.get("timeSpentSeconds") or 0), 4 * 3600))
+        except (TypeError, ValueError):
+            seconds = 0
+
+        def complete():
+            sub = speaking.own_submission(self.db, submission_id, profile["id"])
+            sub = speaking.complete_submission(self.db, sub, body.get("notes"), seconds)
+            return speaking.submission_view(self.db, self.store, sub)
+        try:
+            view = await in_thread(complete)
+        except speaking.SpeakingError as e:
+            _raise(e)
+        self.send_json({"submission": view})
+
+
+class SpeakingSubmissionHandler(BaseHandler):
+    async def get(self, submission_id):
+        profile = await self.require_profile()
+
+        def load():
+            sub = speaking.get_submission(self.db, submission_id)
+            role = speaking.viewer_role(self.db, profile, sub) if sub else None
+            if not role:
+                raise speaking.SpeakingError("Speaking test not found.", 404)
+            view = speaking.submission_view(self.db, self.store, sub)
+            view["viewerRole"] = role
+            if role == "owner":
+                check = speaking.checks_by_submission(self.db, profile["id"]).get(sub["id"])
+                view["check"] = checks.public_check(check, include_result=False) if check else None
+            return view
+        try:
+            view = await in_thread(load)
+        except speaking.SpeakingError as e:
+            _raise(e)
+        self.send_json({"submission": view})
+
+
+class RecordingHandler(BaseHandler):
+    """Streams one recording to its owner, the examiner marking it, or an admin. Supports Range requests."""
+
+    async def get(self, recording_id):
+        profile = await self.require_profile()
+        rid = _uuid(recording_id)
+        row = await in_thread(speaking.recording_for, self.db, profile, rid) if rid else None
+        data = await in_thread(self.store.files.get, row["path"]) if row else None
+        if data is None:
+            raise ApiError(404, "Recording not found.")
+        self.set_header("Content-Type", row["mime"])
+        self.set_header("Accept-Ranges", "bytes")
+        self.set_header("Cache-Control", "private, max-age=3600")
+        size = len(data)
+        m = re.match(r"^bytes=(\d*)-(\d*)$", self.request.headers.get("Range", "").strip())
+        if m and (m.group(1) or m.group(2)):
+            if m.group(1):
+                start = int(m.group(1))
+                end = min(int(m.group(2)), size - 1) if m.group(2) else size - 1
+            else:
+                start, end = max(0, size - int(m.group(2))), size - 1
+            if start >= size or start > end:
+                self.set_status(416)
+                self.set_header("Content-Range", f"bytes */{size}")
+                return self.finish()
+            self.set_status(206)
+            self.set_header("Content-Range", f"bytes {start}-{end}/{size}")
+            data = data[start:end + 1]
+        self.finish(data)
 
 
 # --------------------------------------------------------------------------
@@ -516,6 +666,11 @@ def routes():
         (r"/api/checks/(\d+)/rate", CheckRateHandler),
         (r"/api/examiner/me", ExaminerMeHandler),
         (r"/api/examiner/checks/(\d+)/(start|result)", ExaminerCheckActionHandler),
+        (r"/api/speaking/([a-z0-9][a-z0-9\-]{0,80})/start", SpeakingStartHandler),
+        (r"/api/speaking/submissions/(\d+)/answers/([a-z0-9][a-z0-9\-]{0,30})", SpeakingAnswerHandler),
+        (r"/api/speaking/submissions/(\d+)/complete", SpeakingCompleteHandler),
+        (r"/api/speaking/submissions/(\d+)", SpeakingSubmissionHandler),
+        (r"/api/speaking/recordings/([0-9a-f\-]{36})", RecordingHandler),
         (r"/api/admin/orders", AdminOrdersHandler),
         (r"/api/admin/orders/(\d+)/(confirm|refund|cancel)", AdminOrderActionHandler),
         (r"/api/admin/examiners", AdminExaminersHandler),

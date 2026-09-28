@@ -11,6 +11,7 @@ The AI examiner is tested against a fake Claude client, so no API key is needed.
 """
 
 import asyncio
+import datetime
 import json
 import os
 import sys
@@ -36,14 +37,16 @@ os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import accounts, billing, checks, content, scoring, storage, writing  # noqa: E402
-from mockexam.db import SqliteDb  # noqa: E402
+from mockexam import accounts, api, billing, checks, content, scoring, speaking, storage, writing  # noqa: E402
+from mockexam.db import SqliteDb, iso, now  # noqa: E402
+from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
 
 TESTS = storage.load_local_tests()
 READING = [t for t in TESTS if t["module"] == "reading"]
 LISTENING = [t for t in TESTS if t["module"] == "listening"]
 WRITING = [t for t in TESTS if t["module"] == "writing"]
+SPEAKING = [t for t in TESTS if t["module"] == "speaking"]
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 CLIENT_ID = "123e4567-e89b-12d3-a456-426614174000"
 
@@ -120,6 +123,20 @@ class ContentTests(unittest.TestCase):
                 self.assertFalse(contains_key(public, key), f"{t['id']} leaks '{key}'")
             # original untouched
             self.assertTrue(contains_key(t, "answer"))
+
+    def test_speaking_tests_and_examiner_audio(self):
+        self.assertGreaterEqual(len(SPEAKING), 3)
+        for t in SPEAKING:
+            keys = [q["key"] for _, q in content.speaking_questions(t)]
+            self.assertEqual(len(keys), len(set(keys)))
+            self.assertEqual(content.summarize_test(t)["totalQuestions"], len(keys))
+            for _, q in content.speaking_questions(t):
+                self.assertTrue(os.path.getsize(os.path.join(PUBLIC_DIR, q["audio"]["src"])) > 1000, q["key"])
+        broken = json.loads(json.dumps(SPEAKING[0]))
+        broken["parts"][1]["cueCard"]["points"] = []
+        broken["parts"][0]["questions"][1]["key"] = broken["parts"][0]["questions"][0]["key"]
+        errors = content.validate_speaking_test(broken)
+        self.assertTrue(any("cue card" in e for e in errors) and any("duplicate" in e for e in errors), errors)
 
     def test_public_writing_view_has_no_model_answers(self):
         for t in WRITING:
@@ -435,8 +452,8 @@ class ApiTests(AsyncHTTPTestCase):
         code, data = self.get_json("/api/tests")
         self.assertEqual(code, 200)
         modules = {t["module"] for t in data["tests"]}
-        self.assertEqual(modules, {"reading", "listening", "writing"})
-        self.assertEqual(data["modules"]["listening"]["status"], "active")
+        self.assertEqual(modules, {"reading", "listening", "writing", "speaking"})
+        self.assertTrue(all(m["status"] == "active" for m in data["modules"].values()))
         listening = next(t for t in data["tests"] if t["module"] == "listening")
         self.assertEqual([p["number"] for p in listening["parts"]], [1, 2, 3, 4])
 
@@ -534,8 +551,8 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertEqual(self.fetch("/content/reading/academic-reading-01.json").code, 404)
 
 
-class AccountApiTests(AsyncHTTPTestCase):
-    """Sign-in, locked tests, buying the plan, and a paid examiner check, all through the HTTP API."""
+class AccountApiBase(AsyncHTTPTestCase):
+    """Helpers: JSON calls with a session cookie, and signing in with development codes."""
 
     def get_app(self):
         return server.make_app()
@@ -553,6 +570,7 @@ class AccountApiTests(AsyncHTTPTestCase):
         return r, data
 
     def login(self, email, client_id=None):
+        api.CODE_PER_IP.hits.clear()  # every test signs in from 127.0.0.1
         r, data = self.call("POST", "/api/auth/code", {"email": email})
         self.assertEqual(r.code, 200, data)
         r, data = self.call("POST", "/api/auth/verify", {"email": email, "code": data["devCode"], "clientId": client_id})
@@ -560,6 +578,10 @@ class AccountApiTests(AsyncHTTPTestCase):
         cookie = r.headers["Set-Cookie"].split(";")[0]
         self.assertIn("HttpOnly", r.headers["Set-Cookie"])
         return cookie, data
+
+
+class AccountApiTests(AccountApiBase):
+    """Sign-in, locked tests, buying the plan, and a paid examiner check, all through the HTTP API."""
 
     def test_login_me_logout(self):
         r, data = self.call("GET", "/api/me")
@@ -694,6 +716,152 @@ class AccountApiTests(AsyncHTTPTestCase):
         self.assertEqual(r.code, 400)  # one review per check
         r, data = self.call("GET", f"/api/examiners/{ex_id}")
         self.assertEqual((data["examiner"]["rating"], data["reviews"][0]["review"]), (5.0, "Very helpful"))
+
+
+FAKE_AUDIO = b"\x1aE\xdf\xa3" + bytes(range(256)) * 8
+
+
+class SpeakingApiTests(AccountApiBase):
+    """Recording a Speaking test, playing it back, and a paid Speaking check."""
+
+    def upload(self, cookie, sub_id, key, body=FAKE_AUDIO, ctype="audio/webm;codecs=opus", duration="12.5"):
+        headers = {"Content-Type": ctype, "X-Duration": duration}
+        if cookie:
+            headers["Cookie"] = cookie
+        r = self.fetch(f"/api/speaking/submissions/{sub_id}/answers/{key}", method="POST", headers=headers, body=body)
+        return r, (json.loads(r.body) if r.body else {})
+
+    def record_test(self, cookie, test, keys=None):
+        r, data = self.call("POST", f"/api/speaking/{test['id']}/start", {"candidateName": "Aziz", "mode": "exam"}, cookie=cookie)
+        self.assertEqual(r.code, 200, data)
+        sub_id = data["submissionId"]
+        for _, q in content.speaking_questions(test):
+            if keys is None or q["key"] in keys:
+                r, data = self.upload(cookie, sub_id, q["key"])
+                self.assertEqual(r.code, 200, data)
+        return sub_id
+
+    def test_start_needs_sign_in_and_plan(self):
+        r, data = self.call("POST", f"/api/speaking/{SPEAKING[0]['id']}/start", {})
+        self.assertEqual((r.code, data["code"]), (401, "login_required"))
+        cookie, _ = self.login("speaker.free@example.com")
+        r, data = self.call("POST", f"/api/speaking/{SPEAKING[1]['id']}/start", {}, cookie=cookie)
+        self.assertEqual((r.code, data["code"]), (402, "plan_required"))
+        self.assertEqual(self.fetch(f"/audio/{SPEAKING[1]['id']}/p1-1.mp3", headers={"Cookie": cookie}).code, 402)
+        self.assertEqual(self.fetch(f"/audio/{SPEAKING[0]['id']}/p1-1.mp3").code, 200)
+        r, data = self.call("POST", "/api/speaking/academic-reading-01/start", {}, cookie=cookie)
+        self.assertEqual(r.code, 404)
+
+    def test_record_complete_and_play_back(self):
+        t = SPEAKING[0]
+        cookie, _ = self.login("speaker@example.com")
+        r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"candidateName": "Aziz"}, cookie=cookie)
+        sub_id = data["submissionId"]
+        # Only audio bodies are accepted, from the owner, for real questions.
+        self.assertEqual(self.upload(cookie, sub_id, "p1-1", ctype="application/json")[0].code, 415)
+        self.assertEqual(self.upload(cookie, sub_id, "p1-1", ctype="text/plain")[0].code, 415)
+        self.assertEqual(self.upload(None, sub_id, "p1-1")[0].code, 401)
+        self.assertEqual(self.upload(self.login("intruder@example.com")[0], sub_id, "p1-1")[0].code, 404)
+        self.assertEqual(self.upload(cookie, sub_id, "p9-9")[0].code, 404)
+        self.assertEqual(self.upload(cookie, sub_id, "p1-1", body=b"x" * 50)[0].code, 400)
+        too_big = self.upload(cookie, sub_id, "p1-1", body=b"x" * (speaking.MAX_RECORDING_BYTES + 1))[0].code
+        self.assertIn(too_big, (400, 413))
+        # Finishing without any answer is refused.
+        r, data = self.call("POST", f"/api/speaking/submissions/{sub_id}/complete", {}, cookie=cookie)
+        self.assertEqual(r.code, 400)
+        r, first = self.upload(cookie, sub_id, "p1-1")
+        self.assertEqual((r.code, first["recording"]["duration"]), (200, 12.5))
+        r, second = self.upload(cookie, sub_id, "p1-1", body=FAKE_AUDIO + b"more")  # a retry replaces the answer
+        r, _ = self.upload(cookie, sub_id, "p2-talk", ctype="audio/mp4")
+        r, data = self.call("POST", f"/api/speaking/submissions/{sub_id}/complete",
+                            {"notes": "place - Samarkand", "timeSpentSeconds": 700}, cookie=cookie)
+        self.assertEqual(r.code, 200, data)
+        view = data["submission"]
+        self.assertEqual((view["status"], view["answered"], view["notes"]), ("completed", 2, "place - Samarkand"))
+        self.assertEqual(view["parts"][1]["cueCard"]["topic"], t["parts"][1]["cueCard"]["topic"])
+        rec = view["parts"][0]["questions"][0]["recording"]
+        self.assertEqual(rec["id"], second["recording"]["id"])
+        self.assertEqual(self.upload(cookie, sub_id, "p1-2")[0].code, 409)  # finished tests are closed
+        # Playback: whole file and a byte range, for the owner only.
+        r = self.fetch(f"/api/speaking/recordings/{rec['id']}", headers={"Cookie": cookie})
+        self.assertEqual((r.code, r.body, r.headers["Content-Type"]), (200, FAKE_AUDIO + b"more", "audio/webm"))
+        r = self.fetch(f"/api/speaking/recordings/{rec['id']}", headers={"Cookie": cookie, "Range": "bytes=4-7"})
+        self.assertEqual((r.code, r.body, r.headers["Content-Range"]), (206, bytes(range(4)), f"bytes 4-7/{len(FAKE_AUDIO) + 4}"))
+        self.assertEqual(self.fetch(f"/api/speaking/recordings/{first['recording']['id']}", headers={"Cookie": cookie}).code, 404)
+        stranger = self.login("stranger2@example.com")[0]
+        self.assertEqual(self.fetch(f"/api/speaking/recordings/{rec['id']}", headers={"Cookie": stranger}).code, 404)
+        r, _ = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=stranger)
+        self.assertEqual(r.code, 404)
+        r, data = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=cookie)
+        self.assertEqual((data["submission"]["viewerRole"], data["submission"]["check"]), ("owner", None))
+        r, data = self.call("GET", "/api/history", cookie=cookie)
+        self.assertEqual([(i["module"], i["answered"]) for i in data["items"] if i["module"] == "speaking"], [("speaking", 2)])
+
+    def test_paid_speaking_check(self):
+        examiner, _ = self.login("speaking.examiner@example.com")
+        admin, _ = self.login("owner@example.com")
+        r, data = self.call("POST", "/api/admin/examiners", {"email": "speaking.examiner@example.com",
+                                                              "displayName": "Kamola T.", "approved": True}, cookie=admin)
+        ex_id = data["examiner"]["id"]
+        student, _ = self.login("speaker.paid@example.com")
+        t = SPEAKING[0]
+        sub_id = self.record_test(student, t, keys={"p1-1", "p2-talk", "p3-1"})
+        r, data = self.call("POST", "/api/orders", {"kind": "speaking_check", "examinerId": ex_id, "submissionId": sub_id},
+                            cookie=student)
+        self.assertEqual(r.code, 400)  # not finished yet
+        self.call("POST", f"/api/speaking/submissions/{sub_id}/complete", {}, cookie=student)
+        r, data = self.call("POST", "/api/orders", {"kind": "speaking_check", "examinerId": ex_id, "submissionId": sub_id},
+                            cookie=student)
+        order = data["order"]
+        self.assertEqual(order["amount"], billing.PRICES["speaking_check"])
+        self.call("POST", f"/api/orders/{order['id']}/manual-paid", {}, cookie=student)
+        self.call("POST", f"/api/admin/orders/{order['id']}/confirm", {}, cookie=admin)
+        r, data = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=student)
+        self.assertEqual(data["submission"]["check"]["status"], "waiting")
+        check_id = data["submission"]["check"]["id"]
+        # The examiner sees the questions and can play the answers.
+        r, data = self.call("GET", f"/api/checks/{check_id}", cookie=examiner)
+        sub = data["check"]["submission"]
+        rec_id = sub["parts"][0]["questions"][0]["recording"]["id"]
+        self.assertEqual((sub["answered"], sub["parts"][0]["questions"][1]["recording"]), (3, None))
+        self.assertEqual(self.fetch(f"/api/speaking/recordings/{rec_id}", headers={"Cookie": examiner}).code, 200)
+        crit = {k: {"band": 6, "feedback": "OK"} for k in checks.SPEAKING_CRITERIA}
+        crit["pronunciation"] = {"band": 7, "feedback": "Clear"}
+        r, data = self.call("POST", f"/api/examiner/checks/{check_id}/result",
+                            {"result": {"criteria": crit, "summary": "Good range.", "strengths": "Fluent\nIdeas"}}, cookie=examiner)
+        self.assertEqual((r.code, data["check"]["overallBand"]), (200, 6.5))  # 25 / 4 = 6.25 -> 6.5
+        r, data = self.call("GET", "/api/history", cookie=student)
+        item = next(i for i in data["items"] if i["module"] == "speaking")
+        self.assertEqual((item["bandScore"], item["checkId"]), (6.5, check_id))
+        r, data = self.call("GET", f"/api/checks/{check_id}", cookie=student)
+        self.assertEqual(data["check"]["result"]["criteria"]["pronunciation"]["band"], 7)
+
+
+class SpeakingCleanupTests(unittest.TestCase):
+    def test_old_recordings_are_deleted(self):
+        tmp = tempfile.mkdtemp()
+        db = SqliteDb(os.path.join(tmp, "c.sqlite3"))
+        files = LocalFiles(os.path.join(tmp, "rec"))
+        t = SPEAKING[0]
+
+        def make(status, days_old, check_status=None):
+            sub = db.insert("speaking_submissions", {"user_id": "u1", "test_id": t["id"], "status": status,
+                                                     "created_at": iso(now() - datetime.timedelta(days=days_old))})
+            speaking.save_recording(db, files, dict(sub, status="recording"), t, "p1-1", FAKE_AUDIO, "audio/webm", 3)
+            if check_status:
+                db.insert("checks", {"order_id": sub["id"] + 1000, "kind": "speaking", "student_id": "u1", "examiner_id": "e1",
+                                     "submission_id": sub["id"], "status": check_status})
+            return sub
+
+        abandoned, fresh, expired, marking = make("recording", 3), make("completed", 5), make("completed", 90), \
+            make("completed", 90, "in_progress")
+        self.assertEqual(speaking.cleanup(db, files), (1, 2))
+        self.assertIsNone(speaking.get_submission(db, abandoned["id"]))
+        self.assertEqual(len(speaking.recordings_for(db, fresh["id"])), 1)
+        self.assertEqual(len(speaking.recordings_for(db, expired["id"])), 0)
+        self.assertTrue(speaking.get_submission(db, expired["id"])["recordings_deleted_at"])
+        self.assertEqual(len(speaking.recordings_for(db, marking["id"])), 1)
+        self.assertEqual(sum(len(f) for _, _, f in os.walk(os.path.join(tmp, "rec"))), 2)
 
 
 class SupabaseAuthTests(unittest.TestCase):

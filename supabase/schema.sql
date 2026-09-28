@@ -19,7 +19,7 @@
 -- The server strips private fields before sending a test to candidates.
 create table if not exists public.tests (
   id            text primary key,
-  module        text not null check (module in ('reading', 'listening', 'writing')),
+  module        text not null check (module in ('reading', 'listening', 'writing', 'speaking')),
   variant       text not null default 'academic',
   title         text not null,
   sort_order    integer not null default 999,
@@ -31,9 +31,9 @@ create table if not exists public.tests (
 
 create index if not exists tests_module_sort_idx on public.tests (module, sort_order);
 
--- Databases created before the Listening module allowed only reading/writing.
+-- Databases created before the Listening and Speaking modules allowed fewer modules.
 alter table public.tests drop constraint if exists tests_module_check;
-alter table public.tests add constraint tests_module_check check (module in ('reading', 'listening', 'writing'));
+alter table public.tests add constraint tests_module_check check (module in ('reading', 'listening', 'writing', 'speaking'));
 
 -- Keep updated_at current on every update.
 create or replace function public.touch_updated_at() returns trigger
@@ -440,3 +440,72 @@ begin
     execute format('create policy server_access on public.%I for all to anon using ((select private.request_has_app_key())) with check ((select private.request_has_app_key()))', t);
   end loop;
 end $$;
+
+-- ============================================================================
+-- Speaking tests: submissions and recorded answers
+--
+-- The audio itself is kept in the private Storage bucket "speaking"; the
+-- recordings table says who owns each file and which question it answers.
+-- ============================================================================
+
+create table if not exists public.speaking_submissions (
+  id                     bigint generated always as identity primary key,
+  user_id                uuid not null references public.profiles(id),
+  test_id                text not null,
+  candidate_name         text,
+  mode                   text check (mode in ('exam', 'practice')),
+  notes                  text,
+  status                 text not null default 'recording' check (status in ('recording', 'completed')),
+  time_spent_seconds     integer,
+  created_at             timestamptz not null default now(),
+  completed_at           timestamptz,
+  recordings_deleted_at  timestamptz
+);
+create index if not exists speaking_submissions_user_idx on public.speaking_submissions (user_id, created_at desc);
+create index if not exists speaking_submissions_status_idx on public.speaking_submissions (status, created_at);
+
+create table if not exists public.recordings (
+  id             uuid primary key,
+  user_id        uuid not null references public.profiles(id),
+  submission_id  bigint not null references public.speaking_submissions(id) on delete cascade,
+  question_key   text not null,
+  mime           text not null,
+  duration       real,
+  size           integer not null check (size > 0),
+  path           text not null unique,
+  created_at     timestamptz not null default now(),
+  unique (submission_id, question_key)
+);
+create index if not exists recordings_user_idx on public.recordings (user_id, created_at desc);
+
+do $$
+declare t text;
+begin
+  foreach t in array array['speaking_submissions', 'recordings']
+  loop
+    execute format('alter table public.%I enable row level security', t);
+    execute format('drop policy if exists server_access on public.%I', t);
+    execute format('create policy server_access on public.%I for all to anon using ((select private.request_has_app_key())) with check ((select private.request_has_app_key()))', t);
+  end loop;
+end $$;
+
+-- Private Storage bucket for the audio. Only requests carrying the server secret
+-- can read, write or delete objects in it.
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('speaking', 'speaking', false, 5242880,
+        array['audio/webm', 'audio/ogg', 'audio/mp4', 'audio/mpeg', 'audio/aac', 'audio/wav', 'audio/x-m4a'])
+on conflict (id) do nothing;
+
+drop policy if exists speaking_server_select on storage.objects;
+drop policy if exists speaking_server_insert on storage.objects;
+drop policy if exists speaking_server_update on storage.objects;
+drop policy if exists speaking_server_delete on storage.objects;
+create policy speaking_server_select on storage.objects for select to anon
+  using (bucket_id = 'speaking' and (select private.request_has_app_key()));
+create policy speaking_server_insert on storage.objects for insert to anon
+  with check (bucket_id = 'speaking' and (select private.request_has_app_key()));
+create policy speaking_server_update on storage.objects for update to anon
+  using (bucket_id = 'speaking' and (select private.request_has_app_key()))
+  with check (bucket_id = 'speaking' and (select private.request_has_app_key()));
+create policy speaking_server_delete on storage.objects for delete to anon
+  using (bucket_id = 'speaking' and (select private.request_has_app_key()));

@@ -17,7 +17,7 @@ The earlier version of this project contained tests labelled *Cambridge IELTS 17
 | Project Gutenberg / pre-1930 texts | Yes | Public domain, but the language is usually too old-fashioned for IELTS |
 | News sites, blogs, magazines | No | Copyrighted unless the licence says otherwise |
 | Official IELTS or Cambridge recordings, podcasts, radio, YouTube | **No** | Audio is copyrighted just like text |
-| Open-licence text-to-speech (Kokoro-82M, Apache 2.0) | **Yes** | What this project uses for Listening. No real person's voice is copied |
+| Open-licence text-to-speech (Kokoro-82M, Apache 2.0) | **Yes** | What this project uses for Listening and the Speaking examiner. No real person's voice is copied |
 | Your own recordings, or voice actors with a signed release | Yes | Best quality; keep the release form |
 
 Facts themselves are not copyrighted. Reading widely and then writing a new passage in your own words, with your own structure, is the safe approach. That is how every passage in `content/` was produced.
@@ -37,6 +37,9 @@ Facts themselves are not copyrighted. Reading widely and then writing a new pass
 | Writing 3 | Process diagram (glass recycling) · Opinion essay (roads vs public transport) |
 | Writing 4 | Pie charts (household energy) · Advantages/disadvantages essay (early language learning) |
 | Writing 5 | Table (museum visitors) · Causes and solutions essay (children spending time outdoors) |
+| Speaking 1 | Where you live · Weekends · Cue card: a place you would like to visit again · Discussion: travel and tourism |
+| Speaking 2 | Work or studies · Music · Cue card: a useful skill you have learned · Discussion: learning and skills |
+| Speaking 3 | Food and cooking · Phones and technology · Cue card: a person who influenced you · Discussion: role models |
 
 All Task 1 chart data is fictional and labelled as such on the chart.
 
@@ -126,6 +129,24 @@ python scripts/validate_content.py
 ```
 
 The build writes `public/audio/<id>/part<N>.mp3` and records the start and end time of every line in the JSON (used by the transcript). The check fails if an answer cannot be heard where the script says it is, which catches mispronounced names and numbers. Commit the JSON and the MP3s together.
+
+## Adding a speaking test
+
+A speaking test is three parts of examiner questions. Copy `content/speaking/speaking-01.json` and change the questions. Each question has:
+
+- `key`: a short unique id such as `p1-3` (the recordings are filed under it, so do not rename keys of a published test)
+- `text`: the question as shown in practice mode and to the examiner
+- `say`: what the examiner says, which becomes the audio. The first question of a topic can start with a lead-in ("Now let's talk about music.")
+- `answerSeconds`: 30 in Part 1, 120 for the Part 2 long turn, 60 in Part 3
+
+Part 2 has a `cueCard` (`topic`, `points`, `explain`) and one question with `"type": "long_turn"` and `"prepSeconds": 60`. The test's `prompts` hold the two fixed lines, `p2-start` ("…start speaking now") and `end`.
+
+```bash
+python scripts/build_speaking_audio.py --models ~/tts-models --only speaking-04
+python scripts/validate_content.py
+```
+
+The build writes `public/audio/<id>/<key>.mp3` and records each clip's length in the JSON. Listen to a few clips, and fix a mispronounced word with the test's `pronunciations` map, as for Listening.
 
 ## Quality checklist for new passages
 - 750–950 words, academic register, a clear line of argument

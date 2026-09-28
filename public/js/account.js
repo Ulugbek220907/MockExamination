@@ -238,7 +238,7 @@
         <p><strong>${esc(test ? test.title : "This test")}</strong> is included in the monthly plan${price ? ` (${esc(price)} a month)` : ""}.
           Test 1 of each module is free.</p>
         <ul class="plan-points">
-          <li>Every Listening, Reading and Writing test, with new tests added regularly</li>
+          <li>Every Listening, Reading, Writing and Speaking test, with new tests added regularly</li>
           <li>Full results, answer explanations and listening transcripts</li>
           <li>Your first payment gives you <strong>two months</strong>: one paid, one free</li>
         </ul>
@@ -342,9 +342,9 @@
             <div class="price-kicker">Free trial</div>
             <div class="price-amount">0 <span>so'm</span></div>
             <ul class="plan-points">
-              <li>Listening Test 1, Reading Test 1 and Writing Test 1</li>
+              <li>Test 1 of Listening, Reading, Writing and Speaking</li>
               <li>Instant scores, explanations and transcripts</li>
-              <li>No sign-in needed</li>
+              <li>Record your Speaking answers and listen back</li>
             </ul>
             <a class="btn-secondary btn-lg" href="#/">Start a free test</a>
           </article>
@@ -353,7 +353,7 @@
             <div class="price-kicker">Monthly plan</div>
             <div class="price-amount">${esc(money(b.prices.plan).replace(" so'm", ""))} <span>so'm / month</span></div>
             <ul class="plan-points">
-              <li><strong>All</strong> Listening, Reading and Writing tests</li>
+              <li><strong>All</strong> Listening, Reading, Writing and Speaking tests</li>
               <li>New tests added regularly</li>
               <li>Your results and progress on every device</li>
               <li>Your first payment gives you <strong>2 months</strong></li>
@@ -386,8 +386,9 @@
           <details><summary>Does the plan renew automatically?</summary>
             <p>No. Nothing is charged automatically. When your month ends, you can pay for another month. Your very first payment gives you two months.</p></details>
           <details><summary>How does an examiner check work?</summary>
-            <p>Finish a Writing test while signed in. On your results page, choose an examiner and pay. The examiner marks your
-              work, usually within 48 hours, and you see the result in your account. You can rate the examiner once for each check.</p></details>
+            <p>Finish a Writing or Speaking test while signed in. On your results page, choose an examiner and pay. The examiner reads
+              your essays or listens to your recorded answers, usually within 48 hours, and you see the bands and feedback in your account.
+              You can rate the examiner once for each check.</p></details>
           <details><summary>Do I need the plan to order an examiner check?</summary>
             <p>No. You can order a check for any test you have taken, including the free tests.</p></details>
           <details><summary>Can I get a refund?</summary>
@@ -459,7 +460,7 @@
                 <td>${statusBadge(c.status)}${c.overallBand != null ? ` <strong>Band ${IeltsScoring.formatBand(c.overallBand)}</strong>` : ""}</td>
                 <td><a href="#/check/${c.id}">Open</a></td></tr>`).join("")}</tbody>
           </table></div>`
-          : `<p class="empty-inline">No checks yet. Finish a Writing test while signed in, then choose an examiner on your results page.</p>`}
+          : `<p class="empty-inline">No checks yet. Finish a Writing or Speaking test while signed in, then choose an examiner on your results page.</p>`}
 
         <section id="history-section" hidden></section>
 
@@ -501,7 +502,7 @@
         ${e.bio ? `<p class="examiner-bio">${esc(e.bio)}</p>` : ""}
         <div class="examiner-actions">
           <button type="button" class="btn-link" data-action="examiner-reviews" data-id="${esc(e.id)}">Reviews</button>
-          <button type="button" class="btn-primary" data-action="choose-examiner" data-id="${esc(e.id)}"
+          <button type="button" class="btn-primary" data-action="choose-examiner" data-id="${esc(e.id)}" data-kind="${ctx.kind}"
             ${ctx && ctx.submission ? `data-submission="${Number(ctx.submission)}"` : ""}>Choose</button>
         </div>
       </article>`;
@@ -510,17 +511,24 @@
   async function renderExaminers(main, params) {
     document.title = `Examiners – ${state.config.siteName || "MockExam"}`;
     const submission = Number(params.get("submission")) || null;
+    const kind = params.get("kind") === "speaking" ? "speaking" : "writing";
     main.innerHTML = `<section class="page"><p class="muted-text">Loading…</p></section>`;
-    const [{ examiners }, b] = await Promise.all([U.api("/api/examiners?kind=writing"), billing()]);
+    const [{ examiners }, b] = await Promise.all([U.api(`/api/examiners?kind=${kind}`), billing()]);
+    const skill = kind === "speaking" ? "Speaking" : "Writing";
     main.innerHTML = `
       <section class="page examiners-page">
         <h1>Choose your examiner</h1>
-        <p class="lead-text">Our examiners mark your writing on the four official criteria and give you personal feedback.
-          A Writing check costs <strong>${esc(money(b.prices.writing_check))}</strong>.
-          ${submission ? "Choose an examiner for the test you just finished." : "Choose an examiner, then pick which of your Writing tests to send."}</p>
+        ${submission ? "" : `<div class="review-tabs admin-tabs">
+          <a class="review-tab-btn ${kind === "writing" ? "active" : ""}" href="#/examiners?kind=writing">Writing</a>
+          <a class="review-tab-btn ${kind === "speaking" ? "active" : ""}" href="#/examiners?kind=speaking">Speaking</a></div>`}
+        <p class="lead-text">${kind === "speaking"
+          ? "Our examiners listen to your recorded answers, give a band for each of the four official Speaking criteria and tell you how to improve."
+          : "Our examiners mark your writing on the four official criteria and give you personal feedback."}
+          A ${skill} check costs <strong>${esc(money(b.prices[`${kind}_check`]))}</strong>.
+          ${submission ? "Choose an examiner for the test you just finished." : `Choose an examiner, then pick which of your ${skill} tests to send.`}</p>
         ${examiners.length
-          ? `<div class="examiner-grid">${examiners.map((e) => examinerCard(e, { submission })).join("")}</div>`
-          : `<div class="notice notice-info"><strong>Examiners are joining soon.</strong><span>Check back in a few days.</span></div>`}
+          ? `<div class="examiner-grid">${examiners.map((e) => examinerCard(e, { submission, kind })).join("")}</div>`
+          : `<div class="notice notice-info"><strong>${skill} examiners are joining soon.</strong><span>Check back in a few days.</span></div>`}
       </section>`;
   }
 
@@ -538,28 +546,29 @@
     });
   }
 
-  async function chooseExaminer(examinerId, submissionId) {
+  async function chooseExaminer(examinerId, submissionId, kind = "writing") {
     if (!(await login("Sign in to order an examiner check."))) return;
+    const skill = kind === "speaking" ? "Speaking" : "Writing";
     let submission = submissionId;
     if (!submission) {
       const { items } = await U.api(`/api/history?clientId=${encodeURIComponent(U.clientId())}`);
-      const writings = (items || []).filter((i) => i.module === "writing");
-      if (!writings.length) {
+      const done = (items || []).filter((i) => i.module === kind && (kind !== "speaking" || (i.answered && !i.checkId)));
+      if (!done.length) {
         U.modal({
-          title: "Take a Writing test first",
-          bodyHTML: `<p>Finish a Writing test while you are signed in. Then choose an examiner on your results page.</p>`,
+          title: `Take a ${skill} test first`,
+          bodyHTML: `<p>Finish a ${skill} test while you are signed in. Then choose an examiner on your results page.</p>`,
           buttons: [{ label: "OK", className: "btn-primary", value: true }],
         });
         return;
       }
       const titleOf = (id) => ((window.app && window.app.tests) || []).find((t) => t.id === id);
       submission = await U.modal({
-        title: "Which writing should be marked?",
-        bodyHTML: `<div class="pick-list">${writings.map((w) => {
+        title: `Which ${skill.toLowerCase()} test should be marked?`,
+        bodyHTML: `<div class="pick-list">${done.map((w) => {
           const t = titleOf(w.testId);
           return `<button type="button" class="pick-item" data-pick="${Number(w.id)}">
             <strong>${esc(t ? t.shortTitle : w.testId)}</strong>
-            <span class="muted-text">${esc(U.formatDate(w.createdAt))} · ${w.task1Words} + ${w.task2Words} words</span></button>`;
+            <span class="muted-text">${esc(U.formatDate(w.createdAt))} · ${kind === "speaking" ? `${w.answered} answers` : `${w.task1Words} + ${w.task2Words} words`}</span></button>`;
         }).join("")}</div>`,
         buttons: [{ label: "Cancel", className: "btn-secondary", value: null }],
         onOpen: (root, close) => root.querySelectorAll("[data-pick]").forEach((b) =>
@@ -567,7 +576,7 @@
       });
       if (!submission) return;
     }
-    await buy("writing_check", { examinerId, submissionId: submission });
+    await buy(`${kind}_check`, { examinerId, submissionId: submission });
   }
 
   /* ================================================================ one check */
@@ -584,7 +593,8 @@
     return f < 0.25 ? w : f < 0.75 ? w + 0.5 : w + 1;
   };
 
-  function submissionHTML(sub, open) {
+  function submissionHTML(sub, open, examiner) {
+    if (sub && sub.parts) return Speaking.submissionHTML(sub, { open, examiner });
     if (!sub || !sub.tasks) return "";
     return sub.tasks.map((t) => `
       <details class="fold" ${open ? "open" : ""}><summary>Task ${t.taskNumber}: ${esc(t.title)} · ${t.words} words (minimum ${t.minWords || "–"})</summary>
@@ -643,13 +653,17 @@
         <div>${statusBadge(check.status)}</div>
       </div>`;
 
+    const speaking = check.kind === "speaking";
+    const work = check.viewerRole === "student" ? (speaking ? "Your answers" : "Your writing")
+      : (speaking ? "The candidate's answers" : "The candidate's writing");
     if (check.viewerRole !== "student" && check.status !== "completed" && check.status !== "cancelled") {
       main.innerHTML = `<section class="results-page check-page">${head}
         <div class="check-layout">
-          <div class="check-work">${submissionHTML(sub, true)}</div>
+          <div class="check-work">${submissionHTML(sub, true, true)}</div>
           <form class="mark-form" id="mark-form" novalidate></form>
         </div></section>`;
-      renderMarkForm(main.querySelector("#mark-form"), check);
+      if (speaking) Speaking.markForm(main.querySelector("#mark-form"), check, { roundHalf });
+      else renderMarkForm(main.querySelector("#mark-form"), check);
       return;
     }
 
@@ -657,7 +671,7 @@
       main.innerHTML = `<section class="results-page check-page">${head}
         <div class="notice notice-info"><strong>${check.status === "cancelled" ? "This check was cancelled." : "Your examiner is working on it."}</strong>
           <span>${check.status === "cancelled" ? "If you paid, the money has been or will be refunded." : "Most checks are finished within 48 hours. We will show the result here and in your account."}</span></div>
-        <h2 class="section-title">Your writing</h2>${submissionHTML(sub, false)}</section>`;
+        <h2 class="section-title">${work}</h2>${submissionHTML(sub, false)}</section>`;
       return;
     }
 
@@ -668,12 +682,14 @@
         <div class="score-banner-card">
           ${Results.parts.bandCircle(r.overallBand, "Examiner band")}
           <div class="score-details-grid">
-            <div class="score-stat-box"><div class="score-stat-val">${IeltsScoring.formatBand(r.tasks["1"].band)}</div><div class="score-stat-lbl">Task 1</div></div>
-            <div class="score-stat-box"><div class="score-stat-val">${IeltsScoring.formatBand(r.tasks["2"].band)}</div><div class="score-stat-lbl">Task 2 (counts double)</div></div>
+            ${speaking
+              ? Object.values(r.criteria).map((c) => `<div class="score-stat-box"><div class="score-stat-val">${c.band}</div><div class="score-stat-lbl">${esc(c.label)}</div></div>`).join("")
+              : `<div class="score-stat-box"><div class="score-stat-val">${IeltsScoring.formatBand(r.tasks["1"].band)}</div><div class="score-stat-lbl">Task 1</div></div>
+                 <div class="score-stat-box"><div class="score-stat-val">${IeltsScoring.formatBand(r.tasks["2"].band)}</div><div class="score-stat-lbl">Task 2 (counts double)</div></div>`}
             <div class="score-stat-box"><div class="score-stat-val">${esc(check.examinerName || "")}</div><div class="score-stat-lbl">Examiner</div></div>
           </div>
         </div>
-        <p class="score-note">A practice band from an experienced examiner, using the four public Writing criteria. It is not an official IELTS result.</p>
+        <p class="score-note">A practice band from an experienced examiner, using the four public ${speaking ? "Speaking" : "Writing"} criteria. It is not an official IELTS result.</p>
         ${canRate ? `
           <form class="rate-box" id="rate-form">
             <h2>How helpful was your examiner?</h2>
@@ -686,9 +702,9 @@
             <button type="submit" class="btn-primary">Send review</button>
           </form>`
           : check.rating ? `<div class="rate-box done"><strong>Your review:</strong> ${stars(check.rating)} ${check.review ? `<p>${esc(check.review)}</p>` : ""}</div>` : ""}
-        ${resultHTML(r)}
-        <h2 class="section-title">${check.viewerRole === "student" ? "Your writing" : "The candidate's writing"}</h2>
-        ${submissionHTML(sub, false)}
+        ${speaking ? Speaking.resultHTML(r) : resultHTML(r)}
+        <h2 class="section-title">${work}</h2>
+        ${submissionHTML(sub, false, check.viewerRole !== "student")}
       </section>`;
     const form = main.querySelector("#rate-form");
     if (form) {
@@ -1033,7 +1049,10 @@
     if (a === "signout") { logout(); return true; }
     if (a === "buy-plan") { buy("plan"); return true; }
     if (a === "examiner-reviews") { showReviews(el.dataset.id); return true; }
-    if (a === "choose-examiner") { chooseExaminer(el.dataset.id, Number(el.dataset.submission) || null); return true; }
+    if (a === "choose-examiner") {
+      chooseExaminer(el.dataset.id, Number(el.dataset.submission) || null, el.dataset.kind === "speaking" ? "speaking" : "writing");
+      return true;
+    }
     if (a === "order-writing-check") { location.hash = `#/examiners?submission=${Number(el.dataset.submission)}`; return true; }
     return false;
   }

@@ -9,7 +9,8 @@ SupabaseStore  – tests and attempts in Supabase (Postgres) through the server
 
 Both expose the same methods, and all methods are synchronous (the server
 calls them from a thread pool). `store.db` gives table access (see db.py) for
-accounts, payments and examiner checks.
+accounts, payments, examiner checks and Speaking tests, and `store.files` keeps
+the Speaking recordings (see files.py).
 """
 
 import json
@@ -23,6 +24,7 @@ import urllib.request
 
 from . import content
 from .db import RestDb, SqliteDb
+from .files import LocalFiles, SupabaseFiles
 
 log = logging.getLogger("mockexam.storage")
 
@@ -31,7 +33,7 @@ CONTENT_DIR = os.path.join(BASE_DIR, "content")
 DEFAULT_SQLITE_PATH = os.path.join(BASE_DIR, "data", "local.sqlite3")
 
 
-MODULES = ("reading", "listening", "writing")
+MODULES = ("reading", "listening", "writing", "speaking")
 
 
 def load_local_tests():
@@ -50,6 +52,7 @@ class LocalStore:
         self._lock = threading.Lock()
         self._init_db()
         self.db = SqliteDb(self.db_path, lock=self._lock)
+        self.files = LocalFiles(os.path.join(os.path.dirname(self.db_path), "recordings"))
 
     # -- content -----------------------------------------------------------
     def list_tests(self):
@@ -217,6 +220,7 @@ class SupabaseStore:
         self._cache_at = 0.0
         self._lock = threading.Lock()
         self.db = RestDb(url, api_key, app_secret)
+        self.files = SupabaseFiles(url, api_key, app_secret)
 
     def _rpc(self, function, **params):
         headers = {

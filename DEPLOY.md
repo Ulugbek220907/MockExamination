@@ -1,6 +1,6 @@
 # Going live: step-by-step
 
-> **Current setup (already done):** Supabase project `MockExamination` has the schema (including the Listening tables), the server secret hash and all tests. The Render service `ielts-mock-exam` has its environment variables set and deploys the `claude/loving-hamilton-ho09z6` branch automatically on every push. After merging that branch into `main`, switch the service back to `main` under **Render → ielts-mock-exam → Settings → Build & Deploy → Branch**.
+> **Current setup (already done):** Supabase project `MockExamination` has the schema (including the Listening and Speaking tables and the private `speaking` Storage bucket), the server secret hash and all tests. The Render service `ielts-mock-exam` has its environment variables set and deploys the `claude/loving-hamilton-ho09z6` branch automatically on every push. After merging that branch into `main`, switch the service back to `main` under **Render → ielts-mock-exam → Settings → Build & Deploy → Branch**.
 
 The site runs with zero configuration, but for a public launch you want:
 
@@ -123,16 +123,24 @@ Payments are idempotent: a repeated callback never grants the plan or a check tw
 2. You open **Admin → Examiners**, enter their email, name and headline, and tick *Approve now*.
 3. The examiner opens **Examiner** in the menu, completes their profile, and marks checks from their queue.
 
-Students choose an examiner on the results page of any Writing test. After a check is marked they can rate the examiner once, and ratings are shown to other students. Pay your examiners outside the site; Admin → All orders lists every paid check and who marked it.
+Students choose an examiner on the results page of any Writing or Speaking test. Examiners choose what they mark (*I mark Writing* / *I mark Speaking*) on their profile. For a Speaking check the examiner plays the candidate's recordings next to the marking form. After a check is marked the student can rate the examiner once, and ratings are shown to other students. Pay your examiners outside the site; Admin → All orders lists every paid check and who marked it.
+
+### 4.5 Speaking recordings
+
+- Answers are recorded in the browser (Opus, about 32 kbit/s) and uploaded one by one while the test goes on. A full test is about 2 MB.
+- They are stored in the private Supabase Storage bucket `speaking` (created by `supabase/schema.sql`). Like the tables, only requests with the server secret can read or write it. The free Supabase plan includes 1 GB of file storage, which holds roughly 400 full tests at a time.
+- Recordings are deleted automatically after `SPEAKING_KEEP_DAYS` (default 60) days, but never while an examiner is still marking them. Unfinished tests are removed after 48 hours.
+- Limits against abuse: `SPEAKING_TESTS_PER_DAY` (default 8) tests per student per day, and `SPEAKING_UPLOAD_MB_PER_DAY` (default 80) MB of audio per student per day. Each answer is at most 4 MB.
+- Browsers only allow the microphone on `https://` sites (and `localhost`). Render provides HTTPS automatically.
 
 ## 5. Before you announce the site
 
 - [ ] Delete the withdrawn Cambridge files: `git rm data/tests.json data/attempts.db scripts/build_tests_data.py`
 - [ ] Pick your brand name (`SITE_NAME`). Avoid putting "IELTS" in the domain name or logo, because the IELTS partners protect the trademark. Descriptive use in text ("IELTS-style practice") with the disclaimer is what the site does now.
 - [ ] Set `CONTACT_EMAIL` so users can ask for their data to be deleted (shown on the About & legal page).
-- [ ] If you target users in the EU/UK, get a proper privacy policy and cookie review. The site uses no cookies and no trackers, only local storage for autosave and preferences.
-- [ ] Run `python scripts/test_app.py` and take one listening, one reading and one writing test on the live URL.
-- [ ] Sign in with your admin email, buy the plan once by card transfer and confirm it in Admin, then order and mark a Writing check with a test examiner account.
+- [ ] If you target users in the EU/UK, get a proper privacy policy and cookie review. The site uses one sign-in cookie and no trackers, plus local storage for autosave and preferences. Speaking recordings are personal data (a voice): the About page explains who can hear them and when they are deleted.
+- [ ] Run `python scripts/test_app.py` and take one test of each module on the live URL (Speaking on a phone too).
+- [ ] Sign in with your admin email, buy the plan once by card transfer and confirm it in Admin, then order and mark a Writing check and a Speaking check with a test examiner account.
 
 ## Admin endpoints
 

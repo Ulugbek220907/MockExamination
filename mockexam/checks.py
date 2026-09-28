@@ -147,8 +147,11 @@ def validate_new_check(db, user_id, kind, examiner_id, submission_id):
     sub = _submission(db, kind, submission_id)
     if not sub or sub.get("user_id") != user_id:
         raise CheckError("We could not find this submission in your account. Sign in before you submit a test.", 404)
-    if kind == "speaking" and sub.get("status") != "completed":
-        raise CheckError("Finish recording all the questions first.")
+    if kind == "speaking":
+        if sub.get("status") != "completed":
+            raise CheckError("Finish the Speaking test first.")
+        if sub.get("recordings_deleted_at") or not db.select("recordings", {"submission_id": sub["id"]}, limit=1):
+            raise CheckError("This Speaking test has no recordings to mark.")
     return examiner, sub
 
 

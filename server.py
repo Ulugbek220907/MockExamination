@@ -11,6 +11,7 @@ Serves the single-page app from public/ and a JSON API:
   POST /api/reading/<id>/submit        mark a reading test, store the attempt, return results
   POST /api/listening/<id>/submit      mark a listening test (results include the transcript)
   POST /api/writing/<id>/submit        analyse (and optionally AI-mark) a writing test
+  /api/speaking/...                    record a speaking test and play it back (see mockexam/api.py)
   GET  /api/history[?clientId=<uuid>]  recent attempts: the account's, or this browser's
   GET  /api/admin/stats                totals (admin session or ADMIN_TOKEN)
   POST /api/admin/refresh              reload test content (admin session or ADMIN_TOKEN)
@@ -56,7 +57,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, api, auth, content, scoring, storage, writing  # noqa: E402
+from mockexam import accounts, api, auth, content, scoring, speaking, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -82,7 +83,7 @@ MODULES = {
     "reading": {"name": "Reading", "status": "active"},
     "writing": {"name": "Writing", "status": "active"},
     "listening": {"name": "Listening", "status": "active"},
-    "speaking": {"name": "Speaking", "status": "soon"},
+    "speaking": {"name": "Speaking", "status": "active"},
 }
 
 STORE = storage.create_store()
@@ -243,6 +244,7 @@ class ConfigHandler(BaseHandler):
             "contactEmail": CONTACT_EMAIL,
             "storage": STORE.name,
             "auth": {"email": True, "google": await in_thread(AUTH.google_enabled), "dev": AUTH.name == "dev"},
+            "speakingKeepDays": speaking.KEEP_DAYS,
         })
 
 
@@ -443,7 +445,13 @@ class HistoryHandler(BaseHandler):
         except Exception:
             log.exception("Could not load history")
             items = []
-        self.send_json({"items": items})
+        if user_id:
+            try:
+                items += await in_thread(speaking.history_items, STORE.db, user_id, 20)
+                items.sort(key=lambda i: i["createdAt"] or "", reverse=True)
+            except Exception:
+                log.exception("Could not load speaking history")
+        self.send_json({"items": items[:20]})
 
 
 class AdminStatsHandler(api.AdminHandler):
@@ -529,6 +537,16 @@ def make_app():
     )
 
 
+async def clean_up_recordings():
+    """Deletes old Speaking recordings (see speaking.cleanup); runs a few times a day."""
+    try:
+        abandoned, removed = await in_thread(speaking.cleanup, STORE.db, STORE.files)
+        if abandoned or removed:
+            log.info("Speaking clean-up: %d unfinished tests and %d recordings deleted", abandoned, removed)
+    except Exception:
+        log.exception("Speaking clean-up failed")
+
+
 def main():
     tests = STORE.list_tests()
     counts = collections.Counter(t.get("module") for t in tests)
@@ -536,9 +554,12 @@ def main():
     app.listen(PORT, address="0.0.0.0", max_body_size=MAX_BODY_BYTES)
     log.info("%s running on http://0.0.0.0:%d (storage=%s, sign-in=%s, AI marking=%s)",
              SITE_NAME, PORT, STORE.name, AUTH.name, "on" if writing.ai_configured() else "off")
-    log.info("Loaded %d reading, %d listening and %d writing tests",
-             counts["reading"], counts["listening"], counts["writing"])
-    tornado.ioloop.IOLoop.current().start()
+    log.info("Loaded %d reading, %d listening, %d writing and %d speaking tests",
+             counts["reading"], counts["listening"], counts["writing"], counts["speaking"])
+    loop = tornado.ioloop.IOLoop.current()
+    loop.call_later(60, clean_up_recordings)
+    tornado.ioloop.PeriodicCallback(clean_up_recordings, 6 * 3600 * 1000).start()
+    loop.start()
 
 
 if __name__ == "__main__":

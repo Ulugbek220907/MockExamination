@@ -33,7 +33,6 @@ JSON_COLUMNS = {
     "reading_attempts": {"answers", "breakdown"},
     "listening_attempts": {"answers", "breakdown"},
     "writing_submissions": {"analysis", "assessment"},
-    "speaking_submissions": {"answers"},
 }
 BOOL_COLUMNS = {
     "examiners": {"does_writing", "does_speaking", "accepting", "approved"},
@@ -134,10 +133,13 @@ CREATE TABLE IF NOT EXISTS speaking_submissions (
     user_id TEXT NOT NULL,
     test_id TEXT NOT NULL,
     candidate_name TEXT,
-    answers TEXT,
+    mode TEXT,
+    notes TEXT,
     status TEXT NOT NULL DEFAULT 'recording',
+    time_spent_seconds INTEGER,
     created_at TEXT,
-    completed_at TEXT
+    completed_at TEXT,
+    recordings_deleted_at TEXT
 );
 CREATE TABLE IF NOT EXISTS recordings (
     id TEXT PRIMARY KEY,
@@ -146,10 +148,16 @@ CREATE TABLE IF NOT EXISTS recordings (
     question_key TEXT NOT NULL,
     mime TEXT NOT NULL,
     duration REAL,
-    data TEXT NOT NULL,
-    created_at TEXT
+    size INTEGER NOT NULL,
+    path TEXT NOT NULL,
+    created_at TEXT,
+    UNIQUE (submission_id, question_key)
 );
+CREATE INDEX IF NOT EXISTS idx_speaking_user ON speaking_submissions(user_id, created_at);
 """
+
+# Early development databases had placeholder Speaking tables with other columns.
+_REPLACED_TABLES = {"speaking_submissions": "recordings_deleted_at", "recordings": "path"}
 
 
 class DbError(Exception):
@@ -209,6 +217,10 @@ class SqliteDb:
         self.path = path
         self.lock = lock or threading.Lock()
         with self.lock, self._connect() as conn:
+            for table, column in _REPLACED_TABLES.items():
+                cols = {r[1] for r in conn.execute(f'PRAGMA table_info("{table}")')}
+                if cols and column not in cols:
+                    conn.execute(f'DROP TABLE "{table}"')
             conn.executescript(SQLITE_SCHEMA)
 
     def _connect(self):
