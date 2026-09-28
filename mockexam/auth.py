@@ -61,14 +61,28 @@ def _identity(user):
 
 class SupabaseAuth:
     name = "supabase"
-    google = True
+    SETTINGS_TTL = 600
 
     def __init__(self, url, api_key, timeout=15):
         self.base = url.rstrip("/") + "/auth/v1"
         self.key = api_key
         self.timeout = timeout
+        self._google = (False, 0.0)
 
-    def _call(self, method, path, body=None, token=None, query=None):
+    def google_enabled(self):
+        """Whether the Google provider is switched on in Supabase (checked every 10 minutes)."""
+        value, checked = self._google
+        if time.time() - checked < self.SETTINGS_TTL:
+            return value
+        try:
+            settings = self._call("GET", "/settings")
+            value = bool((settings.get("external") or {}).get("google"))
+        except AuthError:
+            pass  # keep the last known value
+        self._google = (value, time.time())
+        return value
+
+    def _call(self, method, path, body=None, token=None, query=None, action="verify"):
         headers = {"apikey": self.key, "Content-Type": "application/json", "Accept": "application/json"}
         if token:
             headers["Authorization"] = f"Bearer {token}"
@@ -87,24 +101,31 @@ class SupabaseAuth:
             message = str(detail.get("msg") or detail.get("message") or detail.get("error_description") or "")
             code = str(detail.get("error_code") or detail.get("code") or "")
             log.warning("Supabase Auth %s %s -> %s %s %s", method, path, e.code, code, message)
-            raise self._friendly(e.code, code, message) from e
+            raise self._friendly(e.code, code, message, action) from e
         except urllib.error.URLError as e:
             log.error("Supabase Auth unreachable: %s", e.reason)
             raise AuthError("Sign-in is temporarily unavailable. Please try again in a minute.", 503) from e
 
     @staticmethod
-    def _friendly(status, code, message):
+    def _friendly(status, code, message, action):
+        """Turn a Supabase Auth error into a message a student can act on."""
         text = f"{code} {message}".lower()
-        if status == 429 or "rate" in text or "security purposes" in text:
+        if status == 429 or "rate_limit" in text or "security purposes" in text:
             return AuthError("Too many requests. Please wait a minute and try again.", 429)
-        if "not authorized" in text:
-            return AuthError("We could not send an email to this address yet. Please try again later.", 503)
-        if "expired" in text or "invalid" in text or status in (401, 403):
+        if code == "email_address_invalid" or (action == "send" and code == "validation_failed"):
+            return AuthError("Please enter a valid email address.", 400)
+        if "not authorized" in text or code == "email_address_not_authorized":
+            return AuthError("We could not send an email to this address yet. Please try another address or try later.", 503)
+        if code in ("otp_disabled", "signup_disabled", "email_provider_disabled"):
+            return AuthError("Sign-in by email is not available right now. Please try Google or come back later.", 503)
+        if action == "verify" and (code in ("otp_expired", "invalid_credentials") or status in (400, 401, 403)):
             return AuthError("That code is wrong or has expired. Request a new code.", 400)
-        return AuthError("Sign-in failed. Please try again.", 400 if status < 500 else 503)
+        if action == "token":
+            return AuthError("Your sign-in link has expired. Please sign in again.", 400)
+        return AuthError("We could not send the code. Please try again in a minute.", 503 if status >= 500 else 400)
 
     def send_code(self, email, redirect_to):
-        self._call("POST", "/otp", {"email": email, "create_user": True}, query={"redirect_to": redirect_to})
+        self._call("POST", "/otp", {"email": email, "create_user": True}, query={"redirect_to": redirect_to}, action="send")
         return None  # the code goes by email
 
     def verify_code(self, email, code):
@@ -114,7 +135,7 @@ class SupabaseAuth:
     def user_from_token(self, access_token):
         if not access_token or len(access_token) > 4096:
             raise AuthError("Missing sign-in token.")
-        return _identity(self._call("GET", "/user", token=access_token))
+        return _identity(self._call("GET", "/user", token=access_token, action="token"))
 
     def google_url(self, redirect_to):
         return f"{self.base}/authorize?" + urllib.parse.urlencode({"provider": "google", "redirect_to": redirect_to})
@@ -124,8 +145,10 @@ class DevAuth:
     """Local sign-in without email: the code is logged (and optionally returned to the browser)."""
 
     name = "dev"
-    google = False
     TTL = 600
+
+    def google_enabled(self):
+        return False
 
     def __init__(self):
         self.codes = {}

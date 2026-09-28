@@ -696,6 +696,83 @@ class AccountApiTests(AsyncHTTPTestCase):
         self.assertEqual((data["examiner"]["rating"], data["reviews"][0]["review"]), (5.0, "Very helpful"))
 
 
+class SupabaseAuthTests(unittest.TestCase):
+    """SupabaseAuth against a fake Supabase Auth server: request shapes and error messages."""
+
+    @classmethod
+    def setUpClass(cls):
+        import http.server
+        import threading
+        from mockexam import auth as auth_mod
+
+        cls.calls = []
+
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def log_message(self, *args):
+                pass
+
+            def _send(self, code, payload):
+                raw = json.dumps(payload).encode()
+                self.send_response(code)
+                self.send_header("Content-Type", "application/json")
+                self.end_headers()
+                self.wfile.write(raw)
+
+            def do_POST(self):
+                length = int(self.headers.get("Content-Length") or 0)
+                body = json.loads(self.rfile.read(length) or b"{}")
+                cls.calls.append({"path": self.path, "body": body, "apikey": self.headers.get("apikey")})
+                if self.path.startswith("/auth/v1/otp"):
+                    if body["email"].endswith("@example.com"):
+                        return self._send(400, {"code": 400, "error_code": "email_address_invalid", "msg": "invalid"})
+                    return self._send(200, {})
+                if self.path == "/auth/v1/verify":
+                    if body.get("token") != "123456":
+                        return self._send(403, {"code": 403, "error_code": "otp_expired", "msg": "Token has expired or is invalid"})
+                    return self._send(200, {"access_token": "t", "user": {"id": "u-1", "email": body["email"],
+                                                                         "user_metadata": {"full_name": "Aziz"}}})
+                self._send(404, {})
+
+            def do_GET(self):
+                cls.calls.append({"path": self.path, "auth": self.headers.get("Authorization")})
+                if self.path == "/auth/v1/settings":
+                    return self._send(200, {"external": {"email": True, "google": True}})
+                if self.headers.get("Authorization") == "Bearer good-token":
+                    return self._send(200, {"id": "u-2", "email": "G@Gmail.com", "user_metadata": {"name": "Guli"}})
+                self._send(401, {"code": 401, "error_code": "bad_jwt", "msg": "invalid JWT"})
+
+        cls.httpd = http.server.HTTPServer(("127.0.0.1", 0), Handler)
+        threading.Thread(target=cls.httpd.serve_forever, daemon=True).start()
+        cls.auth = auth_mod.SupabaseAuth(f"http://127.0.0.1:{cls.httpd.server_port}", "sb_publishable_x")
+        cls.AuthError = auth_mod.AuthError
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.httpd.shutdown()
+
+    def test_send_code(self):
+        self.auth.send_code("student@gmail.com", "https://site/auth-callback.html")
+        call = self.calls[-1]
+        self.assertIn("redirect_to=https%3A%2F%2Fsite%2Fauth-callback.html", call["path"])
+        self.assertEqual((call["body"]["create_user"], call["apikey"]), (True, "sb_publishable_x"))
+        with self.assertRaises(self.AuthError) as e:
+            self.auth.send_code("bad@example.com", "https://site/")
+        self.assertIn("valid email", str(e.exception))
+
+    def test_verify_code_and_token(self):
+        identity = self.auth.verify_code("student@gmail.com", "123456")
+        self.assertEqual(identity, {"id": "u-1", "email": "student@gmail.com", "name": "Aziz"})
+        with self.assertRaises(self.AuthError) as e:
+            self.auth.verify_code("student@gmail.com", "000000")
+        self.assertIn("wrong or has expired", str(e.exception))
+        self.assertEqual(self.auth.user_from_token("good-token"), {"id": "u-2", "email": "g@gmail.com", "name": "Guli"})
+        with self.assertRaises(self.AuthError) as e:
+            self.auth.user_from_token("bad-token")
+        self.assertIn("expired", str(e.exception))
+        self.assertIn("provider=google", self.auth.google_url("https://site/auth-callback.html"))
+        self.assertTrue(self.auth.google_enabled())
+
+
 def _db_with_order(kind="plan"):
     db = SqliteDb(os.path.join(tempfile.mkdtemp(), "pay.sqlite3"))
     uid = "11111111-2222-4333-8444-555555555555"

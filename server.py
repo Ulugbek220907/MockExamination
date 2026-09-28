@@ -236,13 +236,13 @@ class HealthHandler(BaseHandler):
 
 
 class ConfigHandler(BaseHandler):
-    def get(self):
+    async def get(self):
         self.send_json({
             "siteName": SITE_NAME,
             "aiMarking": writing.ai_configured(),
             "contactEmail": CONTACT_EMAIL,
             "storage": STORE.name,
-            "auth": {"email": True, "google": AUTH.google, "dev": AUTH.name == "dev"},
+            "auth": {"email": True, "google": await in_thread(AUTH.google_enabled), "dev": AUTH.name == "dev"},
         })
 
 

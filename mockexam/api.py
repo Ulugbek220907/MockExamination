@@ -149,9 +149,9 @@ class AuthTokenHandler(SessionMixin, BaseHandler):
 
 
 class AuthGoogleHandler(BaseHandler):
-    def get(self):
+    async def get(self):
         url = self.auth.google_url(self.site_url() + "/auth-callback.html")
-        if not url:
+        if not url or not await in_thread(self.auth.google_enabled):
             raise ApiError(400, "Google sign-in is not available on this server.")
         self.redirect(url)
 
