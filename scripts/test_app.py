@@ -26,12 +26,18 @@ sys.path.insert(0, BASE_DIR)
 _TMP = tempfile.mkdtemp()
 os.environ["SQLITE_PATH"] = os.path.join(_TMP, "test.sqlite3")
 os.environ["ADMIN_TOKEN"] = "test-admin-token"
-for var in ("SUPABASE_URL", "SUPABASE_KEY", "SUPABASE_SERVICE_ROLE_KEY", "SUPABASE_APP_SECRET", "ANTHROPIC_API_KEY"):
+for var in ("SUPABASE_URL", "SUPABASE_KEY", "SUPABASE_SERVICE_ROLE_KEY", "SUPABASE_APP_SECRET", "ANTHROPIC_API_KEY",
+            "PAYME_MERCHANT_ID", "PAYME_KEY", "CLICK_SERVICE_ID", "CLICK_MERCHANT_ID", "CLICK_SECRET_KEY"):
     os.environ.pop(var, None)
+# Accounts: development sign-in codes, one admin, and card-transfer payments switched on.
+os.environ["AUTH_DEV_CODES"] = "1"
+os.environ["ADMIN_EMAILS"] = "owner@example.com"
+os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import content, scoring, storage, writing  # noqa: E402
+from mockexam import accounts, billing, checks, content, scoring, storage, writing  # noqa: E402
+from mockexam.db import SqliteDb  # noqa: E402
 import server  # noqa: E402
 
 TESTS = storage.load_local_tests()
@@ -414,8 +420,9 @@ class ApiTests(AsyncHTTPTestCase):
         r = self.fetch(path)
         return r.code, json.loads(r.body)
 
-    def post_json(self, path, body):
-        r = self.fetch(path, method="POST", body=json.dumps(body))
+    def post_json(self, path, body, headers=None):
+        r = self.fetch(path, method="POST", body=json.dumps(body),
+                       headers={"Content-Type": "application/json", **(headers or {})})
         return r.code, json.loads(r.body)
 
     def test_health_and_config(self):
@@ -498,8 +505,13 @@ class ApiTests(AsyncHTTPTestCase):
     def test_module_mismatch_and_bad_input(self):
         code, _ = self.post_json("/api/reading/academic-writing-01/submit", {})
         self.assertEqual(code, 404)
-        r = self.fetch("/api/reading/academic-reading-01/submit", method="POST", body="not json")
+        r = self.fetch("/api/reading/academic-reading-01/submit", method="POST", body="not json",
+                       headers={"Content-Type": "application/json"})
         self.assertEqual(r.code, 400)
+        # Cross-site forms cannot post to the API (CSRF guard): JSON only.
+        r = self.fetch("/api/reading/academic-reading-01/submit", method="POST", body="a=1",
+                       headers={"Content-Type": "application/x-www-form-urlencoded"})
+        self.assertEqual(r.code, 415)
         code, _ = self.post_json("/api/writing/academic-writing-01/submit", {"responses": {"1": "x" * 20000}})
         self.assertEqual(code, 413)
 
@@ -520,6 +532,275 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertEqual(self.fetch("/api/unknown").code, 404)
         # content/ and data/ must never be served
         self.assertEqual(self.fetch("/content/reading/academic-reading-01.json").code, 404)
+
+
+class AccountApiTests(AsyncHTTPTestCase):
+    """Sign-in, locked tests, buying the plan, and a paid examiner check, all through the HTTP API."""
+
+    def get_app(self):
+        return server.make_app()
+
+    def call(self, method, path, body=None, cookie=None):
+        headers = {"Content-Type": "application/json"}
+        if cookie:
+            headers["Cookie"] = cookie
+        r = self.fetch(path, method=method, headers=headers, body=json.dumps(body) if body is not None else None,
+                       allow_nonstandard_methods=True, follow_redirects=False)
+        try:
+            data = json.loads(r.body) if r.body else {}
+        except ValueError:
+            data = {}
+        return r, data
+
+    def login(self, email, client_id=None):
+        r, data = self.call("POST", "/api/auth/code", {"email": email})
+        self.assertEqual(r.code, 200, data)
+        r, data = self.call("POST", "/api/auth/verify", {"email": email, "code": data["devCode"], "clientId": client_id})
+        self.assertEqual(r.code, 200, data)
+        cookie = r.headers["Set-Cookie"].split(";")[0]
+        self.assertIn("HttpOnly", r.headers["Set-Cookie"])
+        return cookie, data
+
+    def test_login_me_logout(self):
+        r, data = self.call("GET", "/api/me")
+        self.assertIsNone(data["user"])
+        r, data = self.call("POST", "/api/auth/verify", {"email": "a@example.com", "code": "123456"})
+        self.assertEqual(r.code, 400)
+        cookie, data = self.login("Student.One@Example.com")
+        self.assertEqual((data["user"]["email"], data["user"]["role"]), ("student.one@example.com", "student"))
+        self.assertFalse(data["plan"]["active"])
+        r, data = self.call("GET", "/api/me", cookie=cookie)
+        self.assertEqual(data["user"]["email"], "student.one@example.com")
+        r, data = self.call("POST", "/api/me", {"name": "  Aziz  Karimov "}, cookie=cookie)
+        self.assertEqual(data["user"]["name"], "Aziz Karimov")
+        r, _ = self.call("POST", "/api/auth/logout", {}, cookie=cookie)
+        self.assertIn("mx_session=;", r.headers["Set-Cookie"].replace('""', ""))
+        r, data = self.call("GET", "/api/me", cookie="mx_session=forged")
+        self.assertIsNone(data["user"])
+
+    def test_premium_tests_and_audio_are_locked(self):
+        r, data = self.call("GET", "/api/tests")
+        access = {t["id"]: t["access"] for t in data["tests"]}
+        self.assertEqual((access["academic-reading-01"], access["academic-reading-02"]), ("free", "premium"))
+        r, data = self.call("GET", "/api/tests/academic-reading-02")
+        self.assertEqual((r.code, data["code"]), (401, "login_required"))
+        self.assertEqual(self.fetch("/audio/listening-02/part1.mp3").code, 401)
+        self.assertEqual(self.fetch("/audio/listening-01/part1.mp3", headers={"Range": "bytes=0-9"}).code, 206)
+        cookie, _ = self.login("nopay@example.com")
+        r, data = self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)
+        self.assertEqual((r.code, data["code"]), (402, "plan_required"))
+        r, data = self.call("POST", "/api/reading/academic-reading-02/submit", {"answers": {}}, cookie=cookie)
+        self.assertEqual(r.code, 402)
+        self.assertEqual(self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie}).code, 402)
+
+    def test_buy_plan_by_card_transfer(self):
+        cookie, _ = self.login("buyer@example.com")
+        r, data = self.call("GET", "/api/billing")
+        self.assertIn("manual", data["providers"])
+        r, data = self.call("POST", "/api/orders", {"kind": "plan"}, cookie=cookie)
+        order = data["order"]
+        self.assertEqual((order["status"], order["amount"]), ("pending", billing.PRICES["plan"]))
+        r, data = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "manual"}, cookie=cookie)
+        self.assertEqual(data["manual"]["reference"], f"MX{order['id']}")
+        r, data = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "payme"}, cookie=cookie)
+        self.assertEqual(r.code, 400)  # Payme not configured in tests
+        r, data = self.call("POST", f"/api/orders/{order['id']}/manual-paid", {}, cookie=cookie)
+        self.assertEqual(data["order"]["status"], "awaiting_confirmation")
+        # Someone else's order is invisible.
+        other, _ = self.login("other@example.com")
+        r, _ = self.call("POST", f"/api/orders/{order['id']}/manual-paid", {}, cookie=other)
+        self.assertEqual(r.code, 404)
+        # Students cannot use admin endpoints; the owner can.
+        r, _ = self.call("GET", "/api/admin/orders", cookie=cookie)
+        self.assertEqual(r.code, 403)
+        admin, data = self.login("owner@example.com")
+        self.assertEqual(data["user"]["role"], "admin")
+        r, data = self.call("GET", "/api/admin/orders?status=awaiting_confirmation", cookie=admin)
+        self.assertTrue(any(o["id"] == order["id"] and o["userEmail"] == "buyer@example.com" for o in data["orders"]))
+        r, data = self.call("POST", f"/api/admin/orders/{order['id']}/confirm", {}, cookie=admin)
+        self.assertEqual(data["order"]["status"], "paid")
+        r, data = self.call("GET", "/api/me", cookie=cookie)
+        self.assertTrue(data["plan"]["active"])
+        r, _ = self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)
+        self.assertEqual(r.code, 200)
+        self.assertEqual(self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code, 206)
+        # Admin can also give plan days directly.
+        r, data = self.call("POST", "/api/admin/plan", {"email": "other@example.com", "days": 7}, cookie=admin)
+        self.assertTrue(data["plan"]["active"])
+
+    def test_anonymous_attempts_join_the_account(self):
+        client = "0f3a5c2e-1111-4222-8333-944455556666"
+        r, data = self.call("POST", "/api/reading/academic-reading-01/submit",
+                            {"answers": {}, "clientId": client, "candidateName": "Anon"})
+        self.assertEqual(r.code, 200)
+        cookie, _ = self.login("claimer@example.com", client_id=client)
+        r, data = self.call("GET", "/api/history", cookie=cookie)
+        self.assertEqual(len(data["items"]), 1)
+
+    def test_paid_writing_check_end_to_end(self):
+        examiner, _ = self.login("examiner.one@example.com")
+        admin, _ = self.login("owner@example.com")
+        r, data = self.call("POST", "/api/admin/examiners", {"email": "nobody@example.com"}, cookie=admin)
+        self.assertEqual(r.code, 404)
+        r, data = self.call("POST", "/api/admin/examiners", {
+            "email": "examiner.one@example.com", "displayName": "Dilnoza R.", "headline": "IELTS 8.5 · 7 years",
+            "approved": True}, cookie=admin)
+        self.assertEqual(r.code, 200, data)
+        ex_id = data["examiner"]["id"]
+        r, data = self.call("GET", "/api/examiners?kind=writing")
+        self.assertTrue(any(e["id"] == ex_id and e["name"] == "Dilnoza R." for e in data["examiners"]))
+
+        student, _ = self.login("writer@example.com")
+        t = WRITING[0]
+        r, data = self.call("POST", f"/api/writing/{t['id']}/submit",
+                            {"responses": {"1": t["tasks"][0]["modelAnswer"], "2": t["tasks"][1]["modelAnswer"]}}, cookie=student)
+        sub_id = data["submissionId"]
+        self.assertTrue(data["signedIn"])
+        r, data = self.call("POST", "/api/orders", {"kind": "writing_check", "examinerId": ex_id, "submissionId": sub_id + 999},
+                            cookie=student)
+        self.assertEqual(r.code, 404)  # not the student's submission
+        r, data = self.call("POST", "/api/orders", {"kind": "writing_check", "examinerId": ex_id, "submissionId": sub_id},
+                            cookie=student)
+        order = data["order"]
+        self.assertEqual(order["amount"], billing.PRICES["writing_check"])
+        self.call("POST", f"/api/orders/{order['id']}/manual-paid", {}, cookie=student)
+        self.call("POST", f"/api/admin/orders/{order['id']}/confirm", {}, cookie=admin)
+
+        r, data = self.call("GET", "/api/checks", cookie=student)
+        check_id = data["checks"][0]["id"]
+        self.assertEqual(data["checks"][0]["status"], "waiting")
+        r, _ = self.call("GET", f"/api/checks/{check_id}", cookie=self.login("stranger@example.com")[0])
+        self.assertEqual(r.code, 404)
+        r, data = self.call("GET", "/api/examiner/me", cookie=examiner)
+        self.assertEqual([c["id"] for c in data["checks"]], [check_id])
+        r, data = self.call("GET", f"/api/checks/{check_id}", cookie=examiner)
+        self.assertEqual(data["check"]["viewerRole"], "examiner")
+        self.assertIn("Task 1", [t["title"][:6] for t in data["check"]["submission"]["tasks"]][0] + "Task 1")
+        self.assertTrue(data["check"]["submission"]["tasks"][1]["response"])
+        self.call("POST", f"/api/examiner/checks/{check_id}/start", {}, cookie=examiner)
+        crit = {k: {"band": 7, "feedback": "Clear."} for k in checks.WRITING_CRITERIA}
+        r, data = self.call("POST", f"/api/examiner/checks/{check_id}/result", {"result": {"tasks": {
+            "1": {"criteria": crit, "summary": "Good overview."},
+            "2": {"criteria": dict(crit, task={"band": 8, "feedback": "Well argued."}), "strengths": "Position\nExamples"}},
+            "comment": "Keep practising."}}, cookie=examiner)
+        self.assertEqual(r.code, 200, data)
+        self.assertEqual(data["check"]["overallBand"], 7.5)  # (7 + 2 × 7.5) / 3 = 7.33 → 7.5
+        r, data = self.call("GET", f"/api/checks/{check_id}", cookie=student)
+        result = data["check"]["result"]
+        self.assertEqual((result["tasks"]["2"]["band"], result["tasks"]["2"]["strengths"]), (7.5, ["Position", "Examples"]))
+        r, data = self.call("POST", f"/api/checks/{check_id}/rate", {"rating": 5, "review": "Very helpful"}, cookie=student)
+        self.assertEqual(r.code, 200)
+        r, data = self.call("POST", f"/api/checks/{check_id}/rate", {"rating": 1}, cookie=student)
+        self.assertEqual(r.code, 400)  # one review per check
+        r, data = self.call("GET", f"/api/examiners/{ex_id}")
+        self.assertEqual((data["examiner"]["rating"], data["reviews"][0]["review"]), (5.0, "Very helpful"))
+
+
+def _db_with_order(kind="plan"):
+    db = SqliteDb(os.path.join(tempfile.mkdtemp(), "pay.sqlite3"))
+    uid = "11111111-2222-4333-8444-555555555555"
+    accounts.upsert_profile(db, {"id": uid, "email": "payer@example.com", "name": ""})
+    return db, uid, billing.create_order(db, uid, kind)
+
+
+def _payme(api, method, params, key="secret-key"):
+    import base64
+    auth = "Basic " + base64.b64encode(f"Paycom:{key}".encode()).decode()
+    return api.handle(json.dumps({"method": method, "params": params, "id": 7}).encode(), auth)
+
+
+class PaymeTests(unittest.TestCase):
+    def setUp(self):
+        self.db, self.uid, self.order = _db_with_order()
+        self.api = billing.PaymeApi(self.db, key="secret-key")
+        self.amount = self.order["amount"] * 100
+        self.account = {"order_id": str(self.order["id"])}
+
+    def test_auth_and_validation(self):
+        self.assertEqual(_payme(self.api, "CheckPerformTransaction", {}, key="wrong")["error"]["code"], -32504)
+        self.assertEqual(_payme(self.api, "Nope", {})["error"]["code"], -32601)
+        r = _payme(self.api, "CheckPerformTransaction", {"amount": self.amount, "account": self.account})
+        self.assertEqual(r["result"], {"allow": True})
+        r = _payme(self.api, "CheckPerformTransaction", {"amount": self.amount + 100, "account": self.account})
+        self.assertEqual(r["error"]["code"], -31001)
+        r = _payme(self.api, "CheckPerformTransaction", {"amount": self.amount, "account": {"order_id": "999999"}})
+        self.assertEqual((r["error"]["code"], r["error"]["data"]), (-31050, "order_id"))
+
+    def test_create_perform_check_cancel(self):
+        p = {"id": "pm-1", "time": 1700000000000, "amount": self.amount, "account": self.account}
+        r1 = _payme(self.api, "CreateTransaction", p)["result"]
+        self.assertEqual(r1["state"], 1)
+        self.assertEqual(_payme(self.api, "CreateTransaction", p)["result"]["create_time"], r1["create_time"])
+        other = dict(p, id="pm-2")
+        self.assertEqual(_payme(self.api, "CreateTransaction", other)["error"]["code"], -31052)
+        r2 = _payme(self.api, "PerformTransaction", {"id": "pm-1"})["result"]
+        self.assertEqual(r2["state"], 2)
+        self.assertEqual(_payme(self.api, "PerformTransaction", {"id": "pm-1"})["result"]["perform_time"], r2["perform_time"])
+        self.assertTrue(accounts.plan_status(self.db, self.uid)["active"])
+        self.assertEqual(billing.get_order(self.db, self.order["id"])["status"], "paid")
+        chk = _payme(self.api, "CheckTransaction", {"id": "pm-1"})["result"]
+        self.assertEqual((chk["state"], chk["transaction"]), (2, "pm-1"))
+        st = _payme(self.api, "GetStatement", {"from": 1690000000000, "to": 1710000000000})["result"]["transactions"]
+        self.assertEqual([t["id"] for t in st], ["pm-1"])
+        r3 = _payme(self.api, "CancelTransaction", {"id": "pm-1", "reason": 5})["result"]
+        self.assertEqual(r3["state"], -2)
+        self.assertFalse(accounts.plan_status(self.db, self.uid)["active"])
+        self.assertEqual(billing.get_order(self.db, self.order["id"])["status"], "refunded")
+        self.assertEqual(_payme(self.api, "PerformTransaction", {"id": "pm-1"})["error"]["code"], -31008)
+        self.assertEqual(_payme(self.api, "CheckTransaction", {"id": "nope"})["error"]["code"], -31003)
+
+    def test_cancel_before_perform_and_timeout(self):
+        p = {"id": "pm-3", "time": 1700000000000, "amount": self.amount, "account": self.account}
+        _payme(self.api, "CreateTransaction", p)
+        r = _payme(self.api, "CancelTransaction", {"id": "pm-3", "reason": 3})["result"]
+        self.assertEqual(r["state"], -1)
+        self.assertEqual(billing.get_order(self.db, self.order["id"])["status"], "cancelled")
+        db, uid, order = _db_with_order()
+        api = billing.PaymeApi(db, key="secret-key")
+        _payme(api, "CreateTransaction", {"id": "pm-4", "time": 1, "amount": order["amount"] * 100,
+                                          "account": {"order_id": str(order["id"])}})
+        db.update("payme_transactions", {"id": "pm-4"}, {"create_time": 1000})  # 12+ hours ago
+        self.assertEqual(_payme(api, "PerformTransaction", {"id": "pm-4"})["error"]["code"], -31008)
+        self.assertEqual(db.select("payme_transactions", {"id": "pm-4"})[0]["state"], -1)
+        self.assertFalse(accounts.plan_status(db, uid)["active"])
+
+
+class ClickTests(unittest.TestCase):
+    SECRET = "click-secret"
+
+    def setUp(self):
+        self.db, self.uid, self.order = _db_with_order()
+        self.api = billing.ClickApi(self.db, service_id="777", secret_key=self.SECRET)
+
+    def form(self, action, prepare_id="", amount=None, error="0", sign=None):
+        import hashlib
+        f = {"click_trans_id": "555", "service_id": "777", "click_paydoc_id": "1", "merchant_trans_id": str(self.order["id"]),
+             "amount": str(amount if amount is not None else self.order["amount"]), "action": str(action), "error": error,
+             "error_note": "", "sign_time": "2026-09-28 10:00:00"}
+        if action == 1:
+            f["merchant_prepare_id"] = str(prepare_id)
+        raw = f["click_trans_id"] + f["service_id"] + self.SECRET + f["merchant_trans_id"] + \
+            (f.get("merchant_prepare_id", "") if action == 1 else "") + f["amount"] + f["action"] + f["sign_time"]
+        f["sign_string"] = sign or hashlib.md5(raw.encode()).hexdigest()
+        return f
+
+    def test_prepare_and_complete(self):
+        self.assertEqual(self.api.prepare(self.form(0, sign="0" * 32))["error"], -1)
+        self.assertEqual(self.api.prepare(self.form(0, amount=1))["error"], -2)
+        prep = self.api.prepare(self.form(0))
+        self.assertEqual(prep["error"], 0)
+        done = self.api.complete(self.form(1, prep["merchant_prepare_id"]))
+        self.assertEqual((done["error"], done["merchant_confirm_id"]), (0, prep["merchant_prepare_id"]))
+        self.assertTrue(accounts.plan_status(self.db, self.uid)["active"])
+        self.assertEqual(self.api.complete(self.form(1, prep["merchant_prepare_id"]))["error"], -4)
+        self.assertEqual(self.api.prepare(self.form(0))["error"], -4)
+
+    def test_failed_payment_cancels(self):
+        prep = self.api.prepare(self.form(0))
+        r = self.api.complete(self.form(1, prep["merchant_prepare_id"], error="-5017"))
+        self.assertEqual(r["error"], -9)
+        self.assertEqual(billing.get_order(self.db, self.order["id"])["status"], "cancelled")
+        self.assertEqual(self.api.complete(self.form(1, 999))["error"], -6)
 
 
 if __name__ == "__main__":

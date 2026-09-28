@@ -184,13 +184,12 @@ language plpgsql security definer set search_path = '' as $$
 declare v_id bigint;
 begin
   perform private.check_app_key(p_key);
-  insert into public.reading_attempts (test_id, client_id, candidate_name, mode, raw_score,
+  insert into public.reading_attempts (test_id, client_id, user_id, candidate_name, mode, raw_score,
     total_questions, band_score, time_spent_seconds, answers, breakdown)
   values (
-    p_row->>'test_id', nullif(p_row->>'client_id', '')::uuid, left(p_row->>'candidate_name', 80),
-    p_row->>'mode', (p_row->>'raw_score')::int, (p_row->>'total_questions')::int,
-    (p_row->>'band_score')::numeric, (p_row->>'time_spent_seconds')::int,
-    p_row->'answers', p_row->'breakdown'
+    p_row->>'test_id', nullif(p_row->>'client_id', '')::uuid, nullif(p_row->>'user_id', '')::uuid,
+    left(p_row->>'candidate_name', 80), p_row->>'mode', (p_row->>'raw_score')::int, (p_row->>'total_questions')::int,
+    (p_row->>'band_score')::numeric, (p_row->>'time_spent_seconds')::int, p_row->'answers', p_row->'breakdown'
   )
   returning id into v_id;
   return v_id;
@@ -202,13 +201,12 @@ language plpgsql security definer set search_path = '' as $$
 declare v_id bigint;
 begin
   perform private.check_app_key(p_key);
-  insert into public.listening_attempts (test_id, client_id, candidate_name, mode, raw_score,
+  insert into public.listening_attempts (test_id, client_id, user_id, candidate_name, mode, raw_score,
     total_questions, band_score, time_spent_seconds, answers, breakdown)
   values (
-    p_row->>'test_id', nullif(p_row->>'client_id', '')::uuid, left(p_row->>'candidate_name', 80),
-    p_row->>'mode', (p_row->>'raw_score')::int, (p_row->>'total_questions')::int,
-    (p_row->>'band_score')::numeric, (p_row->>'time_spent_seconds')::int,
-    p_row->'answers', p_row->'breakdown'
+    p_row->>'test_id', nullif(p_row->>'client_id', '')::uuid, nullif(p_row->>'user_id', '')::uuid,
+    left(p_row->>'candidate_name', 80), p_row->>'mode', (p_row->>'raw_score')::int, (p_row->>'total_questions')::int,
+    (p_row->>'band_score')::numeric, (p_row->>'time_spent_seconds')::int, p_row->'answers', p_row->'breakdown'
   )
   returning id into v_id;
   return v_id;
@@ -220,11 +218,11 @@ language plpgsql security definer set search_path = '' as $$
 declare v_id bigint;
 begin
   perform private.check_app_key(p_key);
-  insert into public.writing_submissions (test_id, client_id, candidate_name, task1_text, task2_text,
+  insert into public.writing_submissions (test_id, client_id, user_id, candidate_name, task1_text, task2_text,
     task1_words, task2_words, time_spent_seconds, analysis, assessment, overall_band)
   values (
-    p_row->>'test_id', nullif(p_row->>'client_id', '')::uuid, left(p_row->>'candidate_name', 80),
-    p_row->>'task1_text', p_row->>'task2_text', (p_row->>'task1_words')::int,
+    p_row->>'test_id', nullif(p_row->>'client_id', '')::uuid, nullif(p_row->>'user_id', '')::uuid,
+    left(p_row->>'candidate_name', 80), p_row->>'task1_text', p_row->>'task2_text', (p_row->>'task1_words')::int,
     (p_row->>'task2_words')::int, (p_row->>'time_spent_seconds')::int,
     p_row->'analysis', nullif(p_row->'assessment', 'null'::jsonb), (p_row->>'overall_band')::numeric
   )
@@ -297,3 +295,148 @@ grant execute on function public.app_save_listening_attempt(text, jsonb) to anon
 grant execute on function public.app_save_writing_submission(text, jsonb) to anon, service_role;
 grant execute on function public.app_history(text, uuid, int) to anon, service_role;
 grant execute on function public.app_stats(text) to anon, service_role;
+
+-- ============================================================================
+-- Accounts, the monthly plan, payments and examiner checks
+--
+-- The server reads and writes these tables through the normal REST endpoints.
+-- Each request carries the server secret in an `x-app-key` header, and the
+-- Row Level Security policies below only let such requests through. Requests
+-- with just the public key see nothing.
+-- ============================================================================
+
+create or replace function private.request_has_app_key() returns boolean
+language plpgsql stable security definer set search_path = '' as $$
+declare v_key text;
+begin
+  v_key := nullif(current_setting('request.headers', true), '')::json->>'x-app-key';
+  if v_key is null or length(v_key) < 32 then
+    return false;
+  end if;
+  return exists (
+    select 1 from private.app_secrets s
+    where s.name = 'server'
+      and s.secret_hash = encode(sha256(convert_to(v_key, 'UTF8')), 'hex')
+  );
+end;
+$$;
+revoke all on function private.request_has_app_key() from public;
+grant usage on schema private to anon;
+grant execute on function private.request_has_app_key() to anon;
+
+create table if not exists public.profiles (
+  id             uuid primary key,
+  email          text not null unique,
+  name           text,
+  role           text not null default 'student' check (role in ('student', 'examiner', 'admin')),
+  created_at     timestamptz not null default now(),
+  last_login_at  timestamptz
+);
+
+create table if not exists public.orders (
+  id             bigint generated always as identity primary key,
+  user_id        uuid not null references public.profiles(id),
+  kind           text not null check (kind in ('plan', 'writing_check', 'speaking_check')),
+  amount         integer not null check (amount > 0),
+  status         text not null default 'pending'
+                 check (status in ('pending', 'awaiting_confirmation', 'paid', 'cancelled', 'refunded')),
+  provider       text check (provider in ('payme', 'click', 'manual', 'admin')),
+  examiner_id    uuid references public.profiles(id),
+  submission_id  bigint,
+  note           text,
+  created_at     timestamptz not null default now(),
+  paid_at        timestamptz,
+  cancelled_at   timestamptz
+);
+create index if not exists orders_user_idx on public.orders (user_id, created_at desc);
+create index if not exists orders_status_idx on public.orders (status, created_at desc);
+
+create table if not exists public.subscription_periods (
+  id          bigint generated always as identity primary key,
+  user_id     uuid not null references public.profiles(id),
+  order_id    bigint unique references public.orders(id),
+  starts_at   timestamptz not null,
+  ends_at     timestamptz not null,
+  source      text not null check (source in ('payment', 'admin')),
+  note        text,
+  created_at  timestamptz not null default now()
+);
+create index if not exists subscription_periods_user_idx on public.subscription_periods (user_id, ends_at desc);
+
+-- Payme Merchant API transactions (amounts in tiyin, times in milliseconds).
+create table if not exists public.payme_transactions (
+  id            text primary key,
+  order_id      bigint not null references public.orders(id),
+  amount        bigint not null,
+  state         smallint not null,
+  payme_time    bigint not null,
+  create_time   bigint not null,
+  perform_time  bigint not null default 0,
+  cancel_time   bigint not null default 0,
+  reason        smallint
+);
+create index if not exists payme_transactions_order_idx on public.payme_transactions (order_id);
+create index if not exists payme_transactions_time_idx on public.payme_transactions (payme_time);
+
+-- Click SHOP API transactions.
+create table if not exists public.click_transactions (
+  id              bigint generated always as identity primary key,
+  click_trans_id  bigint not null unique,
+  order_id        bigint not null references public.orders(id),
+  amount          numeric(14, 2) not null,
+  status          text not null check (status in ('prepared', 'completed', 'cancelled')),
+  created_at      timestamptz not null default now(),
+  completed_at    timestamptz
+);
+
+create table if not exists public.examiners (
+  user_id        uuid primary key references public.profiles(id),
+  display_name   text not null,
+  headline       text,
+  bio            text,
+  does_writing   boolean not null default true,
+  does_speaking  boolean not null default true,
+  accepting      boolean not null default true,
+  approved       boolean not null default false,
+  created_at     timestamptz not null default now()
+);
+
+create table if not exists public.checks (
+  id             bigint generated always as identity primary key,
+  order_id       bigint not null unique references public.orders(id),
+  kind           text not null check (kind in ('writing', 'speaking')),
+  student_id     uuid not null references public.profiles(id),
+  examiner_id    uuid not null references public.profiles(id),
+  submission_id  bigint not null,
+  status         text not null default 'waiting' check (status in ('waiting', 'in_progress', 'completed', 'cancelled')),
+  result         jsonb,
+  overall_band   numeric(2, 1),
+  created_at     timestamptz not null default now(),
+  started_at     timestamptz,
+  completed_at   timestamptz,
+  rating         smallint check (rating between 1 and 5),
+  review         text,
+  reviewed_at    timestamptz
+);
+create index if not exists checks_examiner_idx on public.checks (examiner_id, status, created_at);
+create index if not exists checks_student_idx on public.checks (student_id, created_at desc);
+
+-- Attempts remember the signed-in user (null for anonymous practice).
+alter table public.reading_attempts    add column if not exists user_id uuid;
+alter table public.listening_attempts  add column if not exists user_id uuid;
+alter table public.writing_submissions add column if not exists user_id uuid;
+create index if not exists reading_attempts_user_idx    on public.reading_attempts (user_id, created_at desc);
+create index if not exists listening_attempts_user_idx  on public.listening_attempts (user_id, created_at desc);
+create index if not exists writing_submissions_user_idx on public.writing_submissions (user_id, created_at desc);
+
+do $$
+declare t text;
+begin
+  foreach t in array array['profiles', 'orders', 'subscription_periods', 'payme_transactions', 'click_transactions',
+                           'examiners', 'checks', 'reading_attempts', 'listening_attempts', 'writing_submissions']
+  loop
+    execute format('alter table public.%I enable row level security', t);
+    execute format('drop policy if exists server_access on public.%I', t);
+    execute format('create policy server_access on public.%I for all to anon using ((select private.request_has_app_key())) with check ((select private.request_has_app_key()))', t);
+  end loop;
+end $$;

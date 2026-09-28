@@ -11,7 +11,15 @@ A free, distraction-free website for practising the **Listening**, **Academic Re
 | **Listening** | 2 full tests: 8 parts, 80 questions, about 40 minutes of original recordings (form, note, table and flow-chart completion, map labelling, multiple choice, choose two, matching) | Instant: estimated band, per-part and per-question-type analysis, explanations, and the full transcript with every answer highlighted and a *Listen again* button |
 | **Reading** | 4 full Academic tests: 12 original passages, 160 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
 | **Writing** | 5 full Academic tests: Task 1 line graph, bar chart, process diagram, pie charts and table, plus 5 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** scores all four criteria and gives corrections |
+| **Examiner checks** | Students choose a human examiner (rated by other students) and pay per check: Writing 10,000 so'm, Speaking 20,000 so'm (Speaking coming soon) | The examiner marks the four official criteria with feedback and corrections; the student rates the examiner once |
 | Speaking | – | Coming soon |
+
+### Free trial and the monthly plan
+- Test 1 of each module is free, with no sign-in needed. The other tests and their recordings need the monthly plan, and the server enforces this.
+- The plan costs 39,000 so'm a month (configurable). The first payment gives two months, and nothing renews automatically.
+- Sign-in uses a 6-digit email code or Google (Supabase Auth). Attempts made before signing in are added to the account.
+- Payments: Payme and Click (merchant APIs built in, switched on by environment variables), or a card transfer confirmed by an admin.
+- Admin panel for confirming payments, refunds, adding examiners and giving plan days.
 
 **All content is original** and written for this project. The recordings are voiced with the open-source Kokoro text-to-speech model (Apache 2.0). The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
 
@@ -39,7 +47,7 @@ Nothing else is required. Without configuration, tests are read from `content/` 
 
 ```bash
 python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts, audio)
-python scripts/test_app.py           # 40 automated tests: scoring, API, Supabase client, AI examiner (mocked)
+python scripts/test_app.py           # 50 automated tests: scoring, API, sign-in, plan, Payme, Click, examiner checks
 ```
 
 ## Deploying
@@ -55,6 +63,13 @@ mockexam/
   scoring.py              reading/listening marking and band conversion
   writing.py              writing text analysis + Claude AI examiner
   storage.py              LocalStore (JSON + SQLite) and SupabaseStore (REST)
+  db.py                   table access for accounts/payments: SQLite locally, Supabase REST in production
+  auth.py                 sign-in with email codes and Google (Supabase Auth); development mode
+  accounts.py             profiles, roles, the monthly plan, which tests a user may open
+  billing.py              prices, orders, Payme Merchant API, Click SHOP API, card transfers
+  checks.py               examiner profiles, paid checks, marking, one review per check
+  api.py                  HTTP API for all of the above
+  web.py                  shared handler code: security headers, sessions, roles
 content/
   reading/*.json          original Academic Reading tests
   listening/*.json        original Listening tests: scripts, speakers, questions, line timings
@@ -64,6 +79,8 @@ public/
   css/portal.css          site, dashboard, results
   css/cd-ielts.css        exam environment, contrast themes, charts
   js/app.js               router, dashboard, instructions, resources and legal pages
+  js/account.js           sign-in, paywall, payments, pricing, account, examiners, checks, admin
+  auth-callback.html      landing page after Google / email-link sign-in
   js/exam.js              reading, listening and writing exam engines
   js/results.js           results pages
   js/charts.js            Task 1 charts (line, bar, pie, table, process) and listening maps as SVG
@@ -97,7 +114,8 @@ git rm data/tests.json data/attempts.db scripts/build_tests_data.py
 | POST | `/api/reading/{id}/submit` | mark a reading attempt |
 | POST | `/api/listening/{id}/submit` | mark a listening attempt (the response includes the transcript) |
 | POST | `/api/writing/{id}/submit` | analyse (and optionally AI-mark) a writing attempt |
-| GET | `/api/history?clientId=` | this browser's recent attempts |
+| GET | `/api/history?clientId=` | recent attempts (the account's when signed in) |
+| … | `/api/auth/*`, `/api/me`, `/api/orders`, `/api/pay/*`, `/api/examiners`, `/api/checks`, `/api/examiner/*`, `/api/admin/*` | accounts, payments and examiner checks; see the top of `mockexam/api.py` |
 | GET | `/api/admin/stats` | totals (`Authorization: Bearer $ADMIN_TOKEN`) |
 | POST | `/api/admin/refresh` | reload content after editing it in Supabase |
 

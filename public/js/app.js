@@ -3,7 +3,9 @@
  * launching exams, results, and the resources / about pages.
  *
  * Routes: #/ (tests), #/resources, #/about, #/start (instructions),
- *         #/exam (active test), #/results (last result).
+ *         #/exam (active test), #/results (last result), and the account
+ *         pages from account.js: #/pricing, #/account, #/examiners,
+ *         #/check/<id>, #/examiner, #/admin.
  */
 (function () {
   "use strict";
@@ -80,14 +82,17 @@
     async init() {
       window.addEventListener("hashchange", () => this.route());
       this.main.addEventListener("click", (e) => this.onMainClick(e));
+      document.getElementById("account-slot").addEventListener("click", (e) => Account.onClick(e));
+      Account.renderAccountSlot();
       try {
-        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests")]);
+        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe()]);
         this.config = { ...this.config, ...config };
         this.tests = data.tests || [];
         this.modules = data.modules || {};
       } catch (err) {
         this.loadError = "Could not load the tests. Please refresh the page.";
       }
+      Account.setConfig(this.config);
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
       this.route();
     }
@@ -124,15 +129,26 @@
 
       this.showView("site");
       this.setNav(hash);
-      if (hash.startsWith("#/resources")) this.renderResources();
-      else if (hash.startsWith("#/about")) this.renderAbout();
-      else if (hash.startsWith("#/results") && this.lastResult) this.renderResults();
-      else this.renderHome();
+      const [path, query] = hash.slice(1).split("?");
+      const params = new URLSearchParams(query || "");
+      const check = path.match(/^\/check\/(\d+)$/);
       window.scrollTo(0, 0);
+      if (path === "/resources") this.renderResources();
+      else if (path === "/about") this.renderAbout();
+      else if (path === "/results" && this.lastResult) this.renderResults();
+      else if (path === "/pricing") await Account.renderPricing(this.main);
+      else if (path === "/account") await Account.renderAccount(this.main);
+      else if (path === "/examiners") await Account.renderExaminers(this.main, params);
+      else if (path === "/examiner") await Account.renderExaminerDashboard(this.main);
+      else if (path === "/admin") await Account.renderAdmin(this.main, params);
+      else if (check) await Account.renderCheck(this.main, check[1]);
+      else this.renderHome();
     }
 
     setNav(hash) {
-      const key = hash.startsWith("#/resources") ? "resources" : hash.startsWith("#/about") ? "about" : "home";
+      const path = hash.slice(1).split("?")[0];
+      const key = { "/resources": "resources", "/about": "about", "/pricing": "pricing", "/examiners": "examiners",
+        "/account": "account", "/examiner": "examiner", "/admin": "admin" }[path] || (path.startsWith("/check") ? "account" : "home");
       document.querySelectorAll("[data-nav]").forEach((a) => {
         if (a.dataset.nav === key) a.setAttribute("aria-current", "page");
         else a.removeAttribute("aria-current");
@@ -146,6 +162,7 @@
     }
 
     onMainClick(e) {
+      if (Account.onClick(e)) return;
       const el = e.target.closest("[data-action], [data-module]");
       if (!el) return;
       if (el.dataset.module) {
@@ -219,6 +236,10 @@
       return Boolean(U.store.get(`mockexam:progress:${testId}`));
     }
 
+    canOpen(t) {
+      return t.access === "free" || Account.planActive() || ["admin", "examiner"].includes(Account.role());
+    }
+
     testCard(t) {
       const inProgress = this.hasProgress(t.id);
       const items = t.module === "reading" ? t.passages.map((p) => [`P${p.number}`, p.title])
@@ -234,7 +255,12 @@
           <div>
             <div class="test-card-header">
               <span class="test-card-book">${t.module === "listening" ? "Listening" : `Academic ${MODULE_LABELS[t.module]}`}</span>
-              ${inProgress ? `<span class="badge-progress">In progress</span>` : ""}
+              <span class="card-badges">
+                ${inProgress ? `<span class="badge-progress">In progress</span>` : ""}
+                ${t.access === "free" ? `<span class="badge-free">Free</span>`
+                  : `<span class="badge-plan ${this.canOpen(t) ? "is-open" : ""}" title="${this.canOpen(t) ? "Included in your plan" : "Needs the monthly plan"}">
+                      ${this.canOpen(t) ? "" : `<svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9h-2zm-8-2a3 3 0 0 1 6 0v2H9V7z"/></svg>`}Plan</span>`}
+              </span>
             </div>
             <h3 class="test-card-title">${esc(t.shortTitle)}</h3>
             ${body}
@@ -264,7 +290,7 @@
       section.hidden = false;
       section.innerHTML = `
         <h2 class="section-title">Your recent attempts</h2>
-        <p class="muted-text section-sub">Saved for this browser only.</p>
+        <p class="muted-text section-sub">${Account.user() ? "Saved in your account." : "Saved for this browser only. Sign in to keep them on every device."}</p>
         <div class="table-scroll"><table class="history-table">
           <thead><tr><th scope="col">Date</th><th scope="col">Test</th><th scope="col">Result</th><th scope="col">Time used</th></tr></thead>
           <tbody>${items.slice(0, 10).map((i) => `
@@ -287,8 +313,29 @@
         if (location.hash === "#/start") this.showVerification();
         else location.hash = "#/start";
       } catch (err) {
+        // Locked tests: sign in first, or offer the plan. Retry once the user can open it.
+        if (err.status === 401) {
+          if (await Account.login("Sign in to open this test. Test 1 of each module is free; the others come with the monthly plan.")) {
+            this.renderIfHome();
+            return this.prepare(testId, mode);
+          }
+          return;
+        }
+        if (err.status === 402) {
+          const signedIn = await Account.paywall(this.tests.find((t) => t.id === testId));
+          if (signedIn) {
+            this.renderIfHome();
+            if (Account.planActive()) return this.prepare(testId, mode);
+          }
+          return;
+        }
         U.modal({ title: "Could not load the test", bodyHTML: `<p>${esc(err.message)}</p>` });
       }
+    }
+
+    renderIfHome() {
+      const path = (location.hash || "#/").slice(1).split("?")[0];
+      if (path === "/" || path === "") this.renderHome();
     }
 
     showVerification() {
@@ -501,7 +548,11 @@
           <h2>Privacy</h2>
           <ul>
             <li>When you submit a test we store the name you typed, your answers or essays, your scores and an anonymous ID for this browser,
-              so that we can show your recent attempts. We do not ask for your email address or create an account.</li>
+              so that we can show your recent attempts.</li>
+            <li>If you sign in, we also store your email address (and your name if you add it), your plan and your payments, so your results
+              and purchases work on every device. Sign-in codes are sent by our email provider; Google sign-in only shares your name and email with us.</li>
+            <li>If you order an examiner check, the examiner you choose sees your essays and the name on your results, but not your email address.</li>
+            <li>Payments are handled by Payme, Click or your bank. We never see or store your card details.</li>
             ${this.config.aiMarking ? `<li>If you request AI feedback, your essays are sent to our AI provider (Anthropic) for marking.
               Do not include personal information in your essays.</li>` : ""}
             <li>Unfinished answers, your display preferences and your last result are kept in your own browser's local storage.</li>

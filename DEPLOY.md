@@ -16,7 +16,7 @@ Total time: about 30 minutes.
 
 1. Create a free project at <https://supabase.com> (choose the region closest to your users).
 2. In the dashboard open **SQL Editor → New query**, paste the whole of [`supabase/schema.sql`](supabase/schema.sql) and click **Run**.
-   This creates four tables (`tests`, `reading_attempts`, `listening_attempts`, `writing_submissions`) with Row Level Security **on and no public policies**, plus seven `app_*` database functions that the server calls. Running it again on an older database adds whatever is missing.
+   This creates the tables for tests, attempts, accounts, payments and examiner checks with Row Level Security **on**, plus the `app_*` database functions the server calls. The public key alone can read nothing; the server's requests carry the server secret, which the security policies check. Running the file again on an older database adds whatever is missing.
 3. Create a server secret and store its hash:
 
    ```bash
@@ -66,13 +66,73 @@ Without a key, writing submissions still get automatic checks, statistics and mo
 
 Free Render instances sleep after inactivity and take ~30 s to wake. Upgrade to a paid instance before promoting the site.
 
-## 4. Before you announce the site
+## 4. Accounts, the plan, payments and examiners
+
+Test 1 of each module is free for everyone. Every other test (and its audio) needs the monthly plan, and students can pay per check for an examiner to mark their Writing. All of this is already built; these steps switch it on.
+
+### 4.1 Sign-in (Supabase Auth)
+
+In the Supabase dashboard:
+
+1. **Authentication → URL Configuration**: set *Site URL* to `https://ielts-mock-exam.onrender.com` and add `https://ielts-mock-exam.onrender.com/auth-callback.html` under *Redirect URLs*.
+2. **Authentication → Emails → Templates**: in both **Magic Link** and **Confirm signup**, add the code so students can type it:
+
+   ```html
+   <h2>Your sign-in code</h2>
+   <p>Enter this code on the website: <strong>{{ .Token }}</strong></p>
+   <p>Or <a href="{{ .ConfirmationURL }}">click here to sign in</a>.</p>
+   ```
+3. **Authentication → Emails → SMTP Settings**: connect an email service. Supabase's built-in email only reaches your own team's addresses.
+   [Resend](https://resend.com) (3,000 emails a month free) and [Brevo](https://www.brevo.com) (300 a day free) both work: create an account, verify your domain, copy the SMTP host, port, user and password into Supabase, and set the sender to something like `no-reply@your-domain`.
+   Then raise **Rate Limits → emails per hour** to fit your traffic.
+4. **Google sign-in (optional)**:
+   - In [Google Cloud Console](https://console.cloud.google.com/apis/credentials), create an *OAuth client ID* of type *Web application*.
+   - Add `https://xlsdbilvhxmhmmolooac.supabase.co/auth/v1/callback` as an *Authorized redirect URI*.
+   - Paste the client ID and secret into **Supabase → Authentication → Sign In / Providers → Google** and enable it.
+   - The "Continue with Google" button appears automatically.
+
+On Render, set `ADMIN_EMAILS` to your own email address. After you sign in with it you get the **Admin** page (`#/admin`).
+
+### 4.2 Prices
+
+Change prices with environment variables (in so'm): `PLAN_PRICE` (default 39000 a month), `WRITING_CHECK_PRICE` (10000), `SPEAKING_CHECK_PRICE` (20000). `PLAN_FIRST_BONUS_DAYS` (30) is the free extra month on a student's first payment.
+
+### 4.3 Payments
+
+The site offers every payment method that is configured:
+
+- **Card transfer (works today)**:
+  - Set `PAYMENT_CARD_NUMBER` and `PAYMENT_CARD_HOLDER`.
+  - Students transfer the amount with the order number (for example `MX12`) in the comment, then press *I have paid*.
+  - When the money arrives, you press **Confirm payment** under Admin → Payments to confirm.
+- **Payme**:
+  - Sign a merchant agreement at <https://business.payme.uz> and create a cash desk (*kassa*).
+  - In the cash desk settings, set the endpoint to `https://ielts-mock-exam.onrender.com/api/pay/payme` and the account field to `order_id`.
+  - Put the cash desk ID in `PAYME_MERCHANT_ID` and the key in `PAYME_KEY`. For testing, use the test key with `PAYME_TEST=1`, and run Payme's sandbox tests before going live.
+  - If Payme asks for fiscal receipt details, add your MXIK code in `PAYME_IKPU` and the package code in `PAYME_PACKAGE_CODE`.
+- **Click**:
+  - Register a service at <https://merchant.click.uz>.
+  - Set the *Prepare URL* to `https://ielts-mock-exam.onrender.com/api/pay/click/prepare` and the *Complete URL* to `…/api/pay/click/complete`.
+  - Put the service ID, merchant ID and secret key in `CLICK_SERVICE_ID`, `CLICK_MERCHANT_ID` and `CLICK_SECRET_KEY`.
+
+Payments are idempotent: a repeated callback never grants the plan or a check twice. A Payme or Click cancellation of a paid order refunds it automatically (it removes the plan time or cancels a check that has not started). Admins can also refund from the Admin page.
+
+### 4.4 Examiners
+
+1. The examiner signs in to the site once (so their account exists).
+2. You open **Admin → Examiners**, enter their email, name and headline, and tick *Approve now*.
+3. The examiner opens **Examiner** in the menu, completes their profile, and marks checks from their queue.
+
+Students choose an examiner on the results page of any Writing test. After a check is marked they can rate the examiner once, and ratings are shown to other students. Pay your examiners outside the site; Admin → All orders lists every paid check and who marked it.
+
+## 5. Before you announce the site
 
 - [ ] Delete the withdrawn Cambridge files: `git rm data/tests.json data/attempts.db scripts/build_tests_data.py`
 - [ ] Pick your brand name (`SITE_NAME`). Avoid putting "IELTS" in the domain name or logo, because the IELTS partners protect the trademark. Descriptive use in text ("IELTS-style practice") with the disclaimer is what the site does now.
 - [ ] Set `CONTACT_EMAIL` so users can ask for their data to be deleted (shown on the About & legal page).
 - [ ] If you target users in the EU/UK, get a proper privacy policy and cookie review. The site uses no cookies and no trackers, only local storage for autosave and preferences.
 - [ ] Run `python scripts/test_app.py` and take one listening, one reading and one writing test on the live URL.
+- [ ] Sign in with your admin email, buy the plan once by card transfer and confirm it in Admin, then order and mark a Writing check with a test examiner account.
 
 ## Admin endpoints
 

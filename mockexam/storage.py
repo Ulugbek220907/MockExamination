@@ -8,7 +8,8 @@ SupabaseStore  – tests and attempts in Supabase (Postgres) through the server
                  SUPABASE_URL, SUPABASE_KEY and SUPABASE_APP_SECRET are set.
 
 Both expose the same methods, and all methods are synchronous (the server
-calls them from a thread pool).
+calls them from a thread pool). `store.db` gives table access (see db.py) for
+accounts, payments and examiner checks.
 """
 
 import json
@@ -21,6 +22,7 @@ import urllib.error
 import urllib.request
 
 from . import content
+from .db import RestDb, SqliteDb
 
 log = logging.getLogger("mockexam.storage")
 
@@ -47,6 +49,7 @@ class LocalStore:
         self._tests = None
         self._lock = threading.Lock()
         self._init_db()
+        self.db = SqliteDb(self.db_path, lock=self._lock)
 
     # -- content -----------------------------------------------------------
     def list_tests(self):
@@ -117,14 +120,19 @@ class LocalStore:
                 CREATE INDEX IF NOT EXISTS idx_writing_client ON writing_submissions(client_id, created_at);
                 """
             )
+            # Databases created before accounts existed have no user_id column.
+            for table in ("reading_attempts", "listening_attempts", "writing_submissions"):
+                cols = {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}
+                if "user_id" not in cols:
+                    conn.execute(f"ALTER TABLE {table} ADD COLUMN user_id TEXT")
 
     def _save_scored_attempt(self, table, rec):
         with self._lock, self._connect() as conn:
             cur = conn.execute(
-                f"""INSERT INTO {table} (test_id, client_id, candidate_name, mode, raw_score,
+                f"""INSERT INTO {table} (test_id, client_id, user_id, candidate_name, mode, raw_score,
                    total_questions, band_score, time_spent_seconds, answers, breakdown)
-                   VALUES (?,?,?,?,?,?,?,?,?,?)""",
-                (rec["test_id"], rec.get("client_id"), rec.get("candidate_name"), rec.get("mode"),
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
+                (rec["test_id"], rec.get("client_id"), rec.get("user_id"), rec.get("candidate_name"), rec.get("mode"),
                  rec["raw_score"], rec["total_questions"], rec["band_score"], rec.get("time_spent_seconds"),
                  json.dumps(rec.get("answers")), json.dumps(rec.get("breakdown"))),
             )
@@ -139,30 +147,32 @@ class LocalStore:
     def save_writing_submission(self, rec):
         with self._lock, self._connect() as conn:
             cur = conn.execute(
-                """INSERT INTO writing_submissions (test_id, client_id, candidate_name, task1_text, task2_text,
+                """INSERT INTO writing_submissions (test_id, client_id, user_id, candidate_name, task1_text, task2_text,
                    task1_words, task2_words, time_spent_seconds, analysis, assessment, overall_band)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
-                (rec["test_id"], rec.get("client_id"), rec.get("candidate_name"), rec.get("task1_text"),
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?)""",
+                (rec["test_id"], rec.get("client_id"), rec.get("user_id"), rec.get("candidate_name"), rec.get("task1_text"),
                  rec.get("task2_text"), rec.get("task1_words"), rec.get("task2_words"),
                  rec.get("time_spent_seconds"), json.dumps(rec.get("analysis")),
                  json.dumps(rec.get("assessment")), rec.get("overall_band")),
             )
             return cur.lastrowid
 
-    def list_history(self, client_id, limit=20):
+    def list_history(self, client_id=None, limit=20, user_id=None):
+        """Recent attempts of a signed-in user (all devices) or, if signed out, of this browser."""
+        col, value = ("user_id", user_id) if user_id else ("client_id", client_id)
         with self._lock, self._connect() as conn:
             scored = []
             for module in ("reading", "listening"):
                 rows = conn.execute(
                     f"""SELECT id, test_id, raw_score, total_questions, band_score, time_spent_seconds, mode, created_at
-                       FROM {module}_attempts WHERE client_id = ? ORDER BY id DESC LIMIT ?""",
-                    (client_id, limit),
+                       FROM {module}_attempts WHERE {col} = ? ORDER BY id DESC LIMIT ?""",
+                    (value, limit),
                 ).fetchall()
                 scored += [(module, r) for r in rows]
             writing = conn.execute(
-                """SELECT id, test_id, task1_words, task2_words, overall_band, time_spent_seconds, created_at
-                   FROM writing_submissions WHERE client_id = ? ORDER BY id DESC LIMIT ?""",
-                (client_id, limit),
+                f"""SELECT id, test_id, task1_words, task2_words, overall_band, time_spent_seconds, created_at
+                   FROM writing_submissions WHERE {col} = ? ORDER BY id DESC LIMIT ?""",
+                (value, limit),
             ).fetchall()
         items = [
             {"module": module, "id": r[0], "testId": r[1], "rawScore": r[2], "totalQuestions": r[3],
@@ -206,6 +216,7 @@ class SupabaseStore:
         self._cache = None
         self._cache_at = 0.0
         self._lock = threading.Lock()
+        self.db = RestDb(url, api_key, app_secret)
 
     def _rpc(self, function, **params):
         headers = {
@@ -267,8 +278,15 @@ class SupabaseStore:
     def save_writing_submission(self, rec):
         return self._rpc("app_save_writing_submission", p_row=rec)
 
-    def list_history(self, client_id, limit=20):
-        data = self._rpc("app_history", p_client=client_id, p_limit=limit) or {}
+    def list_history(self, client_id=None, limit=20, user_id=None):
+        if user_id:
+            data = {
+                module: self.db.select(table, {"user_id": user_id}, order=[("created_at", "desc")], limit=limit)
+                for module, table in (("reading", "reading_attempts"), ("listening", "listening_attempts"),
+                                      ("writing", "writing_submissions"))
+            }
+        else:
+            data = self._rpc("app_history", p_client=client_id, p_limit=limit) or {}
         items = [
             {"module": module, "id": r["id"], "testId": r["test_id"], "rawScore": r["raw_score"],
              "totalQuestions": r["total_questions"], "bandScore": float(r["band_score"]),
