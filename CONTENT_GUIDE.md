@@ -28,6 +28,7 @@ Facts themselves are not copyrighted. Reading widely and then writing a new pass
 |---|---|
 | Listening 1 | Leisure centre membership form · Country park map and talk · Students plan a food-waste presentation · Lecture on bioluminescence |
 | Listening 2 | Booking a family cycle tour · Radio interview about a food festival · Tutorial on a citizen science project · Lecture on seed banks |
+| Listening 3 | Booking a community centre room · A library reopens (plan labelling) · Students plan a presentation on noise pollution · Lecture on the natural ice trade |
 | Reading 1 | The Language of the Hive · The Box That Shrank the World · The Puzzle of the Placebo |
 | Reading 2 | The Return of the Wolf · The Problem of Longitude · Does Language Shape the Way We Think? |
 | Reading 3 | Saving the Kākāpō · The Rock That Built the Modern World · Too Much of a Good Thing? |
