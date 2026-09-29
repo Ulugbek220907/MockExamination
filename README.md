@@ -20,6 +20,7 @@ A distraction-free website for practising the **Listening**, **Academic Reading*
 - Sign-in uses a 6-digit email code or Google (Supabase Auth). Attempts made before signing in are added to the account.
 - Payments: Payme and Click (merchant APIs built in, switched on by environment variables), or a card transfer confirmed by an admin.
 - Admin panel for confirming payments, refunds, adding examiners and giving plan days.
+- Progress page: the latest band per module with the change since the previous test, and a chart of band scores over time (timed Listening/Reading, marked Writing/Speaking), with a table view.
 - Notifications (optional): emails through Resend to students, examiners and admins, and Telegram messages to the owner for payments and new checks. Menu counters show payments to confirm and checks to mark.
 
 **All content is original** and written for this project. The recordings are voiced with the open-source Kokoro text-to-speech model (Apache 2.0). The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
@@ -49,7 +50,7 @@ Nothing else is required. Without configuration, tests are read from `content/` 
 
 ```bash
 python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts, audio)
-python scripts/test_app.py           # 59 automated tests: scoring, API, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
+python scripts/test_app.py           # 60 automated tests: scoring, API, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
 ```
 
 ## Deploying
@@ -86,6 +87,7 @@ public/
   css/cd-ielts.css        exam environment, contrast themes, charts
   js/app.js               router, dashboard, instructions, resources and legal pages
   js/account.js           sign-in, paywall, payments, pricing, account, examiners, checks, admin
+  js/progress.js          progress tiles and band-over-time chart on the account page
   auth-callback.html      landing page after Google / email-link sign-in
   js/exam.js              reading, listening and writing exam engines
   js/speaking.js          Speaking test (recorder, uploads), microphone check, results, examiner marking form

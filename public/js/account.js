@@ -415,9 +415,10 @@
     const u = user();
     const plan = state.me.plan;
     main.innerHTML = `<section class="page account-page"><p class="muted-text">Loading…</p></section>`;
-    const [ordersRes, checksRes] = await Promise.all([
+    const [ordersRes, checksRes, progressRes] = await Promise.all([
       U.api("/api/orders").catch(() => ({ orders: [] })),
       U.api("/api/checks").catch(() => ({ checks: [] })),
+      U.api("/api/progress").catch(() => ({ points: [] })),
     ]);
     const orders = ordersRes.orders || [];
     const waiting = orders.filter((o) => o.status === "awaiting_confirmation");
@@ -456,6 +457,8 @@
           </div>
         </div>
 
+        <section class="progress-section" id="progress-section"></section>
+
         <h2 class="section-title">Examiner checks</h2>
         ${(checksRes.checks || []).length ? `
           <div class="table-scroll"><table class="history-table">
@@ -485,6 +488,7 @@
       renderAccountSlot();
       U.toast("Saved.");
     });
+    Progress.render(main.querySelector("#progress-section"), progressRes.points || []);
     if (window.app) window.app.loadHistory();
   }
 

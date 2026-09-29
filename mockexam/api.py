@@ -7,6 +7,7 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
   GET  /api/auth/google               redirect to Google sign-in (via Supabase)
   POST /api/auth/logout
   GET  /api/me, POST /api/me          account, plan, examiner profile; change name
+  GET  /api/progress                  band scores over time, for the progress chart
 
   GET  /api/billing                   prices and payment methods
   GET  /api/orders, POST /api/orders  your orders / create an order
@@ -192,6 +193,42 @@ class MeHandler(BaseHandler):
         await in_thread(self.db.update, "profiles", {"id": profile["id"]}, {"name": name or None})
         profile["name"] = name
         self.send_json(await in_thread(account_payload, self.db, profile))
+
+
+def progress_points(store, db, user_id):
+    """
+    One point per scored attempt, oldest first: timed Listening and Reading
+    tests, Writing (the examiner's band if a check was marked, otherwise the AI
+    estimate) and Speaking tests marked by an examiner.
+    """
+    items = store.list_history(None, 300, user_id=user_id) + speaking.history_items(db, user_id, 300)
+    marked = {c["submission_id"]: c for c in db.select("checks", {"student_id": user_id, "kind": "writing",
+                                                                  "status": "completed"}, limit=500)}
+    points = []
+    for i in items:
+        band, source = i.get("bandScore"), "auto"
+        if i["module"] in ("reading", "listening") and i.get("mode") == "practice":
+            continue  # untimed practice would inflate the trend
+        if i["module"] == "writing":
+            if i["id"] in marked:
+                band, source = float(marked[i["id"]]["overall_band"]), "examiner"
+            else:
+                source = "ai"
+        elif i["module"] == "speaking":
+            source = "examiner"
+        if band is None or not i.get("createdAt"):
+            continue
+        points.append({"module": i["module"], "date": i["createdAt"], "band": float(band), "testId": i["testId"],
+                       "source": source})
+    points.sort(key=lambda p: p["date"])
+    return points
+
+
+class ProgressHandler(BaseHandler):
+    async def get(self):
+        profile = await self.require_profile()
+        points = await in_thread(progress_points, self.store, self.db, profile["id"])
+        self.send_json({"points": points})
 
 
 # --------------------------------------------------------------------------
@@ -661,6 +698,7 @@ def routes():
         (r"/api/auth/google", AuthGoogleHandler),
         (r"/api/auth/logout", LogoutHandler),
         (r"/api/me", MeHandler),
+        (r"/api/progress", ProgressHandler),
         (r"/api/billing", BillingConfigHandler),
         (r"/api/orders", OrdersHandler),
         (r"/api/orders/(\d+)/pay", OrderPayHandler),

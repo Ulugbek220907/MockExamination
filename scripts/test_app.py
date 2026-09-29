@@ -659,6 +659,27 @@ class AccountApiTests(AccountApiBase):
         r, data = self.call("GET", "/api/history", cookie=cookie)
         self.assertEqual(len(data["items"]), 1)
 
+    def test_progress_points(self):
+        cookie, _ = self.login("progress@example.com")
+        r, data = self.call("GET", "/api/progress")
+        self.assertEqual(r.code, 401)
+        t = READING[0]
+        self.call("POST", f"/api/reading/{t['id']}/submit", {"answers": perfect_answers(t), "mode": "exam"}, cookie=cookie)
+        self.call("POST", f"/api/reading/{t['id']}/submit", {"answers": {}, "mode": "practice"}, cookie=cookie)
+        w = WRITING[0]
+        r, data = self.call("POST", f"/api/writing/{w['id']}/submit", {"responses": {"1": "Short.", "2": "Short."}}, cookie=cookie)
+        r, data = self.call("GET", "/api/progress", cookie=cookie)
+        # Practice is left out; writing without an AI or examiner band has no score yet.
+        self.assertEqual([(p["module"], p["band"], p["source"]) for p in data["points"]], [("reading", 9.0, "auto")])
+        profile = accounts.find_profile_by_email(server.STORE.db, "progress@example.com")
+        server.STORE.db.insert("checks", {"order_id": 990001, "kind": "writing", "student_id": profile["id"],
+                                          "examiner_id": profile["id"], "submission_id": data["points"][0]["band"] and
+                                          server.STORE.db.select("writing_submissions", {"user_id": profile["id"]})[0]["id"],
+                                          "status": "completed", "overall_band": 6.5})
+        r, data = self.call("GET", "/api/progress", cookie=cookie)
+        self.assertEqual([(p["module"], p["band"], p["source"]) for p in data["points"]],
+                         [("reading", 9.0, "auto"), ("writing", 6.5, "examiner")])
+
     def test_paid_writing_check_end_to_end(self):
         examiner, _ = self.login("examiner.one@example.com")
         admin, _ = self.login("owner@example.com")

@@ -710,3 +710,44 @@ kbd { background: #f1f5f9; border: 1px solid #cbd5e1; border-bottom-width: 2px; 
   display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 5px;
   margin-left: 4px; border-radius: 999px; background: #e11d48; color: #fff; font-size: 11px; font-weight: 800; line-height: 1;
 }
+
+/* Progress (account page) ------------------------------------------------------ */
+.progress-section {
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --series-4: #eda100;
+  --pv-ink: #0b0b0b; --pv-ink-2: #52514e; --pv-muted: #898781; --pv-grid: #e1e0d9; --pv-surface: #ffffff;
+  --pv-up: #006300; --pv-down: #d03b3b;
+  margin-top: 8px;
+}
+.progress-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 12px 0 16px; }
+.progress-tile { background: var(--pv-surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.tile-label { display: flex; align-items: center; gap: 8px; font-size: 0.9em; font-weight: 650; color: var(--pv-ink-2); }
+.line-key { display: inline-block; width: 14px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+.tile-value { font-size: 2em; font-weight: 650; color: var(--pv-ink); line-height: 1.2; margin-top: 4px; }
+.tile-delta { display: block; font-size: 0.85em; font-weight: 600; }
+.tile-delta.is-up { color: var(--pv-up); }
+.tile-delta.is-down { color: var(--pv-down); }
+.tile-delta.is-flat { color: var(--pv-muted); font-weight: 500; }
+.tile-sub { font-size: 0.8em; color: var(--pv-muted); margin-top: 2px; }
+.progress-viz { background: var(--pv-surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px 6px; }
+.pv-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.88em; color: var(--pv-ink-2); margin-bottom: 4px; }
+.pv-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.pv-plot { position: relative; }
+.pv-svg { display: block; overflow: visible; }
+.pv-svg:focus { outline: 2px solid var(--primary); outline-offset: 4px; border-radius: 4px; }
+.pv-grid { stroke: var(--pv-grid); stroke-width: 1; }
+.pv-tick { fill: var(--pv-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.pv-end { fill: var(--pv-ink-2); font-size: 12px; font-weight: 600; }
+.pv-dot { stroke: var(--pv-surface); stroke-width: 2; }
+.pv-cross { stroke: var(--pv-muted); stroke-width: 1; }
+.pv-tip {
+  position: absolute; top: 4px; min-width: 160px; background: var(--pv-surface); border: 1px solid var(--border);
+  border-radius: 8px; box-shadow: var(--shadow-lg); padding: 8px 10px; font-size: 0.85em; pointer-events: none; z-index: 2;
+}
+.pv-tip-date { color: var(--pv-muted); margin-bottom: 4px; }
+.pv-tip-row { display: flex; align-items: center; gap: 8px; color: var(--pv-ink-2); }
+.pv-tip-row strong { color: var(--pv-ink); min-width: 26px; }
+.pv-table { margin-top: 10px; border: none; }
+.pv-table summary { padding-left: 0; font-size: 0.9em; color: var(--primary); }
+@media (max-width: 720px) {
+  .progress-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
