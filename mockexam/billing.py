@@ -26,8 +26,8 @@ import os
 import time
 import urllib.parse
 
-from . import accounts, checks
-from .db import iso, now
+from . import accounts, checks, notify
+from .db import iso, now, parse_time
 
 log = logging.getLogger("mockexam.billing")
 
@@ -202,11 +202,19 @@ def fulfil_order(db, order_id, provider):
         accounts.grant_plan_period(db, order["user_id"], days, "payment", order_id=order["id"],
                                    note="first month + bonus" if first else None)
     else:
-        checks.create_check(db, order)
+        check = checks.create_check(db, order)
     if order["status"] != "paid":
         updated = db.update("orders", {"id": order["id"], "status": ("in", ["pending", "awaiting_confirmation"])},
                             {"status": "paid", "paid_at": iso(now()), "provider": provider})
         order = updated[0] if updated else get_order(db, order["id"])
+        if updated:  # tell people once, when the order changes to paid
+            ends = None
+            if order["kind"] == "plan":
+                ends_at = parse_time(accounts.plan_status(db, order["user_id"])["endsAt"])
+                ends = ends_at.strftime("%d %B %Y") if ends_at else None
+            notify.order_paid(db, order, provider, ends)
+            if order["kind"] != "plan":
+                notify.check_assigned(db, check)
     log.info("Order %s (%s, %s) paid via %s", order["id"], order["kind"], order["amount"], provider)
     return order
 

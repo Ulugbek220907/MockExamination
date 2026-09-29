@@ -705,3 +705,8 @@ kbd { background: #f1f5f9; border: 1px solid #cbd5e1; border-bottom-width: 2px; 
 @media (max-width: 640px) {
   .speak-offer .offer-action { align-items: stretch; width: 100%; }
 }
+
+.nav-count {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 5px;
+  margin-left: 4px; border-radius: 999px; background: #e11d48; color: #fff; font-size: 11px; font-weight: 800; line-height: 1;
+}

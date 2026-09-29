@@ -52,6 +52,10 @@
       state.me = { user: null };
     }
     renderAccountSlot();
+    // Admins and examiners see new payments and checks in the menu without reloading.
+    if (!state.poll && ["admin", "examiner"].includes(role())) {
+      state.poll = setInterval(() => { if (!document.hidden) refreshMe(); }, 120000);
+    }
     return state.me;
   }
 
@@ -68,9 +72,11 @@
       slot.innerHTML = `<button type="button" class="nav-signin" data-action="signin">Sign in</button>`;
       return;
     }
+    const todo = state.me.todo || {};
+    const count = (n, what) => (n ? ` <span class="nav-count" title="${n} ${what}">${n > 99 ? "99+" : n}</span>` : "");
     slot.innerHTML = `
-      ${u.role === "examiner" || u.role === "admin" ? `<a href="#/examiner" class="nav-extra" data-nav="examiner">Examiner</a>` : ""}
-      ${u.role === "admin" ? `<a href="#/admin" class="nav-extra" data-nav="admin">Admin</a>` : ""}
+      ${u.role === "examiner" || u.role === "admin" ? `<a href="#/examiner" class="nav-extra" data-nav="examiner">Examiner${count(todo.checks, "checks to mark")}</a>` : ""}
+      ${u.role === "admin" ? `<a href="#/admin" class="nav-extra" data-nav="admin">Admin${count(todo.payments, "payments to confirm")}</a>` : ""}
       <a href="#/account" class="nav-account" data-nav="account" title="${esc(u.email)}">
         <span class="avatar" aria-hidden="true">${esc(initials(u.name || u.email))}</span>
         <span class="nav-account-name">${esc(u.name || u.email.split("@")[0])}</span>
@@ -929,7 +935,8 @@
       return;
     }
     const tab = params.get("tab") || "payments";
-    const tabs = [["payments", "Payments to confirm"], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"]];
+    const waiting = (state.me.todo || {}).payments || 0;
+    const tabs = [["payments", `Payments to confirm${waiting ? ` (${waiting})` : ""}`], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"]];
     main.innerHTML = `
       <section class="page admin-page">
         <h1>Admin</h1>
@@ -941,6 +948,7 @@
       try {
         await U.api(path, { method: "POST", body: "{}" });
         U.toast(label);
+        await refreshMe();
         renderAdmin(main, params);
       } catch (err) {
         U.toast(err.message, "warn");

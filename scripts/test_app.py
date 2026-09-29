@@ -37,7 +37,7 @@ os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import accounts, api, billing, checks, content, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, api, billing, checks, content, notify, scoring, speaking, storage, writing  # noqa: E402
 from mockexam.db import SqliteDb, iso, now  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
@@ -835,6 +835,85 @@ class SpeakingApiTests(AccountApiBase):
         self.assertEqual((item["bandScore"], item["checkId"]), (6.5, check_id))
         r, data = self.call("GET", f"/api/checks/{check_id}", cookie=student)
         self.assertEqual(data["check"]["result"]["criteria"]["pronunciation"]["band"], 7)
+
+
+class NotificationTests(AccountApiBase):
+    """Emails and Telegram messages at each step of a paid check (transports replaced by a recorder)."""
+
+    def setUp(self):
+        super().setUp()
+        self.sent = []
+        notify.SYNC = True
+        env = {"RESEND_API_KEY": "re_test", "EMAIL_FROM": "MockExam <noreply@example.com>",
+               "TELEGRAM_BOT_TOKEN": "123:abc", "TELEGRAM_ADMIN_CHAT_ID": "42", "SITE_URL": "https://mock.example"}
+        self.patches = [mock.patch.dict(os.environ, env),
+                        mock.patch.object(notify, "_post_json", lambda url, payload, headers=None: self.sent.append((url, payload)))]
+        for p in self.patches:
+            p.start()
+
+    def tearDown(self):
+        for p in self.patches:
+            p.stop()
+        notify.SYNC = False
+        super().tearDown()
+
+    def emails(self, to=None):
+        return [p for u, p in self.sent if "resend" in u and (to is None or to in p["to"])]
+
+    def telegrams(self):
+        return [p["text"] for u, p in self.sent if "telegram" in u]
+
+    def test_paid_check_notifications(self):
+        examiner, _ = self.login("notify.examiner@example.com")
+        admin, _ = self.login("owner@example.com")
+        r, data = self.call("POST", "/api/admin/examiners", {"email": "notify.examiner@example.com", "displayName": "N. E.",
+                                                              "approved": True}, cookie=admin)
+        ex_id = data["examiner"]["id"]
+        student, _ = self.login("notify.student@example.com")
+        t = WRITING[0]
+        r, data = self.call("POST", f"/api/writing/{t['id']}/submit",
+                            {"responses": {"1": t["tasks"][0]["modelAnswer"], "2": t["tasks"][1]["modelAnswer"]}}, cookie=student)
+        r, data = self.call("POST", "/api/orders", {"kind": "writing_check", "examinerId": ex_id, "submissionId": data["submissionId"]},
+                            cookie=student)
+        order_id = data["order"]["id"]
+        self.sent.clear()
+        self.call("POST", f"/api/orders/{order_id}/manual-paid", {}, cookie=student)
+        self.call("POST", f"/api/orders/{order_id}/manual-paid", {}, cookie=student)  # repeated press: one message
+        claimed = self.emails("owner@example.com")
+        self.assertEqual(len(claimed), 1)
+        self.assertIn(f"MX{order_id}", claimed[0]["subject"])
+        self.assertIn("https://mock.example/#/admin?tab=payments", claimed[0]["text"])
+        self.assertTrue(any(f"MX{order_id}" in m for m in self.telegrams()))
+        r, data = self.call("GET", "/api/me", cookie=admin)
+        self.assertGreaterEqual(data["todo"]["payments"], 1)
+
+        self.sent.clear()
+        self.call("POST", f"/api/admin/orders/{order_id}/confirm", {}, cookie=admin)
+        self.call("POST", f"/api/admin/orders/{order_id}/confirm", {}, cookie=admin)  # repeated: no second round
+        self.assertEqual([e["subject"] for e in self.emails("notify.student@example.com")], ["Payment received: Writing check"])
+        to_examiner = self.emails("notify.examiner@example.com")
+        self.assertEqual(len(to_examiner), 1)
+        self.assertRegex(to_examiner[0]["text"], r"https://mock\.example/#/check/\d+")
+        self.assertIn("<a href=", to_examiner[0]["html"])
+        self.assertFalse(any("New payment" in m for m in self.telegrams()))  # the admin confirmed it themselves
+        r, data = self.call("GET", "/api/me", cookie=examiner)
+        self.assertEqual(data["todo"]["checks"], 1)
+
+        check_id = self.call("GET", "/api/checks", cookie=student)[1]["checks"][0]["id"]
+        crit = {k: {"band": 6, "feedback": "OK"} for k in checks.WRITING_CRITERIA}
+        self.sent.clear()
+        self.call("POST", f"/api/examiner/checks/{check_id}/result",
+                  {"result": {"tasks": {"1": {"criteria": crit}, "2": {"criteria": crit}}}}, cookie=examiner)
+        done = self.emails("notify.student@example.com")
+        self.assertEqual(len(done), 1)
+        self.assertIn("band 6.0", done[0]["text"])
+        self.assertEqual(self.call("GET", "/api/me", cookie=examiner)[1]["todo"]["checks"], 0)
+
+    def test_nothing_sent_without_configuration(self):
+        with mock.patch.dict(os.environ, {"RESEND_API_KEY": "", "TELEGRAM_BOT_TOKEN": ""}):
+            self.assertFalse(notify.send_email("a@example.com", "Hi", "Text"))
+            self.assertFalse(notify.send_telegram("Hi"))
+        self.assertEqual(self.sent, [])
 
 
 class SpeakingCleanupTests(unittest.TestCase):

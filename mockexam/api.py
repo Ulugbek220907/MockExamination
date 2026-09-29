@@ -40,7 +40,7 @@ import re
 
 import tornado.web
 
-from . import accounts, auth, billing, checks, speaking
+from . import accounts, auth, billing, checks, notify, speaking
 from .web import BaseHandler, in_thread
 
 log = logging.getLogger("mockexam.api")
@@ -78,11 +78,15 @@ def claim_attempts(db, client_id, user_id):
 
 
 def account_payload(db, profile):
-    out = {"user": _public_user(profile), "plan": accounts.plan_status(db, profile["id"]), "examiner": None}
+    out = {"user": _public_user(profile), "plan": accounts.plan_status(db, profile["id"]), "examiner": None, "todo": {}}
     if profile["role"] in ("examiner", "admin"):
         row = checks.get_examiner(db, profile["id"])
         if row:
             out["examiner"] = checks.public_examiner(row)
+            out["todo"]["checks"] = len(db.select("checks", {"examiner_id": profile["id"],
+                                                             "status": ("in", ["waiting", "in_progress"])}, limit=100))
+    if profile["role"] == "admin":
+        out["todo"]["payments"] = len(db.select("orders", {"status": "awaiting_confirmation"}, limit=100))
     return out
 
 
@@ -239,10 +243,13 @@ class OrderPayHandler(BaseHandler):
 class OrderManualPaidHandler(BaseHandler):
     async def post(self, order_id):
         profile, order = await _own_order(self, order_id)
+        was = order["status"]
         try:
             order = await in_thread(billing.mark_manual_paid, self.db, order, profile["id"])
         except billing.BillingError as e:
             _raise(e)
+        if was == "pending" and order["status"] == "awaiting_confirmation":
+            notify.payment_claimed(self.db, order)
         self.send_json({"order": billing.public_order(order)})
 
 
@@ -379,6 +386,7 @@ class ExaminerCheckActionHandler(BaseHandler):
                 check = await in_thread(checks.start_check, self.db, check, profile["id"])
             else:
                 check = await in_thread(checks.submit_result, self.db, check, profile["id"], self.body_json().get("result"))
+                notify.check_completed(self.db, check)
         except checks.CheckError as e:
             _raise(e)
         self.send_json({"check": checks.public_check(check)})

@@ -20,6 +20,7 @@ A distraction-free website for practising the **Listening**, **Academic Reading*
 - Sign-in uses a 6-digit email code or Google (Supabase Auth). Attempts made before signing in are added to the account.
 - Payments: Payme and Click (merchant APIs built in, switched on by environment variables), or a card transfer confirmed by an admin.
 - Admin panel for confirming payments, refunds, adding examiners and giving plan days.
+- Notifications (optional): emails through Resend to students, examiners and admins, and Telegram messages to the owner for payments and new checks. Menu counters show payments to confirm and checks to mark.
 
 **All content is original** and written for this project. The recordings are voiced with the open-source Kokoro text-to-speech model (Apache 2.0). The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
 
@@ -48,7 +49,7 @@ Nothing else is required. Without configuration, tests are read from `content/` 
 
 ```bash
 python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts, audio)
-python scripts/test_app.py           # 57 automated tests: scoring, API, sign-in, plan, Payme, Click, examiner checks, Speaking
+python scripts/test_app.py           # 59 automated tests: scoring, API, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
 ```
 
 ## Deploying
@@ -71,6 +72,7 @@ mockexam/
   checks.py               examiner profiles, paid checks, marking, one review per check
   speaking.py             Speaking submissions, recorded answers, who may listen, clean-up of old recordings
   files.py                private file storage for recordings: a local folder, or a Supabase Storage bucket
+  notify.py               email (Resend) and Telegram notifications for payments and checks
   api.py                  HTTP API for all of the above
   web.py                  shared handler code: security headers, sessions, roles
 content/

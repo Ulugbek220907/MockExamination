@@ -133,6 +133,22 @@ Students choose an examiner on the results page of any Writing or Speaking test.
 - Limits against abuse: `SPEAKING_TESTS_PER_DAY` (default 8) tests per student per day, and `SPEAKING_UPLOAD_MB_PER_DAY` (default 80) MB of audio per student per day. Each answer is at most 4 MB.
 - Browsers only allow the microphone on `https://` sites (and `localhost`). Render provides HTTPS automatically.
 
+### 4.6 Notifications (recommended)
+
+Without these the site works, but you only see new payments and checks when you open the site. The menu shows a red counter
+on **Admin** (payments to confirm) and **Examiner** (checks to mark) either way.
+
+- **Emails** (students, examiners, and the addresses in `ADMIN_EMAILS`):
+  - Create a free account at <https://resend.com>, add and verify your domain, and create an API key.
+  - Set `RESEND_API_KEY` and `EMAIL_FROM` (for example `MockExam <noreply@your-domain.uz>`).
+  - You can use the same Resend account as the SMTP sender for the sign-in codes (section 4.1).
+  - Students get "payment received" and "your check is ready". Examiners get "new check for you". Admins get "card transfer to confirm".
+- **Telegram** (instant messages to you):
+  1. Talk to **@BotFather** in Telegram, send `/newbot`, and copy the token into `TELEGRAM_BOT_TOKEN`.
+  2. Send any message to your new bot.
+  3. Open `https://api.telegram.org/bot<TOKEN>/getUpdates` and copy the `chat` → `id` number into `TELEGRAM_ADMIN_CHAT_ID`.
+  4. You get a message for every card transfer to confirm, every Payme/Click payment and every new check.
+
 ## 5. Before you announce the site
 
 - [ ] Delete the withdrawn Cambridge files: `git rm data/tests.json data/attempts.db scripts/build_tests_data.py`
