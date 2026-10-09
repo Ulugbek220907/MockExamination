@@ -84,11 +84,16 @@
     return `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
   }
 
-  function formatDate(iso) {
+  function formatDate(iso, locale) {
     if (!iso) return "";
     const d = new Date(iso);
     if (isNaN(d)) return iso;
-    return d.toLocaleString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+    const loc = locale || (window.I18N ? I18N.locale() : undefined);
+    try {
+      return d.toLocaleString(loc, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+    } catch (e) {
+      return d.toLocaleString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+    }
   }
 
   function countWords(text) {

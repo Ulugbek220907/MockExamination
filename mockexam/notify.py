@@ -3,7 +3,7 @@ Notifications by email (Resend) and Telegram. Both are optional: without
 configuration nothing is sent and the site works exactly the same.
 
   RESEND_API_KEY, EMAIL_FROM      emails to students, examiners and admins
-                                  (EMAIL_FROM like "MockExam <noreply@your-domain>";
+                                  (EMAIL_FROM like "TestDay <noreply@your-domain>";
                                   the domain must be verified in Resend)
   TELEGRAM_BOT_TOKEN,             instant messages to the site owner
   TELEGRAM_ADMIN_CHAT_ID
@@ -44,7 +44,7 @@ def site_url():
 
 
 def site_name():
-    return _env("SITE_NAME") or "MockExam"
+    return _env("SITE_NAME") or "TestDay"
 
 
 def admin_emails():

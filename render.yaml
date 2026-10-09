@@ -15,7 +15,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: SITE_NAME
-        value: MockExam
+        value: TestDay
       - key: ANTHROPIC_MODEL
         value: claude-opus-5
       - key: AI_PER_IP_PER_HOUR

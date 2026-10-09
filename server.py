@@ -68,7 +68,7 @@ log = logging.getLogger("mockexam")
 PORT = int(os.environ.get("PORT", 8080))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
-SITE_NAME = os.environ.get("SITE_NAME", "MockExam")
+SITE_NAME = os.environ.get("SITE_NAME", "TestDay")
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "")
 
 AI_PER_IP_PER_HOUR = int(os.environ.get("AI_PER_IP_PER_HOUR", 6))
