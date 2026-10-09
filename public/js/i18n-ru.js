@@ -27,7 +27,7 @@
     // Home
     "title.home": "Тренировка Listening, Reading, Writing и Speaking в формате IELTS",
     "Every line ends at test day.": "Каждая линия ведёт ко дню экзамена.",
-    "home.lead": "Оригинальные тесты на экране как на настоящем компьютерном IELTS. Первый тест на каждой линии бесплатный.",
+    "home.lead": "Подготовка к компьютерному IELTS. Первый тест на каждой линии бесплатный; Listening, Reading и Writing — без регистрации.",
     "Free test": "Бесплатный тест",
     "With the pass": "С абонементом",
     "Taken, with your band": "Пройден, с вашим баллом",
@@ -45,6 +45,7 @@
     "{m}m {s}s": "{m} мин {s} с",
     "Start {name}, free": "Начать бесплатно: {name}",
     "Next": "Следующий",
+    "Next: {name}": "Далее: {name}",
     "Free": "Бесплатно",
     "In your pass": "В вашем абонементе",
     "{min} minutes · 2 tasks": "{min} минут · 2 задания",

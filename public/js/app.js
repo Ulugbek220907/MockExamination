@@ -194,6 +194,11 @@
       if (Account.onClick(e)) return;
       const station = e.target.closest("[data-station]");
       if (station) return this.toggleSign(station);
+      const nextStation = e.target.closest("[data-next-station]");
+      if (nextStation) {
+        const target = document.querySelector(`.station-btn[data-station="${CSS.escape(nextStation.dataset.nextStation)}"]`);
+        if (target) return this.toggleSign(target);
+      }
       const el = e.target.closest("[data-action]");
       if (!el) return;
       if (el.dataset.action === "start") this.prepare(el.dataset.test, el.dataset.mode);
@@ -319,6 +324,9 @@
         const done = tests.filter((x) => this.ridden[x.id]);
         const next = done.length ? tests.find((x) => !this.ridden[x.id]) : null;
         const free = tests.find((x) => x.access === "free" && !this.ridden[x.id]);
+        // On phones the station labels are too narrow for a "Next" tag, so the line's row names the next station.
+        const nextButton = !free && next ? `<button type="button" class="next-mobile" data-next-station="${esc(next.id)}"
+                  aria-controls="sign-${line.module}">${esc(t("Next: {name}", { name: this.testName(next) }))} ${ICON_ARROW}</button>` : "";
         return `
           <li class="line-row ${line.cls}" data-line="${line.module}">
             <div class="line-main">
@@ -326,7 +334,7 @@
                 <span class="bullet">${line.letter}</span>
                 <div><div class="line-name">${MODULE_LABELS[line.module]}</div><span class="line-meta">${esc(this.lineMeta(line.module))}</span></div>
                 ${free ? `<button type="button" class="start-free start-free-mobile" data-action="start" data-test="${esc(free.id)}" data-mode="exam"
-                  aria-label="${esc(t("Start {name}, free", { name: `${MODULE_LABELS[line.module]}, ${this.testName(free)}` }))}">${t("start.short")} ${ICON_ARROW}</button>` : ""}
+                  aria-label="${esc(t("Start {name}, free", { name: `${MODULE_LABELS[line.module]}, ${this.testName(free)}` }))}">${t("start.short")} ${ICON_ARROW}</button>` : nextButton}
               </div>
               <div class="track">
                 <ol class="stations">${tests.map((x) => this.stationHTML(x, line, x === next)).join("")}</ol>

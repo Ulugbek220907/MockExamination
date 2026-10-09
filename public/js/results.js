@@ -23,7 +23,7 @@
           <span class="bullet lg ${line[0]}" aria-hidden="true">${line[1]}</span>
           <div>
             <h1>${esc(data.title)}</h1>
-            <p class="muted-text">${esc(data.candidateName)} · ${esc(extra)} · ${esc(tr("Time used: {time}", { time: U.formatDuration(data.timeSpentSeconds) }))}</p>
+            <p class="muted-text results-sub"><span>${esc(data.candidateName)}</span> · <span>${esc(extra)}</span> · <span>${esc(tr("Time used: {time}", { time: U.formatDuration(data.timeSpentSeconds) }))}</span></p>
           </div>
         </div>
         <div class="results-actions">

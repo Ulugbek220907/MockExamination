@@ -241,7 +241,7 @@ h1, h2, h3 { text-wrap: balance; }
 /* Home: the network ---------------------------------------------------------------- */
 .network-head { margin-bottom: 28px; }
 .network-head h1 { font-size: clamp(2rem, 1.1rem + 3vw, 3.4rem); line-height: 1.04; font-weight: 650; letter-spacing: -0.025em; }
-.network-head p { font-size: 1.08rem; color: var(--ink-2); margin-top: 14px; max-width: 92ch; }
+.network-head p { font-size: 1.08rem; color: var(--ink-2); margin-top: 14px; }
 .network-key { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.86rem; color: var(--muted); margin: -40px 0 56px; padding: 0 4px; }
 .network-key > span { display: inline-flex; align-items: center; gap: 8px; }
 .key-ring {
@@ -265,7 +265,7 @@ h1, h2, h3 { text-wrap: balance; }
   min-height: 104px; padding-left: 24px;
 }
 .network { --hub-col: 270px; }
-.line-label .start-free-mobile { display: none; }
+.line-label .start-free-mobile, .line-label .next-mobile { display: none; }
 .line-label { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .line-name { font-family: var(--font-display); font-weight: 650; font-size: 1.22rem; line-height: 1.15; }
 .line-meta { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
@@ -486,6 +486,7 @@ h1, h2, h3 { text-wrap: balance; }
 .results-page { display: flex; flex-direction: column; }
 .results-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
 .results-title { display: flex; align-items: center; gap: 14px; }
+.results-sub span { white-space: nowrap; }
 .results-head h1 { font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); font-weight: 650; line-height: 1.15; }
 .results-head .muted-text { margin-top: 4px; }
 .results-actions { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -1074,7 +1075,11 @@ body:not(.in-exam) .modal-close:hover { background: var(--marble); color: var(--
   .network { --hub-col: 72px; border-radius: 16px; padding: 4px 0 78px; margin-bottom: 44px; }
   .line-main { grid-template-columns: minmax(0, 1fr) var(--hub-col); grid-template-rows: auto auto; padding: 14px 0 0 14px; min-height: 0; }
   .line-label { grid-column: 1; padding-right: 8px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 0 10px; }
-  .line-label .start-free-mobile { display: inline-flex; }
+  .line-label .start-free-mobile, .line-label .next-mobile { display: inline-flex; }
+  .next-mobile {
+    align-items: center; gap: 6px; min-height: 40px; padding: 0 10px 0 13px; border: none; border-radius: 999px;
+    background: var(--granite); color: #fff; font: inherit; font-weight: 700; font-size: 0.86rem; white-space: nowrap; cursor: pointer;
+  }
   .line-name { font-size: 1.12rem; }
   .line-meta { font-size: 0.78rem; }
   .track { grid-column: 1; height: 76px; margin-bottom: 8px; }

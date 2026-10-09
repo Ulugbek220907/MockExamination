@@ -27,7 +27,7 @@
     // Home
     "title.home": "IELTS uslubidagi Listening, Reading, Writing va Speaking mashqlari",
     "Every line ends at test day.": "Har bir liniya imtihon kuniga olib boradi.",
-    "home.lead": "Haqiqiy kompyuterdagi IELTS kabi ekrandagi original testlar. Har bir liniyadagi birinchi test bepul.",
+    "home.lead": "Kompyuterdagi IELTS’ga tayyorgarlik. Har bir liniyadagi birinchi test bepul; Listening, Reading va Writing — ro‘yxatdan o‘tmasdan.",
     "Free test": "Bepul test",
     "With the pass": "Abonement bilan",
     "Taken, with your band": "Topshirilgan, balingiz bilan",
@@ -45,6 +45,7 @@
     "{m}m {s}s": "{m} daq {s} s",
     "Start {name}, free": "{name}ni bepul boshlash",
     "Next": "Keyingi",
+    "Next: {name}": "Keyingi: {name}",
     "Free": "Bepul",
     "In your pass": "Abonementingizda",
     "{min} minutes · 2 tasks": "{min} daqiqa · 2 topshiriq",

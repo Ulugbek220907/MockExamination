@@ -11,7 +11,7 @@
     "so'm": "so‘m",
     "so'm / month": "so‘m / month",
     "start.short": "Start free",
-    "home.lead": "Original tests on a screen like the real computer-delivered IELTS. The first test on every line is free.",
+    "home.lead": "Practise for the computer-delivered IELTS. The first test on every line is free; Listening, Reading and Writing need no sign-up.",
     "line.listening": "4 parts · 40 questions",
     "line.reading": "3 passages · 40 questions",
     "line.writing": "2 tasks · 60 minutes",
