@@ -1,0 +1,823 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-09T09:43:42+00:00",
+  "title": "Design System: TestDay",
+  "extensions": {
+    "colorMeta": {
+      "granite": {
+        "role": "primary",
+        "displayName": "Polished Granite",
+        "canonical": "#142038",
+        "cssVar": "--granite",
+        "tonalRamp": [
+          "#020a1f",
+          "#18243d",
+          "#34425c",
+          "#53617e",
+          "#7383a0",
+          "#95a6c5",
+          "#b9caea",
+          "#e6efff"
+        ]
+      },
+      "granite-2": {
+        "role": "primary",
+        "displayName": "Granite Plate",
+        "canonical": "#1d2b47",
+        "cssVar": "--granite-2",
+        "tonalRamp": [
+          "#020922",
+          "#172440",
+          "#33425f",
+          "#516181",
+          "#7183a4",
+          "#93a5c8",
+          "#b7caee",
+          "#e7effe"
+        ]
+      },
+      "granite-3": {
+        "role": "primary",
+        "displayName": "Granite Edge",
+        "canonical": "#2c3c5d",
+        "cssVar": "--granite-3",
+        "tonalRamp": [
+          "#010824",
+          "#152443",
+          "#314163",
+          "#4f6185",
+          "#7082a8",
+          "#92a5cc",
+          "#b5caf2",
+          "#e7efff"
+        ]
+      },
+      "granite-ink": {
+        "role": "primary",
+        "displayName": "Plaque Lettering",
+        "canonical": "#eef2f8",
+        "cssVar": "--granite-ink",
+        "tonalRamp": [
+          "#090b0f",
+          "#22252a",
+          "#3f4247",
+          "#5e6166",
+          "#7f8388",
+          "#a2a5ab",
+          "#c5c9cf",
+          "#ebeff5"
+        ]
+      },
+      "granite-muted": {
+        "role": "primary",
+        "displayName": "Weathered Plaque Grey",
+        "canonical": "#a9b5ca",
+        "cssVar": "--granite-muted",
+        "tonalRamp": [
+          "#040b19",
+          "#1c2535",
+          "#384254",
+          "#576274",
+          "#788397",
+          "#9aa6ba",
+          "#becadf",
+          "#e6effe"
+        ]
+      },
+      "marble": {
+        "role": "neutral",
+        "displayName": "Station Marble",
+        "canonical": "#f1f3f6",
+        "cssVar": "--marble",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242527",
+          "#404244",
+          "#606164",
+          "#818285",
+          "#a3a5a8",
+          "#c7c9cc",
+          "#edeff2"
+        ]
+      },
+      "marble-2": {
+        "role": "neutral",
+        "displayName": "Veined Marble",
+        "canonical": "#e5e9ef",
+        "cssVar": "--marble-2",
+        "tonalRamp": [
+          "#090b0f",
+          "#22252a",
+          "#3f4247",
+          "#5e6167",
+          "#7f8388",
+          "#a1a5ab",
+          "#c5c9cf",
+          "#ebeff5"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Station Board White",
+        "canonical": "#ffffff",
+        "cssVar": "--paper",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Grout Line",
+        "canonical": "#d4dae3",
+        "cssVar": "--rule",
+        "tonalRamp": [
+          "#080b11",
+          "#21252c",
+          "#3d424a",
+          "#5c6269",
+          "#7d838b",
+          "#a0a5ae",
+          "#c4cad2",
+          "#e9eff8"
+        ]
+      },
+      "rule-soft": {
+        "role": "neutral",
+        "displayName": "Faint Grout",
+        "canonical": "#e7ebf0",
+        "cssVar": "--rule-soft",
+        "tonalRamp": [
+          "#090b0f",
+          "#222529",
+          "#3f4246",
+          "#5e6266",
+          "#7f8387",
+          "#a2a5aa",
+          "#c6c9ce",
+          "#ebeff4"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Timetable Ink",
+        "canonical": "#141a22",
+        "cssVar": "--ink",
+        "tonalRamp": [
+          "#060b13",
+          "#1f262e",
+          "#3c434c",
+          "#5b626c",
+          "#7b838d",
+          "#9ea6b1",
+          "#c2cad5",
+          "#e7effb"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Slate Ink",
+        "canonical": "#384252",
+        "cssVar": "--ink-2",
+        "tonalRamp": [
+          "#040b18",
+          "#1c2534",
+          "#384253",
+          "#576273",
+          "#788395",
+          "#9aa6b9",
+          "#becade",
+          "#e6effe"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Platform Grey",
+        "canonical": "#586273",
+        "cssVar": "--muted",
+        "tonalRamp": [
+          "#050b18",
+          "#1d2534",
+          "#394252",
+          "#586273",
+          "#788395",
+          "#9ba6b8",
+          "#becadd",
+          "#e6effe"
+        ]
+      },
+      "line-l": {
+        "role": "secondary",
+        "displayName": "Listening Line Blue",
+        "canonical": "#1f5fbf",
+        "cssVar": "--line-l",
+        "tonalRamp": [
+          "#000924",
+          "#002155",
+          "#003c8d",
+          "#1c5cbc",
+          "#4080e3",
+          "#6ca5fe",
+          "#aacbfe",
+          "#e6effe"
+        ]
+      },
+      "line-r": {
+        "role": "secondary",
+        "displayName": "Reading Line Red",
+        "canonical": "#cf3a2c",
+        "cssVar": "--line-r",
+        "tonalRamp": [
+          "#1f0000",
+          "#4d0000",
+          "#800200",
+          "#b41910",
+          "#dc4738",
+          "#fe7462",
+          "#feb3a7",
+          "#fee9e5"
+        ]
+      },
+      "line-w": {
+        "role": "secondary",
+        "displayName": "Writing Line Green",
+        "canonical": "#1e7c42",
+        "cssVar": "--line-w",
+        "tonalRamp": [
+          "#001004",
+          "#002e12",
+          "#015025",
+          "#11743b",
+          "#3f975b",
+          "#64bb7d",
+          "#89e0a0",
+          "#c7ffd4"
+        ]
+      },
+      "line-s": {
+        "role": "secondary",
+        "displayName": "Speaking Line Amber",
+        "canonical": "#e3a21a",
+        "cssVar": "--line-s",
+        "tonalRamp": [
+          "#120900",
+          "#332101",
+          "#583c01",
+          "#805902",
+          "#ab7702",
+          "#d79801",
+          "#febc42",
+          "#ffecce"
+        ]
+      },
+      "line-l-soft": {
+        "role": "secondary",
+        "displayName": "Listening Tint",
+        "canonical": "#e3ecf9",
+        "cssVar": "--line-l-soft",
+        "tonalRamp": [
+          "#060b14",
+          "#1f252f",
+          "#3b434d",
+          "#5a626d",
+          "#7b838f",
+          "#9da6b2",
+          "#c1cad6",
+          "#e6effc"
+        ]
+      },
+      "line-r-soft": {
+        "role": "secondary",
+        "displayName": "Reading Tint",
+        "canonical": "#fbe6e3",
+        "cssVar": "--line-r-soft",
+        "tonalRamp": [
+          "#140706",
+          "#30211f",
+          "#4e3d3b",
+          "#6e5c5a",
+          "#907d7b",
+          "#b3a09d",
+          "#d8c4c1",
+          "#fee9e6"
+        ]
+      },
+      "line-w-soft": {
+        "role": "secondary",
+        "displayName": "Writing Tint",
+        "canonical": "#e1f1e7",
+        "cssVar": "--line-w-soft",
+        "tonalRamp": [
+          "#040e08",
+          "#1c2821",
+          "#39463e",
+          "#57655d",
+          "#78867e",
+          "#9aa9a0",
+          "#becec4",
+          "#e3f3e9"
+        ]
+      },
+      "line-s-soft": {
+        "role": "secondary",
+        "displayName": "Speaking Tint",
+        "canonical": "#fcf0d5",
+        "cssVar": "--line-s-soft",
+        "tonalRamp": [
+          "#110a00",
+          "#2d240e",
+          "#4b412a",
+          "#6b6049",
+          "#8c8169",
+          "#afa48b",
+          "#d4c8ae",
+          "#f9edd3"
+        ]
+      },
+      "line-s-ink": {
+        "role": "secondary",
+        "displayName": "Amber Ink",
+        "canonical": "#8a5a00",
+        "cssVar": "--line-s-ink",
+        "tonalRamp": [
+          "#130900",
+          "#352000",
+          "#5b3a01",
+          "#845602",
+          "#a9772e",
+          "#ce9a53",
+          "#f4be77",
+          "#ffebd3"
+        ]
+      },
+      "line-w-ink": {
+        "role": "secondary",
+        "displayName": "Writing Ink",
+        "canonical": "#1a7340",
+        "cssVar": "--line-w-ink",
+        "tonalRamp": [
+          "#130900",
+          "#352000",
+          "#5b3a01",
+          "#845602",
+          "#a9772e",
+          "#ce9a53",
+          "#f4be77",
+          "#ffebd3"
+        ],
+        "note": "Writing green as text (tags, line ink): 5.0:1 on Writing Tint, where the line colour itself is 4.47:1."
+      },
+      "primary-hover": {
+        "role": "secondary",
+        "displayName": "Deep Listening Blue",
+        "canonical": "#194f9f",
+        "cssVar": "--primary-hover",
+        "tonalRamp": [
+          "#000924",
+          "#002155",
+          "#033d8b",
+          "#295fb0",
+          "#4a81d6",
+          "#6ca5fd",
+          "#a9cbff",
+          "#e5efff"
+        ]
+      },
+      "ok": {
+        "role": "tertiary",
+        "displayName": "Correct Green",
+        "canonical": "#1a7340",
+        "cssVar": "--ok",
+        "tonalRamp": [
+          "#001004",
+          "#002e12",
+          "#015025",
+          "#11743b",
+          "#3f975b",
+          "#64bb7d",
+          "#89e0a0",
+          "#c7ffd4"
+        ],
+        "note": "A shade deeper than the Writing line so it reads at 5:1 as text on Correct Tint."
+      },
+      "ok-soft": {
+        "role": "tertiary",
+        "displayName": "Correct Tint",
+        "canonical": "#e1f1e7",
+        "cssVar": "--ok-soft",
+        "tonalRamp": [
+          "#040e08",
+          "#1c2821",
+          "#39463e",
+          "#57655d",
+          "#78867e",
+          "#9aa9a0",
+          "#becec4",
+          "#e3f3e9"
+        ]
+      },
+      "bad": {
+        "role": "tertiary",
+        "displayName": "Error Red",
+        "canonical": "#b8322a",
+        "cssVar": "--bad",
+        "tonalRamp": [
+          "#1f0000",
+          "#4d0002",
+          "#810105",
+          "#ae2721",
+          "#d64f43",
+          "#fe7465",
+          "#ffb3a8",
+          "#fee9e6"
+        ]
+      },
+      "bad-soft": {
+        "role": "tertiary",
+        "displayName": "Error Tint",
+        "canonical": "#fbe6e3",
+        "cssVar": "--bad-soft",
+        "tonalRamp": [
+          "#140706",
+          "#30211f",
+          "#4e3d3b",
+          "#6e5c5a",
+          "#907d7b",
+          "#b3a09d",
+          "#d8c4c1",
+          "#fee9e6"
+        ]
+      },
+      "warn": {
+        "role": "tertiary",
+        "displayName": "Caution Ink",
+        "canonical": "#8a5a00",
+        "cssVar": "--warn",
+        "tonalRamp": [
+          "#130900",
+          "#352000",
+          "#5b3a01",
+          "#845602",
+          "#a9772e",
+          "#ce9a53",
+          "#f4be77",
+          "#ffebd3"
+        ]
+      },
+      "warn-soft": {
+        "role": "tertiary",
+        "displayName": "Caution Tint",
+        "canonical": "#fcf0d5",
+        "cssVar": "--warn-soft",
+        "tonalRamp": [
+          "#110a00",
+          "#2d240e",
+          "#4b412a",
+          "#6b6049",
+          "#8c8169",
+          "#afa48b",
+          "#d4c8ae",
+          "#f9edd3"
+        ]
+      },
+      "info": {
+        "role": "tertiary",
+        "displayName": "Info Blue",
+        "canonical": "#1f5fbf",
+        "cssVar": "--info",
+        "tonalRamp": [
+          "#000924",
+          "#002155",
+          "#003c8d",
+          "#1c5cbc",
+          "#4080e3",
+          "#6ca5fe",
+          "#aacbfe",
+          "#e6effe"
+        ]
+      },
+      "info-soft": {
+        "role": "tertiary",
+        "displayName": "Info Tint",
+        "canonical": "#e3ecf9",
+        "cssVar": "--info-soft",
+        "tonalRamp": [
+          "#060b14",
+          "#1f252f",
+          "#3b434d",
+          "#5a626d",
+          "#7b838f",
+          "#9da6b2",
+          "#c1cad6",
+          "#e6effc"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The home headline only, one line at upper left."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles (Prices, Examiners, About, Account); results titles step down to clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section headings on the home and pricing pages, and the pass copy heading."
+      },
+      "plaque": {
+        "displayName": "Plaque",
+        "purpose": "Line names in the network; the same voice at 1.2-1.3rem sets station-sign titles, fare-board and plaque heads, and account-card headings."
+      },
+      "station": {
+        "displayName": "Station",
+        "purpose": "Station names under their rings (0.84rem on phones)."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Band values, the pass price, fare prices, stat values and criterion bands; always tabular."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running text; prose measures cap at 68-72ch."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The one-line offer under a page headline."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, form labels and chips."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Line meta, network key, score notes and the footer."
+      },
+      "tag": {
+        "displayName": "Tag",
+        "purpose": "Sign tags, badges and status pills."
+      }
+    },
+    "shadows": [
+      {
+        "name": "pop",
+        "value": "0 18px 40px -12px rgba(20, 26, 34, 0.35), 0 2px 6px rgba(20, 26, 34, 0.08)",
+        "cssVar": "--shadow-pop",
+        "purpose": "Anything that floats over the page: site dialogs, toasts, the listening replay bar, the progress chart tooltip, the sign-in callback card."
+      },
+      {
+        "name": "pass-lift",
+        "value": "0 24px 40px -22px rgba(20, 26, 34, 0.55)",
+        "purpose": "The transit-pass card only."
+      },
+      {
+        "name": "start-pill",
+        "value": "0 6px 14px -8px rgba(20, 26, 34, 0.55)",
+        "purpose": "The Start-free pill on each line, the one action that sits proud of the map."
+      },
+      {
+        "name": "plaque-edge",
+        "value": "inset 0 0 0 1px #2c3c5d",
+        "purpose": "Engraved rim on granite plates: the brand plate and the hub label."
+      },
+      {
+        "name": "ring-halo",
+        "value": "inset 0 0 0 2px #ffffff",
+        "purpose": "Inner paper halo that turns a filled station into a double ring (ridden stations, the taken key, the ride's last stop uses 4px)."
+      },
+      {
+        "name": "rest",
+        "value": "none",
+        "cssVar": "--shadow",
+        "purpose": "Cards and boards at rest are flat."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "cssVar": "--ease-out",
+        "purpose": "Default easing for rings, signs, toasts and dialogs."
+      },
+      {
+        "name": "control",
+        "value": "0.16s",
+        "purpose": "Background, border and colour changes on buttons and FAQ markers; the 1px press on :active."
+      },
+      {
+        "name": "station",
+        "value": "transform 0.18s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "A station ring scales to 1.18 on hover or when its sign is open; the Start-free arrow nudges 3px."
+      },
+      {
+        "name": "sign-in",
+        "value": "0.22s cubic-bezier(0.16, 1, 0.3, 1); from { opacity: 0; transform: translateY(-6px) }",
+        "purpose": "Station signs and site dialogs drop into place (toasts use 0.2s). Off under reduced motion."
+      },
+      {
+        "name": "train",
+        "value": "1.3s SVG animateMotion, keySplines 0.45 0 0.2 1",
+        "purpose": "A 6px paper train with a granite rim runs from the opened station along its line into the interchange. Skipped under reduced motion."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Smooth scroll off, sign drop off, train skipped, skeleton shimmer off, spinners slowed to 3s."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1020px",
+        "purpose": "max-width: narrower label (170px) and hub (200px) columns; pass card and copy stack."
+      },
+      {
+        "name": "phone",
+        "value": "860px",
+        "purpose": "max-width: network stacks with a 72px right-hand gutter, nav scrolls as a second row, the ride turns vertical. Also the script's narrow-mode query."
+      },
+      {
+        "name": "small",
+        "value": "520px",
+        "purpose": "max-width: line meta hidden."
+      },
+      {
+        "name": "tiny",
+        "value": "420px",
+        "purpose": "max-width: smaller mark, band circle (108px) and language buttons."
+      },
+      {
+        "name": "check-split",
+        "value": "1000px",
+        "purpose": "min-width: examiner check layout splits into two columns with a sticky mark form."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Granite button for the main commitment on a page (Get the pass, Sign in).",
+      "html": "<button type=\"button\" class=\"ds-btn ds-btn-primary\">Get the pass</button> <button type=\"button\" class=\"ds-btn ds-btn-primary ds-btn-lg\">Get the pass</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 9px 18px; border-radius: 10px; font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: 0.95em; line-height: 1.25; cursor: pointer; text-decoration: none; border: 1.5px solid transparent; transition: background-color 0.16s, border-color 0.16s, color 0.16s, transform 0.16s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 3px solid var(--granite, #142038); outline-offset: 2px; } .ds-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; } .ds-btn-primary { background: var(--granite, #142038); color: #fff; } .ds-btn-primary:hover { background: var(--granite-3, #2c3c5d); } .ds-btn-lg { min-height: 50px; padding: 12px 24px; font-size: 1em; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Paper button with a Grout Line border; on granite plaques it becomes a ghost with a Granite Edge border.",
+      "html": "<button type=\"button\" class=\"ds-btn ds-btn-secondary\">See prices</button> <span class=\"ds-on-granite\"><button type=\"button\" class=\"ds-btn ds-btn-secondary\">Practice, no timer</button></span>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 9px 18px; border-radius: 10px; font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: 0.95em; line-height: 1.25; cursor: pointer; text-decoration: none; border: 1.5px solid transparent; transition: background-color 0.16s, border-color 0.16s, color 0.16s, transform 0.16s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 3px solid var(--granite, #142038); outline-offset: 2px; } .ds-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; } .ds-btn-secondary { background: var(--paper, #ffffff); color: var(--ink, #141a22); border-color: var(--rule, #d4dae3); } .ds-btn-secondary:hover { border-color: var(--ink-2, #384252); } .ds-on-granite { display: inline-flex; padding: 12px; border-radius: 14px; background: var(--granite, #142038); } .ds-on-granite .ds-btn-secondary { background: transparent; color: #fff; border-color: var(--granite-3, #2c3c5d); } .ds-on-granite .ds-btn-secondary:hover { border-color: var(--granite-muted, #a9b5ca); }"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line-l",
+      "description": "The action that starts or opens a station, filled with its line colour; amber takes ink text (The Amber Ink Rule).",
+      "html": "<button type=\"button\" class=\"ds-btn ds-btn-line ds-line-l\">Start timed test <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h9M8.5 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button> <button type=\"button\" class=\"ds-btn ds-btn-line ds-line-r\">Start timed test <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h9M8.5 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button> <button type=\"button\" class=\"ds-btn ds-btn-line ds-line-w\">Start timed test <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h9M8.5 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button> <button type=\"button\" class=\"ds-btn ds-btn-line ds-line-s\">Start timed test <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h9M8.5 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button>",
+      "css": ".ds-line-l { --line: var(--line-l, #1f5fbf); --line-soft: var(--line-l-soft, #e3ecf9); --line-ink: var(--line-l, #1f5fbf); --line-on: #fff; } .ds-line-r { --line: var(--line-r, #cf3a2c); --line-soft: var(--line-r-soft, #fbe6e3); --line-ink: var(--line-r, #cf3a2c); --line-on: #fff; } .ds-line-w { --line: var(--line-w, #1e7c42); --line-soft: var(--line-w-soft, #e1f1e7); --line-ink: var(--line-w-ink, #1a7340); --line-on: #fff; } .ds-line-s { --line: var(--line-s, #e3a21a); --line-soft: var(--line-s-soft, #fcf0d5); --line-ink: var(--line-s-ink, #8a5a00); --line-on: var(--ink, #141a22); } .ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 9px 18px; border-radius: 10px; font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: 0.95em; line-height: 1.25; cursor: pointer; text-decoration: none; border: 1.5px solid transparent; transition: background-color 0.16s, border-color 0.16s, color 0.16s, transform 0.16s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 3px solid var(--granite, #142038); outline-offset: 2px; } .ds-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; } .ds-btn-line { background: var(--line, var(--granite, #142038)); color: var(--line-on, #fff); } .ds-btn-line:hover { filter: brightness(0.92); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Paper field with a 1.5px Grout Line border; focus turns the border Listening blue with a flush Listening Tint outline.",
+      "html": "<label class=\"ds-field\"><span>Email</span><input class=\"ds-input\" type=\"email\" placeholder=\"you@example.com\" /></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; max-width: 360px; } .ds-field span { font-size: 0.88em; font-weight: 650; color: var(--ink-2, #384252); } .ds-input { min-height: 48px; padding: 11px 14px; border: 1.5px solid var(--rule, #d4dae3); border-radius: 10px; font: inherit; font-size: 1em; color: var(--ink, #141a22); background: var(--paper, #ffffff); caret-color: var(--line-l, #1f5fbf); } .ds-input:hover { border-color: var(--ink-2, #384252); } .ds-input:focus { border-color: var(--line-l, #1f5fbf); outline: 3px solid var(--line-l-soft, #e3ecf9); outline-offset: 0; }"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": "site-nav",
+      "description": "Sticky granite bar closed by the four-colour band: brand plate, Jost nav links with an amber current-page bar, EN/UZ/RU switch, Sign in.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><svg class=\"ds-mark\" viewBox=\"0 0 34 34\" aria-hidden=\"true\"><g fill=\"none\" stroke-width=\"6\" transform=\"rotate(-90 17 17)\"><circle cx=\"17\" cy=\"17\" r=\"12\" stroke=\"#1f5fbf\" stroke-dasharray=\"16.6 58.8\" stroke-dashoffset=\"-1\"/><circle cx=\"17\" cy=\"17\" r=\"12\" stroke=\"#cf3a2c\" stroke-dasharray=\"16.6 58.8\" stroke-dashoffset=\"-19.85\"/><circle cx=\"17\" cy=\"17\" r=\"12\" stroke=\"#1e7c42\" stroke-dasharray=\"16.6 58.8\" stroke-dashoffset=\"-38.7\"/><circle cx=\"17\" cy=\"17\" r=\"12\" stroke=\"#e3a21a\" stroke-dasharray=\"16.6 58.8\" stroke-dashoffset=\"-57.55\"/></g></svg><span class=\"ds-name\">TestDay</span></a><nav class=\"ds-links\"><a href=\"#\" aria-current=\"page\">Tests</a><a href=\"#\">Prices</a><a href=\"#\">Examiners</a></nav><div class=\"ds-tools\"><div class=\"ds-lang\" role=\"group\" aria-label=\"Language\"><button type=\"button\" aria-pressed=\"true\">EN</button><button type=\"button\" aria-pressed=\"false\">UZ</button><button type=\"button\" aria-pressed=\"false\">RU</button></div><button type=\"button\" class=\"ds-signin\">Sign in</button></div></header>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; min-height: 68px; padding: 0 24px; background: var(--granite, #142038); color: var(--granite-ink, #eef2f8); font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; border-bottom: 4px solid transparent; border-image: linear-gradient(90deg, var(--line-l, #1f5fbf) 0 25%, var(--line-r, #cf3a2c) 25% 50%, var(--line-w, #1e7c42) 50% 75%, var(--line-s, #e3a21a) 75% 100%) 1; } .ds-brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; padding: 6px 14px 6px 8px; border-radius: 12px; background: var(--granite-2, #1d2b47); box-shadow: inset 0 0 0 1px var(--granite-3, #2c3c5d); } .ds-mark { width: 34px; height: 34px; display: block; } .ds-name { font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: 1.32rem; line-height: 1; } .ds-links { display: flex; gap: 2px; } .ds-links a { position: relative; color: var(--granite-muted, #a9b5ca); text-decoration: none; padding: 8px 12px; border-radius: 8px; font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 550; font-size: 1rem; } .ds-links a:hover { color: #fff; background: var(--granite-2, #1d2b47); } .ds-links a[aria-current=\"page\"] { color: #fff; } .ds-links a[aria-current=\"page\"]::after { content: \"\"; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 3px; border-radius: 3px; background: var(--line-s, #e3a21a); } .ds-links a:focus-visible, .ds-lang button:focus-visible, .ds-signin:focus-visible { outline: 3px solid var(--line-s, #e3a21a); outline-offset: 2px; } .ds-tools { display: flex; align-items: center; gap: 10px; margin-left: auto; } .ds-lang { display: inline-flex; border: 1px solid var(--granite-3, #2c3c5d); border-radius: 9px; padding: 2px; } .ds-lang button { background: none; border: none; color: var(--granite-muted, #a9b5ca); font: inherit; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; padding: 5px 8px; border-radius: 7px; min-width: 34px; cursor: pointer; } .ds-lang button:hover { color: #fff; } .ds-lang button[aria-pressed=\"true\"] { background: var(--granite-ink, #eef2f8); color: var(--granite, #142038); } .ds-signin { background: var(--granite-ink, #eef2f8); color: var(--granite, #142038); border: none; border-radius: 9px; padding: 8px 16px; min-height: 38px; font: inherit; font-weight: 700; font-size: 0.92rem; cursor: pointer; } .ds-signin:hover { background: #fff; }"
+    },
+    {
+      "name": "Filter Chips",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill chips for review filters, transcript parts and task jumps; the active chip fills with granite.",
+      "html": "<div class=\"ds-chips\"><button type=\"button\" class=\"ds-chip is-active\">All 40</button><button type=\"button\" class=\"ds-chip\">Correct 29</button><button type=\"button\" class=\"ds-chip\">Incorrect 11</button></div>",
+      "css": ".ds-chips { display: flex; gap: 6px; flex-wrap: wrap; font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; } .ds-chip { display: inline-flex; align-items: center; min-height: 36px; padding: 6px 14px; border: 1.5px solid var(--rule, #d4dae3); border-radius: 999px; background: var(--paper, #ffffff); color: var(--ink-2, #384252); font: inherit; font-size: 0.86em; font-weight: 650; cursor: pointer; font-variant-numeric: tabular-nums; } .ds-chip:hover { border-color: var(--ink-2, #384252); color: var(--ink, #141a22); } .ds-chip:focus-visible { outline: 3px solid var(--granite, #142038); outline-offset: 2px; } .ds-chip.is-active { background: var(--granite, #142038); color: #fff; border-color: var(--granite, #142038); }"
+    },
+    {
+      "name": "Fare Board",
+      "kind": "card",
+      "refersTo": "fare-board",
+      "description": "A flat paper board (18px) with a granite head; each row carries its line bullets, a name, a dotted leader and a tabular Jost price.",
+      "html": "<section class=\"ds-fares\"><div class=\"ds-fare-head\"><h2>Fares</h2><a href=\"#\">Meet the examiners</a></div><ul class=\"ds-fare-rows\"><li class=\"ds-fare-row\"><span class=\"ds-fare-bullets\"><span class=\"ds-bullet ds-sm ds-line-l\">L</span><span class=\"ds-bullet ds-sm ds-line-r\">R</span><span class=\"ds-bullet ds-sm ds-line-w\">W</span><span class=\"ds-bullet ds-sm ds-line-s\">S</span></span><span class=\"ds-fare-name\">The first test on every line<small>Listening, Reading and Writing need no sign-up</small></span><span class=\"ds-fare-leader\" aria-hidden=\"true\"></span><span class=\"ds-fare-price\">Free</span></li><li class=\"ds-fare-row\"><span class=\"ds-fare-bullets\"><span class=\"ds-bullet ds-sm ds-line-w\">W</span></span><span class=\"ds-fare-name\">Writing check<small>An examiner marks both tasks on the four official criteria</small></span><span class=\"ds-fare-leader\" aria-hidden=\"true\"></span><span class=\"ds-fare-price\">10 000 soʻm</span></li></ul><p class=\"ds-fare-foot\">Pay with Payme, Click. Prices include all fees.</p></section>",
+      "css": ".ds-line-l { --line: var(--line-l, #1f5fbf); --line-soft: var(--line-l-soft, #e3ecf9); --line-ink: var(--line-l, #1f5fbf); --line-on: #fff; } .ds-line-r { --line: var(--line-r, #cf3a2c); --line-soft: var(--line-r-soft, #fbe6e3); --line-ink: var(--line-r, #cf3a2c); --line-on: #fff; } .ds-line-w { --line: var(--line-w, #1e7c42); --line-soft: var(--line-w-soft, #e1f1e7); --line-ink: var(--line-w-ink, #1a7340); --line-on: #fff; } .ds-line-s { --line: var(--line-s, #e3a21a); --line-soft: var(--line-s-soft, #fcf0d5); --line-ink: var(--line-s-ink, #8a5a00); --line-on: var(--ink, #141a22); } .ds-bullet { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--line, var(--granite, #142038)); color: var(--line-on, #fff); font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1; } .ds-bullet.ds-sm { width: 22px; height: 22px; font-size: 0.78rem; } .ds-fares { background: var(--paper, #ffffff); border: 1px solid var(--rule, #d4dae3); border-radius: 18px; overflow: hidden; font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; color: var(--ink, #141a22); } .ds-fare-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: var(--granite, #142038); color: #fff; padding: 14px 22px; } .ds-fare-head h2 { margin: 0; font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-size: 1.25rem; font-weight: 650; } .ds-fare-head a { color: var(--granite-ink, #eef2f8); font-weight: 650; } .ds-fare-rows { list-style: none; margin: 0; padding: 0; } .ds-fare-row { display: flex; align-items: baseline; gap: 12px; padding: 16px 22px; } .ds-fare-row + .ds-fare-row { border-top: 1px solid var(--rule-soft, #e7ebf0); } .ds-fare-bullets { display: inline-flex; gap: 4px; align-self: center; min-width: 98px; } .ds-fare-name { font-weight: 600; } .ds-fare-name small { display: block; font-weight: 400; color: var(--muted, #586273); font-size: 0.86rem; } .ds-fare-leader { flex: 1; min-width: 16px; border-bottom: 2px dotted var(--rule, #d4dae3); transform: translateY(-4px); } .ds-fare-price { font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: 1.25rem; white-space: nowrap; font-variant-numeric: tabular-nums; } .ds-fare-foot { margin: 0; padding: 12px 22px 16px; color: var(--muted, #586273); font-size: 0.9rem; border-top: 1px solid var(--rule-soft, #e7ebf0); }"
+    },
+    {
+      "name": "Network Lines",
+      "kind": "custom",
+      "refersTo": "station-ring",
+      "description": "Signature: line rows on a paper board, each with a letter bullet, a 10px track, a Start-free pill on the free station, ridden, next and locked rings, and the Test day interchange.",
+      "html": "<div class=\"ds-net\"><ol class=\"ds-net-lines\"><li class=\"ds-net-row ds-line-l\"><div class=\"ds-net-label\"><span class=\"ds-bullet\">L</span><div><div class=\"ds-net-name\">Listening</div><span class=\"ds-net-meta\">4 parts · 40 questions</span></div></div><div class=\"ds-track\"><ol class=\"ds-stations\"><li class=\"ds-station is-free\"><div class=\"ds-start\"><button type=\"button\" class=\"ds-station-btn\" aria-label=\"Listening, Test 1: details\"><span class=\"ds-ring\"></span><span class=\"ds-station-name\">Test 1</span></button><button type=\"button\" class=\"ds-start-free\">Start free <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h9M8.5 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div></li><li class=\"ds-station\"><button type=\"button\" class=\"ds-station-btn\" aria-label=\"Listening, Test 2: details\"><span class=\"ds-ring is-locked\"><svg width=\"10\" height=\"11\" viewBox=\"0 0 10 11\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z\"/></svg></span><span class=\"ds-station-name\">Test 2</span></button></li><li class=\"ds-station\"><button type=\"button\" class=\"ds-station-btn\" aria-label=\"Listening, Test 3: details\"><span class=\"ds-ring is-locked\"><svg width=\"10\" height=\"11\" viewBox=\"0 0 10 11\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z\"/></svg></span><span class=\"ds-station-name\">Test 3</span></button></li></ol></div></li><li class=\"ds-net-row ds-line-r\"><div class=\"ds-net-label\"><span class=\"ds-bullet\">R</span><div><div class=\"ds-net-name\">Reading</div><span class=\"ds-net-meta\">3 passages · 40 questions</span></div></div><div class=\"ds-track\"><ol class=\"ds-stations\"><li class=\"ds-station is-done\"><button type=\"button\" class=\"ds-station-btn\" aria-label=\"Reading, Test 1: details\"><span class=\"ds-ring\">6.5</span><span class=\"ds-station-name\">Test 1</span></button></li><li class=\"ds-station is-next\"><button type=\"button\" class=\"ds-station-btn\" data-next=\"Next\" aria-label=\"Reading, Test 2, Next: details\"><span class=\"ds-ring is-locked\"><svg width=\"10\" height=\"11\" viewBox=\"0 0 10 11\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z\"/></svg></span><span class=\"ds-station-name\">Test 2</span></button></li><li class=\"ds-station\"><button type=\"button\" class=\"ds-station-btn\" aria-label=\"Reading, Test 3: details\"><span class=\"ds-ring is-locked\"><svg width=\"10\" height=\"11\" viewBox=\"0 0 10 11\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z\"/></svg></span><span class=\"ds-station-name\">Test 3</span></button></li></ol></div></li></ol><button type=\"button\" class=\"ds-hub\"><span class=\"ds-hub-capsule\" aria-hidden=\"true\"></span><span class=\"ds-hub-text\"><span class=\"ds-hub-name\">Test day</span><span class=\"ds-hub-sub\">All lines meet here</span></span></button></div>",
+      "css": ".ds-line-l { --line: var(--line-l, #1f5fbf); --line-soft: var(--line-l-soft, #e3ecf9); --line-ink: var(--line-l, #1f5fbf); --line-on: #fff; } .ds-line-r { --line: var(--line-r, #cf3a2c); --line-soft: var(--line-r-soft, #fbe6e3); --line-ink: var(--line-r, #cf3a2c); --line-on: #fff; } .ds-line-w { --line: var(--line-w, #1e7c42); --line-soft: var(--line-w-soft, #e1f1e7); --line-ink: var(--line-w-ink, #1a7340); --line-on: #fff; } .ds-line-s { --line: var(--line-s, #e3a21a); --line-soft: var(--line-s-soft, #fcf0d5); --line-ink: var(--line-s-ink, #8a5a00); --line-on: var(--ink, #141a22); } .ds-bullet { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--line, var(--granite, #142038)); color: var(--line-on, #fff); font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1; } .ds-bullet.ds-sm { width: 22px; height: 22px; font-size: 0.78rem; } .ds-net { position: relative; background: var(--paper, #ffffff); border: 1px solid var(--rule, #d4dae3); border-radius: 18px; padding: 10px 190px 10px 0; font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; color: var(--ink, #141a22); } .ds-net-lines { list-style: none; margin: 0; padding: 0; } .ds-net-row { display: grid; grid-template-columns: 190px minmax(0, 1fr); align-items: center; min-height: 104px; padding-left: 20px; } .ds-net-row + .ds-net-row { border-top: 1px solid var(--rule-soft, #e7ebf0); } .ds-net-label { display: flex; align-items: center; gap: 12px; min-width: 0; } .ds-net-name { font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: 1.22rem; line-height: 1.15; } .ds-net-meta { display: block; font-size: 0.8rem; color: var(--muted, #586273); margin-top: 2px; } .ds-track { position: relative; height: 104px; display: flex; align-items: center; min-width: 0; } .ds-track::before { content: \"\"; position: absolute; left: 14px; right: 0; top: 50%; height: 10px; margin-top: -5px; background: var(--line); } .ds-stations { list-style: none; margin: 0; padding: 0; position: relative; width: 100%; display: grid; align-items: center; grid-template-columns: 150px repeat(2, minmax(0, 1fr)); } .ds-station { position: relative; display: flex; justify-content: center; min-width: 0; } .ds-station:first-child { justify-content: flex-start; } .ds-station.is-free { padding-right: 32px; } .ds-station-btn { position: relative; display: inline-flex; flex-direction: column; align-items: center; background: none; border: none; padding: 0; cursor: pointer; font: inherit; color: var(--ink, #141a22); } .ds-station-btn:focus-visible { outline: 3px solid var(--granite, #142038); outline-offset: 2px; border-radius: 50%; } .ds-ring { width: 30px; height: 30px; border-radius: 50%; background: var(--paper, #ffffff); border: 5px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 700; font-size: 0.78rem; line-height: 1; color: var(--line-on); transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s; box-sizing: border-box; } .ds-ring.is-locked { color: var(--line-ink); } .ds-station-btn:hover .ds-ring { transform: scale(1.18); } .ds-station-name { position: absolute; top: calc(50% + 24px); left: 50%; transform: translateX(-50%); font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-size: 0.9rem; font-weight: 600; white-space: nowrap; color: var(--ink-2, #384252); } .ds-station.is-done .ds-ring { background: var(--line); width: 44px; height: 44px; border-width: 4px; box-shadow: inset 0 0 0 2px var(--paper, #ffffff); font-size: 0.84rem; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; } .ds-station.is-next .ds-station-btn::before { content: attr(data-next); position: absolute; bottom: calc(50% + 24px); left: 50%; transform: translateX(-50%); background: var(--granite, #142038); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 7px; border-radius: 5px; white-space: nowrap; } .ds-start { display: inline-flex; align-items: center; border-radius: 999px; background: var(--line); padding: 4px; position: relative; z-index: 1; box-shadow: 0 6px 14px -8px rgba(20, 26, 34, 0.55); } .ds-start:hover { filter: brightness(0.93); } .ds-start .ds-ring { width: 32px; height: 32px; border: 6px solid var(--line); background: var(--paper, #ffffff); box-shadow: 0 0 0 2px var(--paper, #ffffff); } .ds-start .ds-station-name { top: calc(50% + 28px); left: 20px; } .ds-start-free { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 12px 0 10px; border: none; background: none; color: var(--line-on); font: inherit; font-weight: 750; font-size: 0.92rem; cursor: pointer; white-space: nowrap; } .ds-start-free:focus-visible { outline: 3px solid var(--granite, #142038); outline-offset: 2px; border-radius: 999px; } .ds-start-free svg { transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1); } .ds-start-free:hover svg { transform: translateX(3px); } .ds-hub { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 12px; background: none; border: none; padding: 0; font: inherit; color: var(--ink, #141a22); cursor: pointer; text-align: left; } .ds-hub-capsule { display: block; width: 36px; height: 62px; border-radius: 999px; background: var(--paper, #ffffff); border: 5px solid var(--granite, #142038); box-sizing: border-box; } .ds-hub-text { display: flex; flex-direction: column; background: var(--granite, #142038); color: #fff; border-radius: 10px; padding: 7px 12px 8px; box-shadow: inset 0 0 0 1px var(--granite-3, #2c3c5d); } .ds-hub:hover .ds-hub-text { background: var(--granite-2, #1d2b47); } .ds-hub-name { font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: 1.08rem; line-height: 1.1; } .ds-hub-sub { font-size: 0.74rem; color: var(--granite-muted, #a9b5ca); font-weight: 600; }"
+    },
+    {
+      "name": "Station Sign",
+      "kind": "custom",
+      "refersTo": "station-sign",
+      "description": "Signature: the granite plaque that drops in under a station when it is tapped, notched toward the station, with tag, parts, meta and actions.",
+      "html": "<div class=\"ds-sign ds-line-r\" role=\"region\"><div><div class=\"ds-sign-title\"><span class=\"ds-bullet ds-sm\">R</span><h3>Reading · Test 2</h3><span class=\"ds-sign-tag is-locked\">Opens with the pass</span></div><ul class=\"ds-sign-items\"><li><b>P1</b>The Return of the Wolf</li><li><b>P2</b>The Problem of Longitude</li></ul><p class=\"ds-sign-meta\">60 minutes · 40 questions</p><p class=\"ds-sign-pass\">This station opens with the monthly pass: <strong>39 000 soʻm</strong> a month.</p></div><div class=\"ds-sign-actions\"><a class=\"ds-btn ds-btn-ghost\" href=\"#\">See prices</a><button type=\"button\" class=\"ds-btn ds-btn-line\">Get the pass <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h9M8.5 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div></div>",
+      "css": ".ds-line-l { --line: var(--line-l, #1f5fbf); --line-soft: var(--line-l-soft, #e3ecf9); --line-ink: var(--line-l, #1f5fbf); --line-on: #fff; } .ds-line-r { --line: var(--line-r, #cf3a2c); --line-soft: var(--line-r-soft, #fbe6e3); --line-ink: var(--line-r, #cf3a2c); --line-on: #fff; } .ds-line-w { --line: var(--line-w, #1e7c42); --line-soft: var(--line-w-soft, #e1f1e7); --line-ink: var(--line-w-ink, #1a7340); --line-on: #fff; } .ds-line-s { --line: var(--line-s, #e3a21a); --line-soft: var(--line-s-soft, #fcf0d5); --line-ink: var(--line-s-ink, #8a5a00); --line-on: var(--ink, #141a22); } .ds-bullet { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--line, var(--granite, #142038)); color: var(--line-on, #fff); font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1; } .ds-bullet.ds-sm { width: 22px; height: 22px; font-size: 0.78rem; } .ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 9px 18px; border-radius: 10px; font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: 0.95em; line-height: 1.25; cursor: pointer; text-decoration: none; border: 1.5px solid transparent; transition: background-color 0.16s, border-color 0.16s, color 0.16s, transform 0.16s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 3px solid var(--line-s, #e3a21a); outline-offset: 2px; } .ds-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; } .ds-sign { position: relative; margin-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px 28px; align-items: center; padding: 18px 22px; border-radius: 14px; background: var(--granite, #142038); color: var(--granite-ink, #eef2f8); font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; animation: ds-sign-in 0.22s cubic-bezier(0.16, 1, 0.3, 1); } .ds-sign::before { content: \"\"; position: absolute; top: -9px; left: 30px; border: 10px solid transparent; border-top: 0; border-bottom-color: var(--granite, #142038); } @keyframes ds-sign-in { from { opacity: 0; transform: translateY(-6px); } } @media (prefers-reduced-motion: reduce) { .ds-sign { animation: none; } } .ds-sign-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; } .ds-sign-title h3 { margin: 0; font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-size: 1.3rem; font-weight: 650; color: #fff; letter-spacing: -0.01em; } .ds-sign-tag { font-size: 0.74rem; font-weight: 750; padding: 2px 8px; border-radius: 6px; background: var(--granite-3, #2c3c5d); color: var(--granite-ink, #eef2f8); } .ds-sign-tag.is-free { background: var(--line); color: var(--line-on); } .ds-sign-tag.is-locked { background: transparent; box-shadow: inset 0 0 0 1px var(--granite-muted, #a9b5ca); } .ds-sign-items { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 0.9rem; color: var(--granite-muted, #a9b5ca); } .ds-sign-items li { display: flex; gap: 6px; align-items: baseline; } .ds-sign-items b { color: var(--granite-ink, #eef2f8); font-weight: 650; } .ds-sign-meta { margin: 8px 0 0; font-size: 0.82rem; color: var(--granite-muted, #a9b5ca); } .ds-sign-pass { margin: 8px 0 0; font-size: 0.92rem; color: var(--granite-ink, #eef2f8); } .ds-sign-pass strong { color: #fff; } .ds-sign-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; } .ds-btn-ghost { background: transparent; color: #fff; border-color: var(--granite-3, #2c3c5d); } .ds-btn-ghost:hover { border-color: var(--granite-muted, #a9b5ca); } .ds-btn-line { background: var(--line, var(--granite, #142038)); color: var(--line-on, #fff); } .ds-btn-line:hover { filter: brightness(0.92); }"
+    },
+    {
+      "name": "Pass Card",
+      "kind": "card",
+      "refersTo": "pass-card",
+      "description": "Signature: the monthly plan as an ID-1 transit card in granite with the four-colour band, a Jost price numeral and the four line bullets.",
+      "html": "<div class=\"ds-pass\" role=\"img\" aria-label=\"Monthly pass: 39 000 soʻm\"><div class=\"ds-pass-stripes\" aria-hidden=\"true\"><span class=\"ds-line-l\"></span><span class=\"ds-line-r\"></span><span class=\"ds-line-w\"></span><span class=\"ds-line-s\"></span></div><div class=\"ds-pass-top\"><span class=\"ds-pass-name\">TestDay</span><span class=\"ds-pass-kind\">Monthly pass</span></div><div class=\"ds-pass-price\">39 000<small>soʻm / month</small></div><div class=\"ds-pass-bottom\"><span class=\"ds-pass-bullets\"><span class=\"ds-bullet ds-sm ds-line-l\">L</span><span class=\"ds-bullet ds-sm ds-line-r\">R</span><span class=\"ds-bullet ds-sm ds-line-w\">W</span><span class=\"ds-bullet ds-sm ds-line-s\">S</span></span><span class=\"ds-pass-note\">First payment: 2 months</span></div></div>",
+      "css": ".ds-line-l { --line: var(--line-l, #1f5fbf); --line-soft: var(--line-l-soft, #e3ecf9); --line-ink: var(--line-l, #1f5fbf); --line-on: #fff; } .ds-line-r { --line: var(--line-r, #cf3a2c); --line-soft: var(--line-r-soft, #fbe6e3); --line-ink: var(--line-r, #cf3a2c); --line-on: #fff; } .ds-line-w { --line: var(--line-w, #1e7c42); --line-soft: var(--line-w-soft, #e1f1e7); --line-ink: var(--line-w-ink, #1a7340); --line-on: #fff; } .ds-line-s { --line: var(--line-s, #e3a21a); --line-soft: var(--line-s-soft, #fcf0d5); --line-ink: var(--line-s-ink, #8a5a00); --line-on: var(--ink, #141a22); } .ds-bullet { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--line, var(--granite, #142038)); color: var(--line-on, #fff); font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1; } .ds-bullet.ds-sm { width: 22px; height: 22px; font-size: 0.78rem; } .ds-pass { position: relative; box-sizing: border-box; width: 100%; max-width: 420px; aspect-ratio: 1.586; border-radius: 20px; background: var(--granite, #142038); color: #fff; overflow: hidden; padding: 24px 26px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 24px 40px -22px rgba(20, 26, 34, 0.55); font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; } .ds-pass-stripes { position: absolute; left: 0; right: 0; top: 0; display: flex; height: 10px; } .ds-pass-stripes span { flex: 1; background: var(--line); } .ds-pass-top { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; } .ds-pass-name { font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: 1.2rem; line-height: 1; } .ds-pass-kind { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; color: var(--granite-muted, #a9b5ca); text-transform: uppercase; } .ds-pass-price { font-family: \"Jost\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-weight: 650; font-size: clamp(2rem, 1.4rem + 2vw, 2.7rem); line-height: 1; font-variant-numeric: tabular-nums; } .ds-pass-price small { font-size: 0.42em; font-weight: 600; color: var(--granite-muted, #a9b5ca); margin-left: 6px; } .ds-pass-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; font-size: 0.85rem; color: var(--granite-muted, #a9b5ca); } .ds-pass-bullets { display: flex; gap: 6px; } .ds-pass-note { color: var(--granite-ink, #eef2f8); font-weight: 600; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Interchange at Test Day",
+    "overview": "TestDay is drawn as a Tashkent metro map. The four IELTS modules are four lines: Listening blue, Reading red, Writing green, Speaking amber. Every test is a station on its line, and every line runs into one interchange, Test day. The site shell is polished granite (the header, footer, station signs, the fare board's head and the monthly pass), and the ground under it is cool station marble with plain paper boards. Line colour, a letter bullet and a station ring show which module a surface belongs to. The mark is a ring of four arcs, one per line, meeting as one interchange.\n\nDensity is calm and legible rather than packed. Large Jost headings set the tone, content sits on paper boards with hairline borders, and nothing floats except the things that really lift off the map: dialogs, toasts, the replay bar, the transit-pass card and the Start-free pill. Motion is wayfinding motion. A station ring swells when it is pointed at, the station sign drops into place under its station, and a small train runs along the line to the interchange when a sign opens. All of it stops under reduced motion.\n\nThe confirmed anti-reference for this world: not a cold corporate template, and not cluttered. One region is exempt. The exam screens (`public/css/cd-ielts.css`, the split-screen test, its dialogs, contrast themes and text sizes) copy the real computer-delivered IELTS and stay outside this world on purpose. They keep their own `--cd-*` tokens and English labels. The pre-test instructions card and the site dialogs belong to this world; the exam's own dialogs do not.",
+    "keyCharacteristics": [
+      "Four committed line colours that carry module identity, each paired with its letter bullet (L, R, W, S).",
+      "A granite shell and granite plaques over station-marble ground and paper boards.",
+      "Jost (self-hosted, variable 300–800) for the network's voice; the system stack for running text and controls.",
+      "Circles for stops and bars for lines, everywhere from the home network to FAQ markers.",
+      "Flat at rest; shadow only on things that lift off the map.",
+      "One four-colour band in fixed L, R, W, S order marks the header, footer and pass.",
+      "The exam screens are exempt and keep the computer-delivered IELTS look."
+    ],
+    "rules": [
+      {
+        "name": "The Four Lines Rule",
+        "body": "Wherever a module appears, its line colour carries it: the bullet, the track, the station rings, the result's band circle, the progress series and the pass stripes. Set the line with `.line-l`, `.line-r`, `.line-w` or `.line-s` on an ancestor and read `var(--line)`, `var(--line-soft)`, `var(--line-ink)` and `var(--line-on)` in the component. Never pick a hex value directly.",
+        "section": "colors"
+      },
+      {
+        "name": "The Amber Ink Rule",
+        "body": "Speaking amber (#e3a21a) is a fill and a stroke, never text on a light ground, because it measures 2.2:1 on paper. Speaking text uses Amber Ink (#8a5a00), and anything set on an amber fill is in Timetable Ink, not white. `.line-s` already sets `--line-on` to ink and `--line-ink` to Amber Ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Granite Shell Rule",
+        "body": "Granite frames the site and carries plaques. Running content (passages, explanations, prose pages, results) sits on paper or marble. Granite carries plaque copy (a sign, a fare head, a pass, a toast) and the footer's small print.",
+        "section": "colors"
+      },
+      {
+        "name": "The Plaque Voice Rule",
+        "body": "Jost speaks for the network: headings, nav links, line and station names, the hub, line-bullet letters, prices, band numerals and the avatar. Running text, buttons, form fields and tables stay in the system stack.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Numbers Rule",
+        "body": "Every band, price, count, time and score is set with `font-variant-numeric: tabular-nums`, so columns of numbers line up like a timetable.",
+        "section": "typography"
+      },
+      {
+        "name": "The Horizontal Network Rule",
+        "body": "The network's four lines stay horizontal at every width. On phones they stack and turn down a right-hand gutter into the interchange; they never rotate into a vertical list. The \"How a test works\" ride, a separate single line, does turn vertical on phones.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Station Rule",
+        "body": "Cards and boards never take a shadow at rest. Shadow belongs to things that lift off the map (dialogs, toasts, tooltips) and to two physical objects: the pass card and the Start-free pill.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Stop and Line Rule",
+        "body": "Steps and points are drawn as stops on a line. Each item gets a ring (paper fill, line-colour or granite stroke) and a bar joins the rings. A filled ring means reached, open or chosen: a ridden station, the last stop of the ride, an open FAQ item, a good feedback block.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Four-Colour Band Rule",
+        "body": "The four line colours appear together only as one band of equal quarters in fixed order: Listening, Reading, Writing, Speaking. It marks the header's bottom edge, the top of the footer and the pass card's top; the mark bends the same order into a ring.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** set module colour by putting `.line-l`, `.line-r`, `.line-w` or `.line-s` on an ancestor and reading `var(--line)`, `var(--line-soft)`, `var(--line-ink)` and `var(--line-on)` in the component.",
+      "**Do** pair every line colour with its letter bullet (L, R, W, S) or the module name, so identity never rests on colour alone.",
+      "**Do** keep cards and boards flat: paper (#ffffff), a 1px Grout Line border (#d4dae3), 12–18px corners.",
+      "**Do** draw lists of steps or points as stops on a line: rings joined by a bar, filled when reached.",
+      "**Do** show the four-colour band only in Listening, Reading, Writing, Speaking order, in equal quarters.",
+      "**Do** set bands, prices, counts and times in tabular numerals.",
+      "**Do** load Jost only from `public/fonts/` (CSP `font-src 'self'`). The three subsets cover English, Uzbek Latin (including oʻ and gʻ at U+02BB) and Russian.",
+      "**Do** stop the sign drop, the train and smooth scrolling under `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "**Don't** carry this world into the exam screens. `cd-ielts.css` keeps the computer-delivered IELTS look, its `--cd-*` tokens, four contrast themes, three text sizes and English labels.",
+      "**Don't** set Speaking amber (#e3a21a) as text on marble or paper; use Amber Ink (#8a5a00).",
+      "**Don't** put a shadow on a resting card or board.",
+      "**Don't** rotate the network's lines into a vertical list on phones.",
+      "**Don't** put \"IELTS\" in the mark or the brand name. The mark is the four-arc interchange ring.",
+      "**Don't** set running content on granite. It carries plaque copy and the footer's small print only."
+    ]
+  }
+}
