@@ -335,7 +335,7 @@
                 <span class="bullet">${line.letter}</span>
                 <div><div class="line-name">${MODULE_LABELS[line.module]}</div><span class="line-meta">${esc(this.lineMeta(line.module))}</span></div>
                 ${free ? `<button type="button" class="start-free start-free-mobile" data-action="start" data-test="${esc(free.id)}" data-mode="exam"
-                  aria-label="${esc(t("Start {name}, free", { name: `${MODULE_LABELS[line.module]}, ${this.testName(free)}` }))}">${t("Start free")} ${ICON_ARROW}</button>` : ""}
+                  aria-label="${esc(t("Start {name}, free", { name: `${MODULE_LABELS[line.module]}, ${this.testName(free)}` }))}">${t("start.short")} ${ICON_ARROW}</button>` : ""}
               </div>
               <div class="track">
                 <ol class="stations">${tests.map((x) => this.stationHTML(x, line, x === next)).join("")}</ol>

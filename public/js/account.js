@@ -6,22 +6,33 @@
  * Account.paywall(test)   – explain a locked test and offer the plan
  * Account.buy(kind, ...)  – create an order and pay (Payme, Click or card transfer)
  * Pages: pricing, account, examiners, check, examiner dashboard, admin.
+ *
+ * Student-facing text goes through t() (see i18n.js); the examiner and admin
+ * tools stay in English.
  */
 (function () {
   "use strict";
 
   const esc = (v) => U.escapeHtml(v);
   const state = { me: { user: null }, billing: null, config: {} };
+  const siteName = () => state.config.siteName || "TestDay";
 
-  const money = (n) => `${String(Math.round(Number(n) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} so'm`;
+  const money = (n) => I18N.money(n);
   const longDate = (iso) => {
     const d = new Date(iso);
-    return isNaN(d) ? "" : d.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
+    if (isNaN(d)) return "";
+    try {
+      return d.toLocaleDateString(I18N.locale(), { day: "numeric", month: "long", year: "numeric" });
+    } catch (e) {
+      return d.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
+    }
   };
   const initials = (name) => String(name || "?").trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+  const STAR = `<svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg>`;
   const stars = (value) => {
     const v = Math.round(Number(value) || 0);
-    return `<span class="stars" aria-label="${v} out of 5 stars">${"★".repeat(v)}<span class="stars-off">${"★".repeat(5 - v)}</span></span>`;
+    return `<span class="stars" role="img" aria-label="${esc(t("{n} out of 5 stars", { n: v }))}">${
+      [1, 2, 3, 4, 5].map((i) => `<span class="${i <= v ? "" : "off"}">${STAR}</span>`).join("")}</span>`;
   };
   const STATUS = {
     waiting: ["Waiting for the examiner", "badge-waiting"],
@@ -33,7 +44,11 @@
     paid: ["Paid", "badge-done"],
     refunded: ["Refunded", "badge-cancelled"],
   };
-  const statusBadge = (s) => `<span class="status-badge ${(STATUS[s] || ["", ""])[1]}">${esc((STATUS[s] || [s])[0])}</span>`;
+  const statusBadge = (s) => `<span class="status-badge ${(STATUS[s] || ["", ""])[1]}">${esc(t((STATUS[s] || [s])[0]))}</span>`;
+  const loading = () => `<section class="page page-loading" aria-busy="true">
+      <div class="skeleton" style="height:44px;width:min(420px,80%)"></div>
+      <div class="skeleton" style="height:20px;width:min(640px,95%)"></div>
+      <div class="skeleton" style="height:180px;margin-top:12px"></div></section>`;
 
   function user() {
     return state.me && state.me.user;
@@ -69,7 +84,7 @@
     if (!slot) return;
     const u = user();
     if (!u) {
-      slot.innerHTML = `<button type="button" class="nav-signin" data-action="signin">Sign in</button>`;
+      slot.innerHTML = `<button type="button" class="nav-signin" data-action="signin">${t("Sign in")}</button>`;
       return;
     }
     const todo = state.me.todo || {};
@@ -77,7 +92,7 @@
     slot.innerHTML = `
       ${u.role === "examiner" || u.role === "admin" ? `<a href="#/examiner" class="nav-extra" data-nav="examiner">Examiner${count(todo.checks, "checks to mark")}</a>` : ""}
       ${u.role === "admin" ? `<a href="#/admin" class="nav-extra" data-nav="admin">Admin${count(todo.payments, "payments to confirm")}</a>` : ""}
-      <a href="#/account" class="nav-account" data-nav="account" title="${esc(u.email)}">
+      <a href="#/account" class="nav-account" data-nav="account" title="${esc(u.email)}" aria-label="${esc(t("My account"))}">
         <span class="avatar" aria-hidden="true">${esc(initials(u.name || u.email))}</span>
         <span class="nav-account-name">${esc(u.name || u.email.split("@")[0])}</span>
       </a>`;
@@ -90,7 +105,7 @@
     el.innerHTML = `
       <div class="modal-box ${extraClass}" role="dialog" aria-modal="true" aria-labelledby="ov-title">
         <div class="modal-header"><span id="ov-title">${esc(title)}</span>
-          <button type="button" class="modal-close" aria-label="Close">&times;</button></div>
+          <button type="button" class="modal-close" aria-label="${esc(t("Close"))}">&times;</button></div>
         <div class="modal-body">${bodyHTML}</div>
       </div>`;
     document.body.appendChild(el);
@@ -101,33 +116,32 @@
     if (user()) return Promise.resolve(true);
     return new Promise((resolve) => {
       const google = state.config.auth && state.config.auth.google;
-      const el = overlay("Sign in", `
+      const el = overlay(t("Sign in"), `
         <div class="auth-step" data-step="email">
-          <p class="auth-lead">${esc(reason || "Sign in to save your progress on every device, unlock all tests with the plan and order examiner checks.")}</p>
+          <p class="auth-lead">${esc(reason || t("signin.default"))}</p>
           ${google ? `<button type="button" class="btn-google" data-google>
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.7-.06-1.37-.18-2.02H12v3.83h5.38a4.6 4.6 0 0 1-2 3.02v2.5h3.24c1.9-1.75 2.98-4.32 2.98-7.33z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.43l-3.24-2.5c-.9.6-2.04.95-3.38.95-2.6 0-4.8-1.75-5.59-4.1H3.07v2.58A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.41 13.92a6 6 0 0 1 0-3.84V7.5H3.07a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 5.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.93 5.5l3.34 2.58C7.2 7.73 9.4 5.98 12 5.98z"/></svg>
-              Continue with Google</button>
-            <div class="auth-or"><span>or use your email</span></div>` : ""}
+              ${t("Continue with Google")}</button>
+            <div class="auth-or"><span>${t("or use your email")}</span></div>` : ""}
           <form class="auth-form" data-form="email" novalidate>
-            <label for="auth-email">Email address</label>
+            <label for="auth-email">${t("Email address")}</label>
             <input id="auth-email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="you@example.com" />
             <p class="form-error" role="alert" hidden></p>
-            <button type="submit" class="btn-primary btn-lg">Send me a code</button>
+            <button type="submit" class="btn-primary btn-lg">${t("Send me a code")}</button>
           </form>
         </div>
         <div class="auth-step" data-step="code" hidden>
-          <p class="auth-lead">We sent a 6-digit code to <strong data-email></strong>. It can take a minute to arrive,
-            and it may be in your spam folder. You can also click the link in the email.</p>
+          <p class="auth-lead">${t("signin.sent")}</p>
           <p class="dev-hint" hidden></p>
           <form class="auth-form" data-form="code" novalidate>
-            <label for="auth-code">Code</label>
+            <label for="auth-code">${t("Code")}</label>
             <input id="auth-code" class="code-input" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" required />
             <p class="form-error" role="alert" hidden></p>
-            <button type="submit" class="btn-primary btn-lg">Sign in</button>
+            <button type="submit" class="btn-primary btn-lg">${t("Sign in")}</button>
           </form>
           <div class="auth-links">
-            <button type="button" class="btn-link" data-back>Use a different email</button>
-            <button type="button" class="btn-link" data-resend>Send a new code</button>
+            <button type="button" class="btn-link" data-back>${t("Use a different email")}</button>
+            <button type="button" class="btn-link" data-resend>${t("Send a new code")}</button>
           </div>
         </div>`, "auth-box");
 
@@ -180,13 +194,13 @@
       el.querySelector('[data-form="email"]').addEventListener("submit", (e) => {
         e.preventDefault();
         email = el.querySelector("#auth-email").value.trim();
-        if (!email) return showError("email", "Please enter your email address.");
+        if (!email) return showError("email", t("Please enter your email address."));
         sendCode();
       });
       el.querySelector('[data-form="code"]').addEventListener("submit", async (e) => {
         e.preventDefault();
         const code = el.querySelector("#auth-code").value.replace(/\s+/g, "");
-        if (!/^\d{6}$/.test(code)) return showError("code", "Enter the 6-digit code from the email.");
+        if (!/^\d{6}$/.test(code)) return showError("code", t("Enter the 6-digit code from the email."));
         showError("code", "");
         busy("code", true);
         try {
@@ -194,7 +208,7 @@
             method: "POST", body: JSON.stringify({ email, code, clientId: U.clientId() }),
           });
           renderAccountSlot();
-          U.toast("You are signed in.");
+          U.toast(t("You are signed in."));
           close(true);
         } catch (err) {
           showError("code", err.message);
@@ -211,7 +225,7 @@
       const resend = el.querySelector("[data-resend]");
       resend.addEventListener("click", async () => {
         resend.disabled = true;
-        if (await sendCode()) U.toast("A new code is on its way.");
+        if (await sendCode()) U.toast(t("A new code is on its way."));
         setTimeout(() => { resend.disabled = false; }, 30000);
       });
       const g = el.querySelector("[data-google]");
@@ -229,7 +243,7 @@
     await U.api("/api/auth/logout", { method: "POST", body: "{}" }).catch(() => {});
     state.me = { user: null };
     renderAccountSlot();
-    U.toast("You are signed out.");
+    U.toast(t("You are signed out."));
     location.hash = "#/";
   }
 
@@ -238,20 +252,20 @@
     const b = await billing().catch(() => null);
     const price = b ? money(b.prices.plan) : "";
     const signedIn = Boolean(user());
+    const name = test ? `${test.module.charAt(0).toUpperCase()}${test.module.slice(1)} · ${test.shortTitle}` : "";
     const ok = await U.modal({
-      title: "This test is part of the monthly plan",
+      title: t("This test comes with the monthly pass"),
       bodyHTML: `
-        <p><strong>${esc(test ? test.title : "This test")}</strong> is included in the monthly plan${price ? ` (${esc(price)} a month)` : ""}.
-          Test 1 of each module is free.</p>
+        <p>${t("paywall.text", { test: `<strong>${esc(name)}</strong>`, price: price ? esc(price) : "" })}</p>
         <ul class="plan-points">
-          <li>Every Listening, Reading, Writing and Speaking test, with new tests added regularly</li>
-          <li>Full results, answer explanations and listening transcripts</li>
-          <li>Your first payment gives you <strong>two months</strong>: one paid, one free</li>
+          <li>${t("All Listening, Reading, Writing and Speaking tests")}</li>
+          <li>${t("Full results, answer explanations and listening transcripts")}</li>
+          <li>${t("Your first payment gives you two months")}</li>
         </ul>
-        ${signedIn ? "" : `<p class="muted-text">Already have the plan? Sign in to continue.</p>`}`,
+        ${signedIn ? "" : `<p class="muted-text">${t("Already have the pass? Sign in to continue.")}</p>`}`,
       buttons: [
-        ...(signedIn ? [] : [{ label: "Sign in", className: "btn-secondary", value: "signin" }]),
-        { label: "See the plan", className: "btn-primary", value: "pricing" },
+        ...(signedIn ? [] : [{ label: t("Sign in"), className: "btn-secondary", value: "signin" }]),
+        { label: t("See the pass"), className: "btn-primary", value: "pricing" },
       ],
     });
     if (ok === "signin") return login();
@@ -261,26 +275,26 @@
 
   function chooseMethod(order, b) {
     const labels = {
-      payme: ["Payme", "Pay with the Payme app or any Uzcard / Humo card"],
-      click: ["Click", "Pay with the Click app or any Uzcard / Humo card"],
-      manual: ["Bank card transfer", "Transfer to our card, then press “I have paid”. We confirm within a few hours."],
+      payme: ["Payme", t("Pay with the Payme app or any Uzcard / Humo card")],
+      click: ["Click", t("Pay with the Click app or any Uzcard / Humo card")],
+      manual: [t("Bank card transfer"), t("pay.manual.note")],
     };
     if (!b.providers.length) {
       const contact = state.config.contactEmail;
       U.modal({
-        title: "Payments are being set up",
-        bodyHTML: `<p>Online payment is not switched on yet. ${contact ? `Please write to <a href="mailto:${esc(contact)}">${esc(contact)}</a> and we will activate your order <strong>#MX${order.id}</strong>.` : "Please try again soon."}</p>`,
+        title: t("Payments are being set up"),
+        bodyHTML: `<p>${contact ? t("pay.setup.contact", { contact: `<a href="mailto:${esc(contact)}">${esc(contact)}</a>`, order: `<strong>#MX${order.id}</strong>` }) : t("pay.setup.later")}</p>`,
       });
       return Promise.resolve(null);
     }
     return U.modal({
-      title: `Pay ${money(order.amount)}`,
-      bodyHTML: `<p class="muted-text">${esc(order.title)} · order #MX${order.id}</p>
+      title: t("Pay {amount}", { amount: money(order.amount) }),
+      bodyHTML: `<p class="muted-text">${esc(order.title)} · ${t("order")} #MX${order.id}</p>
         <div class="pay-methods">${b.providers.map((p) => `
           <button type="button" class="pay-method" data-method="${p}">
             <span class="pay-method-name">${esc(labels[p][0])}</span><span class="pay-method-note">${esc(labels[p][1])}</span>
           </button>`).join("")}</div>`,
-      buttons: [{ label: "Cancel", className: "btn-secondary", value: null }],
+      buttons: [{ label: t("Cancel"), className: "btn-secondary", value: null }],
       onOpen: (root, close) => root.querySelectorAll("[data-method]").forEach((btn) =>
         btn.addEventListener("click", () => close(btn.dataset.method))),
     });
@@ -288,32 +302,32 @@
 
   async function manualTransfer(order, info) {
     const ok = await U.modal({
-      title: "Pay by card transfer",
+      title: t("Pay by card transfer"),
       bodyHTML: `
         <ol class="transfer-steps">
-          <li>Open your bank app and transfer exactly <strong>${esc(money(info.amount))}</strong> to this card:
+          <li>${t("transfer.1", { amount: `<strong>${esc(money(info.amount))}</strong>` })}
             <div class="card-number"><span>${esc(info.cardNumber)}</span>
-              <button type="button" class="btn-link" data-copy="${esc(info.cardNumber.replace(/\s+/g, ""))}">Copy</button></div>
-            ${info.cardHolder ? `<div class="muted-text">Card holder: ${esc(info.cardHolder)}</div>` : ""}</li>
-          <li>In the payment comment write <strong>${esc(info.reference)}</strong> so we can find your payment.</li>
-          <li>Press <strong>I have paid</strong>. We check payments several times a day and activate your order.</li>
+              <button type="button" class="btn-link" data-copy="${esc(info.cardNumber.replace(/\s+/g, ""))}">${t("Copy")}</button></div>
+            ${info.cardHolder ? `<div class="muted-text">${t("Card holder: {name}", { name: esc(info.cardHolder) })}</div>` : ""}</li>
+          <li>${t("transfer.2", { ref: `<strong>${esc(info.reference)}</strong>` })}</li>
+          <li>${t("transfer.3")}</li>
         </ol>`,
       buttons: [
-        { label: "Later", className: "btn-secondary", value: false },
-        { label: "I have paid", className: "btn-primary", value: true },
+        { label: t("Later"), className: "btn-secondary", value: false },
+        { label: t("I have paid"), className: "btn-primary", value: true },
       ],
       onOpen: (root) => root.querySelectorAll("[data-copy]").forEach((b) => b.addEventListener("click", () => {
-        navigator.clipboard && navigator.clipboard.writeText(b.dataset.copy).then(() => U.toast("Card number copied."));
+        navigator.clipboard && navigator.clipboard.writeText(b.dataset.copy).then(() => U.toast(t("Card number copied.")));
       })),
     });
     if (!ok) return;
     await U.api(`/api/orders/${order.id}/manual-paid`, { method: "POST", body: "{}" });
-    U.toast("Thank you! We will confirm your payment soon.");
+    U.toast(t("Thank you! We will confirm your payment soon."));
     location.hash = "#/account";
   }
 
   async function buy(kind, extra = {}) {
-    if (!(await login(kind === "plan" ? "Sign in to get the plan. Your plan works on every device where you sign in." : "Sign in to order an examiner check."))) return;
+    if (!(await login(kind === "plan" ? t("signin.plan") : t("Sign in to order an examiner check.")))) return;
     try {
       const b = await billing();
       const { order } = await U.api("/api/orders", { method: "POST", body: JSON.stringify({ kind, ...extra }) });
@@ -321,100 +335,96 @@
       if (!method) return;
       const res = await U.api(`/api/orders/${order.id}/pay`, { method: "POST", body: JSON.stringify({ method }) });
       if (res.redirect) {
-        U.loadingOverlay("Opening the payment page…", "You will come back here after paying.");
+        U.loadingOverlay(t("Opening the payment page…"), t("You will come back here after paying."));
         location.href = res.redirect;
       } else if (res.manual) {
         await manualTransfer(order, res.manual);
       }
     } catch (err) {
-      U.modal({ title: "Could not start the payment", bodyHTML: `<p>${esc(err.message)}</p>` });
+      U.modal({ title: t("Could not start the payment"), bodyHTML: `<p>${esc(err.message)}</p>` });
     }
   }
 
   /* ================================================================ pricing */
+  const stripes = `<div class="pass-stripes" aria-hidden="true"><span style="background:var(--line-l)"></span><span style="background:var(--line-r)"></span><span style="background:var(--line-w)"></span><span style="background:var(--line-s)"></span></div>`;
+
   async function renderPricing(main) {
-    document.title = `Prices – ${state.config.siteName || "MockExam"}`;
-    main.innerHTML = `<section class="page"><p class="muted-text">Loading…</p></section>`;
+    document.title = `${t("Prices")} – ${siteName()}`;
+    main.innerHTML = loading();
     const b = await billing().catch(() => ({ prices: {}, providers: [] }));
     const plan = state.me.plan;
+    const methods = [["payme", "Payme"], ["click", "Click"], ["manual", t("a bank card transfer")]]
+      .filter(([k]) => b.providers.includes(k)).map(([, v]) => v);
     main.innerHTML = `
       <section class="page pricing-page">
-        <div class="hero">
-          <h1>Simple prices</h1>
-          <p>Start free. Get the plan when you want every test, and pay an examiner only when you want personal feedback.</p>
+        <div class="pricing-head">
+          <h1>${t("Simple prices")}</h1>
+          <p>${t("pricing.lead")}</p>
         </div>
         <div class="price-grid">
           <article class="price-card">
-            <div class="price-kicker">Free trial</div>
-            <div class="price-amount">0 <span>so'm</span></div>
+            <div class="price-kicker">${t("Free tests")}</div>
+            <div class="price-amount">0 <span>${t("so'm")}</span></div>
             <ul class="plan-points">
-              <li>Test 1 of Listening, Reading, Writing and Speaking</li>
-              <li>Instant scores, explanations and transcripts</li>
-              <li>Record your Speaking answers and listen back</li>
+              <li>${t("Test 1 of Listening, Reading, Writing and Speaking")}</li>
+              <li>${t("Instant scores, explanations and transcripts")}</li>
+              <li>${t("Record your Speaking answers and listen back")}</li>
             </ul>
-            <a class="btn-secondary btn-lg" href="#/">Start a free test</a>
+            <a class="btn-secondary btn-lg" href="#/">${t("Start a free test")}</a>
           </article>
           <article class="price-card is-featured">
-            <div class="price-flag">First month + 1 month free</div>
-            <div class="price-kicker">Monthly plan</div>
-            <div class="price-amount">${esc(money(b.prices.plan).replace(" so'm", ""))} <span>so'm / month</span></div>
+            ${stripes}
+            <span class="price-flag">${t("First payment: 2 months")}</span>
+            <div class="price-kicker">${t("Monthly pass")}</div>
+            <div class="price-amount">${esc(I18N.number(b.prices.plan))} <span>${t("so'm / month")}</span></div>
             <ul class="plan-points">
-              <li><strong>All</strong> Listening, Reading, Writing and Speaking tests</li>
-              <li>New tests added regularly</li>
-              <li>Your results and progress on every device</li>
-              <li>Your first payment gives you <strong>2 months</strong></li>
-              <li>No automatic charges: renew when you want</li>
+              <li>${t("All Listening, Reading, Writing and Speaking tests")}</li>
+              <li>${t("New tests added regularly")}</li>
+              <li>${t("Your results and progress on every device")}</li>
+              <li>${t("No automatic charges: renew when you want")}</li>
             </ul>
             ${plan && plan.active
-              ? `<p class="plan-active">Your plan is active until <strong>${esc(longDate(plan.endsAt))}</strong>.</p>
-                 <button type="button" class="btn-secondary btn-lg" data-action="buy-plan">Add another month</button>`
-              : `<button type="button" class="btn-primary btn-lg" data-action="buy-plan">Get the plan</button>`}
+              ? `<p class="plan-active">${t("Your pass is active until {date}.", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>
+                 <button type="button" class="btn-secondary btn-lg" data-action="buy-plan">${t("Add another month")}</button>`
+              : `<button type="button" class="btn-primary btn-lg" data-action="buy-plan">${t("Get the pass")}</button>`}
           </article>
           <article class="price-card">
-            <div class="price-kicker">Examiner checks</div>
+            <div class="price-kicker">${t("Examiner checks")}</div>
             <div class="price-lines">
-              <div><span>Writing check</span><strong>${esc(money(b.prices.writing_check))}</strong></div>
-              <div><span>Speaking check</span><strong>${esc(money(b.prices.speaking_check))}</strong></div>
+              <div><span>${t("Writing check")}</span><strong>${esc(money(b.prices.writing_check))}</strong></div>
+              <div><span>${t("Speaking check")}</span><strong>${esc(money(b.prices.speaking_check))}</strong></div>
             </div>
             <ul class="plan-points">
-              <li>You choose your examiner by rating and reviews</li>
-              <li>Band scores on the four official criteria</li>
-              <li>Personal feedback and corrections</li>
-              <li>Rate your examiner after every check</li>
+              <li>${t("You choose your examiner by rating and reviews")}</li>
+              <li>${t("Band scores on the four official criteria")}</li>
+              <li>${t("Personal feedback and corrections")}</li>
             </ul>
-            <a class="btn-secondary btn-lg" href="#/examiners">Meet the examiners</a>
+            <a class="btn-secondary btn-lg" href="#/examiners">${t("Meet the examiners")}</a>
           </article>
         </div>
-        <p class="pay-note">Pay with ${esc(["Payme", "Click", "a bank card transfer"].filter((_, i) =>
-          b.providers.includes(["payme", "click", "manual"][i])).join(", ") || "Payme or Click")}. Prices include all fees.</p>
+        <p class="pay-note">${t("Pay with {methods}. Prices include all fees.", { methods: esc(methods.join(", ") || "Payme, Click") })}</p>
         <div class="faq">
-          <h2 class="section-title">Questions</h2>
-          <details><summary>Does the plan renew automatically?</summary>
-            <p>No. Nothing is charged automatically. When your month ends, you can pay for another month. Your very first payment gives you two months.</p></details>
-          <details><summary>How does an examiner check work?</summary>
-            <p>Finish a Writing or Speaking test while signed in. On your results page, choose an examiner and pay. The examiner reads
-              your essays or listens to your recorded answers, usually within 48 hours, and you see the bands and feedback in your account.
-              You can rate the examiner once for each check.</p></details>
-          <details><summary>Do I need the plan to order an examiner check?</summary>
-            <p>No. You can order a check for any test you have taken, including the free tests.</p></details>
-          <details><summary>Can I get a refund?</summary>
-            <p>If an examiner has not started your check yet, we can refund it. Contact us with your order number.</p></details>
+          <h2 class="section-title">${t("Questions")}</h2>
+          <details><summary>${t("Does the pass renew automatically?")}</summary><p>${t("faq.renew")}</p></details>
+          <details><summary>${t("How does an examiner check work?")}</summary><p>${t("faq.check")}</p></details>
+          <details><summary>${t("Do I need the pass to order an examiner check?")}</summary><p>${t("faq.checkfree")}</p></details>
+          <details><summary>${t("Can I get a refund?")}</summary><p>${t("faq.refund")}</p></details>
         </div>
       </section>`;
   }
 
   /* ================================================================ account */
   async function renderAccount(main) {
-    document.title = `My account – ${state.config.siteName || "MockExam"}`;
+    document.title = `${t("My account")} – ${siteName()}`;
     await refreshMe();
     if (!user()) {
-      main.innerHTML = `<section class="page"><h1>My account</h1><p class="lead-text">Sign in to see your plan, your examiner checks and your results.</p>
-        <button type="button" class="btn-primary btn-lg" data-action="signin">Sign in</button></section>`;
+      main.innerHTML = `<section class="page"><h1>${t("My account")}</h1><p class="lead-text">${t("Sign in to see your pass, your examiner checks and your results.")}</p>
+        <button type="button" class="btn-primary btn-lg" data-action="signin">${t("Sign in")}</button></section>`;
       return;
     }
     const u = user();
     const plan = state.me.plan;
-    main.innerHTML = `<section class="page account-page"><p class="muted-text">Loading…</p></section>`;
+    main.innerHTML = loading();
     const [ordersRes, checksRes, progressRes] = await Promise.all([
       U.api("/api/orders").catch(() => ({ orders: [] })),
       U.api("/api/checks").catch(() => ({ checks: [] })),
@@ -427,66 +437,66 @@
         <div class="account-head">
           <div class="avatar big" aria-hidden="true">${esc(initials(u.name || u.email))}</div>
           <div>
-            <h1>${esc(u.name || "My account")}</h1>
+            <h1>${esc(u.name || t("My account"))}</h1>
             <p class="muted-text">${esc(u.email)}${u.role !== "student" ? ` · ${esc(u.role)}` : ""}</p>
           </div>
-          <button type="button" class="btn-secondary" data-action="signout">Sign out</button>
+          <button type="button" class="btn-secondary" data-action="signout">${t("Sign out")}</button>
         </div>
-        ${waiting.length ? `<div class="notice notice-info"><strong>We are checking your payment.</strong>
-          <span>${waiting.map((o) => `Order #MX${o.id} (${esc(money(o.amount))})`).join(", ")} will be activated as soon as we see the transfer.</span></div>` : ""}
+        ${waiting.length ? `<div class="notice notice-info"><strong>${t("We are checking your payment.")}</strong>
+          <span>${t("payment.waiting", { orders: waiting.map((o) => `#MX${o.id} (${esc(money(o.amount))})`).join(", ") })}</span></div>` : ""}
 
         <div class="account-grid">
           <div class="account-card">
-            <h2>Your plan</h2>
+            <h2>${t("Your pass")}</h2>
             ${plan && plan.active
-              ? `<p class="plan-active">Active until <strong>${esc(longDate(plan.endsAt))}</strong></p>
-                 <p class="muted-text">All tests are open to you.</p>
-                 <button type="button" class="btn-secondary" data-action="buy-plan">Add another month</button>`
-              : `<p>You are using the free tests.</p>
-                 <p class="muted-text">${plan && plan.hadPaidPlan ? "Your plan has ended." : "Your first payment gives you two months."}</p>
-                 <button type="button" class="btn-primary" data-action="buy-plan">Get the plan</button>`}
+              ? `<p class="plan-active">${t("Active until {date}", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>
+                 <p class="muted-text">${t("Every test is open to you.")}</p>
+                 <button type="button" class="btn-secondary" data-action="buy-plan">${t("Add another month")}</button>`
+              : `<p>${t("You are using the free tests.")}</p>
+                 <p class="muted-text">${plan && plan.hadPaidPlan ? t("Your pass has ended.") : t("Your first payment gives you two months")}</p>
+                 <button type="button" class="btn-primary" data-action="buy-plan">${t("Get the pass")}</button>`}
           </div>
           <div class="account-card">
-            <h2>Your name</h2>
+            <h2>${t("Your name")}</h2>
             <form id="name-form" class="inline-form">
-              <label class="sr-only" for="acc-name">Name</label>
-              <input id="acc-name" maxlength="80" value="${esc(u.name || "")}" placeholder="Your name" />
-              <button type="submit" class="btn-secondary">Save</button>
+              <label class="sr-only" for="acc-name">${t("Name")}</label>
+              <input id="acc-name" maxlength="80" value="${esc(u.name || "")}" placeholder="${esc(t("Your name"))}" autocomplete="name" />
+              <button type="submit" class="btn-secondary">${t("Save")}</button>
             </form>
-            <p class="muted-text small-text">Examiners see this name on your checks.</p>
+            <p class="muted-text small-text">${t("Examiners see this name on your checks.")}</p>
           </div>
         </div>
 
         <section class="progress-section" id="progress-section"></section>
 
-        <h2 class="section-title">Examiner checks</h2>
+        <h2 class="section-title">${t("Examiner checks")}</h2>
         ${(checksRes.checks || []).length ? `
           <div class="table-scroll"><table class="history-table">
-            <thead><tr><th scope="col">Date</th><th scope="col">Check</th><th scope="col">Examiner</th><th scope="col">Status</th><th scope="col"></th></tr></thead>
+            <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Check")}</th><th scope="col">${t("Examiner")}</th><th scope="col">${t("Status")}</th><th scope="col"><span class="sr-only">${t("Open")}</span></th></tr></thead>
             <tbody>${checksRes.checks.map((c) => `
               <tr><td>${esc(U.formatDate(c.createdAt))}</td><td>${c.kind === "writing" ? "Writing" : "Speaking"}</td>
                 <td>${esc(c.examinerName || "")}</td>
-                <td>${statusBadge(c.status)}${c.overallBand != null ? ` <strong>Band ${IeltsScoring.formatBand(c.overallBand)}</strong>` : ""}</td>
-                <td><a href="#/check/${c.id}">Open</a></td></tr>`).join("")}</tbody>
+                <td>${statusBadge(c.status)}${c.overallBand != null ? ` <strong>${t("Band {band}", { band: IeltsScoring.formatBand(c.overallBand) })}</strong>` : ""}</td>
+                <td><a href="#/check/${c.id}">${t("Open")}</a></td></tr>`).join("")}</tbody>
           </table></div>`
-          : `<p class="empty-inline">No checks yet. Finish a Writing or Speaking test while signed in, then choose an examiner on your results page.</p>`}
+          : `<p class="empty-inline">${t("checks.empty")}</p>`}
 
         <section id="history-section" hidden></section>
 
-        <h2 class="section-title">Payments</h2>
+        <h2 class="section-title">${t("Payments")}</h2>
         ${orders.length ? `
           <div class="table-scroll"><table class="history-table">
-            <thead><tr><th scope="col">Date</th><th scope="col">Order</th><th scope="col">Item</th><th scope="col">Amount</th><th scope="col">Status</th></tr></thead>
+            <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Order")}</th><th scope="col">${t("Item")}</th><th scope="col">${t("Amount")}</th><th scope="col">${t("Status")}</th></tr></thead>
             <tbody>${orders.map((o) => `
               <tr><td>${esc(U.formatDate(o.createdAt))}</td><td>#MX${o.id}</td><td>${esc(o.title)}</td>
                 <td>${esc(money(o.amount))}</td><td>${statusBadge(o.status)}</td></tr>`).join("")}</tbody>
-          </table></div>` : `<p class="empty-inline">No payments yet.</p>`}
+          </table></div>` : `<p class="empty-inline">${t("No payments yet.")}</p>`}
       </section>`;
     main.querySelector("#name-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       state.me = await U.api("/api/me", { method: "POST", body: JSON.stringify({ name: main.querySelector("#acc-name").value }) });
       renderAccountSlot();
-      U.toast("Saved.");
+      U.toast(t("Saved."));
     });
     Progress.render(main.querySelector("#progress-section"), progressRes.points || []);
     if (window.app) window.app.loadHistory();
@@ -501,44 +511,44 @@
           <div>
             <h3>${esc(e.name)}</h3>
             ${e.headline ? `<p class="examiner-headline">${esc(e.headline)}</p>` : ""}
-            <p class="examiner-rating">${e.rating != null ? `${stars(e.rating)} <strong>${e.rating.toFixed(1)}</strong> <span class="muted-text">(${e.reviews} review${e.reviews === 1 ? "" : "s"})</span>` : `<span class="muted-text">New examiner – no reviews yet</span>`}</p>
+            <p class="examiner-rating">${e.rating != null
+              ? `${stars(e.rating)} <strong>${e.rating.toFixed(1)}</strong> <span class="muted-text">(${esc(I18N.plural(e.reviews, { en: ["{n} review", "{n} reviews"], uz: ["{n} ta sharh"], ru: ["{n} отзыв", "{n} отзыва", "{n} отзывов"] }))})</span>`
+              : `<span class="muted-text">${t("New examiner – no reviews yet")}</span>`}</p>
           </div>
         </div>
         <div class="examiner-tags">
-          ${e.doesWriting ? `<span class="tag">Writing</span>` : ""}${e.doesSpeaking ? `<span class="tag">Speaking</span>` : ""}
-          <span class="tag tag-muted">${e.checksDone} check${e.checksDone === 1 ? "" : "s"} done</span>
-          ${e.queue ? `<span class="tag tag-muted">${e.queue} in queue</span>` : ""}
+          ${e.doesWriting ? `<span class="tag line-w">Writing</span>` : ""}${e.doesSpeaking ? `<span class="tag line-s">Speaking</span>` : ""}
+          <span class="tag tag-muted">${esc(I18N.plural(e.checksDone, { en: ["{n} check done", "{n} checks done"], uz: ["{n} ta tekshiruv"], ru: ["{n} проверка", "{n} проверки", "{n} проверок"] }))}</span>
+          ${e.queue ? `<span class="tag tag-muted">${esc(t("{n} in queue", { n: e.queue }))}</span>` : ""}
         </div>
         ${e.bio ? `<p class="examiner-bio">${esc(e.bio)}</p>` : ""}
         <div class="examiner-actions">
-          <button type="button" class="btn-link" data-action="examiner-reviews" data-id="${esc(e.id)}">Reviews</button>
+          <button type="button" class="btn-link" data-action="examiner-reviews" data-id="${esc(e.id)}">${t("Reviews")}</button>
           <button type="button" class="btn-primary" data-action="choose-examiner" data-id="${esc(e.id)}" data-kind="${ctx.kind}"
-            ${ctx && ctx.submission ? `data-submission="${Number(ctx.submission)}"` : ""}>Choose</button>
+            ${ctx && ctx.submission ? `data-submission="${Number(ctx.submission)}"` : ""}>${t("Choose")}</button>
         </div>
       </article>`;
   }
 
   async function renderExaminers(main, params) {
-    document.title = `Examiners – ${state.config.siteName || "MockExam"}`;
+    document.title = `${t("Examiners")} – ${siteName()}`;
     const submission = Number(params.get("submission")) || null;
     const kind = params.get("kind") === "speaking" ? "speaking" : "writing";
-    main.innerHTML = `<section class="page"><p class="muted-text">Loading…</p></section>`;
+    main.innerHTML = loading();
     const [{ examiners }, b] = await Promise.all([U.api(`/api/examiners?kind=${kind}`), billing()]);
     const skill = kind === "speaking" ? "Speaking" : "Writing";
     main.innerHTML = `
       <section class="page examiners-page">
-        <h1>Choose your examiner</h1>
-        ${submission ? "" : `<div class="review-tabs admin-tabs">
-          <a class="review-tab-btn ${kind === "writing" ? "active" : ""}" href="#/examiners?kind=writing">Writing</a>
-          <a class="review-tab-btn ${kind === "speaking" ? "active" : ""}" href="#/examiners?kind=speaking">Speaking</a></div>`}
-        <p class="lead-text">${kind === "speaking"
-          ? "Our examiners listen to your recorded answers, give a band for each of the four official Speaking criteria and tell you how to improve."
-          : "Our examiners mark your writing on the four official criteria and give you personal feedback."}
-          A ${skill} check costs <strong>${esc(money(b.prices[`${kind}_check`]))}</strong>.
-          ${submission ? "Choose an examiner for the test you just finished." : `Choose an examiner, then pick which of your ${skill} tests to send.`}</p>
+        <h1>${t("Choose your examiner")}</h1>
+        ${submission ? "" : `<div class="review-tabs admin-tabs" role="tablist">
+          <a class="review-tab-btn ${kind === "writing" ? "active" : ""}" href="#/examiners?kind=writing" role="tab" aria-selected="${kind === "writing"}">Writing</a>
+          <a class="review-tab-btn ${kind === "speaking" ? "active" : ""}" href="#/examiners?kind=speaking" role="tab" aria-selected="${kind === "speaking"}">Speaking</a></div>`}
+        <p class="lead-text">${kind === "speaking" ? t("examiners.speaking") : t("examiners.writing")}
+          ${t("A {skill} check costs {price}.", { skill, price: `<strong>${esc(money(b.prices[`${kind}_check`]))}</strong>` })}
+          ${submission ? t("Choose an examiner for the test you just finished.") : t("Choose an examiner, then pick which of your {skill} tests to send.", { skill })}</p>
         ${examiners.length
           ? `<div class="examiner-grid">${examiners.map((e) => examinerCard(e, { submission, kind })).join("")}</div>`
-          : `<div class="notice notice-info"><strong>${skill} examiners are joining soon.</strong><span>Check back in a few days.</span></div>`}
+          : `<div class="notice notice-info"><strong>${t("{skill} examiners are joining soon.", { skill })}</strong><span>${t("Check back in a few days.")}</span></div>`}
       </section>`;
   }
 
@@ -549,15 +559,16 @@
       bodyHTML: `
         ${examiner.headline ? `<p><strong>${esc(examiner.headline)}</strong></p>` : ""}
         ${examiner.bio ? `<p>${esc(examiner.bio)}</p>` : ""}
-        <h4 class="reviews-title">Reviews</h4>
+        <h4 class="reviews-title">${t("Reviews")}</h4>
         ${reviews.length ? `<ul class="review-items">${reviews.map((r) => `
           <li>${stars(r.rating)} <span class="muted-text">${esc(U.formatDate(r.date))}</span>${r.review ? `<p>${esc(r.review)}</p>` : ""}</li>`).join("")}</ul>`
-          : `<p class="muted-text">No reviews yet.</p>`}`,
+          : `<p class="muted-text">${t("No reviews yet.")}</p>`}`,
+      buttons: [{ label: t("Close"), className: "btn-primary", value: true }],
     });
   }
 
   async function chooseExaminer(examinerId, submissionId, kind = "writing") {
-    if (!(await login("Sign in to order an examiner check."))) return;
+    if (!(await login(t("Sign in to order an examiner check.")))) return;
     const skill = kind === "speaking" ? "Speaking" : "Writing";
     let submission = submissionId;
     if (!submission) {
@@ -565,22 +576,23 @@
       const done = (items || []).filter((i) => i.module === kind && (kind !== "speaking" || (i.answered && !i.checkId)));
       if (!done.length) {
         U.modal({
-          title: `Take a ${skill} test first`,
-          bodyHTML: `<p>Finish a ${skill} test while you are signed in. Then choose an examiner on your results page.</p>`,
-          buttons: [{ label: "OK", className: "btn-primary", value: true }],
+          title: t("Take a {skill} test first", { skill }),
+          bodyHTML: `<p>${t("Finish a {skill} test while you are signed in. Then choose an examiner on your results page.", { skill })}</p>`,
+          buttons: [{ label: t("OK"), className: "btn-primary", value: true }],
         });
         return;
       }
-      const titleOf = (id) => ((window.app && window.app.tests) || []).find((t) => t.id === id);
+      const titleOf = (id) => ((window.app && window.app.tests) || []).find((x) => x.id === id);
       submission = await U.modal({
-        title: `Which ${skill.toLowerCase()} test should be marked?`,
+        title: t("Which {skill} test should be marked?", { skill }),
         bodyHTML: `<div class="pick-list">${done.map((w) => {
-          const t = titleOf(w.testId);
+          const test = titleOf(w.testId);
           return `<button type="button" class="pick-item" data-pick="${Number(w.id)}">
-            <strong>${esc(t ? t.shortTitle : w.testId)}</strong>
-            <span class="muted-text">${esc(U.formatDate(w.createdAt))} · ${kind === "speaking" ? `${w.answered} answers` : `${w.task1Words} + ${w.task2Words} words`}</span></button>`;
+            <strong>${esc(test ? test.shortTitle : w.testId)}</strong>
+            <span class="muted-text">${esc(U.formatDate(w.createdAt))} · ${kind === "speaking"
+              ? esc(t("{n} answers", { n: w.answered })) : esc(t("{words} words", { words: `${w.task1Words} + ${w.task2Words}` }))}</span></button>`;
         }).join("")}</div>`,
-        buttons: [{ label: "Cancel", className: "btn-secondary", value: null }],
+        buttons: [{ label: t("Cancel"), className: "btn-secondary", value: null }],
         onOpen: (root, close) => root.querySelectorAll("[data-pick]").forEach((b) =>
           b.addEventListener("click", () => close(Number(b.dataset.pick)))),
       });
@@ -619,7 +631,7 @@
   function resultHTML(result) {
     const P = Results.parts;
     return `
-      ${result.comment ? `<div class="examiner-comment"><h3>Message from your examiner</h3><p>${esc(result.comment)}</p></div>` : ""}
+      ${result.comment ? `<div class="examiner-comment"><h3>${t("Message from your examiner")}</h3><p>${esc(result.comment)}</p></div>` : ""}
       ${["1", "2"].map((n) => {
         const t = result.tasks[n];
         return `
@@ -627,24 +639,24 @@
             <div class="task-result-head"><h2 class="section-title">Task ${n}</h2><span class="task-band">Band ${IeltsScoring.formatBand(t.band)}</span></div>
             ${t.summary ? `<p class="lead-text">${esc(t.summary)}</p>` : ""}
             ${P.criteriaHTML(t)}
-            <div class="feedback-columns">${P.listBlock("What you did well", t.strengths, "good")}${P.listBlock("How to improve", t.improvements, "improve")}</div>
+            <div class="feedback-columns">${P.listBlock(I18N.t("What you did well"), t.strengths, "good")}${P.listBlock(I18N.t("How to improve"), t.improvements, "improve")}</div>
             ${P.correctionsHTML(t.corrections)}
           </section>`;
       }).join("")}`;
   }
 
   async function renderCheck(main, id) {
-    document.title = `Examiner check – ${state.config.siteName || "MockExam"}`;
+    document.title = `Examiner check – ${siteName()}`;
     if (!(await refreshMe()).user) {
-      main.innerHTML = `<section class="page"><p class="lead-text">Sign in to see this check.</p>
-        <button type="button" class="btn-primary" data-action="signin">Sign in</button></section>`;
+      main.innerHTML = `<section class="page"><p class="lead-text">${t("Sign in to see this check.")}</p>
+        <button type="button" class="btn-primary" data-action="signin">${t("Sign in")}</button></section>`;
       return;
     }
     let check;
     try {
       ({ check } = await U.api(`/api/checks/${encodeURIComponent(id)}`));
     } catch (err) {
-      main.innerHTML = `<section class="page"><h1>Check not found</h1><p>${esc(err.message)}</p></section>`;
+      main.innerHTML = `<section class="page"><h1>${t("Check not found")}</h1><p>${esc(err.message)}</p></section>`;
       return;
     }
     if (check.viewerRole === "examiner" && check.status === "waiting") {
@@ -652,19 +664,25 @@
       check.status = "in_progress";
     }
     const sub = check.submission || {};
+    const student = check.viewerRole === "student";
+    const line = check.kind === "writing" ? ["line-w", "W"] : ["line-s", "S"];
     const head = `
       <div class="results-head">
-        <div>
-          <div class="eyebrow">${check.kind === "writing" ? "Writing" : "Speaking"} check #${check.id}</div>
-          <h1>${esc(sub.title || "")}</h1>
-          <p class="muted-text">${check.viewerRole === "student" ? `Examiner: ${esc(check.examinerName || "")}` : `Candidate: ${esc(sub.candidateName || "")}`}
-            · ordered ${esc(U.formatDate(check.createdAt))}</p>
+        <div class="results-title">
+          <span class="bullet lg ${line[0]}" aria-hidden="true">${line[1]}</span>
+          <div>
+            <h1>${esc(sub.title || "")}</h1>
+            <p class="muted-text">${student
+              ? `${esc(t("{kind} check #{id}", { kind: check.kind === "writing" ? "Writing" : "Speaking", id: check.id }))} · ${esc(t("Examiner: {name}", { name: check.examinerName || "" }))}`
+              : `${check.kind === "writing" ? "Writing" : "Speaking"} check #${check.id} · Candidate: ${esc(sub.candidateName || "")}`}
+              · ${esc(student ? t("ordered {date}", { date: U.formatDate(check.createdAt) }) : `ordered ${U.formatDate(check.createdAt)}`)}</p>
+          </div>
         </div>
         <div>${statusBadge(check.status)}</div>
       </div>`;
 
     const speaking = check.kind === "speaking";
-    const work = check.viewerRole === "student" ? (speaking ? "Your answers" : "Your writing")
+    const work = student ? (speaking ? t("Your answers") : t("Your writing"))
       : (speaking ? "The candidate's answers" : "The candidate's writing");
     if (check.viewerRole !== "student" && check.status !== "completed" && check.status !== "cancelled") {
       main.innerHTML = `<section class="results-page check-page">${head}
@@ -678,9 +696,9 @@
     }
 
     if (check.status !== "completed") {
-      main.innerHTML = `<section class="results-page check-page">${head}
-        <div class="notice notice-info"><strong>${check.status === "cancelled" ? "This check was cancelled." : "Your examiner is working on it."}</strong>
-          <span>${check.status === "cancelled" ? "If you paid, the money has been or will be refunded." : "Most checks are finished within 48 hours. We will show the result here and in your account."}</span></div>
+      main.innerHTML = `<section class="results-page check-page ${line[0]}">${head}
+        <div class="notice notice-info"><strong>${check.status === "cancelled" ? t("This check was cancelled.") : t("Your examiner is working on it.")}</strong>
+          <span>${check.status === "cancelled" ? t("If you paid, the money has been or will be refunded.") : t("check.wait")}</span></div>
         <h2 class="section-title">${work}</h2>${submissionHTML(sub, false)}</section>`;
       return;
     }
@@ -688,30 +706,30 @@
     const r = check.result;
     const canRate = check.viewerRole === "student" && !check.rating;
     main.innerHTML = `
-      <section class="results-page check-page">${head}
+      <section class="results-page check-page ${line[0]}">${head}
         <div class="score-banner-card">
-          ${Results.parts.bandCircle(r.overallBand, "Examiner band")}
+          ${Results.parts.bandCircle(r.overallBand, t("Examiner band"))}
           <div class="score-details-grid">
             ${speaking
               ? Object.values(r.criteria).map((c) => `<div class="score-stat-box"><div class="score-stat-val">${c.band}</div><div class="score-stat-lbl">${esc(c.label)}</div></div>`).join("")
               : `<div class="score-stat-box"><div class="score-stat-val">${IeltsScoring.formatBand(r.tasks["1"].band)}</div><div class="score-stat-lbl">Task 1</div></div>
-                 <div class="score-stat-box"><div class="score-stat-val">${IeltsScoring.formatBand(r.tasks["2"].band)}</div><div class="score-stat-lbl">Task 2 (counts double)</div></div>`}
-            <div class="score-stat-box"><div class="score-stat-val">${esc(check.examinerName || "")}</div><div class="score-stat-lbl">Examiner</div></div>
+                 <div class="score-stat-box"><div class="score-stat-val">${IeltsScoring.formatBand(r.tasks["2"].band)}</div><div class="score-stat-lbl">${t("Task 2 (counts double)")}</div></div>`}
+            <div class="score-stat-box"><div class="score-stat-val">${esc(check.examinerName || "")}</div><div class="score-stat-lbl">${t("Examiner")}</div></div>
           </div>
         </div>
-        <p class="score-note">A practice band from an experienced examiner, using the four public ${speaking ? "Speaking" : "Writing"} criteria. It is not an official IELTS result.</p>
+        <p class="score-note">${t("check.note", { skill: speaking ? "Speaking" : "Writing" })}</p>
         ${canRate ? `
           <form class="rate-box" id="rate-form">
-            <h2>How helpful was your examiner?</h2>
-            <div class="star-input" role="radiogroup" aria-label="Rating">
-              ${[5, 4, 3, 2, 1].map((v) => `<label><input type="radio" name="rating" value="${v}" /><span aria-hidden="true">★</span><span class="sr-only">${v} star${v === 1 ? "" : "s"}</span></label>`).join("")}
+            <h2>${t("How helpful was your examiner?")}</h2>
+            <div class="star-input" role="radiogroup" aria-label="${esc(t("Rating"))}">
+              ${[5, 4, 3, 2, 1].map((v) => `<label><input type="radio" name="rating" value="${v}" /><span aria-hidden="true">${STAR}</span><span class="sr-only">${esc(t("{n} out of 5 stars", { n: v }))}</span></label>`).join("")}
             </div>
-            <label class="sr-only" for="rate-text">Review</label>
-            <textarea id="rate-text" maxlength="1000" placeholder="Optional: what was useful? What could be better?"></textarea>
-            <p class="muted-text small-text">You can review each check once. Other students see your stars and comment, but not your name.</p>
-            <button type="submit" class="btn-primary">Send review</button>
+            <label class="sr-only" for="rate-text">${t("Review")}</label>
+            <textarea id="rate-text" maxlength="1000" placeholder="${esc(t("Optional: what was useful? What could be better?"))}"></textarea>
+            <p class="muted-text small-text">${t("rate.note")}</p>
+            <button type="submit" class="btn-primary">${t("Send review")}</button>
           </form>`
-          : check.rating ? `<div class="rate-box done"><strong>Your review:</strong> ${stars(check.rating)} ${check.review ? `<p>${esc(check.review)}</p>` : ""}</div>` : ""}
+          : check.rating ? `<div class="rate-box done"><strong>${t("Your review:")}</strong> ${stars(check.rating)} ${check.review ? `<p>${esc(check.review)}</p>` : ""}</div>` : ""}
         ${speaking ? Speaking.resultHTML(r) : resultHTML(r)}
         <h2 class="section-title">${work}</h2>
         ${submissionHTML(sub, false, check.viewerRole !== "student")}
@@ -721,12 +739,12 @@
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         const picked = form.querySelector("input[name=rating]:checked");
-        if (!picked) return U.toast("Choose from 1 to 5 stars.", "warn");
+        if (!picked) return U.toast(t("Choose from 1 to 5 stars."), "warn");
         try {
           await U.api(`/api/checks/${check.id}/rate`, {
             method: "POST", body: JSON.stringify({ rating: Number(picked.value), review: form.querySelector("#rate-text").value }),
           });
-          U.toast("Thank you for your review.");
+          U.toast(t("Thank you for your review."));
           renderCheck(main, check.id);
         } catch (err) {
           U.toast(err.message, "warn");
@@ -863,7 +881,7 @@
 
   /* ================================================================ examiner dashboard */
   async function renderExaminerDashboard(main) {
-    document.title = `Examiner – ${state.config.siteName || "MockExam"}`;
+    document.title = `Examiner – ${siteName()}`;
     await refreshMe();
     if (!["examiner", "admin"].includes(role())) {
       main.innerHTML = `<section class="page"><h1>Examiners only</h1><p>This page is for examiners. Want to mark for us? Contact the site owner.</p></section>`;
@@ -932,7 +950,7 @@
 
   /* ================================================================ admin */
   async function renderAdmin(main, params) {
-    document.title = `Admin – ${state.config.siteName || "MockExam"}`;
+    document.title = `Admin – ${siteName()}`;
     await refreshMe();
     if (role() !== "admin") {
       main.innerHTML = `<section class="page"><h1>Admin only</h1><p>Sign in with an admin email to see this page.</p></section>`;

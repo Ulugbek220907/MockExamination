@@ -74,7 +74,11 @@
     seconds = Math.max(0, Math.round(seconds || 0));
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
-    return `${m}m ${s < 10 ? "0" : ""}${s}s`;
+    // The exam screens stay in English; the site follows the chosen language.
+    const inExam = document.body && (document.body.classList.contains("in-exam")
+      || document.getElementById("verification-view")?.classList.contains("active"));
+    const vars = { m, s: `${s < 10 ? "0" : ""}${s}` };
+    return window.I18N && !inExam ? I18N.t("{m}m {s}s", vars) : `${vars.m}m ${vars.s}s`;
   }
 
   function formatClock(seconds) {

@@ -10,11 +10,20 @@
 </head>
 <body class="callback-page">
   <main class="callback-card">
-    <span class="site-logo" aria-hidden="true">M</span>
+    <svg class="site-mark" viewBox="0 0 34 34" aria-hidden="true">
+      <g fill="none" stroke-width="6" transform="rotate(-90 17 17)">
+        <circle cx="17" cy="17" r="12" stroke="#1f5fbf" stroke-dasharray="16.6 58.8" stroke-dashoffset="-1" />
+        <circle cx="17" cy="17" r="12" stroke="#cf3a2c" stroke-dasharray="16.6 58.8" stroke-dashoffset="-19.85" />
+        <circle cx="17" cy="17" r="12" stroke="#1e7c42" stroke-dasharray="16.6 58.8" stroke-dashoffset="-38.7" />
+        <circle cx="17" cy="17" r="12" stroke="#e3a21a" stroke-dasharray="16.6 58.8" stroke-dashoffset="-57.55" />
+      </g>
+    </svg>
     <h1 id="cb-title">Signing you in…</h1>
     <p id="cb-message" role="status">Please wait a moment.</p>
     <a id="cb-back" class="btn-primary" href="/#/" hidden>Back to the site</a>
   </main>
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n-strings.js"></script>
   <script src="js/auth-callback.js"></script>
 </body>
 </html>
