@@ -346,7 +346,27 @@
   }
 
   /* ================================================================ pricing */
+  const LINE_BULLETS = [["line-l", "L"], ["line-r", "R"], ["line-w", "W"], ["line-s", "S"]];
+  const bullets = (which = LINE_BULLETS) => which.map(([cls, letter]) => `<span class="bullet sm ${cls}" aria-hidden="true">${letter}</span>`).join("");
   const stripes = `<div class="pass-stripes" aria-hidden="true"><span style="background:var(--line-l)"></span><span style="background:var(--line-r)"></span><span style="background:var(--line-w)"></span><span style="background:var(--line-s)"></span></div>`;
+
+  function passPriceHTML(amount) {
+    return `${esc(I18N.number(amount))}<small>${t("so'm / month")}</small>`;
+  }
+
+  /** The monthly pass as a transit card; the home page and the prices page share it. */
+  function passCardHTML(amount) {
+    return `
+      <div class="pass-card" role="img" aria-label="${esc(t("Monthly pass"))}${amount ? `: ${esc(I18N.money(amount))}` : ""}">
+        ${stripes}
+        <div class="pass-top"><span class="site-name">${esc(siteName())}</span><span class="pass-kind">${t("Monthly pass")}</span></div>
+        <div class="pass-price" data-price="plan">${amount ? passPriceHTML(amount) : "&nbsp;"}</div>
+        <div class="pass-bottom">
+          <span class="pass-bullets">${bullets()}</span>
+          <span class="pass-note">${t("First payment: 2 months")}</span>
+        </div>
+      </div>`;
+  }
 
   async function renderPricing(main) {
     document.title = `${t("Prices")} – ${siteName()}`;
@@ -361,22 +381,12 @@
           <h1>${t("Simple prices")}</h1>
           <p>${t("pricing.lead")}</p>
         </div>
-        <div class="price-grid">
-          <article class="price-card">
-            <div class="price-kicker">${t("Free tests")}</div>
-            <div class="price-amount">0 <span>${t("so'm")}</span></div>
-            <ul class="plan-points">
-              <li>${t("Test 1 of Listening, Reading, Writing and Speaking")}</li>
-              <li>${t("Instant scores, explanations and transcripts")}</li>
-              <li>${t("Record your Speaking answers and listen back")}</li>
-            </ul>
-            <a class="btn-secondary btn-lg" href="#/">${t("Start a free test")}</a>
-          </article>
-          <article class="price-card is-featured">
-            ${stripes}
-            <span class="price-flag">${t("First payment: 2 months")}</span>
-            <div class="price-kicker">${t("Monthly pass")}</div>
-            <div class="price-amount">${esc(I18N.number(b.prices.plan))} <span>${t("so'm / month")}</span></div>
+
+        <div class="pass-wrap">
+          ${passCardHTML(b.prices.plan)}
+          <div class="pass-copy">
+            <h2>${t("One pass opens every station")}</h2>
+            <p class="muted-text">${t("pass.text")}</p>
             <ul class="plan-points">
               <li>${t("All Listening, Reading, Writing and Speaking tests")}</li>
               <li>${t("New tests added regularly")}</li>
@@ -385,24 +395,31 @@
             </ul>
             ${plan && plan.active
               ? `<p class="plan-active">${t("Your pass is active until {date}.", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>
-                 <button type="button" class="btn-secondary btn-lg" data-action="buy-plan">${t("Add another month")}</button>`
-              : `<button type="button" class="btn-primary btn-lg" data-action="buy-plan">${t("Get the pass")}</button>`}
-          </article>
-          <article class="price-card">
-            <div class="price-kicker">${t("Examiner checks")}</div>
-            <div class="price-lines">
-              <div><span>${t("Writing check")}</span><strong>${esc(money(b.prices.writing_check))}</strong></div>
-              <div><span>${t("Speaking check")}</span><strong>${esc(money(b.prices.speaking_check))}</strong></div>
-            </div>
-            <ul class="plan-points">
-              <li>${t("You choose your examiner by rating and reviews")}</li>
-              <li>${t("Band scores on the four official criteria")}</li>
-              <li>${t("Personal feedback and corrections")}</li>
-            </ul>
-            <a class="btn-secondary btn-lg" href="#/examiners">${t("Meet the examiners")}</a>
-          </article>
+                 <div class="btn-row"><button type="button" class="btn-secondary btn-lg" data-action="buy-plan">${t("Add another month")}</button></div>`
+              : `<div class="btn-row"><button type="button" class="btn-primary btn-lg" data-action="buy-plan">${t("Get the pass")}</button>
+                 <a class="btn-secondary btn-lg" href="#/">${t("Start a free test")}</a></div>`}
+          </div>
         </div>
-        <p class="pay-note">${t("Pay with {methods}. Prices include all fees.", { methods: esc(methods.join(", ") || "Payme, Click") })}</p>
+
+        <section class="fare-board" aria-labelledby="fares-title">
+          <div class="fare-head"><h2 id="fares-title">${t("Fares")}</h2><a href="#/examiners">${t("Meet the examiners")}</a></div>
+          <ul class="fare-rows">
+            <li class="fare-row"><span class="fare-bullets">${bullets()}</span>
+              <span class="fare-name">${t("The first test on every line")}<small>${t("Listening, Reading and Writing need no sign-up")}</small></span>
+              <span class="fare-leader" aria-hidden="true"></span><span class="fare-price">${t("Free")}</span></li>
+            <li class="fare-row"><span class="fare-bullets">${bullets()}</span>
+              <span class="fare-name">${t("Monthly pass")}<small>${t("Every test on every line; your first payment gives two months")}</small></span>
+              <span class="fare-leader" aria-hidden="true"></span><span class="fare-price">${esc(money(b.prices.plan))}<small class="muted-text"> / ${t("month")}</small></span></li>
+            <li class="fare-row"><span class="fare-bullets">${bullets([LINE_BULLETS[2]])}</span>
+              <span class="fare-name">${t("Writing check")}<small>${t("An examiner marks both tasks on the four official criteria")}</small></span>
+              <span class="fare-leader" aria-hidden="true"></span><span class="fare-price">${esc(money(b.prices.writing_check))}</span></li>
+            <li class="fare-row"><span class="fare-bullets">${bullets([LINE_BULLETS[3]])}</span>
+              <span class="fare-name">${t("Speaking check")}<small>${t("An examiner listens to your answers and marks the four criteria")}</small></span>
+              <span class="fare-leader" aria-hidden="true"></span><span class="fare-price">${esc(money(b.prices.speaking_check))}</span></li>
+          </ul>
+          <p class="fare-foot">${t("Pay with {methods}. Prices include all fees.", { methods: esc(methods.join(", ") || "Payme, Click") })}</p>
+        </section>
+
         <div class="faq">
           <h2 class="section-title">${t("Questions")}</h2>
           <details><summary>${t("Does the pass renew automatically?")}</summary><p>${t("faq.renew")}</p></details>
@@ -548,8 +565,23 @@
           ${submission ? t("Choose an examiner for the test you just finished.") : t("Choose an examiner, then pick which of your {skill} tests to send.", { skill })}</p>
         ${examiners.length
           ? `<div class="examiner-grid">${examiners.map((e) => examinerCard(e, { submission, kind })).join("")}</div>`
-          : `<div class="notice notice-info"><strong>${t("{skill} examiners are joining soon.", { skill })}</strong><span>${t("Check back in a few days.")}</span></div>`}
+          : openingSoon(kind, skill)}
       </section>`;
+  }
+
+  /** No examiners on this line yet: say so, and offer the free test in the meantime. */
+  function openingSoon(kind, skill) {
+    const free = ((window.app && window.app.tests) || []).find((x) => x.module === kind && x.access === "free");
+    const line = kind === "speaking" ? ["line-s", "S"] : ["line-w", "W"];
+    return `
+      <div class="empty-plaque ${line[0]}">
+        <span class="bullet lg" aria-hidden="true">${line[1]}</span>
+        <div>
+          <h2>${t("{skill} examiners: opening soon", { skill })}</h2>
+          <p>${t("examiners.soon", { skill })}</p>
+        </div>
+        ${free ? `<button type="button" class="btn-line btn-lg" data-action="start" data-test="${esc(free.id)}" data-mode="exam">${t("Start the free {skill} test", { skill })}</button>` : ""}
+      </div>`;
   }
 
   async function showReviews(examinerId) {
@@ -655,6 +687,7 @@
     let check;
     try {
       ({ check } = await U.api(`/api/checks/${encodeURIComponent(id)}`));
+      await U.need("exam"); // the essays' charts, the Speaking recordings and the marking forms
     } catch (err) {
       main.innerHTML = `<section class="page"><h1>${t("Check not found")}</h1><p>${esc(err.message)}</p></section>`;
       return;
@@ -1088,7 +1121,7 @@
   }
 
   window.Account = {
-    state, refreshMe, user, planActive, role, login, logout, paywall, buy, billing, money, onClick,
+    state, refreshMe, user, planActive, role, login, logout, paywall, buy, billing, money, onClick, passCardHTML, passPriceHTML,
     renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
     setConfig(config) { state.config = config || {}; },
   };

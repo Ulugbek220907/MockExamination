@@ -107,7 +107,7 @@
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") this.closeSigns(); });
       Account.renderAccountSlot();
       try {
-        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe()]);
+        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe(), I18N.ready]);
         this.config = { ...this.config, ...config };
         this.tests = data.tests || [];
         this.modules = data.modules || {};
@@ -115,6 +115,9 @@
         this.loadError = true;
       }
       Account.setConfig(this.config);
+      await I18N.ready;
+      I18N.applyStatic();
+      Account.renderAccountSlot();
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
       this.route();
     }
@@ -158,14 +161,14 @@
       window.scrollTo(0, 0);
       if (path === "/resources") this.renderResources();
       else if (path === "/about") this.renderAbout();
-      else if (path === "/results" && this.lastResult) this.renderResults();
+      else if (path === "/results" && this.lastResult) await this.renderResults();
       else if (path === "/pricing") await Account.renderPricing(this.main);
       else if (path === "/account") await Account.renderAccount(this.main);
       else if (path === "/examiners") await Account.renderExaminers(this.main, params);
       else if (path === "/examiner") await Account.renderExaminerDashboard(this.main);
       else if (path === "/admin") await Account.renderAdmin(this.main, params);
       else if (check) await Account.renderCheck(this.main, check[1]);
-      else if (spoken) await Speaking.renderResult(this.main, spoken[1]);
+      else if (spoken) { await U.need("exam"); await Speaking.renderResult(this.main, spoken[1]); }
       else this.renderHome();
     }
 
@@ -207,15 +210,8 @@
       this.main.innerHTML = `
         <section aria-labelledby="home-title">
           <div class="network-head">
-            <div>
-              <h1 id="home-title">${t("Every line ends at test day.")}</h1>
-              <p>${t("home.lead")}</p>
-            </div>
-            <div class="network-key" aria-hidden="true">
-              <span><i class="key-ring is-free"></i>${t("Free test")}</span>
-              <span><i class="key-ring"></i>${t("With the pass")}</span>
-              <span><i class="key-ring is-done"></i>${t("Taken, with your band")}</span>
-            </div>
+            <h1 id="home-title">${t("Every line ends at test day.")}</h1>
+            <p>${t("home.lead")}</p>
           </div>
           ${this.loadError ? `<div class="notice notice-warn"><strong>${t("Could not load the tests. Please refresh the page.")}</strong></div>` : ""}
           <div class="network" id="network">
@@ -225,6 +221,11 @@
               <span class="hub-capsule" aria-hidden="true"></span>
               <span class="hub-text"><span class="hub-name">${t("Test day")}</span><span class="hub-sub">${t("All lines meet here")}</span></span>
             </button>
+          </div>
+          <div class="network-key">
+            <span><i class="key-ring is-free" aria-hidden="true"></i>${t("Free test")}</span>
+            <span><i class="key-ring" aria-hidden="true">${ICON_LOCK}</i>${t("Opens with the pass")}</span>
+            <span><i class="key-ring is-done" aria-hidden="true"></i>${t("Taken, with your band")}</span>
           </div>
         </section>
 
@@ -242,15 +243,7 @@
         <section id="history-section" class="home-section" hidden></section>
 
         <section class="home-section pass-wrap" id="pass" aria-labelledby="pass-title">
-          <div class="pass-card" aria-hidden="true">
-            <div class="pass-stripes"><span style="background:var(--line-l)"></span><span style="background:var(--line-r)"></span><span style="background:var(--line-w)"></span><span style="background:var(--line-s)"></span></div>
-            <div class="pass-top"><span class="site-name">${esc(this.config.siteName)}</span><span class="pass-kind">${t("Monthly pass")}</span></div>
-            <div class="pass-price" data-price="plan">${this.prices ? this.priceHTML(this.prices.plan) : "&nbsp;"}</div>
-            <div class="pass-bottom">
-              <span class="pass-bullets">${LINES.map((l) => `<span class="bullet sm ${l.cls}">${l.letter}</span>`).join("")}</span>
-              <span>${t("Every station")}</span>
-            </div>
-          </div>
+          ${Account.passCardHTML(this.prices && this.prices.plan)}
           <div class="pass-copy">
             <h2 id="pass-title">${t("One pass opens every station")}</h2>
             <p class="muted-text">${t("pass.text")}</p>
@@ -271,10 +264,6 @@
       this.loadPrices();
     }
 
-    priceHTML(amount) {
-      return `${esc(I18N.number(amount))}<small>${t("so'm / month")}</small>`;
-    }
-
     checksLine() {
       const p = this.prices;
       const w = p ? esc(I18N.money(p.writing_check)) : "…";
@@ -289,7 +278,7 @@
         this.prices = b.prices || null;
       } catch (e) { return; }
       const price = this.main.querySelector('[data-price="plan"]');
-      if (price && this.prices) price.innerHTML = this.priceHTML(this.prices.plan);
+      if (price && this.prices) price.innerHTML = Account.passPriceHTML(this.prices.plan);
       const checks = this.main.querySelector("[data-checks]");
       if (checks) checks.innerHTML = this.checksLine();
     }
@@ -323,6 +312,8 @@
     renderNetwork() {
       const list = document.getElementById("lines-list");
       if (!list) return;
+      const longest = Math.max(1, ...LINES.map((l) => this.testsOf(l.module).length));
+      list.style.setProperty("--rest", String(Math.max(1, longest - 1)));
       list.innerHTML = LINES.map((line) => {
         const tests = this.testsOf(line.module);
         const done = tests.filter((x) => this.ridden[x.id]);
@@ -350,7 +341,7 @@
     stationHTML(test, line, isNext) {
       const ride = this.ridden[test.id];
       const name = this.testName(test);
-      const label = `${MODULE_LABELS[test.module]}, ${name}`;
+      const label = `${MODULE_LABELS[test.module]}, ${name}${isNext ? `, ${t("Next")}` : ""}`;
       const btn = (inner, extra = "") => `
         <button type="button" class="station-btn" data-station="${esc(test.id)}" aria-expanded="false"
           aria-controls="sign-${line.module}" aria-label="${esc(label)}: ${esc(t("details"))}" ${extra}>
@@ -368,7 +359,8 @@
       const band = ride && ride.band !== null && ride.band !== undefined ? IeltsScoring.formatBand(ride.band) : "";
       const ring = ride
         ? `<span class="station-ring">${esc(band)}</span>`
-        : `<span class="station-ring" aria-hidden="true">${this.canOpen(test) ? "" : ICON_LOCK}</span>`;
+        : this.canOpen(test) ? `<span class="station-ring" aria-hidden="true"></span>`
+          : `<span class="station-ring is-locked" aria-hidden="true">${ICON_LOCK}</span>`;
       return `<li class="station ${ride ? "is-done" : ""} ${isNext ? "is-next" : ""}">${btn(ring, isNext ? `data-next="${esc(t("Next"))}"` : "")}</li>`;
     }
 
@@ -380,9 +372,15 @@
         const svg = net.querySelector("#network-svg");
         const hub = net.querySelector(".hub-capsule");
         if (!svg || !hub) return;
+        // Every line's first column is as wide as the widest first station, so Test n lines up.
+        const list = net.querySelector("#lines-list");
+        list.style.removeProperty("--first-cell");
+        const firsts = [...net.querySelectorAll(".station:first-child")];
+        if (firsts.length) list.style.setProperty("--first-cell", `${Math.ceil(Math.max(...firsts.map((el) => el.getBoundingClientRect().width)))}px`);
         const box = net.getBoundingClientRect();
         const tracks = [...net.querySelectorAll(".track")];
         if (!tracks.length || !box.width) return;
+        this.netPaths = {};
         const step = 12;
         const n = tracks.length;
         // Wide screens: the lines curve into the interchange at the right. Phones: they turn
@@ -409,6 +407,7 @@
             const mid = x0 + (hx - x0) * 0.5;
             d = `M${f(x0)},${f(y0)} C${f(mid)},${f(y0)} ${f(mid)},${f(y1)} ${f(hx)},${f(y1)}`;
           }
+          this.netPaths[tr.closest(".line-row").dataset.line] = { x0, y0, d, box };
           return `<path d="${d}" fill="none" stroke="${color}" stroke-width="10" stroke-linecap="butt"/>`;
         });
         svg.setAttribute("viewBox", `0 0 ${box.width.toFixed(1)} ${box.height.toFixed(1)}`);
@@ -439,10 +438,43 @@
       btn.setAttribute("aria-expanded", "true");
       sign.innerHTML = this.signHTML(test, line);
       sign.hidden = false;
+      // Point the sign at its station.
+      const ring = btn.querySelector(".station-ring");
+      const at = ring.getBoundingClientRect();
+      sign.style.setProperty("--notch-x", `${Math.round(at.left + at.width / 2 - sign.getBoundingClientRect().left)}px`);
       this.drawNetwork();
-      const primary = sign.querySelector(".btn-line");
+      this.runTrain(test.module, btn);
+      const primary = sign.querySelector(".btn-line, .btn-primary");
       if (primary) primary.focus({ preventScroll: true });
       sign.scrollIntoView({ block: "nearest" });
+    }
+
+    /** A train leaves the opened station and runs along its line to Test day: this line leads there. */
+    runTrain(module, btn) {
+      const path = this.netPaths && this.netPaths[module];
+      const svg = document.getElementById("network-svg");
+      if (!path || !svg || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const ring = btn.querySelector(".station-ring").getBoundingClientRect();
+      const box = document.getElementById("network").getBoundingClientRect();
+      const sx = ring.left + ring.width / 2 - box.left;
+      const sy = ring.top + ring.height / 2 - box.top;
+      const route = `M${sx.toFixed(1)},${sy.toFixed(1)} L${path.x0.toFixed(1)},${path.y0.toFixed(1)} ${path.d.slice(path.d.indexOf(" ") + 1)}`;
+      svg.querySelectorAll(".network-train").forEach((el) => el.remove());
+      const ns = "http://www.w3.org/2000/svg";
+      const train = document.createElementNS(ns, "circle");
+      train.setAttribute("r", "6");
+      train.setAttribute("class", "network-train");
+      const move = document.createElementNS(ns, "animateMotion");
+      move.setAttribute("dur", "1.3s");
+      move.setAttribute("fill", "freeze");
+      move.setAttribute("calcMode", "spline");
+      move.setAttribute("keyTimes", "0;1");
+      move.setAttribute("keySplines", "0.45 0 0.2 1");
+      move.setAttribute("path", route);
+      train.appendChild(move);
+      svg.appendChild(train);
+      if (move.beginElement) move.beginElement();
+      setTimeout(() => train.remove(), 1500);
     }
 
     signHTML(test, line) {
@@ -455,9 +487,10 @@
         : test.module === "speaking" ? t("11–14 minutes · {q} questions", { q: test.totalQuestions })
           : test.module === "listening" ? t("About {min} minutes · {q} questions", { min: test.durationMinutes, q: test.totalQuestions })
             : t("{min} minutes · {q} questions", { min: test.durationMinutes, q: test.totalQuestions });
+      const locked = !this.canOpen(test);
       const tag = test.access === "free" ? `<span class="sign-tag is-free">${t("Free")}</span>`
-        : this.canOpen(test) ? `<span class="sign-tag">${t("In your pass")}</span>`
-          : `<span class="sign-tag">${t("With the pass")}</span>`;
+        : !locked ? `<span class="sign-tag">${t("In your pass")}</span>`
+          : `<span class="sign-tag is-locked">${t("Opens with the pass")}</span>`;
       const extra = [
         this.hasProgress(test.id) ? t("Unfinished attempt saved") : "",
         ride && ride.band !== null && ride.band !== undefined ? t("Your last band: {band}", { band: IeltsScoring.formatBand(ride.band) }) : "",
@@ -467,10 +500,16 @@
           <div class="sign-title"><span class="bullet sm">${line.letter}</span><h3>${esc(MODULE_LABELS[test.module])} · ${esc(this.testName(test))}</h3>${tag}</div>
           <ul class="sign-items">${items.map(([k, v]) => `<li><b>${esc(k)}</b>${esc(v)}</li>`).join("")}</ul>
           <p class="sign-meta">${esc(meta)}${extra ? ` · ${esc(extra)}` : ""}</p>
+          ${locked ? `<p class="sign-pass">${this.prices
+            ? t("This station opens with the monthly pass: {price} a month, and your first payment gives two months.", { price: `<strong>${esc(I18N.money(this.prices.plan))}</strong>` })
+            : t("This station opens with the monthly pass.")}</p>` : ""}
         </div>
         <div class="sign-actions">
+          ${locked ? `
+          <a class="btn-secondary" href="#/pricing">${t("See prices")}</a>
+          <button type="button" class="btn-line" data-action="buy-plan">${t("Get the pass")} ${ICON_ARROW}</button>` : `
           <button type="button" class="btn-secondary" data-action="start" data-test="${esc(test.id)}" data-mode="practice">${t("Practice, no timer")}</button>
-          <button type="button" class="btn-line" data-action="start" data-test="${esc(test.id)}" data-mode="exam">${ride ? t("Take it again") : t("Start timed test")} ${ICON_ARROW}</button>
+          <button type="button" class="btn-line" data-action="start" data-test="${esc(test.id)}" data-mode="exam">${ride ? t("Take it again") : t("Start timed test")} ${ICON_ARROW}</button>`}
         </div>`;
     }
 
@@ -534,7 +573,7 @@
         this.renderIfHome();
       }
       try {
-        const test = await U.api(`/api/tests/${encodeURIComponent(testId)}`);
+        const [test] = await Promise.all([U.api(`/api/tests/${encodeURIComponent(testId)}`), U.need("exam")]);
         this.pending = { test, mode: mode === "practice" ? "practice" : "exam" };
         if (location.hash === "#/start") this.showVerification();
         else location.hash = "#/start";
@@ -730,8 +769,9 @@
       else location.hash = "#/results";
     }
 
-    renderResults() {
+    async renderResults() {
       const r = this.lastResult;
+      if (r.module === "writing") await U.need("exam"); // Task 1 charts
       document.title = `${t("Your results")} – ${this.config.siteName}`;
       if (r.module === "writing") Results.renderWriting(r, this.main);
       else if (r.module === "listening") Results.renderListening(r, this.main);

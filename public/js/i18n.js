@@ -43,6 +43,37 @@
 
   let lang = detect();
 
+  /** Hashed address of a script the page loads on demand (the server lists them in #asset-versions). */
+  let assetMap = null;
+  function assetUrl(path) {
+    if (!assetMap) {
+      try { assetMap = JSON.parse((document.getElementById("asset-versions") || {}).textContent || "{}"); } catch (e) { assetMap = {}; }
+    }
+    return assetMap[path] || path;
+  }
+
+  const scripts = {};
+  /** Load a script once; scripts added this way run in the order they were requested. */
+  function loadScript(path) {
+    if (!scripts[path]) {
+      scripts[path] = new Promise((resolve, reject) => {
+        const el = document.createElement("script");
+        el.src = assetUrl(path);
+        el.async = false;
+        el.onload = () => resolve();
+        el.onerror = () => { delete scripts[path]; el.remove(); reject(new Error(`Could not load ${path}`)); };
+        document.head.appendChild(el);
+      });
+    }
+    return scripts[path];
+  }
+
+  /** Uzbek and Russian text is fetched only when that language is used. */
+  function loadLang(code) {
+    if (code === "en" || Object.keys(DICT[code]).length) return Promise.resolve();
+    return loadScript(`js/i18n-${code}.js`);
+  }
+
   function t(key, vars) {
     let out = (DICT[lang] && DICT[lang][key]) || EN[key] || key;
     if (vars) out = out.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? String(vars[k]) : m));
@@ -69,8 +100,13 @@
     root.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
   }
 
-  function setLang(next) {
+  async function setLang(next) {
     if (!LANGS[next] || next === lang) return;
+    try {
+      await loadLang(next);
+    } catch (e) {
+      return; // offline: stay in the current language
+    }
     lang = next;
     try { window.localStorage.setItem("testday:lang", JSON.stringify(next)); } catch (e) { /* ignore */ }
     document.documentElement.lang = next;
@@ -87,6 +123,8 @@
     return `${number(n)} ${t("so'm")}`;
   }
 
+  // The chosen language's text, if it is not English; falls back to English if it cannot load.
+  const ready = loadLang(lang).catch(() => { lang = "en"; });
   document.documentElement.lang = lang;
   document.addEventListener("click", (e) => {
     const b = e.target.closest("[data-lang]");
@@ -94,7 +132,7 @@
   });
 
   window.I18N = {
-    t, plural, setLang, applyStatic, number, money, LANGS, DICT, EN, UZ, RU,
+    t, plural, setLang, applyStatic, number, money, loadScript, assetUrl, ready, LANGS, DICT, EN, UZ, RU,
     lang: () => lang,
     locale: () => LANGS[lang].locale,
   };

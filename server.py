@@ -581,13 +581,19 @@ class IndexHandler(BaseHandler):
     """
 
     _html = None
+    # Scripts the page loads only when needed (the exam engines, the other interface
+    # languages). Their hashed addresses go into the page as data for its loader.
+    LAZY_ASSETS = ("js/highlighter.js", "js/charts.js", "js/exam.js", "js/speaking.js", "js/i18n-uz.js", "js/i18n-ru.js")
+    ASSET_SLOT = '<script type="application/json" id="asset-versions">{}</script>'
 
     @classmethod
     def html(cls):
         if cls._html is None:
             with open(os.path.join(PUBLIC_DIR, "index.html"), encoding="utf-8") as f:
                 page = f.read()
-            cls._html = ASSET_REF_RE.sub(lambda m: m.group(1) + versioned(m.group(2)) + m.group(3), page)
+            page = ASSET_REF_RE.sub(lambda m: m.group(1) + versioned(m.group(2)) + m.group(3), page)
+            assets = json.dumps({path: versioned(path) for path in cls.LAZY_ASSETS})
+            cls._html = page.replace(cls.ASSET_SLOT, cls.ASSET_SLOT.replace("{}", assets))
         return cls._html
 
     def get(self):

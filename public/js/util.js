@@ -163,8 +163,23 @@
     setTimeout(() => el.remove(), 6000);
   }
 
+  // Scripts the home page does not need. Speaking builds on the exam engine, so order matters.
+  const BUNDLES = {
+    exam: ["js/highlighter.js", "js/charts.js", "js/exam.js", "js/speaking.js"],
+  };
+
+  /** Load a bundle of scripts on demand; resolves when they have run. */
+  async function need(name) {
+    try {
+      await Promise.all(BUNDLES[name].map((path) => I18N.loadScript(path)));
+    } catch (err) {
+      toast(I18N.t("Could not load this page. Check your connection and try again."), "warn");
+      throw err;
+    }
+  }
+
   window.U = {
     escapeHtml, richText, paragraphs, api, store, clientId, formatDuration, formatClock,
-    formatDate, countWords, modal, loadingOverlay, toast,
+    formatDate, countWords, modal, loadingOverlay, toast, need,
   };
 })();

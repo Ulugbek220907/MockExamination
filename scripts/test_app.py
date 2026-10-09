@@ -99,8 +99,10 @@ class InterfaceLanguageTests(unittest.TestCase):
                 text = re.sub(r"/\*.*?\*/", "", f.read(), flags=re.S)  # skip examples in comments
             keys.update(json.loads(m.group(1)) for m in call.finditer(text))
             keys.update(re.findall(r'data-i18n(?:-html|-label)?="([^"]+)"', text))
-        with open(os.path.join(PUBLIC_DIR, "js", "i18n-strings.js"), encoding="utf-8") as f:
-            source = f.read()
+        source = ""
+        for name in ("i18n-strings.js", "i18n-uz.js", "i18n-ru.js"):
+            with open(os.path.join(PUBLIC_DIR, "js", name), encoding="utf-8") as f:
+                source += f.read()
         en, uz, ru = (self.dictionary(source, n) for n in ("EN", "UZ", "RU"))
         dotted = {k for k in keys if re.fullmatch(r"[a-z]+(\.[a-z0-9]+)+", k)}
         self.assertGreater(len(keys), 300)
@@ -662,6 +664,16 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertEqual(r.headers["Cache-Control"], "public, max-age=31536000, immutable")
         self.assertEqual(self.fetch("/js/app.js").headers["Cache-Control"], "no-cache")
         self.assertEqual(self.fetch("/", method="HEAD").code, 200)
+
+    def test_index_lists_lazy_scripts_with_hashes(self):
+        import re
+        page = self.fetch("/").body.decode()
+        m = re.search(r'<script type="application/json" id="asset-versions">(.*?)</script>', page)
+        assets = json.loads(m.group(1))
+        for path in ("js/exam.js", "js/speaking.js", "js/i18n-uz.js", "js/i18n-ru.js"):
+            self.assertRegex(assets[path], rf"^{re.escape(path)}\?v=[0-9a-f]{{12}}$")
+            self.assertEqual(self.fetch("/" + assets[path]).code, 200)
+        self.assertNotIn('src="js/exam.js', page)  # loaded on demand, not with the page
 
     def test_test_list_revalidates_with_etag(self):
         r = self.fetch("/api/tests")
