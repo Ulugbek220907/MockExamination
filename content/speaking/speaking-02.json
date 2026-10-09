@@ -1,0 +1,233 @@
+{
+  "id": "speaking-02",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 2",
+  "shortTitle": "Practice Test 2",
+  "durationMinutes": 14,
+  "sortOrder": 2,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-02/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-02/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Music"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Do you work, or are you a student?",
+          "say": "Good morning. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about work or studies. Do you work, or are you a student?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-1.mp3",
+            "duration": 15.87
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "Why did you choose this job, or this subject?",
+          "say": "Why did you choose this job, or this subject?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-2.mp3",
+            "duration": 3.19
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "What is the most interesting part of your day?",
+          "say": "What is the most interesting part of your day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-3.mp3",
+            "duration": 3.06
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "Would you like to change anything about your work or studies in the future?",
+          "say": "Would you like to change anything about your work or studies in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-4.mp3",
+            "duration": 4.47
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Music",
+          "text": "What kind of music do you enjoy?",
+          "say": "Now let's move on to talk about music. What kind of music do you enjoy?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-5.mp3",
+            "duration": 5.37
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Music",
+          "text": "When do you usually listen to music?",
+          "say": "When do you usually listen to music?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-6.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Music",
+          "text": "Did you learn to play a musical instrument when you were a child?",
+          "say": "Did you learn to play a musical instrument when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-7.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Music",
+          "text": "Is live music popular where you live?",
+          "say": "Is live music popular where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-8.mp3",
+            "duration": 3.0
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a useful skill that you have learned.",
+        "points": [
+          "what the skill is",
+          "when and how you learned it",
+          "how often you use it"
+        ],
+        "explain": "and explain why this skill is useful to you."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a useful skill that you have learned.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a useful skill that you have learned. You should say: what the skill is; when and how you learned it; how often you use it; and explain why this skill is useful to you.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-02/p2-talk.mp3",
+            "duration": 24.47
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Was it difficult to learn?",
+          "say": "Thank you. Was it difficult to learn?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p2-follow.mp3",
+            "duration": 2.68
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Learning and skills"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Learning and skills",
+          "text": "What skills do you think every young person should learn?",
+          "say": "Thank you. We've been talking about a useful skill you have learned. Now I'd like to ask you some more general questions about learning. What skills do you think every young person should learn?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-02/p3-1.mp3",
+            "duration": 11.33
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Learning and skills",
+          "text": "Do you think practical skills are taught well in schools today?",
+          "say": "Do you think practical skills are taught well in schools today?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-02/p3-2.mp3",
+            "duration": 3.89
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Learning and skills",
+          "text": "Is it easier to learn new things when you are young or when you are older? Why?",
+          "say": "Is it easier to learn new things when you are young or when you are older? Why?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-02/p3-3.mp3",
+            "duration": 5.63
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Learning and skills",
+          "text": "Many people now learn skills from online videos. What are the advantages and disadvantages of this?",
+          "say": "Many people now learn skills from online videos. What are the advantages and disadvantages of this?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-02/p3-4.mp3",
+            "duration": 7.06
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Learning and skills",
+          "text": "Which skills do you think will be most important for jobs in the future?",
+          "say": "Which skills do you think will be most important for jobs in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-02/p3-5.mp3",
+            "duration": 4.49
+          }
+        }
+      ]
+    }
+  ]
+}

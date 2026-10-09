@@ -1,0 +1,233 @@
+{
+  "id": "speaking-03",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 3",
+  "shortTitle": "Practice Test 3",
+  "durationMinutes": 14,
+  "sortOrder": 3,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-03/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-03/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Food and cooking",
+        "Phones and technology"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Food and cooking",
+          "text": "What is your favourite kind of food?",
+          "say": "Good morning. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about food and cooking. What is your favourite kind of food?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-1.mp3",
+            "duration": 16.28
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Food and cooking",
+          "text": "Do you enjoy cooking? Why or why not?",
+          "say": "Do you enjoy cooking? Why or why not?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-2.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Food and cooking",
+          "text": "How often do you eat in restaurants or cafés?",
+          "say": "How often do you eat in restaurants or cafés?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-3.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Food and cooking",
+          "text": "Is there any food you disliked as a child but enjoy now?",
+          "say": "Is there any food you disliked as a child but enjoy now?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-4.mp3",
+            "duration": 4.4
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Phones and technology",
+          "text": "How much time do you spend on your phone each day?",
+          "say": "Now let's move on to talk about phones and technology. How much time do you spend on your phone each day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-5.mp3",
+            "duration": 7.31
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Phones and technology",
+          "text": "Which apps do you use most often?",
+          "say": "Which apps do you use most often?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-6.mp3",
+            "duration": 2.72
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Phones and technology",
+          "text": "Is there any technology you could not live without?",
+          "say": "Is there any technology you could not live without?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-7.mp3",
+            "duration": 3.57
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Phones and technology",
+          "text": "Do you think you use technology more than your parents do?",
+          "say": "Do you think you use technology more than your parents do?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-8.mp3",
+            "duration": 3.76
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a person who has had an important influence on your life.",
+        "points": [
+          "who this person is",
+          "how long you have known them",
+          "what they have done for you"
+        ],
+        "explain": "and explain why this person has been important to you."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a person who has had an important influence on your life.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a person who has had an important influence on your life. You should say: who this person is; how long you have known them; what they have done for you; and explain why this person has been important to you.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-03/p2-talk.mp3",
+            "duration": 27.93
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you still keep in touch with this person?",
+          "say": "Thank you. Do you still keep in touch with this person?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p2-follow.mp3",
+            "duration": 3.47
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Role models and influence"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Role models and influence",
+          "text": "Who are the most common role models for young people in your country?",
+          "say": "Thank you. We've been talking about a person who has influenced you. I'd like to discuss some more general questions about the people who influence us. Who are the most common role models for young people in your country?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-03/p3-1.mp3",
+            "duration": 13.47
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Role models and influence",
+          "text": "Do you think famous people have a responsibility to set a good example?",
+          "say": "Do you think famous people have a responsibility to set a good example?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-03/p3-2.mp3",
+            "duration": 4.92
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Role models and influence",
+          "text": "How important is the influence of parents compared with the influence of friends?",
+          "say": "How important is the influence of parents compared with the influence of friends?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-03/p3-3.mp3",
+            "duration": 5.41
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Role models and influence",
+          "text": "Can teachers still be good role models today? Why or why not?",
+          "say": "Can teachers still be good role models today? Why or why not?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-03/p3-4.mp3",
+            "duration": 5.46
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Role models and influence",
+          "text": "In what ways has social media changed the people that young people admire?",
+          "say": "In what ways has social media changed the people that young people admire?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-03/p3-5.mp3",
+            "duration": 5.07
+          }
+        }
+      ]
+    }
+  ]
+}

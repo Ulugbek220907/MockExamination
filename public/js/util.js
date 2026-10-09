@@ -100,8 +100,9 @@
    * Show a modal. `buttons` = [{label, className, value}]. Resolves with the
    * clicked button's value (or null if closed). `onClose(value, root)` runs
    * before the modal is removed, so callers can read form fields inside it.
+   * `onOpen(root, close)` lets content inside the body close the modal with a value.
    */
-  function modal({ title, bodyHTML, buttons = [{ label: "OK", className: "btn-primary", value: true }], onClose }) {
+  function modal({ title, bodyHTML, buttons = [{ label: "OK", className: "btn-primary", value: true }], onClose, onOpen }) {
     return new Promise((resolve) => {
       const overlay = document.createElement("div");
       overlay.className = "modal-overlay";
@@ -125,6 +126,7 @@
       });
       document.addEventListener("keydown", onKey);
       document.body.appendChild(overlay);
+      if (onOpen) onOpen(overlay, close);
       const primary = overlay.querySelector(".modal-footer button:last-child");
       if (primary) primary.focus();
     });

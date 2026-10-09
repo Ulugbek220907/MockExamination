@@ -8,6 +8,7 @@
  *                 recording: plays each part once (timed test) or with full
  *                 player controls (practice), then gives time to check answers.
  * WritingExam   – renders Task 1/Task 2 prompts (with charts) and answer boxes.
+ * (SpeakingExam, in speaking.js, builds on ExamShell.)
  */
 (function () {
   "use strict";
@@ -1388,6 +1389,7 @@
     }
   }
 
+  window.ExamShell = ExamShell;
   window.ReadingExam = ReadingExam;
   window.ListeningExam = ListeningExam;
   window.WritingExam = WritingExam;

@@ -1,0 +1,233 @@
+{
+  "id": "speaking-01",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 1",
+  "shortTitle": "Practice Test 1",
+  "durationMinutes": 14,
+  "sortOrder": 1,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-01/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-01/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Where you live",
+        "Weekends"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Where you live",
+          "text": "Do you live in a house or an apartment?",
+          "say": "Good morning. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about where you live. Do you live in a house or an apartment?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-1.mp3",
+            "duration": 14.51
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Where you live",
+          "text": "What do you like most about the area where you live?",
+          "say": "What do you like most about the area where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-2.mp3",
+            "duration": 3.0
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Where you live",
+          "text": "Is there anything you would like to change about your neighbourhood?",
+          "say": "Is there anything you would like to change about your neighbourhood?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-3.mp3",
+            "duration": 3.49
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Where you live",
+          "text": "Do you think you will live there for a long time? Why or why not?",
+          "say": "Do you think you will live there for a long time? Why or why not?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-4.mp3",
+            "duration": 4.48
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Weekends",
+          "text": "What do you usually do at the weekend?",
+          "say": "Now let's move on to talk about weekends. What do you usually do at the weekend?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-5.mp3",
+            "duration": 5.16
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Weekends",
+          "text": "Did you do anything special last weekend?",
+          "say": "Did you do anything special last weekend?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-6.mp3",
+            "duration": 2.87
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Weekends",
+          "text": "Do you prefer to spend your weekends at home or going out?",
+          "say": "Do you prefer to spend your weekends at home or going out?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-7.mp3",
+            "duration": 3.55
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Weekends",
+          "text": "Are weekends in your country different from how they were in the past?",
+          "say": "Are weekends in your country different from how they were in the past?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-8.mp3",
+            "duration": 3.87
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a place you have visited that you would like to visit again.",
+        "points": [
+          "where the place is",
+          "when you went there",
+          "what you did there"
+        ],
+        "explain": "and explain why you would like to go there again."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a place you have visited that you would like to visit again.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a place you have visited that you would like to visit again. You should say: where the place is; when you went there; what you did there; and explain why you would like to go there again.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-01/p2-talk.mp3",
+            "duration": 24.28
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you like to go there with the same people next time?",
+          "say": "Thank you. Would you like to go there with the same people next time?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p2-follow.mp3",
+            "duration": 3.85
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Travel and tourism"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Travel and tourism",
+          "text": "Why do you think people enjoy visiting new places?",
+          "say": "Thank you. We've been talking about a place you would like to visit again, and I'd like to discuss some more general questions related to this. Why do you think people enjoy visiting new places?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-01/p3-1.mp3",
+            "duration": 10.58
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Travel and tourism",
+          "text": "Is it better to travel with friends or with your family? Why?",
+          "say": "Is it better to travel with friends or with your family? Why?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-01/p3-2.mp3",
+            "duration": 4.48
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Travel and tourism",
+          "text": "How has tourism changed the place where you live, or a place you know well?",
+          "say": "How has tourism changed the place where you live, or a place you know well?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-01/p3-3.mp3",
+            "duration": 4.49
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Travel and tourism",
+          "text": "Some people say that tourism does more harm than good to famous places. Do you agree?",
+          "say": "Some people say that tourism does more harm than good to famous places. Do you agree?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-01/p3-4.mp3",
+            "duration": 5.95
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Travel and tourism",
+          "text": "How do you think the way people go on holiday will change in the future?",
+          "say": "How do you think the way people go on holiday will change in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-01/p3-5.mp3",
+            "duration": 4.11
+          }
+        }
+      ]
+    }
+  ]
+}

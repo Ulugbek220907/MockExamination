@@ -3,7 +3,10 @@
  * launching exams, results, and the resources / about pages.
  *
  * Routes: #/ (tests), #/resources, #/about, #/start (instructions),
- *         #/exam (active test), #/results (last result).
+ *         #/exam (active test), #/results (last result), #/speaking/<id>
+ *         (a recorded Speaking test), and the account
+ *         pages from account.js: #/pricing, #/account, #/examiners,
+ *         #/check/<id>, #/examiner, #/admin.
  */
 (function () {
   "use strict";
@@ -63,7 +66,7 @@
     },
   ];
 
-  const MODULE_LABELS = { reading: "Reading", listening: "Listening", writing: "Writing" };
+  const MODULE_LABELS = { reading: "Reading", listening: "Listening", writing: "Writing", speaking: "Speaking" };
 
   class App {
     constructor() {
@@ -80,14 +83,17 @@
     async init() {
       window.addEventListener("hashchange", () => this.route());
       this.main.addEventListener("click", (e) => this.onMainClick(e));
+      document.getElementById("account-slot").addEventListener("click", (e) => Account.onClick(e));
+      Account.renderAccountSlot();
       try {
-        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests")]);
+        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe()]);
         this.config = { ...this.config, ...config };
         this.tests = data.tests || [];
         this.modules = data.modules || {};
       } catch (err) {
         this.loadError = "Could not load the tests. Please refresh the page.";
       }
+      Account.setConfig(this.config);
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
       this.route();
     }
@@ -124,15 +130,28 @@
 
       this.showView("site");
       this.setNav(hash);
-      if (hash.startsWith("#/resources")) this.renderResources();
-      else if (hash.startsWith("#/about")) this.renderAbout();
-      else if (hash.startsWith("#/results") && this.lastResult) this.renderResults();
-      else this.renderHome();
+      const [path, query] = hash.slice(1).split("?");
+      const params = new URLSearchParams(query || "");
+      const check = path.match(/^\/check\/(\d+)$/);
+      const spoken = path.match(/^\/speaking\/(\d+)$/);
       window.scrollTo(0, 0);
+      if (path === "/resources") this.renderResources();
+      else if (path === "/about") this.renderAbout();
+      else if (path === "/results" && this.lastResult) this.renderResults();
+      else if (path === "/pricing") await Account.renderPricing(this.main);
+      else if (path === "/account") await Account.renderAccount(this.main);
+      else if (path === "/examiners") await Account.renderExaminers(this.main, params);
+      else if (path === "/examiner") await Account.renderExaminerDashboard(this.main);
+      else if (path === "/admin") await Account.renderAdmin(this.main, params);
+      else if (check) await Account.renderCheck(this.main, check[1]);
+      else if (spoken) await Speaking.renderResult(this.main, spoken[1]);
+      else this.renderHome();
     }
 
     setNav(hash) {
-      const key = hash.startsWith("#/resources") ? "resources" : hash.startsWith("#/about") ? "about" : "home";
+      const path = hash.slice(1).split("?")[0];
+      const key = { "/resources": "resources", "/about": "about", "/pricing": "pricing", "/examiners": "examiners",
+        "/account": "account", "/examiner": "examiner", "/admin": "admin" }[path] || (path.startsWith("/check") ? "account" : "home");
       document.querySelectorAll("[data-nav]").forEach((a) => {
         if (a.dataset.nav === key) a.setAttribute("aria-current", "page");
         else a.removeAttribute("aria-current");
@@ -146,6 +165,7 @@
     }
 
     onMainClick(e) {
+      if (Account.onClick(e)) return;
       const el = e.target.closest("[data-action], [data-module]");
       if (!el) return;
       if (el.dataset.module) {
@@ -161,14 +181,14 @@
 
     /* Dashboard -------------------------------------------------------- */
     renderHome() {
-      document.title = `${this.config.siteName} – IELTS-style Academic Reading, Listening & Writing practice`;
+      document.title = `${this.config.siteName} – IELTS-style Listening, Reading, Writing & Speaking practice`;
       const mod = MODULE_LABELS[this.module] ? this.module : "reading";
       const tests = this.tests.filter((t) => t.module === mod);
       const modules = [
         ["listening", "Listening", true],
         ["reading", "Reading", true],
         ["writing", "Writing", true],
-        ["speaking", "Speaking", false],
+        ["speaking", "Speaking", true],
       ];
       const sections = {
         reading: ["Academic Reading", "3 passages · 40 questions · 60 minutes. Answers are marked instantly with explanations."],
@@ -176,12 +196,13 @@
         writing: ["Academic Writing", `2 tasks · 60 minutes. ${this.config.aiMarking
           ? "Get an AI examiner’s band estimate and feedback on all four criteria."
           : "Get automatic feedback, a checklist and model answers."}`],
+        speaking: ["Speaking", "3 parts · 11–14 minutes. An examiner asks the questions and your answers are recorded. Listen back, then get a band score and feedback from a real examiner."],
       };
       this.main.innerHTML = `
         <section class="hero">
-          <h1>Free IELTS-style Academic practice tests</h1>
-          <p>Timed, computer-delivered practice for Listening, Academic Reading and Academic Writing, with original
-            recordings and passages, instant scores, answer explanations, transcripts and detailed writing feedback.</p>
+          <h1>IELTS-style practice tests for all four skills</h1>
+          <p>Timed, computer-delivered practice for Listening, Academic Reading, Academic Writing and Speaking, with original
+            recordings and passages, instant scores, answer explanations, transcripts, and marking by real examiners.</p>
         </section>
 
         <div class="modules-nav" role="tablist" aria-label="Choose a module">
@@ -219,22 +240,33 @@
       return Boolean(U.store.get(`mockexam:progress:${testId}`));
     }
 
+    canOpen(t) {
+      return t.access === "free" || Account.planActive() || ["admin", "examiner"].includes(Account.role());
+    }
+
     testCard(t) {
       const inProgress = this.hasProgress(t.id);
       const items = t.module === "reading" ? t.passages.map((p) => [`P${p.number}`, p.title])
         : t.module === "listening" ? t.parts.map((p) => [`P${p.number}`, p.title])
-          : t.tasks.map((k) => [`T${k.number}`, k.title]);
+          : t.module === "speaking" ? t.parts.map((p) => [`P${p.number}`, (p.topics || []).join(" · ") || p.title])
+            : t.tasks.map((k) => [`T${k.number}`, k.title]);
       const body = `<ul class="test-passages-list">${items.map(([badge, title]) => `
             <li class="test-passage-item"><span class="p-badge">${esc(badge)}</span><span>${esc(title)}</span></li>`).join("")}</ul>`;
       const meta = t.module === "writing"
         ? `<span>${t.durationMinutes} minutes</span><span>2 tasks</span>`
+        : t.module === "speaking" ? `<span>11–14 minutes</span><span>${t.totalQuestions} questions</span>`
         : `<span>${t.module === "listening" ? "About " : ""}${t.durationMinutes} minutes</span><span>${t.totalQuestions} questions</span>`;
       return `
         <article class="test-card">
           <div>
             <div class="test-card-header">
-              <span class="test-card-book">${t.module === "listening" ? "Listening" : `Academic ${MODULE_LABELS[t.module]}`}</span>
-              ${inProgress ? `<span class="badge-progress">In progress</span>` : ""}
+              <span class="test-card-book">${["listening", "speaking"].includes(t.module) ? MODULE_LABELS[t.module] : `Academic ${MODULE_LABELS[t.module]}`}</span>
+              <span class="card-badges">
+                ${inProgress ? `<span class="badge-progress">In progress</span>` : ""}
+                ${t.access === "free" ? `<span class="badge-free">Free</span>`
+                  : `<span class="badge-plan ${this.canOpen(t) ? "is-open" : ""}" title="${this.canOpen(t) ? "Included in your plan" : "Needs the monthly plan"}">
+                      ${this.canOpen(t) ? "" : `<svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9h-2zm-8-2a3 3 0 0 1 6 0v2H9V7z"/></svg>`}Plan</span>`}
+              </span>
             </div>
             <h3 class="test-card-title">${esc(t.shortTitle)}</h3>
             ${body}
@@ -264,14 +296,15 @@
       section.hidden = false;
       section.innerHTML = `
         <h2 class="section-title">Your recent attempts</h2>
-        <p class="muted-text section-sub">Saved for this browser only.</p>
+        <p class="muted-text section-sub">${Account.user() ? "Saved in your account." : "Saved for this browser only. Sign in to keep them on every device."}</p>
         <div class="table-scroll"><table class="history-table">
           <thead><tr><th scope="col">Date</th><th scope="col">Test</th><th scope="col">Result</th><th scope="col">Time used</th></tr></thead>
           <tbody>${items.slice(0, 10).map((i) => `
             <tr>
               <td>${esc(U.formatDate(i.createdAt))}</td>
               <td>${esc(titleOf(i.testId))}${i.mode === "practice" ? ` <span class="muted-text">(practice)</span>` : ""}</td>
-              <td>${i.module !== "writing"
+              <td>${i.module === "speaking" ? this.speakingHistoryCell(i)
+                : i.module !== "writing"
                 ? `<strong>Band ${IeltsScoring.formatBand(i.bandScore)}</strong> <span class="muted-text">(${i.rawScore}/${i.totalQuestions})</span>`
                 : i.bandScore !== null && i.bandScore !== undefined ? `<strong>Band ${IeltsScoring.formatBand(i.bandScore)}</strong>` : `<span class="muted-text">Feedback only (${i.task1Words}+${i.task2Words} words)</span>`}</td>
               <td>${U.formatDuration(i.timeSpentSeconds)}</td>
@@ -279,16 +312,49 @@
         </table></div>`;
     }
 
+    speakingHistoryCell(i) {
+      const band = i.bandScore !== null && i.bandScore !== undefined ? `<strong>Band ${IeltsScoring.formatBand(i.bandScore)}</strong> ` : "";
+      const status = i.checkStatus && i.checkStatus !== "completed" ? `<span class="muted-text">Examiner marking</span> ` : "";
+      return `${band}${status}<a href="#/speaking/${Number(i.id)}">Listen (${i.answered} answers)</a>`;
+    }
+
     /* Pre-test instructions -------------------------------------------- */
     async prepare(testId, mode) {
+      const summary = this.tests.find((t) => t.id === testId);
+      if (summary && summary.module === "speaking" && !Account.user()) {
+        // Recordings are saved to the account, so Speaking needs sign-in (Test 1 stays free).
+        if (!(await Account.login("Sign in to take a Speaking test. Your answers are recorded and saved to your account. Speaking Test 1 is free."))) return;
+        this.renderIfHome();
+      }
       try {
         const test = await U.api(`/api/tests/${encodeURIComponent(testId)}`);
         this.pending = { test, mode: mode === "practice" ? "practice" : "exam" };
         if (location.hash === "#/start") this.showVerification();
         else location.hash = "#/start";
       } catch (err) {
+        // Locked tests: sign in first, or offer the plan. Retry once the user can open it.
+        if (err.status === 401) {
+          if (await Account.login("Sign in to open this test. Test 1 of each module is free; the others come with the monthly plan.")) {
+            this.renderIfHome();
+            return this.prepare(testId, mode);
+          }
+          return;
+        }
+        if (err.status === 402) {
+          const signedIn = await Account.paywall(this.tests.find((t) => t.id === testId));
+          if (signedIn) {
+            this.renderIfHome();
+            if (Account.planActive()) return this.prepare(testId, mode);
+          }
+          return;
+        }
         U.modal({ title: "Could not load the test", bodyHTML: `<p>${esc(err.message)}</p>` });
       }
+    }
+
+    renderIfHome() {
+      const path = (location.hash || "#/").slice(1).split("?")[0];
+      if (path === "/" || path === "") this.renderHome();
     }
 
     showVerification() {
@@ -298,7 +364,18 @@
       const progress = U.store.get(`mockexam:progress:${test.id}`);
       const canResume = progress && progress.mode === mode;
       const checkMinutes = test.checkMinutes || 2;
-      const instructions = module === "listening"
+      const instructions = module === "speaking"
+        ? [
+          `There are <strong>3 parts</strong> and the test takes <strong>11–14 minutes</strong>. The examiner asks the questions; your answers are recorded.`,
+          `<strong>Part 1:</strong> questions about familiar topics. <strong>Part 2:</strong> a topic card, <strong>1 minute</strong> to prepare and up to
+            <strong>2 minutes</strong> to speak. <strong>Part 3:</strong> a discussion of wider questions.`,
+          timed
+            ? `Recording starts automatically after each question and stops when the answer time is up. Press <strong>Finish answer</strong> when you have finished.`
+            : `Practice mode shows each question, and lets you listen to your answer and record it again before you move on.`,
+          `Use headphones in a quiet room, and test your microphone below.`,
+          `Only you can listen to your recordings, and an examiner if you order a check.`,
+        ]
+        : module === "listening"
         ? [
           `There are <strong>4 parts</strong> and <strong>40 questions</strong>. The recording lasts about <strong>${test.durationMinutes} minutes</strong>.`,
           timed
@@ -328,7 +405,7 @@
 
       document.getElementById("verification-card").innerHTML = `
         <div class="verification-header">
-          <div class="vh-title"><span class="site-logo small" aria-hidden="true">M</span> ${module === "listening" ? "Listening" : `Academic ${MODULE_LABELS[module]}`}</div>
+          <div class="vh-title"><span class="site-logo small" aria-hidden="true">M</span> ${["listening", "speaking"].includes(module) ? MODULE_LABELS[module] : `Academic ${MODULE_LABELS[module]}`}</div>
           <span class="vh-mode">${timed ? "Timed test" : "Practice mode"}</span>
         </div>
         <form class="verification-body" id="verify-form">
@@ -348,6 +425,13 @@
                     value="${Math.round(Number(U.store.get("mockexam:volume", 0.8)) * 100)}" /></label>
               </div>
             </div>` : ""}
+          ${module === "speaking" ? `
+            <div class="sound-check mic-check">
+              <div class="sound-check-text"><strong>Microphone check</strong>
+                <span id="mic-status" class="mic-status">Press <em>Test microphone</em>, allow the microphone, and say a sentence. You will hear it played back.</span>
+                <div class="speak-level mic-level" aria-hidden="true"><span id="mic-level"></span></div></div>
+              <div class="sound-check-controls"><button type="button" class="btn-secondary" id="mic-test-btn">Test microphone</button></div>
+            </div>` : ""}
           ${canResume ? `
             <label class="check-row resume-row"><input type="checkbox" id="resume-check" checked />
               Resume my unfinished attempt (saved ${esc(U.formatDate(new Date(progress.savedAt).toISOString()))})</label>` : ""}
@@ -361,7 +445,8 @@
           </div>
         </form>`;
       this.showView("verification");
-      const stopSoundCheck = module === "listening" ? this.bindSoundCheck() : () => {};
+      const stopSoundCheck = module === "listening" ? this.bindSoundCheck()
+        : module === "speaking" ? Speaking.bindMicCheck(document.getElementById("verification-card")) : () => {};
       document.getElementById("verify-cancel").addEventListener("click", () => {
         stopSoundCheck();
         this.pending = null;
@@ -406,7 +491,7 @@
     launch(test, mode, name, saved) {
       this.pending = null;
       this.showView("exam");
-      const Exam = test.module === "writing" ? WritingExam : test.module === "listening" ? ListeningExam : ReadingExam;
+      const Exam = { writing: WritingExam, listening: ListeningExam, speaking: SpeakingExam }[test.module] || ReadingExam;
       this.exam = new Exam({
         test, mode, saved,
         candidateName: name,
@@ -423,6 +508,11 @@
       }
       result.module = test.module;
       result.mode = mode;
+      if (test.module === "speaking") {
+        // Speaking results live on the server (the recordings), at their own address.
+        location.hash = `#/speaking/${result.submissionId}`;
+        return;
+      }
       this.lastResult = result;
       U.store.set("mockexam:lastResult", result);
       if (location.hash === "#/results") this.route();
@@ -469,8 +559,8 @@
       this.main.innerHTML = `
         <section class="page prose">
           <h1>About ${name}</h1>
-          <p class="lead-text">${name} is a free practice website for people preparing for the Listening, Academic Reading and
-            Academic Writing papers of the IELTS test. It recreates the computer-delivered test environment so you can practise under realistic conditions.</p>
+          <p class="lead-text">${name} is a practice website for people preparing for the Listening, Academic Reading,
+            Academic Writing and Speaking papers of the IELTS test. It recreates the computer-delivered test environment so you can practise under realistic conditions.</p>
 
           <h2>Independent website</h2>
           <p>${name} is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University
@@ -483,8 +573,8 @@
               They are not copied or adapted from official IELTS tests or from published practice books.</li>
             <li>Facts in the reading passages and lectures come from widely available public knowledge. The data in Writing Task 1 charts,
               and the people and places in the recordings, are fictional.</li>
-            <li>The listening recordings are original scripts voiced by computer-generated speech, made with the open-source
-              Kokoro text-to-speech model (Apache 2.0 licence). No real person’s voice is used.</li>
+            <li>The listening recordings and the Speaking examiner’s questions are original scripts voiced by computer-generated speech,
+              made with the open-source Kokoro text-to-speech model (Apache 2.0 licence). No real person’s voice is used.</li>
             <li>For official practice material, see our <a href="#/resources">free official resources</a> page, which links to the official websites.</li>
           </ul>
 
@@ -496,12 +586,21 @@
               ? "when you request it, an AI examiner estimates a band for each of the four public Writing criteria."
               : "automatic feedback checks length, structure and language features."}
               These are practice estimates only and are not official IELTS results.</li>
+            <li><strong>Speaking:</strong> your answers are marked only if you order a check from one of our examiners, who gives a band
+              for each of the four public Speaking criteria. This is a practice band, not an official IELTS result.</li>
           </ul>
 
           <h2>Privacy</h2>
           <ul>
             <li>When you submit a test we store the name you typed, your answers or essays, your scores and an anonymous ID for this browser,
-              so that we can show your recent attempts. We do not ask for your email address or create an account.</li>
+              so that we can show your recent attempts.</li>
+            <li>If you sign in, we also store your email address (and your name if you add it), your plan and your payments, so your results
+              and purchases work on every device. Sign-in codes are sent by our email provider; Google sign-in only shares your name and email with us.</li>
+            <li>If you take a Speaking test, your recorded answers are stored privately in your account. Only you can play them, and the
+              examiner you choose if you order a check. Recordings are deleted automatically after ${Number(this.config.speakingKeepDays) || 60} days.</li>
+            <li>If you order an examiner check, the examiner you choose sees your essays or hears your recordings, and sees the name on your
+              results, but not your email address.</li>
+            <li>Payments are handled by Payme, Click or your bank. We never see or store your card details.</li>
             ${this.config.aiMarking ? `<li>If you request AI feedback, your essays are sent to our AI provider (Anthropic) for marking.
               Do not include personal information in your essays.</li>` : ""}
             <li>Unfinished answers, your display preferences and your last result are kept in your own browser's local storage.</li>

@@ -425,6 +425,16 @@
           </div>
           <p class="score-note">This band is an AI estimate using the four public Writing criteria. It is for practice only and is not an official IELTS score.</p>`
         : statusNotice(data)}
+        ${data.submissionId ? `
+          <div class="examiner-offer">
+            <div>
+              <h2>Get your writing marked by an examiner</h2>
+              <p>An experienced examiner marks both tasks on the four official criteria, gives you band scores and
+                personal feedback, and corrects your mistakes. You choose the examiner.</p>
+            </div>
+            <button type="button" class="btn-primary" data-action="order-writing-check" data-submission="${Number(data.submissionId)}">
+              Choose an examiner</button>
+          </div>` : ""}
         <nav class="task-jump" aria-label="Tasks">
           <a href="#task-result-1" data-jump="1">Task 1</a><a href="#task-result-2" data-jump="2">Task 2</a>
         </nav>
@@ -441,5 +451,9 @@
     });
   }
 
-  window.Results = { renderReading, renderListening, renderWriting };
+  window.Results = {
+    renderReading, renderListening, renderWriting,
+    // Shared with the examiner check pages.
+    parts: { bandCircle, criteriaHTML, listBlock, correctionsHTML },
+  };
 })();

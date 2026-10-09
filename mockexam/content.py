@@ -1,11 +1,15 @@
 """
-Content model helpers for reading, listening and writing tests.
+Content model helpers for reading, listening, writing and speaking tests.
 
 Reading and listening tests share one question model. A test is made of
 sections (reading "passages" or listening "parts"); each section has question
 "groups" (one group = one IELTS instruction block such as "Questions 1-7,
 TRUE/FALSE/NOT GIVEN"). A reading passage has paragraphs; a listening part has
 a script (the recording's transcript) and an audio file.
+
+A speaking test has three parts of examiner questions. Each question has a
+key (e.g. "p1-3"), the text, what the examiner says ("say", recorded as an
+audio clip) and the answer time; Part 2 also has a cue card and preparation time.
 
 This module walks that structure, validates it, locates listening answers in
 the transcript, and produces the public (answer-free) versions that are sent
@@ -242,10 +246,26 @@ def public_writing_test(test):
     return clean
 
 
+def public_speaking_test(test):
+    """Speaking tests have no answers to hide; the copy keeps callers from changing the cache."""
+    clean = copy.deepcopy(test)
+    clean.pop("pronunciations", None)
+    return clean
+
+
+def speaking_questions(test):
+    """Yield (part, question) for every question in a speaking test, in order."""
+    for part in test.get("parts", []):
+        for q in part.get("questions", []):
+            yield part, q
+
+
 def public_test(test):
     module = test.get("module", "reading")
     if module == "writing":
         return public_writing_test(test)
+    if module == "speaking":
+        return public_speaking_test(test)
     if module == "listening":
         return public_listening_test(test)
     return public_reading_test(test)
@@ -308,6 +328,11 @@ def summarize_test(test):
         summary["durationMinutes"] = test.get("durationMinutes", 30) + test.get("checkMinutes", 2)
         summary["totalQuestions"] = test.get("totalQuestions", 40)
         summary["parts"] = [{"number": p["partNumber"], "title": p.get("title", "")} for p in test.get("parts", [])]
+    elif module == "speaking":
+        summary["totalQuestions"] = sum(1 for _ in speaking_questions(test))
+        summary["parts"] = [{"number": p["partNumber"], "title": p.get("title", ""),
+                             "topics": p.get("topics") or ([p["cueCard"]["topic"]] if p.get("cueCard") else [])}
+                            for p in test.get("parts", [])]
     else:
         summary["tasks"] = [
             {
@@ -509,7 +534,61 @@ def validate_test(test, public_dir=None):
         return validate_listening_test(test, public_dir)
     if module == "writing":
         return validate_writing_test(test)
+    if module == "speaking":
+        return validate_speaking_test(test, public_dir)
     return [f"{test.get('id', '<no id>')}: unknown module {module!r}"]
+
+
+SPEAKING_KEY_RE = re.compile(r"^[a-z0-9][a-z0-9\-]{0,30}$")
+
+
+def validate_speaking_test(test, public_dir=None):
+    """Return a list of problems in a speaking test (and, with public_dir, missing examiner audio)."""
+    errors = []
+    tid = test.get("id", "<no id>")
+    for key in ("id", "title", "parts", "examiner"):
+        if key not in test:
+            errors.append(f"{tid}: missing '{key}'")
+    if errors:
+        return errors
+    if [p.get("partNumber") for p in test["parts"]] != [1, 2, 3]:
+        errors.append(f"{tid}: must have parts 1-3")
+    if not test["examiner"].get("voice"):
+        errors.append(f"{tid}: the examiner needs a voice")
+    keys = []
+    clips = []
+    for part, q in speaking_questions(test):
+        where = f"{tid} Part {part.get('partNumber')} {q.get('key')}"
+        keys.append(q.get("key"))
+        if not SPEAKING_KEY_RE.match(str(q.get("key") or "")):
+            errors.append(f"{where}: bad key")
+        for field in ("text", "say"):
+            if not q.get(field):
+                errors.append(f"{where}: missing {field}")
+        if not 10 <= int(q.get("answerSeconds") or 0) <= 180:
+            errors.append(f"{where}: answerSeconds must be 10-180")
+        clips.append((where, q))
+    if len(keys) != len(set(keys)):
+        errors.append(f"{tid}: duplicate question keys")
+    part2 = next((p for p in test["parts"] if p.get("partNumber") == 2), {})
+    card = part2.get("cueCard") or {}
+    if not card.get("topic") or len(card.get("points") or []) < 2:
+        errors.append(f"{tid} Part 2: the cue card needs a topic and points")
+    long_turns = [q for q in part2.get("questions", []) if q.get("type") == "long_turn"]
+    if len(long_turns) != 1 or not 30 <= int(long_turns[0].get("prepSeconds") or 0) <= 120:
+        errors.append(f"{tid} Part 2: needs one long_turn question with 30-120 prepSeconds")
+    for name in ("p2-start", "end"):
+        prompt = (test.get("prompts") or {}).get(name)
+        if not prompt or not prompt.get("say"):
+            errors.append(f"{tid}: missing prompt {name!r}")
+        else:
+            clips.append((f"{tid} prompt {name}", prompt))
+    if public_dir is not None:
+        for where, item in clips:
+            audio = item.get("audio") or {}
+            if not audio.get("src") or not audio.get("duration") or not os.path.exists(os.path.join(public_dir, audio["src"])):
+                errors.append(f"{where}: audio not built (run scripts/build_speaking_audio.py)")
+    return errors
 
 
 def validate_writing_test(test):

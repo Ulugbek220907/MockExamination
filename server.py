@@ -2,18 +2,24 @@
 """
 Mock exam platform server (Tornado).
 
-Serves the single-page app from public/ and a small JSON API:
+Serves the single-page app from public/ and a JSON API:
 
   GET  /api/health                     health check for the host
-  GET  /api/config                     public feature flags (AI marking on/off, site name)
-  GET  /api/tests                      dashboard summaries of every published test
+  GET  /api/config                     public feature flags (AI marking, sign-in methods, site name)
+  GET  /api/tests                      dashboard summaries of every published test (with free/premium)
   GET  /api/tests/<id>                 one test, WITHOUT answer keys / model answers / transcripts
   POST /api/reading/<id>/submit        mark a reading test, store the attempt, return results
   POST /api/listening/<id>/submit      mark a listening test (results include the transcript)
   POST /api/writing/<id>/submit        analyse (and optionally AI-mark) a writing test
-  GET  /api/history?clientId=<uuid>    a browser's own recent attempts
-  GET  /api/admin/stats                totals (requires ADMIN_TOKEN)
-  POST /api/admin/refresh              reload test content (requires ADMIN_TOKEN)
+  /api/speaking/...                    record a speaking test and play it back (see mockexam/api.py)
+  GET  /api/history[?clientId=<uuid>]  recent attempts: the account's, or this browser's
+  GET  /api/admin/stats                totals (admin session or ADMIN_TOKEN)
+  POST /api/admin/refresh              reload test content (admin session or ADMIN_TOKEN)
+  /api/auth, /api/me, /api/orders, /api/pay, /api/examiners, /api/checks, /api/examiner, /api/admin/*
+                                       accounts, payments and examiner checks (see mockexam/api.py)
+
+Free tests (the first of each module) are open to everyone. Other tests, and
+their audio, need the monthly plan.
 
 Configuration is entirely through environment variables – see .env.example.
 """
@@ -21,11 +27,13 @@ Configuration is entirely through environment variables – see .env.example.
 import asyncio
 import collections
 import datetime
+import hashlib
 import hmac
 import json
 import logging
 import os
 import re
+import secrets
 import sys
 import threading
 import time
@@ -49,7 +57,10 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import content, scoring, storage, writing  # noqa: E402
+from mockexam import accounts, api, auth, content, scoring, speaking, storage, writing  # noqa: E402
+from mockexam.web import (  # noqa: E402
+    ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
+)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 log = logging.getLogger("mockexam")
@@ -58,15 +69,12 @@ PORT = int(os.environ.get("PORT", 8080))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 SITE_NAME = os.environ.get("SITE_NAME", "MockExam")
-ADMIN_TOKEN = os.environ.get("ADMIN_TOKEN", "")
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "")
-TRUST_PROXY = os.environ.get("TRUST_PROXY", "1") != "0"
 
 AI_PER_IP_PER_HOUR = int(os.environ.get("AI_PER_IP_PER_HOUR", 6))
 AI_DAILY_LIMIT = int(os.environ.get("AI_DAILY_LIMIT", 300))
 AI_MAX_CONCURRENT = int(os.environ.get("AI_MAX_CONCURRENT", 4))
 MAX_ESSAY_CHARS = 12000
-MAX_BODY_BYTES = 256 * 1024
 
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 TEST_ID_PATTERN = r"([a-z0-9][a-z0-9\-]{0,80})"
@@ -75,10 +83,33 @@ MODULES = {
     "reading": {"name": "Reading", "status": "active"},
     "writing": {"name": "Writing", "status": "active"},
     "listening": {"name": "Listening", "status": "active"},
-    "speaking": {"name": "Speaking", "status": "soon"},
+    "speaking": {"name": "Speaking", "status": "active"},
 }
 
 STORE = storage.create_store()
+
+
+def create_auth():
+    if STORE.name == "supabase":
+        key = (os.environ.get("SUPABASE_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or "").strip()
+        return auth.SupabaseAuth(os.environ["SUPABASE_URL"].strip(), key)
+    log.warning("Sign-in runs in development mode: codes are written to this log instead of being emailed.")
+    return auth.DevAuth()
+
+
+def cookie_secret():
+    """Secret that signs session cookies. Stable across restarts when a server secret is configured."""
+    explicit = os.environ.get("SESSION_SECRET", "").strip()
+    if explicit:
+        return explicit
+    base = os.environ.get("SUPABASE_APP_SECRET", "").strip() or ADMIN_TOKEN
+    if base:
+        return hmac.new(base.encode("utf-8"), b"mockexam-session-v1", hashlib.sha256).hexdigest()
+    log.warning("No SESSION_SECRET: sign-ins will not survive a restart.")
+    return secrets.token_hex(32)
+
+
+AUTH = create_auth()
 
 
 # --------------------------------------------------------------------------
@@ -122,58 +153,6 @@ AI_SEMAPHORE = asyncio.Semaphore(AI_MAX_CONCURRENT)
 # Helpers
 # --------------------------------------------------------------------------
 
-async def in_thread(fn, *args):
-    return await tornado.ioloop.IOLoop.current().run_in_executor(None, fn, *args)
-
-
-def versioned(path):
-    """`path` under public/ with a content hash appended, so browsers can cache it for a year."""
-    version = tornado.web.StaticFileHandler.get_version({"static_path": PUBLIC_DIR}, path)
-    return f"{path}?v={version[:12]}" if version else path
-
-
-class Catalog:
-    """
-    The current tests plus the JSON the API serves for them, built once per content
-    load instead of on every request.
-    """
-
-    def __init__(self, tests):
-        self.tests = tests
-        self.by_id = {t["id"]: t for t in tests}
-        summaries = sorted((content.summarize_test(t) for t in tests),
-                           key=lambda s: (s["module"], s["sortOrder"], s["id"]))
-        self.index_json = json.dumps({"modules": MODULES, "tests": summaries}, ensure_ascii=False)
-        self._public_json = {}
-        self._audio = {}
-
-    def public_json(self, test):
-        cached = self._public_json.get(test["id"])
-        if cached is None:
-            public = content.public_test(test)
-            for part in public.get("parts", []):
-                if part.get("audio", {}).get("src"):
-                    part["audio"]["src"] = self.audio_src(part["audio"]["src"])
-            cached = self._public_json[test["id"]] = json.dumps(public, ensure_ascii=False)
-        return cached
-
-    def audio_src(self, src):
-        if src not in self._audio:
-            self._audio[src] = versioned(src)
-        return self._audio[src]
-
-
-_CATALOG = Catalog([])
-
-
-async def catalog():
-    global _CATALOG
-    tests = await in_thread(STORE.list_tests)
-    if tests is not _CATALOG.tests:
-        _CATALOG = await in_thread(Catalog, tests)
-    return _CATALOG
-
-
 def clean_name(value):
     name = re.sub(r"\s+", " ", str(value or "")).strip()
     return name[:80] or "Candidate"
@@ -191,68 +170,147 @@ def clean_seconds(value):
         return 0
 
 
-SECURITY_HEADERS = {
-    "X-Content-Type-Options": "nosniff",
-    "X-Frame-Options": "DENY",
-    "Referrer-Policy": "strict-origin-when-cross-origin",
-    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
-    "Content-Security-Policy": (
-        "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
-        "img-src 'self' data:; connect-src 'self'; font-src 'self'; "
-        "frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
-    ),
-}
+class PlanCache:
+    """Plan status per user for a minute, so audio range requests do not each hit the database."""
+
+    TTL = 60
+
+    def __init__(self):
+        self.items = {}
+        self.lock = threading.Lock()
+
+    def get(self, db, user_id):
+        now = time.time()
+        with self.lock:
+            hit = self.items.get(user_id)
+            if hit and hit[1] > now:
+                return hit[0]
+        plan = accounts.plan_status(db, user_id)
+        if plan["active"]:  # never cache "no plan", so a new payment unlocks tests at once
+            with self.lock:
+                if len(self.items) > 5000:
+                    self.items.clear()
+                self.items[user_id] = (plan, now + self.TTL)
+        return plan
+
+    def forget(self, user_id):
+        with self.lock:
+            self.items.pop(user_id, None)
 
 
-class BaseHandler(tornado.web.RequestHandler):
-    def set_default_headers(self):
-        for k, v in SECURITY_HEADERS.items():
-            self.set_header(k, v)
+PLAN_CACHE = PlanCache()
 
-    def send_json(self, payload, status=200):
-        self.send_json_text(json.dumps(payload, ensure_ascii=False), status)
 
-    def send_json_text(self, text, status=200, cache="no-store"):
-        self.set_status(status)
-        self.set_header("Content-Type", "application/json; charset=utf-8")
-        # "no-cache" lets the browser keep a copy and revalidate it (304) via the ETag.
-        self.set_header("Cache-Control", cache)
-        self.finish(text)
+class ProfileCache:
+    """Profiles for a minute, for audio: a recording is fetched in many range requests."""
 
-    def send_error_json(self, status, message):
-        self.send_json({"error": message}, status)
+    TTL = 60
 
-    def body_json(self):
-        if len(self.request.body or b"") > MAX_BODY_BYTES:
-            raise tornado.web.HTTPError(413)
-        try:
-            data = json.loads(self.request.body or b"{}")
-        except (ValueError, UnicodeDecodeError):
-            raise tornado.web.HTTPError(400, "Invalid JSON")
-        if not isinstance(data, dict):
-            raise tornado.web.HTTPError(400, "Expected a JSON object")
-        return data
+    def __init__(self):
+        self.items = {}
+        self.lock = threading.Lock()
 
-    def write_error(self, status_code, **kwargs):
-        reason = self._reason if status_code < 500 else "Internal server error"
-        self.send_json({"error": reason}, status_code)
+    def get(self, db, user_id):
+        now = time.time()
+        with self.lock:
+            hit = self.items.get(user_id)
+            if hit and hit[1] > now:
+                return hit[0]
+        profile = accounts.get_profile(db, user_id)
+        if profile:
+            with self.lock:
+                if len(self.items) > 5000:
+                    self.items.clear()
+                self.items[user_id] = (profile, now + self.TTL)
+        return profile
 
-    def client_ip(self):
-        """
-        Real client IP for rate limiting. Behind a proxy (Render, Docker ingress) the
-        proxy appends the address it saw as the LAST X-Forwarded-For entry, which a
-        client cannot forge. Set TRUST_PROXY=0 when the server is exposed directly.
-        """
-        if TRUST_PROXY:
-            forwarded = self.request.headers.get("X-Forwarded-For", "")
-            if forwarded:
-                return forwarded.split(",")[-1].strip()
-        return self.request.remote_ip
 
-    def require_admin(self):
-        supplied = self.request.headers.get("Authorization", "").removeprefix("Bearer ").strip()
-        if not ADMIN_TOKEN or not hmac.compare_digest(supplied, ADMIN_TOKEN):
-            raise tornado.web.HTTPError(401, "Admin token required")
+PROFILE_CACHE = ProfileCache()
+
+
+# --------------------------------------------------------------------------
+# Content: prepared once per load, with hashed asset URLs
+# --------------------------------------------------------------------------
+
+def versioned(path):
+    """`path` under public/ with a content hash appended, so browsers can cache it for a year."""
+    version = tornado.web.StaticFileHandler.get_version({"static_path": PUBLIC_DIR}, path)
+    return f"{path}?v={version[:12]}" if version else path
+
+
+class Catalog:
+    """
+    The current tests plus the JSON the API serves for them, built once per content
+    load instead of on every request.
+    """
+
+    def __init__(self, tests):
+        self.tests = tests
+        self.by_id = {t["id"]: t for t in tests}
+        summaries = []
+        for t in tests:
+            summary = content.summarize_test(t)
+            summary["access"] = accounts.test_access(t)
+            summaries.append(summary)
+        summaries.sort(key=lambda s: (s["module"], s["sortOrder"], s["id"]))
+        self.index_json = json.dumps({"modules": MODULES, "tests": summaries}, ensure_ascii=False)
+        self._public_json = {}
+        self._versions = {}
+
+    def public_json(self, test):
+        cached = self._public_json.get(test["id"])
+        if cached is None:
+            public = self.with_audio_versions(content.public_test(test))
+            cached = self._public_json[test["id"]] = json.dumps(public, ensure_ascii=False, default=str)
+        return cached
+
+    def with_audio_versions(self, value):
+        """A copy of `value` in which every {"audio": {"src": ...}} points at a hashed URL."""
+        if isinstance(value, list):
+            return [self.with_audio_versions(v) for v in value]
+        if not isinstance(value, dict):
+            return value
+        out = {k: self.with_audio_versions(v) for k, v in value.items()}
+        audio = out.get("audio")
+        if isinstance(audio, dict) and isinstance(audio.get("src"), str) and audio["src"].startswith("audio/"):
+            src = audio["src"]
+            if src not in self._versions:
+                self._versions[src] = versioned(src)
+            out["audio"] = {**audio, "src": self._versions[src]}
+        return out
+
+
+_CATALOG = Catalog([])
+
+
+async def catalog():
+    global _CATALOG
+    tests = await in_thread(STORE.list_tests)
+    if tests is not _CATALOG.tests:
+        _CATALOG = await in_thread(Catalog, tests)
+    return _CATALOG
+
+
+async def allowed_to_open(test, profile):
+    """(ok, error_status, error_code) for a signed-in (or anonymous) user and a test."""
+    if accounts.test_access(test) == "free":
+        return True, None, None
+    if not profile:
+        return False, 401, "login_required"
+    plan = await in_thread(PLAN_CACHE.get, STORE.db, profile["id"])
+    if accounts.can_open_test(test, profile, plan):
+        return True, None, None
+    return False, 402, "plan_required"
+
+
+async def require_test_access(handler, test):
+    """The signed-in profile (or None for a free test); raises 401/402 if the test is locked."""
+    profile = await handler.load_profile()
+    ok, status, code = await allowed_to_open(test, profile)
+    if not ok:
+        message = "Sign in to open this test." if code == "login_required" else "This test is part of the monthly plan."
+        raise api.ApiError(status, message, code)
+    return profile
 
 
 # --------------------------------------------------------------------------
@@ -269,18 +327,27 @@ class HealthHandler(BaseHandler):
 
 
 class ConfigHandler(BaseHandler):
-    def get(self):
+    async def get(self):
         self.send_json({
             "siteName": SITE_NAME,
             "aiMarking": writing.ai_configured(),
             "contactEmail": CONTACT_EMAIL,
             "storage": STORE.name,
+            "auth": {"email": True, "google": await in_thread(AUTH.google_enabled), "dev": AUTH.name == "dev"},
+            "speakingKeepDays": speaking.KEEP_DAYS,
         })
+
+
+def send_cached_json(handler, text):
+    """Prepared JSON that the browser may keep and revalidate (304 via the ETag)."""
+    handler.set_header("Content-Type", "application/json; charset=utf-8")
+    handler.set_header("Cache-Control", "private, no-cache")
+    handler.finish(text)
 
 
 class TestsHandler(BaseHandler):
     async def get(self):
-        self.send_json_text((await catalog()).index_json, cache="no-cache")
+        send_cached_json(self, (await catalog()).index_json)
 
 
 class TestHandler(BaseHandler):
@@ -289,7 +356,8 @@ class TestHandler(BaseHandler):
         test = cat.by_id.get(test_id)
         if not test:
             return self.send_error_json(404, "Test not found")
-        self.send_json_text(cat.public_json(test), cache="no-cache")
+        await require_test_access(self, test)
+        send_cached_json(self, cat.public_json(test))
 
 
 class ScoredSubmitHandler(BaseHandler):
@@ -311,6 +379,7 @@ class ScoredSubmitHandler(BaseHandler):
         test = cat.by_id.get(test_id)
         if not test or test.get("module") != self.MODULE:
             return self.send_error_json(404, f"{self.MODULE.title()} test not found")
+        profile = await require_test_access(self, test)
         body = self.body_json()
 
         raw_answers = body.get("answers") or {}
@@ -325,13 +394,13 @@ class ScoredSubmitHandler(BaseHandler):
         mode = "practice" if body.get("mode") == "practice" else "exam"
         result = self.evaluate(test, answers, name, seconds)
         result["mode"] = mode
-        for part in result.get("transcript", []):
-            if part.get("audio", {}).get("src"):
-                part["audio"] = {**part["audio"], "src": cat.audio_src(part["audio"]["src"])}
+        if "transcript" in result:
+            result["transcript"] = cat.with_audio_versions(result["transcript"])
 
         record = {
             "test_id": test["id"],
             "client_id": clean_client_id(body.get("clientId")),
+            "user_id": profile["id"] if profile else None,
             "candidate_name": name,
             "mode": mode,
             "raw_score": result["rawScore"],
@@ -371,6 +440,7 @@ class WritingSubmitHandler(BaseHandler):
         test = (await catalog()).by_id.get(test_id)
         if not test or test.get("module") != "writing":
             return self.send_error_json(404, "Writing test not found")
+        profile = await require_test_access(self, test)
         body = self.body_json()
 
         raw = body.get("responses") or {}
@@ -433,11 +503,13 @@ class WritingSubmitHandler(BaseHandler):
             "assessmentStatus": status,
             "assessmentMessage": message,
             "overallBand": assessment["overallBand"] if assessment else None,
+            "signedIn": bool(profile),
         }
 
         record = {
             "test_id": test["id"],
             "client_id": clean_client_id(body.get("clientId")),
+            "user_id": profile["id"] if profile else None,
             "candidate_name": name,
             "task1_text": responses[1],
             "task2_text": responses[2],
@@ -458,29 +530,36 @@ class WritingSubmitHandler(BaseHandler):
 
 class HistoryHandler(BaseHandler):
     async def get(self):
+        user_id = self.current_user
         client_id = clean_client_id(self.get_query_argument("clientId", ""))
-        if not client_id:
+        if not user_id and not client_id:
             return self.send_json({"items": []})
         try:
-            items = await in_thread(STORE.list_history, client_id, 20)
+            items = await in_thread(lambda: STORE.list_history(client_id, 20, user_id=user_id))
         except Exception:
             log.exception("Could not load history")
             items = []
-        self.send_json({"items": items})
+        if user_id:
+            try:
+                items += await in_thread(speaking.history_items, STORE.db, user_id, 20)
+                items.sort(key=lambda i: i["createdAt"] or "", reverse=True)
+            except Exception:
+                log.exception("Could not load speaking history")
+        self.send_json({"items": items[:20]})
 
 
-class AdminStatsHandler(BaseHandler):
+class AdminStatsHandler(api.AdminHandler):
     async def get(self):
-        self.require_admin()
+        await self.require_admin()
         stats = await in_thread(STORE.stats)
         stats["storage"] = STORE.name
         stats["tests"] = len(await in_thread(STORE.list_tests))
         self.send_json(stats)
 
 
-class AdminRefreshHandler(BaseHandler):
+class AdminRefreshHandler(api.AdminHandler):
     async def post(self):
-        self.require_admin()
+        await self.require_admin()
         STORE.refresh()
         tests = await in_thread(STORE.list_tests)
         self.send_json({"reloaded": len(tests)})
@@ -526,15 +605,40 @@ class StaticHandler(tornado.web.StaticFileHandler):
     they are cached for a year; anything else is revalidated on every use.
     """
 
+    CACHE_SCOPE = "public"
+
     def set_default_headers(self):
         for k, v in SECURITY_HEADERS.items():
             self.set_header(k, v)
 
     def set_extra_headers(self, path):
         if self.get_query_argument("v", None):
-            self.set_header("Cache-Control", "public, max-age=31536000, immutable")
+            self.set_header("Cache-Control", f"{self.CACHE_SCOPE}, max-age=31536000, immutable")
         else:
-            self.set_header("Cache-Control", "no-cache")
+            self.set_header("Cache-Control", "no-cache" if self.CACHE_SCOPE == "public" else "private, no-cache")
+
+
+class AudioHandler(StaticHandler):
+    """Listening recordings: open for free tests, plan-only for the others."""
+
+    CACHE_SCOPE = "private"
+
+    async def prepare(self):
+        test_id = (self.path_args[0] if self.path_args else "").split("/", 1)[0]
+        test = (await catalog()).by_id.get(test_id) if test_id else None
+        if not test or accounts.test_access(test) == "free":
+            return
+        user_id = None
+        raw = self.get_signed_cookie(SESSION_COOKIE, max_age_days=SESSION_DAYS)
+        if raw:
+            try:
+                user_id = json.loads(raw).get("uid")
+            except (ValueError, AttributeError):
+                user_id = None
+        profile = await in_thread(PROFILE_CACHE.get, STORE.db, user_id) if user_id else None
+        ok, status, _ = await allowed_to_open(test, profile)
+        if not ok:
+            raise tornado.web.HTTPError(status)
 
 
 def make_app():
@@ -551,12 +655,27 @@ def make_app():
             (r"/api/history", HistoryHandler),
             (r"/api/admin/stats", AdminStatsHandler),
             (r"/api/admin/refresh", AdminRefreshHandler),
+            *api.routes(),
             (r"/api/.*", ApiNotFoundHandler),
+            (r"/audio/(.*)", AudioHandler, {"path": os.path.join(PUBLIC_DIR, "audio")}),
             (r"/(?:index\.html)?", IndexHandler),
             (r"/(.*)", StaticHandler, {"path": PUBLIC_DIR, "default_filename": "index.html"}),
         ],
         compress_response=True,
+        cookie_secret=cookie_secret(),
+        store=STORE,
+        auth=AUTH,
     )
+
+
+async def clean_up_recordings():
+    """Deletes old Speaking recordings (see speaking.cleanup); runs a few times a day."""
+    try:
+        abandoned, removed = await in_thread(speaking.cleanup, STORE.db, STORE.files)
+        if abandoned or removed:
+            log.info("Speaking clean-up: %d unfinished tests and %d recordings deleted", abandoned, removed)
+    except Exception:
+        log.exception("Speaking clean-up failed")
 
 
 def main():
@@ -570,11 +689,14 @@ def main():
     counts = collections.Counter(t.get("module") for t in tests)
     app = make_app()
     app.listen(PORT, address="0.0.0.0", max_body_size=MAX_BODY_BYTES)
-    log.info("%s running on http://0.0.0.0:%d (storage=%s, AI marking=%s)",
-             SITE_NAME, PORT, STORE.name, "on" if writing.ai_configured() else "off")
-    log.info("Loaded %d reading, %d listening and %d writing tests",
-             counts["reading"], counts["listening"], counts["writing"])
-    tornado.ioloop.IOLoop.current().start()
+    log.info("%s running on http://0.0.0.0:%d (storage=%s, sign-in=%s, AI marking=%s)",
+             SITE_NAME, PORT, STORE.name, AUTH.name, "on" if writing.ai_configured() else "off")
+    log.info("Loaded %d reading, %d listening, %d writing and %d speaking tests",
+             counts["reading"], counts["listening"], counts["writing"], counts["speaking"])
+    loop = tornado.ioloop.IOLoop.current()
+    loop.call_later(60, clean_up_recordings)
+    tornado.ioloop.PeriodicCallback(clean_up_recordings, 6 * 3600 * 1000).start()
+    loop.start()
 
 
 if __name__ == "__main__":

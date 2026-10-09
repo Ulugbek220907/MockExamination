@@ -8,10 +8,12 @@ SupabaseStore  – tests and attempts in Supabase (Postgres) through the server
                  SUPABASE_URL, SUPABASE_KEY and SUPABASE_APP_SECRET are set.
 
 Both expose the same methods, and all methods are synchronous (the server
-calls them from a thread pool).
+calls them from a thread pool). `store.db` gives table access (see db.py) for
+accounts, payments, examiner checks and Speaking tests, and `store.files` keeps
+the Speaking recordings (see files.py).
 """
 
-import http.client
+import concurrent.futures
 import json
 import logging
 import os
@@ -19,10 +21,11 @@ import sqlite3
 import threading
 import time
 import urllib.error
-import urllib.parse
 import urllib.request
 
-from . import content
+from . import content, pool
+from .db import RestDb, SqliteDb
+from .files import LocalFiles, SupabaseFiles
 
 log = logging.getLogger("mockexam.storage")
 
@@ -31,7 +34,10 @@ CONTENT_DIR = os.path.join(BASE_DIR, "content")
 DEFAULT_SQLITE_PATH = os.path.join(BASE_DIR, "data", "local.sqlite3")
 
 
-MODULES = ("reading", "listening", "writing")
+MODULES = ("reading", "listening", "writing", "speaking")
+
+# Runs independent Supabase reads side by side (its threads keep their connections open).
+PARALLEL = concurrent.futures.ThreadPoolExecutor(max_workers=6, thread_name_prefix="supabase")
 
 
 def load_local_tests():
@@ -49,6 +55,8 @@ class LocalStore:
         self._tests = None
         self._lock = threading.Lock()
         self._init_db()
+        self.db = SqliteDb(self.db_path, lock=self._lock)
+        self.files = LocalFiles(os.path.join(os.path.dirname(self.db_path), "recordings"))
 
     # -- content -----------------------------------------------------------
     def list_tests(self):
@@ -119,14 +127,19 @@ class LocalStore:
                 CREATE INDEX IF NOT EXISTS idx_writing_client ON writing_submissions(client_id, created_at);
                 """
             )
+            # Databases created before accounts existed have no user_id column.
+            for table in ("reading_attempts", "listening_attempts", "writing_submissions"):
+                cols = {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}
+                if "user_id" not in cols:
+                    conn.execute(f"ALTER TABLE {table} ADD COLUMN user_id TEXT")
 
     def _save_scored_attempt(self, table, rec):
         with self._lock, self._connect() as conn:
             cur = conn.execute(
-                f"""INSERT INTO {table} (test_id, client_id, candidate_name, mode, raw_score,
+                f"""INSERT INTO {table} (test_id, client_id, user_id, candidate_name, mode, raw_score,
                    total_questions, band_score, time_spent_seconds, answers, breakdown)
-                   VALUES (?,?,?,?,?,?,?,?,?,?)""",
-                (rec["test_id"], rec.get("client_id"), rec.get("candidate_name"), rec.get("mode"),
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
+                (rec["test_id"], rec.get("client_id"), rec.get("user_id"), rec.get("candidate_name"), rec.get("mode"),
                  rec["raw_score"], rec["total_questions"], rec["band_score"], rec.get("time_spent_seconds"),
                  json.dumps(rec.get("answers")), json.dumps(rec.get("breakdown"))),
             )
@@ -141,30 +154,32 @@ class LocalStore:
     def save_writing_submission(self, rec):
         with self._lock, self._connect() as conn:
             cur = conn.execute(
-                """INSERT INTO writing_submissions (test_id, client_id, candidate_name, task1_text, task2_text,
+                """INSERT INTO writing_submissions (test_id, client_id, user_id, candidate_name, task1_text, task2_text,
                    task1_words, task2_words, time_spent_seconds, analysis, assessment, overall_band)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
-                (rec["test_id"], rec.get("client_id"), rec.get("candidate_name"), rec.get("task1_text"),
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?)""",
+                (rec["test_id"], rec.get("client_id"), rec.get("user_id"), rec.get("candidate_name"), rec.get("task1_text"),
                  rec.get("task2_text"), rec.get("task1_words"), rec.get("task2_words"),
                  rec.get("time_spent_seconds"), json.dumps(rec.get("analysis")),
                  json.dumps(rec.get("assessment")), rec.get("overall_band")),
             )
             return cur.lastrowid
 
-    def list_history(self, client_id, limit=20):
+    def list_history(self, client_id=None, limit=20, user_id=None):
+        """Recent attempts of a signed-in user (all devices) or, if signed out, of this browser."""
+        col, value = ("user_id", user_id) if user_id else ("client_id", client_id)
         with self._lock, self._connect() as conn:
             scored = []
             for module in ("reading", "listening"):
                 rows = conn.execute(
                     f"""SELECT id, test_id, raw_score, total_questions, band_score, time_spent_seconds, mode, created_at
-                       FROM {module}_attempts WHERE client_id = ? ORDER BY id DESC LIMIT ?""",
-                    (client_id, limit),
+                       FROM {module}_attempts WHERE {col} = ? ORDER BY id DESC LIMIT ?""",
+                    (value, limit),
                 ).fetchall()
                 scored += [(module, r) for r in rows]
             writing = conn.execute(
-                """SELECT id, test_id, task1_words, task2_words, overall_band, time_spent_seconds, created_at
-                   FROM writing_submissions WHERE client_id = ? ORDER BY id DESC LIMIT ?""",
-                (client_id, limit),
+                f"""SELECT id, test_id, task1_words, task2_words, overall_band, time_spent_seconds, created_at
+                   FROM writing_submissions WHERE {col} = ? ORDER BY id DESC LIMIT ?""",
+                (value, limit),
             ).fetchall()
         items = [
             {"module": module, "id": r[0], "testId": r[1], "rawScore": r[2], "totalQuestions": r[3],
@@ -210,15 +225,10 @@ class SupabaseStore:
         self._refreshing = False
         self._lock = threading.Lock()
         self._load_lock = threading.Lock()
-        # One keep-alive connection per worker thread saves a TCP + TLS handshake on every call.
-        # urllib is used instead when a proxy applies, since http.client does not read proxy settings.
-        parsed = urllib.parse.urlsplit(self.rest)
-        self._scheme, self._host, self._path = parsed.scheme, parsed.netloc, parsed.path
-        self._use_urllib = bool(urllib.request.getproxies().get(self._scheme)) and not urllib.request.proxy_bypass(
-            parsed.hostname or "")
-        self._local = threading.local()
+        self.db = RestDb(url, api_key, app_secret)
+        self.files = SupabaseFiles(url, api_key, app_secret)
 
-    def _headers(self):
+    def _rpc(self, function, **params):
         headers = {
             "apikey": self.key,
             "Content-Type": "application/json",
@@ -228,57 +238,17 @@ class SupabaseStore:
         # sb_publishable_/sb_secret_ keys must only be sent as `apikey`.
         if self.key.startswith("eyJ"):
             headers["Authorization"] = f"Bearer {self.key}"
-        return headers
-
-    def _rpc(self, function, **params):
         body = json.dumps({"p_key": self.secret, **params}).encode("utf-8")
-        if self._use_urllib:
-            status, raw = self._post_urllib(function, body)
-        else:
-            status, raw = self._post_keepalive(function, body)
-        if status >= 400:
-            detail = raw.decode("utf-8", "replace")[:500]
-            raise SupabaseError(f"{function} failed ({status}): {detail}")
-        return json.loads(raw) if raw else None
-
-    def _post_urllib(self, function, body):
-        req = urllib.request.Request(f"{self.rest}/rpc/{function}", data=body, headers=self._headers(), method="POST")
+        req = urllib.request.Request(f"{self.rest}/rpc/{function}", data=body, headers=headers, method="POST")
         try:
-            with urllib.request.urlopen(req, timeout=15) as resp:
-                return resp.status, resp.read()
+            with pool.urlopen(req, timeout=15) as resp:
+                raw = resp.read()
+                return json.loads(raw) if raw else None
         except urllib.error.HTTPError as e:
-            return e.code, e.read()
+            detail = e.read().decode("utf-8", "replace")[:500]
+            raise SupabaseError(f"{function} failed ({e.code}): {detail}") from e
         except urllib.error.URLError as e:
             raise SupabaseError(f"{function} failed: {e.reason}") from e
-
-    def _post_keepalive(self, function, body):
-        conn_class = http.client.HTTPSConnection if self._scheme == "https" else http.client.HTTPConnection
-        for attempt in (1, 2):
-            conn = getattr(self._local, "conn", None)
-            reused = conn is not None
-            if conn is None:
-                conn = self._local.conn = conn_class(self._host, timeout=15)
-            try:
-                conn.request("POST", f"{self._path}/rpc/{function}", body=body, headers=self._headers())
-                resp = conn.getresponse()
-                raw = resp.read()
-                if resp.will_close:
-                    self._drop_connection()
-                return resp.status, raw
-            except (http.client.HTTPException, OSError) as e:
-                self._drop_connection()
-                # A pooled connection the server has since closed fails before the request
-                # is processed: retry once on a fresh connection.
-                if reused and attempt == 1 and isinstance(
-                        e, (http.client.RemoteDisconnected, ConnectionResetError, BrokenPipeError)):
-                    continue
-                raise SupabaseError(f"{function} failed: {e}") from e
-
-    def _drop_connection(self):
-        conn = getattr(self._local, "conn", None)
-        self._local.conn = None
-        if conn is not None:
-            conn.close()
 
     # -- content -----------------------------------------------------------
     def list_tests(self):
@@ -295,7 +265,10 @@ class SupabaseStore:
             return tests
         with self._load_lock:  # cold cache: one thread loads, the others wait for it
             if self._cache is None:
-                self._store(self._fetch_tests() or load_local_tests())
+                # Not seeded yet (or unreachable): serve the bundled content so the site still works.
+                tests = self._fetch_tests() or load_local_tests()
+                with self._lock:
+                    self._cache, self._cache_at = tests, time.time()
             return self._cache
 
     def _fetch_tests(self):
@@ -309,17 +282,12 @@ class SupabaseStore:
         try:
             tests = self._fetch_tests()
             with self._lock:
-                # Keep serving the previous content if Supabase is unreachable or empty.
-                if tests:
+                if tests:  # keep serving the previous content if Supabase is unreachable or empty
                     self._cache = tests
                 self._cache_at = time.time()
         finally:
             with self._lock:
                 self._refreshing = False
-
-    def _store(self, tests):
-        with self._lock:
-            self._cache, self._cache_at = tests, time.time()
 
     def get_test(self, test_id):
         return next((t for t in self.list_tests() if t["id"] == test_id), None)
@@ -341,8 +309,16 @@ class SupabaseStore:
     def save_writing_submission(self, rec):
         return self._rpc("app_save_writing_submission", p_row=rec)
 
-    def list_history(self, client_id, limit=20):
-        data = self._rpc("app_history", p_client=client_id, p_limit=limit) or {}
+    def list_history(self, client_id=None, limit=20, user_id=None):
+        if user_id:
+            tables = (("reading", "reading_attempts"), ("listening", "listening_attempts"),
+                      ("writing", "writing_submissions"))
+            jobs = {module: PARALLEL.submit(self.db.select, table, {"user_id": user_id},
+                                            order=[("created_at", "desc")], limit=limit)
+                    for module, table in tables}
+            data = {module: job.result() for module, job in jobs.items()}
+        else:
+            data = self._rpc("app_history", p_client=client_id, p_limit=limit) or {}
         items = [
             {"module": module, "id": r["id"], "testId": r["test_id"], "rawScore": r["raw_score"],
              "totalQuestions": r["total_questions"], "bandScore": float(r["band_score"]),

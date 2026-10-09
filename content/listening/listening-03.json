@@ -1,0 +1,1440 @@
+{
+  "id": "listening-03",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 3",
+  "shortTitle": "Practice Test 3",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 3,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "karen": {
+      "name": "Karen",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "mark": {
+      "name": "Mark",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "sandra": {
+      "name": "Sandra Cole",
+      "voice": "af_sarah",
+      "lang": "en-us"
+    },
+    "priya": {
+      "name": "Priya",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "leo": {
+      "name": "Leo",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a room for a party",
+      "context": "A man phones a community centre to book a room.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man telephoning a community centre to book a room for a party. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.37
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.37,
+          "end": 39.44
+        },
+        {
+          "speaker": "karen",
+          "text": "Good afternoon, Riverside Community Centre, Karen speaking.",
+          "start": 40.34,
+          "end": 44.03
+        },
+        {
+          "speaker": "mark",
+          "text": "Hello. I'd like to book a room for a party, please. It's for my mother's seventieth birthday.",
+          "start": 44.53,
+          "end": 50.12
+        },
+        {
+          "speaker": "karen",
+          "text": "Oh, lovely. A birthday party. I'll just fill in a booking form, then.",
+          "start": 50.62,
+          "end": 54.33
+        },
+        {
+          "speaker": "narrator",
+          "text": "The man wants to book a room for a birthday party, so 'birthday party' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 55.23,
+          "end": 71.51
+        },
+        {
+          "speaker": "karen",
+          "text": "Can I take your name first?",
+          "start": 72.41,
+          "end": 74.52
+        },
+        {
+          "speaker": "mark",
+          "text": "Yes, it's Mark Harwood.",
+          "start": 75.02,
+          "end": 76.66
+        },
+        {
+          "speaker": "karen",
+          "text": "Could you spell your surname for me?",
+          "start": 77.16,
+          "end": 79.29
+        },
+        {
+          "speaker": "mark",
+          "text": "Sure. It's H-A-R-W-O-O-D.",
+          "tts": "Sure. It's H, A, R, W, O, O, D.",
+          "start": 79.79,
+          "end": 82.59
+        },
+        {
+          "speaker": "karen",
+          "text": "Thank you, Mr Harwood. And which date were you thinking of?",
+          "start": 83.09,
+          "end": 86.23
+        },
+        {
+          "speaker": "mark",
+          "text": "It's a Saturday in June. Her actual birthday is on the twentieth, but that's a Friday, and half the family will be working. So we'd like the Saturday after, the twenty-first.",
+          "start": 86.73,
+          "end": 97.67
+        },
+        {
+          "speaker": "karen",
+          "text": "Let me just check the calendar. Yes, Saturday the twenty-first of June is free for most of our rooms. How many guests are you expecting?",
+          "start": 98.17,
+          "end": 105.55
+        },
+        {
+          "speaker": "mark",
+          "text": "We've sent out forty invitations, but most people are bringing a partner, so I'd say around sixty in total.",
+          "start": 106.05,
+          "end": 112.66
+        },
+        {
+          "speaker": "karen",
+          "text": "Sixty. In that case, the Main Hall would really be too big. It holds two hundred people, so it would feel rather empty. I'd suggest the Garden Room. It takes up to eighty, and it opens straight onto the lawn.",
+          "start": 113.16,
+          "end": 124.96
+        },
+        {
+          "speaker": "mark",
+          "text": "The Garden Room sounds perfect. My mother loves being outside.",
+          "start": 125.46,
+          "end": 129.54
+        },
+        {
+          "speaker": "karen",
+          "text": "And what time would you need it?",
+          "start": 130.04,
+          "end": 132.0
+        },
+        {
+          "speaker": "mark",
+          "text": "The party starts at three, but we'll need an hour before that to put up the decorations. And we should be finished by about half past six.",
+          "start": 132.5,
+          "end": 140.58
+        },
+        {
+          "speaker": "karen",
+          "text": "There's a wedding reception in the Garden Room that evening, so it has to be empty by seven. So I'll book it for you from two until seven. Is that all right?",
+          "start": 141.08,
+          "end": 149.62
+        },
+        {
+          "speaker": "mark",
+          "text": "Perfect. We'll be out by then.",
+          "start": 150.12,
+          "end": 152.08
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 152.98,
+          "end": 158.7
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 178.7,
+          "end": 182.03
+        },
+        {
+          "speaker": "karen",
+          "text": "Now, the Garden Room has a sound system that you can use for music, and that's included in the price. Is there anything else you'll need?",
+          "start": 182.93,
+          "end": 190.56
+        },
+        {
+          "speaker": "mark",
+          "text": "Actually, yes. My sister has made a slideshow of old family photos. Could we show that somewhere?",
+          "start": 191.06,
+          "end": 197.44
+        },
+        {
+          "speaker": "karen",
+          "text": "Of course. We can lend you a projector and a screen. There's a charge of twenty pounds for that.",
+          "start": 197.94,
+          "end": 203.06
+        },
+        {
+          "speaker": "mark",
+          "text": "That's fine. What about food? We're bringing everything ourselves.",
+          "start": 203.56,
+          "end": 207.49
+        },
+        {
+          "speaker": "karen",
+          "text": "The Garden Room has its own kitchen, with a fridge and an oven. There are cups and glasses, and plenty of knives and forks, but we don't provide plates any more, I'm afraid, because too many got broken. So you'll need to bring your own.",
+          "start": 207.99,
+          "end": 220.66
+        },
+        {
+          "speaker": "mark",
+          "text": "OK, I'll make a note of that. And is there somewhere for people to park?",
+          "start": 221.16,
+          "end": 225.55
+        },
+        {
+          "speaker": "karen",
+          "text": "Our own car park is quite small, and there's a football match on that Saturday, so it'll be full. But the church next door lets our visitors use its car park, which is just behind the church. It's only a two-minute walk.",
+          "start": 226.05,
+          "end": 238.36
+        },
+        {
+          "speaker": "mark",
+          "text": "That's good to know. Is there a deposit to pay?",
+          "start": 238.86,
+          "end": 241.76
+        },
+        {
+          "speaker": "karen",
+          "text": "Yes. The room itself is 35 pounds an hour, which you pay on the day. And we take a deposit, which you get back if everything's left clean and tidy. It used to be 50 pounds, but it went up this year to 75 pounds.",
+          "start": 242.26,
+          "end": 255.19
+        },
+        {
+          "speaker": "mark",
+          "text": "That's reasonable. And what if something goes wrong on the day, like the heating?",
+          "start": 255.69,
+          "end": 260.28
+        },
+        {
+          "speaker": "karen",
+          "text": "The office is closed at weekends, so if you have any problems, you should call the caretaker. His phone number is on the door of the Garden Room.",
+          "start": 260.78,
+          "end": 268.5
+        },
+        {
+          "speaker": "mark",
+          "text": "Great. Thank you very much for your help.",
+          "start": 269.0,
+          "end": 271.13
+        },
+        {
+          "speaker": "karen",
+          "text": "You're welcome. I'll email you the booking form now.",
+          "start": 271.63,
+          "end": 274.54
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 275.44,
+          "end": 279.96
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Riverside Community Centre – room booking",
+          "content": [
+            "Example: Type of event: **birthday party**",
+            "## Booking details",
+            "• Name: Mark {{1}}",
+            "• Date: Saturday {{2}} June",
+            "• Number of guests: about {{3}}",
+            "• Room: the {{4}} Room",
+            "• Time: from 2 pm until {{5}} pm",
+            "## Other information",
+            "• Hire of a {{6}}: £20",
+            "• Kitchen: bring your own {{7}}",
+            "• Parking: use the car park behind the {{8}}",
+            "• Deposit: £{{9}}",
+            "• Problems on the day: phone the {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Harwood"
+              ],
+              "explanation": "He spells his surname: H-A-R-W-O-O-D.",
+              "cue": "H-A-R-W-O-O-D"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "21",
+                "21st",
+                "twenty-first"
+              ],
+              "explanation": "Her birthday is on the 20th, a Friday, so they want ‘the Saturday after, the twenty-first’.",
+              "cue": "the Saturday after, the twenty-first"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "60",
+                "sixty"
+              ],
+              "explanation": "Forty invitations, but most people bring a partner: ‘around sixty in total’.",
+              "cue": "around sixty in total"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "Garden"
+              ],
+              "explanation": "The Main Hall is too big, so Karen suggests the Garden Room, and Mark accepts.",
+              "cue": "I'd suggest the Garden Room"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "7",
+                "seven"
+              ],
+              "explanation": "The party ends at about 6.30, but the room is booked ‘from two until seven’.",
+              "cue": "from two until seven"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "projector"
+              ],
+              "explanation": "The sound system is included; a projector and screen cost £20.",
+              "cue": "lend you a projector"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "plates"
+              ],
+              "explanation": "Cups, glasses and cutlery are provided, but ‘we don't provide plates any more’.",
+              "cue": "we don't provide plates"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "church"
+              ],
+              "explanation": "The centre's own car park will be full, so visitors can use the car park ‘just behind the church’.",
+              "cue": "just behind the church"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "75",
+                "seventy-five"
+              ],
+              "explanation": "£35 is the price per hour. The deposit ‘used to be 50 pounds, but it went up this year to 75 pounds’.",
+              "cue": "it went up this year to 75 pounds"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "caretaker"
+              ],
+              "explanation": "The office is closed at weekends, so ‘you should call the caretaker’.",
+              "cue": "you should call the caretaker"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-03/part1.mp3",
+        "duration": 300.76
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A library reopens",
+      "context": "The manager of a public library talks to local residents.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the manager of a public library talking to a group of local residents about the library, which has just reopened. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 13.36
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 38.36,
+          "end": 42.62
+        },
+        {
+          "speaker": "sandra",
+          "text": "Good evening, everyone, and thank you for coming. My name's Sandra Cole, and I'm the manager of Millbrook Central Library. As you know, the library has been closed for eighteen months, and I'm delighted to say that we reopened last Monday.",
+          "start": 43.52,
+          "end": 57.39
+        },
+        {
+          "speaker": "sandra",
+          "text": "A lot of people have asked me why the work took so long. Many of you assumed it was because of the roof. It's true that the roof leaked, but that was repaired in the first few weeks. The main purpose of the project was to cut our energy bills, which had become enormous. We've added insulation to every wall, replaced all the windows and put solar panels on the roof, and our heating costs have already fallen by half. We didn't make the building any bigger, although moving the offices upstairs has given the public a little more room.",
+          "start": 57.74,
+          "end": 87.58
+        },
+        {
+          "speaker": "sandra",
+          "text": "The whole project cost just over two million pounds. The council paid for about a quarter of that, and several local businesses were very generous too. But most of the money, around sixty per cent, came from a national heritage fund, because this is one of the oldest library buildings in the region.",
+          "start": 87.93,
+          "end": 105.34
+        },
+        {
+          "speaker": "sandra",
+          "text": "Now, a word about membership. Joining the library is still free, as it has always been, so nothing changes there. And you'll still need to show us something with your address on it. But you can now fill in the form on our website before you come in, which saves a lot of time at the desk.",
+          "start": 105.69,
+          "end": 121.15
+        },
+        {
+          "speaker": "sandra",
+          "text": "We're also offering some new services. We've run language classes here for many years, and they'll continue as before. What's completely new is our tool library. Instead of buying a drill or a ladder that you'll only use twice a year, you can now borrow tools here, just like books.",
+          "start": 121.5,
+          "end": 137.7
+        },
+        {
+          "speaker": "sandra",
+          "text": "Printing from your phone is something many of you have asked for, and we hope to offer it next year, but the system isn't ready yet. We'd also like to stay open later on Sundays, but at the moment we simply don't have enough staff.",
+          "start": 138.05,
+          "end": 150.8
+        },
+        {
+          "speaker": "sandra",
+          "text": "The other new service is for people who find it hard to leave home, because of illness or disability. Volunteers will now deliver books to their door every fortnight, and collect the ones they've finished.",
+          "start": 151.15,
+          "end": 162.8
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 163.7,
+          "end": 169.42
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 189.42,
+          "end": 193.3
+        },
+        {
+          "speaker": "sandra",
+          "text": "Let me explain where everything is on the ground floor, because it's all changed. Please look at the plan. When you come in through the main entrance, you'll see the reception desk straight away, on your left.",
+          "start": 194.2,
+          "end": 204.93
+        },
+        {
+          "speaker": "sandra",
+          "text": "If you'd like a drink or a snack, our new café is in the corner, just to the left of the reception desk, so it's the first thing you'll come to.",
+          "start": 205.28,
+          "end": 213.03
+        },
+        {
+          "speaker": "sandra",
+          "text": "On your right as you come in are the self-service machines, where you can borrow and return books without queuing. Beyond them is the children's library, which is now twice the size it used to be.",
+          "start": 213.38,
+          "end": 224.32
+        },
+        {
+          "speaker": "sandra",
+          "text": "If you walk straight ahead along the corridor, you'll come to the central hall, which runs across the building from west to east. Turn right into the hall, and on your right, just behind the children's library, you'll find the computer area. There are thirty computers there now, all free to use.",
+          "start": 224.67,
+          "end": 240.52
+        },
+        {
+          "speaker": "sandra",
+          "text": "Carry on to the end of the hall, and at the far eastern end there's a large open space. That's where we'll hold exhibitions, and the first one, of old photographs of the town, opens next week.",
+          "start": 240.87,
+          "end": 251.79
+        },
+        {
+          "speaker": "sandra",
+          "text": "If you turn left into the hall instead, the newspapers and magazines are on your left, with some comfortable chairs.",
+          "start": 252.14,
+          "end": 258.65
+        },
+        {
+          "speaker": "sandra",
+          "text": "On the other side of the hall, the north side, is the reading room, which hasn't changed. Right next to it, on its east side, is the local history room, where you can look at old maps and records of the area.",
+          "start": 259.0,
+          "end": 270.24
+        },
+        {
+          "speaker": "sandra",
+          "text": "And finally, the study rooms. There are four of them, and you can book them online for up to three hours at a time. They're also on the north side of the hall, between the local history room and the stairs.",
+          "start": 270.59,
+          "end": 281.6
+        },
+        {
+          "speaker": "sandra",
+          "text": "Right. Does anyone have any questions?",
+          "start": 281.95,
+          "end": 284.02
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 284.92,
+          "end": 289.25
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "What was the main purpose of the building work?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to repair the roof"
+                },
+                {
+                  "key": "B",
+                  "text": "to reduce energy costs"
+                },
+                {
+                  "key": "C",
+                  "text": "to make the library bigger"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The roof was repaired in the first few weeks, and the building was not made bigger: ‘The main purpose of the project was to cut our energy bills’.",
+              "cue": "The main purpose of the project was to cut our energy bills"
+            },
+            {
+              "number": 12,
+              "prompt": "Most of the money for the project came from",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the local council."
+                },
+                {
+                  "key": "B",
+                  "text": "local businesses."
+                },
+                {
+                  "key": "C",
+                  "text": "a national fund."
+                }
+              ],
+              "answer": "C",
+              "explanation": "The council paid about a quarter; ‘most of the money, around sixty per cent, came from a national heritage fund’.",
+              "cue": "came from a national heritage fund"
+            },
+            {
+              "number": 13,
+              "prompt": "What is new about joining the library?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is now free."
+                },
+                {
+                  "key": "B",
+                  "text": "You can apply online."
+                },
+                {
+                  "key": "C",
+                  "text": "You do not need proof of your address."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Joining has always been free and you still need something with your address, but ‘you can now fill in the form on our website’.",
+              "cue": "fill in the form on our website"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO new services does the library now offer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "language classes"
+            },
+            {
+              "key": "B",
+              "text": "lending tools"
+            },
+            {
+              "key": "C",
+              "text": "printing from mobile phones"
+            },
+            {
+              "key": "D",
+              "text": "delivering books to people's homes"
+            },
+            {
+              "key": "E",
+              "text": "later opening on Sundays"
+            }
+          ],
+          "answer": [
+            "B",
+            "D"
+          ],
+          "explanation": "The tool library (B) and home delivery by volunteers (D) are new. Language classes are not new, phone printing is planned for next year, and there are not enough staff for Sunday opening.",
+          "questions": [
+            {
+              "number": 14,
+              "cue": "you can now borrow tools here"
+            },
+            {
+              "number": 15,
+              "cue": "Volunteers will now deliver books to their door"
+            }
+          ]
+        },
+        {
+          "type": "map_labelling",
+          "instruction": "Label the plan below. Choose the correct letter, **A–G**, next to Questions 16–20.",
+          "map": {
+            "title": "Millbrook Central Library – ground floor",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "parking"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 430,
+                "x2": 320,
+                "y2": 200,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 70,
+                "y1": 200,
+                "x2": 600,
+                "y2": 200,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 55,
+                "w": 180,
+                "h": 95,
+                "style": "building",
+                "label": "Reading room"
+              },
+              {
+                "type": "rect",
+                "x": 560,
+                "y": 30,
+                "w": 60,
+                "h": 80,
+                "style": "building",
+                "label": "Stairs"
+              },
+              {
+                "type": "rect",
+                "x": 205,
+                "y": 345,
+                "w": 95,
+                "h": 45,
+                "style": "building",
+                "label": "Reception"
+              },
+              {
+                "type": "rect",
+                "x": 400,
+                "y": 318,
+                "w": 172,
+                "h": 85,
+                "style": "building",
+                "label": "Children's library"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 430,
+                "label": "Main entrance"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 385
+              },
+              {
+                "type": "letter",
+                "x": 110,
+                "y": 380,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 130,
+                "y": 262,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 262,
+                "y": 105,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 460,
+                "y": 105,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 470,
+                "y": 262,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 600,
+                "y": 200,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 360,
+                "y": 372,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Café",
+              "answer": "A",
+              "explanation": "The café is ‘in the corner, just to the left of the reception desk’. G is the self-service machines.",
+              "cue": "our new café is in the corner"
+            },
+            {
+              "number": 17,
+              "prompt": "Computer area",
+              "answer": "E",
+              "explanation": "Turn right into the hall; the computer area is on the right, ‘just behind the children's library’.",
+              "cue": "you'll find the computer area"
+            },
+            {
+              "number": 18,
+              "prompt": "Exhibition space",
+              "answer": "F",
+              "explanation": "‘At the far eastern end there's a large open space. That's where we'll hold exhibitions.’",
+              "cue": "That's where we'll hold exhibitions"
+            },
+            {
+              "number": 19,
+              "prompt": "Local history room",
+              "answer": "C",
+              "explanation": "It is on the north side, ‘right next to’ the reading room, on its east side. B is the newspapers and magazines.",
+              "cue": "is the local history room"
+            },
+            {
+              "number": 20,
+              "prompt": "Study rooms",
+              "answer": "D",
+              "explanation": "Also on the north side, ‘between the local history room and the stairs’.",
+              "cue": "between the local history room and the stairs"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-03/part2.mp3",
+        "duration": 310.05
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A project on noise pollution",
+      "context": "Two students plan a presentation about noise in cities.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two environmental science students, Priya and Leo, talking about their project on noise pollution in cities. First, you have some time to look at questions 21 to 24.",
+          "start": 0.6,
+          "end": 13.89
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 24.",
+          "start": 38.89,
+          "end": 43.61
+        },
+        {
+          "speaker": "leo",
+          "text": "So, Priya, we need to finish planning our presentation on noise pollution. But can I ask you something first? Why did you want to do noise? Everyone else chose air quality.",
+          "start": 44.51,
+          "end": 53.57
+        },
+        {
+          "speaker": "priya",
+          "text": "Well, people keep assuming it's because my flat is on the ring road, but honestly, I sleep through the traffic without any problem.",
+          "start": 54.07,
+          "end": 61.2
+        },
+        {
+          "speaker": "leo",
+          "text": "I thought Dr Mills had suggested it.",
+          "start": 61.7,
+          "end": 63.89
+        },
+        {
+          "speaker": "priya",
+          "text": "No, she just agreed to it. What got me interested was an article in the newspaper last term, about how long-term noise is linked to heart disease. I had no idea it could affect your health like that.",
+          "start": 64.39,
+          "end": 75.36
+        },
+        {
+          "speaker": "leo",
+          "text": "Well, it was a good choice. Let's talk about our measurements. What surprised you most?",
+          "start": 75.86,
+          "end": 80.08
+        },
+        {
+          "speaker": "priya",
+          "text": "I expected the shopping street to be the loudest place, and it was, at lunchtime. The station was noisy too, but that was no surprise. What I really didn't expect was the park. With the playground and all the dogs, it was almost as loud as the shopping street.",
+          "start": 80.58,
+          "end": 94.17
+        },
+        {
+          "speaker": "leo",
+          "text": "Yes, that was a shock. And the difference between day and night was much smaller than I thought it would be.",
+          "start": 94.67,
+          "end": 99.73
+        },
+        {
+          "speaker": "leo",
+          "text": "Now, the questionnaire. I've been looking at the replies again. The length was fine. Most people finished it in about five minutes.",
+          "start": 100.08,
+          "end": 106.69
+        },
+        {
+          "speaker": "priya",
+          "text": "And we got a hundred and twenty replies, which is more than enough.",
+          "start": 107.19,
+          "end": 111.01
+        },
+        {
+          "speaker": "leo",
+          "text": "True. The real problem was question six. Lots of people misunderstood it, because they didn't know what we meant by ambient noise. We should have explained the term.",
+          "start": 111.51,
+          "end": 119.96
+        },
+        {
+          "speaker": "priya",
+          "text": "We'll mention that in the presentation, as one of the limitations. So, how should we begin? I was thinking we could start with a definition of noise pollution.",
+          "start": 120.46,
+          "end": 128.99
+        },
+        {
+          "speaker": "leo",
+          "text": "Hmm, that's a bit dull as an opening. Why don't we play the recording we made at the station? Just thirty seconds of it. It would really get people's attention.",
+          "start": 129.49,
+          "end": 137.43
+        },
+        {
+          "speaker": "priya",
+          "text": "Good idea. Let's do that, and give the definition straight afterwards. Then the results.",
+          "start": 137.93,
+          "end": 142.69
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 25 to 30.",
+          "start": 143.59,
+          "end": 149.75
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 25 to 30.",
+          "start": 169.75,
+          "end": 173.72
+        },
+        {
+          "speaker": "priya",
+          "text": "The last section is about ways of reducing noise. We looked at six, didn't we? Let's decide what we'll say about each one.",
+          "start": 174.62,
+          "end": 181.51
+        },
+        {
+          "speaker": "leo",
+          "text": "OK. First, planting trees and hedges along busy roads. They don't reduce noise as much as people think, but I still like them, because birds and insects benefit too.",
+          "start": 182.01,
+          "end": 190.95
+        },
+        {
+          "speaker": "priya",
+          "text": "Yes, I think that's the real advantage.",
+          "start": 191.45,
+          "end": 194.26
+        },
+        {
+          "speaker": "priya",
+          "text": "Then there are the new quiet road surfaces. Drivers love them, because they're so much smoother. The problem is the price. Replacing the surface of every road would cost far more than most cities can afford.",
+          "start": 194.61,
+          "end": 205.71
+        },
+        {
+          "speaker": "leo",
+          "text": "Next, lower speed limits. Our own council actually tried this on Mill Road last year, and the noise dropped quite a lot.",
+          "start": 206.21,
+          "end": 212.76
+        },
+        {
+          "speaker": "priya",
+          "text": "We should definitely mention that, since it's local.",
+          "start": 213.26,
+          "end": 216.37
+        },
+        {
+          "speaker": "priya",
+          "text": "What about better windows? Triple glazing is very effective.",
+          "start": 216.72,
+          "end": 220.56
+        },
+        {
+          "speaker": "leo",
+          "text": "It is, but it's really hard to fit into older houses, and it's very disruptive. It's mostly used when builders are putting up new flats.",
+          "start": 221.06,
+          "end": 228.34
+        },
+        {
+          "speaker": "priya",
+          "text": "And then electric buses. In that study we read from Sweden, of all the measures they tested, the electric buses made the biggest difference.",
+          "start": 228.84,
+          "end": 236.71
+        },
+        {
+          "speaker": "leo",
+          "text": "So we can say that one was the most effective. And finally, quiet hours, where there are rules about noise late at night in residential streets.",
+          "start": 237.21,
+          "end": 244.8
+        },
+        {
+          "speaker": "priya",
+          "text": "The trouble is, the council can't check every street. It only works if the people living there agree to it and actually follow the rules.",
+          "start": 245.3,
+          "end": 252.51
+        },
+        {
+          "speaker": "leo",
+          "text": "Right. I think that's our plan done. Shall we start on the slides tomorrow?",
+          "start": 253.01,
+          "end": 256.81
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 257.71,
+          "end": 262.17
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did Priya choose noise pollution as a topic?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She lives next to a busy road."
+                },
+                {
+                  "key": "B",
+                  "text": "She read about its effects on health."
+                },
+                {
+                  "key": "C",
+                  "text": "Her tutor recommended it."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The traffic does not bother her and the tutor only agreed to the topic: ‘What got me interested was an article in the newspaper’ about noise and heart disease.",
+              "cue": "What got me interested was an article in the newspaper"
+            },
+            {
+              "number": 22,
+              "prompt": "What surprised the students about their measurements?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "how noisy the park was"
+                },
+                {
+                  "key": "B",
+                  "text": "how loud the station was"
+                },
+                {
+                  "key": "C",
+                  "text": "how much quieter it was at night"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The station was ‘no surprise’ and the day–night difference was small: ‘What I really didn't expect was the park.’",
+              "cue": "What I really didn't expect was the park"
+            },
+            {
+              "number": 23,
+              "prompt": "What was the problem with their questionnaire?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It took too long to complete."
+                },
+                {
+                  "key": "B",
+                  "text": "Not enough people answered it."
+                },
+                {
+                  "key": "C",
+                  "text": "One question was not clear."
+                }
+              ],
+              "answer": "C",
+              "explanation": "The length was fine and 120 replies were enough. ‘The real problem was question six’: people did not understand ‘ambient noise’.",
+              "cue": "The real problem was question six"
+            },
+            {
+              "number": 24,
+              "prompt": "How will the students begin their presentation?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "with a recording"
+                },
+                {
+                  "key": "B",
+                  "text": "with a definition"
+                },
+                {
+                  "key": "C",
+                  "text": "with their results"
+                }
+              ],
+              "answer": "A",
+              "explanation": "A definition is ‘a bit dull as an opening’; they will play the recording from the station, then give the definition.",
+              "cue": "Why don't we play the recording"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What comment do the students make about each way of reducing noise? Choose **SIX** answers from the box and write the correct letter, **A–G**, next to Questions 25–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "is too expensive for most cities"
+            },
+            {
+              "key": "B",
+              "text": "has already been tried in their area"
+            },
+            {
+              "key": "C",
+              "text": "depends on the cooperation of residents"
+            },
+            {
+              "key": "D",
+              "text": "is mainly practical in new buildings"
+            },
+            {
+              "key": "E",
+              "text": "also benefits wildlife"
+            },
+            {
+              "key": "F",
+              "text": "was the most effective in one study"
+            },
+            {
+              "key": "G",
+              "text": "is unpopular with drivers"
+            }
+          ],
+          "questions": [
+            {
+              "number": 25,
+              "prompt": "planting trees and hedges",
+              "answer": "E",
+              "explanation": "They do not reduce noise much, but ‘birds and insects benefit too’.",
+              "cue": "because birds and insects benefit too"
+            },
+            {
+              "number": 26,
+              "prompt": "quiet road surfaces",
+              "answer": "A",
+              "explanation": "Drivers love them (so not G), but resurfacing every road ‘would cost far more than most cities can afford’.",
+              "cue": "would cost far more than most cities can afford"
+            },
+            {
+              "number": 27,
+              "prompt": "lower speed limits",
+              "answer": "B",
+              "explanation": "‘Our own council actually tried this on Mill Road last year.’",
+              "cue": "Our own council actually tried this"
+            },
+            {
+              "number": 28,
+              "prompt": "better windows",
+              "answer": "D",
+              "explanation": "Hard to fit into older houses; ‘mostly used when builders are putting up new flats’.",
+              "cue": "It's mostly used when builders are putting up new flats"
+            },
+            {
+              "number": 29,
+              "prompt": "electric buses",
+              "answer": "F",
+              "explanation": "In the Swedish study, ‘the electric buses made the biggest difference’.",
+              "cue": "the electric buses made the biggest difference"
+            },
+            {
+              "number": 30,
+              "prompt": "quiet hours",
+              "answer": "C",
+              "explanation": "‘It only works if the people living there agree to it and actually follow the rules.’",
+              "cue": "It only works if the people living there agree to it"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-03/part3.mp3",
+        "duration": 282.97
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the natural ice trade",
+      "context": "A lecture about the history of the trade in natural ice.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of the trade in natural ice. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 10.11
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 40.11,
+          "end": 44.53
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today I want to look at an industry that has almost completely disappeared, but which, for about a hundred years, was surprisingly important: the trade in natural ice. Before electric fridges existed, ice was cut from frozen lakes and rivers in winter, stored, and then sold in the warmer months, and it was even shipped to hot countries on the other side of the world.",
+          "start": 45.43,
+          "end": 63.93
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The man usually given credit for turning this into a global business is Frederic Tudor, from Boston, in the north-east of the United States. In 1806, Tudor had the idea of selling ice in places where water never froze. So he filled a ship with ice from a frozen pond, and sent it south to the Caribbean. Many people in Boston thought he was mad, and in a way they were right. A lot of the ice melted on the way, and the people who received it had no idea what to do with it. Tudor lost a great deal of money, and within a few years he was deep in debt.",
+          "start": 64.28,
+          "end": 94.99
+        },
+        {
+          "speaker": "lecturer",
+          "text": "However, he kept experimenting, and he gradually solved the two main problems: keeping the ice frozen, and creating a demand for it. For insulation, he tried straw, hay and wood shavings, but the material that worked best was sawdust, which the timber mills of New England produced in huge quantities and were happy to give away.",
+          "start": 95.34,
+          "end": 111.94
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Then, in each port where he sold ice, he built large ice houses. These were buildings with thick double walls, where the ice could be stored for months. And to create demand, he gave away cold drinks, and showed bar owners and restaurants how ice could be used.",
+          "start": 112.29,
+          "end": 125.62
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The next breakthrough came in the 1820s, when another Boston businessman, Nathaniel Wyeth, invented a plough, pulled by horses, that cut the surface of a frozen lake into a grid. This meant the ice could be harvested in blocks that were all exactly the same size. That might sound like a small detail, but blocks of equal size could be packed tightly together, with very little air between them, so they melted much more slowly, and they were far easier to load onto ships.",
+          "start": 125.97,
+          "end": 152.55
+        },
+        {
+          "speaker": "lecturer",
+          "text": "With these improvements, the trade grew rapidly. In 1833, a ship carrying about a hundred and eighty tonnes of ice sailed from Boston to Calcutta, in India. The voyage took four months and crossed the equator twice, but more than half of the ice was still frozen when it arrived.",
+          "start": 152.9,
+          "end": 168.62
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In the United States itself, the price of ice fell steadily as production grew, and by the middle of the century it was no longer a luxury for the rich. Ordinary families in cities like New York bought ice every day, delivered by the iceman to a wooden icebox in their kitchen.",
+          "start": 168.97,
+          "end": 184.12
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Ice also changed what people ate. Fishing boats could stay at sea for longer, and trains with ice-cooled wagons carried fish and meat hundreds of kilometres inland, so people far from the coast could buy fresh fish for the first time.",
+          "start": 184.47,
+          "end": 197.24
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The trade was not limited to America. In Britain, where winters were often too mild to produce thick ice, much of the ice that was used came from Norway. Huge blocks were cut from Norwegian lakes and shipped across the North Sea to ports such as London.",
+          "start": 197.59,
+          "end": 210.97
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So why did the trade come to an end? There were two main reasons. The first was health. As cities and factories grew, many of the rivers and lakes where ice was harvested became polluted, and doctors began to warn that dirty ice could spread disease. The second reason was technology. Factories that made ice with machines could produce clean ice all year round, close to where it was needed. And from the 1920s onwards, electric refrigerators began to appear in people's homes. By the middle of the twentieth century, the natural ice trade had almost completely disappeared.",
+          "start": 211.32,
+          "end": 242.91
+        },
+        {
+          "speaker": "lecturer",
+          "text": "But it left an important legacy. It created the habit of expecting cold drinks and fresh food all year round, and that is exactly the demand that modern refrigeration grew up to meet. Next week, we'll look at how that technology developed.",
+          "start": 243.26,
+          "end": 256.1
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 257.0,
+          "end": 261.4
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 281.4,
+          "end": 284.11
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The natural ice trade",
+          "content": [
+            "## Beginnings",
+            "• 1806: Frederic Tudor sent the first cargo of ice from Boston to the {{31}}",
+            "• much of the ice melted, and buyers did not know how to use it",
+            "## Solving the problems",
+            "• ice was packed in {{32}} to stop it melting",
+            "• Tudor built ice {{33}} in every port where he sold ice",
+            "• 1820s: a horse-drawn {{34}} cut ice into blocks of equal size, which were easier to pack and load",
+            "## Growth",
+            "• 1833: ice shipped to India; over half survived the four-month {{35}}",
+            "• in the USA, lower prices meant ice was bought by ordinary {{36}}",
+            "• trains cooled with ice carried {{37}} and meat far inland",
+            "• Britain imported much of its ice from {{38}}",
+            "## Decline",
+            "• polluted rivers and lakes: fears that ice could spread {{39}}",
+            "• ice made in factories, and later electric {{40}} in homes"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "Caribbean"
+              ],
+              "explanation": "He ‘sent it south to the Caribbean’.",
+              "cue": "sent it south to the Caribbean"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "sawdust"
+              ],
+              "explanation": "Straw, hay and wood shavings were tried, but ‘the material that worked best was sawdust’.",
+              "cue": "the material that worked best was sawdust"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "houses",
+                "house"
+              ],
+              "explanation": "‘In each port where he sold ice, he built large ice houses.’",
+              "cue": "he built large ice houses"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "plough",
+                "plow"
+              ],
+              "explanation": "Nathaniel Wyeth ‘invented a plough, pulled by horses’.",
+              "cue": "invented a plough"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "voyage",
+                "journey"
+              ],
+              "explanation": "‘The voyage took four months’, and more than half of the ice was still frozen.",
+              "cue": "The voyage took four months"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "families",
+                "households"
+              ],
+              "explanation": "Ice was no longer a luxury: ‘Ordinary families in cities like New York bought ice every day’.",
+              "cue": "Ordinary families in cities like New York"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "fish"
+              ],
+              "explanation": "Trains with ice-cooled wagons ‘carried fish and meat hundreds of kilometres inland’.",
+              "cue": "carried fish and meat"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "Norway"
+              ],
+              "explanation": "‘Much of the ice that was used came from Norway.’",
+              "cue": "came from Norway"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "disease",
+                "diseases"
+              ],
+              "explanation": "Doctors warned ‘that dirty ice could spread disease’.",
+              "cue": "could spread disease"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "refrigerators",
+                "fridges"
+              ],
+              "explanation": "‘From the 1920s onwards, electric refrigerators began to appear in people's homes.’",
+              "cue": "electric refrigerators began to appear"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-03/part4.mp3",
+        "duration": 284.91
+      }
+    }
+  ],
+  "durationMinutes": 20
+}
