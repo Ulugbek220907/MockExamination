@@ -39,7 +39,7 @@ Nothing else is required. Without configuration, tests are read from `content/` 
 
 ```bash
 python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts, audio)
-python scripts/test_app.py           # 40 automated tests: scoring, API, Supabase client, AI examiner (mocked)
+python scripts/test_app.py           # 44 automated tests: scoring, API, Supabase client, AI examiner (mocked)
 ```
 
 ## Deploying

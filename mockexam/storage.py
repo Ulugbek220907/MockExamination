@@ -11,6 +11,7 @@ Both expose the same methods, and all methods are synchronous (the server
 calls them from a thread pool).
 """
 
+import http.client
 import json
 import logging
 import os
@@ -18,6 +19,7 @@ import sqlite3
 import threading
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 from . import content
@@ -205,9 +207,18 @@ class SupabaseStore:
         self.secret = app_secret
         self._cache = None
         self._cache_at = 0.0
+        self._refreshing = False
         self._lock = threading.Lock()
+        self._load_lock = threading.Lock()
+        # One keep-alive connection per worker thread saves a TCP + TLS handshake on every call.
+        # urllib is used instead when a proxy applies, since http.client does not read proxy settings.
+        parsed = urllib.parse.urlsplit(self.rest)
+        self._scheme, self._host, self._path = parsed.scheme, parsed.netloc, parsed.path
+        self._use_urllib = bool(urllib.request.getproxies().get(self._scheme)) and not urllib.request.proxy_bypass(
+            parsed.hostname or "")
+        self._local = threading.local()
 
-    def _rpc(self, function, **params):
+    def _headers(self):
         headers = {
             "apikey": self.key,
             "Content-Type": "application/json",
@@ -217,35 +228,98 @@ class SupabaseStore:
         # sb_publishable_/sb_secret_ keys must only be sent as `apikey`.
         if self.key.startswith("eyJ"):
             headers["Authorization"] = f"Bearer {self.key}"
+        return headers
+
+    def _rpc(self, function, **params):
         body = json.dumps({"p_key": self.secret, **params}).encode("utf-8")
-        req = urllib.request.Request(f"{self.rest}/rpc/{function}", data=body, headers=headers, method="POST")
+        if self._use_urllib:
+            status, raw = self._post_urllib(function, body)
+        else:
+            status, raw = self._post_keepalive(function, body)
+        if status >= 400:
+            detail = raw.decode("utf-8", "replace")[:500]
+            raise SupabaseError(f"{function} failed ({status}): {detail}")
+        return json.loads(raw) if raw else None
+
+    def _post_urllib(self, function, body):
+        req = urllib.request.Request(f"{self.rest}/rpc/{function}", data=body, headers=self._headers(), method="POST")
         try:
             with urllib.request.urlopen(req, timeout=15) as resp:
-                raw = resp.read()
-                return json.loads(raw) if raw else None
+                return resp.status, resp.read()
         except urllib.error.HTTPError as e:
-            detail = e.read().decode("utf-8", "replace")[:500]
-            raise SupabaseError(f"{function} failed ({e.code}): {detail}") from e
+            return e.code, e.read()
         except urllib.error.URLError as e:
             raise SupabaseError(f"{function} failed: {e.reason}") from e
 
+    def _post_keepalive(self, function, body):
+        conn_class = http.client.HTTPSConnection if self._scheme == "https" else http.client.HTTPConnection
+        for attempt in (1, 2):
+            conn = getattr(self._local, "conn", None)
+            reused = conn is not None
+            if conn is None:
+                conn = self._local.conn = conn_class(self._host, timeout=15)
+            try:
+                conn.request("POST", f"{self._path}/rpc/{function}", body=body, headers=self._headers())
+                resp = conn.getresponse()
+                raw = resp.read()
+                if resp.will_close:
+                    self._drop_connection()
+                return resp.status, raw
+            except (http.client.HTTPException, OSError) as e:
+                self._drop_connection()
+                # A pooled connection the server has since closed fails before the request
+                # is processed: retry once on a fresh connection.
+                if reused and attempt == 1 and isinstance(
+                        e, (http.client.RemoteDisconnected, ConnectionResetError, BrokenPipeError)):
+                    continue
+                raise SupabaseError(f"{function} failed: {e}") from e
+
+    def _drop_connection(self):
+        conn = getattr(self._local, "conn", None)
+        self._local.conn = None
+        if conn is not None:
+            conn.close()
+
     # -- content -----------------------------------------------------------
     def list_tests(self):
+        """
+        Cached tests. Once loaded, requests never wait for Supabase: when the cache is
+        older than CACHE_SECONDS it is served as is while a background thread reloads it.
+        """
         with self._lock:
-            fresh = self._cache is not None and time.time() - self._cache_at < self.CACHE_SECONDS
-            if fresh:
-                return self._cache
+            tests = self._cache
+            if tests is not None and time.time() - self._cache_at >= self.CACHE_SECONDS and not self._refreshing:
+                self._refreshing = True
+                threading.Thread(target=self._background_reload, daemon=True).start()
+        if tests is not None:
+            return tests
+        with self._load_lock:  # cold cache: one thread loads, the others wait for it
+            if self._cache is None:
+                self._store(self._fetch_tests() or load_local_tests())
+            return self._cache
+
+    def _fetch_tests(self):
         try:
-            tests = self._rpc("app_list_tests") or []
+            return self._rpc("app_list_tests") or []
         except SupabaseError as e:
             log.error("Could not load tests from Supabase, using local content: %s", e)
-            tests = []
-        if not tests:
-            # Not seeded yet (or unreachable): serve the bundled content so the site still works.
-            tests = load_local_tests()
+            return []
+
+    def _background_reload(self):
+        try:
+            tests = self._fetch_tests()
+            with self._lock:
+                # Keep serving the previous content if Supabase is unreachable or empty.
+                if tests:
+                    self._cache = tests
+                self._cache_at = time.time()
+        finally:
+            with self._lock:
+                self._refreshing = False
+
+    def _store(self, tests):
         with self._lock:
             self._cache, self._cache_at = tests, time.time()
-        return tests
 
     def get_test(self, test_id):
         return next((t for t in self.list_tests() if t["id"] == test_id), None)
