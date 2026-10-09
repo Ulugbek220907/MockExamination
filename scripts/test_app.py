@@ -72,6 +72,43 @@ def contains_key(obj, key):
     return False
 
 
+class InterfaceLanguageTests(unittest.TestCase):
+    """Every interface string passed to t() has an Uzbek and a Russian translation."""
+
+    INDIRECT = [  # strings that reach t() through a variable
+        "Waiting for the examiner", "Being marked", "Marked", "Cancelled", "Not paid", "Payment being checked",
+        "Paid", "Refunded", "Expert user", "Very good user", "Good user", "Competent user", "Modest user",
+        "Limited user", "Extremely limited user", "Intermittent user", "Non-user",
+        "marked automatically", "AI estimate", "examiner",
+    ]
+
+    @staticmethod
+    def dictionary(source, name):
+        import re
+        start = source.index(f"Object.assign(I18N.{name}, {{")
+        end = source.index("\n  });", start)
+        return {json.loads(f'"{k}"') for k in re.findall(r'^\s+"((?:[^"\\]|\\.)*)":', source[start:end], re.M)}
+
+    def test_every_string_is_translated(self):
+        import glob
+        import re
+        keys = set(self.INDIRECT)
+        call = re.compile(r'(?<![\w.])(?:t|tr|I18N\.t)\(\s*("(?:[^"\\]|\\.)*")')
+        for path in glob.glob(os.path.join(PUBLIC_DIR, "js", "*.js")) + [os.path.join(PUBLIC_DIR, "index.html")]:
+            with open(path, encoding="utf-8") as f:
+                text = re.sub(r"/\*.*?\*/", "", f.read(), flags=re.S)  # skip examples in comments
+            keys.update(json.loads(m.group(1)) for m in call.finditer(text))
+            keys.update(re.findall(r'data-i18n(?:-html|-label)?="([^"]+)"', text))
+        with open(os.path.join(PUBLIC_DIR, "js", "i18n-strings.js"), encoding="utf-8") as f:
+            source = f.read()
+        en, uz, ru = (self.dictionary(source, n) for n in ("EN", "UZ", "RU"))
+        dotted = {k for k in keys if re.fullmatch(r"[a-z]+(\.[a-z0-9]+)+", k)}
+        self.assertGreater(len(keys), 300)
+        self.assertEqual(sorted(dotted - en), [], "keys without English text")
+        self.assertEqual(sorted(keys - uz), [], "missing Uzbek")
+        self.assertEqual(sorted(keys - ru), [], "missing Russian")
+
+
 class ContentTests(unittest.TestCase):
     def test_expected_tests_present(self):
         self.assertGreaterEqual(len(READING), 3)

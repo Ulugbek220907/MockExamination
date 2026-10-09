@@ -1,8 +1,8 @@
-# MockExam: IELTS-style Listening, Academic Reading, Writing & Speaking practice
+# TestDay: IELTS-style Listening, Academic Reading, Writing & Speaking practice
 
-A distraction-free website for practising the **Listening**, **Academic Reading**, **Academic Writing** and **Speaking** papers under realistic computer-delivered test conditions, with paid marking by human examiners.
+**testday.uz** – a distraction-free website for practising the **Listening**, **Academic Reading**, **Academic Writing** and **Speaking** papers under realistic computer-delivered test conditions, with paid marking by human examiners.
 
-> **Independent site.** MockExam is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press & Assessment. "IELTS" is a registered trademark of its owners and is used only to describe the exam this site helps people prepare for.
+> **Independent site.** TestDay is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press & Assessment. "IELTS" is a registered trademark of its owners and is used only to describe the exam this site helps people prepare for.
 
 ## What's inside
 
@@ -24,6 +24,11 @@ A distraction-free website for practising the **Listening**, **Academic Reading*
 - Notifications (optional): emails through Resend to students, examiners and admins, and Telegram messages to the owner for payments and new checks. Menu counters show payments to confirm and checks to mark.
 
 **All content is original** and written for this project. The recordings are voiced with the open-source Kokoro text-to-speech model (Apache 2.0). The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
+
+### Design and languages
+- The home page is a metro map: each module is a line in its own colour (Listening blue, Reading red, Writing green, Speaking amber), each test is a station, and all four lines meet at the *Test day* interchange. The first station on every line starts a free test in one tap; tapping any station opens its details. Stations you have taken show your band. The monthly plan is presented as a monthly pass.
+- The interface is in English, Uzbek (Latin script) and Russian, with a switch in the header (`i18n.js`, strings in `i18n-strings.js`; `?lang=uz` or `?lang=ru` opens a language directly). The exam screens, the instructions before a test and all test content stay in English, as on test day.
+- Product context and the design direction live in `PRODUCT.md` and `.impeccable/surfaces/`; the visual system is documented in `DESIGN.md`.
 
 ### Exam experience
 - Split-screen passage/questions with a draggable divider, bottom question navigator, **Review** flags, and Part tabs with progress counts
@@ -50,7 +55,7 @@ Nothing else is required. Without configuration, tests are read from `content/` 
 
 ```bash
 python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts, audio)
-python scripts/test_app.py           # 66 automated tests: scoring, API, caching, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
+python scripts/test_app.py           # 67 automated tests: scoring, API, caching, translations, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
 ```
 
 ## Deploying
@@ -82,10 +87,13 @@ content/
   speaking/*.json         original Speaking tests: examiner's questions, cue cards, answer times
   writing/*.json          original Academic Writing tests (with chart data and model answers)
 public/
-  index.html              single-page app shell
-  css/portal.css          site, dashboard, results
+  index.html              single-page app shell (header, footer, the TestDay mark)
+  css/portal.css          site design system: tokens, the line network, every page outside the exam
+  fonts/                  Jost (self-hosted, Latin + Cyrillic subsets, OFL)
+  js/i18n.js              interface language: t(), plural forms, number and money formatting, the switch
+  js/i18n-strings.js      English, Uzbek and Russian interface text
   css/cd-ielts.css        exam environment, contrast themes, charts
-  js/app.js               router, dashboard, instructions, resources and legal pages
+  js/app.js               router, the home page network, instructions, resources and legal pages
   js/account.js           sign-in, paywall, payments, pricing, account, examiners, checks, admin
   js/progress.js          progress tiles and band-over-time chart on the account page
   auth-callback.html      landing page after Google / email-link sign-in

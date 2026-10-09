@@ -528,3 +528,16 @@ body.text-extra-large { --cd-base-font-size: 20px; }
   .speak-stage { margin: 10px; padding: 16px; }
   .speak-q-text { font-size: 1.08em; }
 }
+
+/* Phones: thumb-sized controls. The desktop layout stays as in the computer-delivered test. */
+@media (max-width: 860px) {
+  .cd-icon-btn { min-height: 34px; padding: 6px 12px; }
+  .q-nav-btn { min-width: 36px; height: 36px; font-size: 0.86em; }
+  .cd-arrow-btn { width: 40px; height: 40px; }
+  .cd-submit-btn { min-height: 40px; padding: 8px 14px; }
+  .cd-review-checkbox-label { min-height: 40px; }
+  .cd-review-checkbox-label input { width: 20px; height: 20px; }
+  .part-tab-btn { min-height: 32px; }
+  .part-count { display: none; }
+  .pane-switch-btn { min-height: 44px; }
+}
