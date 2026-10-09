@@ -66,6 +66,14 @@ Without a key, writing submissions still get automatic checks, statistics and mo
 
 Free Render instances sleep after inactivity and take ~30 s to wake. Upgrade to a paid instance before promoting the site.
 
+### Speed
+
+The app itself answers in a few milliseconds: test content is cached in memory and refreshed from Supabase in the background, and CSS, JS and audio are served with content-hashed URLs that browsers cache for a year. Almost all remaining slowness comes from hosting:
+
+- **Cold starts.** A free Render instance sleeps after 15 minutes without traffic, and the next visitor waits 30–60 s while it boots. A paid instance (Starter) never sleeps. This is the single biggest speed-up.
+- **Region.** Put the Render service and the Supabase project in the same region, as close to your candidates as possible. Every submission and history load makes one call to Supabase.
+- **AI marking.** The writing examiner takes the longest because the model reasons about each script. Both tasks are marked at the same time. To make it quicker (and cheaper), set `ANTHROPIC_EFFORT=medium` or use a faster `ANTHROPIC_MODEL`, at some cost to marking depth.
+
 ## 4. Before you announce the site
 
 - [ ] Delete the withdrawn Cambridge files: `git rm data/tests.json data/attempts.db scripts/build_tests_data.py`

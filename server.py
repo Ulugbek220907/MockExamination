@@ -126,6 +126,54 @@ async def in_thread(fn, *args):
     return await tornado.ioloop.IOLoop.current().run_in_executor(None, fn, *args)
 
 
+def versioned(path):
+    """`path` under public/ with a content hash appended, so browsers can cache it for a year."""
+    version = tornado.web.StaticFileHandler.get_version({"static_path": PUBLIC_DIR}, path)
+    return f"{path}?v={version[:12]}" if version else path
+
+
+class Catalog:
+    """
+    The current tests plus the JSON the API serves for them, built once per content
+    load instead of on every request.
+    """
+
+    def __init__(self, tests):
+        self.tests = tests
+        self.by_id = {t["id"]: t for t in tests}
+        summaries = sorted((content.summarize_test(t) for t in tests),
+                           key=lambda s: (s["module"], s["sortOrder"], s["id"]))
+        self.index_json = json.dumps({"modules": MODULES, "tests": summaries}, ensure_ascii=False)
+        self._public_json = {}
+        self._audio = {}
+
+    def public_json(self, test):
+        cached = self._public_json.get(test["id"])
+        if cached is None:
+            public = content.public_test(test)
+            for part in public.get("parts", []):
+                if part.get("audio", {}).get("src"):
+                    part["audio"]["src"] = self.audio_src(part["audio"]["src"])
+            cached = self._public_json[test["id"]] = json.dumps(public, ensure_ascii=False)
+        return cached
+
+    def audio_src(self, src):
+        if src not in self._audio:
+            self._audio[src] = versioned(src)
+        return self._audio[src]
+
+
+_CATALOG = Catalog([])
+
+
+async def catalog():
+    global _CATALOG
+    tests = await in_thread(STORE.list_tests)
+    if tests is not _CATALOG.tests:
+        _CATALOG = await in_thread(Catalog, tests)
+    return _CATALOG
+
+
 def clean_name(value):
     name = re.sub(r"\s+", " ", str(value or "")).strip()
     return name[:80] or "Candidate"
@@ -162,10 +210,14 @@ class BaseHandler(tornado.web.RequestHandler):
             self.set_header(k, v)
 
     def send_json(self, payload, status=200):
+        self.send_json_text(json.dumps(payload, ensure_ascii=False), status)
+
+    def send_json_text(self, text, status=200, cache="no-store"):
         self.set_status(status)
         self.set_header("Content-Type", "application/json; charset=utf-8")
-        self.set_header("Cache-Control", "no-store")
-        self.finish(json.dumps(payload, ensure_ascii=False))
+        # "no-cache" lets the browser keep a copy and revalidate it (304) via the ETag.
+        self.set_header("Cache-Control", cache)
+        self.finish(text)
 
     def send_error_json(self, status, message):
         self.send_json({"error": message}, status)
@@ -228,18 +280,16 @@ class ConfigHandler(BaseHandler):
 
 class TestsHandler(BaseHandler):
     async def get(self):
-        tests = await in_thread(STORE.list_tests)
-        summaries = [content.summarize_test(t) for t in tests]
-        summaries.sort(key=lambda s: (s["module"], s["sortOrder"], s["id"]))
-        self.send_json({"modules": MODULES, "tests": summaries})
+        self.send_json_text((await catalog()).index_json, cache="no-cache")
 
 
 class TestHandler(BaseHandler):
     async def get(self, test_id):
-        test = await in_thread(STORE.get_test, test_id)
+        cat = await catalog()
+        test = cat.by_id.get(test_id)
         if not test:
             return self.send_error_json(404, "Test not found")
-        self.send_json(content.public_test(test))
+        self.send_json_text(cat.public_json(test), cache="no-cache")
 
 
 class ScoredSubmitHandler(BaseHandler):
@@ -257,7 +307,8 @@ class ScoredSubmitHandler(BaseHandler):
         return STORE.save_reading_attempt(record)
 
     async def post(self, test_id):
-        test = await in_thread(STORE.get_test, test_id)
+        cat = await catalog()
+        test = cat.by_id.get(test_id)
         if not test or test.get("module") != self.MODULE:
             return self.send_error_json(404, f"{self.MODULE.title()} test not found")
         body = self.body_json()
@@ -274,6 +325,9 @@ class ScoredSubmitHandler(BaseHandler):
         mode = "practice" if body.get("mode") == "practice" else "exam"
         result = self.evaluate(test, answers, name, seconds)
         result["mode"] = mode
+        for part in result.get("transcript", []):
+            if part.get("audio", {}).get("src"):
+                part["audio"] = {**part["audio"], "src": cat.audio_src(part["audio"]["src"])}
 
         record = {
             "test_id": test["id"],
@@ -314,7 +368,7 @@ class ListeningSubmitHandler(ScoredSubmitHandler):
 
 class WritingSubmitHandler(BaseHandler):
     async def post(self, test_id):
-        test = await in_thread(STORE.get_test, test_id)
+        test = (await catalog()).by_id.get(test_id)
         if not test or test.get("module") != "writing":
             return self.send_error_json(404, "Writing test not found")
         body = self.body_json()
@@ -437,15 +491,50 @@ class ApiNotFoundHandler(BaseHandler):
         self.send_error_json(404, "Endpoint not found")
 
 
+ASSET_REF_RE = re.compile(r'((?:href|src)=")((?:css|js)/[^"?]+|favicon\.svg)(")')
+
+
+class IndexHandler(BaseHandler):
+    """
+    The app shell, with a content hash on every CSS/JS link. The page itself is always
+    revalidated, so a deploy shows up immediately, while the assets it points to are
+    cached for a year and only downloaded again when they change.
+    """
+
+    _html = None
+
+    @classmethod
+    def html(cls):
+        if cls._html is None:
+            with open(os.path.join(PUBLIC_DIR, "index.html"), encoding="utf-8") as f:
+                page = f.read()
+            cls._html = ASSET_REF_RE.sub(lambda m: m.group(1) + versioned(m.group(2)) + m.group(3), page)
+        return cls._html
+
+    def get(self):
+        self.head()
+        self.finish(self.html())
+
+    def head(self):  # uptime monitors often ping with HEAD
+        self.set_header("Content-Type", "text/html; charset=utf-8")
+        self.set_header("Cache-Control", "no-cache")
+
+
 class StaticHandler(tornado.web.StaticFileHandler):
-    """Serves public/ with security headers; always revalidates so deploys show up immediately."""
+    """
+    Serves public/ with security headers. Hash-versioned URLs (?v=...) never change, so
+    they are cached for a year; anything else is revalidated on every use.
+    """
 
     def set_default_headers(self):
         for k, v in SECURITY_HEADERS.items():
             self.set_header(k, v)
 
     def set_extra_headers(self, path):
-        self.set_header("Cache-Control", "no-cache")
+        if self.get_query_argument("v", None):
+            self.set_header("Cache-Control", "public, max-age=31536000, immutable")
+        else:
+            self.set_header("Cache-Control", "no-cache")
 
 
 def make_app():
@@ -463,6 +552,7 @@ def make_app():
             (r"/api/admin/stats", AdminStatsHandler),
             (r"/api/admin/refresh", AdminRefreshHandler),
             (r"/api/.*", ApiNotFoundHandler),
+            (r"/(?:index\.html)?", IndexHandler),
             (r"/(.*)", StaticHandler, {"path": PUBLIC_DIR, "default_filename": "index.html"}),
         ],
         compress_response=True,
@@ -470,7 +560,13 @@ def make_app():
 
 
 def main():
+    global _CATALOG
     tests = STORE.list_tests()
+    # Build the API responses and asset hashes before taking traffic.
+    _CATALOG = Catalog(tests)
+    for test in tests:
+        _CATALOG.public_json(test)
+    IndexHandler.html()
     counts = collections.Counter(t.get("module") for t in tests)
     app = make_app()
     app.listen(PORT, address="0.0.0.0", max_body_size=MAX_BODY_BYTES)
