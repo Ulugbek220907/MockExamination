@@ -27,6 +27,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+from . import pool
+
 # Column types that need converting in SQLite (Postgres/PostgREST return them natively).
 JSON_COLUMNS = {
     "checks": {"result"},
@@ -398,7 +400,7 @@ class RestDb:
         data = json.dumps(body, ensure_ascii=False, default=_rest_value).encode("utf-8") if body is not None else None
         req = urllib.request.Request(url, data=data, headers=self._headers(prefer), method=method)
         try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+            with pool.urlopen(req, timeout=self.timeout) as resp:
                 raw = resp.read()
                 return json.loads(raw) if raw else []
         except urllib.error.HTTPError as e:

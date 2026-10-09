@@ -30,6 +30,9 @@ SECURITY_HEADERS = {
     "X-Frame-Options": "DENY",
     "Referrer-Policy": "strict-origin-when-cross-origin",
     "Permissions-Policy": "camera=(), microphone=(self), geolocation=()",
+    # Browsers ignore this over plain HTTP, so local development is unaffected. Over HTTPS
+    # it lets returning visitors skip the http:// -> https:// redirect.
+    "Strict-Transport-Security": "max-age=31536000",
     "Content-Security-Policy": (
         "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
         "img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; font-src 'self'; "

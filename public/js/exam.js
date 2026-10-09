@@ -1028,8 +1028,18 @@
         else a.addEventListener("loadedmetadata", seek, { once: true });
       }
       if (autoplay) this.play();
+      this.prefetchAfter(idx);
       this.renderPartTabs();
       this.updateAudioUI();
+    }
+
+    /** Download the next part while this one plays, so it starts without a pause to buffer. */
+    prefetchAfter(idx) {
+      const next = this.parts[idx + 1];
+      if (!next || !next.audio || !window.fetch) return;
+      this.audio.addEventListener("canplaythrough", () => {
+        if (this.audioPart === idx && !this.finished) fetch(next.audio.src).then((r) => r.blob()).catch(() => {});
+      }, { once: true });
     }
 
     play() {

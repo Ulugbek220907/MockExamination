@@ -24,6 +24,8 @@ import urllib.parse
 import urllib.request
 import uuid
 
+from . import pool
+
 log = logging.getLogger("mockexam.auth")
 
 EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[^@\s]{1,255}\.[A-Za-z]{2,}$")
@@ -90,7 +92,7 @@ class SupabaseAuth:
         data = json.dumps(body).encode("utf-8") if body is not None else None
         req = urllib.request.Request(url, data=data, headers=headers, method=method)
         try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+            with pool.urlopen(req, timeout=self.timeout) as resp:
                 raw = resp.read()
                 return json.loads(raw) if raw else {}
         except urllib.error.HTTPError as e:

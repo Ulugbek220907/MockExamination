@@ -66,6 +66,15 @@ Without a key, writing submissions still get automatic checks, statistics and mo
 
 Free Render instances sleep after inactivity and take ~30 s to wake. Upgrade to a paid instance before promoting the site.
 
+### Speed and the custom domain
+
+The app answers in a few milliseconds. Test content is cached in memory and refreshed from Supabase in the background. CSS, JS and audio have content-hashed URLs that browsers cache for a year. Supabase calls reuse open connections. What is left is mostly hosting:
+
+- **One domain, no redirects.** `testday.uz` currently redirects to `www.testday.uz`, which costs a second connection and round trip before the page starts loading. Use the primary domain in every link you share. To make the short `testday.uz` the primary instead, remove both domains under **Render → Settings → Custom Domains** and add `testday.uz` first (Render then redirects `www` to it). Update `SITE_URL` and the Supabase Auth **Site URL** / **Redirect URLs** to match.
+- **`SITE_URL` must be the custom domain** (e.g. `https://www.testday.uz`), or sign-in links send people back to `onrender.com`.
+- **Region.** The service runs in Oregon (US West). Visitors in Central Asia are about 250 ms away from it, and every API call pays that. Moving to Render's **Frankfurt** region, with Supabase also in Frankfurt (`eu-central-1`), cuts that to roughly 80–120 ms. Render cannot move a service, so create a new one in Frankfurt, copy the environment variables, then move the custom domain to it.
+- **Supabase free plan.** It is fine for speed. It pauses after a week with no activity, so keep the site in use (or upgrade) once you launch.
+
 ## 4. Accounts, the plan, payments and examiners
 
 Test 1 of each module is free for everyone. Every other test (and its audio) needs the monthly plan, and students can pay per check for an examiner to mark their Writing. All of this is already built; these steps switch it on.

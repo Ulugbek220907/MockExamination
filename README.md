@@ -50,7 +50,7 @@ Nothing else is required. Without configuration, tests are read from `content/` 
 
 ```bash
 python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts, audio)
-python scripts/test_app.py           # 60 automated tests: scoring, API, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
+python scripts/test_app.py           # 66 automated tests: scoring, API, caching, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
 ```
 
 ## Deploying

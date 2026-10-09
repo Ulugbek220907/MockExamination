@@ -18,6 +18,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+from . import pool
+
 PATH_RE = re.compile(r"^[a-z0-9\-]+(/[a-z0-9\-]+)*\.[a-z0-9]+$")
 
 
@@ -83,7 +85,7 @@ class SupabaseFiles:
     def _request(self, method, path, data=None, headers=None):
         req = urllib.request.Request(self.base + path, data=data, headers=self._headers(headers), method=method)
         try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+            with pool.urlopen(req, timeout=self.timeout) as resp:
                 return resp.read()
         except urllib.error.HTTPError as e:
             detail = e.read().decode("utf-8", "replace")[:300]

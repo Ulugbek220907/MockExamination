@@ -201,6 +201,96 @@ class PlanCache:
 PLAN_CACHE = PlanCache()
 
 
+class ProfileCache:
+    """Profiles for a minute, for audio: a recording is fetched in many range requests."""
+
+    TTL = 60
+
+    def __init__(self):
+        self.items = {}
+        self.lock = threading.Lock()
+
+    def get(self, db, user_id):
+        now = time.time()
+        with self.lock:
+            hit = self.items.get(user_id)
+            if hit and hit[1] > now:
+                return hit[0]
+        profile = accounts.get_profile(db, user_id)
+        if profile:
+            with self.lock:
+                if len(self.items) > 5000:
+                    self.items.clear()
+                self.items[user_id] = (profile, now + self.TTL)
+        return profile
+
+
+PROFILE_CACHE = ProfileCache()
+
+
+# --------------------------------------------------------------------------
+# Content: prepared once per load, with hashed asset URLs
+# --------------------------------------------------------------------------
+
+def versioned(path):
+    """`path` under public/ with a content hash appended, so browsers can cache it for a year."""
+    version = tornado.web.StaticFileHandler.get_version({"static_path": PUBLIC_DIR}, path)
+    return f"{path}?v={version[:12]}" if version else path
+
+
+class Catalog:
+    """
+    The current tests plus the JSON the API serves for them, built once per content
+    load instead of on every request.
+    """
+
+    def __init__(self, tests):
+        self.tests = tests
+        self.by_id = {t["id"]: t for t in tests}
+        summaries = []
+        for t in tests:
+            summary = content.summarize_test(t)
+            summary["access"] = accounts.test_access(t)
+            summaries.append(summary)
+        summaries.sort(key=lambda s: (s["module"], s["sortOrder"], s["id"]))
+        self.index_json = json.dumps({"modules": MODULES, "tests": summaries}, ensure_ascii=False)
+        self._public_json = {}
+        self._versions = {}
+
+    def public_json(self, test):
+        cached = self._public_json.get(test["id"])
+        if cached is None:
+            public = self.with_audio_versions(content.public_test(test))
+            cached = self._public_json[test["id"]] = json.dumps(public, ensure_ascii=False, default=str)
+        return cached
+
+    def with_audio_versions(self, value):
+        """A copy of `value` in which every {"audio": {"src": ...}} points at a hashed URL."""
+        if isinstance(value, list):
+            return [self.with_audio_versions(v) for v in value]
+        if not isinstance(value, dict):
+            return value
+        out = {k: self.with_audio_versions(v) for k, v in value.items()}
+        audio = out.get("audio")
+        if isinstance(audio, dict) and isinstance(audio.get("src"), str) and audio["src"].startswith("audio/"):
+            src = audio["src"]
+            if src not in self._versions:
+                self._versions[src] = versioned(src)
+            out["audio"] = {**audio, "src": self._versions[src]}
+        return out
+
+
+_CATALOG = Catalog([])
+
+
+async def catalog():
+    global _CATALOG
+    tests = await in_thread(STORE.list_tests)
+    if tests is not _CATALOG.tests:
+        _CATALOG = await in_thread(Catalog, tests)
+    return _CATALOG
+
+
 async def allowed_to_open(test, profile):
     """(ok, error_status, error_code) for a signed-in (or anonymous) user and a test."""
     if accounts.test_access(test) == "free":
@@ -248,25 +338,26 @@ class ConfigHandler(BaseHandler):
         })
 
 
+def send_cached_json(handler, text):
+    """Prepared JSON that the browser may keep and revalidate (304 via the ETag)."""
+    handler.set_header("Content-Type", "application/json; charset=utf-8")
+    handler.set_header("Cache-Control", "private, no-cache")
+    handler.finish(text)
+
+
 class TestsHandler(BaseHandler):
     async def get(self):
-        tests = await in_thread(STORE.list_tests)
-        summaries = []
-        for t in tests:
-            s = content.summarize_test(t)
-            s["access"] = accounts.test_access(t)
-            summaries.append(s)
-        summaries.sort(key=lambda s: (s["module"], s["sortOrder"], s["id"]))
-        self.send_json({"modules": MODULES, "tests": summaries})
+        send_cached_json(self, (await catalog()).index_json)
 
 
 class TestHandler(BaseHandler):
     async def get(self, test_id):
-        test = await in_thread(STORE.get_test, test_id)
+        cat = await catalog()
+        test = cat.by_id.get(test_id)
         if not test:
             return self.send_error_json(404, "Test not found")
         await require_test_access(self, test)
-        self.send_json(content.public_test(test))
+        send_cached_json(self, cat.public_json(test))
 
 
 class ScoredSubmitHandler(BaseHandler):
@@ -284,7 +375,8 @@ class ScoredSubmitHandler(BaseHandler):
         return STORE.save_reading_attempt(record)
 
     async def post(self, test_id):
-        test = await in_thread(STORE.get_test, test_id)
+        cat = await catalog()
+        test = cat.by_id.get(test_id)
         if not test or test.get("module") != self.MODULE:
             return self.send_error_json(404, f"{self.MODULE.title()} test not found")
         profile = await require_test_access(self, test)
@@ -302,6 +394,8 @@ class ScoredSubmitHandler(BaseHandler):
         mode = "practice" if body.get("mode") == "practice" else "exam"
         result = self.evaluate(test, answers, name, seconds)
         result["mode"] = mode
+        if "transcript" in result:
+            result["transcript"] = cat.with_audio_versions(result["transcript"])
 
         record = {
             "test_id": test["id"],
@@ -343,7 +437,7 @@ class ListeningSubmitHandler(ScoredSubmitHandler):
 
 class WritingSubmitHandler(BaseHandler):
     async def post(self, test_id):
-        test = await in_thread(STORE.get_test, test_id)
+        test = (await catalog()).by_id.get(test_id)
         if not test or test.get("module") != "writing":
             return self.send_error_json(404, "Writing test not found")
         profile = await require_test_access(self, test)
@@ -476,23 +570,62 @@ class ApiNotFoundHandler(BaseHandler):
         self.send_error_json(404, "Endpoint not found")
 
 
+ASSET_REF_RE = re.compile(r'((?:href|src)=")((?:css|js)/[^"?]+|favicon\.svg)(")')
+
+
+class IndexHandler(BaseHandler):
+    """
+    The app shell, with a content hash on every CSS/JS link. The page itself is always
+    revalidated, so a deploy shows up immediately, while the assets it points to are
+    cached for a year and only downloaded again when they change.
+    """
+
+    _html = None
+
+    @classmethod
+    def html(cls):
+        if cls._html is None:
+            with open(os.path.join(PUBLIC_DIR, "index.html"), encoding="utf-8") as f:
+                page = f.read()
+            cls._html = ASSET_REF_RE.sub(lambda m: m.group(1) + versioned(m.group(2)) + m.group(3), page)
+        return cls._html
+
+    def get(self):
+        self.head()
+        self.finish(self.html())
+
+    def head(self):  # uptime monitors often ping with HEAD
+        self.set_header("Content-Type", "text/html; charset=utf-8")
+        self.set_header("Cache-Control", "no-cache")
+
+
 class StaticHandler(tornado.web.StaticFileHandler):
-    """Serves public/ with security headers; always revalidates so deploys show up immediately."""
+    """
+    Serves public/ with security headers. Hash-versioned URLs (?v=...) never change, so
+    they are cached for a year; anything else is revalidated on every use.
+    """
+
+    CACHE_SCOPE = "public"
 
     def set_default_headers(self):
         for k, v in SECURITY_HEADERS.items():
             self.set_header(k, v)
 
     def set_extra_headers(self, path):
-        self.set_header("Cache-Control", "no-cache")
+        if self.get_query_argument("v", None):
+            self.set_header("Cache-Control", f"{self.CACHE_SCOPE}, max-age=31536000, immutable")
+        else:
+            self.set_header("Cache-Control", "no-cache" if self.CACHE_SCOPE == "public" else "private, no-cache")
 
 
 class AudioHandler(StaticHandler):
     """Listening recordings: open for free tests, plan-only for the others."""
 
+    CACHE_SCOPE = "private"
+
     async def prepare(self):
         test_id = (self.path_args[0] if self.path_args else "").split("/", 1)[0]
-        test = await in_thread(STORE.get_test, test_id) if test_id else None
+        test = (await catalog()).by_id.get(test_id) if test_id else None
         if not test or accounts.test_access(test) == "free":
             return
         user_id = None
@@ -502,13 +635,10 @@ class AudioHandler(StaticHandler):
                 user_id = json.loads(raw).get("uid")
             except (ValueError, AttributeError):
                 user_id = None
-        profile = await in_thread(accounts.get_profile, STORE.db, user_id) if user_id else None
+        profile = await in_thread(PROFILE_CACHE.get, STORE.db, user_id) if user_id else None
         ok, status, _ = await allowed_to_open(test, profile)
         if not ok:
             raise tornado.web.HTTPError(status)
-
-    def set_extra_headers(self, path):
-        self.set_header("Cache-Control", "private, no-cache")
 
 
 def make_app():
@@ -528,6 +658,7 @@ def make_app():
             *api.routes(),
             (r"/api/.*", ApiNotFoundHandler),
             (r"/audio/(.*)", AudioHandler, {"path": os.path.join(PUBLIC_DIR, "audio")}),
+            (r"/(?:index\.html)?", IndexHandler),
             (r"/(.*)", StaticHandler, {"path": PUBLIC_DIR, "default_filename": "index.html"}),
         ],
         compress_response=True,
@@ -548,7 +679,13 @@ async def clean_up_recordings():
 
 
 def main():
+    global _CATALOG
     tests = STORE.list_tests()
+    # Build the API responses and asset hashes before taking traffic.
+    _CATALOG = Catalog(tests)
+    for test in tests:
+        _CATALOG.public_json(test)
+    IndexHandler.html()
     counts = collections.Counter(t.get("module") for t in tests)
     app = make_app()
     app.listen(PORT, address="0.0.0.0", max_body_size=MAX_BODY_BYTES)

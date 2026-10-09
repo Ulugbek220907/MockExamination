@@ -13,6 +13,7 @@ accounts, payments, examiner checks and Speaking tests, and `store.files` keeps
 the Speaking recordings (see files.py).
 """
 
+import concurrent.futures
 import json
 import logging
 import os
@@ -22,7 +23,7 @@ import time
 import urllib.error
 import urllib.request
 
-from . import content
+from . import content, pool
 from .db import RestDb, SqliteDb
 from .files import LocalFiles, SupabaseFiles
 
@@ -34,6 +35,9 @@ DEFAULT_SQLITE_PATH = os.path.join(BASE_DIR, "data", "local.sqlite3")
 
 
 MODULES = ("reading", "listening", "writing", "speaking")
+
+# Runs independent Supabase reads side by side (its threads keep their connections open).
+PARALLEL = concurrent.futures.ThreadPoolExecutor(max_workers=6, thread_name_prefix="supabase")
 
 
 def load_local_tests():
@@ -218,7 +222,9 @@ class SupabaseStore:
         self.secret = app_secret
         self._cache = None
         self._cache_at = 0.0
+        self._refreshing = False
         self._lock = threading.Lock()
+        self._load_lock = threading.Lock()
         self.db = RestDb(url, api_key, app_secret)
         self.files = SupabaseFiles(url, api_key, app_secret)
 
@@ -235,7 +241,7 @@ class SupabaseStore:
         body = json.dumps({"p_key": self.secret, **params}).encode("utf-8")
         req = urllib.request.Request(f"{self.rest}/rpc/{function}", data=body, headers=headers, method="POST")
         try:
-            with urllib.request.urlopen(req, timeout=15) as resp:
+            with pool.urlopen(req, timeout=15) as resp:
                 raw = resp.read()
                 return json.loads(raw) if raw else None
         except urllib.error.HTTPError as e:
@@ -246,21 +252,42 @@ class SupabaseStore:
 
     # -- content -----------------------------------------------------------
     def list_tests(self):
+        """
+        Cached tests. Once loaded, requests never wait for Supabase: when the cache is
+        older than CACHE_SECONDS it is served as is while a background thread reloads it.
+        """
         with self._lock:
-            fresh = self._cache is not None and time.time() - self._cache_at < self.CACHE_SECONDS
-            if fresh:
-                return self._cache
+            tests = self._cache
+            if tests is not None and time.time() - self._cache_at >= self.CACHE_SECONDS and not self._refreshing:
+                self._refreshing = True
+                threading.Thread(target=self._background_reload, daemon=True).start()
+        if tests is not None:
+            return tests
+        with self._load_lock:  # cold cache: one thread loads, the others wait for it
+            if self._cache is None:
+                # Not seeded yet (or unreachable): serve the bundled content so the site still works.
+                tests = self._fetch_tests() or load_local_tests()
+                with self._lock:
+                    self._cache, self._cache_at = tests, time.time()
+            return self._cache
+
+    def _fetch_tests(self):
         try:
-            tests = self._rpc("app_list_tests") or []
+            return self._rpc("app_list_tests") or []
         except SupabaseError as e:
             log.error("Could not load tests from Supabase, using local content: %s", e)
-            tests = []
-        if not tests:
-            # Not seeded yet (or unreachable): serve the bundled content so the site still works.
-            tests = load_local_tests()
-        with self._lock:
-            self._cache, self._cache_at = tests, time.time()
-        return tests
+            return []
+
+    def _background_reload(self):
+        try:
+            tests = self._fetch_tests()
+            with self._lock:
+                if tests:  # keep serving the previous content if Supabase is unreachable or empty
+                    self._cache = tests
+                self._cache_at = time.time()
+        finally:
+            with self._lock:
+                self._refreshing = False
 
     def get_test(self, test_id):
         return next((t for t in self.list_tests() if t["id"] == test_id), None)
@@ -284,11 +311,12 @@ class SupabaseStore:
 
     def list_history(self, client_id=None, limit=20, user_id=None):
         if user_id:
-            data = {
-                module: self.db.select(table, {"user_id": user_id}, order=[("created_at", "desc")], limit=limit)
-                for module, table in (("reading", "reading_attempts"), ("listening", "listening_attempts"),
-                                      ("writing", "writing_submissions"))
-            }
+            tables = (("reading", "reading_attempts"), ("listening", "listening_attempts"),
+                      ("writing", "writing_submissions"))
+            jobs = {module: PARALLEL.submit(self.db.select, table, {"user_id": user_id},
+                                            order=[("created_at", "desc")], limit=limit)
+                    for module, table in tables}
+            data = {module: job.result() for module, job in jobs.items()}
         else:
             data = self._rpc("app_history", p_client=client_id, p_limit=limit) or {}
         items = [

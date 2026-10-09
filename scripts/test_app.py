@@ -428,6 +428,103 @@ class SupabaseStoreTests(unittest.TestCase):
         dead = storage.SupabaseStore("http://127.0.0.1:9", "k", self.SECRET)
         self.assertEqual(len(dead.list_tests()), len(TESTS))
 
+    def _wait_for_reload(self, store):
+        import time
+        for _ in range(100):
+            if not store._refreshing:
+                return
+            time.sleep(0.02)
+
+    def test_stale_tests_served_while_reloading_in_background(self):
+        store = storage.SupabaseStore(self.base, "k", self.SECRET)
+        first = store.list_tests()
+        calls = sum(r["fn"] == "app_list_tests" for r in self.requests)
+        self.assertIs(store.list_tests(), first)  # fresh cache: no call
+        self.assertEqual(sum(r["fn"] == "app_list_tests" for r in self.requests), calls)
+        store._cache_at -= store.CACHE_SECONDS + 1
+        self.assertIs(store.list_tests(), first)  # stale cache is returned at once...
+        self._wait_for_reload(store)  # ...while it reloads in the background
+        self.assertEqual(sum(r["fn"] == "app_list_tests" for r in self.requests), calls + 1)
+        self.assertIsNot(store.list_tests(), first)
+
+    def test_failed_background_reload_keeps_previous_tests(self):
+        store = storage.SupabaseStore(self.base, "k", self.SECRET)
+        first = store.list_tests()
+        store.secret = "wrong" * 10
+        store._cache_at -= store.CACHE_SECONDS + 1
+        store.list_tests()
+        self._wait_for_reload(store)
+        self.assertIs(store.list_tests(), first)
+
+
+class PoolTests(unittest.TestCase):
+    """mockexam.pool keeps one connection per thread open and behaves like urllib on errors."""
+
+    @classmethod
+    def setUpClass(cls):
+        import http.server
+        import threading
+
+        cls.ports = []
+
+        class Handler(http.server.BaseHTTPRequestHandler):
+            protocol_version = "HTTP/1.1"
+
+            def log_message(self, *args):
+                pass
+
+            def do_POST(self):
+                self.rfile.read(int(self.headers.get("Content-Length") or 0))
+                cls.ports.append(self.client_address[1])
+                code = 404 if self.path == "/missing" else 200
+                raw = json.dumps({"path": self.path}).encode()
+                self.send_response(code)
+                self.send_header("Content-Length", str(len(raw)))
+                self.end_headers()
+                self.wfile.write(raw)
+                if self.path == "/drop":  # close the kept-alive connection without saying so
+                    self.close_connection = True
+
+        cls.httpd = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+        threading.Thread(target=cls.httpd.serve_forever, daemon=True).start()
+        cls.base = f"http://127.0.0.1:{cls.httpd.server_port}"
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.httpd.shutdown()
+
+    def post(self, path):
+        import urllib.request
+        from mockexam import pool
+        req = urllib.request.Request(self.base + path, data=b"{}", method="POST",
+                                     headers={"Content-Type": "application/json"})
+        with pool.urlopen(req, timeout=5) as resp:
+            return resp.status, json.loads(resp.read())
+
+    def test_reuses_connection_and_recovers_when_server_closes_it(self):
+        from mockexam import pool
+        pool._connections().clear()
+        del self.ports[:]
+        self.assertEqual(self.post("/a?x=1"), (200, {"path": "/a?x=1"}))
+        self.post("/b")
+        self.post("/c")
+        self.assertEqual(len(set(self.ports)), 1)
+        self.post("/drop")
+        self.assertEqual(self.post("/d")[0], 200)  # retried on a new connection
+        self.assertEqual(len(set(self.ports)), 2)
+        self.assertEqual(len(pool._connections()), 1)
+
+    def test_http_errors_raise_like_urllib(self):
+        import urllib.error
+        with self.assertRaises(urllib.error.HTTPError) as ctx:
+            self.post("/missing")
+        self.assertEqual(ctx.exception.code, 404)
+        self.assertIn(b"/missing", ctx.exception.read())
+        import urllib.request
+        from mockexam import pool
+        with self.assertRaises(urllib.error.URLError):
+            pool.urlopen(urllib.request.Request("http://127.0.0.1:9/x", data=b"", method="POST"), timeout=2)
+
 
 class ApiTests(AsyncHTTPTestCase):
     def get_app(self):
@@ -494,6 +591,8 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertEqual((data["rawScore"], data["bandScore"]), (39, 9.0))
         self.assertIsNotNone(data["attemptId"])
         self.assertEqual(len(data["transcript"]), 4)
+        self.assertIn("?v=", data["transcript"][0]["audio"]["src"])
+        self.assertNotIn("?v=", t["parts"][0]["audio"]["src"])  # stored test left untouched
         code, hist = self.get_json(f"/api/history?clientId={CLIENT_ID}")
         self.assertTrue(any(i["module"] == "listening" and i["testId"] == t["id"] for i in hist["items"]))
         code, _ = self.post_json("/api/listening/academic-reading-01/submit", {})
@@ -502,11 +601,36 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertEqual(code, 404)
 
     def test_audio_served_with_ranges(self):
-        src = LISTENING[0]["parts"][0]["audio"]["src"]
+        code, data = self.get_json(f"/api/tests/{LISTENING[0]['id']}")
+        src = data["parts"][0]["audio"]["src"]
+        self.assertTrue(src.startswith(LISTENING[0]["parts"][0]["audio"]["src"] + "?v="))
         r = self.fetch(f"/{src}", headers={"Range": "bytes=0-1023"})
         self.assertEqual(r.code, 206)
         self.assertEqual(len(r.body), 1024)
         self.assertEqual(r.headers["Content-Type"], "audio/mpeg")
+        self.assertEqual(r.headers["Cache-Control"], "private, max-age=31536000, immutable")
+
+    def test_index_links_hashed_assets_cached_for_a_year(self):
+        r = self.fetch("/")
+        self.assertEqual(r.code, 200)
+        self.assertEqual(r.headers["Cache-Control"], "no-cache")
+        self.assertIn("Content-Security-Policy", r.headers)
+        self.assertIn("Strict-Transport-Security", r.headers)
+        page = r.body.decode()
+        for asset in ("css/portal.css", "js/app.js", "js/exam.js", "js/account.js"):
+            self.assertRegex(page, rf'"{asset}\?v=[0-9a-f]{{12}}"')
+        versioned = page.split('src="', 1)[1].split('"', 1)[0]
+        r = self.fetch(f"/{versioned}")
+        self.assertEqual(r.code, 200)
+        self.assertEqual(r.headers["Cache-Control"], "public, max-age=31536000, immutable")
+        self.assertEqual(self.fetch("/js/app.js").headers["Cache-Control"], "no-cache")
+        self.assertEqual(self.fetch("/", method="HEAD").code, 200)
+
+    def test_test_list_revalidates_with_etag(self):
+        r = self.fetch("/api/tests")
+        self.assertEqual(r.headers["Cache-Control"], "private, no-cache")
+        r = self.fetch("/api/tests", headers={"If-None-Match": r.headers["Etag"]})
+        self.assertEqual(r.code, 304)
 
     def test_writing_submit_without_ai(self):
         t = WRITING[0]
