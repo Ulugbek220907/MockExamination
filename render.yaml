@@ -1,8 +1,13 @@
 services:
   - type: web
-    name: mock-exam-platform
+    name: testday
     runtime: python
+    # Frankfurt is much closer to Central Asia than Oregon. The region is fixed
+    # when a service is created; changing it here does not move an existing one.
+    region: frankfurt
     plan: free
+    branch: main
+    autoDeploy: true
     buildCommand: pip install -r requirements.txt
     startCommand: python server.py
     healthCheckPath: /api/health
@@ -31,6 +36,9 @@ services:
       - key: CONTACT_EMAIL
         sync: false
       - key: SITE_URL
+        sync: false
+      # Copy it from the old service if it has one, so people stay signed in after the move.
+      - key: SESSION_SECRET
         sync: false
       - key: ADMIN_EMAILS
         sync: false
