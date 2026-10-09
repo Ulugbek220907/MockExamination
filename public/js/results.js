@@ -8,22 +8,27 @@
 
   const esc = (v) => U.escapeHtml(v);
   const S = window.IeltsScoring;
+  const tr = (key, vars) => I18N.t(key, vars);
+  const LINE = { Listening: ["line-l", "L"], Reading: ["line-r", "R"], Writing: ["line-w", "W"], Speaking: ["line-s", "S"] };
 
   function pct(correct, total) {
     return total ? Math.round((correct / total) * 100) : 0;
   }
 
   function header(kind, data, extra) {
+    const line = LINE[kind] || LINE.Reading;
     return `
       <div class="results-head">
-        <div>
-          <div class="eyebrow">${kind} results</div>
-          <h1>${esc(data.title)}</h1>
-          <p class="muted-text">${esc(data.candidateName)} · ${extra} · Time used: ${U.formatDuration(data.timeSpentSeconds)}</p>
+        <div class="results-title">
+          <span class="bullet lg ${line[0]}" aria-hidden="true">${line[1]}</span>
+          <div>
+            <h1>${esc(data.title)}</h1>
+            <p class="muted-text results-sub"><span>${esc(data.candidateName)}</span> · <span>${esc(extra)}</span> · <span>${esc(tr("Time used: {time}", { time: U.formatDuration(data.timeSpentSeconds) }))}</span></p>
+          </div>
         </div>
         <div class="results-actions">
-          <button type="button" class="btn-secondary" data-action="retake">Try again</button>
-          <a class="btn-primary" href="#/">All tests</a>
+          <button type="button" class="btn-secondary" data-action="retake">${tr("Try again")}</button>
+          <a class="btn-primary" href="#/">${tr("All tests")}</a>
         </div>
       </div>`;
   }
@@ -32,7 +37,7 @@
     return `
       <div class="score-main-box">
         <div class="band-score-circle"><span class="band-val">${S.formatBand(band)}</span><span class="band-lbl">${esc(label)}</span></div>
-        <div class="band-desc">${esc(S.describeBand(band))}</div>
+        <div class="band-desc">${esc(tr(S.describeBand(band)))}</div>
       </div>`;
   }
 
@@ -40,11 +45,11 @@
   function scoreBanner(data) {
     return `
       <div class="score-banner-card">
-        ${bandCircle(data.bandScore, "Estimated band")}
+        ${bandCircle(data.bandScore, tr("Estimated band"))}
         <div class="score-details-grid">
-          <div class="score-stat-box"><div class="score-stat-val">${data.rawScore} / ${data.totalQuestions}</div><div class="score-stat-lbl">Correct answers</div></div>
-          <div class="score-stat-box"><div class="score-stat-val">${esc(data.cefrLevel)}</div><div class="score-stat-lbl">Approx. CEFR level</div></div>
-          <div class="score-stat-box"><div class="score-stat-val">${U.formatDuration(data.timeSpentSeconds)}</div><div class="score-stat-lbl">Time used</div></div>
+          <div class="score-stat-box"><div class="score-stat-val">${data.rawScore} / ${data.totalQuestions}</div><div class="score-stat-lbl">${tr("Correct answers")}</div></div>
+          <div class="score-stat-box"><div class="score-stat-val">${esc(data.cefrLevel)}</div><div class="score-stat-lbl">${tr("Approx. CEFR level")}</div></div>
+          <div class="score-stat-box"><div class="score-stat-val">${U.formatDuration(data.timeSpentSeconds)}</div><div class="score-stat-lbl">${tr("Time used")}</div></div>
         </div>
       </div>`;
   }
@@ -56,7 +61,7 @@
         ${entries.map(([num, p]) => `
           <div class="passage-stat-card">
             <h3>${esc(label)} ${esc(num)}: ${esc(p.title)}</h3>
-            <div class="stat-line"><span>${p.correct} of ${p.total} correct</span><strong>${pct(p.correct, p.total)}%</strong></div>
+            <div class="stat-line"><span>${esc(tr("{n} of {total} correct", { n: p.correct, total: p.total }))}</span><strong>${pct(p.correct, p.total)}%</strong></div>
             <div class="passage-progress-bar"><div class="passage-progress-fill" style="width:${pct(p.correct, p.total)}%"></div></div>
           </div>`).join("")}
       </div>`;
@@ -65,8 +70,8 @@
   function typesHTML(data) {
     const types = Object.values(data.typeBreakdown || {}).sort((a, b) => pct(a.correct, a.total) - pct(b.correct, b.total));
     return `
-      <h2 class="section-title">By question type</h2>
-      <p class="muted-text section-sub">Weakest types first – focus your practice here.</p>
+      <h2 class="section-title">${tr("By question type")}</h2>
+      <p class="muted-text section-sub">${tr("Weakest types first – focus your practice here.")}</p>
       <div class="type-table">
         ${types.map((t) => `
           <div class="type-row">
@@ -82,12 +87,12 @@
     const incorrect = data.results.filter((r) => !r.isCorrect && r.candidateAnswer).length;
     return `
       <div class="review-filter-bar">
-        <h2 class="section-title">Question review</h2>
+        <h2 class="section-title">${tr("Question review")}</h2>
         <div class="review-tabs" role="tablist">
-          <button type="button" class="review-tab-btn active" data-filter="all">All (${data.results.length})</button>
-          <button type="button" class="review-tab-btn" data-filter="correct">Correct (${data.rawScore})</button>
-          <button type="button" class="review-tab-btn" data-filter="incorrect">Incorrect (${incorrect})</button>
-          <button type="button" class="review-tab-btn" data-filter="unanswered">Unanswered (${unanswered})</button>
+          <button type="button" class="review-tab-btn active" data-filter="all">${tr("All")} (${data.results.length})</button>
+          <button type="button" class="review-tab-btn" data-filter="correct">${tr("Correct")} (${data.rawScore})</button>
+          <button type="button" class="review-tab-btn" data-filter="incorrect">${tr("Incorrect")} (${incorrect})</button>
+          <button type="button" class="review-tab-btn" data-filter="unanswered">${tr("Unanswered")} (${unanswered})</button>
         </div>
       </div>
       <div class="review-list" id="review-list"></div>`;
@@ -102,7 +107,7 @@
           : filter === "incorrect" ? !r.isCorrect && r.candidateAnswer
             : filter === "unanswered" ? !r.candidateAnswer
               : true);
-      list.innerHTML = items.length ? items.map(cardFn).join("") : `<p class="empty-note">No questions match this filter.</p>`;
+      list.innerHTML = items.length ? items.map(cardFn).join("") : `<p class="empty-note">${tr("No questions match this filter.")}</p>`;
     };
     tabs.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -115,7 +120,7 @@
   }
 
   function reviewCard(r, section, actions = "") {
-    const status = r.isCorrect ? ["badge-correct", "Correct"] : r.candidateAnswer ? ["badge-incorrect", "Incorrect"] : ["badge-unanswered", "Unanswered"];
+    const status = r.isCorrect ? ["badge-correct", tr("Correct")] : r.candidateAnswer ? ["badge-incorrect", tr("Incorrect")] : ["badge-unanswered", tr("Unanswered")];
     return `
       <article class="review-card ${r.isCorrect ? "is-correct" : "is-incorrect"}">
         <div class="review-card-top">
@@ -125,24 +130,23 @@
         </div>
         ${r.prompt ? `<div class="review-prompt">${esc(r.prompt)}</div>` : ""}
         <div class="review-answers-box">
-          <div><div class="review-ans-label">Your answer</div>
-            <div class="review-ans-value ${r.isCorrect ? "ans-correct" : "ans-incorrect"}">${r.candidateAnswer ? esc(r.candidateAnswer) : "No answer"}</div></div>
-          <div><div class="review-ans-label">Correct answer</div>
+          <div><div class="review-ans-label">${tr("Your answer")}</div>
+            <div class="review-ans-value ${r.isCorrect ? "ans-correct" : "ans-incorrect"}">${r.candidateAnswer ? esc(r.candidateAnswer) : tr("No answer")}</div></div>
+          <div><div class="review-ans-label">${tr("Correct answer")}</div>
             <div class="review-ans-value ans-correct">${esc(r.correctAnswer)}</div></div>
         </div>
-        ${r.explanation ? `<div class="review-explanation"><strong>Why${r.reference && r.reference !== "—" ? ` (${esc(r.reference)})` : ""}:</strong> ${esc(r.explanation)}</div>` : ""}
+        ${r.explanation ? `<div class="review-explanation" lang="en"><strong>${tr("Why")}${r.reference && r.reference !== "—" ? ` (${esc(r.reference)})` : ""}:</strong> ${esc(r.explanation)}</div>` : ""}
         ${actions}
       </article>`;
   }
 
   function renderReading(data, root) {
     root.innerHTML = `
-      <section class="results-page">
-        ${header("Reading", data, data.mode === "practice" ? "Practice mode" : "Timed test")}
+      <section class="results-page line-r">
+        ${header("Reading", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"))}
         ${scoreBanner(data)}
-        <p class="score-note">The band is estimated from your raw score using a typical Academic Reading conversion table.
-          Official tests adjust the conversion slightly for each version, so treat this as a guide.</p>
-        ${breakdownHTML("By passage", Object.entries(data.passageBreakdown || {}), "Passage")}
+        <p class="score-note">${tr("results.note.reading")}</p>
+        ${breakdownHTML(tr("By passage"), Object.entries(data.passageBreakdown || {}), "Passage")}
         ${typesHTML(data)}
         ${reviewHTML(data)}
       </section>`;
@@ -150,6 +154,8 @@
   }
 
   /* -------------------------------------------------------------- listening */
+  const CHECK_OK = `<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const CHECK_BAD = `<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 2.5v4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="6" cy="9.3" r="1.1" fill="currentColor"/></svg>`;
   const PLAY_ICON = `<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>`;
 
   /** Transcript line text with the answer locations wrapped in <mark>, coloured by the candidate's result. */
@@ -174,28 +180,26 @@
     const partIndex = (partNumber) => transcript.findIndex((p) => p.partNumber === partNumber);
 
     root.innerHTML = `
-      <section class="results-page listening-results">
-        ${header("Listening", data, data.mode === "practice" ? "Practice mode" : "Timed test")}
+      <section class="results-page listening-results line-l">
+        ${header("Listening", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"))}
         ${scoreBanner(data)}
-        <p class="score-note">The band is estimated from your raw score using a typical Listening conversion table.
-          Official tests adjust the conversion slightly for each version, so treat this as a guide.</p>
-        ${breakdownHTML("By part", Object.entries(data.partBreakdown || {}), "Part")}
+        <p class="score-note">${tr("results.note.listening")}</p>
+        ${breakdownHTML(tr("By part"), Object.entries(data.partBreakdown || {}), "Part")}
         ${typesHTML(data)}
         ${reviewHTML(data)}
         <section class="transcript-section" id="transcript-section" aria-labelledby="transcript-title">
-          <h2 class="section-title" id="transcript-title">Transcript</h2>
-          <p class="muted-text section-sub">The place where each answer is heard is highlighted. Press
-            <span class="inline-icon">${PLAY_ICON}</span> to listen again from any line.</p>
-          <div class="transcript-tabs" role="tablist" aria-label="Parts of the recording">
+          <h2 class="section-title" id="transcript-title">${tr("Transcript")}</h2>
+          <p class="muted-text section-sub">${tr("transcript.help", { icon: `<span class="inline-icon">${PLAY_ICON}</span>` })}</p>
+          <div class="transcript-tabs" role="tablist" aria-label="${esc(tr("Parts of the recording"))}">
             ${transcript.map((p, i) => `<button type="button" class="review-tab-btn ${i === 0 ? "active" : ""}" role="tab"
               aria-selected="${i === 0}" data-tpart="${i}">Part ${p.partNumber}</button>`).join("")}
           </div>
-          <div class="transcript" id="transcript"></div>
+          <div class="transcript" id="transcript" lang="en"></div>
         </section>
         <div class="replay-bar" id="replay-bar" hidden>
           <span class="replay-text" id="replay-text" aria-live="polite"></span>
-          <button type="button" class="btn-secondary btn-sm" id="replay-toggle">Pause</button>
-          <button type="button" class="btn-secondary btn-sm" id="replay-stop">Stop</button>
+          <button type="button" class="btn-secondary btn-sm" id="replay-toggle">${tr("Pause")}</button>
+          <button type="button" class="btn-secondary btn-sm" id="replay-stop">${tr("Stop")}</button>
           <audio id="replay-audio" preload="metadata"></audio>
         </div>
       </section>`;
@@ -223,7 +227,7 @@
         ${part.context ? `<p class="t-context">${esc(part.context)}</p>` : ""}
         ${part.lines.map((l) => `
           <div class="t-line ${l.narrator ? "is-narrator" : ""}" data-start="${l.start}" data-end="${l.end}">
-            <button type="button" class="t-play" data-play="${pi}" data-at="${l.start}" aria-label="Listen from here" title="Listen from here">${PLAY_ICON}</button>
+            <button type="button" class="t-play" data-play="${pi}" data-at="${l.start}" aria-label="${esc(tr("Listen from here"))}" title="${esc(tr("Listen from here"))}">${PLAY_ICON}</button>
             <div class="t-body"><span class="t-speaker">${esc(l.speaker)}</span>
               <span class="t-text">${markText(l.text, l.marks, byNumber)}</span></div>
           </div>`).join("")}`;
@@ -234,7 +238,7 @@
       bar.hidden = stopped || !part;
       if (bar.hidden) return;
       page.querySelector("#replay-text").textContent = `Part ${part.partNumber} · ${U.formatClock(audio.currentTime || 0)}`;
-      page.querySelector("#replay-toggle").textContent = audio.paused ? "Play" : "Pause";
+      page.querySelector("#replay-toggle").textContent = audio.paused ? tr("Play") : tr("Pause");
     };
 
     const play = (pi, start, stopAt = null) => {
@@ -249,7 +253,7 @@
       if (audio.readyState >= 1) seek();
       else audio.addEventListener("loadedmetadata", seek, { once: true });
       audio.play().catch((err) => {
-        if (err && err.name === "NotAllowedError") U.toast("Your browser blocked the sound. Check that this tab is not muted.", "warn");
+        if (err && err.name === "NotAllowedError") U.toast(tr("Your browser blocked the sound. Check that this tab is not muted."), "warn");
       });
       updateBar();
     };
@@ -311,8 +315,8 @@
 
     bindReview(page, data, (r) => reviewCard(r, `Part ${r.partNumber}`, r.cue ? `
       <div class="review-actions">
-        <button type="button" class="btn-link" data-listen="${r.number}">${PLAY_ICON} Listen again</button>
-        <button type="button" class="btn-link" data-show="${r.number}">Show in transcript</button>
+        <button type="button" class="btn-link" data-listen="${r.number}">${PLAY_ICON} ${tr("Listen again")}</button>
+        <button type="button" class="btn-link" data-show="${r.number}">${tr("Show in transcript")}</button>
       </div>` : ""));
     renderTranscript(0);
   }
@@ -320,11 +324,11 @@
   /* ================================================================ writing */
   function statusNotice(data) {
     const messages = {
-      not_configured: ["info", "AI examiner feedback is not switched on for this site yet.", "Use the automatic checks, your statistics and the model answers below to review your writing."],
-      not_requested: ["info", "You chose not to request AI feedback.", "Use the automatic checks and model answers below to review your writing."],
-      rate_limited: ["warn", "AI marking is not available right now.", data.assessmentMessage],
-      too_short: ["warn", "Your responses were too short to be marked.", "Write complete answers that meet the minimum word count to get a band estimate."],
-      error: ["warn", "The AI examiner could not mark this script.", data.assessmentMessage],
+      not_configured: ["info", tr("AI examiner feedback is not switched on for this site yet."), tr("writing.notice.review")],
+      not_requested: ["info", tr("You chose not to request AI feedback."), tr("writing.notice.review")],
+      rate_limited: ["warn", tr("AI marking is not available right now."), data.assessmentMessage],
+      too_short: ["warn", tr("Your responses were too short to be marked."), tr("writing.notice.short")],
+      error: ["warn", tr("The AI examiner could not mark this script."), data.assessmentMessage],
     };
     const m = messages[data.assessmentStatus];
     if (!m) return "";
@@ -352,9 +356,9 @@
     if (!corrections || !corrections.length) return "";
     return `
       <div class="feedback-block">
-        <h4>Corrections</h4>
+        <h4>${tr("Corrections")}</h4>
         <div class="table-scroll"><table class="corrections-table">
-          <thead><tr><th scope="col">You wrote</th><th scope="col">Better</th><th scope="col">Why</th></tr></thead>
+          <thead><tr><th scope="col">${tr("You wrote")}</th><th scope="col">${tr("Better")}</th><th scope="col">${tr("Why")}</th></tr></thead>
           <tbody>${corrections.map((c) => `
             <tr><td class="corr-orig">${esc(c.original)}</td><td class="corr-new">${esc(c.corrected)}</td><td>${esc(c.explanation)}</td></tr>`).join("")}
           </tbody>
@@ -365,20 +369,20 @@
   function analysisHTML(a) {
     return `
       <div class="feedback-block">
-        <h4>Automatic checks</h4>
-        <ul class="check-list">
-          ${a.checks.map((c) => `<li class="${c.ok ? "ok" : "bad"}"><span class="check-icon" aria-hidden="true">${c.ok ? "✓" : "!"}</span>
-            <span class="sr-only">${c.ok ? "Passed:" : "Needs attention:"}</span> ${esc(c.text)}</li>`).join("")}
+        <h4>${tr("Automatic checks")}</h4>
+        <ul class="check-list" lang="en">
+          ${a.checks.map((c) => `<li class="${c.ok ? "ok" : "bad"}"><span class="check-icon" aria-hidden="true">${c.ok ? CHECK_OK : CHECK_BAD}</span>
+            <span class="sr-only">${c.ok ? tr("Passed:") : tr("Needs attention:")}</span> ${esc(c.text)}</li>`).join("")}
         </ul>
         <div class="stats-row">
-          <div><strong>${a.wordCount}</strong><span>words</span></div>
-          <div><strong>${a.paragraphs}</strong><span>paragraphs</span></div>
-          <div><strong>${a.sentences}</strong><span>sentences</span></div>
-          <div><strong>${a.avgSentenceLength}</strong><span>words per sentence</span></div>
-          <div><strong>${a.lexicalVariety}%</strong><span>different words</span></div>
+          <div><strong>${a.wordCount}</strong><span>${tr("words")}</span></div>
+          <div><strong>${a.paragraphs}</strong><span>${tr("paragraphs")}</span></div>
+          <div><strong>${a.sentences}</strong><span>${tr("sentences")}</span></div>
+          <div><strong>${a.avgSentenceLength}</strong><span>${tr("words per sentence")}</span></div>
+          <div><strong>${a.lexicalVariety}%</strong><span>${tr("different words")}</span></div>
         </div>
-        ${a.linkingDevices.length ? `<p class="small-text"><strong>Linking words you used:</strong> ${a.linkingDevices.map(esc).join(", ")}</p>` : ""}
-        ${a.repeatedWords.length ? `<p class="small-text"><strong>Words you repeated often:</strong> ${a.repeatedWords.map((r) => `${esc(r.word)} (${r.count}×)`).join(", ")} – try synonyms or pronouns.</p>` : ""}
+        ${a.linkingDevices.length ? `<p class="small-text"><strong>${tr("Linking words you used:")}</strong> ${a.linkingDevices.map(esc).join(", ")}</p>` : ""}
+        ${a.repeatedWords.length ? `<p class="small-text"><strong>${tr("Words you repeated often:")}</strong> ${a.repeatedWords.map((r) => `${esc(r.word)} (${r.count}×)`).join(", ")} – ${tr("try synonyms or pronouns.")}</p>` : ""}
       </div>`;
   }
 
@@ -387,22 +391,22 @@
       <section class="task-result" id="task-result-${task.taskNumber}">
         <div class="task-result-head">
           <h2 class="section-title">Task ${task.taskNumber}: ${esc(task.title)}</h2>
-          ${assessed ? `<span class="task-band">Band ${S.formatBand(assessed.band)}</span>` : ""}
+          ${assessed ? `<span class="task-band">${tr("Band {band}", { band: S.formatBand(assessed.band) })}</span>` : ""}
         </div>
         ${assessed ? `
           <p class="lead-text">${esc(assessed.summary)}</p>
           ${criteriaHTML(assessed)}
           <div class="feedback-columns">
-            ${listBlock("What you did well", assessed.strengths, "good")}
-            ${listBlock("How to improve", assessed.improvements, "improve")}
+            ${listBlock(tr("What you did well"), assessed.strengths, "good")}
+            ${listBlock(tr("How to improve"), assessed.improvements, "improve")}
           </div>
           ${correctionsHTML(assessed.corrections)}` : ""}
         ${analysisHTML(task.analysis)}
-        <details class="fold"><summary>Your response (${task.analysis.wordCount} words)</summary>
-          <div class="essay-text">${task.response ? U.paragraphs(task.response) : "<p><em>No response.</em></p>"}</div></details>
-        <details class="fold"><summary>The question</summary>
-          <div class="task-prompt">${U.paragraphs(task.prompt)}</div>${TaskCharts.render(task.visual)}</details>
-        <details class="fold" ${assessed ? "" : "open"}><summary>Model answer</summary>
+        <details class="fold"><summary>${tr("Your response ({n} words)", { n: task.analysis.wordCount })}</summary>
+          <div class="essay-text" lang="en">${task.response ? U.paragraphs(task.response) : `<p><em>${tr("No response.")}</em></p>`}</div></details>
+        <details class="fold"><summary>${tr("The question")}</summary>
+          <div class="task-prompt" lang="en">${U.paragraphs(task.prompt)}</div>${TaskCharts.render(task.visual)}</details>
+        <details class="fold" ${assessed ? "" : "open"}><summary>${tr("Model answer")}</summary>
           <div class="essay-text model-answer">${U.paragraphs(task.modelAnswer)}</div></details>
       </section>`;
   }
@@ -412,30 +416,29 @@
     const t1 = a && a.tasks["1"];
     const t2 = a && a.tasks["2"];
     root.innerHTML = `
-      <section class="results-page">
+      <section class="results-page line-w">
         ${header("Writing", data, "Academic Writing")}
         ${a ? `
           <div class="score-banner-card">
-            ${bandCircle(a.overallBand, "Estimated band")}
+            ${bandCircle(a.overallBand, tr("Estimated band"))}
             <div class="score-details-grid">
               <div class="score-stat-box"><div class="score-stat-val">${S.formatBand(t1.band)}</div><div class="score-stat-lbl">Task 1</div></div>
-              <div class="score-stat-box"><div class="score-stat-val">${S.formatBand(t2.band)}</div><div class="score-stat-lbl">Task 2 (counts double)</div></div>
-              <div class="score-stat-box"><div class="score-stat-val">${U.formatDuration(data.timeSpentSeconds)}</div><div class="score-stat-lbl">Time used</div></div>
+              <div class="score-stat-box"><div class="score-stat-val">${S.formatBand(t2.band)}</div><div class="score-stat-lbl">${tr("Task 2 (counts double)")}</div></div>
+              <div class="score-stat-box"><div class="score-stat-val">${U.formatDuration(data.timeSpentSeconds)}</div><div class="score-stat-lbl">${tr("Time used")}</div></div>
             </div>
           </div>
-          <p class="score-note">This band is an AI estimate using the four public Writing criteria. It is for practice only and is not an official IELTS score.</p>`
+          <p class="score-note">${tr("results.note.writing")}</p>`
         : statusNotice(data)}
         ${data.submissionId ? `
           <div class="examiner-offer">
             <div>
-              <h2>Get your writing marked by an examiner</h2>
-              <p>An experienced examiner marks both tasks on the four official criteria, gives you band scores and
-                personal feedback, and corrects your mistakes. You choose the examiner.</p>
+              <h2>${tr("Get your writing marked by an examiner")}</h2>
+              <p>${tr("examiner.offer.writing")}</p>
             </div>
             <button type="button" class="btn-primary" data-action="order-writing-check" data-submission="${Number(data.submissionId)}">
-              Choose an examiner</button>
+              ${tr("Choose an examiner")}</button>
           </div>` : ""}
-        <nav class="task-jump" aria-label="Tasks">
+        <nav class="task-jump" aria-label="${esc(tr("Tasks"))}">
           <a href="#task-result-1" data-jump="1">Task 1</a><a href="#task-result-2" data-jump="2">Task 2</a>
         </nav>
         ${data.tasks.map((t) => taskSection(t, a && a.tasks[String(t.taskNumber)])).join("")}

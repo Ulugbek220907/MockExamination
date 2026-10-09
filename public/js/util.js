@@ -74,7 +74,11 @@
     seconds = Math.max(0, Math.round(seconds || 0));
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
-    return `${m}m ${s < 10 ? "0" : ""}${s}s`;
+    // The exam screens stay in English; the site follows the chosen language.
+    const inExam = document.body && (document.body.classList.contains("in-exam")
+      || document.getElementById("verification-view")?.classList.contains("active"));
+    const vars = { m, s: `${s < 10 ? "0" : ""}${s}` };
+    return window.I18N && !inExam ? I18N.t("{m}m {s}s", vars) : `${vars.m}m ${vars.s}s`;
   }
 
   function formatClock(seconds) {
@@ -84,11 +88,16 @@
     return `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
   }
 
-  function formatDate(iso) {
+  function formatDate(iso, locale) {
     if (!iso) return "";
     const d = new Date(iso);
     if (isNaN(d)) return iso;
-    return d.toLocaleString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+    const loc = locale || (window.I18N ? I18N.locale() : undefined);
+    try {
+      return d.toLocaleString(loc, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+    } catch (e) {
+      return d.toLocaleString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+    }
   }
 
   function countWords(text) {
@@ -154,8 +163,23 @@
     setTimeout(() => el.remove(), 6000);
   }
 
+  // Scripts the home page does not need. Speaking builds on the exam engine, so order matters.
+  const BUNDLES = {
+    exam: ["js/highlighter.js", "js/charts.js", "js/exam.js", "js/speaking.js"],
+  };
+
+  /** Load a bundle of scripts on demand; resolves when they have run. */
+  async function need(name) {
+    try {
+      await Promise.all(BUNDLES[name].map((path) => I18N.loadScript(path)));
+    } catch (err) {
+      toast(I18N.t("Could not load this page. Check your connection and try again."), "warn");
+      throw err;
+    }
+  }
+
   window.U = {
     escapeHtml, richText, paragraphs, api, store, clientId, formatDuration, formatClock,
-    formatDate, countWords, modal, loadingOverlay, toast,
+    formatDate, countWords, modal, loadingOverlay, toast, need,
   };
 })();

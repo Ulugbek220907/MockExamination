@@ -1,6 +1,7 @@
 /**
- * Application controller: routing, dashboard, pre-test instructions,
- * launching exams, results, and the resources / about pages.
+ * Application controller: routing, the home page (the line network),
+ * pre-test instructions, launching exams, results, and the resources /
+ * about pages.
  *
  * Routes: #/ (tests), #/resources, #/about, #/start (instructions),
  *         #/exam (active test), #/results (last result), #/speaking/<id>
@@ -16,16 +17,16 @@
   // Free official preparation material. We link to it; we never copy it.
   const OFFICIAL_RESOURCES = [
     {
-      group: "Official computer-delivered familiarisation tests",
-      note: "Try the real test software. Reading and Listening are marked automatically.",
+      group: "res.familiar.group",
+      note: "res.familiar.note",
       links: [
         { title: "IELTS on computer familiarisation test", org: "British Council", url: "https://takeielts.britishcouncil.org/take-ielts/prepare/free-ielts-english-practice-tests/ielts-on-computer/familiarisation-test" },
         { title: "IELTS familiarisation tests", org: "IDP IELTS", url: "https://ielts.idp.com/about/ielts-familiarisation-tests" },
       ],
     },
     {
-      group: "Official sample questions and practice tests",
-      note: "Sample tasks written by the test makers, with answers.",
+      group: "res.samples.group",
+      note: "res.samples.note",
       links: [
         { title: "Official sample test questions", org: "IELTS.org", url: "https://ielts.org/take-a-test/preparation-resources/sample-test-questions" },
         { title: "IELTS trial test", org: "IELTS.org", url: "https://ielts.org/take-a-test/preparation-resources/ielts-trial-test" },
@@ -35,8 +36,8 @@
       ],
     },
     {
-      group: "How the test works and how it is scored",
-      note: "Read these before you practise, so you know exactly what examiners look for.",
+      group: "res.format.group",
+      note: "res.format.note",
       links: [
         { title: "Listening test format", org: "IELTS.org", url: "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-listening" },
         { title: "Academic Reading test format", org: "IELTS.org", url: "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-reading" },
@@ -46,8 +47,8 @@
       ],
     },
     {
-      group: "Free reading material for daily practice",
-      note: "Academic-style texts that are free to read. Practise skimming, scanning and summarising.",
+      group: "res.reading.group",
+      note: "res.reading.note",
       links: [
         { title: "Featured articles", org: "Wikipedia (CC BY-SA)", url: "https://en.wikipedia.org/wiki/Wikipedia:Featured_articles" },
         { title: "Science and research news", org: "NASA (public domain)", url: "https://www.nasa.gov/news/" },
@@ -56,8 +57,8 @@
       ],
     },
     {
-      group: "Free listening material for daily practice",
-      note: "Short talks and discussions with transcripts. Listen once for the main idea, then again for detail.",
+      group: "res.listening.group",
+      note: "res.listening.note",
       links: [
         { title: "6 Minute English", org: "BBC Learning English", url: "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" },
         { title: "Talks with interactive transcripts", org: "TED", url: "https://www.ted.com/talks" },
@@ -68,32 +69,55 @@
 
   const MODULE_LABELS = { reading: "Reading", listening: "Listening", writing: "Writing", speaking: "Speaking" };
 
+  // The four lines, in the order of the real test day.
+  const LINES = [
+    { module: "listening", letter: "L", cls: "line-l" },
+    { module: "reading", letter: "R", cls: "line-r" },
+    { module: "writing", letter: "W", cls: "line-w" },
+    { module: "speaking", letter: "S", cls: "line-s" },
+  ];
+  const lineOf = (module) => LINES.find((l) => l.module === module) || LINES[1];
+
+  const ICON_ARROW = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const ICON_LOCK = `<svg width="10" height="11" viewBox="0 0 10 11" aria-hidden="true"><path fill="currentColor" d="M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z"/></svg>`;
+
   class App {
     constructor() {
-      this.config = { siteName: "MockExam", aiMarking: false, contactEmail: "" };
+      this.config = { siteName: "TestDay", aiMarking: false, contactEmail: "" };
       this.tests = [];
-      this.module = U.store.get("mockexam:module", "reading");
       this.exam = null;
       this.pending = null;
+      this.ridden = U.store.get("testday:ridden", {});
+      this.history = null;
+      this.prices = null;
       this.lastResult = U.store.get("mockexam:lastResult", null);
       this.main = document.getElementById("site-main");
       this.init();
     }
 
     async init() {
+      I18N.applyStatic();
       window.addEventListener("hashchange", () => this.route());
+      document.addEventListener("langchange", () => {
+        Account.renderAccountSlot();
+        if (!this.exam && document.getElementById("site-view").classList.contains("active")) this.route();
+      });
       this.main.addEventListener("click", (e) => this.onMainClick(e));
       document.getElementById("account-slot").addEventListener("click", (e) => Account.onClick(e));
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") this.closeSigns(); });
       Account.renderAccountSlot();
       try {
-        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe()]);
+        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe(), I18N.ready]);
         this.config = { ...this.config, ...config };
         this.tests = data.tests || [];
         this.modules = data.modules || {};
       } catch (err) {
-        this.loadError = "Could not load the tests. Please refresh the page.";
+        this.loadError = true;
       }
       Account.setConfig(this.config);
+      await I18N.ready;
+      I18N.applyStatic();
+      Account.renderAccountSlot();
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
       this.route();
     }
@@ -137,14 +161,14 @@
       window.scrollTo(0, 0);
       if (path === "/resources") this.renderResources();
       else if (path === "/about") this.renderAbout();
-      else if (path === "/results" && this.lastResult) this.renderResults();
+      else if (path === "/results" && this.lastResult) await this.renderResults();
       else if (path === "/pricing") await Account.renderPricing(this.main);
       else if (path === "/account") await Account.renderAccount(this.main);
       else if (path === "/examiners") await Account.renderExaminers(this.main, params);
       else if (path === "/examiner") await Account.renderExaminerDashboard(this.main);
       else if (path === "/admin") await Account.renderAdmin(this.main, params);
       else if (check) await Account.renderCheck(this.main, check[1]);
-      else if (spoken) await Speaking.renderResult(this.main, spoken[1]);
+      else if (spoken) { await U.need("exam"); await Speaking.renderResult(this.main, spoken[1]); }
       else this.renderHome();
     }
 
@@ -162,78 +186,106 @@
       const ids = { site: "site-view", verification: "verification-view", exam: "exam-screen" };
       Object.entries(ids).forEach(([k, id]) => document.getElementById(id).classList.toggle("active", k === name));
       document.body.classList.toggle("in-exam", name === "exam");
+      // The instructions and the exam stay in English, like the real test.
+      document.documentElement.lang = name === "site" ? I18N.lang() : "en";
     }
 
     onMainClick(e) {
       if (Account.onClick(e)) return;
-      const el = e.target.closest("[data-action], [data-module]");
-      if (!el) return;
-      if (el.dataset.module) {
-        if (el.disabled) return;
-        this.module = el.dataset.module;
-        U.store.set("mockexam:module", this.module);
-        this.renderHome();
-        return;
+      const station = e.target.closest("[data-station]");
+      if (station) return this.toggleSign(station);
+      const nextStation = e.target.closest("[data-next-station]");
+      if (nextStation) {
+        const target = document.querySelector(`.station-btn[data-station="${CSS.escape(nextStation.dataset.nextStation)}"]`);
+        if (target) return this.toggleSign(target);
       }
+      const el = e.target.closest("[data-action]");
+      if (!el) return;
       if (el.dataset.action === "start") this.prepare(el.dataset.test, el.dataset.mode);
       if (el.dataset.action === "retake" && this.lastResult) this.prepare(this.lastResult.testId, this.lastResult.mode || "exam");
+      if (el.dataset.action === "scroll") {
+        const target = document.getElementById(el.dataset.target);
+        if (target) target.scrollIntoView({ block: "start" });
+      }
     }
 
-    /* Dashboard -------------------------------------------------------- */
+    /* Home: the network ------------------------------------------------ */
     renderHome() {
-      document.title = `${this.config.siteName} – IELTS-style Listening, Reading, Writing & Speaking practice`;
-      const mod = MODULE_LABELS[this.module] ? this.module : "reading";
-      const tests = this.tests.filter((t) => t.module === mod);
-      const modules = [
-        ["listening", "Listening", true],
-        ["reading", "Reading", true],
-        ["writing", "Writing", true],
-        ["speaking", "Speaking", true],
-      ];
-      const sections = {
-        reading: ["Academic Reading", "3 passages · 40 questions · 60 minutes. Answers are marked instantly with explanations."],
-        listening: ["Listening", "4 parts · 40 questions · about 22 minutes. Hear each recording once in the timed test, or pause and replay in practice mode. Marked instantly, with the full transcript."],
-        writing: ["Academic Writing", `2 tasks · 60 minutes. ${this.config.aiMarking
-          ? "Get an AI examiner’s band estimate and feedback on all four criteria."
-          : "Get automatic feedback, a checklist and model answers."}`],
-        speaking: ["Speaking", "3 parts · 11–14 minutes. An examiner asks the questions and your answers are recorded. Listen back, then get a band score and feedback from a real examiner."],
-      };
+      document.title = `${this.config.siteName} – ${t("title.home")}`;
       this.main.innerHTML = `
-        <section class="hero">
-          <h1>IELTS-style practice tests for all four skills</h1>
-          <p>Timed, computer-delivered practice for Listening, Academic Reading, Academic Writing and Speaking, with original
-            recordings and passages, instant scores, answer explanations, transcripts, and marking by real examiners.</p>
-        </section>
-
-        <div class="modules-nav" role="tablist" aria-label="Choose a module">
-          ${modules.map(([key, label, on]) => `
-            <button type="button" role="tab" class="module-tab-btn ${key === mod ? "active" : ""} ${on ? "" : "disabled"}"
-              data-module="${key}" aria-selected="${key === mod}" ${on ? "" : "disabled"}>
-              ${label}${on ? "" : ` <span class="module-badge">Coming soon</span>`}
-            </button>`).join("")}
-        </div>
-
-        ${this.loadError ? `<div class="notice notice-warn"><strong>${esc(this.loadError)}</strong></div>` : ""}
-
-        <section>
-          <div class="section-head">
-            <h2 class="section-title">${sections[mod][0]}</h2>
-            <p class="muted-text">${esc(sections[mod][1])}</p>
+        <section aria-labelledby="home-title">
+          <div class="network-head">
+            <h1 id="home-title">${t("Every line ends at test day.")}</h1>
+            <p>${t("home.lead")}</p>
           </div>
-          <div class="books-grid">${tests.map((t) => this.testCard(t)).join("") || `<p class="empty-note">No tests available yet.</p>`}</div>
+          ${this.loadError ? `<div class="notice notice-warn"><strong>${t("Could not load the tests. Please refresh the page.")}</strong></div>` : ""}
+          <div class="network" id="network">
+            <svg class="network-svg" id="network-svg" aria-hidden="true"></svg>
+            <ol class="lines-list" id="lines-list"></ol>
+            <button type="button" class="hub" data-action="scroll" data-target="ride">
+              <span class="hub-capsule" aria-hidden="true"></span>
+              <span class="hub-text"><span class="hub-name">${t("Test day")}</span><span class="hub-sub">${t("All lines meet here")}</span></span>
+            </button>
+          </div>
+          <div class="network-key">
+            <span><i class="key-ring is-free" aria-hidden="true"></i>${t("Free test")}</span>
+            <span><i class="key-ring" aria-hidden="true">${ICON_LOCK}</i>${t("Opens with the pass")}</span>
+            <span><i class="key-ring is-done" aria-hidden="true"></i>${t("Taken, with your band")}</span>
+          </div>
         </section>
 
-        <section id="history-section" hidden></section>
+        <section class="home-section" id="ride" aria-labelledby="ride-title">
+          <h2 id="ride-title">${t("How a test works")}</h2>
+          <p class="muted-text">${t("ride.sub")}</p>
+          <ol class="ride">
+            <li><span class="ride-stop" aria-hidden="true"></span><div><h3>${t("ride.1.title")}</h3><p>${t("ride.1.text")}</p></div></li>
+            <li><span class="ride-stop" aria-hidden="true"></span><div><h3>${t("ride.2.title")}</h3><p>${t("ride.2.text")}</p></div></li>
+            <li><span class="ride-stop" aria-hidden="true"></span><div><h3>${t("ride.3.title")}</h3><p>${t("ride.3.text")}</p></div></li>
+            <li><span class="ride-stop" aria-hidden="true"></span><div><h3>${t("ride.4.title")}</h3><p>${t("ride.4.text")}</p></div></li>
+          </ol>
+        </section>
 
-        <section class="how-grid" aria-label="How it works">
-          <div class="how-card"><span class="how-num">1</span><h3>Real test conditions</h3>
-            <p>The same split-screen layout, timer, highlighter and navigation you will see in the computer-delivered test.</p></div>
-          <div class="how-card"><span class="how-num">2</span><h3>Instant, honest feedback</h3>
-            <p>See your estimated band, your weakest question types and why every answer is right or wrong.</p></div>
-          <div class="how-card"><span class="how-num">3</span><h3>Original material</h3>
-            <p>Every passage, recording, question and task here is made for this site, so it is new to you and legal to use.</p></div>
+        <section id="history-section" class="home-section" hidden></section>
+
+        <section class="home-section pass-wrap" id="pass" aria-labelledby="pass-title">
+          ${Account.passCardHTML(this.prices && this.prices.plan)}
+          <div class="pass-copy">
+            <h2 id="pass-title">${t("One pass opens every station")}</h2>
+            <p class="muted-text">${t("pass.text")}</p>
+            <ul class="plan-points">
+              <li>${t("All Listening, Reading, Writing and Speaking tests")}</li>
+              <li>${t("Your first payment gives you two months")}</li>
+              <li>${t("No automatic charges: renew when you want")}</li>
+            </ul>
+            <div class="btn-row">
+              <button type="button" class="btn-primary btn-lg" data-action="buy-plan">${Account.planActive() ? t("Add another month") : t("Get the pass")}</button>
+              <a class="btn-secondary btn-lg" href="#/pricing">${t("See prices")}</a>
+            </div>
+            <p class="checks-line" data-checks>${this.checksLine()}</p>
+          </div>
         </section>`;
+      this.renderNetwork();
       this.loadHistory();
+      this.loadPrices();
+    }
+
+    checksLine() {
+      const p = this.prices;
+      const w = p ? esc(I18N.money(p.writing_check)) : "…";
+      const s = p ? esc(I18N.money(p.speaking_check)) : "…";
+      return `${t("checks.line", { writing: w, speaking: s })} <a href="#/examiners">${t("Meet the examiners")}</a>`;
+    }
+
+    async loadPrices() {
+      if (this.prices) return;
+      try {
+        const b = await Account.billing();
+        this.prices = b.prices || null;
+      } catch (e) { return; }
+      const price = this.main.querySelector('[data-price="plan"]');
+      if (price && this.prices) price.innerHTML = Account.passPriceHTML(this.prices.plan);
+      const checks = this.main.querySelector("[data-checks]");
+      if (checks) checks.innerHTML = this.checksLine();
     }
 
     hasProgress(testId) {
@@ -244,111 +296,313 @@
       return t.access === "free" || Account.planActive() || ["admin", "examiner"].includes(Account.role());
     }
 
-    testCard(t) {
-      const inProgress = this.hasProgress(t.id);
-      const items = t.module === "reading" ? t.passages.map((p) => [`P${p.number}`, p.title])
-        : t.module === "listening" ? t.parts.map((p) => [`P${p.number}`, p.title])
-          : t.module === "speaking" ? t.parts.map((p) => [`P${p.number}`, (p.topics || []).join(" · ") || p.title])
-            : t.tasks.map((k) => [`T${k.number}`, k.title]);
-      const body = `<ul class="test-passages-list">${items.map(([badge, title]) => `
-            <li class="test-passage-item"><span class="p-badge">${esc(badge)}</span><span>${esc(title)}</span></li>`).join("")}</ul>`;
-      const meta = t.module === "writing"
-        ? `<span>${t.durationMinutes} minutes</span><span>2 tasks</span>`
-        : t.module === "speaking" ? `<span>11–14 minutes</span><span>${t.totalQuestions} questions</span>`
-        : `<span>${t.module === "listening" ? "About " : ""}${t.durationMinutes} minutes</span><span>${t.totalQuestions} questions</span>`;
+    testsOf(module) {
+      return this.tests.filter((x) => x.module === module).sort((a, b) => (a.sortOrder - b.sortOrder) || a.id.localeCompare(b.id));
+    }
+
+    testName(test) {
+      const n = this.testsOf(test.module).indexOf(test) + 1;
+      return t("Test {n}", { n: n || test.sortOrder || 1 });
+    }
+
+    lineMeta(module) {
+      return {
+        listening: t("line.listening"),
+        reading: t("line.reading"),
+        writing: t("line.writing"),
+        speaking: t("line.speaking"),
+      }[module];
+    }
+
+    renderNetwork() {
+      const list = document.getElementById("lines-list");
+      if (!list) return;
+      const longest = Math.max(1, ...LINES.map((l) => this.testsOf(l.module).length));
+      list.style.setProperty("--rest", String(Math.max(1, longest - 1)));
+      list.innerHTML = LINES.map((line) => {
+        const tests = this.testsOf(line.module);
+        const done = tests.filter((x) => this.ridden[x.id]);
+        const next = done.length ? tests.find((x) => !this.ridden[x.id]) : null;
+        const free = tests.find((x) => x.access === "free" && !this.ridden[x.id]);
+        // On phones the station labels are too narrow for a "Next" tag, so the line's row names the next station.
+        const nextButton = !free && next ? `<button type="button" class="next-mobile" data-next-station="${esc(next.id)}"
+                  aria-controls="sign-${line.module}">${esc(t("Next: {name}", { name: this.testName(next) }))} ${ICON_ARROW}</button>` : "";
+        return `
+          <li class="line-row ${line.cls}" data-line="${line.module}">
+            <div class="line-main">
+              <div class="line-label">
+                <span class="bullet">${line.letter}</span>
+                <div><div class="line-name">${MODULE_LABELS[line.module]}</div><span class="line-meta">${esc(this.lineMeta(line.module))}</span></div>
+                ${free ? `<button type="button" class="start-free start-free-mobile" data-action="start" data-test="${esc(free.id)}" data-mode="exam"
+                  aria-label="${esc(t("Start {name}, free", { name: `${MODULE_LABELS[line.module]}, ${this.testName(free)}` }))}">${t("start.short")} ${ICON_ARROW}</button>` : nextButton}
+              </div>
+              <div class="track">
+                <ol class="stations">${tests.map((x) => this.stationHTML(x, line, x === next)).join("")}</ol>
+              </div>
+            </div>
+            <div class="station-sign" id="sign-${line.module}" role="region" aria-live="polite" hidden></div>
+          </li>`;
+      }).join("");
+      this.drawNetwork();
+    }
+
+    stationHTML(test, line, isNext) {
+      const ride = this.ridden[test.id];
+      const name = this.testName(test);
+      const label = `${MODULE_LABELS[test.module]}, ${name}${isNext ? `, ${t("Next")}` : ""}`;
+      const btn = (inner, extra = "") => `
+        <button type="button" class="station-btn" data-station="${esc(test.id)}" aria-expanded="false"
+          aria-controls="sign-${line.module}" aria-label="${esc(label)}: ${esc(t("details"))}" ${extra}>
+          ${inner}<span class="station-name">${esc(name)}</span></button>`;
+      if (test.access === "free" && !ride) {
+        return `
+          <li class="station is-free">
+            <div class="station-start">
+              ${btn(`<span class="station-ring" aria-hidden="true"></span>`)}
+              <button type="button" class="start-free" data-action="start" data-test="${esc(test.id)}" data-mode="exam"
+                aria-label="${esc(t("Start {name}, free", { name: label }))}">${t("Start free")} ${ICON_ARROW}</button>
+            </div>
+          </li>`;
+      }
+      const band = ride && ride.band !== null && ride.band !== undefined ? IeltsScoring.formatBand(ride.band) : "";
+      const ring = ride
+        ? `<span class="station-ring">${esc(band)}</span>`
+        : this.canOpen(test) ? `<span class="station-ring" aria-hidden="true"></span>`
+          : `<span class="station-ring is-locked" aria-hidden="true">${ICON_LOCK}</span>`;
+      return `<li class="station ${ride ? "is-done" : ""} ${isNext ? "is-next" : ""}">${btn(ring, isNext ? `data-next="${esc(t("Next"))}"` : "")}</li>`;
+    }
+
+    /** Curves that carry every line into the Test day interchange. */
+    drawNetwork() {
+      const net = document.getElementById("network");
+      if (!net) return;
+      const draw = () => {
+        const svg = net.querySelector("#network-svg");
+        const hub = net.querySelector(".hub-capsule");
+        if (!svg || !hub) return;
+        // Every line's first column is as wide as the widest first station, so Test n lines up.
+        const list = net.querySelector("#lines-list");
+        list.style.removeProperty("--first-cell");
+        const firsts = [...net.querySelectorAll(".station:first-child")];
+        if (firsts.length) list.style.setProperty("--first-cell", `${Math.ceil(Math.max(...firsts.map((el) => el.getBoundingClientRect().width)))}px`);
+        const box = net.getBoundingClientRect();
+        const tracks = [...net.querySelectorAll(".track")];
+        if (!tracks.length || !box.width) return;
+        this.netPaths = {};
+        const step = 12;
+        const n = tracks.length;
+        // Wide screens: the lines curve into the interchange at the right. Phones: they turn
+        // down a gutter on the right, side by side, into the interchange below the last line.
+        const narrow = window.matchMedia("(max-width: 860px)").matches;
+        hub.style.height = narrow ? "" : `${n * step + 14}px`;
+        hub.style.width = narrow ? `${n * step + 14}px` : "";
+        const hb = hub.getBoundingClientRect();
+        const hx = hb.left - box.left + hb.width / 2;
+        const hy = hb.top - box.top + hb.height / 2;
+        const f = (v) => v.toFixed(1);
+        const paths = tracks.map((tr, i) => {
+          const r = tr.getBoundingClientRect();
+          const x0 = r.right - box.left - 1;
+          const y0 = r.top - box.top + r.height / 2;
+          const color = getComputedStyle(tr).getPropertyValue("--line").trim();
+          let d;
+          if (narrow) {
+            const lane = hx + ((n - 1) / 2 - i) * step;
+            const rad = 14;
+            d = `M${f(x0)},${f(y0)} H${f(lane - rad)} Q${f(lane)},${f(y0)} ${f(lane)},${f(y0 + rad)} V${f(hy)}`;
+          } else {
+            const y1 = hy + (i - (n - 1) / 2) * step;
+            const mid = x0 + (hx - x0) * 0.5;
+            d = `M${f(x0)},${f(y0)} C${f(mid)},${f(y0)} ${f(mid)},${f(y1)} ${f(hx)},${f(y1)}`;
+          }
+          this.netPaths[tr.closest(".line-row").dataset.line] = { x0, y0, d, box };
+          return `<path d="${d}" fill="none" stroke="${color}" stroke-width="10" stroke-linecap="butt"/>`;
+        });
+        svg.setAttribute("viewBox", `0 0 ${box.width.toFixed(1)} ${box.height.toFixed(1)}`);
+        svg.innerHTML = paths.join("");
+      };
+      draw();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+      if (this.netObserver) this.netObserver.disconnect();
+      if (window.ResizeObserver) {
+        this.netObserver = new ResizeObserver(() => requestAnimationFrame(draw));
+        this.netObserver.observe(net);
+      }
+    }
+
+    closeSigns() {
+      document.querySelectorAll(".station-sign").forEach((s) => { s.hidden = true; s.innerHTML = ""; });
+      document.querySelectorAll(".station-btn[aria-expanded='true']").forEach((b) => b.setAttribute("aria-expanded", "false"));
+    }
+
+    toggleSign(btn) {
+      const open = btn.getAttribute("aria-expanded") === "true";
+      this.closeSigns();
+      if (open) return;
+      const test = this.tests.find((x) => x.id === btn.dataset.station);
+      if (!test) return;
+      const line = lineOf(test.module);
+      const sign = document.getElementById(`sign-${test.module}`);
+      btn.setAttribute("aria-expanded", "true");
+      sign.innerHTML = this.signHTML(test, line);
+      sign.hidden = false;
+      // Point the sign at its station.
+      const ring = btn.querySelector(".station-ring");
+      const at = ring.getBoundingClientRect();
+      sign.style.setProperty("--notch-x", `${Math.round(at.left + at.width / 2 - sign.getBoundingClientRect().left)}px`);
+      this.drawNetwork();
+      this.runTrain(test.module, btn);
+      const primary = sign.querySelector(".btn-line, .btn-primary");
+      if (primary) primary.focus({ preventScroll: true });
+      sign.scrollIntoView({ block: "nearest" });
+    }
+
+    /** A train leaves the opened station and runs along its line to Test day: this line leads there. */
+    runTrain(module, btn) {
+      const path = this.netPaths && this.netPaths[module];
+      const svg = document.getElementById("network-svg");
+      if (!path || !svg || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const ring = btn.querySelector(".station-ring").getBoundingClientRect();
+      const box = document.getElementById("network").getBoundingClientRect();
+      const sx = ring.left + ring.width / 2 - box.left;
+      const sy = ring.top + ring.height / 2 - box.top;
+      const route = `M${sx.toFixed(1)},${sy.toFixed(1)} L${path.x0.toFixed(1)},${path.y0.toFixed(1)} ${path.d.slice(path.d.indexOf(" ") + 1)}`;
+      svg.querySelectorAll(".network-train").forEach((el) => el.remove());
+      const ns = "http://www.w3.org/2000/svg";
+      const train = document.createElementNS(ns, "circle");
+      train.setAttribute("r", "6");
+      train.setAttribute("class", "network-train");
+      const move = document.createElementNS(ns, "animateMotion");
+      move.setAttribute("dur", "1.3s");
+      move.setAttribute("fill", "freeze");
+      move.setAttribute("calcMode", "spline");
+      move.setAttribute("keyTimes", "0;1");
+      move.setAttribute("keySplines", "0.45 0 0.2 1");
+      move.setAttribute("path", route);
+      train.appendChild(move);
+      svg.appendChild(train);
+      if (move.beginElement) move.beginElement();
+      setTimeout(() => train.remove(), 1500);
+    }
+
+    signHTML(test, line) {
+      const ride = this.ridden[test.id];
+      const items = test.module === "reading" ? test.passages.map((p) => [`P${p.number}`, p.title])
+        : test.module === "listening" ? test.parts.map((p) => [`${p.number}`, p.title])
+          : test.module === "speaking" ? test.parts.map((p) => [`${p.number}`, (p.topics || []).join(" · ") || p.title])
+            : test.tasks.map((k) => [`T${k.number}`, k.title]);
+      const meta = test.module === "writing" ? t("{min} minutes · 2 tasks", { min: test.durationMinutes })
+        : test.module === "speaking" ? t("11–14 minutes · {q} questions", { q: test.totalQuestions })
+          : test.module === "listening" ? t("About {min} minutes · {q} questions", { min: test.durationMinutes, q: test.totalQuestions })
+            : t("{min} minutes · {q} questions", { min: test.durationMinutes, q: test.totalQuestions });
+      const locked = !this.canOpen(test);
+      const tag = test.access === "free" ? `<span class="sign-tag is-free">${t("Free")}</span>`
+        : !locked ? `<span class="sign-tag">${t("In your pass")}</span>`
+          : `<span class="sign-tag is-locked">${t("Opens with the pass")}</span>`;
+      const extra = [
+        this.hasProgress(test.id) ? t("Unfinished attempt saved") : "",
+        ride && ride.band !== null && ride.band !== undefined ? t("Your last band: {band}", { band: IeltsScoring.formatBand(ride.band) }) : "",
+      ].filter(Boolean).join(" · ");
       return `
-        <article class="test-card">
-          <div>
-            <div class="test-card-header">
-              <span class="test-card-book">${["listening", "speaking"].includes(t.module) ? MODULE_LABELS[t.module] : `Academic ${MODULE_LABELS[t.module]}`}</span>
-              <span class="card-badges">
-                ${inProgress ? `<span class="badge-progress">In progress</span>` : ""}
-                ${t.access === "free" ? `<span class="badge-free">Free</span>`
-                  : `<span class="badge-plan ${this.canOpen(t) ? "is-open" : ""}" title="${this.canOpen(t) ? "Included in your plan" : "Needs the monthly plan"}">
-                      ${this.canOpen(t) ? "" : `<svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9h-2zm-8-2a3 3 0 0 1 6 0v2H9V7z"/></svg>`}Plan</span>`}
-              </span>
-            </div>
-            <h3 class="test-card-title">${esc(t.shortTitle)}</h3>
-            ${body}
-          </div>
-          <div>
-            <div class="test-card-meta">${meta}</div>
-            <div class="test-card-actions">
-              <button type="button" class="btn-start-exam" data-action="start" data-test="${esc(t.id)}" data-mode="exam">Start timed test</button>
-              <button type="button" class="btn-practice-mode" data-action="start" data-test="${esc(t.id)}" data-mode="practice" title="No time limit">Practice</button>
-            </div>
-          </div>
-        </article>`;
+        <div>
+          <div class="sign-title"><span class="bullet sm">${line.letter}</span><h3>${esc(MODULE_LABELS[test.module])} · ${esc(this.testName(test))}</h3>${tag}</div>
+          <ul class="sign-items">${items.map(([k, v]) => `<li><b>${esc(k)}</b>${esc(v)}</li>`).join("")}</ul>
+          <p class="sign-meta">${esc(meta)}${extra ? ` · ${esc(extra)}` : ""}</p>
+          ${locked ? `<p class="sign-pass">${this.prices
+            ? t("This station opens with the monthly pass: {price} a month, and your first payment gives two months.", { price: `<strong>${esc(I18N.money(this.prices.plan))}</strong>` })
+            : t("This station opens with the monthly pass.")}</p>` : ""}
+        </div>
+        <div class="sign-actions">
+          ${locked ? `
+          <a class="btn-secondary" href="#/pricing">${t("See prices")}</a>
+          <button type="button" class="btn-line" data-action="buy-plan">${t("Get the pass")} ${ICON_ARROW}</button>` : `
+          <button type="button" class="btn-secondary" data-action="start" data-test="${esc(test.id)}" data-mode="practice">${t("Practice, no timer")}</button>
+          <button type="button" class="btn-line" data-action="start" data-test="${esc(test.id)}" data-mode="exam">${ride ? t("Take it again") : t("Start timed test")} ${ICON_ARROW}</button>`}
+        </div>`;
     }
 
     async loadHistory() {
-      const section = document.getElementById("history-section");
-      if (!section) return;
       let items = [];
       try {
         items = (await U.api(`/api/history?clientId=${encodeURIComponent(U.clientId())}`)).items || [];
       } catch (e) { return; }
-      if (!items.length || !document.body.contains(section)) return;
-      const titleOf = (id) => {
-        const t = this.tests.find((x) => x.id === id);
-        return t ? `${MODULE_LABELS[t.module] || t.module} · ${t.shortTitle}` : id;
-      };
+      this.history = items;
+      // The latest attempt at each test marks its station as ridden.
+      const ridden = {};
+      [...items].reverse().forEach((i) => { ridden[i.testId] = { band: i.bandScore, module: i.module }; });
+      const changed = JSON.stringify(ridden) !== JSON.stringify(this.ridden);
+      this.ridden = ridden;
+      U.store.set("testday:ridden", ridden);
+      if (changed && document.getElementById("lines-list")) this.renderNetwork();
+      this.renderHistory(items);
+    }
+
+    renderHistory(items) {
+      const section = document.getElementById("history-section");
+      if (!section || !items.length) return;
+      const testOf = (id) => this.tests.find((x) => x.id === id);
       section.hidden = false;
       section.innerHTML = `
-        <h2 class="section-title">Your recent attempts</h2>
-        <p class="muted-text section-sub">${Account.user() ? "Saved in your account." : "Saved for this browser only. Sign in to keep them on every device."}</p>
+        <h2 class="section-title">${t("Your recent tests")}</h2>
+        <p class="muted-text section-sub">${Account.user() ? t("Saved in your account.") : t("Saved for this browser only. Sign in to keep them on every device.")}</p>
         <div class="table-scroll"><table class="history-table">
-          <thead><tr><th scope="col">Date</th><th scope="col">Test</th><th scope="col">Result</th><th scope="col">Time used</th></tr></thead>
-          <tbody>${items.slice(0, 10).map((i) => `
+          <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Test")}</th><th scope="col">${t("Result")}</th><th scope="col">${t("Time used")}</th></tr></thead>
+          <tbody>${items.slice(0, 10).map((i) => {
+            const test = testOf(i.testId);
+            const line = lineOf(i.module);
+            const name = test ? `${MODULE_LABELS[test.module]} · ${this.testName(test)}` : i.testId;
+            return `
             <tr>
               <td>${esc(U.formatDate(i.createdAt))}</td>
-              <td>${esc(titleOf(i.testId))}${i.mode === "practice" ? ` <span class="muted-text">(practice)</span>` : ""}</td>
+              <td><span class="bullet sm ${line.cls}" aria-hidden="true">${line.letter}</span>${esc(name)}${i.mode === "practice" ? ` <span class="muted-text">(${t("practice")})</span>` : ""}</td>
               <td>${i.module === "speaking" ? this.speakingHistoryCell(i)
                 : i.module !== "writing"
-                ? `<strong>Band ${IeltsScoring.formatBand(i.bandScore)}</strong> <span class="muted-text">(${i.rawScore}/${i.totalQuestions})</span>`
-                : i.bandScore !== null && i.bandScore !== undefined ? `<strong>Band ${IeltsScoring.formatBand(i.bandScore)}</strong>` : `<span class="muted-text">Feedback only (${i.task1Words}+${i.task2Words} words)</span>`}</td>
+                ? `<strong>${t("Band {band}", { band: IeltsScoring.formatBand(i.bandScore) })}</strong> <span class="muted-text">(${i.rawScore}/${i.totalQuestions})</span>`
+                : i.bandScore !== null && i.bandScore !== undefined ? `<strong>${t("Band {band}", { band: IeltsScoring.formatBand(i.bandScore) })}</strong>`
+                  : `<span class="muted-text">${t("Feedback only ({words} words)", { words: `${i.task1Words}+${i.task2Words}` })}</span>`}</td>
               <td>${U.formatDuration(i.timeSpentSeconds)}</td>
-            </tr>`).join("")}</tbody>
+            </tr>`;
+          }).join("")}</tbody>
         </table></div>`;
     }
 
     speakingHistoryCell(i) {
-      const band = i.bandScore !== null && i.bandScore !== undefined ? `<strong>Band ${IeltsScoring.formatBand(i.bandScore)}</strong> ` : "";
-      const status = i.checkStatus && i.checkStatus !== "completed" ? `<span class="muted-text">Examiner marking</span> ` : "";
-      return `${band}${status}<a href="#/speaking/${Number(i.id)}">Listen (${i.answered} answers)</a>`;
+      const band = i.bandScore !== null && i.bandScore !== undefined ? `<strong>${t("Band {band}", { band: IeltsScoring.formatBand(i.bandScore) })}</strong> ` : "";
+      const status = i.checkStatus && i.checkStatus !== "completed" ? `<span class="muted-text">${t("Examiner marking")}</span> ` : "";
+      return `${band}${status}<a href="#/speaking/${Number(i.id)}">${t("Listen ({n} answers)", { n: i.answered })}</a>`;
     }
 
     /* Pre-test instructions -------------------------------------------- */
     async prepare(testId, mode) {
-      const summary = this.tests.find((t) => t.id === testId);
+      const summary = this.tests.find((x) => x.id === testId);
       if (summary && summary.module === "speaking" && !Account.user()) {
         // Recordings are saved to the account, so Speaking needs sign-in (Test 1 stays free).
-        if (!(await Account.login("Sign in to take a Speaking test. Your answers are recorded and saved to your account. Speaking Test 1 is free."))) return;
+        if (!(await Account.login(t("signin.speaking")))) return;
         this.renderIfHome();
       }
       try {
-        const test = await U.api(`/api/tests/${encodeURIComponent(testId)}`);
+        const [test] = await Promise.all([U.api(`/api/tests/${encodeURIComponent(testId)}`), U.need("exam")]);
         this.pending = { test, mode: mode === "practice" ? "practice" : "exam" };
         if (location.hash === "#/start") this.showVerification();
         else location.hash = "#/start";
       } catch (err) {
         // Locked tests: sign in first, or offer the plan. Retry once the user can open it.
         if (err.status === 401) {
-          if (await Account.login("Sign in to open this test. Test 1 of each module is free; the others come with the monthly plan.")) {
+          if (await Account.login(t("signin.locked"))) {
             this.renderIfHome();
             return this.prepare(testId, mode);
           }
           return;
         }
         if (err.status === 402) {
-          const signedIn = await Account.paywall(this.tests.find((t) => t.id === testId));
+          const signedIn = await Account.paywall(this.tests.find((x) => x.id === testId));
           if (signedIn) {
             this.renderIfHome();
             if (Account.planActive()) return this.prepare(testId, mode);
           }
           return;
         }
-        U.modal({ title: "Could not load the test", bodyHTML: `<p>${esc(err.message)}</p>` });
+        U.modal({ title: t("Could not load the test"), bodyHTML: `<p>${esc(err.message)}</p>` });
       }
     }
 
@@ -364,6 +618,7 @@
       const progress = U.store.get(`mockexam:progress:${test.id}`);
       const canResume = progress && progress.mode === mode;
       const checkMinutes = test.checkMinutes || 2;
+      const line = lineOf(module);
       const instructions = module === "speaking"
         ? [
           `There are <strong>3 parts</strong> and the test takes <strong>11–14 minutes</strong>. The examiner asks the questions; your answers are recorded.`,
@@ -403,9 +658,11 @@
           `Your writing is saved in this browser as you type.`,
         ];
 
-      document.getElementById("verification-card").innerHTML = `
+      const card = document.getElementById("verification-card");
+      card.className = `verification-card ${line.cls}`;
+      card.innerHTML = `
         <div class="verification-header">
-          <div class="vh-title"><span class="site-logo small" aria-hidden="true">M</span> ${["listening", "speaking"].includes(module) ? MODULE_LABELS[module] : `Academic ${MODULE_LABELS[module]}`}</div>
+          <div class="vh-title"><span class="bullet sm">${line.letter}</span> ${["listening", "speaking"].includes(module) ? MODULE_LABELS[module] : `Academic ${MODULE_LABELS[module]}`}</div>
           <span class="vh-mode">${timed ? "Timed test" : "Practice mode"}</span>
         </div>
         <form class="verification-body" id="verify-form">
@@ -434,19 +691,19 @@
             </div>` : ""}
           ${canResume ? `
             <label class="check-row resume-row"><input type="checkbox" id="resume-check" checked />
-              Resume my unfinished attempt (saved ${esc(U.formatDate(new Date(progress.savedAt).toISOString()))})</label>` : ""}
+              Resume my unfinished attempt (saved ${esc(U.formatDate(new Date(progress.savedAt).toISOString(), "en-GB"))})</label>` : ""}
           <div class="candidate-field-group">
             <label for="cand-name">Your name (shown on your results)</label>
             <input id="cand-name" maxlength="80" autocomplete="name" value="${esc(U.store.get("mockexam:name", ""))}" placeholder="Candidate" />
           </div>
           <div class="verification-footer">
             <button type="button" class="btn-secondary" id="verify-cancel">Back to tests</button>
-            <button type="submit" class="btn-primary btn-lg">Start test</button>
+            <button type="submit" class="btn-line btn-lg">Start test</button>
           </div>
         </form>`;
       this.showView("verification");
       const stopSoundCheck = module === "listening" ? this.bindSoundCheck()
-        : module === "speaking" ? Speaking.bindMicCheck(document.getElementById("verification-card")) : () => {};
+        : module === "speaking" ? Speaking.bindMicCheck(card) : () => {};
       document.getElementById("verify-cancel").addEventListener("click", () => {
         stopSoundCheck();
         this.pending = null;
@@ -462,7 +719,8 @@
         if (!resume) U.store.remove(`mockexam:progress:${test.id}`);
         this.launch(test, mode, name, resume ? progress : null);
       });
-      document.getElementById("cand-name").focus();
+      // On a phone the keyboard would cover the instructions; focus the name only where there is room.
+      if (window.matchMedia("(min-width: 720px)").matches) document.getElementById("cand-name").focus();
     }
 
     /** Sound check on the Listening instructions screen. Returns a function that stops it. */
@@ -519,9 +777,10 @@
       else location.hash = "#/results";
     }
 
-    renderResults() {
+    async renderResults() {
       const r = this.lastResult;
-      document.title = `Your results – ${this.config.siteName}`;
+      if (r.module === "writing") await U.need("exam"); // Task 1 charts
+      document.title = `${t("Your results")} – ${this.config.siteName}`;
       if (r.module === "writing") Results.renderWriting(r, this.main);
       else if (r.module === "listening") Results.renderListening(r, this.main);
       else Results.renderReading(r, this.main);
@@ -529,82 +788,65 @@
 
     /* Static pages ----------------------------------------------------- */
     renderResources() {
-      document.title = `Free official resources – ${this.config.siteName}`;
+      document.title = `${t("Free official resources")} – ${this.config.siteName}`;
       this.main.innerHTML = `
         <section class="page">
-          <h1>Free official IELTS resources</h1>
-          <p class="lead-text">Combine our practice tests with the free material published by the organisations that run the exam.
-            These links open the official websites. We do not copy or host their material.</p>
+          <h1>${t("Free official IELTS resources")}</h1>
+          <p class="lead-text">${t("res.lead")}</p>
           ${OFFICIAL_RESOURCES.map((g) => `
             <div class="resource-group">
-              <h2 class="section-title">${esc(g.group)}</h2>
-              <p class="muted-text">${esc(g.note)}</p>
+              <h2 class="section-title">${t(g.group)}</h2>
+              <p class="muted-text">${t(g.note)}</p>
               <ul class="resource-list">
                 ${g.links.map((l) => `
-                  <li><a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.title)}</a>
+                  <li><a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer" lang="en">${esc(l.title)}</a>
                     <span class="resource-org">${esc(l.org)}</span></li>`).join("")}
               </ul>
             </div>`).join("")}
-          <div class="notice notice-info"><strong>Tip</strong><span>Take one of our timed tests first to find your weakest
-            question types, then use the official samples to check that your technique matches the real exam.</span></div>
+          <div class="notice notice-info"><strong>${t("Tip")}</strong><span>${t("res.tip")}</span></div>
         </section>`;
     }
 
     renderAbout() {
-      document.title = `About & legal – ${this.config.siteName}`;
+      document.title = `${t("About, privacy and legal")} – ${this.config.siteName}`;
       const name = esc(this.config.siteName);
       const contact = this.config.contactEmail
         ? `<a href="mailto:${esc(this.config.contactEmail)}">${esc(this.config.contactEmail)}</a>`
-        : "the contact address published by the site owner";
+        : t("the contact address published by the site owner");
+      const days = Number(this.config.speakingKeepDays) || 60;
       this.main.innerHTML = `
         <section class="page prose">
-          <h1>About ${name}</h1>
-          <p class="lead-text">${name} is a practice website for people preparing for the Listening, Academic Reading,
-            Academic Writing and Speaking papers of the IELTS test. It recreates the computer-delivered test environment so you can practise under realistic conditions.</p>
+          <h1>${t("About {name}", { name })}</h1>
+          <p class="lead-text">${t("about.lead", { name })}</p>
 
-          <h2>Independent website</h2>
-          <p>${name} is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University
-            Press &amp; Assessment (the IELTS partners). “IELTS” is a registered trademark of its owners and is used on this site
-            only to describe the exam that our practice material helps you prepare for.</p>
+          <h2>${t("Independent website")}</h2>
+          <p>${t("about.independent", { name })}</p>
 
-          <h2>Our content</h2>
+          <h2>${t("Our content")}</h2>
           <ul>
-            <li>All reading passages, questions, answer explanations, writing tasks and model answers were written specifically for this site.
-              They are not copied or adapted from official IELTS tests or from published practice books.</li>
-            <li>Facts in the reading passages and lectures come from widely available public knowledge. The data in Writing Task 1 charts,
-              and the people and places in the recordings, are fictional.</li>
-            <li>The listening recordings and the Speaking examiner’s questions are original scripts voiced by computer-generated speech,
-              made with the open-source Kokoro text-to-speech model (Apache 2.0 licence). No real person’s voice is used.</li>
-            <li>For official practice material, see our <a href="#/resources">free official resources</a> page, which links to the official websites.</li>
+            <li>${t("about.content.1")}</li>
+            <li>${t("about.content.2")}</li>
+            <li>${t("about.content.3")}</li>
+            <li>${t("about.content.4")}</li>
           </ul>
 
-          <h2>About your scores</h2>
+          <h2>${t("About your scores")}</h2>
           <ul>
-            <li><strong>Listening and Reading:</strong> your band is estimated from your raw score using a typical conversion table
-              for each paper. Official tests adjust these tables slightly for each version.</li>
-            <li><strong>Writing:</strong> ${this.config.aiMarking
-              ? "when you request it, an AI examiner estimates a band for each of the four public Writing criteria."
-              : "automatic feedback checks length, structure and language features."}
-              These are practice estimates only and are not official IELTS results.</li>
-            <li><strong>Speaking:</strong> your answers are marked only if you order a check from one of our examiners, who gives a band
-              for each of the four public Speaking criteria. This is a practice band, not an official IELTS result.</li>
+            <li>${t("about.scores.lr")}</li>
+            <li>${this.config.aiMarking ? t("about.scores.writing.ai") : t("about.scores.writing")}</li>
+            <li>${t("about.scores.speaking")}</li>
           </ul>
 
-          <h2>Privacy</h2>
+          <h2>${t("Privacy")}</h2>
           <ul>
-            <li>When you submit a test we store the name you typed, your answers or essays, your scores and an anonymous ID for this browser,
-              so that we can show your recent attempts.</li>
-            <li>If you sign in, we also store your email address (and your name if you add it), your plan and your payments, so your results
-              and purchases work on every device. Sign-in codes are sent by our email provider; Google sign-in only shares your name and email with us.</li>
-            <li>If you take a Speaking test, your recorded answers are stored privately in your account. Only you can play them, and the
-              examiner you choose if you order a check. Recordings are deleted automatically after ${Number(this.config.speakingKeepDays) || 60} days.</li>
-            <li>If you order an examiner check, the examiner you choose sees your essays or hears your recordings, and sees the name on your
-              results, but not your email address.</li>
-            <li>Payments are handled by Payme, Click or your bank. We never see or store your card details.</li>
-            ${this.config.aiMarking ? `<li>If you request AI feedback, your essays are sent to our AI provider (Anthropic) for marking.
-              Do not include personal information in your essays.</li>` : ""}
-            <li>Unfinished answers, your display preferences and your last result are kept in your own browser's local storage.</li>
-            <li>We do not sell your data or show advertising. To have your stored attempts deleted, contact ${contact}.</li>
+            <li>${t("about.privacy.1")}</li>
+            <li>${t("about.privacy.2")}</li>
+            <li>${t("about.privacy.3", { days })}</li>
+            <li>${t("about.privacy.4")}</li>
+            <li>${t("about.privacy.5")}</li>
+            ${this.config.aiMarking ? `<li>${t("about.privacy.ai")}</li>` : ""}
+            <li>${t("about.privacy.6")}</li>
+            <li>${t("about.privacy.7", { contact })}</li>
           </ul>
         </section>`;
     }

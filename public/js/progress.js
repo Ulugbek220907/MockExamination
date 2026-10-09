@@ -23,7 +23,9 @@
 
   const band = (v) => IeltsScoring.formatBand(v);
   const dayKey = (iso) => new Date(iso).toISOString().slice(0, 10);
-  const shortDate = (t) => new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+  const loc = () => (window.I18N ? I18N.locale() : undefined);
+  const shortDate = (t) => new Date(t).toLocaleDateString(loc(), { day: "numeric", month: "short" });
+  const ARROW = (up) => `<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="${up ? "M5 1.5 9 7.5H1z" : "M5 8.5 1 2.5h8z"}" fill="currentColor"/></svg>`;
   const titleOf = (id) => {
     const t = ((window.app && window.app.tests) || []).find((x) => x.id === id);
     return t ? t.shortTitle : id;
@@ -34,13 +36,13 @@
       const pts = points.filter((p) => p.module === key);
       const last = pts[pts.length - 1];
       const prev = pts[pts.length - 2];
-      let delta = `<span class="tile-delta is-flat">${pts.length ? "First test" : "No tests yet"}</span>`;
+      let delta = `<span class="tile-delta is-flat">${pts.length ? t("First test") : t("No tests yet")}</span>`;
       if (last && prev) {
         const d = last.band - prev.band;
         delta = d === 0
-          ? `<span class="tile-delta is-flat">= same as last time</span>`
-          : `<span class="tile-delta ${d > 0 ? "is-up" : "is-down"}"><span aria-hidden="true">${d > 0 ? "▲" : "▼"}</span>
-              ${d > 0 ? "+" : "−"}${band(Math.abs(d))} since last time</span>`;
+          ? `<span class="tile-delta is-flat">${t("Same as last time")}</span>`
+          : `<span class="tile-delta ${d > 0 ? "is-up" : "is-down"}">${ARROW(d > 0)}
+              ${t("{delta} since last time", { delta: `${d > 0 ? "+" : "−"}${band(Math.abs(d))}` })}</span>`;
       }
       const best = pts.length ? Math.max(...pts.map((p) => p.band)) : null;
       return `
@@ -48,7 +50,7 @@
           <div class="tile-label"><span class="line-key" style="background:${color}" aria-hidden="true"></span>${label}</div>
           <div class="tile-value">${last ? band(last.band) : "–"}</div>
           ${delta}
-          <div class="tile-sub">${pts.length ? `Best ${band(best)} · ${pts.length} test${pts.length === 1 ? "" : "s"}` : "&nbsp;"}</div>
+          <div class="tile-sub">${pts.length ? `${t("Best {band}", { band: band(best) })} · ${I18N.plural(pts.length, { en: ["{n} test", "{n} tests"], uz: ["{n} ta test"], ru: ["{n} тест", "{n} теста", "{n} тестов"] })}` : "&nbsp;"}</div>
         </div>`;
     }).join("")}</div>`;
   }
@@ -90,8 +92,9 @@
     const lines = present.map(([key, , color]) => {
       const pts = points.filter((p) => p.module === key).map((p) => [X(new Date(p.date).getTime()), Y(p.band)]);
       const d = pts.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join("");
-      return `<path d="${d}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-        ${pts.map(([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4" fill="${color}" class="pv-dot"/>`).join("")}`;
+      // Drawn like the home page's lines: a thick line with a station ring at every test.
+      return `<path d="${d}" fill="none" stroke="${color}" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        ${pts.map(([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="var(--pv-surface)" stroke="${color}" stroke-width="3"/>`).join("")}`;
     }).join("");
 
     // Direct labels at each line's end – only when none of them collide (the legend and table always remain).
@@ -105,7 +108,7 @@
 
     return `
       <svg class="pv-svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" tabindex="0"
-        aria-label="Band scores over time for ${present.map((s) => s[1]).join(", ")}. Use the left and right arrow keys to read each date.">
+        aria-label="${esc(t("Band scores over time for {modules}. Use the left and right arrow keys to read each date.", { modules: present.map((s) => s[1]).join(", ") }))}">
         ${grid.join("")}
         <line class="pv-cross" x1="0" x2="0" y1="${M.top}" y2="${H - M.bottom}" visibility="hidden"/>
         ${lines}${labels}
@@ -117,12 +120,12 @@
   function table(points) {
     return `
       <details class="fold pv-table">
-        <summary>Show as a table</summary>
+        <summary>${t("Show as a table")}</summary>
         <div class="table-scroll"><table class="history-table">
-          <thead><tr><th scope="col">Date</th><th scope="col">Module</th><th scope="col">Test</th><th scope="col">Band</th><th scope="col">Marked by</th></tr></thead>
+          <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Module")}</th><th scope="col">${t("Test")}</th><th scope="col">${t("Band")}</th><th scope="col">${t("Marked by")}</th></tr></thead>
           <tbody>${points.slice().reverse().map((p) => `
             <tr><td>${esc(U.formatDate(p.date))}</td><td>${esc((SERIES.find((s) => s[0] === p.module) || [, p.module])[1])}</td>
-              <td>${esc(titleOf(p.testId))}</td><td><strong>${band(p.band)}</strong></td><td>${esc(SOURCE[p.source] || "")}</td></tr>`).join("")}</tbody>
+              <td>${esc(titleOf(p.testId))}</td><td><strong>${band(p.band)}</strong></td><td>${esc(t(SOURCE[p.source] || ""))}</td></tr>`).join("")}</tbody>
         </table></div>
       </details>`;
   }
@@ -150,7 +153,7 @@
       tip.textContent = "";
       const head = document.createElement("div");
       head.className = "pv-tip-date";
-      head.textContent = new Date(onDay[0].date).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
+      head.textContent = new Date(onDay[0].date).toLocaleDateString(loc(), { day: "numeric", month: "long", year: "numeric" });
       tip.appendChild(head);
       SERIES.forEach(([key, label, color]) => {
         const last = onDay.filter((p) => p.module === key).pop();
@@ -202,14 +205,14 @@
     if (!el) return;
     if (!points.length) {
       el.innerHTML = `
-        <h2 class="section-title">Your progress</h2>
-        <p class="empty-inline">Take a timed Listening or Reading test, or get a Writing or Speaking test marked, and your band scores will appear here.</p>`;
+        <h2 class="section-title">${t("Your progress")}</h2>
+        <p class="empty-inline">${t("progress.empty")}</p>`;
       return;
     }
     const present = SERIES.filter(([key]) => points.some((p) => p.module === key));
     el.innerHTML = `
-      <h2 class="section-title">Your progress</h2>
-      <p class="muted-text section-sub">Timed Listening and Reading tests, and marked Writing and Speaking tests.</p>
+      <h2 class="section-title">${t("Your progress")}</h2>
+      <p class="muted-text section-sub">${t("Timed Listening and Reading tests, and marked Writing and Speaking tests.")}</p>
       ${tiles(points)}
       <div class="progress-viz">
         <div class="pv-legend">${present.map(([, label, color]) =>
