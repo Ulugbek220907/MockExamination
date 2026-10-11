@@ -68,8 +68,10 @@ def money(amount):
 # --------------------------------------------------------------------------
 
 def _post_json(url, payload, headers=None):
+    # Resend sits behind Cloudflare, which refuses Python's default "Python-urllib" agent (error 1010).
     req = urllib.request.Request(url, data=json.dumps(payload).encode("utf-8"), method="POST",
-                                 headers={"Content-Type": "application/json", **(headers or {})})
+                                 headers={"Content-Type": "application/json", "User-Agent": "TestDay/1.0 (+https://www.testday.uz)",
+                                          **(headers or {})})
     with urllib.request.urlopen(req, timeout=15) as resp:
         return resp.status
 

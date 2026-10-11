@@ -101,8 +101,8 @@ class BaseHandler(tornado.web.RequestHandler):
         exc = (kwargs.get("exc_info") or (None, None, None))[1]
         if isinstance(exc, tornado.web.HTTPError) and exc.log_message:
             message = exc.log_message % exc.args if exc.args else exc.log_message
-        if status_code >= 500:
-            message = "Internal server error"
+        if status_code >= 500 and not getattr(exc, "public", False):
+            message = "Internal server error"  # never leak internals; ApiError messages are written for users
         body = {"error": message}
         if getattr(exc, "code", None):
             body["code"] = exc.code
