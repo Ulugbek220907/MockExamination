@@ -57,7 +57,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, api, auth, content, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, api, auth, content, notify, scoring, speaking, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -90,9 +90,15 @@ STORE = storage.create_store()
 
 
 def create_auth():
+    supabase = None
     if STORE.name == "supabase":
         key = (os.environ.get("SUPABASE_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or "").strip()
-        return auth.SupabaseAuth(os.environ["SUPABASE_URL"].strip(), key)
+        supabase = auth.SupabaseAuth(os.environ["SUPABASE_URL"].strip(), key)
+    if notify.email_enabled() and os.environ.get("AUTH_DEV_CODES") != "1":
+        # Our own branded code emails through Resend; Google still goes through Supabase.
+        return auth.EmailCodeAuth(STORE.db, cookie_secret(), fallback=supabase)
+    if supabase:
+        return supabase
     log.warning("Sign-in runs in development mode: codes are written to this log instead of being emailed.")
     return auth.DevAuth()
 

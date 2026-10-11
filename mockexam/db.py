@@ -41,12 +41,12 @@ BOOL_COLUMNS = {
 }
 # Tables whose rows get `created_at` filled in by SQLite callers that omit it.
 TIMESTAMPED = {"profiles", "orders", "subscription_periods", "click_transactions", "examiners", "checks",
-               "speaking_submissions", "recordings"}
+               "speaking_submissions", "recordings", "login_codes"}
 
 ALLOWED_TABLES = {
     "profiles", "orders", "subscription_periods", "payme_transactions", "click_transactions",
     "examiners", "checks", "reading_attempts", "listening_attempts", "writing_submissions",
-    "speaking_submissions", "recordings",
+    "speaking_submissions", "recordings", "login_codes",
 }
 
 SQLITE_SCHEMA = """
@@ -156,6 +156,13 @@ CREATE TABLE IF NOT EXISTS recordings (
     UNIQUE (submission_id, question_key)
 );
 CREATE INDEX IF NOT EXISTS idx_speaking_user ON speaking_submissions(user_id, created_at);
+CREATE TABLE IF NOT EXISTS login_codes (
+    email TEXT PRIMARY KEY,
+    code_hash TEXT NOT NULL,
+    expires_at TEXT NOT NULL,
+    attempts INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT
+);
 """
 
 # Early development databases had placeholder Speaking tables with other columns.

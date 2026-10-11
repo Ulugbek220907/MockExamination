@@ -6,12 +6,17 @@ confirms who the person is (a correct code, or a valid access token from the
 Google / magic-link redirect), the server creates its own signed session
 cookie. Supabase tokens are never stored.
 
-SupabaseAuth  – production. Needs SUPABASE_URL and SUPABASE_KEY.
+EmailCodeAuth – production when RESEND_API_KEY and EMAIL_FROM are set: this
+                server makes the codes and sends its own branded email
+                (Google, if enabled, still goes through Supabase).
+SupabaseAuth  – production otherwise. Needs SUPABASE_URL and SUPABASE_KEY.
 DevAuth       – local development and tests: codes are printed to the server
                 log (and returned by the API when AUTH_DEV_CODES=1), no email
                 is sent, Google is unavailable.
 """
 
+import datetime
+import hashlib
 import hmac
 import json
 import logging
@@ -126,7 +131,7 @@ class SupabaseAuth:
             return AuthError("Your sign-in link has expired. Please sign in again.", 400)
         return AuthError("We could not send the code. Please try again in a minute.", 503 if status >= 500 else 400)
 
-    def send_code(self, email, redirect_to):
+    def send_code(self, email, redirect_to, lang="en"):
         self._call("POST", "/otp", {"email": email, "create_user": True}, query={"redirect_to": redirect_to}, action="send")
         return None  # the code goes by email
 
@@ -143,6 +148,76 @@ class SupabaseAuth:
         return f"{self.base}/authorize?" + urllib.parse.urlencode({"provider": "google", "redirect_to": redirect_to})
 
 
+class EmailCodeAuth:
+    """
+    Sign-in codes made and checked by this server and emailed through Resend
+    (notify.send_login_code), in the visitor's language and with the site's
+    logo. Only a keyed hash of each code is stored, for TTL seconds and
+    MAX_TRIES guesses. Google sign-in, when switched on, still goes through
+    Supabase (`fallback`).
+    """
+
+    name = "email"
+    TTL = 600
+    MAX_TRIES = 5
+
+    def __init__(self, db, secret, fallback=None):
+        self.db = db
+        self.key = hashlib.sha256(("login-codes:" + secret).encode("utf-8")).digest()
+        self.fallback = fallback
+
+    def _hash(self, email, code):
+        return hmac.new(self.key, f"{email}:{code}".encode("utf-8"), hashlib.sha256).hexdigest()
+
+    def send_code(self, email, redirect_to, lang="en"):
+        from . import notify  # notify has no dependency on auth; imported here to keep auth light
+
+        code = f"{secrets.randbelow(1_000_000):06d}"
+        expires = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=self.TTL)
+        self.db.delete("login_codes", {"email": email})
+        self.db.insert("login_codes", {"email": email, "code_hash": self._hash(email, code),
+                                       "expires_at": expires.isoformat(timespec="seconds"), "attempts": 0})
+        try:
+            notify.send_login_code(email, code, lang)
+        except urllib.error.HTTPError as e:
+            log.warning("Resend refused the sign-in email (%s): %s", e.code, e.read()[:300])
+            raise AuthError("We could not send the code. Please check the address and try again.", 503) from e
+        except Exception as e:
+            log.exception("Could not send the sign-in email")
+            raise AuthError("We could not send the code. Please try again in a minute.", 503) from e
+        return None
+
+    def verify_code(self, email, code):
+        wrong = AuthError("That code is wrong or has expired. Request a new code.", 400)
+        rows = self.db.select("login_codes", {"email": email}, limit=1)
+        if not rows:
+            raise wrong
+        row = rows[0]
+        expires = datetime.datetime.fromisoformat(str(row["expires_at"]).replace("Z", "+00:00"))
+        if expires.tzinfo is None:
+            expires = expires.replace(tzinfo=datetime.timezone.utc)
+        if expires < datetime.datetime.now(datetime.timezone.utc) or int(row["attempts"] or 0) >= self.MAX_TRIES:
+            self.db.delete("login_codes", {"email": email})
+            raise wrong
+        if not hmac.compare_digest(row["code_hash"], self._hash(email, code)):
+            self.db.update("login_codes", {"email": email}, {"attempts": int(row["attempts"] or 0) + 1})
+            raise wrong
+        self.db.delete("login_codes", {"email": email})
+        # Existing accounts are found by email (accounts.upsert_profile), so this id is only used for new ones.
+        return {"id": str(uuid.uuid4()), "email": email, "name": ""}
+
+    def google_enabled(self):
+        return bool(self.fallback and self.fallback.google_enabled())
+
+    def user_from_token(self, access_token):
+        if not self.fallback:
+            raise AuthError("Google sign-in is not configured on this server.", 400)
+        return self.fallback.user_from_token(access_token)
+
+    def google_url(self, redirect_to):
+        return self.fallback.google_url(redirect_to) if self.fallback else None
+
+
 class DevAuth:
     """Local sign-in without email: the code is logged (and optionally returned to the browser)."""
 
@@ -156,7 +231,7 @@ class DevAuth:
         self.codes = {}
         self.lock = threading.Lock()
 
-    def send_code(self, email, redirect_to):
+    def send_code(self, email, redirect_to, lang="en"):
         code = f"{secrets.randbelow(1_000_000):06d}"
         with self.lock:
             self.codes[email] = (code, time.time() + self.TTL)

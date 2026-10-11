@@ -177,3 +177,59 @@ def check_completed(db, check):
                    "See the feedback on each criterion, and rate your examiner once you have read it.",
                    ("See your result", f"{site_url()}/#/check/{check['id']}"))
     _run(job)
+
+
+# --------------------------------------------------------------------------
+# Sign-in codes (sent while the visitor waits, so failures are reported)
+# --------------------------------------------------------------------------
+
+CODE_TEXT = {
+    "en": {
+        "subject": "{code} is your {site} code",
+        "title": "Your sign-in code",
+        "intro": "Enter this code on {site} to sign in. If you are new, this creates your free account.",
+        "expires": "The code works for 10 minutes and can be used once.",
+        "ignore": "If you did not ask for this code, you can ignore this email.",
+    },
+    "uz": {
+        "subject": "{site} kodingiz: {code}",
+        "title": "Kirish kodi",
+        "intro": "Tizimga kirish uchun ushbu kodni {site} saytiga kiriting. Agar siz yangi bo‘lsangiz, bepul hisobingiz yaratiladi.",
+        "expires": "Kod 10 daqiqa amal qiladi va faqat bir marta ishlatiladi.",
+        "ignore": "Agar siz bu kodni so‘ramagan bo‘lsangiz, ushbu xatni e’tiborsiz qoldiring.",
+    },
+    "ru": {
+        "subject": "{code} — ваш код для {site}",
+        "title": "Код для входа",
+        "intro": "Введите этот код на сайте {site}, чтобы войти. Если вы у нас впервые, мы создадим для вас бесплатный аккаунт.",
+        "expires": "Код действует 10 минут и подходит только один раз.",
+        "ignore": "Если вы не запрашивали код, просто проигнорируйте это письмо.",
+    },
+}
+
+
+def send_login_code(to, code, lang="en"):
+    """Email a sign-in code now. Raises if the email service is not configured or refuses it."""
+    if not email_enabled():
+        raise RuntimeError("email is not configured")
+    t = CODE_TEXT.get(lang) or CODE_TEXT["en"]
+    site = site_name()
+    fill = lambda key: t[key].format(site=site, code=code)
+    logo = f"{site_url()}/img/email-logo.png"
+    page = f"""<!doctype html><html><body style="margin:0;background:#f4f6fa">
+<div style="max-width:480px;margin:0 auto;padding:28px 20px;font-family:Arial,Helvetica,sans-serif;color:#142038">
+  <table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:20px"><tr>
+    <td><img src="{html.escape(logo)}" width="40" height="40" alt="" style="display:block;border-radius:9px"></td>
+    <td style="padding-left:10px;font-size:20px;font-weight:bold">{html.escape(site)}</td></tr></table>
+  <div style="background:#ffffff;border-radius:12px;padding:26px 24px;border:1px solid #e3e7ef">
+    <h1 style="margin:0 0 10px;font-size:20px">{html.escape(fill("title"))}</h1>
+    <p style="margin:0 0 18px;font-size:15px;line-height:1.5;color:#3b4660">{html.escape(fill("intro"))}</p>
+    <div style="font-size:34px;font-weight:bold;letter-spacing:8px;background:#f4f6fa;border-radius:8px;padding:14px 0;text-align:center">{html.escape(code)}</div>
+    <p style="margin:18px 0 0;font-size:14px;color:#3b4660">{html.escape(fill("expires"))}</p>
+  </div>
+  <p style="margin:18px 4px 0;font-size:12px;line-height:1.5;color:#7a849a">{html.escape(fill("ignore"))}<br>{html.escape(site)} · {html.escape(site_url())}</p>
+</div></body></html>"""
+    text = f"{fill('title')}: {code}\n\n{fill('intro')}\n{fill('expires')}\n\n{fill('ignore')}\n{site} · {site_url()}"
+    _post_json("https://api.resend.com/emails",
+               {"from": _env("EMAIL_FROM"), "to": [to], "subject": fill("subject"), "text": text, "html": page},
+               {"Authorization": f"Bearer {_env('RESEND_API_KEY')}"})

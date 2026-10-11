@@ -12,12 +12,15 @@ The AI examiner is tested against a fake Claude client, so no API key is needed.
 
 import asyncio
 import datetime
+import io
 import json
 import os
+import re
 import sys
 import tempfile
 import types
 import unittest
+import urllib.error
 from unittest import mock
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,7 +40,7 @@ os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import accounts, api, billing, checks, content, notify, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, api, auth, billing, checks, content, notify, scoring, speaking, storage, writing  # noqa: E402
 from mockexam.db import SqliteDb, iso, now  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
@@ -1135,6 +1138,68 @@ class SpeakingCleanupTests(unittest.TestCase):
         self.assertTrue(speaking.get_submission(db, expired["id"])["recordings_deleted_at"])
         self.assertEqual(len(speaking.recordings_for(db, marking["id"])), 1)
         self.assertEqual(sum(len(f) for _, _, f in os.walk(os.path.join(tmp, "rec"))), 2)
+
+
+class EmailCodeAuthTests(unittest.TestCase):
+    """Codes made by this server and emailed through Resend (transport replaced by a recorder)."""
+
+    def setUp(self):
+        self.db = SqliteDb(os.path.join(tempfile.mkdtemp(), "codes.sqlite3"))
+        self.sent = []
+        self.patches = [
+            mock.patch.dict(os.environ, {"RESEND_API_KEY": "re_test", "EMAIL_FROM": "TestDay <noreply@testday.uz>",
+                                         "SITE_URL": "https://www.testday.uz", "SITE_NAME": "TestDay"}),
+            mock.patch.object(notify, "_post_json", lambda url, payload, headers=None: self.sent.append(payload)),
+        ]
+        for p in self.patches:
+            p.start()
+        self.auth = auth.EmailCodeAuth(self.db, "secret")
+
+    def tearDown(self):
+        for p in self.patches:
+            p.stop()
+
+    def code(self):
+        return re.search(r"\b(\d{6})\b", self.sent[-1]["subject"]).group(1)
+
+    def test_branded_email_in_the_visitors_language(self):
+        self.auth.send_code("a@example.com", "", "uz")
+        mail = self.sent[-1]
+        self.assertEqual(mail["to"], ["a@example.com"])
+        self.assertIn("TestDay kodingiz", mail["subject"])
+        self.assertIn("https://www.testday.uz/img/email-logo.png", mail["html"])
+        self.assertIn(self.code(), mail["html"])
+        row = self.db.select("login_codes", {"email": "a@example.com"})[0]
+        self.assertNotIn(self.code(), row["code_hash"])  # only a hash is stored
+
+    def test_wrong_tries_expiry_and_one_use(self):
+        self.auth.send_code("b@example.com", "", "en")
+        good = self.code()
+        bad = "000000" if good != "000000" else "111111"
+        with self.assertRaises(auth.AuthError):
+            self.auth.verify_code("b@example.com", bad)
+        self.assertEqual(self.auth.verify_code("b@example.com", good)["email"], "b@example.com")
+        with self.assertRaises(auth.AuthError):  # used once
+            self.auth.verify_code("b@example.com", good)
+        self.auth.send_code("b@example.com", "", "en")
+        good = self.code()
+        for _ in range(auth.EmailCodeAuth.MAX_TRIES):
+            with self.assertRaises(auth.AuthError):
+                self.auth.verify_code("b@example.com", bad)
+        with self.assertRaises(auth.AuthError):  # locked after too many guesses
+            self.auth.verify_code("b@example.com", good)
+        self.auth.send_code("b@example.com", "", "en")
+        self.db.update("login_codes", {"email": "b@example.com"}, {"expires_at": "2000-01-01T00:00:00+00:00"})
+        with self.assertRaises(auth.AuthError):
+            self.auth.verify_code("b@example.com", self.code())
+
+    def test_send_failure_is_reported(self):
+        def refuse(url, payload, headers=None):
+            raise urllib.error.HTTPError(url, 422, "bad", {}, io.BytesIO(b'{"message":"invalid"}'))
+        with mock.patch.object(notify, "_post_json", refuse):
+            with self.assertRaises(auth.AuthError) as ctx:
+                self.auth.send_code("c@example.com", "", "en")
+        self.assertEqual(ctx.exception.status, 503)
 
 
 class SupabaseAuthTests(unittest.TestCase):

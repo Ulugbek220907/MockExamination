@@ -116,7 +116,7 @@
     if (user()) return Promise.resolve(true);
     return new Promise((resolve) => {
       const google = state.config.auth && state.config.auth.google;
-      const el = overlay(t("Sign in"), `
+      const el = overlay(t("signin.title"), `
         <div class="auth-step" data-step="email">
           <p class="auth-lead">${esc(reason || t("signin.default"))}</p>
           ${google ? `<button type="button" class="btn-google" data-google>
@@ -128,6 +128,7 @@
             <input id="auth-email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="you@example.com" />
             <p class="form-error" role="alert" hidden></p>
             <button type="submit" class="btn-primary btn-lg">${t("Send me a code")}</button>
+            <p class="auth-new muted-text small-text">${esc(t("signin.new"))}</p>
           </form>
         </div>
         <div class="auth-step" data-step="code" hidden>
@@ -173,7 +174,7 @@
         showError("email", "");
         busy("email", true);
         try {
-          const res = await U.api("/api/auth/code", { method: "POST", body: JSON.stringify({ email }) });
+          const res = await U.api("/api/auth/code", { method: "POST", body: JSON.stringify({ email, lang: I18N.lang() }) });
           el.querySelector("[data-email]").textContent = res.email;
           const hint = el.querySelector(".dev-hint");
           hint.hidden = !res.devCode;

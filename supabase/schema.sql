@@ -509,3 +509,20 @@ create policy speaking_server_update on storage.objects for update to anon
   with check (bucket_id = 'speaking' and (select private.request_has_app_key()));
 create policy speaking_server_delete on storage.objects for delete to anon
   using (bucket_id = 'speaking' and (select private.request_has_app_key()));
+
+-- ============================================================================
+-- Sign-in codes sent by the server itself (when RESEND_API_KEY is set).
+-- Only a keyed hash of each code is stored; rows expire after 10 minutes.
+-- ============================================================================
+
+create table if not exists public.login_codes (
+  email       text primary key,
+  code_hash   text not null,
+  expires_at  timestamptz not null,
+  attempts    integer not null default 0,
+  created_at  timestamptz not null default now()
+);
+alter table public.login_codes enable row level security;
+drop policy if exists server_access on public.login_codes;
+create policy server_access on public.login_codes for all to anon
+  using ((select private.request_has_app_key())) with check ((select private.request_has_app_key()));
