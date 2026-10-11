@@ -1149,3 +1149,4 @@ body:not(.in-exam) .modal-close:hover { background: var(--marble); color: var(--
   .band-val { font-size: 2.2rem; }
   .score-main-box { gap: 14px; }
 }
+.auth-new { margin-top: 6px; }

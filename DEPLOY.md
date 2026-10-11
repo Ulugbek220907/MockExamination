@@ -81,6 +81,12 @@ Test 1 of each module is free for everyone. Every other test (and its audio) nee
 
 ### 4.1 Sign-in (Supabase Auth)
 
+> **Recommended: let the site send the codes itself.** Set `RESEND_API_KEY` and `EMAIL_FROM` on Render
+> (for example `TestDay <noreply@testday.uz>`, on a domain verified in Resend). The server then makes the
+> 6-digit codes and sends its own branded email with the logo, in English, Uzbek or Russian. Nothing below
+> about Supabase email templates or redirect URLs is needed for email sign-in in that case; it only matters
+> for Google sign-in, or if you run without Resend.
+
 In the Supabase dashboard:
 
 1. **Authentication → URL Configuration**: set *Site URL* to `https://ielts-mock-exam.onrender.com` and add `https://ielts-mock-exam.onrender.com/auth-callback.html` under *Redirect URLs*.
