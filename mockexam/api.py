@@ -98,6 +98,8 @@ def account_payload(db, profile):
 class ApiError(tornado.web.HTTPError):
     """An error whose message is shown to the user (and an optional machine-readable code)."""
 
+    public = True  # the message is safe to show, even with a 5xx status
+
     def __init__(self, status, message, code=None):
         super().__init__(status, log_message=message.replace("%", "%%"))
         self.code = code

@@ -759,6 +759,13 @@ class AccountApiBase(AsyncHTTPTestCase):
 class AccountApiTests(AccountApiBase):
     """Sign-in, locked tests, buying the plan, and a paid examiner check, all through the HTTP API."""
 
+    def test_sign_in_errors_reach_the_user(self):
+        def fail(*args):
+            raise auth.AuthError("We could not send the code. Please try again in a minute.", 503)
+        with mock.patch.object(self._app.settings["auth"], "send_code", fail):
+            r, data = self.call("POST", "/api/auth/code", {"email": "someone@example.com"})
+        self.assertEqual((r.code, data["error"]), (503, "We could not send the code. Please try again in a minute."))
+
     def test_login_me_logout(self):
         r, data = self.call("GET", "/api/me")
         self.assertIsNone(data["user"])
