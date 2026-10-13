@@ -583,7 +583,10 @@ class IndexHandler(BaseHandler):
     _html = None
     # Scripts the page loads only when needed (the exam engines, the other interface
     # languages). Their hashed addresses go into the page as data for its loader.
-    LAZY_ASSETS = ("js/highlighter.js", "js/charts.js", "js/exam.js", "js/speaking.js", "js/i18n-uz.js", "js/i18n-ru.js")
+    LAZY_ASSETS = (
+        "css/cd-ielts.css", "js/highlighter.js", "js/charts.js", "js/exam.js", "js/results.js", "js/speaking.js",
+        "js/progress.js", "js/i18n-uz.js", "js/i18n-ru.js",
+    )
     ASSET_SLOT = '<script type="application/json" id="asset-versions">{}</script>'
 
     @classmethod

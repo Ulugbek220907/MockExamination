@@ -119,7 +119,7 @@
       I18N.applyStatic();
       Account.renderAccountSlot();
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
-      this.route();
+      Promise.resolve(this.route()).finally(() => this.main.removeAttribute("aria-busy"));
     }
 
     /* Routing ---------------------------------------------------------- */
@@ -168,7 +168,7 @@
       else if (path === "/examiner") await Account.renderExaminerDashboard(this.main);
       else if (path === "/admin") await Account.renderAdmin(this.main, params);
       else if (check) await Account.renderCheck(this.main, check[1]);
-      else if (spoken) { await U.need("exam"); await Speaking.renderResult(this.main, spoken[1]); }
+      else if (spoken) { if (await this.loadFor("exam")) await Speaking.renderResult(this.main, spoken[1]); }
       else this.renderHome();
     }
 
@@ -201,7 +201,7 @@
       }
       const el = e.target.closest("[data-action]");
       if (!el) return;
-      if (el.dataset.action === "start") this.prepare(el.dataset.test, el.dataset.mode);
+      if (el.dataset.action === "start") this.prepare(el.dataset.test, el.dataset.mode, el);
       if (el.dataset.action === "retake" && this.lastResult) this.prepare(this.lastResult.testId, this.lastResult.mode || "exam");
       if (el.dataset.action === "scroll") {
         const target = document.getElementById(el.dataset.target);
@@ -573,19 +573,30 @@
     }
 
     /* Pre-test instructions -------------------------------------------- */
-    async prepare(testId, mode) {
+    async prepare(testId, mode, button) {
+      if (this.preparing) return; // a second tap while this test is still loading
       const summary = this.tests.find((x) => x.id === testId);
       if (summary && summary.module === "speaking" && !Account.user()) {
         // Recordings are saved to the account, so Speaking needs sign-in (Test 1 stays free).
         if (!(await Account.login(t("signin.speaking")))) return;
         this.renderIfHome();
+        button = null; // the page has been drawn again
       }
+      // Nothing of the test is loaded until now: its questions, and the exam screen's code and styles.
+      this.preparing = true;
+      if (button) { button.classList.add("is-busy"); button.setAttribute("aria-busy", "true"); }
+      const settle = () => {
+        this.preparing = false;
+        if (button) { button.classList.remove("is-busy"); button.removeAttribute("aria-busy"); }
+      };
       try {
         const [test] = await Promise.all([U.api(`/api/tests/${encodeURIComponent(testId)}`), U.need("exam")]);
         this.pending = { test, mode: mode === "practice" ? "practice" : "exam" };
         if (location.hash === "#/start") this.showVerification();
         else location.hash = "#/start";
+        settle();
       } catch (err) {
+        settle(); // before the sign-in and plan flows below, which start this again
         // Locked tests: sign in first, or offer the plan. Retry once the user can open it.
         if (err.status === 401) {
           if (await Account.login(t("signin.locked"))) {
@@ -602,7 +613,10 @@
           }
           return;
         }
-        U.modal({ title: t("Could not load the test"), bodyHTML: `<p>${esc(err.message)}</p>` });
+        if (err.loadFailed) return; // U.need has already said so
+        // A server answer carries its own message; with no answer at all it is the connection.
+        const why = err.status ? err.message : t("Could not load this page. Check your connection and try again.");
+        U.modal({ title: t("Could not load the test"), bodyHTML: `<p>${esc(why)}</p>` });
       }
     }
 
@@ -777,9 +791,21 @@
       else location.hash = "#/results";
     }
 
+    /** Load a bundle for the page being opened; if it cannot load, say so on the page (U.need has shown a toast). */
+    async loadFor(name) {
+      try {
+        await U.need(name);
+        return true;
+      } catch (err) {
+        this.main.innerHTML = `<section class="page"><div class="notice notice-warn"><strong>${t("Could not load this page. Check your connection and try again.")}</strong></div></section>`;
+        return false;
+      }
+    }
+
     async renderResults() {
       const r = this.lastResult;
-      if (r.module === "writing") await U.need("exam"); // Task 1 charts
+      // Writing results draw the Task 1 charts, which come with the exam bundle.
+      if (!(await this.loadFor(r.module === "writing" ? "exam" : "results"))) return;
       document.title = `${t("Your results")} – ${this.config.siteName}`;
       if (r.module === "writing") Results.renderWriting(r, this.main);
       else if (r.module === "listening") Results.renderListening(r, this.main);

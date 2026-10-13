@@ -515,7 +515,11 @@
       renderAccountSlot();
       U.toast(t("Saved."));
     });
-    Progress.render(main.querySelector("#progress-section"), progressRes.points || []);
+    // The chart's code loads after the page is shown.
+    U.need("progress").then(() => {
+      const slot = main.querySelector("#progress-section");
+      if (slot) Progress.render(slot, progressRes.points || []);
+    }).catch(() => { /* U.need has shown a toast */ });
     if (window.app) window.app.loadHistory();
   }
 
