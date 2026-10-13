@@ -168,9 +168,10 @@ h1, h2, h3 { text-wrap: balance; }
 .btn-primary:disabled, .btn-secondary:disabled, .btn-line:disabled, .btn-link:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
 .is-busy { position: relative; color: transparent !important; }
 .is-busy::after {
-  content: ""; position: absolute; width: 18px; height: 18px; border-radius: 50%;
-  border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; animation: spin 0.8s linear infinite;
+  content: ""; position: absolute; top: 50%; left: 50%; margin: -9px 0 0 -9px; width: 18px; height: 18px; border-radius: 50%;
+  border: 2.5px solid var(--spin-track, rgba(255, 255, 255, 0.35)); border-top-color: var(--spin, #fff); animation: spin 0.8s linear infinite;
 }
+.line-s { --spin: var(--ink); --spin-track: rgba(20, 26, 34, 0.25); }
 .btn-secondary.is-busy::after { border-color: var(--rule); border-top-color: var(--ink); }
 
 /* Line identity --------------------------------------------------------------- */
@@ -686,6 +687,16 @@ h1, h2, h3 { text-wrap: balance; }
 @keyframes shimmer { to { background-position: -200% 0; } }
 @media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
 
+/* The page's first screen before the tests arrive: the map's shape, no text (the language is not known yet). */
+.boot-title { height: 3.5rem; width: min(560px, 80%); border-radius: 12px; }
+.boot-lead { height: 1.2rem; width: min(760px, 92%); margin-top: 18px; }
+.boot-board { margin-top: 30px; background: var(--paper); border: 1px solid var(--rule); border-radius: 18px; padding: 10px 0; }
+.boot-row { display: grid; grid-template-columns: 30px 168px minmax(0, 1fr); align-items: center; gap: 12px; min-height: 104px; padding-left: 24px; }
+.boot-row + .boot-row { border-top: 1px solid var(--rule-soft); }
+.boot-row i { width: 30px; height: 30px; border-radius: 50%; }
+.boot-row b { height: 18px; width: 110px; }
+.boot-row u { height: 10px; width: 62%; border-radius: 6px; }
+
 .toast {
   position: fixed; top: 76px; right: 16px; z-index: 3000; max-width: min(380px, calc(100vw - 32px));
   background: var(--granite); color: #fff; padding: 12px 18px; border-radius: 12px; font-weight: 600;
@@ -700,6 +711,24 @@ body.in-exam .toast { top: auto; bottom: 84px; }
 .summary-rows .is-warn { color: var(--bad); }
 .help-list { margin: 6px 0 14px 20px; display: flex; flex-direction: column; gap: 4px; }
 kbd { background: var(--marble); border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font-size: 0.85em; font-family: inherit; }
+
+/* Dialog base. The exam stylesheet (loaded only with a test) repeats these for the exam's own dialogs. */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); display: flex; align-items: center; justify-content: center;
+  z-index: 2000; padding: 16px;
+}
+.modal-box {
+  background: #fff; color: #1e293b; width: 100%; max-width: 520px; max-height: calc(100vh - 32px); overflow-y: auto;
+  border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); font-family: var(--font); font-size: 15px;
+}
+.modal-header {
+  background: #1f2732; color: #fff; padding: 12px 18px; font-size: 1.05em; font-weight: 700;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.modal-close { background: none; border: none; color: #fff; font-size: 24px; line-height: 1; cursor: pointer; }
+.modal-body { padding: 18px 20px; line-height: 1.6; }
+.modal-body p + p { margin-top: 8px; }
+.modal-footer { padding: 12px 18px; background: #f8fafc; border-top: 1px solid #e2e8f0; display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
 
 /* Site dialogs (sign-in, paywall, payment). Exam dialogs keep cd-ielts.css. ---------------------- */
 body:not(.in-exam) .modal-overlay { background: rgba(14, 19, 26, 0.62); }
@@ -1054,6 +1083,10 @@ body:not(.in-exam) .modal-close:hover { background: var(--marble); color: var(--
 }
 
 @media (max-width: 860px) {
+  .boot-title { height: 4.6rem; width: 86%; }
+  .boot-board { margin-top: 59px; padding-bottom: 78px; border-radius: 16px; }
+  .boot-row { grid-template-columns: 30px minmax(0, 1fr); min-height: 139px; padding: 14px 16px 0 14px; align-content: center; row-gap: 22px; }
+  .boot-row u { grid-column: 1 / -1; width: 88%; }
   /* Header: brand, language and account on one row; the menu scrolls as one row below. */
   .site-nav { flex-wrap: wrap; gap: 0 12px; padding-top: 10px; }
   .site-brand { order: 1; }

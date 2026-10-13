@@ -163,16 +163,26 @@
     setTimeout(() => el.remove(), 6000);
   }
 
-  // Scripts the home page does not need. Speaking builds on the exam engine, so order matters.
+  // What the home page, prices and the other site pages do not need. Each name loads
+  // when a page first uses it; order matters (Speaking builds on the exam engine and Results).
   const BUNDLES = {
-    exam: ["js/highlighter.js", "js/charts.js", "js/exam.js", "js/speaking.js"],
+    exam: ["css/cd-ielts.css", "js/highlighter.js", "js/charts.js", "js/exam.js", "js/results.js", "js/speaking.js"],
+    results: ["css/cd-ielts.css", "js/results.js"],
+    progress: ["js/progress.js"],
   };
 
-  /** Load a bundle of scripts on demand; resolves when they have run. */
+  /**
+   * Load a bundle of styles and scripts on demand; resolves when they have all been applied or run.
+   * Everything downloads at once, then the scripts run one after another in the listed order, and
+   * only if every download arrived.
+   */
   async function need(name) {
+    const paths = BUNDLES[name];
     try {
-      await Promise.all(BUNDLES[name].map((path) => I18N.loadScript(path)));
+      await Promise.all(paths.map((path) => (path.endsWith(".css") ? I18N.loadStyle(path) : I18N.warm(path))));
+      for (const path of paths) if (!path.endsWith(".css")) await I18N.loadScript(path);
     } catch (err) {
+      err.loadFailed = true; // the toast below is the message; callers need not repeat it
       toast(I18N.t("Could not load this page. Check your connection and try again."), "warn");
       throw err;
     }

@@ -68,6 +68,35 @@
     return scripts[path];
   }
 
+  /**
+   * Download a script without running it. A bundle is downloaded whole first and run in order afterwards,
+   * so one missing file can never leave the files that depend on it running half-way. The files are
+   * cached for a year, so the script tag that runs one afterwards is served from the browser's cache.
+   * (A failed fetch leaves nothing behind, so trying again works; a failed preload link does not.)
+   */
+  async function warm(path) {
+    if (scripts[path]) return;
+    const res = await fetch(assetUrl(path));
+    if (!res.ok) throw new Error(`Could not load ${path}`);
+    await res.arrayBuffer(); // read to the end, so the whole file is cached
+  }
+
+  const styles = {};
+  /** Load a stylesheet once; resolves when it has applied, so nothing is shown unstyled. */
+  function loadStyle(path) {
+    if (!styles[path]) {
+      styles[path] = new Promise((resolve, reject) => {
+        const el = document.createElement("link");
+        el.rel = "stylesheet";
+        el.href = assetUrl(path);
+        el.onload = () => resolve();
+        el.onerror = () => { delete styles[path]; el.remove(); reject(new Error(`Could not load ${path}`)); };
+        document.head.appendChild(el);
+      });
+    }
+    return styles[path];
+  }
+
   /** Uzbek and Russian text is fetched only when that language is used. */
   function loadLang(code) {
     if (code === "en" || Object.keys(DICT[code]).length) return Promise.resolve();
@@ -132,7 +161,7 @@
   });
 
   window.I18N = {
-    t, plural, setLang, applyStatic, number, money, loadScript, assetUrl, ready, LANGS, DICT, EN, UZ, RU,
+    t, plural, setLang, applyStatic, number, money, loadScript, loadStyle, warm, assetUrl, ready, LANGS, DICT, EN, UZ, RU,
     lang: () => lang,
     locale: () => LANGS[lang].locale,
   };

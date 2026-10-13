@@ -673,10 +673,28 @@ class ApiTests(AsyncHTTPTestCase):
         page = self.fetch("/").body.decode()
         m = re.search(r'<script type="application/json" id="asset-versions">(.*?)</script>', page)
         assets = json.loads(m.group(1))
-        for path in ("js/exam.js", "js/speaking.js", "js/i18n-uz.js", "js/i18n-ru.js"):
+        lazy = ("css/cd-ielts.css", "js/highlighter.js", "js/charts.js", "js/exam.js", "js/results.js", "js/speaking.js",
+                "js/progress.js", "js/i18n-uz.js", "js/i18n-ru.js")
+        for path in lazy:
             self.assertRegex(assets[path], rf"^{re.escape(path)}\?v=[0-9a-f]{{12}}$")
             self.assertEqual(self.fetch("/" + assets[path]).code, 200)
-        self.assertNotIn('src="js/exam.js', page)  # loaded on demand, not with the page
+        # Loaded when a test, a result or the progress chart is opened, not with the page.
+        for path in lazy:
+            self.assertNotIn(f'"{path}?', page.replace(m.group(0), ""), path)
+            self.assertNotRegex(page.replace(m.group(0), ""), rf'(?:src|href)="{re.escape(path)}')
+
+    def test_home_asks_for_its_data_early_and_footer_links(self):
+        page = self.fetch("/").body.decode()
+        # The tests, config and account are requested while the scripts download.
+        for url in ("/api/tests", "/api/config", "/api/me"):
+            self.assertIn(f'<link rel="preload" href="{url}" as="fetch" crossorigin', page)
+        # A placeholder paints before any script has run.
+        self.assertIn('class="boot"', page)
+        footer = page[page.index('<nav class="footer-nav"'):]
+        footer = footer[:footer.index("</nav>")]
+        self.assertIn('href="#/pricing"', footer)
+        self.assertNotIn("#/resources", footer)
+        self.assertNotIn("#/about", footer)
 
     def test_test_list_revalidates_with_etag(self):
         r = self.fetch("/api/tests")

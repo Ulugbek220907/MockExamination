@@ -443,7 +443,7 @@ Solid, compact and quietly physical; they press down 1px on `:active`.
 ### Navigation
 - **Header:** a sticky granite bar at least 68px tall, closed by a 4px four-colour band. The brand plate (mark and Jost name on Granite Plate with an engraved Granite Edge rim, 12px corners) sits at the left. Nav links are Jost 550 at 1rem in Weathered Plaque Grey, turning white on a Granite Plate wash on hover. The current page is white with a 3px amber bar under it. At the right are a segmented EN/UZ/RU switch (Granite Edge outline, the active language filled with Plaque Lettering) and a light Sign in button.
 - **Phones (≤860px):** brand and tools share the first row, and the links scroll sideways as a second row under a Granite Plate hairline, fading out at the right edge.
-- **Footer:** a 6px four-colour band over granite, with the mark, the independence statement in Weathered Plaque Grey at 0.86rem, and a column of Plaque Lettering links.
+- **Footer:** a 6px four-colour band over granite, with the mark, the independence statement in Weathered Plaque Grey at 0.86rem, and a short column of Plaque Lettering links (Prices, Examiners; Free resources and About are in the top menu only).
 
 ### Focus
 The focus ring is a 3px outline at a 2px offset with 4px corners, in the colour that stands out from the ground it sits on. On marble and paper it is Granite (14.6:1 on marble). On granite ground (the header, the footer, the station sign, the pass card, the fare board's head) and inside the exam screens, whose bars are dark in every contrast theme, it is Speaking amber (7.3:1 on granite). Never put an amber ring on light ground: it measures 2.0–2.2:1 there, below the 3:1 non-text floor. A focused Start free draws the ring around the whole pill, station ring included. Inputs use their own Listening-blue focus (above).
@@ -465,6 +465,9 @@ The monthly plan as a transit card: ID-1 proportions (aspect-ratio 1.586), grani
 
 ### The Fare Board
 Prices as a station fare board: a paper board (18px) with a granite head ("Fares" and a link). Each row has the line bullets it covers, the fare name with a caption, a 2px dotted Grout Line leader, and a Jost tabular price. A caption foot names the payment methods. On phones the bullets wrap above the name.
+
+### The Placeholder
+Before the tests arrive the main area holds a text-free copy of the home page's shape: a headline bar, a lead bar and a white board of four rows, each a round dot, a short name bar and a thin track bar, all in the marble shimmer (`.skeleton`). It has no words because the chosen language is not yet known, and it is sized to put the board where the real map will land, so nothing jumps when it is replaced. The main area carries `aria-busy` until the page is drawn. Under reduced motion the shimmer stops.
 
 ### Results
 A results head with a large line bullet. Below it a score banner: a paper board holding the band circle (a 132px ring in the line colour with the band in a 2.7rem Jost numeral), a description, and three stats divided by 1px rules. Breakdowns use 8px marble bars filled with the line colour. Review cards are paper with a number badge (granite, Correct Green or Error Red), an answer well in marble and an explanation on Speaking Tint. Listening transcripts underline each answer with a 2px inset in its state colour.

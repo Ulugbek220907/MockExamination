@@ -28,6 +28,7 @@
 ### Design and languages
 - The home page is a metro map: each module is a line in its own colour (Listening blue, Reading red, Writing green, Speaking amber), each test is a station, and all four lines meet at the *Test day* interchange. The first station on every line starts a free test in one tap; tapping any station opens its details. Stations you have taken show your band. The monthly plan is presented as a monthly pass.
 - The interface is in English, Uzbek (Latin script) and Russian, with a switch in the header (`i18n.js`; English text in `i18n-strings.js`, Uzbek and Russian in `i18n-uz.js` and `i18n-ru.js`, fetched only when chosen; `?lang=uz` or `?lang=ru` opens a language directly). The exam screens, the instructions before a test and all test content stay in English, as on test day.
+- The site opens straight away. The home page loads only what it needs (about 58 KB compressed, and its three data requests start while the scripts download). A test's questions, the exam screen's code and styles (`css/cd-ielts.css`, `exam.js`, `speaking.js`, `charts.js`, `highlighter.js`), the results page and the progress chart load when a test is started or a result is opened; Uzbek and Russian text loads only when chosen. `U.need()` in `util.js` downloads each bundle whole and runs it in order, so a dropped connection never leaves it half-loaded.
 - Product context and the design direction live in `PRODUCT.md` and `.impeccable/surfaces/`; the visual system is documented in `DESIGN.md`.
 
 ### Exam experience
@@ -55,7 +56,7 @@ Nothing else is required. Without configuration, tests are read from `content/` 
 
 ```bash
 python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts, audio)
-python scripts/test_app.py           # 68 automated tests: scoring, API, caching, translations, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
+python scripts/test_app.py           # 69 automated tests: scoring, API, caching, translations, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
 ```
 
 ## Deploying
@@ -93,14 +94,14 @@ public/
   js/i18n.js              interface language: t(), plural forms, number and money formatting, the switch
   js/i18n-strings.js      English interface text
   js/i18n-uz.js, -ru.js   Uzbek and Russian interface text (loaded only when that language is chosen)
-  css/cd-ielts.css        exam environment, contrast themes, charts
+  css/cd-ielts.css        exam environment, contrast themes, charts (loads when a test starts)
   js/app.js               router, the home page network, instructions, resources and legal pages
   js/account.js           sign-in, paywall, payments, pricing, account, examiners, checks, admin
-  js/progress.js          progress tiles and band-over-time chart on the account page
+  js/progress.js          progress tiles and band-over-time chart on the account page (loads on demand)
   auth-callback.html      landing page after Google / email-link sign-in
   js/exam.js              reading, listening and writing exam engines (this and the exam scripts below load on demand)
   js/speaking.js          Speaking test (recorder, uploads), microphone check, results, examiner marking form
-  js/results.js           results pages
+  js/results.js           results pages (loads with a test or a result)
   js/charts.js            Task 1 charts (line, bar, pie, table, process) and listening maps as SVG
   audio/<test-id>/*.mp3   listening recordings and the Speaking examiner's questions (generated, see CONTENT_GUIDE.md)
   js/highlighter.js       highlighting and notes
