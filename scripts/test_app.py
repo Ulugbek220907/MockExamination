@@ -1411,5 +1411,122 @@ class ClickTests(unittest.TestCase):
         self.assertEqual(self.api.complete(self.form(1, 999))["error"], -6)
 
 
+class SecurityAndHardeningTests(AccountApiBase):
+    """Tests verifying CSRF defenses, stable cookie secret, SQL injection guards, and logic fixes."""
+
+    def test_csrf_blocks_cross_site_fetch(self):
+        r = self.fetch("/api/auth/code", method="POST",
+                       headers={"Content-Type": "application/json", "Sec-Fetch-Site": "cross-site"},
+                       body=json.dumps({"email": "test@example.com"}))
+        self.assertEqual(r.code, 403)
+
+    def test_csrf_blocks_non_json_state_change(self):
+        r = self.fetch("/api/auth/logout", method="POST",
+                       headers={"Content-Type": "application/x-www-form-urlencoded"},
+                       body="")
+        self.assertEqual(r.code, 415)
+
+    def test_cookie_secret_is_stable(self):
+        s1 = server.cookie_secret()
+        s2 = server.cookie_secret()
+        self.assertEqual(s1, s2)
+        self.assertTrue(len(s1) >= 32)
+
+    def test_sql_injection_defense_in_db(self):
+        db = self._app.settings["store"].db
+        from mockexam.db import DbError
+        with self.assertRaises(DbError):
+            db.select("profiles", order=[("id\"; DROP TABLE profiles; --", "desc")])
+        with self.assertRaises(DbError):
+            db.insert("profiles", {"id; injected": "123", "email": "test@example.com"})
+        with self.assertRaises(DbError):
+            db.update("profiles", {"email": "test@example.com"}, {"name; injected": "evil"})
+
+    def test_plan_status_inactive_returns_no_ends_at(self):
+        db = self._app.settings["store"].db
+        user_id = "test-future-user"
+        db.delete("subscription_periods", {"user_id": user_id})
+        future_start = now() + datetime.timedelta(days=10)
+        future_end = now() + datetime.timedelta(days=40)
+        db.insert("subscription_periods", {
+            "user_id": user_id,
+            "starts_at": iso(future_start),
+            "ends_at": iso(future_end),
+            "source": "manual",
+        })
+        st = accounts.plan_status(db, user_id)
+        self.assertFalse(st["active"])
+        self.assertIsNone(st["endsAt"])
+
+    def test_order_creation_spam_limit(self):
+        db = self._app.settings["store"].db
+        user_id = "spam-user"
+        db.delete("orders", {"user_id": user_id})
+        for _ in range(15):
+            billing.create_order(db, user_id, "plan")
+        with self.assertRaises(billing.BillingError):
+            billing.create_order(db, user_id, "plan")
+
+    def test_progress_points_handles_none_overall_band(self):
+        store = self._app.settings["store"]
+        db = store.db
+        user_id = "progress-test-user"
+        db.delete("checks", {"student_id": user_id})
+        order = db.insert("orders", {"user_id": user_id, "kind": "writing_check", "amount": 1000, "status": "paid"})
+        db.insert("checks", {
+            "order_id": order["id"],
+            "kind": "writing",
+            "student_id": user_id,
+            "examiner_id": "test-examiner",
+            "submission_id": 99999,
+            "status": "completed",
+            "overall_band": None,
+        })
+        with mock.patch.object(store, "list_history", return_value=[{
+            "module": "writing", "id": 99999, "testId": "academic-writing-01", "createdAt": "2026-10-14T10:00:00Z"
+        }]):
+            points = api.progress_points(store, db, user_id)
+            self.assertEqual(points, [])
+
+    def test_cross_site_top_level_navigation_allowed(self):
+        r = self.fetch("/", method="GET",
+                       headers={"Sec-Fetch-Site": "cross-site", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Dest": "document"})
+        self.assertEqual(r.code, 200)
+
+    def test_cross_origin_state_change_blocked(self):
+        r = self.fetch("/api/auth/code", method="POST",
+                       headers={"Content-Type": "application/json", "Origin": "https://evil.attacker.com"},
+                       body=json.dumps({"email": "test@example.com"}))
+        self.assertEqual(r.code, 403)
+
+    def test_same_origin_state_change_allowed(self):
+        r = self.fetch("/api/auth/code", method="POST",
+                       headers={"Content-Type": "application/json", "Origin": "http://127.0.0.1"},
+                       body=json.dumps({"email": "valid-user@example.com"}))
+        self.assertEqual(r.code, 200)
+
+    def test_cross_site_api_get_blocked(self):
+        r = self.fetch("/api/tests", method="GET",
+                       headers={"Sec-Fetch-Site": "cross-site", "Sec-Fetch-Mode": "cors"})
+        self.assertEqual(r.code, 403)
+
+    def test_idor_protections(self):
+        cookie_a, _ = self.login("alice@example.com")
+        cookie_b, _ = self.login("bob@example.com")
+        r, data = self.call("POST", "/api/orders", {"kind": "plan"}, cookie=cookie_a)
+        order_id = data["order"]["id"]
+
+        r, _ = self.call("POST", f"/api/orders/{order_id}/pay", {"method": "manual"}, cookie=cookie_b)
+        self.assertEqual(r.code, 404)
+        r, _ = self.call("POST", f"/api/orders/{order_id}/manual-paid", {}, cookie=cookie_b)
+        self.assertEqual(r.code, 404)
+
+        r, sdata = self.call("POST", "/api/speaking/speaking-01/start", {"candidateName": "Alice"}, cookie=cookie_a)
+        sub_id = sdata["submissionId"]
+
+        r, _ = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=cookie_b)
+        self.assertEqual(r.code, 404)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

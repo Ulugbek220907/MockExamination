@@ -156,6 +156,10 @@ CREATE TABLE IF NOT EXISTS recordings (
     UNIQUE (submission_id, question_key)
 );
 CREATE INDEX IF NOT EXISTS idx_speaking_user ON speaking_submissions(user_id, created_at);
+CREATE INDEX IF NOT EXISTS idx_orders_user ON orders(user_id);
+CREATE INDEX IF NOT EXISTS idx_sub_periods_user ON subscription_periods(user_id);
+CREATE INDEX IF NOT EXISTS idx_checks_student ON checks(student_id);
+CREATE INDEX IF NOT EXISTS idx_checks_examiner ON checks(examiner_id);
 CREATE TABLE IF NOT EXISTS login_codes (
     email TEXT PRIMARY KEY,
     code_hash TEXT NOT NULL,
@@ -225,12 +229,17 @@ class SqliteDb:
     def __init__(self, path, lock=None):
         self.path = path
         self.lock = lock or threading.Lock()
-        with self.lock, self._connect() as conn:
-            for table, column in _REPLACED_TABLES.items():
-                cols = {r[1] for r in conn.execute(f'PRAGMA table_info("{table}")')}
-                if cols and column not in cols:
-                    conn.execute(f'DROP TABLE "{table}"')
-            conn.executescript(SQLITE_SCHEMA)
+        with self.lock:
+            conn = self._connect()
+            try:
+                with conn:
+                    for table, column in _REPLACED_TABLES.items():
+                        cols = {r[1] for r in conn.execute(f'PRAGMA table_info("{table}")')}
+                        if cols and column not in cols:
+                            conn.execute(f'DROP TABLE "{table}"')
+                    conn.executescript(SQLITE_SCHEMA)
+            finally:
+                conn.close()
 
     def _connect(self):
         conn = sqlite3.connect(self.path, timeout=10.0)
@@ -292,11 +301,18 @@ class SqliteDb:
         sql_where, params = self._where_sql(table, where)
         sql = f'SELECT * FROM "{table}"{sql_where}'
         if order:
-            sql += " ORDER BY " + ", ".join(f'"{c}" {"DESC" if d == "desc" else "ASC"}' for c, d in order)
+            for c, d in order:
+                if not str(c).replace("_", "").isalnum():
+                    raise DbError(f"bad order column {c!r}")
+            sql += " ORDER BY " + ", ".join(f'"{c}" {"DESC" if str(d).lower() == "desc" else "ASC"}' for c, d in order)
         if limit:
             sql += f" LIMIT {int(limit)}"
-        with self.lock, self._connect() as conn:
-            return [self._decode(table, r) for r in conn.execute(sql, params).fetchall()]
+        with self.lock:
+            conn = self._connect()
+            try:
+                return [self._decode(table, r) for r in conn.execute(sql, params).fetchall()]
+            finally:
+                conn.close()
 
     def insert(self, table, row, ignore_conflict=False):
         _check_table(table)
@@ -305,41 +321,62 @@ class SqliteDb:
             row["created_at"] = iso(now())
         row = self._encode(table, row)
         cols = list(row)
+        for c in cols:
+            if not str(c).replace("_", "").isalnum():
+                raise DbError(f"bad column {c!r}")
         sql = (f'INSERT {"OR IGNORE " if ignore_conflict else ""}INTO "{table}" '
                f'({",".join(chr(34) + c + chr(34) for c in cols)}) VALUES ({",".join("?" * len(cols))})')
-        with self.lock, self._connect() as conn:
+        with self.lock:
+            conn = self._connect()
             try:
-                cur = conn.execute(sql, [row[c] for c in cols])
-            except sqlite3.IntegrityError as e:
-                raise DbError(str(e)) from e
-            if cur.rowcount == 0:
-                return None
-            got = conn.execute(f'SELECT * FROM "{table}" WHERE rowid = ?', (cur.lastrowid,)).fetchone()
-            return self._decode(table, got)
+                with conn:
+                    try:
+                        cur = conn.execute(sql, [row[c] for c in cols])
+                    except sqlite3.IntegrityError as e:
+                        raise DbError(str(e)) from e
+                    if cur.rowcount == 0:
+                        return None
+                    got = conn.execute(f'SELECT * FROM "{table}" WHERE rowid = ?', (cur.lastrowid,)).fetchone()
+                    return self._decode(table, got)
+            finally:
+                conn.close()
 
     def update(self, table, where, values):
         _check_table(table)
         if not where:
             raise DbError("update without a filter")
+        for c in values:
+            if not str(c).replace("_", "").isalnum():
+                raise DbError(f"bad column {c!r}")
         values = self._encode(table, values)
         sql_where, params = self._where_sql(table, where)
         sets = ", ".join(f'"{c}" = ?' for c in values)
-        with self.lock, self._connect() as conn:
-            rowids = [r[0] for r in conn.execute(f'SELECT rowid FROM "{table}"{sql_where}', params).fetchall()]
-            if not rowids:
-                return []
-            marks = ",".join("?" * len(rowids))
-            conn.execute(f'UPDATE "{table}" SET {sets} WHERE rowid IN ({marks})', list(values.values()) + rowids)
-            rows = conn.execute(f'SELECT * FROM "{table}" WHERE rowid IN ({marks})', rowids).fetchall()
-            return [self._decode(table, r) for r in rows]
+        with self.lock:
+            conn = self._connect()
+            try:
+                with conn:
+                    rowids = [r[0] for r in conn.execute(f'SELECT rowid FROM "{table}"{sql_where}', params).fetchall()]
+                    if not rowids:
+                        return []
+                    marks = ",".join("?" * len(rowids))
+                    conn.execute(f'UPDATE "{table}" SET {sets} WHERE rowid IN ({marks})', list(values.values()) + rowids)
+                    rows = conn.execute(f'SELECT * FROM "{table}" WHERE rowid IN ({marks})', rowids).fetchall()
+                    return [self._decode(table, r) for r in rows]
+            finally:
+                conn.close()
 
     def delete(self, table, where):
         _check_table(table)
         if not where:
             raise DbError("delete without a filter")
         sql_where, params = self._where_sql(table, where)
-        with self.lock, self._connect() as conn:
-            return conn.execute(f'DELETE FROM "{table}"{sql_where}', params).rowcount
+        with self.lock:
+            conn = self._connect()
+            try:
+                with conn:
+                    return conn.execute(f'DELETE FROM "{table}"{sql_where}', params).rowcount
+            finally:
+                conn.close()
 
 
 # --------------------------------------------------------------------------
@@ -391,11 +428,15 @@ class RestDb:
             elif op == "is" or (op == "eq" and value is None):
                 params.append((col, "is." + _rest_value(value)))
             elif op == "ilike":
-                params.append((col, "ilike.*" + str(value).replace("*", "") + "*"))
+                clean = "".join(ch for ch in str(value) if ch not in "*(),\"'")
+                params.append((col, "ilike.*" + clean + "*"))
             else:
                 params.append((col, f"{op}.{_rest_value(value)}"))
         if order:
-            params.append(("order", ",".join(f"{c}.{'desc' if d == 'desc' else 'asc'}" for c, d in order)))
+            for c, d in order:
+                if not str(c).replace("_", "").isalnum():
+                    raise DbError(f"bad order column {c!r}")
+            params.append(("order", ",".join(f"{c}.{'desc' if str(d).lower() == 'desc' else 'asc'}" for c, d in order)))
         if limit:
             params.append(("limit", str(int(limit))))
         params.extend(extra or [])

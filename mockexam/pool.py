@@ -24,7 +24,7 @@ import urllib.request
 MAX_IDLE_SECONDS = 30
 
 _local = threading.local()
-_STALE_ERRORS = (http.client.RemoteDisconnected, ConnectionResetError, BrokenPipeError)
+_STALE_ERRORS = (http.client.RemoteDisconnected, ConnectionError)
 
 
 class _Response:

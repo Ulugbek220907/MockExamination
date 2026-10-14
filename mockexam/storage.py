@@ -76,74 +76,90 @@ class LocalStore:
 
     def _init_db(self):
         os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
-        with self._lock, self._connect() as conn:
-            conn.executescript(
-                """
-                CREATE TABLE IF NOT EXISTS reading_attempts (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    test_id TEXT NOT NULL,
-                    client_id TEXT,
-                    candidate_name TEXT,
-                    mode TEXT,
-                    raw_score INTEGER NOT NULL,
-                    total_questions INTEGER NOT NULL,
-                    band_score REAL NOT NULL,
-                    time_spent_seconds INTEGER,
-                    answers TEXT,
-                    breakdown TEXT,
-                    created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
-                );
-                CREATE TABLE IF NOT EXISTS listening_attempts (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    test_id TEXT NOT NULL,
-                    client_id TEXT,
-                    candidate_name TEXT,
-                    mode TEXT,
-                    raw_score INTEGER NOT NULL,
-                    total_questions INTEGER NOT NULL,
-                    band_score REAL NOT NULL,
-                    time_spent_seconds INTEGER,
-                    answers TEXT,
-                    breakdown TEXT,
-                    created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
-                );
-                CREATE TABLE IF NOT EXISTS writing_submissions (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    test_id TEXT NOT NULL,
-                    client_id TEXT,
-                    candidate_name TEXT,
-                    task1_text TEXT,
-                    task2_text TEXT,
-                    task1_words INTEGER,
-                    task2_words INTEGER,
-                    time_spent_seconds INTEGER,
-                    analysis TEXT,
-                    assessment TEXT,
-                    overall_band REAL,
-                    created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
-                );
-                CREATE INDEX IF NOT EXISTS idx_reading_client ON reading_attempts(client_id, created_at);
-                CREATE INDEX IF NOT EXISTS idx_listening_client ON listening_attempts(client_id, created_at);
-                CREATE INDEX IF NOT EXISTS idx_writing_client ON writing_submissions(client_id, created_at);
-                """
-            )
-            # Databases created before accounts existed have no user_id column.
-            for table in ("reading_attempts", "listening_attempts", "writing_submissions"):
-                cols = {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}
-                if "user_id" not in cols:
-                    conn.execute(f"ALTER TABLE {table} ADD COLUMN user_id TEXT")
+        with self._lock:
+            conn = self._connect()
+            try:
+                with conn:
+                    conn.executescript(
+                        """
+                        CREATE TABLE IF NOT EXISTS reading_attempts (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            test_id TEXT NOT NULL,
+                            client_id TEXT,
+                            candidate_name TEXT,
+                            mode TEXT,
+                            raw_score INTEGER NOT NULL,
+                            total_questions INTEGER NOT NULL,
+                            band_score REAL NOT NULL,
+                            time_spent_seconds INTEGER,
+                            answers TEXT,
+                            breakdown TEXT,
+                            created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
+                        );
+                        CREATE TABLE IF NOT EXISTS listening_attempts (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            test_id TEXT NOT NULL,
+                            client_id TEXT,
+                            candidate_name TEXT,
+                            mode TEXT,
+                            raw_score INTEGER NOT NULL,
+                            total_questions INTEGER NOT NULL,
+                            band_score REAL NOT NULL,
+                            time_spent_seconds INTEGER,
+                            answers TEXT,
+                            breakdown TEXT,
+                            created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
+                        );
+                        CREATE TABLE IF NOT EXISTS writing_submissions (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            test_id TEXT NOT NULL,
+                            client_id TEXT,
+                            candidate_name TEXT,
+                            task1_text TEXT,
+                            task2_text TEXT,
+                            task1_words INTEGER,
+                            task2_words INTEGER,
+                            time_spent_seconds INTEGER,
+                            analysis TEXT,
+                            assessment TEXT,
+                            overall_band REAL,
+                            created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
+                        );
+                        CREATE INDEX IF NOT EXISTS idx_reading_client ON reading_attempts(client_id, created_at);
+                        CREATE INDEX IF NOT EXISTS idx_listening_client ON listening_attempts(client_id, created_at);
+                        CREATE INDEX IF NOT EXISTS idx_writing_client ON writing_submissions(client_id, created_at);
+                        """
+                    )
+                    for table in ("reading_attempts", "listening_attempts", "writing_submissions"):
+                        cols = {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}
+                        if "user_id" not in cols:
+                            conn.execute(f"ALTER TABLE {table} ADD COLUMN user_id TEXT")
+                    conn.executescript(
+                        """
+                        CREATE INDEX IF NOT EXISTS idx_reading_user ON reading_attempts(user_id, id DESC);
+                        CREATE INDEX IF NOT EXISTS idx_listening_user ON listening_attempts(user_id, id DESC);
+                        CREATE INDEX IF NOT EXISTS idx_writing_user ON writing_submissions(user_id, id DESC);
+                        """
+                    )
+            finally:
+                conn.close()
 
     def _save_scored_attempt(self, table, rec):
-        with self._lock, self._connect() as conn:
-            cur = conn.execute(
-                f"""INSERT INTO {table} (test_id, client_id, user_id, candidate_name, mode, raw_score,
-                   total_questions, band_score, time_spent_seconds, answers, breakdown)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
-                (rec["test_id"], rec.get("client_id"), rec.get("user_id"), rec.get("candidate_name"), rec.get("mode"),
-                 rec["raw_score"], rec["total_questions"], rec["band_score"], rec.get("time_spent_seconds"),
-                 json.dumps(rec.get("answers")), json.dumps(rec.get("breakdown"))),
-            )
-            return cur.lastrowid
+        with self._lock:
+            conn = self._connect()
+            try:
+                with conn:
+                    cur = conn.execute(
+                        f"""INSERT INTO {table} (test_id, client_id, user_id, candidate_name, mode, raw_score,
+                           total_questions, band_score, time_spent_seconds, answers, breakdown)
+                           VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
+                        (rec["test_id"], rec.get("client_id"), rec.get("user_id"), rec.get("candidate_name"), rec.get("mode"),
+                         rec["raw_score"], rec["total_questions"], rec["band_score"], rec.get("time_spent_seconds"),
+                         json.dumps(rec.get("answers")), json.dumps(rec.get("breakdown"))),
+                    )
+                    return cur.lastrowid
+            finally:
+                conn.close()
 
     def save_reading_attempt(self, rec):
         return self._save_scored_attempt("reading_attempts", rec)
@@ -152,35 +168,44 @@ class LocalStore:
         return self._save_scored_attempt("listening_attempts", rec)
 
     def save_writing_submission(self, rec):
-        with self._lock, self._connect() as conn:
-            cur = conn.execute(
-                """INSERT INTO writing_submissions (test_id, client_id, user_id, candidate_name, task1_text, task2_text,
-                   task1_words, task2_words, time_spent_seconds, analysis, assessment, overall_band)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?)""",
-                (rec["test_id"], rec.get("client_id"), rec.get("user_id"), rec.get("candidate_name"), rec.get("task1_text"),
-                 rec.get("task2_text"), rec.get("task1_words"), rec.get("task2_words"),
-                 rec.get("time_spent_seconds"), json.dumps(rec.get("analysis")),
-                 json.dumps(rec.get("assessment")), rec.get("overall_band")),
-            )
-            return cur.lastrowid
+        with self._lock:
+            conn = self._connect()
+            try:
+                with conn:
+                    cur = conn.execute(
+                        """INSERT INTO writing_submissions (test_id, client_id, user_id, candidate_name, task1_text, task2_text,
+                           task1_words, task2_words, time_spent_seconds, analysis, assessment, overall_band)
+                           VALUES (?,?,?,?,?,?,?,?,?,?,?,?)""",
+                        (rec["test_id"], rec.get("client_id"), rec.get("user_id"), rec.get("candidate_name"), rec.get("task1_text"),
+                         rec.get("task2_text"), rec.get("task1_words"), rec.get("task2_words"),
+                         rec.get("time_spent_seconds"), json.dumps(rec.get("analysis")),
+                         json.dumps(rec.get("assessment")), rec.get("overall_band")),
+                    )
+                    return cur.lastrowid
+            finally:
+                conn.close()
 
     def list_history(self, client_id=None, limit=20, user_id=None):
         """Recent attempts of a signed-in user (all devices) or, if signed out, of this browser."""
         col, value = ("user_id", user_id) if user_id else ("client_id", client_id)
-        with self._lock, self._connect() as conn:
-            scored = []
-            for module in ("reading", "listening"):
-                rows = conn.execute(
-                    f"""SELECT id, test_id, raw_score, total_questions, band_score, time_spent_seconds, mode, created_at
-                       FROM {module}_attempts WHERE {col} = ? ORDER BY id DESC LIMIT ?""",
+        with self._lock:
+            conn = self._connect()
+            try:
+                scored = []
+                for module in ("reading", "listening"):
+                    rows = conn.execute(
+                        f"""SELECT id, test_id, raw_score, total_questions, band_score, time_spent_seconds, mode, created_at
+                           FROM {module}_attempts WHERE {col} = ? ORDER BY id DESC LIMIT ?""",
+                        (value, limit),
+                    ).fetchall()
+                    scored += [(module, r) for r in rows]
+                writing = conn.execute(
+                    f"""SELECT id, test_id, task1_words, task2_words, overall_band, time_spent_seconds, created_at
+                       FROM writing_submissions WHERE {col} = ? ORDER BY id DESC LIMIT ?""",
                     (value, limit),
                 ).fetchall()
-                scored += [(module, r) for r in rows]
-            writing = conn.execute(
-                f"""SELECT id, test_id, task1_words, task2_words, overall_band, time_spent_seconds, created_at
-                   FROM writing_submissions WHERE {col} = ? ORDER BY id DESC LIMIT ?""",
-                (value, limit),
-            ).fetchall()
+            finally:
+                conn.close()
         items = [
             {"module": module, "id": r[0], "testId": r[1], "rawScore": r[2], "totalQuestions": r[3],
              "bandScore": r[4], "timeSpentSeconds": r[5], "mode": r[6], "createdAt": r[7]}
@@ -194,10 +219,14 @@ class LocalStore:
         return items[:limit]
 
     def stats(self):
-        with self._lock, self._connect() as conn:
-            r = conn.execute("SELECT COUNT(*), AVG(band_score) FROM reading_attempts").fetchone()
-            li = conn.execute("SELECT COUNT(*), AVG(band_score) FROM listening_attempts").fetchone()
-            w = conn.execute("SELECT COUNT(*), AVG(overall_band) FROM writing_submissions").fetchone()
+        with self._lock:
+            conn = self._connect()
+            try:
+                r = conn.execute("SELECT COUNT(*), AVG(band_score) FROM reading_attempts").fetchone()
+                li = conn.execute("SELECT COUNT(*), AVG(band_score) FROM listening_attempts").fetchone()
+                w = conn.execute("SELECT COUNT(*), AVG(overall_band) FROM writing_submissions").fetchone()
+            finally:
+                conn.close()
         return {"readingAttempts": r[0], "readingAvgBand": r[1], "listeningAttempts": li[0], "listeningAvgBand": li[1],
                 "writingSubmissions": w[0], "writingAvgBand": w[1]}
 

@@ -12,6 +12,7 @@ import hmac
 import json
 import os
 import time
+from urllib.parse import urlparse
 
 import tornado.ioloop
 import tornado.web
@@ -30,9 +31,11 @@ SECURITY_HEADERS = {
     "X-Frame-Options": "DENY",
     "Referrer-Policy": "strict-origin-when-cross-origin",
     "Permissions-Policy": "camera=(), microphone=(self), geolocation=()",
+    "Cross-Origin-Opener-Policy": "same-origin",
+    "Cross-Origin-Resource-Policy": "same-origin",
     # Browsers ignore this over plain HTTP, so local development is unaffected. Over HTTPS
     # it lets returning visitors skip the http:// -> https:// redirect.
-    "Strict-Transport-Security": "max-age=31536000",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
     "Content-Security-Policy": (
         "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
         "img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; font-src 'self'; "
@@ -65,13 +68,40 @@ class BaseHandler(tornado.web.RequestHandler):
     def auth(self):
         return self.application.settings["auth"]
 
+    def _is_same_origin(self, origin):
+        if not origin:
+            return True
+        origin_parsed = urlparse(origin)
+        req_host = self.request.host.split(":")[0].lower()
+        origin_host = (origin_parsed.hostname or "").lower()
+        expected = {req_host, "localhost", "127.0.0.1"}
+        if SITE_URL:
+            sh = urlparse(SITE_URL).hostname
+            if sh:
+                expected.add(sh.lower())
+        return origin_host in expected
+
     def prepare(self):
-        # A signed-in browser only ever sends JSON with fetch(). Refusing other
-        # content types on POST blocks cross-site form submissions (CSRF).
-        if self.request.method == "POST" and not self.ACCEPTS_FORMS and self.request.body:
-            ctype = self.request.headers.get("Content-Type", "").split(";")[0].strip().lower()
-            if ctype != "application/json":
-                raise tornado.web.HTTPError(415, "Expected application/json")
+        # Defend against cross-site request forgery:
+        # 1. Fetch Metadata (Sec-Fetch-Site): allow same-origin, same-site, and top-level navigation.
+        #    Reject cross-site API fetches, subresource requests, and cross-site state-changing requests.
+        # 2. Origin verification: reject cross-origin state-changing requests.
+        # 3. Content-Type: require application/json for state-changing requests so standard HTML
+        #    forms (which cannot send application/json) are refused.
+        if not self.ACCEPTS_FORMS:
+            sec_site = self.request.headers.get("Sec-Fetch-Site")
+            if sec_site == "cross-site":
+                is_top_nav = self.request.method in ("GET", "HEAD") and self.request.headers.get("Sec-Fetch-Mode") == "navigate"
+                if not is_top_nav:
+                    raise tornado.web.HTTPError(403, "Cross-site request blocked")
+            if self.request.method in ("POST", "PUT", "PATCH", "DELETE"):
+                origin = self.request.headers.get("Origin")
+                if origin and not self._is_same_origin(origin):
+                    raise tornado.web.HTTPError(403, "Cross-origin state change blocked")
+                ctype = self.request.headers.get("Content-Type", "").split(";")[0].strip().lower()
+                is_bearer = bool(self.request.headers.get("Authorization", "").startswith("Bearer "))
+                if ctype != "application/json" and not (is_bearer and not self.request.body):
+                    raise tornado.web.HTTPError(415, "Expected application/json")
 
     def send_json(self, payload, status=200):
         self.set_status(status)
@@ -117,7 +147,9 @@ class BaseHandler(tornado.web.RequestHandler):
         if TRUST_PROXY:
             forwarded = self.request.headers.get("X-Forwarded-For", "")
             if forwarded:
-                return forwarded.split(",")[-1].strip()
+                parts = [p.strip() for p in forwarded.split(",") if p.strip()]
+                if parts:
+                    return parts[-1]
         return self.request.remote_ip
 
     def site_url(self):
@@ -149,7 +181,8 @@ class BaseHandler(tornado.web.RequestHandler):
                                expires_days=SESSION_DAYS, httponly=True, secure=secure, samesite="Lax", path="/")
 
     def end_session(self):
-        self.clear_cookie(SESSION_COOKIE, path="/")
+        secure = self.site_url().startswith("https://")
+        self.clear_cookie(SESSION_COOKIE, path="/", secure=secure, samesite="Lax")
 
     async def load_profile(self):
         """The signed-in user's profile (cached for this request), or None."""

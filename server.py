@@ -103,16 +103,25 @@ def create_auth():
     return auth.DevAuth()
 
 
+_CACHED_COOKIE_SECRET = None
+
+
 def cookie_secret():
     """Secret that signs session cookies. Stable across restarts when a server secret is configured."""
+    global _CACHED_COOKIE_SECRET
+    if _CACHED_COOKIE_SECRET is not None:
+        return _CACHED_COOKIE_SECRET
     explicit = os.environ.get("SESSION_SECRET", "").strip()
     if explicit:
-        return explicit
+        _CACHED_COOKIE_SECRET = explicit
+        return _CACHED_COOKIE_SECRET
     base = os.environ.get("SUPABASE_APP_SECRET", "").strip() or ADMIN_TOKEN
     if base:
-        return hmac.new(base.encode("utf-8"), b"mockexam-session-v1", hashlib.sha256).hexdigest()
+        _CACHED_COOKIE_SECRET = hmac.new(base.encode("utf-8"), b"mockexam-session-v1", hashlib.sha256).hexdigest()
+        return _CACHED_COOKIE_SECRET
     log.warning("No SESSION_SECRET: sign-ins will not survive a restart.")
-    return secrets.token_hex(32)
+    _CACHED_COOKIE_SECRET = secrets.token_hex(32)
+    return _CACHED_COOKIE_SECRET
 
 
 AUTH = create_auth()
@@ -139,6 +148,11 @@ class AiLimiter:
             today = datetime.date.today()
             if today != self.day:
                 self.day, self.day_count = today, 0
+                self.hits.clear()
+            if len(self.hits) > 2000:
+                expired = [k for k, v in self.hits.items() if not v or now - v[-1] > 3600]
+                for k in expired:
+                    self.hits.pop(k, None)
             if self.day_count >= self.daily:
                 return "The daily limit for AI marking has been reached. Please try again tomorrow."
             q = self.hits[ip]
@@ -452,7 +466,7 @@ class WritingSubmitHandler(BaseHandler):
         raw = body.get("responses") or {}
         responses = {}
         for n in (1, 2):
-            text = raw.get(str(n), "") if isinstance(raw, dict) else ""
+            text = (raw.get(str(n)) if raw.get(str(n)) is not None else raw.get(n, "")) if isinstance(raw, dict) else ""
             text = text if isinstance(text, str) else ""
             if len(text) > MAX_ESSAY_CHARS:
                 return self.send_error_json(413, f"Task {n} is too long.")
@@ -703,7 +717,8 @@ def main():
     IndexHandler.html()
     counts = collections.Counter(t.get("module") for t in tests)
     app = make_app()
-    app.listen(PORT, address="0.0.0.0", max_body_size=MAX_BODY_BYTES)
+    server_max_body = max(MAX_BODY_BYTES, speaking.MAX_RECORDING_BYTES + 64 * 1024)
+    app.listen(PORT, address="0.0.0.0", max_body_size=server_max_body)
     log.info("%s running on http://0.0.0.0:%d (storage=%s, sign-in=%s, AI marking=%s)",
              SITE_NAME, PORT, STORE.name, AUTH.name, "on" if writing.ai_configured() else "off")
     log.info("Loaded %d reading, %d listening, %d writing and %d speaking tests",

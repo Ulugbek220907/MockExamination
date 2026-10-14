@@ -234,14 +234,21 @@ class DevAuth:
     def send_code(self, email, redirect_to, lang="en"):
         code = f"{secrets.randbelow(1_000_000):06d}"
         with self.lock:
-            self.codes[email] = (code, time.time() + self.TTL)
+            self.codes[email] = (code, time.time() + self.TTL, 0)
         log.info("Development sign-in code for %s: %s", email, code)
         return code
 
     def verify_code(self, email, code):
         with self.lock:
-            expected, expires = self.codes.get(email, (None, 0))
-            if not expected or time.time() > expires or not hmac.compare_digest(expected, code):
+            entry = self.codes.get(email)
+            if not entry:
+                raise AuthError("That code is wrong or has expired. Request a new code.", 400)
+            expected, expires, attempts = entry
+            if time.time() > expires or attempts >= 5:
+                self.codes.pop(email, None)
+                raise AuthError("That code is wrong or has expired. Request a new code.", 400)
+            if not hmac.compare_digest(expected, code):
+                self.codes[email] = (expected, expires, attempts + 1)
                 raise AuthError("That code is wrong or has expired. Request a new code.", 400)
             del self.codes[email]
         return {"id": str(uuid.uuid5(uuid.NAMESPACE_URL, "mockexam:" + email)), "email": email, "name": ""}

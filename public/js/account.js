@@ -175,7 +175,8 @@
         busy("email", true);
         try {
           const res = await U.api("/api/auth/code", { method: "POST", body: JSON.stringify({ email, lang: I18N.lang() }) });
-          el.querySelector("[data-email]").textContent = res.email;
+          const emailTarget = el.querySelector("[data-email]");
+          if (emailTarget) emailTarget.textContent = res.email;
           const hint = el.querySelector(".dev-hint");
           hint.hidden = !res.devCode;
           if (res.devCode) hint.textContent = `Development mode: your code is ${res.devCode}`;

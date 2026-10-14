@@ -213,8 +213,11 @@ def progress_points(store, db, user_id):
         if i["module"] in ("reading", "listening") and i.get("mode") == "practice":
             continue  # untimed practice would inflate the trend
         if i["module"] == "writing":
-            if i["id"] in marked:
-                band, source = float(marked[i["id"]]["overall_band"]), "examiner"
+            if i["id"] in marked and marked[i["id"]].get("overall_band") is not None:
+                try:
+                    band, source = float(marked[i["id"]]["overall_band"]), "examiner"
+                except (ValueError, TypeError):
+                    band, source = None, "examiner"
             else:
                 source = "ai"
         elif i["module"] == "speaking":
@@ -465,17 +468,15 @@ class SpeakingAnswerHandler(BaseHandler):
         # Only recorded audio is accepted. Browsers cannot send these types to another
         # site without a CORS preflight, which this server never allows, so no CSRF.
         self.chunks, self.size = [], 0
+        if self.request.headers.get("Sec-Fetch-Site") == "cross-site":
+            raise tornado.web.HTTPError(403, "Cross-site request blocked")
+        origin = self.request.headers.get("Origin")
+        if origin and not self._is_same_origin(origin):
+            raise tornado.web.HTTPError(403, "Cross-origin state change blocked")
         if self.request.method != "POST":
             return
         if speaking.base_mime(self.request.headers.get("Content-Type")) not in speaking.AUDIO_TYPES:
             raise ApiError(415, "This audio format is not supported.")
-        try:
-            declared = int(self.request.headers.get("Content-Length") or 0)
-        except ValueError:
-            declared = 0
-        if declared > speaking.MAX_RECORDING_BYTES:
-            raise ApiError(413, "The recording is too long.")
-        self.request.connection.set_max_body_size(speaking.MAX_RECORDING_BYTES)
         self.profile = await self.require_profile()
 
     def data_received(self, chunk):

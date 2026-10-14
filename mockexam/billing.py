@@ -134,6 +134,9 @@ def public_order(order):
 def create_order(db, user_id, kind, examiner_id=None, submission_id=None):
     if kind not in PRICES:
         raise BillingError("Unknown product.")
+    pending = db.select("orders", {"user_id": user_id, "status": "pending"}, limit=15)
+    if len(pending) >= 15:
+        raise BillingError("You have too many unpaid orders. Please complete or wait for previous orders.")
     row = {"user_id": user_id, "kind": kind, "amount": PRICES[kind], "status": "pending"}
     if kind in ("writing_check", "speaking_check"):
         check_kind = "writing" if kind == "writing_check" else "speaking"

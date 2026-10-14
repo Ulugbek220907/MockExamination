@@ -75,7 +75,7 @@ def plan_status(db, user_id, at=None):
     ends = max((parse_time(p["ends_at"]) for p in periods), default=None)
     return {
         "active": active,
-        "endsAt": iso(ends) if ends and ends > at else None,
+        "endsAt": iso(ends) if active and ends and ends > at else None,
         "hadPlan": bool(periods),
         "hadPaidPlan": any(p["source"] == "payment" for p in periods),
     }

@@ -98,7 +98,7 @@ def send_telegram(text):
     if not telegram_enabled():
         return False
     _post_json(f"https://api.telegram.org/bot{_env('TELEGRAM_BOT_TOKEN')}/sendMessage",
-               {"chat_id": _env("TELEGRAM_ADMIN_CHAT_ID"), "text": text, "disable_web_page_preview": True})
+               {"chat_id": _env("TELEGRAM_ADMIN_CHAT_ID"), "text": str(text)[:4000], "disable_web_page_preview": True})
     return True
 
 
