@@ -1,0 +1,602 @@
+{
+  "id": "academic-reading-05",
+  "title": "Academic Reading Practice Test 5",
+  "module": "reading",
+  "license": "Original work written for this project. All rights reserved by the site owner.",
+  "variant": "academic",
+  "passages": [
+    {
+      "title": "The Lens That Lit the Seas",
+      "groups": [
+        {
+          "type": "flow_chart_completion",
+          "title": "Fresnel’s new lens",
+          "content": [
+            "Problem: a single lens large enough to focus the light would be very thick and {{1}}, and might crack as it cooled",
+            "Fresnel’s observation: the light is bent only by the curved {{2}} of a lens",
+            "Design: the lens is divided into concentric {{3}}, each a thin slice of a larger lens",
+            "Result: rays from the lamp are bent into a single horizontal {{4}}",
+            "Improvement: prisms above and below the centre {{5}} escaping light back into the beam"
+          ],
+          "maxWords": 1,
+          "questions": [
+            {
+              "answer": [
+                "heavy"
+              ],
+              "number": 1,
+              "reference": "Paragraph 3",
+              "explanation": "A large lens ‘would have to be extremely thick and heavy’."
+            },
+            {
+              "answer": [
+                "surfaces"
+              ],
+              "number": 2,
+              "reference": "Paragraph 4",
+              "explanation": "‘Only the curved surfaces of a lens actually bend the light.’"
+            },
+            {
+              "answer": [
+                "rings"
+              ],
+              "number": 3,
+              "reference": "Paragraph 4",
+              "explanation": "‘He therefore divided the lens into a series of concentric rings.’"
+            },
+            {
+              "answer": [
+                "beam"
+              ],
+              "number": 4,
+              "reference": "Paragraphs 3–4",
+              "explanation": "A lens in front of the lamp would ‘focus its rays into a beam’."
+            },
+            {
+              "answer": [
+                "reflected"
+              ],
+              "number": 5,
+              "reference": "Paragraph 4",
+              "explanation": "Prisms ‘caught the light escaping upwards and downwards … and reflected it into the beam’."
+            }
+          ],
+          "instruction": "Complete the flow-chart below. Choose **ONE WORD ONLY** from the passage for each answer."
+        },
+        {
+          "type": "true_false_not_given",
+          "questions": [
+            {
+              "answer": "TRUE",
+              "number": 6,
+              "prompt": "The Argand lamp produced less smoke than earlier lamps.",
+              "reference": "Paragraph 1",
+              "explanation": "It ‘burned far more brightly than earlier designs and produced less smoke’."
+            },
+            {
+              "answer": "FALSE",
+              "number": 7,
+              "prompt": "Metal reflectors stayed bright with very little maintenance.",
+              "reference": "Paragraph 1",
+              "explanation": "The metal ‘tarnished quickly in the salty air … so keepers spent hours every day cleaning it’."
+            },
+            {
+              "answer": "FALSE",
+              "number": 8,
+              "prompt": "Fresnel learned to read unusually early.",
+              "reference": "Paragraph 2",
+              "explanation": "He was such a slow learner that ‘he could barely read at the age of eight’."
+            },
+            {
+              "answer": "TRUE",
+              "number": 9,
+              "prompt": "In Fresnel’s time, most scientists believed that light was made of particles.",
+              "reference": "Paragraph 2",
+              "explanation": "‘Most scientists followed Isaac Newton in believing that light consisted of tiny particles.’"
+            },
+            {
+              "answer": "NOT GIVEN",
+              "number": 10,
+              "prompt": "Fresnel received a large salary for his work on the Lighthouse Commission.",
+              "reference": "Paragraph 3",
+              "explanation": "His appointment is mentioned, but nothing is said about payment."
+            },
+            {
+              "answer": "FALSE",
+              "number": 11,
+              "prompt": "Fresnel developed his design after reading the Comte de Buffon’s work.",
+              "reference": "Paragraph 4",
+              "explanation": "‘Fresnel arrived at it independently.’"
+            },
+            {
+              "answer": "NOT GIVEN",
+              "number": 12,
+              "prompt": "The Cordouan lighthouse is still used to guide ships today.",
+              "reference": "Paragraph 5",
+              "explanation": "The passage describes the 1823 installation but not whether the lighthouse is in use now."
+            },
+            {
+              "answer": "TRUE",
+              "number": 13,
+              "prompt": "The lenses used in harbours were usually smaller than those used on dangerous coasts.",
+              "reference": "Paragraph 6",
+              "explanation": "Sixth-order lenses, the smallest, ‘were generally used to mark harbours and piers’; first-order lenses were for ‘dangerous coasts’."
+            }
+          ],
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this."
+        }
+      ],
+      "subtitle": "How a road engineer made lighthouses visible from far out at sea",
+      "paragraphs": [
+        {
+          "text": "For most of history, the lights that warned sailors away from rocks and sandbanks were feeble things. The earliest lighthouses were simply towers with wood or coal fires burning on top, and later ones used candles or oil lamps enclosed in glass lanterns. In the 1780s the Swiss physicist Aimé Argand invented a lamp with a hollow, circular wick that drew air up through its centre. The Argand lamp burned far more brightly than earlier designs and produced less smoke, and it was quickly adopted by lighthouse authorities. To concentrate its light, engineers placed curved metal mirrors, known as reflectors, behind each lamp. Even so, the results were disappointing. A great deal of the light that struck a mirror was absorbed rather than reflected, and the polished metal tarnished quickly in the salty air of the coast, so keepers spent hours every day cleaning it.",
+          "label": null
+        },
+        {
+          "text": "The man who transformed lighthouses was not a sailor or a lamp-maker but a road engineer. Augustin Fresnel was born in Normandy in 1788. As a child he was such a slow learner that, according to his family, he could barely read at the age of eight, yet he later trained as an engineer and spent years building roads for the French government. His real passion, however, was light. In his spare time he carried out experiments that supported the theory that light travels as a wave. This was a controversial position at the time, since most scientists followed Isaac Newton in believing that light consisted of tiny particles. In 1819 Fresnel won a prize from the French Academy of Sciences for his work on diffraction, the way that light bends around obstacles, and his reputation was made.",
+          "label": null
+        },
+        {
+          "text": "In the same year he was appointed to France’s Lighthouse Commission, which had been asked to find a way of improving the country’s coastal lights. One obvious solution was to place a large glass lens in front of the lamp to focus its rays into a beam. The difficulty was that a lens big enough to collect most of the light would have to be extremely thick and heavy. Such a lens would absorb much of the light passing through it, and it was likely to crack while it was being made, because the thick glass cooled unevenly in the mould.",
+          "label": null
+        },
+        {
+          "text": "Fresnel’s solution rested on a simple observation: only the curved surfaces of a lens actually bend the light. The glass inside does nothing useful except add weight. He therefore divided the lens into a series of concentric rings, each of which was a thin slice of the curved surface of a much larger lens. Placed side by side, the rings bent the light just as a solid lens would, but the whole structure was a fraction of the thickness and could be built from separate pieces of glass. A similar idea had been suggested decades earlier by the French naturalist the Comte de Buffon, but Fresnel arrived at it independently and was the first to work out the mathematics needed to make it practical. Later designs, based on his calculations, added further rings of prisms above and below the centre. These caught the light escaping upwards and downwards from the lamp and reflected it into the beam, so that very little was wasted.",
+          "label": null
+        },
+        {
+          "text": "The first Fresnel lens was installed in 1823 in the Cordouan lighthouse, which stands on a rocky island at the mouth of the Gironde estuary in south-west France. Its light could be seen more than thirty kilometres out to sea, a dramatic improvement on the old reflectors. Because the lens was assembled from separate panels, it could also be made to rotate around the lamp, so that sailors saw the light as a series of flashes. By giving each lighthouse its own pattern of flashes, the authorities allowed sailors to identify exactly which lighthouse they were looking at, and therefore where they were.",
+          "label": null
+        },
+        {
+          "text": "Fresnel lenses were soon classified by size into what were called ‘orders’. The largest, the first-order lenses, were intended for major lights on dangerous coasts and could stand almost four metres tall. At the other end of the scale, sixth-order lenses were small enough to be carried by one person and were generally used to mark harbours and piers, where ships approached slowly and a long-range light was unnecessary.",
+          "label": null
+        },
+        {
+          "text": "Other countries were slower to adopt the new technology, partly because of its cost. In the United States, reflectors remained in use until a Lighthouse Board was created in 1852; within a decade almost every American lighthouse had been fitted with a Fresnel lens. Fresnel himself did not live to see his invention spread around the world. He suffered from poor health for most of his life and died of tuberculosis in 1827, at the age of thirty-nine. Today most lighthouses have been automated, and many of the great glass lenses have been replaced by electric lights and moved to museums. Yet Fresnel’s principle is all around us: it can be found in car headlights, in traffic signals, in solar power collectors and in the thin plastic magnifying sheets sold for reading small print.",
+          "label": null
+        }
+      ],
+      "passageNumber": 1
+    },
+    {
+      "title": "Why Teenagers Can’t Get Up",
+      "groups": [
+        {
+          "type": "matching_information",
+          "questions": [
+            {
+              "answer": "G",
+              "number": 14,
+              "prompt": "a reference to a law that sets the earliest time for classes to begin",
+              "reference": "Paragraph G",
+              "explanation": "‘In 2019 California became the first American state to make this a legal requirement.’"
+            },
+            {
+              "answer": "F",
+              "number": 15,
+              "prompt": "a description of a method used to record how long students slept",
+              "reference": "Paragraph F",
+              "explanation": "Students wore ‘wrist monitors that recorded their activity day and night’."
+            },
+            {
+              "answer": "B",
+              "number": 16,
+              "prompt": "an explanation of two processes that control when people sleep",
+              "reference": "Paragraph B",
+              "explanation": "‘The timing of sleep is controlled by two separate systems’: sleep pressure and the internal clock."
+            },
+            {
+              "answer": "E",
+              "number": 17,
+              "prompt": "a list of problems associated with not getting enough sleep",
+              "reference": "Paragraph E",
+              "explanation": "Lack of sleep is linked to poor concentration and memory, low mood and depression, and road accidents."
+            },
+            {
+              "answer": "A",
+              "number": 18,
+              "prompt": "a common explanation for teenagers’ sleep habits",
+              "reference": "Paragraph A",
+              "explanation": "The behaviour ‘is often put down to laziness, late-night screen use or simple rebellion’."
+            }
+          ],
+          "instruction": "Reading Passage 2 has seven paragraphs, **A–G**. Which paragraph contains the following information? **NB** You may use any letter more than once."
+        },
+        {
+          "type": "matching_features",
+          "options": [
+            {
+              "key": "A",
+              "text": "Mary Carskadon"
+            },
+            {
+              "key": "B",
+              "text": "Till Roenneberg"
+            },
+            {
+              "key": "C",
+              "text": "Kyla Wahlstrom"
+            },
+            {
+              "key": "D",
+              "text": "Horacio de la Iglesia and his team"
+            }
+          ],
+          "questions": [
+            {
+              "answer": "A",
+              "number": 19,
+              "prompt": "Young people do not need less sleep as they go through puberty.",
+              "reference": "Paragraph C",
+              "explanation": "Adolescents slept about nine hours, ‘and this need did not fall as they passed through puberty’."
+            },
+            {
+              "answer": "B",
+              "number": 20,
+              "prompt": "A change in sleep timing could show when adolescence has ended.",
+              "reference": "Paragraph D",
+              "explanation": "The turning point ‘could be used as a biological marker of the end of adolescence’."
+            },
+            {
+              "answer": "D",
+              "number": 21,
+              "prompt": "Students who began school later achieved better results in one subject.",
+              "reference": "Paragraph F",
+              "explanation": "Grades ‘in the biology course the researchers followed rose by more than four per cent’."
+            },
+            {
+              "answer": "C",
+              "number": 22,
+              "prompt": "Later start times were associated with fewer signs of depression.",
+              "reference": "Paragraph F",
+              "explanation": "Students at Wahlstrom’s schools ‘showed fewer symptoms of depression’."
+            }
+          ],
+          "instruction": "Look at the following findings (Questions 19–22) and the list of researchers below. Match each finding with the correct researcher, **A–D**. **NB** You may use any letter more than once.",
+          "optionsTitle": "List of Researchers"
+        },
+        {
+          "type": "sentence_completion",
+          "maxWords": 1,
+          "questions": [
+            {
+              "answer": [
+                "melatonin"
+              ],
+              "number": 23,
+              "prompt": "During puberty, the hormone {{23}} is released later in the evening.",
+              "reference": "Paragraph B",
+              "explanation": "‘Melatonin is released later in the evening.’"
+            },
+            {
+              "answer": [
+                "pressure"
+              ],
+              "number": 24,
+              "prompt": "In teenagers, sleep {{24}} builds up more slowly during the day.",
+              "reference": "Paragraph B",
+              "explanation": "‘Sleep pressure builds more slowly.’"
+            },
+            {
+              "answer": [
+                "weekends"
+              ],
+              "number": 25,
+              "prompt": "Many teenagers try to make up for lost sleep by sleeping late at {{25}}.",
+              "reference": "Paragraph E",
+              "explanation": "They repay their sleep debt ‘by sleeping late at weekends’."
+            },
+            {
+              "answer": [
+                "buses"
+              ],
+              "number": 26,
+              "prompt": "Changing school start times is difficult partly because primary and secondary schools often share {{26}}.",
+              "reference": "Paragraph G",
+              "explanation": "‘School districts often share buses between primary and secondary schools.’"
+            }
+          ],
+          "instruction": "Complete the sentences below. Choose **ONE WORD ONLY** from the passage for each answer."
+        }
+      ],
+      "subtitle": "The science behind adolescent sleep, and what schools are doing about it",
+      "paragraphs": [
+        {
+          "text": "Few sights are more familiar to parents than a teenager who stays up until after midnight and then cannot be woken for school the next morning. The behaviour is often put down to laziness, late-night screen use or simple rebellion. Over the past fifty years, however, sleep scientists have built up a very different explanation. Much of the problem, they argue, lies not in teenagers’ characters but in their biology.",
+          "label": "A"
+        },
+        {
+          "text": "The timing of sleep is controlled by two separate systems. The first is sleep pressure: from the moment we wake, a chemical called adenosine gradually builds up in the brain, and the longer we stay awake, the stronger the urge to sleep becomes. The second is the body’s internal clock, a small group of cells in the brain that keeps a roughly twenty-four-hour rhythm and signals the approach of night by triggering the release of the hormone melatonin. During puberty, both systems change. Melatonin is released later in the evening, in some cases up to two hours later than in younger children, and sleep pressure builds more slowly, so that teenagers can stay awake late without feeling tired.",
+          "label": "B"
+        },
+        {
+          "text": "Some of the earliest evidence came from summer ‘sleep camps’ run at Stanford University in the 1970s, where the researcher Mary Carskadon and her colleagues monitored children who stayed in the laboratory for several days at a time. The team expected to find that young people needed less sleep as they grew older. Instead, they found that when they were given the opportunity, adolescents slept about nine hours a night, and that this need did not fall as they passed through puberty. Older teenagers, in fact, became sleepier during the day. Years later, by measuring melatonin in saliva samples, Carskadon was able to show that the internal clock itself shifts later during adolescence.",
+          "label": "C"
+        },
+        {
+          "text": "The German researcher Till Roenneberg approached the question differently. Rather than studying small groups in a laboratory, he designed a questionnaire asking people when they went to sleep and woke up on days when they had no work or school. Analysing the replies of tens of thousands of people, he found that sleep timing becomes steadily later throughout adolescence, reaches its latest point at around the age of twenty, and then gradually becomes earlier again for the rest of life. The turning point is so consistent, Roenneberg suggested, that it could be used as a biological marker of the end of adolescence.",
+          "label": "D"
+        },
+        {
+          "text": "The trouble is that society does not run on teenage time. Many secondary schools start classes before eight o’clock, so students whose bodies are not ready to sleep until midnight are forced to wake long before they have had enough rest. During the week they build up a sleep debt, which they then try to repay by sleeping late at weekends, a pattern Roenneberg called ‘social jet lag’. Lack of sleep has been linked to poor concentration and memory, to low mood and depression, and to a higher risk of road accidents among young drivers.",
+          "label": "E"
+        },
+        {
+          "text": "If the problem is caused by early starts, one solution is obvious: start school later. In the late 1990s, Kyla Wahlstrom of the University of Minnesota studied schools in the state that had moved their opening times from around half past seven to after eight. Students at these schools reported feeling more alert in class and showed fewer symptoms of depression, and attendance improved. More recently, a team from the University of Washington led by Horacio de la Iglesia studied the effect of a change in Seattle, where in 2016 the start of the high-school day was moved from 7.50 to 8.45. Rather than relying on what students said, the researchers asked them to wear wrist monitors that recorded their activity day and night. The monitors showed that students slept an extra thirty-four minutes on school nights, and their grades in the biology course the researchers followed rose by more than four per cent.",
+          "label": "F"
+        },
+        {
+          "text": "Changing school hours is not as simple as it sounds. School districts often share buses between primary and secondary schools, so moving one timetable means moving the other. Later finishing times can also clash with after-school sports, part-time jobs and parents’ working hours. Nevertheless, opinion is shifting. In 2014 the American Academy of Pediatrics recommended that middle and high schools should not start before 8.30 a.m., and in 2019 California became the first American state to make this a legal requirement. In the meantime, experts advise teenagers to keep regular hours and to avoid bright screens late in the evening, which can delay the internal clock still further.",
+          "label": "G"
+        }
+      ],
+      "passageNumber": 2
+    },
+    {
+      "title": "Should We Bring Back the Mammoth?",
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "questions": [
+            {
+              "answer": "A",
+              "number": 27,
+              "prompt": "According to the writer, part of the public’s interest in de-extinction comes from",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "its appearance in popular films."
+                },
+                {
+                  "key": "B",
+                  "text": "the success of earlier cloning projects."
+                },
+                {
+                  "key": "C",
+                  "text": "articles written by scientists."
+                },
+                {
+                  "key": "D",
+                  "text": "concern about the loss of wildlife."
+                }
+              ],
+              "reference": "Paragraph 1",
+              "explanation": "‘The idea owes much of its appeal to films such as Jurassic Park.’"
+            },
+            {
+              "answer": "D",
+              "number": 28,
+              "prompt": "What does the writer say about the cloned Pyrenean ibex?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It lived for several days after its birth."
+                },
+                {
+                  "key": "B",
+                  "text": "It was created from cells taken after Celia died."
+                },
+                {
+                  "key": "C",
+                  "text": "Its death showed that the method could never work."
+                },
+                {
+                  "key": "D",
+                  "text": "It demonstrated something that had never been achieved before."
+                }
+              ],
+              "reference": "Paragraph 2",
+              "explanation": "The kid ‘died within minutes’, but ‘it proved, for the first time, that an extinct animal could be born again’."
+            },
+            {
+              "answer": "B",
+              "number": 29,
+              "prompt": "Why do scientists plan to use the Asian elephant to recreate the mammoth?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It already has some of the mammoth’s cold-weather features."
+                },
+                {
+                  "key": "B",
+                  "text": "It is the living species most closely related to the mammoth."
+                },
+                {
+                  "key": "C",
+                  "text": "Its cells are easier to clone than those of other animals."
+                },
+                {
+                  "key": "D",
+                  "text": "It is not an endangered species."
+                }
+              ],
+              "reference": "Paragraph 3",
+              "explanation": "They propose ‘to edit the DNA of its closest living relative, the Asian elephant’."
+            },
+            {
+              "answer": "C",
+              "number": 30,
+              "prompt": "What is the ‘moral hazard’ described in the sixth paragraph?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Scientists may make false claims to attract investment."
+                },
+                {
+                  "key": "B",
+                  "text": "Wildlife organisations may compete with each other for funding."
+                },
+                {
+                  "key": "C",
+                  "text": "People may care less about saving species that still exist."
+                },
+                {
+                  "key": "D",
+                  "text": "Recreated animals may harm existing wildlife."
+                }
+              ],
+              "reference": "Paragraph 6",
+              "explanation": "If extinction seems reversible, the public ‘may feel less urgency about protecting species that are still alive’."
+            }
+          ],
+          "instruction": "Choose the correct letter, **A, B, C or D**."
+        },
+        {
+          "type": "yes_no_not_given",
+          "questions": [
+            {
+              "answer": "YES",
+              "number": 31,
+              "prompt": "Animals produced by editing the DNA of living species should not be described as members of the extinct species.",
+              "reference": "Paragraph 3",
+              "explanation": "‘An elephant with a hairy coat is not a mammoth … We should be honest about what the technology can and cannot do.’"
+            },
+            {
+              "answer": "NO",
+              "number": 32,
+              "prompt": "The Pyrenean ibex experiment achieved nothing of value.",
+              "reference": "Paragraph 2",
+              "explanation": "‘It would be wrong to see it only in those terms: it proved … that an extinct animal could be born again.’"
+            },
+            {
+              "answer": "NOT GIVEN",
+              "number": 33,
+              "prompt": "The modified wolf pups will eventually be released into the wild.",
+              "reference": "Paragraph 3",
+              "explanation": "The writer discusses the pups and the claims made about them, but not any plans to release them."
+            },
+            {
+              "answer": "YES",
+              "number": 34,
+              "prompt": "Using elephants as surrogate mothers is difficult to justify.",
+              "reference": "Paragraph 5",
+              "explanation": "‘Elephants are intelligent, social animals, and I find it hard to see how this could be justified.’"
+            },
+            {
+              "answer": "NO",
+              "number": 35,
+              "prompt": "The techniques developed for de-extinction cannot help species that are still alive.",
+              "reference": "Paragraph 7",
+              "explanation": "The ferret clone ‘could add new genetic variety to the population’; this is ‘the strongest case for the technology’."
+            }
+          ],
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this."
+        },
+        {
+          "type": "summary_completion",
+          "title": "Arguments about the mammoth",
+          "content": "Supporters believe that herds of large animals in the Arctic could help to keep the {{36}} frozen. However, because elephant pregnancies last almost {{37}}, it would take decades to produce enough animals. Critics also point out that the animals created would really be {{38}} rather than true mammoths, and that de-extinction may take {{39}} away from efforts to protect living species. In the writer’s opinion, the most convincing use of the technology is in {{40}}.",
+          "options": [
+            {
+              "key": "A",
+              "text": "permafrost"
+            },
+            {
+              "key": "B",
+              "text": "two years"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "hybrids"
+            },
+            {
+              "key": "E",
+              "text": "funding"
+            },
+            {
+              "key": "F",
+              "text": "tourists"
+            },
+            {
+              "key": "G",
+              "text": "surrogates"
+            },
+            {
+              "key": "H",
+              "text": "forests"
+            },
+            {
+              "key": "I",
+              "text": "ten years"
+            }
+          ],
+          "questions": [
+            {
+              "answer": "A",
+              "number": 36,
+              "reference": "Paragraph 4",
+              "explanation": "Herds could ‘help to keep the permafrost frozen’."
+            },
+            {
+              "answer": "B",
+              "number": 37,
+              "reference": "Paragraph 4",
+              "explanation": "‘An elephant pregnancy lasts almost two years.’"
+            },
+            {
+              "answer": "D",
+              "number": 38,
+              "reference": "Paragraph 3",
+              "explanation": "‘It is an elephant hybrid designed to resemble one.’"
+            },
+            {
+              "answer": "E",
+              "number": 39,
+              "reference": "Paragraph 6",
+              "explanation": "‘The money spent on de-extinction is money that is not available for conservation’; organisations ‘lack the funding’."
+            },
+            {
+              "answer": "C",
+              "number": 40,
+              "reference": "Paragraph 7",
+              "explanation": "The strongest case lies in ‘helping endangered species to survive rather than recreating lost ones’."
+            }
+          ],
+          "instruction": "Complete the summary using the list of phrases, **A–I**, below.",
+          "optionsTitle": "List of phrases"
+        }
+      ],
+      "subtitle": "The promise and the problems of de-extinction",
+      "paragraphs": [
+        {
+          "text": "Few scientific ideas have captured the public imagination as quickly as ‘de-extinction’, the project of bringing vanished species back to life. The idea owes much of its appeal to films such as Jurassic Park, and it has attracted generous funding from investors. One American company, founded in 2021, has announced plans to recreate the woolly mammoth, the dodo and the thylacine, or Tasmanian tiger. Yet behind the headlines lie difficult questions, not only about whether such projects can succeed but about whether they should be attempted at all.",
+          "label": null
+        },
+        {
+          "text": "The first, and so far only, animal to be brought back from extinction in the strict sense was a Pyrenean ibex, a wild goat from the mountains between France and Spain. The last member of the species, a female named Celia, died in 2000, but scientists had already taken and frozen samples of her skin cells. In 2003 they used these cells to create a clone, which was carried by a goat acting as a surrogate mother. The kid was born alive but died within minutes because of a defect in its lungs. The experiment is often described as a failure, but it would be wrong to see it only in those terms: it proved, for the first time, that an extinct animal could be born again, even if only briefly.",
+          "label": null
+        },
+        {
+          "text": "Cloning, however, requires living cells, and these do not exist for species that died out long ago. For the mammoth, which disappeared around four thousand years ago, scientists instead propose to edit the DNA of its closest living relative, the Asian elephant, adding genes for features such as thick hair and a layer of fat that would help the animal survive in the cold. In 2025 the same company announced that it had produced three wolf pups whose DNA had been altered to give them some of the characteristics of the dire wolf, a much larger animal that became extinct more than ten thousand years ago. The announcement made headlines around the world, but many biologists objected to the claim that the dire wolf had been ‘brought back’. In my view they were right to do so. An elephant with a hairy coat is not a mammoth; it is an elephant hybrid designed to resemble one. We should be honest about what the technology can and cannot do.",
+          "label": null
+        },
+        {
+          "text": "Supporters of mammoth de-extinction argue that the animals would bring environmental benefits. In the Arctic, the ground beneath the surface is frozen all year round. This permafrost contains vast quantities of carbon, which would be released into the atmosphere if it thawed. Some scientists believe that large herds of plant-eating animals could help to keep the permafrost frozen by trampling down the snow, which otherwise acts like a blanket that keeps the ground beneath it warm, and by turning shrubland back into grassland. It is an intriguing argument, but it depends on releasing very large numbers of animals, and an elephant pregnancy lasts almost two years. Even if everything went to plan, it would take many decades to produce a herd large enough to make any difference.",
+          "label": null
+        },
+        {
+          "text": "There are also serious ethical concerns. The Asian elephant is itself an endangered species, and any programme to produce mammoth-like animals would require elephants to act as surrogate mothers, perhaps repeatedly. Elephants are intelligent, social animals, and I find it hard to see how this could be justified. Researchers have suggested that an artificial womb might one day solve the problem, but no such device yet exists for an animal of this size.",
+          "label": null
+        },
+        {
+          "text": "A further worry is what economists call ‘moral hazard’: the danger that people behave less carefully when they believe they are protected from the consequences of their actions. If the public comes to believe that extinction can be reversed, it may feel less urgency about protecting species that are still alive. Moreover, the money spent on de-extinction is money that is not available for conservation. Every year, wildlife organisations are forced to choose which threatened species to save because they lack the funding to save them all.",
+          "label": null
+        },
+        {
+          "text": "None of this means that the science behind de-extinction is worthless. In 2020 American scientists produced a black-footed ferret named Elizabeth Ann from the cells of a ferret that had died in 1988. The black-footed ferret is one of the rarest mammals in North America, and all the surviving animals are descended from just a handful of individuals, which makes them vulnerable to disease. Because the cells came from an animal with no living descendants, the clone could add new genetic variety to the population. It is in cases like this, helping endangered species to survive rather than recreating lost ones, that the strongest case for the technology lies. The mammoth may make the headlines, but the ferret is the real success story.",
+          "label": null
+        }
+      ],
+      "passageNumber": 3
+    }
+  ],
+  "sortOrder": 5,
+  "shortTitle": "Practice Test 5",
+  "totalQuestions": 40,
+  "durationMinutes": 60
+}
