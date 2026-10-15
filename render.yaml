@@ -17,7 +17,7 @@ services:
       - key: SITE_NAME
         value: TestDay
       - key: ANTHROPIC_MODEL
-        value: claude-3-5-sonnet-latest
+        value: claude-sonnet-5-5
       - key: AI_PER_IP_PER_HOUR
         value: "6"
       - key: AI_DAILY_LIMIT

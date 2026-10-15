@@ -158,7 +158,7 @@ def overall_writing_band(task1_band, task2_band):
 # 2. AI examiner (Claude)
 # --------------------------------------------------------------------------
 
-DEFAULT_MODEL = "claude-3-5-sonnet-latest"
+DEFAULT_MODEL = "claude-sonnet-5-5"
 
 CRITERIA_GUIDE = """You assess IELTS-style Academic Writing practice responses using the four public IELTS Writing criteria. Award each criterion a whole band from 0 to 9.
 
