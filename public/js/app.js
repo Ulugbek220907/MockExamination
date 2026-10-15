@@ -105,6 +105,18 @@
       this.main.addEventListener("click", (e) => this.onMainClick(e));
       document.getElementById("account-slot").addEventListener("click", (e) => Account.onClick(e));
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") this.closeSigns(); });
+
+      // Warm bundle and test data as soon as the user hovers or focuses on a station or button
+      const onIntent = (e) => {
+        const target = e.target.closest("[data-station], [data-test], [data-action='start']");
+        if (!target) return;
+        U.prefetch("exam");
+        const testId = target.dataset.station || target.dataset.test;
+        if (testId) U.api(`/api/tests/${encodeURIComponent(testId)}`);
+      };
+      this.main.addEventListener("pointerover", onIntent, { passive: true });
+      this.main.addEventListener("focusin", onIntent, { passive: true });
+
       Account.renderAccountSlot();
       try {
         const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe(), I18N.ready]);
@@ -119,7 +131,19 @@
       I18N.applyStatic();
       Account.renderAccountSlot();
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
-      Promise.resolve(this.route()).finally(() => this.main.removeAttribute("aria-busy"));
+      Promise.resolve(this.route()).finally(() => {
+        this.main.removeAttribute("aria-busy");
+        // Prefetch exam and results bundles when the browser is idle so test launch is instant
+        const warmIdle = () => {
+          U.prefetch("exam");
+          U.prefetch("results");
+        };
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(warmIdle, { timeout: 3000 });
+        } else {
+          setTimeout(warmIdle, 1200);
+        }
+      });
     }
 
     /* Routing ---------------------------------------------------------- */
@@ -376,35 +400,57 @@
     drawNetwork() {
       const net = document.getElementById("network");
       if (!net) return;
+      let lastCellWidth = 0;
+      let lastHubNarrow = null;
+
       const draw = () => {
         const svg = net.querySelector("#network-svg");
         const hub = net.querySelector(".hub-capsule");
-        if (!svg || !hub) return;
-        // Every line's first column is as wide as the widest first station, so Test n lines up.
         const list = net.querySelector("#lines-list");
-        list.style.removeProperty("--first-cell");
-        const firsts = [...net.querySelectorAll(".station:first-child")];
-        if (firsts.length) list.style.setProperty("--first-cell", `${Math.ceil(Math.max(...firsts.map((el) => el.getBoundingClientRect().width)))}px`);
+        if (!svg || !hub || !list) return;
+
+        // Measure station button widths directly without unsetting CSS variable to prevent layout thrashing
+        const firstBtns = [...net.querySelectorAll(".station:first-child .station-btn, .station:first-child .start-free")];
+        if (firstBtns.length) {
+          const maxW = Math.ceil(Math.max(...firstBtns.map((el) => el.getBoundingClientRect().width)));
+          if (maxW > 0 && maxW !== lastCellWidth) {
+            lastCellWidth = maxW;
+            list.style.setProperty("--first-cell", `${maxW}px`);
+          }
+        }
+
         const box = net.getBoundingClientRect();
         const tracks = [...net.querySelectorAll(".track")];
         if (!tracks.length || !box.width) return;
         this.netPaths = {};
         const step = 12;
         const n = tracks.length;
-        // Wide screens: the lines curve into the interchange at the right. Phones: they turn
-        // down a gutter on the right, side by side, into the interchange below the last line.
         const narrow = window.matchMedia("(max-width: 860px)").matches;
-        hub.style.height = narrow ? "" : `${n * step + 14}px`;
-        hub.style.width = narrow ? `${n * step + 14}px` : "";
+
+        if (narrow !== lastHubNarrow) {
+          lastHubNarrow = narrow;
+          hub.style.height = narrow ? "" : `${n * step + 14}px`;
+          hub.style.width = narrow ? `${n * step + 14}px` : "";
+        }
+
         const hb = hub.getBoundingClientRect();
         const hx = hb.left - box.left + hb.width / 2;
         const hy = hb.top - box.top + hb.height / 2;
         const f = (v) => v.toFixed(1);
+
+        const lineColors = {
+          listening: "var(--line-l)",
+          reading: "var(--line-r)",
+          writing: "var(--line-w)",
+          speaking: "var(--line-s)",
+        };
+
         const paths = tracks.map((tr, i) => {
+          const lineKey = tr.closest(".line-row")?.dataset.line;
           const r = tr.getBoundingClientRect();
           const x0 = r.right - box.left - 1;
           const y0 = r.top - box.top + r.height / 2;
-          const color = getComputedStyle(tr).getPropertyValue("--line").trim();
+          const color = lineColors[lineKey] || getComputedStyle(tr).getPropertyValue("--line").trim();
           let d;
           if (narrow) {
             const lane = hx + ((n - 1) / 2 - i) * step;
@@ -415,17 +461,27 @@
             const mid = x0 + (hx - x0) * 0.5;
             d = `M${f(x0)},${f(y0)} C${f(mid)},${f(y0)} ${f(mid)},${f(y1)} ${f(hx)},${f(y1)}`;
           }
-          this.netPaths[tr.closest(".line-row").dataset.line] = { x0, y0, d, box };
+          if (lineKey) this.netPaths[lineKey] = { x0, y0, d, box };
           return `<path d="${d}" fill="none" stroke="${color}" stroke-width="10" stroke-linecap="butt"/>`;
         });
         svg.setAttribute("viewBox", `0 0 ${box.width.toFixed(1)} ${box.height.toFixed(1)}`);
         svg.innerHTML = paths.join("");
       };
+
       draw();
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
       if (this.netObserver) this.netObserver.disconnect();
       if (window.ResizeObserver) {
-        this.netObserver = new ResizeObserver(() => requestAnimationFrame(draw));
+        let rafId = null;
+        let lastW = 0;
+        let lastH = 0;
+        this.netObserver = new ResizeObserver((entries) => {
+          const rect = entries[0]?.contentRect;
+          if (rect && Math.abs(rect.width - lastW) < 1 && Math.abs(rect.height - lastH) < 1) return;
+          if (rect) { lastW = rect.width; lastH = rect.height; }
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(draw);
+        });
         this.netObserver.observe(net);
       }
     }
@@ -633,6 +689,21 @@
       const canResume = progress && progress.mode === mode;
       const checkMinutes = test.checkMinutes || 2;
       const line = lineOf(module);
+
+      // Preload first audio file while candidate reads instructions and checks sound
+      if (module === "listening" && test.parts && test.parts[0] && test.parts[0].audio && test.parts[0].audio.src) {
+        try {
+          const a = new Audio();
+          a.preload = "auto";
+          a.src = test.parts[0].audio.src;
+        } catch (e) {}
+      } else if (module === "speaking" && test.parts && test.parts[0] && test.parts[0].questions && test.parts[0].questions[0] && test.parts[0].questions[0].audio && test.parts[0].questions[0].audio.src) {
+        try {
+          const a = new Audio();
+          a.preload = "auto";
+          a.src = test.parts[0].questions[0].audio.src;
+        } catch (e) {}
+      }
       const instructions = module === "speaking"
         ? [
           `There are <strong>3 parts</strong> and the test takes <strong>11–14 minutes</strong>. The examiner asks the questions; your answers are recorded.`,
