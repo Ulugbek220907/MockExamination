@@ -1,0 +1,680 @@
+{
+ "id": "academic-reading-06",
+ "module": "reading",
+ "variant": "academic",
+ "title": "Academic Reading Practice Test 6",
+ "shortTitle": "Practice Test 6",
+ "durationMinutes": 60,
+ "totalQuestions": 40,
+ "sortOrder": 6,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "passages": [
+  {
+   "passageNumber": 1,
+   "title": "The Potato’s Long Journey",
+   "subtitle": "From the Andes to the rest of the world",
+   "paragraphs": [
+    {
+     "label": null,
+     "text": "Today the potato is the world’s most important food crop after rice, wheat and maize, grown on every inhabited continent and eaten in almost every country. Yet for most of human history it was unknown outside a single region of South America. The potato was first domesticated at least seven thousand years ago in the high Andes, in the area around Lake Titicaca on the border of modern Peru and Bolivia. The wild plants from which it was developed contain bitter and poisonous chemicals, and early farmers gradually selected varieties that were safe to eat."
+    },
+    {
+     "label": null,
+     "text": "Andean farmers developed an astonishing range of potatoes. Today more than four thousand varieties are known, differing in colour, shape, taste and resistance to frost and disease. Rather than planting a single variety, farmers in the mountains traditionally grew dozens in the same field. This was a form of insurance: if a disease or a cold spell destroyed one variety, others would survive. They also found a way to preserve their harvest. Potatoes were spread out on the ground and left to freeze during the bitterly cold nights; during the day, people trampled on them to squeeze out the water, and they were then dried in the sun. The result, known as chuño, was light, easy to carry and could be stored for years, providing food in times of poor harvests and supplying the armies of the Inca empire."
+    },
+    {
+     "label": null,
+     "text": "Spanish soldiers came across the potato in the 1530s, during their conquest of the Inca, and the first potatoes reached Spain in the 1570s. At first Europeans regarded the new food with deep suspicion. The potato belongs to the same family of plants as deadly nightshade, and its leaves and any green parts of the tuber really are poisonous. It was not mentioned in the Bible, which some took as a sign that it was not intended to be eaten, and in some regions it was blamed for causing diseases, including leprosy. For many years it was grown mainly as a curiosity in botanical gardens or as food for animals."
+    },
+    {
+     "label": null,
+     "text": "Attitudes changed slowly, often as a result of war and hunger. In 1756 King Frederick the Great of Prussia, aware that potatoes could survive when grain harvests failed, ordered farmers in his kingdom to plant them. In France, the most famous champion of the potato was Antoine-Augustin Parmentier, an army pharmacist who had been held prisoner in Prussia during the Seven Years’ War and had survived largely on potatoes. After returning home, he devoted himself to promoting them. In 1772 the Paris Faculty of Medicine, persuaded partly by his arguments, declared that potatoes were safe to eat. According to a popular story, Parmentier also planted a field of potatoes near Paris and had it guarded by soldiers during the day, but not at night, so that local people, convinced that the crop must be valuable, would come and steal it. Whether this really happened is uncertain, but the story shows how hard it was to change people’s eating habits."
+    },
+    {
+     "label": null,
+     "text": "Once accepted, the potato spread rapidly. It produces more calories from a given area of land than any grain crop, it grows in poor soil and cool climates, and it needs no milling or other processing before it can be cooked. Families could feed themselves from very small plots. Some historians believe that the potato was one of the main reasons for the rapid growth of Europe’s population in the eighteenth and nineteenth centuries; one study estimated that it was responsible for about a quarter of the increase in population in the Old World between 1700 and 1900."
+    },
+    {
+     "label": null,
+     "text": "But dependence on a single crop carried great risks, as Ireland discovered. By the 1840s, around a third of the Irish population relied almost entirely on potatoes for food, and most of them grew the same high-yielding variety. In 1845 a disease called blight, caused by a fungus-like organism that had arrived from the Americas, destroyed much of the crop, and it returned in the following years. Because so many plants were genetically identical, none had any resistance. During the famine that followed, around a million people died and at least as many again left the country, mainly for Britain and North America."
+    },
+    {
+     "label": null,
+     "text": "The lesson of the Irish famine was not lost on later scientists. Modern plant breeders still look to the varieties grown by Andean farmers, and to the wild relatives of the potato, for genes that provide resistance to disease. Several institutions now maintain collections of potato varieties so that this genetic diversity is not lost. Meanwhile, the centre of potato growing has moved once again: the largest producer in the world today is China, followed by India."
+    }
+   ],
+   "groups": [
+    {
+     "type": "table_completion",
+     "instruction": "Complete the table below. Choose **ONE WORD ONLY** from the passage for each answer.",
+     "maxWords": 1,
+     "title": "Key moments in the history of the potato",
+     "content": {
+      "headers": [
+       "Time",
+       "Event"
+      ],
+      "rows": [
+       [
+        "at least 7,000 years ago",
+        "the potato is first grown by farmers near Lake {{1}}"
+       ],
+       [
+        "Inca period",
+        "potatoes are preserved by freezing them at night and drying them in the {{2}}"
+       ],
+       [
+        "1570s",
+        "the first potatoes arrive in {{3}}"
+       ],
+       [
+        "1756",
+        "Frederick the Great orders farmers in {{4}} to grow potatoes"
+       ],
+       [
+        "1772",
+        "the Paris Faculty of {{5}} says that potatoes are safe to eat"
+       ],
+       [
+        "1845",
+        "{{6}} destroys much of the potato crop in Ireland"
+       ]
+      ]
+     },
+     "questions": [
+      {
+       "number": 1,
+       "answer": [
+        "Titicaca"
+       ],
+       "explanation": "Potatoes were domesticated ‘in the area around Lake Titicaca’.",
+       "reference": "Paragraph 1"
+      },
+      {
+       "number": 2,
+       "answer": [
+        "sun"
+       ],
+       "explanation": "Potatoes froze at night, were trampled, ‘and they were then dried in the sun’.",
+       "reference": "Paragraph 2"
+      },
+      {
+       "number": 3,
+       "answer": [
+        "Spain"
+       ],
+       "explanation": "‘The first potatoes reached Spain in the 1570s.’",
+       "reference": "Paragraph 3"
+      },
+      {
+       "number": 4,
+       "answer": [
+        "Prussia"
+       ],
+       "explanation": "Frederick the Great of Prussia ‘ordered farmers in his kingdom to plant them’.",
+       "reference": "Paragraph 4"
+      },
+      {
+       "number": 5,
+       "answer": [
+        "Medicine"
+       ],
+       "explanation": "‘In 1772 the Paris Faculty of Medicine … declared that potatoes were safe to eat.’",
+       "reference": "Paragraph 4"
+      },
+      {
+       "number": 6,
+       "answer": [
+        "blight"
+       ],
+       "explanation": "‘In 1845 a disease called blight … destroyed much of the crop.’",
+       "reference": "Paragraph 6"
+      }
+     ]
+    },
+    {
+     "type": "true_false_not_given",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+     "questions": [
+      {
+       "number": 7,
+       "prompt": "Andean farmers usually planted only one variety of potato in each field.",
+       "answer": "FALSE",
+       "explanation": "‘Rather than planting a single variety, farmers in the mountains traditionally grew dozens in the same field.’",
+       "reference": "Paragraph 2"
+      },
+      {
+       "number": 8,
+       "prompt": "Chuño could be kept for a long time without spoiling.",
+       "answer": "TRUE",
+       "explanation": "Chuño ‘could be stored for years’.",
+       "reference": "Paragraph 2"
+      },
+      {
+       "number": 9,
+       "prompt": "Some Europeans believed that eating potatoes could make people ill.",
+       "answer": "TRUE",
+       "explanation": "‘In some regions it was blamed for causing diseases, including leprosy.’",
+       "reference": "Paragraph 3"
+      },
+      {
+       "number": 10,
+       "prompt": "Parmentier ate potatoes while he was a prisoner of war.",
+       "answer": "TRUE",
+       "explanation": "He ‘had been held prisoner in Prussia … and had survived largely on potatoes’.",
+       "reference": "Paragraph 4"
+      },
+      {
+       "number": 11,
+       "prompt": "Parmentier wrote a book describing how he encouraged people to steal his potatoes.",
+       "answer": "NOT GIVEN",
+       "explanation": "The story is described as popular and uncertain; nothing is said about Parmentier writing about it.",
+       "reference": "Paragraph 4"
+      },
+      {
+       "number": 12,
+       "prompt": "Potatoes provide fewer calories per area of land than grain crops.",
+       "answer": "FALSE",
+       "explanation": "The potato ‘produces more calories from a given area of land than any grain crop’.",
+       "reference": "Paragraph 5"
+      },
+      {
+       "number": 13,
+       "prompt": "People in Europe eat fewer potatoes today than they did a century ago.",
+       "answer": "NOT GIVEN",
+       "explanation": "The passage mentions today’s largest producers but not changes in European consumption.",
+       "reference": "Paragraph 7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "passageNumber": 2,
+   "title": "Reading the Rings",
+   "subtitle": "How the growth of trees became a calendar of the past",
+   "paragraphs": [
+    {
+     "label": "A",
+     "text": "Cut through the trunk of a tree from a temperate region and you will see a pattern of rings spreading out from the centre. Each ring represents a single year of growth. In spring, when water is plentiful, a tree produces large, thin-walled cells that form a band of pale wood; as growth slows in late summer, the cells become smaller and denser, forming a darker band. The boundary between the dark wood of one year and the pale wood of the next is easy to see. Crucially, the width of each ring depends on conditions during that year. In a warm, wet year a tree may lay down a wide ring; in a year of drought, the ring may be so narrow that it is hard to see at all."
+    },
+    {
+     "label": "B",
+     "text": "The science of reading these rings, known as dendrochronology, was founded by a man whose main interest lay in the sky rather than in forests. In the 1890s Andrew Ellicott Douglass was working as an astronomer at an observatory in Flagstaff, Arizona. He wanted to know whether the eleven-year cycle of sunspots affected the weather on Earth, but there were no reliable weather records going back far enough to find out. It occurred to him that trees might hold the answer. In the early 1900s he began examining the stumps of ponderosa pines that had been cut down around Flagstaff, and he noticed that the same sequence of wide and narrow rings appeared in tree after tree."
+    },
+    {
+     "label": "C",
+     "text": "This observation led to the technique that lies at the heart of the science, known as cross-dating. Because trees growing in the same region respond to the same weather, they share a distinctive pattern of wide and narrow rings, rather like a barcode. By matching the pattern in a living tree with that in an older piece of wood, such as one of the beams used in old buildings, researchers can link the two records together. Repeating the process with older and older timber allows a continuous chronology to be built up that extends far beyond the lifetime of any single tree."
+    },
+    {
+     "label": "D",
+     "text": "Douglass soon realised that his method could help archaeologists. The American Southwest is home to the remains of many large stone settlements built by the ancestors of today’s Pueblo peoples, but in the early twentieth century nobody knew when they had been constructed. Douglass collected samples from the wooden beams in these ruins and built up a long sequence of rings, but he could not connect it to his chronology from living trees: there was a gap between the two. The breakthrough came in 1929, when a team excavating a site at Show Low, Arizona, found a partly burnt beam, catalogued as HH-39, whose rings overlapped both sequences. Almost overnight, dozens of ancient buildings could be dated to the exact year in which their timbers had been cut. In 1937 Douglass founded the Laboratory of Tree-Ring Research at the University of Arizona, which remains one of the leading centres in the field."
+    },
+    {
+     "label": "E",
+     "text": "Some of the most valuable records come from the bristlecone pines of the White Mountains in California. These slow-growing trees are among the oldest living things on Earth, and some are more than 4,800 years old. By cross-dating living bristlecones with dead wood preserved on the dry mountainsides, researchers built a chronology stretching back more than eight thousand years. This turned out to be important for another dating method. Radiocarbon dating, developed in the late 1940s, estimates the age of organic material by measuring the amount of a radioactive form of carbon that it contains. When scientists measured the radiocarbon in bristlecone rings of known age, they discovered that the amount of this carbon in the atmosphere had varied over time, so that many radiocarbon dates were wrong by several centuries. Tree-ring records are now used to correct them."
+    },
+    {
+     "label": "F",
+     "text": "Tree rings also preserve evidence of sudden events. Large volcanic eruptions can cool the climate for several years, leaving a series of unusually narrow rings, and a frost during the growing season can damage cells and leave a visible scar. Tree rings have also revealed long periods of drought in the past, some of which lasted for decades. In 2012 Japanese researchers found that the rings for the year 774 contained a sudden spike in radiocarbon, probably caused by a burst of energy from the Sun. Because the spike appears in trees all over the world, it acts as a precise time marker. Using a similar spike from the year 993, scientists showed in 2021 that Vikings had been cutting wood in Newfoundland, in present-day Canada, in the year 1021, the first exact date for Europeans in the Americas."
+    }
+   ],
+   "groups": [
+    {
+     "type": "matching_headings",
+     "instruction": "Reading Passage 2 has six paragraphs, **A–F**. Choose the correct heading for each paragraph from the list of headings below.",
+     "optionsTitle": "List of Headings",
+     "options": [
+      {
+       "key": "i",
+       "text": "A method of linking the records of different trees"
+      },
+      {
+       "key": "ii",
+       "text": "How a tree’s growth reflects each year’s conditions"
+      },
+      {
+       "key": "iii",
+       "text": "An astronomer’s unexpected route to a new science"
+      },
+      {
+       "key": "iv",
+       "text": "The discovery that solved an archaeological puzzle"
+      },
+      {
+       "key": "v",
+       "text": "Using ancient trees to correct another dating method"
+      },
+      {
+       "key": "vi",
+       "text": "Why tropical trees cannot be dated"
+      },
+      {
+       "key": "vii",
+       "text": "Records of sudden and dramatic events"
+      },
+      {
+       "key": "viii",
+       "text": "The commercial value of ancient timber"
+      },
+      {
+       "key": "ix",
+       "text": "Doubts about a link between sunspots and climate"
+      }
+     ],
+     "questions": [
+      {
+       "number": 14,
+       "prompt": "Paragraph A",
+       "answer": "ii",
+       "explanation": "Ring width ‘depends on conditions during that year’, wide in wet years and narrow in drought.",
+       "reference": "Paragraph A"
+      },
+      {
+       "number": 15,
+       "prompt": "Paragraph B",
+       "answer": "iii",
+       "explanation": "Douglass, an astronomer interested in sunspots, turned to trees to find old weather records.",
+       "reference": "Paragraph B"
+      },
+      {
+       "number": 16,
+       "prompt": "Paragraph C",
+       "answer": "i",
+       "explanation": "Cross-dating matches patterns so that researchers ‘can link the two records together’.",
+       "reference": "Paragraph C"
+      },
+      {
+       "number": 17,
+       "prompt": "Paragraph D",
+       "answer": "iv",
+       "explanation": "Beam HH-39 bridged the gap, so ‘dozens of ancient buildings could be dated’.",
+       "reference": "Paragraph D"
+      },
+      {
+       "number": 18,
+       "prompt": "Paragraph E",
+       "answer": "v",
+       "explanation": "Bristlecone rings showed that ‘many radiocarbon dates were wrong … Tree-ring records are now used to correct them’.",
+       "reference": "Paragraph E"
+      },
+      {
+       "number": 19,
+       "prompt": "Paragraph F",
+       "answer": "vii",
+       "explanation": "‘Tree rings also preserve evidence of sudden events’: eruptions, frosts and a radiocarbon spike.",
+       "reference": "Paragraph F"
+      }
+     ]
+    },
+    {
+     "type": "choose_multiple",
+     "instruction": "Choose **TWO** letters, **A–E**.",
+     "prompt": "Which TWO kinds of evidence can tree rings provide, according to Paragraph F?",
+     "options": [
+      {
+       "key": "A",
+       "text": "the effects of volcanic eruptions"
+      },
+      {
+       "key": "B",
+       "text": "the size of ancient populations"
+      },
+      {
+       "key": "C",
+       "text": "the routes used by early traders"
+      },
+      {
+       "key": "D",
+       "text": "periods of drought lasting many years"
+      },
+      {
+       "key": "E",
+       "text": "changes in sea level"
+      }
+     ],
+     "answer": [
+      "A",
+      "D"
+     ],
+     "explanation": "A: volcanic eruptions leave ‘a series of unusually narrow rings’. D: tree rings ‘have also revealed long periods of drought in the past, some of which lasted for decades’. B, C and E are not mentioned.",
+     "reference": "Paragraph F",
+     "questions": [
+      {
+       "number": 20
+      },
+      {
+       "number": 21
+      }
+     ]
+    },
+    {
+     "type": "short_answer",
+     "instruction": "Answer the questions below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
+     "maxWords": 2,
+     "questions": [
+      {
+       "number": 22,
+       "prompt": "What type of tree did Douglass first study near Flagstaff?",
+       "answer": [
+        "ponderosa pines",
+        "ponderosa pine",
+        "ponderosa"
+       ],
+       "explanation": "He began examining ‘the stumps of ponderosa pines’.",
+       "reference": "Paragraph B"
+      },
+      {
+       "number": 23,
+       "prompt": "What parts of old buildings provided older wood for cross-dating?",
+       "answer": [
+        "beams",
+        "wooden beams"
+       ],
+       "explanation": "‘An older piece of wood, such as one of the beams used in old buildings.’",
+       "reference": "Paragraph C"
+      },
+      {
+       "number": 24,
+       "prompt": "In which year was the beam that closed the gap in Douglass’s record found?",
+       "answer": [
+        "1929"
+       ],
+       "explanation": "‘The breakthrough came in 1929.’",
+       "reference": "Paragraph D"
+      },
+      {
+       "number": 25,
+       "prompt": "In which mountains do the bristlecone pines described in the passage grow?",
+       "answer": [
+        "White Mountains"
+       ],
+       "explanation": "‘The bristlecone pines of the White Mountains in California.’",
+       "reference": "Paragraph E"
+      },
+      {
+       "number": 26,
+       "prompt": "Who was shown to have been cutting wood in Newfoundland in 1021?",
+       "answer": [
+        "Vikings",
+        "the Vikings"
+       ],
+       "explanation": "‘Vikings had been cutting wood in Newfoundland … in the year 1021.’",
+       "reference": "Paragraph F"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "passageNumber": 3,
+   "title": "Four Days a Week?",
+   "subtitle": "Is a shorter working week an idea whose time has come?",
+   "paragraphs": [
+    {
+     "label": null,
+     "text": "In 1926 the American car maker Henry Ford took a step that many business leaders considered reckless: he reduced the working week in his factories from six days to five, without cutting his workers’ pay. Ford was not simply being generous. He argued that people with more free time would travel, shop and spend more, and that some of what they spent would come back to his company in the form of car sales. Four years later, the British economist John Maynard Keynes predicted that, thanks to rising productivity, his grandchildren’s generation would need to work only fifteen hours a week. Ford’s five-day week soon became the norm across the industrialised world. Keynes’s prediction, on the other hand, has proved spectacularly wrong: almost a century later, most full-time employees still work around forty hours a week."
+    },
+    {
+     "label": null,
+     "text": "In recent years, however, the idea of a shorter working week has returned with surprising force. Its supporters often describe their aim as ‘100-80-100’: employees keep 100 per cent of their pay and work 80 per cent of their previous hours, in return for a commitment to maintain 100 per cent of their output. The theory is that a great deal of time at work is wasted, in unnecessary meetings, interruptions and tiredness, and that employees with an extra day off will return to work more rested and more focused."
+    },
+    {
+     "label": null,
+     "text": "Early results have been encouraging. Between 2015 and 2019, public-sector employers in Iceland, including offices, schools and hospitals, reduced working hours for around 2,500 staff, or about one per cent of the country’s workforce, without cutting pay. Researchers who analysed the trials found that productivity remained the same or improved in most workplaces, while workers reported less stress and a better balance between work and home life. In 2019 the Japanese branch of Microsoft gave its staff every Friday off for a month and reported a sharp rise in sales per employee. And in 2022, around sixty British companies took part in a six-month trial; when it ended, the great majority chose to continue with the four-day week."
+    },
+    {
+     "label": null,
+     "text": "These results deserve to be taken seriously, but they should also be treated with some caution. The companies that took part in the British trial were volunteers, and firms that choose to test a four-day week are likely to be those whose managers already believe in it, and whose work is well suited to it. Many were small businesses in fields such as marketing, technology and consulting. Whether the same results could be achieved in a hospital, a supermarket or a school is a different question. A nurse cannot treat patients more quickly simply because she has a day off, and shops and care homes must be staffed every day of the week. In such workplaces, reducing hours without reducing output may require hiring more staff, which costs money."
+    },
+    {
+     "label": null,
+     "text": "There is also a risk that the four-day week turns into something quite different from what its supporters intend. Some employers have introduced ‘compressed’ weeks, in which staff work the same forty hours over four days of ten hours each. This may suit some people, but long days can leave employees more exhausted than before, which defeats the purpose. It is worth remembering, too, that productivity is much easier to measure in a car factory, where the number of vehicles produced can simply be counted, than in an office, where much of the most important work, such as thinking, planning and helping colleagues, is difficult to quantify."
+    },
+    {
+     "label": null,
+     "text": "Some campaigners would like governments to make the four-day week a legal requirement. I believe this would be a mistake. A single rule imposed on every employer at once could create serious difficulties for small businesses, which may lack the resources to reorganise their work or hire additional staff. A better approach would be to encourage employers to experiment, to share the results openly, and to allow workers and companies to find the arrangements that suit them best. If Ford’s experience is any guide, a shorter week that genuinely works will spread on its own, because employers will see the benefits for themselves."
+    },
+    {
+     "label": null,
+     "text": "None of this is to dismiss the idea. The length of the working week is not a law of nature; it has changed before, and it will almost certainly change again. The question is not whether we will one day work fewer hours, but how we can get there without leaving behind those whose jobs do not fit neatly into four days."
+    }
+   ],
+   "groups": [
+    {
+     "type": "yes_no_not_given",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
+     "questions": [
+      {
+       "number": 27,
+       "prompt": "Keynes’s forecast about working hours has turned out to be accurate.",
+       "answer": "NO",
+       "explanation": "‘Keynes’s prediction … has proved spectacularly wrong.’",
+       "reference": "Paragraph 1"
+      },
+      {
+       "number": 28,
+       "prompt": "The Icelandic trials involved a large proportion of the country’s workers.",
+       "answer": "NO",
+       "explanation": "They covered ‘about one per cent of the country’s workforce’.",
+       "reference": "Paragraph 3"
+      },
+      {
+       "number": 29,
+       "prompt": "The results of the British trial may have been affected by the kind of companies that took part.",
+       "answer": "YES",
+       "explanation": "Volunteer firms ‘are likely to be those whose managers already believe in it, and whose work is well suited to it’.",
+       "reference": "Paragraph 4"
+      },
+      {
+       "number": 30,
+       "prompt": "Microsoft’s Japanese branch has since adopted the four-day week permanently.",
+       "answer": "NOT GIVEN",
+       "explanation": "Only the one-month trial and its results are described.",
+       "reference": "Paragraph 3"
+      },
+      {
+       "number": 31,
+       "prompt": "Some types of work are less suited to a four-day week than others.",
+       "answer": "YES",
+       "explanation": "‘Whether the same results could be achieved in a hospital, a supermarket or a school is a different question.’",
+       "reference": "Paragraph 4"
+      }
+     ]
+    },
+    {
+     "type": "matching_sentence_endings",
+     "instruction": "Complete each sentence with the correct ending, **A–F**, below.",
+     "optionsTitle": "List of Endings",
+     "options": [
+      {
+       "key": "A",
+       "text": "was partly intended to increase demand for the company’s products."
+      },
+      {
+       "key": "B",
+       "text": "may leave employees more tired than they were before."
+      },
+      {
+       "key": "C",
+       "text": "is more difficult than counting the goods produced in a factory."
+      },
+      {
+       "key": "D",
+       "text": "could cause serious problems for small businesses."
+      },
+      {
+       "key": "E",
+       "text": "has been opposed by most trade unions."
+      },
+      {
+       "key": "F",
+       "text": "was first suggested by Keynes in the 1930s."
+      }
+     ],
+     "questions": [
+      {
+       "number": 32,
+       "prompt": "Ford’s decision to shorten the working week",
+       "answer": "A",
+       "explanation": "Ford ‘argued that people with more free time would … spend more, and that some of what they spent would come back to his company’.",
+       "reference": "Paragraph 1"
+      },
+      {
+       "number": 33,
+       "prompt": "Working forty hours over four days",
+       "answer": "B",
+       "explanation": "‘Long days can leave employees more exhausted than before.’",
+       "reference": "Paragraph 5"
+      },
+      {
+       "number": 34,
+       "prompt": "Measuring productivity in office work",
+       "answer": "C",
+       "explanation": "Productivity is ‘much easier to measure in a car factory … than in an office’.",
+       "reference": "Paragraph 5"
+      },
+      {
+       "number": 35,
+       "prompt": "A law requiring every employer to introduce a four-day week",
+       "answer": "D",
+       "explanation": "‘A single rule imposed on every employer at once could create serious difficulties for small businesses.’",
+       "reference": "Paragraph 6"
+      }
+     ]
+    },
+    {
+     "type": "multiple_choice",
+     "instruction": "Choose the correct letter, **A, B, C or D**.",
+     "questions": [
+      {
+       "number": 36,
+       "prompt": "What does ‘100-80-100’ refer to?",
+       "options": [
+        {
+         "key": "A",
+         "text": "a target for reducing wasted time at work"
+        },
+        {
+         "key": "B",
+         "text": "an arrangement in which pay and output stay the same while hours fall"
+        },
+        {
+         "key": "C",
+         "text": "the results of the trials carried out in Iceland"
+        },
+        {
+         "key": "D",
+         "text": "a way of measuring how productive employees are"
+        }
+       ],
+       "answer": "B",
+       "explanation": "Employees keep 100 per cent of pay, work 80 per cent of hours and maintain 100 per cent of output.",
+       "reference": "Paragraph 2"
+      },
+      {
+       "number": 37,
+       "prompt": "What did the researchers who studied the Icelandic trials find?",
+       "options": [
+        {
+         "key": "A",
+         "text": "Most workplaces were at least as productive as before."
+        },
+        {
+         "key": "B",
+         "text": "Hospitals found it harder to adapt than offices."
+        },
+        {
+         "key": "C",
+         "text": "Workers were less satisfied with their pay."
+        },
+        {
+         "key": "D",
+         "text": "Stress levels were unchanged."
+        }
+       ],
+       "answer": "A",
+       "explanation": "‘Productivity remained the same or improved in most workplaces.’",
+       "reference": "Paragraph 3"
+      },
+      {
+       "number": 38,
+       "prompt": "What happened at the end of the British trial?",
+       "options": [
+        {
+         "key": "A",
+         "text": "The government agreed to fund further trials."
+        },
+        {
+         "key": "B",
+         "text": "Several companies decided to employ more staff."
+        },
+        {
+         "key": "C",
+         "text": "Most of the companies returned to a five-day week."
+        },
+        {
+         "key": "D",
+         "text": "Most of the companies kept the four-day week."
+        }
+       ],
+       "answer": "D",
+       "explanation": "‘When it ended, the great majority chose to continue with the four-day week.’",
+       "reference": "Paragraph 3"
+      },
+      {
+       "number": 39,
+       "prompt": "Why does the writer mention nurses?",
+       "options": [
+        {
+         "key": "A",
+         "text": "to show that health workers would benefit most from shorter hours"
+        },
+        {
+         "key": "B",
+         "text": "to argue that hospitals already have flexible working hours"
+        },
+        {
+         "key": "C",
+         "text": "to illustrate a type of job in which output cannot easily be increased"
+        },
+        {
+         "key": "D",
+         "text": "to suggest that hospitals took part in the British trial"
+        }
+       ],
+       "answer": "C",
+       "explanation": "‘A nurse cannot treat patients more quickly simply because she has a day off.’",
+       "reference": "Paragraph 4"
+      },
+      {
+       "number": 40,
+       "prompt": "What is the writer’s overall view of the four-day week?",
+       "options": [
+        {
+         "key": "A",
+         "text": "It is an unrealistic idea that will never become common."
+        },
+        {
+         "key": "B",
+         "text": "It is worth pursuing gradually, through voluntary experiments."
+        },
+        {
+         "key": "C",
+         "text": "It should be made compulsory as soon as possible."
+        },
+        {
+         "key": "D",
+         "text": "It is suitable only for large companies."
+        }
+       ],
+       "answer": "B",
+       "explanation": "The writer opposes a single legal rule but supports experiment and says the question is ‘how we can get there’.",
+       "reference": "Paragraphs 6–7"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
