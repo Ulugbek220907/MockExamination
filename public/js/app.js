@@ -67,6 +67,8 @@
     },
   ];
 
+  // Shown on the legal pages when the server has no CONTACT_EMAIL (never a blank).
+  const SUPPORT_EMAIL = "ulugbekisoqov22@gmail.com";
   const MODULE_LABELS = { reading: "Reading", listening: "Listening", writing: "Writing", speaking: "Speaking" };
 
   // The four lines, in the order of the real test day.
@@ -88,7 +90,7 @@
 
   class App {
     constructor() {
-      this.config = { siteName: "TestDay", aiMarking: false, contactEmail: "" };
+      this.config = { siteName: "TestDay", aiMarking: false, contactEmail: SUPPORT_EMAIL };
       this.tests = [];
       this.exam = null;
       this.pending = null;
@@ -196,6 +198,9 @@
       window.scrollTo(0, 0);
       if (path === "/resources") this.renderResources();
       else if (path === "/about") this.renderAbout();
+      else if (path === "/terms") this.renderLegal("terms");
+      else if (path === "/privacy") this.renderLegal("privacy");
+      else if (path === "/refunds") this.renderLegal("refunds");
       else if (path === "/results" && this.lastResult) await this.renderResults();
       else if (path === "/pricing") await Account.renderPricing(this.main);
       else if (path === "/account") await Account.renderAccount(this.main);
@@ -209,7 +214,7 @@
 
     setNav(hash) {
       const path = hash.slice(1).split("?")[0];
-      const key = { "/resources": "resources", "/about": "about", "/pricing": "pricing", "/examiners": "examiners",
+      const key = { "/resources": "resources", "/about": "about", "/terms": "about", "/privacy": "about", "/refunds": "about", "/pricing": "pricing", "/examiners": "examiners",
         "/account": "account", "/examiner": "examiner", "/admin": "admin" }[path] || (path.startsWith("/check") ? "account" : "home");
       document.querySelectorAll("[data-nav]").forEach((a) => {
         if (a.dataset.nav === key) a.setAttribute("aria-current", "page");
@@ -1037,12 +1042,79 @@
         </section>`;
     }
 
+    /** The site's email for support and requests: CONTACT_EMAIL, or the owner's address. */
+    contactHTML() {
+      const email = this.config.contactEmail || SUPPORT_EMAIL;
+      return `<a href="mailto:${esc(email)}">${esc(email)}</a>`;
+    }
+
+    /** Terms of use, privacy policy and refund policy. The wording lives in strings.js. */
+    renderLegal(page) {
+      const name = esc(this.config.siteName);
+      const contact = this.contactHTML();
+      const days = Number(this.config.speakingKeepDays) || 60;
+      const p = this.prices || {};
+      const price = (n) => (n ? esc(U.money(n)) : "…");
+      const section = (key, vars) => `<h2>${t(`${key}.h`, { name })}</h2><p>${t(key, { name, ...vars })}</p>`;
+      const pages = {
+        terms: [t("Terms of use"), `
+          <p class="lead-text">${t("terms.lead", { name })}</p>
+          ${section("terms.service")}
+          ${section("terms.account")}
+          ${section("terms.pass", { price: price(p.plan) })}
+          ${section("terms.checks", { writing: price(p.writing_check), speaking: price(p.speaking_check) })}
+          ${section("terms.payment")}
+          ${section("terms.refunds")}
+          ${section("terms.use")}
+          ${section("terms.work", { days })}
+          ${section("terms.availability")}
+          ${section("terms.liability")}
+          ${section("terms.law")}`],
+        privacy: [t("Privacy policy"), `
+          <p class="lead-text">${t("privacy.lead", { name })}</p>
+          <h2>${t("privacy.collect.h")}</h2>
+          <ul>
+            <li>${t("about.privacy.1")}</li>
+            <li>${t("about.privacy.2")}</li>
+            <li>${t("about.privacy.3", { days })}</li>
+            <li>${t("about.privacy.4")}</li>
+            <li>${t("about.privacy.5")}</li>
+            ${this.config.aiMarking ? `<li>${t("about.privacy.ai")}</li>` : ""}
+            <li>${t("privacy.analytics")}</li>
+            <li>${t("privacy.feedback")}</li>
+            <li>${t("about.privacy.6")}</li>
+            <li>${t("privacy.cookies")}</li>
+          </ul>
+          <h2>${t("privacy.where.h")}</h2><p>${t("privacy.where")}</p>
+          <h2>${t("privacy.keep.h")}</h2><p>${t("privacy.keep", { days })}</p>
+          <h2>${t("privacy.rights.h")}</h2><p>${t("privacy.rights", { contact })}</p>
+          <p>${t("privacy.children", { name })}</p>`],
+        refunds: [t("Refund policy"), `
+          <p class="lead-text">${t("refund.lead")}</p>
+          ${section("refund.pass")}
+          ${section("refund.checks")}
+          ${section("refund.how", { contact })}
+          ${section("refund.money")}`],
+      };
+      const [title, body] = pages[page];
+      document.title = `${title} – ${this.config.siteName}`;
+      this.main.innerHTML = `
+        <section class="page prose legal-page">
+          <h1>${title}</h1>
+          <p class="muted-text small-text">${t("legal.updated", { date: "16 October 2026" })}</p>
+          ${body}
+          <p class="legal-contact">${t("legal.contact", { contact })}</p>
+          <p class="muted-text small-text">${t("about.independent", { name })}</p>
+        </section>`;
+      // The terms quote the prices; draw again once they arrive (only if they did, so a failure cannot loop).
+      if (!this.prices && page === "terms") {
+        this.loadPrices().then(() => { if (this.prices && location.hash === "#/terms") this.renderLegal(page); });
+      }
+    }
+
     renderAbout() {
       document.title = `${t("About, privacy and legal")} – ${this.config.siteName}`;
       const name = esc(this.config.siteName);
-      const contact = this.config.contactEmail
-        ? `<a href="mailto:${esc(this.config.contactEmail)}">${esc(this.config.contactEmail)}</a>`
-        : t("the contact address published by the site owner");
       const days = Number(this.config.speakingKeepDays) || 60;
       this.main.innerHTML = `
         <section class="page prose">
@@ -1067,16 +1139,12 @@
             <li>${t("about.scores.speaking")}</li>
           </ul>
 
-          <h2>${t("Privacy")}</h2>
-          <ul>
-            <li>${t("about.privacy.1")}</li>
-            <li>${t("about.privacy.2")}</li>
-            <li>${t("about.privacy.3", { days })}</li>
-            <li>${t("about.privacy.4")}</li>
-            <li>${t("about.privacy.5")}</li>
-            ${this.config.aiMarking ? `<li>${t("about.privacy.ai")}</li>` : ""}
-            <li>${t("about.privacy.6")}</li>
-            <li>${t("about.privacy.7", { contact })}</li>
+          <h2>${t("Privacy, terms and refunds")}</h2>
+          <p>${t("about.legal", { name })}</p>
+          <ul class="legal-links">
+            <li><a href="#/privacy">${t("Privacy policy")}</a></li>
+            <li><a href="#/terms">${t("Terms of use")}</a></li>
+            <li><a href="#/refunds">${t("Refund policy")}</a></li>
           </ul>
         </section>`;
     }

@@ -102,6 +102,19 @@ class InterfaceTextTests(unittest.TestCase):
         for key in scoring.TYPE_LABELS:
             self.assertIn(f'"tip.{key}":', source, key)
 
+    def test_legal_pages_have_their_text(self):
+        # renderLegal builds headings from keys ("terms.pass" -> "terms.pass.h"), which the dotted-key test cannot see.
+        import re
+        with open(os.path.join(PUBLIC_DIR, "js", "app.js"), encoding="utf-8") as f:
+            app = f.read()
+        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
+            strings = f.read()
+        sections = re.findall(r'section\("([a-z.]+)"', app)
+        self.assertGreaterEqual(len(sections), 15)
+        for key in sections:
+            for k in (key, key + ".h"):
+                self.assertIn(f'"{k}":', strings, k)
+
     def test_no_language_switch_or_translations_left(self):
         js = os.path.join(PUBLIC_DIR, "js")
         for name in ("i18n.js", "i18n-strings.js", "i18n-uz.js", "i18n-ru.js"):
@@ -712,6 +725,16 @@ class ApiTests(AsyncHTTPTestCase):
         for key, item in zip(("faq.renew", "faq.check", "faq.checkfree", "faq.refund"), faq):
             m = re.search(rf'^\s+"{re.escape(key)}":\s*("(?:[^"\\]|\\.)*"),?$', strings, re.M)
             self.assertEqual(item["acceptedAnswer"]["text"], json.loads(m.group(1)), key)
+
+    def test_contact_email_is_never_blank(self):
+        r = self.fetch("/api/config")
+        email = json.loads(r.body)["contactEmail"]
+        self.assertRegex(email, r"^[^@\s]+@[^@\s]+\.[a-z]{2,}$")
+        page = self.fetch("/").body.decode()
+        footer = page[page.index('<nav class="footer-nav"'):]
+        footer = footer[:footer.index("</nav>")]
+        for link in ("#/terms", "#/privacy", "#/refunds"):
+            self.assertIn(link, footer)
 
     def test_sitemap_and_robots(self):
         r = self.fetch("/sitemap.xml")

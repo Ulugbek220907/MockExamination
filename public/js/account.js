@@ -295,7 +295,8 @@
         <div class="pay-methods">${b.providers.map((p) => `
           <button type="button" class="pay-method" data-method="${p}">
             <span class="pay-method-name">${esc(labels[p][0])}</span><span class="pay-method-note">${esc(labels[p][1])}</span>
-          </button>`).join("")}</div>`,
+          </button>`).join("")}</div>
+        <p class="pay-agree muted-text small-text">${t("pay.agree")}</p>`,
       buttons: [{ label: t("Cancel"), className: "btn-secondary", value: null }],
       onOpen: (root, close) => root.querySelectorAll("[data-method]").forEach((btn) =>
         btn.addEventListener("click", () => close(btn.dataset.method))),

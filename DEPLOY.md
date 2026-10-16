@@ -17,6 +17,8 @@ Total time: about 30 minutes.
 1. Create a free project at <https://supabase.com> (choose the region closest to your users).
 2. In the dashboard open **SQL Editor → New query**, paste the whole of [`supabase/schema.sql`](supabase/schema.sql) and click **Run**.
    This creates the tables for tests, attempts, accounts, payments and examiner checks with Row Level Security **on**, plus the `app_*` database functions the server calls. The public key alone can read nothing; the server's requests carry the server secret, which the security policies check. Running the file again on an older database adds whatever is missing.
+   **After updating the code, run it again.** The October 2026 update adds the `product_events` (funnel) and
+   `feedback` tables; until they exist, events are skipped silently and the Feedback button says it could not save.
 3. Create a server secret and store its hash:
 
    ```bash

@@ -123,6 +123,9 @@ docs/
 | Method | Path | Purpose |
 |---|---|---|
 | GET | `/robots.txt`, `/sitemap.xml` | for search engines; both use `SITE_URL` |
+| POST | `/api/events` | funnel events from the browser: visit, free_test_started, cta_click (204) |
+| POST | `/api/feedback` | a message from the Feedback button |
+| GET | `/api/admin/feedback` | admins: the latest feedback (the funnel is in `/api/admin/stats`) |
 | GET | `/api/health` | health check |
 | GET | `/api/config` | site name, whether AI marking is enabled |
 | GET | `/api/tests` | test summaries |

@@ -75,7 +75,9 @@ PORT = int(os.environ.get("PORT", 8080))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 SITE_NAME = os.environ.get("SITE_NAME", "TestDay")
-CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "")
+# Support address on the legal pages and receipts. Never blank: the owner's address until CONTACT_EMAIL is set.
+DEFAULT_CONTACT_EMAIL = "ulugbekisoqov22@gmail.com"
+CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "").strip() or DEFAULT_CONTACT_EMAIL
 # The public address of the site, for links that must be absolute: canonical, share image, sitemap.
 PUBLIC_URL = (os.environ.get("SITE_URL") or "https://testday.uz").strip().rstrip("/")
 

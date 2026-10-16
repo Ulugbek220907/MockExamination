@@ -624,7 +624,11 @@ class FeedbackHandler(BaseHandler):
         if not FEEDBACK_PER_IP.allow(self.client_ip()):
             raise ApiError(429, "Thank you! You have sent several messages already; please try again later.")
         row = dict(fields, client_id=_uuid(body.get("clientId")), user_id=self.current_user)
-        saved = await in_thread(self.db.insert, "feedback", row)
+        try:
+            saved = await in_thread(self.db.insert, "feedback", row)
+        except Exception:  # noqa: BLE001 – e.g. the feedback table is not created yet (run supabase/schema.sql)
+            log.exception("Could not save feedback")
+            raise ApiError(503, "Sorry, we could not save your message. Please try again later.")
         try:
             await in_thread(notify.feedback_received, saved)
         except Exception:  # noqa: BLE001 – the message is saved; the owner sees it in Admin
