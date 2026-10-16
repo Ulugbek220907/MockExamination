@@ -106,6 +106,18 @@
       .catch(() => null);
   }
 
+  /**
+   * Download a script without running it, and fail if it cannot be had. A bundle is downloaded whole
+   * before any of it runs, so one missing file never leaves the files that depend on it half-working.
+   * (Unlike warm(), which is only a hint. A failed fetch leaves nothing behind, so trying again works.)
+   */
+  async function download(path) {
+    if (scripts[path]) return;
+    const res = await fetch(assetUrl(path));
+    if (!res.ok) throw new Error(`Could not load ${path}`);
+    await res.arrayBuffer(); // read to the end, so the whole file is cached for the script tag
+  }
+
   const styles = {};
   /** Load a stylesheet once; resolves when it has applied, so nothing is shown unstyled. */
   function loadStyle(path) {
@@ -186,7 +198,7 @@
   });
 
   window.I18N = {
-    t, plural, setLang, applyStatic, number, money, loadScript, loadStyle, warm, assetUrl, ready, LANGS, DICT, EN, UZ, RU,
+    t, plural, setLang, applyStatic, number, money, loadScript, loadStyle, warm, download, assetUrl, ready, LANGS, DICT, EN, UZ, RU,
     lang: () => lang,
     locale: () => LANGS[lang].locale,
   };
