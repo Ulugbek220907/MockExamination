@@ -31,6 +31,7 @@ import hashlib
 import hmac
 import json
 import logging
+import mimetypes
 import os
 import re
 import secrets
@@ -40,6 +41,10 @@ import time
 
 import tornado.ioloop
 import tornado.web
+
+mimetypes.add_type("font/woff2", ".woff2")
+mimetypes.add_type("font/woff", ".woff")
+mimetypes.add_type("image/svg+xml", ".svg")
 
 
 def load_dotenv(path):
@@ -639,6 +644,8 @@ class StaticHandler(tornado.web.StaticFileHandler):
     def set_default_headers(self):
         for k, v in SECURITY_HEADERS.items():
             self.set_header(k, v)
+        if self.request.path.endswith((".woff2", ".woff", ".svg")):
+            self.set_header("Access-Control-Allow-Origin", "*")
 
     def set_extra_headers(self, path):
         if self.get_query_argument("v", None):

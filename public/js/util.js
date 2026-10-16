@@ -21,19 +21,58 @@
     return `<p>${richText(value)}</p>`;
   }
 
+  const inFlightGets = new Map();
+  const apiCache = new Map();
+  const API_CACHE_TTL = 60 * 1000;
+
+  function isCacheable(path) {
+    return path.startsWith("/api/tests") || path === "/api/config";
+  }
+
   async function api(path, options = {}) {
-    const res = await fetch(path, {
-      ...options,
-      headers: { "Content-Type": "application/json", ...(options.headers || {}) },
-    });
-    let data = null;
-    try { data = await res.json(); } catch (e) { /* non-JSON error page */ }
-    if (!res.ok) {
-      const err = new Error((data && data.error) || `Request failed (${res.status})`);
-      err.status = res.status;
-      throw err;
+    const isGet = !options.method || options.method.toUpperCase() === "GET";
+    const isSimpleGet = isGet && !options.headers && !options.body;
+    const forceFresh = Boolean(options.fresh || (options.headers && options.headers["Cache-Control"] === "no-cache"));
+
+    if (isSimpleGet && !forceFresh) {
+      if (isCacheable(path)) {
+        const hit = apiCache.get(path);
+        if (hit && Date.now() - hit.time < API_CACHE_TTL) {
+          return hit.data;
+        }
+      }
+      if (inFlightGets.has(path)) {
+        return inFlightGets.get(path);
+      }
     }
-    return data;
+    const headers = { ...(options.headers || {}) };
+    if (!isGet && !headers["Content-Type"]) {
+      headers["Content-Type"] = "application/json";
+    }
+    const run = (async () => {
+      try {
+        const res = await fetch(path, {
+          ...options,
+          headers,
+        });
+        let data = null;
+        try { data = await res.json(); } catch (e) { /* non-JSON error page */ }
+        if (!res.ok) {
+          const err = new Error((data && data.error) || `Request failed (${res.status})`);
+          err.status = res.status;
+          throw err;
+        }
+        if (isSimpleGet && isCacheable(path)) {
+          if (apiCache.size > 50) apiCache.clear();
+          apiCache.set(path, { time: Date.now(), data });
+        }
+        return data;
+      } finally {
+        if (isSimpleGet) inFlightGets.delete(path);
+      }
+    })();
+    if (isSimpleGet) inFlightGets.set(path, run);
+    return run;
   }
 
   // Browser storage can be unavailable (private mode, blocked site data) – never let it break the app.
@@ -171,25 +210,48 @@
     progress: ["js/progress.js"],
   };
 
+  const loadedBundles = new Set();
+  const loadingBundles = new Map();
+
   /**
    * Load a bundle of styles and scripts on demand; resolves when they have all been applied or run.
-   * Everything downloads at once, then the scripts run one after another in the listed order, and
-   * only if every download arrived.
+   * Styles and scripts load concurrently without duplicate fetching.
+   * Dynamic scripts added with async = false execute in strict insertion order.
    */
   async function need(name) {
+    if (loadedBundles.has(name)) return;
+    if (loadingBundles.has(name)) return loadingBundles.get(name);
     const paths = BUNDLES[name];
-    try {
-      await Promise.all(paths.map((path) => (path.endsWith(".css") ? I18N.loadStyle(path) : I18N.warm(path))));
-      for (const path of paths) if (!path.endsWith(".css")) await I18N.loadScript(path);
-    } catch (err) {
-      err.loadFailed = true; // the toast below is the message; callers need not repeat it
-      toast(I18N.t("Could not load this page. Check your connection and try again."), "warn");
-      throw err;
-    }
+    if (!paths) return;
+
+    const loadPromise = (async () => {
+      try {
+        const cssPromises = paths.filter((p) => p.endsWith(".css")).map((p) => I18N.loadStyle(p));
+        const jsPromises = paths.filter((p) => !p.endsWith(".css")).map((p) => I18N.loadScript(p));
+        await Promise.all([...cssPromises, ...jsPromises]);
+        loadedBundles.add(name);
+      } catch (err) {
+        err.loadFailed = true; // the toast below is the message; callers need not repeat it
+        toast(I18N.t("Could not load this page. Check your connection and try again."), "warn");
+        throw err;
+      } finally {
+        loadingBundles.delete(name);
+      }
+    })();
+
+    loadingBundles.set(name, loadPromise);
+    return loadPromise;
+  }
+
+  /** Warm bundle assets into browser cache during idle time. */
+  function prefetch(name) {
+    const paths = BUNDLES[name];
+    if (!paths || loadedBundles.has(name) || loadingBundles.has(name)) return;
+    paths.forEach((path) => I18N.warm(path));
   }
 
   window.U = {
     escapeHtml, richText, paragraphs, api, store, clientId, formatDuration, formatClock,
-    formatDate, countWords, modal, loadingOverlay, toast, need,
+    formatDate, countWords, modal, loadingOverlay, toast, need, prefetch, clearApiCache: () => apiCache.clear(),
   };
 })();

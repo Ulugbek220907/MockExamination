@@ -19,6 +19,12 @@
   <link rel="preload" href="/api/config" as="fetch" crossorigin />
   <link rel="preload" href="/api/me" as="fetch" crossorigin />
   <script type="application/json" id="asset-versions">{}</script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/i18n-strings.js" defer></script>
+  <script src="js/util.js" defer></script>
+  <script src="js/scoring.js" defer></script>
+  <script src="js/account.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
 <body class="theme-default text-regular">
 
@@ -153,13 +159,5 @@
     </footer>
   </div>
 
-  <!-- Only what the home page needs. The exam screen's styles and code, the results page, the progress
-       chart and the Uzbek and Russian text load on demand; see U.need() in util.js and i18n.js. -->
-  <script src="js/i18n.js"></script>
-  <script src="js/i18n-strings.js"></script>
-  <script src="js/util.js"></script>
-  <script src="js/scoring.js"></script>
-  <script src="js/account.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>

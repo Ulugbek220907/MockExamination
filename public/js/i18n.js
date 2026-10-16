@@ -68,17 +68,42 @@
     return scripts[path];
   }
 
+  const warmed = new Set();
+  const supportsPrefetch = (() => {
+    try {
+      const l = document.createElement("link");
+      return Boolean(l.relList && l.relList.supports && l.relList.supports("prefetch"));
+    } catch (e) {
+      return false;
+    }
+  })();
+
   /**
-   * Download a script without running it. A bundle is downloaded whole first and run in order afterwards,
-   * so one missing file can never leave the files that depend on it running half-way. The files are
-   * cached for a year, so the script tag that runs one afterwards is served from the browser's cache.
-   * (A failed fetch leaves nothing behind, so trying again works; a failed preload link does not.)
+   * Warm an asset in browser cache without executing it (idle prefetch).
+   * Uses <link rel="prefetch"> when supported, with low-priority fetch fallback,
+   * so it primes the browser HTTP cache without blocking or using JS heap.
    */
-  async function warm(path) {
-    if (scripts[path]) return;
-    const res = await fetch(assetUrl(path));
-    if (!res.ok) throw new Error(`Could not load ${path}`);
-    await res.arrayBuffer(); // read to the end, so the whole file is cached
+  function warm(path) {
+    if (scripts[path] || styles[path] || warmed.has(path)) return Promise.resolve();
+    warmed.add(path);
+    const url = assetUrl(path);
+
+    if (supportsPrefetch) {
+      return new Promise((resolve) => {
+        const link = document.createElement("link");
+        link.rel = "prefetch";
+        link.as = path.endsWith(".css") ? "style" : "script";
+        link.href = url;
+        link.onload = () => resolve();
+        link.onerror = () => resolve();
+        setTimeout(resolve, 3000);
+        document.head.appendChild(link);
+      });
+    }
+
+    return fetch(url, { priority: "low" })
+      .then((res) => (res.ok ? res.blob() : null))
+      .catch(() => null);
   }
 
   const styles = {};
