@@ -1,0 +1,31 @@
+# Checks every push and pull request: content, the app's automated tests, and that the
+# browser scripts at least parse. Nothing is deployed from here (Render deploys main).
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"  # the same as the Dockerfile and render.yaml
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Validate content
+        run: python scripts/validate_content.py
+
+      - name: Automated tests
+        run: python scripts/test_app.py
+
+      - name: Browser scripts parse
+        run: for f in public/js/*.js; do node --check "$f" || exit 1; done

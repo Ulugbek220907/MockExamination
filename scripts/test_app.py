@@ -1519,4 +1519,7 @@ class SecurityAndHardeningTests(AccountApiBase):
 
 
 if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    result = unittest.main(verbosity=2, exit=False).result
+    # One line to read (the README does not repeat the count, so it cannot drift).
+    print(f"\n{result.testsRun} tests: {len(result.failures)} failed, {len(result.errors)} errors, {len(result.skipped)} skipped")
+    sys.exit(0 if result.wasSuccessful() else 1)
