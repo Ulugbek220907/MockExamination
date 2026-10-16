@@ -50,7 +50,7 @@ If Supabase is ever unreachable, the site keeps working using the bundled `conte
 1. Create an API key at <https://console.anthropic.com> → **API Keys** and add billing credit.
 2. Set `ANTHROPIC_API_KEY` on the server.
 3. Optional tuning:
-   - `ANTHROPIC_MODEL` defaults to `claude-opus-5` (most reliable marking). `claude-sonnet-5` is cheaper per script.
+   - `ANTHROPIC_MODEL` defaults to `claude-sonnet-5-5` (good marking at a low price per script). `claude-opus-5-5` costs about twice as much and is the most reliable.
    - `AI_PER_IP_PER_HOUR` (default 6) and `AI_DAILY_LIMIT` (default 300) cap your spend. Each writing submission makes two model calls (Task 1 and Task 2).
    - Set a monthly spend limit in the Anthropic console as a hard safety net.
 
