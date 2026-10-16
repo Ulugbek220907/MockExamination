@@ -71,9 +71,11 @@ def load_json_dir(directory):
     if not os.path.isdir(directory):
         return items
     for name in sorted(os.listdir(directory)):
-        if name.endswith(".json"):
+        if name.endswith(".json") and not name.startswith("book_") and not name.startswith("kanan_"):
             with open(os.path.join(directory, name), "r", encoding="utf-8") as f:
-                items.append(json.load(f))
+                data = json.load(f)
+                if isinstance(data, dict):
+                    items.append(data)
     items.sort(key=lambda t: (t.get("sortOrder", 999), t.get("id", "")))
     return items
 
