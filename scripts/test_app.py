@@ -41,7 +41,7 @@ os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
 from mockexam import accounts, api, auth, billing, checks, content, notify, scoring, speaking, storage, writing  # noqa: E402
-from mockexam.db import SqliteDb, iso, now  # noqa: E402
+from mockexam.db import SqliteDb, iso, now, parse_time  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
 
@@ -1399,6 +1399,119 @@ class ClickTests(unittest.TestCase):
         self.assertEqual(r["error"], -9)
         self.assertEqual(billing.get_order(self.db, self.order["id"])["status"], "cancelled")
         self.assertEqual(self.api.complete(self.form(1, 999))["error"], -6)
+
+
+class PaymentHardeningTests(unittest.TestCase):
+    """Replayed callbacks change nothing twice; refunds take back exactly what was bought."""
+
+    def periods(self, db, uid):
+        return db.select("subscription_periods", {"user_id": uid}, order=[("starts_at", "asc")])
+
+    def test_payme_replays_are_idempotent(self):
+        db, uid, order = _db_with_order()
+        api = billing.PaymeApi(db, key="secret-key")
+        p = {"id": "pm-r", "time": 1700000000000, "amount": order["amount"] * 100, "account": {"order_id": str(order["id"])}}
+        _payme(api, "CreateTransaction", p)
+        first = _payme(api, "PerformTransaction", {"id": "pm-r"})["result"]
+        again = _payme(api, "PerformTransaction", {"id": "pm-r"})["result"]
+        self.assertEqual(first, again)
+        self.assertEqual(len(self.periods(db, uid)), 1)  # the plan was granted once
+        self.assertEqual(_payme(api, "CreateTransaction", p)["error"]["code"], -31008)  # performed: no new create
+        c1 = _payme(api, "CancelTransaction", {"id": "pm-r", "reason": 5})["result"]
+        c2 = _payme(api, "CancelTransaction", {"id": "pm-r", "reason": 5})["result"]
+        self.assertEqual(c1, c2)
+        self.assertEqual(self.periods(db, uid), [])
+        self.assertEqual(billing.get_order(db, order["id"])["status"], "refunded")
+
+    def test_payme_wrong_amount_is_refused_before_anything_is_stored(self):
+        db, uid, order = _db_with_order()
+        api = billing.PaymeApi(db, key="secret-key")
+        p = {"id": "pm-a", "time": 1, "amount": order["amount"] * 100 - 100, "account": {"order_id": str(order["id"])}}
+        self.assertEqual(_payme(api, "CreateTransaction", p)["error"]["code"], -31001)
+        self.assertEqual(db.select("payme_transactions", {"order_id": order["id"]}), [])
+        self.assertEqual(billing.get_order(db, order["id"])["status"], "pending")
+
+    def click_form(self, order, action, prepare_id="", amount=None, click_id="900"):
+        import hashlib
+        f = {"click_trans_id": click_id, "service_id": "777", "merchant_trans_id": str(order["id"]),
+             "amount": str(amount if amount is not None else order["amount"]), "action": str(action), "error": "0",
+             "sign_time": "2026-10-16 10:00:00"}
+        if action == 1:
+            f["merchant_prepare_id"] = str(prepare_id)
+        raw = f["click_trans_id"] + f["service_id"] + "click-secret" + f["merchant_trans_id"] + \
+            (f.get("merchant_prepare_id", "") if action == 1 else "") + f["amount"] + f["action"] + f["sign_time"]
+        f["sign_string"] = hashlib.md5(raw.encode()).hexdigest()
+        return f
+
+    def test_click_replays_are_idempotent_and_amount_is_checked(self):
+        db, uid, order = _db_with_order()
+        api = billing.ClickApi(db, service_id="777", secret_key="click-secret")
+        p1 = api.prepare(self.click_form(order, 0))
+        p2 = api.prepare(self.click_form(order, 0))
+        self.assertEqual(p1["merchant_prepare_id"], p2["merchant_prepare_id"])
+        self.assertEqual(len(db.select("click_transactions", {"order_id": order["id"]})), 1)
+        # A complete for a different amount is refused and nothing is paid.
+        bad = api.complete(self.click_form(order, 1, p1["merchant_prepare_id"], amount=order["amount"] - 1000))
+        self.assertEqual(bad["error"], -2)
+        self.assertFalse(accounts.plan_status(db, uid)["active"])
+        self.assertEqual(api.complete(self.click_form(order, 1, p1["merchant_prepare_id"]))["error"], 0)
+        self.assertEqual(api.complete(self.click_form(order, 1, p1["merchant_prepare_id"]))["error"], -4)
+        self.assertEqual(len(self.periods(db, uid)), 1)
+
+    def test_refund_moves_queued_plan_time_up(self):
+        db, uid, first = _db_with_order()
+        billing.fulfil_order(db, first["id"], "payme")  # 30 days + the 30-day first-payment bonus
+        second = billing.create_order(db, uid, "plan")
+        billing.fulfil_order(db, second["id"], "click")  # queued after the first
+        a, b = self.periods(db, uid)
+        self.assertEqual(b["starts_at"], a["ends_at"])
+        billing.refund_order(db, billing.get_order(db, first["id"]))
+        (left,) = self.periods(db, uid)
+        starts, ends = parse_time(left["starts_at"]), parse_time(left["ends_at"])
+        self.assertLess(abs((starts - now()).total_seconds()), 5)  # no gap without the plan
+        self.assertEqual((ends - starts).days, billing.PLAN_DAYS)  # and no paid day lost
+        self.assertTrue(accounts.plan_status(db, uid)["active"])
+
+    def test_check_refund_only_until_the_examiner_starts(self):
+        db, uid, _ = _db_with_order()
+        order = db.insert("orders", {"user_id": uid, "kind": "writing_check", "amount": 10000, "status": "paid"})
+        check = db.insert("checks", {"order_id": order["id"], "kind": "writing", "student_id": uid,
+                                     "examiner_id": "33333333-2222-4333-8444-555555555555", "submission_id": 1,
+                                     "status": "in_progress"})
+        db.insert("payme_transactions", {"id": "pm-c", "order_id": order["id"], "amount": 1000000, "state": 2,
+                                         "payme_time": 1, "create_time": 1, "perform_time": 2})
+        api = billing.PaymeApi(db, key="secret-key")
+        self.assertEqual(_payme(api, "CancelTransaction", {"id": "pm-c", "reason": 5})["error"]["code"], -31007)
+        self.assertEqual(billing.get_order(db, order["id"])["status"], "paid")
+        db.update("checks", {"id": check["id"]}, {"status": "waiting"})
+        self.assertEqual(_payme(api, "CancelTransaction", {"id": "pm-c", "reason": 5})["result"]["state"], -2)
+        self.assertEqual(db.select("checks", {"id": check["id"]})[0]["status"], "cancelled")
+        self.assertEqual(billing.get_order(db, order["id"])["status"], "refunded")
+
+
+class PaymentAccessTests(AccountApiBase):
+    """The server unlocks paid tests and their audio the moment an order is fulfilled, and locks them on refund."""
+
+    def test_unlock_is_immediate_and_refund_locks_again(self):
+        cookie, data = self.login("unlock@example.com")
+        db = self._app.settings["store"].db
+        uid = data["user"]["id"]
+        audio = lambda: self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)[0].code, 402)
+        self.assertEqual(audio(), 402)
+        order = billing.create_order(db, uid, "plan")
+        billing.fulfil_order(db, order["id"], "payme")
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)[0].code, 200)
+        self.assertEqual(audio(), 206)  # the active plan is now cached for audio range requests
+        r, data = self.call("GET", "/api/orders", cookie=cookie)
+        receipt = next(o for o in data["orders"] if o["id"] == order["id"])
+        self.assertEqual((receipt["status"], receipt["amount"]), ("paid", billing.PRICES["plan"]))
+        self.assertIn("endsAt", receipt["unlocked"]["plan"])
+        billing.refund_order(db, billing.get_order(db, order["id"]))
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)[0].code, 402)
+        self.assertEqual(audio(), 402)  # no minute of free access after a refund
+        r, data = self.call("GET", "/api/orders", cookie=cookie)
+        self.assertNotIn("unlocked", next(o for o in data["orders"] if o["id"] == order["id"]))
 
 
 class SecurityAndHardeningTests(AccountApiBase):

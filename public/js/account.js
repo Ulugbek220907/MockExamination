@@ -505,10 +505,11 @@
         <h2 class="section-title">${t("Payments")}</h2>
         ${orders.length ? `
           <div class="table-scroll"><table class="history-table">
-            <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Order")}</th><th scope="col">${t("Item")}</th><th scope="col">${t("Amount")}</th><th scope="col">${t("Status")}</th></tr></thead>
+            <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Order")}</th><th scope="col">${t("Item")}</th><th scope="col">${t("Amount")}</th><th scope="col">${t("Status")}</th><th scope="col"><span class="sr-only">${t("Receipt")}</span></th></tr></thead>
             <tbody>${orders.map((o) => `
               <tr><td>${esc(U.formatDate(o.createdAt))}</td><td>#MX${o.id}</td><td>${esc(o.title)}</td>
-                <td>${esc(money(o.amount))}</td><td>${statusBadge(o.status)}</td></tr>`).join("")}</tbody>
+                <td>${esc(money(o.amount))}</td><td>${statusBadge(o.status)}</td>
+                <td>${o.status === "paid" ? `<button type="button" class="btn-link" data-action="receipt" data-order="${o.id}">${t("Receipt")}</button>` : ""}</td></tr>`).join("")}</tbody>
           </table></div>` : `<p class="empty-inline">${t("No payments yet.")}</p>`}
       </section>`;
     main.querySelector("#name-form").addEventListener("submit", async (e) => {
@@ -1123,7 +1124,39 @@
       return true;
     }
     if (a === "order-writing-check") { location.hash = `#/examiners?submission=${Number(el.dataset.submission)}`; return true; }
+    if (a === "receipt") { showReceipt(Number(el.dataset.order)); return true; }
     return false;
+  }
+
+  /* ================================================================ receipts */
+  const PAID_WITH = { payme: "Payme", click: "Click", manual: "Card transfer" };
+
+  /** What a paid order bought: the amount, when, how, and what it opened. */
+  function receiptHTML(o) {
+    const u = o.unlocked || {};
+    const unlocked = u.plan
+      ? t("Monthly pass: every test, {from} to {to}", { from: longDate(u.plan.startsAt), to: longDate(u.plan.endsAt) })
+      : u.check
+        ? `${t(u.check.kind === "speaking" ? "Speaking check" : "Writing check")} · <a href="#/check/${Number(u.check.id)}">${t("Open the check")}</a>`
+        : esc(o.title);
+    const row = (label, value) => `<tr><th scope="row">${label}</th><td>${value}</td></tr>`;
+    return `<table class="receipt-table"><tbody>
+      ${row(t("Order"), `#MX${Number(o.id)}`)}
+      ${row(t("Item"), esc(o.title))}
+      ${row(t("Amount"), esc(money(o.amount)))}
+      ${row(t("Paid on"), esc(longDate(o.paidAt || o.createdAt)))}
+      ${row(t("Paid with"), esc(PAID_WITH[o.provider] || o.provider || "–"))}
+      ${row(t("Unlocked"), u.plan ? esc(unlocked) : unlocked)}
+    </tbody></table>
+    <p class="muted-text small-text">${t("Keep this receipt. If something is wrong, write to us and quote the order number.")}</p>`;
+  }
+
+  async function showReceipt(orderId) {
+    const { orders } = await U.api("/api/orders").catch(() => ({ orders: [] }));
+    const order = (orders || []).find((o) => o.id === orderId);
+    if (!order) return U.toast(t("Could not load this page. Check your connection and try again."), "warn");
+    U.modal({ title: t("Receipt #MX{id}", { id: orderId }), bodyHTML: receiptHTML(order),
+      buttons: [{ label: t("Close"), className: "btn-primary", value: true }] });
   }
 
   window.Account = {

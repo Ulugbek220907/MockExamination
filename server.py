@@ -224,6 +224,7 @@ class PlanCache:
 
 
 PLAN_CACHE = PlanCache()
+accounts.PLAN_LISTENERS.append(PLAN_CACHE.forget)  # a payment or a refund takes effect at once
 
 
 class ProfileCache:

@@ -256,9 +256,8 @@ async def _own_order(handler, order_id):
 class OrdersHandler(BaseHandler):
     async def get(self):
         profile = await self.require_profile()
-        rows = await in_thread(lambda: self.db.select("orders", {"user_id": profile["id"]},
-                                                      order=[("created_at", "desc")], limit=50))
-        self.send_json({"orders": [billing.public_order(o) for o in rows]})
+        orders = await in_thread(billing.user_orders, self.db, profile["id"])
+        self.send_json({"orders": orders})
 
     async def post(self):
         profile = await self.require_profile()

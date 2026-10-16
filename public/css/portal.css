@@ -430,6 +430,9 @@ h1, h2, h3 { text-wrap: balance; }
 /* Recent rides (history) ------------------------------------------------------------ */
 #history-section { margin-bottom: 56px; }
 .table-scroll { overflow-x: auto; border-radius: var(--radius); }
+.receipt-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 0.95rem; }
+.receipt-table th, .receipt-table td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+.receipt-table th { font-weight: 600; color: var(--muted); width: 38%; padding-right: 12px; }
 .history-table {
   width: 100%; border-collapse: separate; border-spacing: 0; background: var(--paper); border: 1px solid var(--rule);
   border-radius: var(--radius); font-size: 0.93rem; font-variant-numeric: tabular-nums;
