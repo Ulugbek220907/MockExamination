@@ -215,8 +215,7 @@
 
   /**
    * Load a bundle of styles and scripts on demand; resolves when they have all been applied or run.
-   * Styles and scripts load concurrently without duplicate fetching.
-   * Dynamic scripts added with async = false execute in strict insertion order.
+   * Files download concurrently without duplicates; scripts then run in the listed order.
    */
   async function need(name) {
     if (loadedBundles.has(name)) return;
@@ -226,9 +225,13 @@
 
     const loadPromise = (async () => {
       try {
-        const cssPromises = paths.filter((p) => p.endsWith(".css")).map((p) => I18N.loadStyle(p));
-        const jsPromises = paths.filter((p) => !p.endsWith(".css")).map((p) => I18N.loadScript(p));
-        await Promise.all([...cssPromises, ...jsPromises]);
+        const scripts = paths.filter((p) => !p.endsWith(".css"));
+        // Everything downloads at once; the scripts then run one after another, and only if all arrived.
+        await Promise.all([
+          ...paths.filter((p) => p.endsWith(".css")).map((p) => I18N.loadStyle(p)),
+          ...scripts.map((p) => I18N.download(p)),
+        ]);
+        for (const p of scripts) await I18N.loadScript(p);
         loadedBundles.add(name);
       } catch (err) {
         err.loadFailed = true; // the toast below is the message; callers need not repeat it
