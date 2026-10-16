@@ -1,0 +1,268 @@
+{
+  "id": "speaking-12",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 12",
+  "shortTitle": "Practice Test 12",
+  "durationMinutes": 14,
+  "sortOrder": 12,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Isabella",
+    "voice": "bf_isabella",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-12/p2-start.mp3",
+        "duration": 9.82
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-12/end.mp3",
+        "duration": 3.29
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Swimming",
+        "Sports on television"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "What is the name of your hometown?",
+          "say": "Good morning. My name is Isabella, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. What is the name of your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-1.mp3",
+            "duration": 15.55
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What do you like most about it?",
+          "say": "What do you like most about it?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-2.mp3",
+            "duration": 2.31
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Are there good places to exercise in your hometown?",
+          "say": "Are there good places to exercise in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-3.mp3",
+            "duration": 3.51
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Do many young people leave your hometown? Why?",
+          "say": "Do many young people leave your hometown? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-4.mp3",
+            "duration": 4.24
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Swimming",
+          "text": "Can you swim?",
+          "say": "Now let's move on to talk about swimming. Can you swim?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-5.mp3",
+            "duration": 4.56
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Swimming",
+          "text": "Where do people swim where you live?",
+          "say": "Where do people swim where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-6.mp3",
+            "duration": 2.63
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Swimming",
+          "text": "Do you think every child should learn to swim?",
+          "say": "Do you think every child should learn to swim?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-7.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Sports on television",
+          "text": "Do you like watching sport on television?",
+          "say": "Now let's move on to talk about watching sport on television. Do you like watching sport on television?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-8.mp3",
+            "duration": 6.82
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Sports on television",
+          "text": "Which sports are most popular on TV in your country?",
+          "say": "Which sports are most popular on TV in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-9.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Sports on television",
+          "text": "Would you rather watch a match at home or at the stadium?",
+          "say": "Would you rather watch a match at home or at the stadium?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p1-10.mp3",
+            "duration": 3.57
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a sport or physical activity that you enjoy.",
+        "points": [
+          "what the activity is",
+          "when you started doing it",
+          "who you do it with"
+        ],
+        "explain": "and explain why you enjoy it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a sport or physical activity that you enjoy.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a sport or physical activity that you enjoy. You should say: what the activity is; when you started doing it; who you do it with; and explain why you enjoy it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-12/p2-talk.mp3",
+            "duration": 24.49
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you encourage other people to try this activity?",
+          "say": "Thank you. Would you encourage other people to try this activity?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-12/p2-follow.mp3",
+            "duration": 4.23
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Sport and health",
+        "Professional sport"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Sport and health",
+          "text": "Why do many adults stop doing sport as they get older?",
+          "say": "Thank you. We've been talking about a sport or physical activity you enjoy, and I'd like to discuss with you some more general questions related to this. Let's consider first of all sport and health. Why do many adults stop doing sport as they get older?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-12/p3-1.mp3",
+            "duration": 15.39
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Sport and health",
+          "text": "What can governments do to encourage people to be more active?",
+          "say": "What can governments do to encourage people to be more active?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-12/p3-2.mp3",
+            "duration": 3.98
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Sport and health",
+          "text": "Is it better for children to play team sports or individual sports?",
+          "say": "Is it better for children to play team sports or individual sports?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-12/p3-3.mp3",
+            "duration": 4.49
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Professional sport",
+          "text": "Do you think top athletes are paid too much?",
+          "say": "Now let's talk about professional sport. Do you think top athletes are paid too much?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-12/p3-4.mp3",
+            "duration": 5.86
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Professional sport",
+          "text": "Why do people enjoy watching international sports events?",
+          "say": "Why do people enjoy watching international sports events?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-12/p3-5.mp3",
+            "duration": 3.98
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Professional sport",
+          "text": "Are professional athletes good role models for young people?",
+          "say": "Are professional athletes good role models for young people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-12/p3-6.mp3",
+            "duration": 3.83
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-14",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 14",
+  "shortTitle": "Practice Test 14",
+  "durationMinutes": 14,
+  "sortOrder": 14,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lily",
+    "voice": "bf_lily",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-14/p2-start.mp3",
+        "duration": 10.5
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-14/end.mp3",
+        "duration": 3.42
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "History",
+        "Painting and drawing"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Can you describe the place where you live?",
+          "say": "Good evening. My name is Lily, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Can you describe the place where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-1.mp3",
+            "duration": 16.41
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What is the neighbourhood around your home like?",
+          "say": "What is the neighbourhood around your home like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-2.mp3",
+            "duration": 3.17
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "How do you usually spend time at home?",
+          "say": "How do you usually spend time at home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-3.mp3",
+            "duration": 2.93
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Is there anything you would like to change about the area?",
+          "say": "Is there anything you would like to change about the area?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-4.mp3",
+            "duration": 3.81
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "History",
+          "text": "Did you enjoy studying history at school?",
+          "say": "Now let's move on to talk about history. Did you enjoy studying history at school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-5.mp3",
+            "duration": 6.27
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "History",
+          "text": "Are you interested in the history of your country?",
+          "say": "Are you interested in the history of your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-6.mp3",
+            "duration": 3.55
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "History",
+          "text": "Do you like visiting museums?",
+          "say": "Do you like visiting museums?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-7.mp3",
+            "duration": 2.74
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Painting and drawing",
+          "text": "Do you like drawing or painting?",
+          "say": "Now let's move on to talk about painting and drawing. Do you like drawing or painting?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-8.mp3",
+            "duration": 6.18
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Painting and drawing",
+          "text": "Did you draw a lot when you were a child?",
+          "say": "Did you draw a lot when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-9.mp3",
+            "duration": 3.0
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Painting and drawing",
+          "text": "Do you have any paintings on the walls of your home?",
+          "say": "Do you have any paintings on the walls of your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p1-10.mp3",
+            "duration": 3.44
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a building that you find attractive.",
+        "points": [
+          "where the building is",
+          "what it looks like",
+          "what it is used for"
+        ],
+        "explain": "and explain why you find it attractive."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a building that you find attractive.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a building that you find attractive. You should say: where the building is; what it looks like; what it is used for; and explain why you find it attractive.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-14/p2-talk.mp3",
+            "duration": 25.28
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do other people also think this building is attractive?",
+          "say": "Thank you. Do other people also think this building is attractive?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-14/p2-follow.mp3",
+            "duration": 4.38
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Architecture",
+        "Old and new buildings"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Architecture",
+          "text": "What kinds of buildings are most common in your city?",
+          "say": "Thank you. We've been talking about a building you find attractive, and I'd like to discuss with you some more general questions related to this. Let's consider first of all architecture. What kinds of buildings are most common in your city?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-14/p3-1.mp3",
+            "duration": 15.05
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Architecture",
+          "text": "Is it more important for a building to be beautiful or useful?",
+          "say": "Is it more important for a building to be beautiful or useful?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-14/p3-2.mp3",
+            "duration": 4.21
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Architecture",
+          "text": "Who should decide what new buildings look like?",
+          "say": "Who should decide what new buildings look like?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-14/p3-3.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Old and new buildings",
+          "text": "Should governments spend money on protecting old buildings?",
+          "say": "Now let's talk about old and new buildings. Should governments spend money on protecting old buildings?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-14/p3-4.mp3",
+            "duration": 7.08
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Old and new buildings",
+          "text": "Why do some people prefer living in modern buildings?",
+          "say": "Why do some people prefer living in modern buildings?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-14/p3-5.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Old and new buildings",
+          "text": "How do you think buildings will be different in fifty years?",
+          "say": "How do you think buildings will be different in fifty years?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-14/p3-6.mp3",
+            "duration": 3.83
+          }
+        }
+      ]
+    }
+  ]
+}

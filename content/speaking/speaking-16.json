@@ -1,0 +1,268 @@
+{
+  "id": "speaking-16",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 16",
+  "shortTitle": "Practice Test 16",
+  "durationMinutes": 14,
+  "sortOrder": 16,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-16/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-16/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Advice",
+        "Plans"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Do you have a job, or are you a student?",
+          "say": "Good afternoon. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about work or studies. Do you have a job, or are you a student?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-1.mp3",
+            "duration": 16.3
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "Is that a popular job or subject in your country?",
+          "say": "Is that a popular job or subject in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-2.mp3",
+            "duration": 3.7
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "What do you like least about it?",
+          "say": "What do you like least about it?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-3.mp3",
+            "duration": 2.31
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "Would you like to work or study abroad one day?",
+          "say": "Would you like to work or study abroad one day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-4.mp3",
+            "duration": 3.36
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Advice",
+          "text": "Who do you usually ask for advice?",
+          "say": "Now let's move on to talk about advice. Who do you usually ask for advice?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-5.mp3",
+            "duration": 5.52
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Advice",
+          "text": "Do you like giving advice to other people?",
+          "say": "Do you like giving advice to other people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-6.mp3",
+            "duration": 2.93
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Advice",
+          "text": "Have you ever received advice that was very useful?",
+          "say": "Have you ever received advice that was very useful?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-7.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Plans",
+          "text": "Do you usually make plans for your weekends?",
+          "say": "Now let's move on to talk about making plans. Do you usually make plans for your weekends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-8.mp3",
+            "duration": 6.06
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Plans",
+          "text": "Do you write down your plans or keep them in your head?",
+          "say": "Do you write down your plans or keep them in your head?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-9.mp3",
+            "duration": 3.49
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Plans",
+          "text": "How do you feel when your plans change?",
+          "say": "How do you feel when your plans change?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p1-10.mp3",
+            "duration": 2.83
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a difficult decision that you made.",
+        "points": [
+          "what the decision was",
+          "when you made it",
+          "what you had to choose between"
+        ],
+        "explain": "and explain why it was difficult to make."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a difficult decision that you made.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a difficult decision that you made. You should say: what the decision was; when you made it; what you had to choose between; and explain why it was difficult to make.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-16/p2-talk.mp3",
+            "duration": 24.47
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think you made the right decision?",
+          "say": "Thank you. Do you think you made the right decision?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-16/p2-follow.mp3",
+            "duration": 3.08
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Making decisions",
+        "Decisions at work"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Making decisions",
+          "text": "What kinds of decisions do young people in your country have to make?",
+          "say": "Thank you. We've been talking about a difficult decision you made, and I'd like to discuss with you some more general questions related to this. Let's consider first of all making decisions. What kinds of decisions do young people in your country have to make?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-16/p3-1.mp3",
+            "duration": 15.54
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Making decisions",
+          "text": "Should parents make important decisions for their children?",
+          "say": "Should parents make important decisions for their children?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-16/p3-2.mp3",
+            "duration": 3.68
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Making decisions",
+          "text": "Why do some people find it hard to make decisions?",
+          "say": "Why do some people find it hard to make decisions?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-16/p3-3.mp3",
+            "duration": 3.47
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Decisions at work",
+          "text": "Is it better for a manager to make decisions alone or with the whole team?",
+          "say": "Now let's talk about decisions at work. Is it better for a manager to make decisions alone or with the whole team?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-16/p3-4.mp3",
+            "duration": 7.48
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Decisions at work",
+          "text": "Do you think people make better decisions when they have more time?",
+          "say": "Do you think people make better decisions when they have more time?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-16/p3-5.mp3",
+            "duration": 4.06
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Decisions at work",
+          "text": "Should important decisions be made by computers in the future?",
+          "say": "Should important decisions be made by computers in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-16/p3-6.mp3",
+            "duration": 4.15
+          }
+        }
+      ]
+    }
+  ]
+}

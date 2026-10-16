@@ -1,0 +1,268 @@
+{
+  "id": "speaking-08",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 8",
+  "shortTitle": "Practice Test 8",
+  "durationMinutes": 14,
+  "sortOrder": 8,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-08/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-08/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Birthdays",
+        "Photographs"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "What kind of place do you live in?",
+          "say": "Good evening. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. What kind of place do you live in?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-1.mp3",
+            "duration": 14.06
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "How long have you lived there?",
+          "say": "How long have you lived there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-2.mp3",
+            "duration": 2.14
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "What can you see from the windows of your home?",
+          "say": "What can you see from the windows of your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-3.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Do you prefer living in a house or in an apartment?",
+          "say": "Do you prefer living in a house or in an apartment?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-4.mp3",
+            "duration": 3.19
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Birthdays",
+          "text": "How do you usually celebrate your birthday?",
+          "say": "Now let's move on to talk about birthdays. How do you usually celebrate your birthday?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-5.mp3",
+            "duration": 5.35
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Birthdays",
+          "text": "Which birthday do you remember best from your childhood?",
+          "say": "Which birthday do you remember best from your childhood?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-6.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Birthdays",
+          "text": "Do you think birthdays are more important for children than for adults?",
+          "say": "Do you think birthdays are more important for children than for adults?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-7.mp3",
+            "duration": 3.93
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Photographs",
+          "text": "Do you like taking photos?",
+          "say": "Now let's move on to talk about photographs. Do you like taking photos?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-8.mp3",
+            "duration": 5.1
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Photographs",
+          "text": "What do you usually take photos of?",
+          "say": "What do you usually take photos of?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-9.mp3",
+            "duration": 2.51
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Photographs",
+          "text": "Do you keep printed photos at home?",
+          "say": "Do you keep printed photos at home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p1-10.mp3",
+            "duration": 2.55
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a family celebration that you enjoyed.",
+        "points": [
+          "what the celebration was",
+          "when and where it took place",
+          "who was there"
+        ],
+        "explain": "and explain why you enjoyed it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a family celebration that you enjoyed.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a family celebration that you enjoyed. You should say: what the celebration was; when and where it took place; who was there; and explain why you enjoyed it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-08/p2-talk.mp3",
+            "duration": 23.83
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you have celebrations like this often in your family?",
+          "say": "Thank you. Do you have celebrations like this often in your family?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-08/p2-follow.mp3",
+            "duration": 3.85
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Celebrations",
+        "Family traditions"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Celebrations",
+          "text": "What are the most important celebrations in your country?",
+          "say": "Thank you. We've been talking about a family celebration you enjoyed, and I'd like to discuss with you some more general questions related to this. Let's consider first of all celebrations. What are the most important celebrations in your country?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-08/p3-1.mp3",
+            "duration": 14.38
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Celebrations",
+          "text": "Why do people spend a lot of money on celebrations such as weddings?",
+          "say": "Why do people spend a lot of money on celebrations such as weddings?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-08/p3-2.mp3",
+            "duration": 4.25
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Celebrations",
+          "text": "Have celebrations in your country changed over the last twenty years?",
+          "say": "Have celebrations in your country changed over the last twenty years?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-08/p3-3.mp3",
+            "duration": 4.21
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Family traditions",
+          "text": "Why is it important for families to have traditions?",
+          "say": "Now let's talk about family traditions. Why is it important for families to have traditions?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-08/p3-4.mp3",
+            "duration": 6.23
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Family traditions",
+          "text": "Are young people as interested in family traditions as older people?",
+          "say": "Are young people as interested in family traditions as older people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-08/p3-5.mp3",
+            "duration": 4.4
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Family traditions",
+          "text": "Do you think some traditions will disappear in the future?",
+          "say": "Do you think some traditions will disappear in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-08/p3-6.mp3",
+            "duration": 3.42
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-10",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 10",
+  "shortTitle": "Practice Test 10",
+  "durationMinutes": 14,
+  "sortOrder": 10,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-10/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-10/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Patience",
+        "Daily routine"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Do you work or are you a student?",
+          "say": "Good afternoon. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about work or studies. Do you work or are you a student?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-1.mp3",
+            "duration": 16.58
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "How do you usually get to your workplace or school?",
+          "say": "How do you usually get to your workplace or school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-2.mp3",
+            "duration": 3.44
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "What is your favourite part of the day at work or school?",
+          "say": "What is your favourite part of the day at work or school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-3.mp3",
+            "duration": 3.79
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "Do you think you will change your job or subject in the future?",
+          "say": "Do you think you will change your job or subject in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-4.mp3",
+            "duration": 4.17
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Patience",
+          "text": "Would you say you are a patient person?",
+          "say": "Now let's move on to talk about patience. Would you say you are a patient person?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-5.mp3",
+            "duration": 5.91
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Patience",
+          "text": "In what situations do you find it hard to be patient?",
+          "say": "In what situations do you find it hard to be patient?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-6.mp3",
+            "duration": 3.85
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Patience",
+          "text": "Do you think people are less patient than they used to be?",
+          "say": "Do you think people are less patient than they used to be?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-7.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Daily routine",
+          "text": "What is your daily routine like?",
+          "say": "Now let's move on to talk about your daily routine. What is your daily routine like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-8.mp3",
+            "duration": 6.23
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Daily routine",
+          "text": "Do you like having a routine?",
+          "say": "Do you like having a routine?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-9.mp3",
+            "duration": 2.59
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Daily routine",
+          "text": "Has your routine changed in the last few years?",
+          "say": "Has your routine changed in the last few years?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p1-10.mp3",
+            "duration": 3.57
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you had to wait for something.",
+        "points": [
+          "what you were waiting for",
+          "how long you had to wait",
+          "what you did while you were waiting"
+        ],
+        "explain": "and explain how you felt about waiting."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you had to wait for something.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you had to wait for something. You should say: what you were waiting for; how long you had to wait; what you did while you were waiting; and explain how you felt about waiting.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-10/p2-talk.mp3",
+            "duration": 26.26
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you usually wait for things patiently?",
+          "say": "Thank you. Do you usually wait for things patiently?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-10/p2-follow.mp3",
+            "duration": 3.4
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Waiting in daily life",
+        "Patience and modern life"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Waiting in daily life",
+          "text": "In what situations do people in your country usually have to wait?",
+          "say": "Thank you. We've been talking about a time when you had to wait for something, and I'd like to discuss with you some more general questions related to this. Let's consider first of all waiting in daily life. In what situations do people in your country usually have to wait?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-10/p3-1.mp3",
+            "duration": 17.26
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Waiting in daily life",
+          "text": "How can shops and banks reduce the time customers spend waiting?",
+          "say": "How can shops and banks reduce the time customers spend waiting?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-10/p3-2.mp3",
+            "duration": 4.43
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Waiting in daily life",
+          "text": "Why do some people get angry when they have to wait?",
+          "say": "Why do some people get angry when they have to wait?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-10/p3-3.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Patience and modern life",
+          "text": "Has the internet made people more impatient? Why?",
+          "say": "Now let's talk about patience and modern life. Has the internet made people more impatient? Why?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-10/p3-4.mp3",
+            "duration": 8.01
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Patience and modern life",
+          "text": "Is patience an important quality for a leader?",
+          "say": "Is patience an important quality for a leader?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-10/p3-5.mp3",
+            "duration": 3.47
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Patience and modern life",
+          "text": "Can patience be taught, or is it part of a person's character?",
+          "say": "Can patience be taught, or is it part of a person's character?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-10/p3-6.mp3",
+            "duration": 4.19
+          }
+        }
+      ]
+    }
+  ]
+}

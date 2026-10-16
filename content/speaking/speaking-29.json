@@ -1,0 +1,268 @@
+{
+  "id": "speaking-29",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 29",
+  "shortTitle": "Practice Test 29",
+  "durationMinutes": 14,
+  "sortOrder": 29,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-29/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-29/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Newspapers and magazines",
+        "Phone calls"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Can you describe your home?",
+          "say": "Good evening. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Can you describe your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-1.mp3",
+            "duration": 13.93
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "How long have you lived in your current home?",
+          "say": "How long have you lived in your current home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-2.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Do you know your neighbours well?",
+          "say": "Do you know your neighbours well?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-3.mp3",
+            "duration": 2.08
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "What is the best thing about the area where you live?",
+          "say": "What is the best thing about the area where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-4.mp3",
+            "duration": 3.02
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Newspapers and magazines",
+          "text": "Do you read newspapers or magazines?",
+          "say": "Now let's move on to talk about newspapers and magazines. Do you read newspapers or magazines?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-5.mp3",
+            "duration": 6.27
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Newspapers and magazines",
+          "text": "Did your parents read newspapers when you were young?",
+          "say": "Did your parents read newspapers when you were young?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-6.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Newspapers and magazines",
+          "text": "Do you think newspapers will still exist in the future?",
+          "say": "Do you think newspapers will still exist in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-7.mp3",
+            "duration": 3.44
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Phone calls",
+          "text": "Do you make a lot of phone calls?",
+          "say": "Now let's move on to talk about phone calls. Do you make a lot of phone calls?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-8.mp3",
+            "duration": 5.03
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Phone calls",
+          "text": "Who do you call most often?",
+          "say": "Who do you call most often?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-9.mp3",
+            "duration": 2.12
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Phone calls",
+          "text": "Do you prefer to call or to send a message?",
+          "say": "Do you prefer to call or to send a message?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p1-10.mp3",
+            "duration": 2.87
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you received some good news.",
+        "points": [
+          "what the news was",
+          "when you received it",
+          "how you received it"
+        ],
+        "explain": "and explain how you felt when you heard it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you received some good news.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you received some good news. You should say: what the news was; when you received it; how you received it; and explain how you felt when you heard it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-29/p2-talk.mp3",
+            "duration": 23.17
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Who did you share the news with first?",
+          "say": "Thank you. Who did you share the news with first?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-29/p2-follow.mp3",
+            "duration": 2.87
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "News and the media",
+        "Sharing news"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "News and the media",
+          "text": "Why do newspapers and television report more bad news than good news?",
+          "say": "Thank you. We've been talking about a time when you received good news, and I'd like to discuss with you some more general questions related to this. Let's consider first of all news and the media. Why do newspapers and television report more bad news than good news?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-29/p3-1.mp3",
+            "duration": 15.37
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "News and the media",
+          "text": "How do young people in your country get their news?",
+          "say": "How do young people in your country get their news?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-29/p3-2.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "News and the media",
+          "text": "Should children watch the news?",
+          "say": "Should children watch the news?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-29/p3-3.mp3",
+            "duration": 2.23
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Sharing news",
+          "text": "Is it better to share good news in person or online?",
+          "say": "Now let's talk about sharing news. Is it better to share good news in person or online?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-29/p3-4.mp3",
+            "duration": 5.69
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Sharing news",
+          "text": "Why do people sometimes share news that is not true?",
+          "say": "Why do people sometimes share news that is not true?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-29/p3-5.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Sharing news",
+          "text": "How has the speed at which news travels changed people's lives?",
+          "say": "How has the speed at which news travels changed people's lives?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-29/p3-6.mp3",
+            "duration": 3.87
+          }
+        }
+      ]
+    }
+  ]
+}

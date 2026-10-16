@@ -1,0 +1,268 @@
+{
+  "id": "speaking-20",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 20",
+  "shortTitle": "Practice Test 20",
+  "durationMinutes": 14,
+  "sortOrder": 20,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lewis",
+    "voice": "bm_lewis",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-20/p2-start.mp3",
+        "duration": 10.44
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-20/end.mp3",
+        "duration": 3.51
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Free time",
+        "Puzzles"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Do you live in a big city or a small town?",
+          "say": "Good evening. My name is Lewis, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Do you live in a big city or a small town?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-1.mp3",
+            "duration": 16.51
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What do you like about living there?",
+          "say": "What do you like about living there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-2.mp3",
+            "duration": 2.55
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Is it easy to find a place to live where you are?",
+          "say": "Is it easy to find a place to live where you are?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-3.mp3",
+            "duration": 3.55
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Do you plan to stay there in the future?",
+          "say": "Do you plan to stay there in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-4.mp3",
+            "duration": 2.76
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Free time",
+          "text": "What do you like to do in your free time?",
+          "say": "Now let's move on to talk about your free time. What do you like to do in your free time?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-5.mp3",
+            "duration": 5.67
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Free time",
+          "text": "Do you have more free time now than you did a few years ago?",
+          "say": "Do you have more free time now than you did a few years ago?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-6.mp3",
+            "duration": 4.08
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Free time",
+          "text": "Do you prefer to spend free time alone or with others?",
+          "say": "Do you prefer to spend free time alone or with others?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-7.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Puzzles",
+          "text": "Do you like doing puzzles?",
+          "say": "Now let's move on to talk about puzzles. Do you like doing puzzles?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-8.mp3",
+            "duration": 4.95
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Puzzles",
+          "text": "What kinds of puzzles did you do as a child?",
+          "say": "What kinds of puzzles did you do as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-9.mp3",
+            "duration": 3.36
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Puzzles",
+          "text": "Do you think puzzles are good for the brain?",
+          "say": "Do you think puzzles are good for the brain?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p1-10.mp3",
+            "duration": 2.89
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a goal that you would like to achieve in the future.",
+        "points": [
+          "what the goal is",
+          "when you would like to achieve it",
+          "what you need to do to achieve it"
+        ],
+        "explain": "and explain why this goal is important to you."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a goal that you would like to achieve in the future.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a goal that you would like to achieve in the future. You should say: what the goal is; when you would like to achieve it; what you need to do to achieve it; and explain why this goal is important to you.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-20/p2-talk.mp3",
+            "duration": 28.91
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Have you told other people about this goal?",
+          "say": "Thank you. Have you told other people about this goal?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-20/p2-follow.mp3",
+            "duration": 3.42
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Ambition",
+        "Success"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Ambition",
+          "text": "Do you think young people today are more ambitious than their parents were?",
+          "say": "Thank you. We've been talking about a goal you would like to achieve, and I'd like to discuss with you some more general questions related to this. Let's consider first of all ambition. Do you think young people today are more ambitious than their parents were?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-20/p3-1.mp3",
+            "duration": 16.56
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Ambition",
+          "text": "Is it always a good thing to be very ambitious?",
+          "say": "Is it always a good thing to be very ambitious?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-20/p3-2.mp3",
+            "duration": 3.42
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Ambition",
+          "text": "Should parents encourage their children to set goals?",
+          "say": "Should parents encourage their children to set goals?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-20/p3-3.mp3",
+            "duration": 3.87
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Success",
+          "text": "How do people in your country usually measure success?",
+          "say": "Now let's talk about success. How do people in your country usually measure success?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-20/p3-4.mp3",
+            "duration": 6.14
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Success",
+          "text": "Is it possible to be successful without hard work?",
+          "say": "Is it possible to be successful without hard work?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-20/p3-5.mp3",
+            "duration": 3.68
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Success",
+          "text": "Why do some famous people find success difficult to deal with?",
+          "say": "Why do some famous people find success difficult to deal with?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-20/p3-6.mp3",
+            "duration": 4.55
+          }
+        }
+      ]
+    }
+  ]
+}

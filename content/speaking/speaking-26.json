@@ -1,0 +1,268 @@
+{
+  "id": "speaking-26",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 26",
+  "shortTitle": "Practice Test 26",
+  "durationMinutes": 14,
+  "sortOrder": 26,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Isabella",
+    "voice": "bf_isabella",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-26/p2-start.mp3",
+        "duration": 9.82
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-26/end.mp3",
+        "duration": 3.29
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "The sea",
+        "Drinking water"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "What type of home do you live in?",
+          "say": "Good evening. My name is Isabella, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. What type of home do you live in?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-1.mp3",
+            "duration": 15.06
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What do you like doing at home in the evenings?",
+          "say": "What do you like doing at home in the evenings?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-2.mp3",
+            "duration": 2.93
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Is your home near shops and services?",
+          "say": "Is your home near shops and services?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-3.mp3",
+            "duration": 2.93
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "What sort of home would you like in the future?",
+          "say": "What sort of home would you like in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-4.mp3",
+            "duration": 2.93
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "The sea",
+          "text": "Do you like going to the sea?",
+          "say": "Now let's move on to talk about the sea. Do you like going to the sea?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-5.mp3",
+            "duration": 4.99
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "The sea",
+          "text": "Have you ever travelled by boat?",
+          "say": "Have you ever travelled by boat?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-6.mp3",
+            "duration": 2.63
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "The sea",
+          "text": "Do you think it is important to protect the sea?",
+          "say": "Do you think it is important to protect the sea?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-7.mp3",
+            "duration": 3.17
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Drinking water",
+          "text": "How much water do you drink every day?",
+          "say": "Now let's move on to talk about drinking water. How much water do you drink every day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-8.mp3",
+            "duration": 5.97
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Drinking water",
+          "text": "Do you drink tap water or bottled water?",
+          "say": "Do you drink tap water or bottled water?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-9.mp3",
+            "duration": 3.17
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Drinking water",
+          "text": "Is clean water easy to get where you live?",
+          "say": "Is clean water easy to get where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p1-10.mp3",
+            "duration": 3.06
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a river, lake or sea that you have visited.",
+        "points": [
+          "where it is",
+          "when you went there",
+          "what you did there"
+        ],
+        "explain": "and explain how you felt about this place."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a river, lake or sea that you have visited.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a river, lake or sea that you have visited. You should say: where it is; when you went there; what you did there; and explain how you felt about this place.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-26/p2-talk.mp3",
+            "duration": 23.43
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do many people go there?",
+          "say": "Thank you. Do many people go there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-26/p2-follow.mp3",
+            "duration": 2.68
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Water and leisure",
+        "Protecting water"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Water and leisure",
+          "text": "What activities do people in your country do near water?",
+          "say": "Thank you. We've been talking about a river, lake or sea you have visited, and I'd like to discuss with you some more general questions related to this. Let's consider first of all water and leisure. What activities do people in your country do near water?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-26/p3-1.mp3",
+            "duration": 15.02
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Water and leisure",
+          "text": "Why do so many people like to live near the sea or a river?",
+          "say": "Why do so many people like to live near the sea or a river?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-26/p3-2.mp3",
+            "duration": 3.79
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Water and leisure",
+          "text": "Should water sports be taught at school?",
+          "say": "Should water sports be taught at school?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-26/p3-3.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Protecting water",
+          "text": "What are the main causes of water pollution?",
+          "say": "Now let's talk about protecting water. What are the main causes of water pollution?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-26/p3-4.mp3",
+            "duration": 5.82
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Protecting water",
+          "text": "Who should be responsible for keeping rivers and lakes clean?",
+          "say": "Who should be responsible for keeping rivers and lakes clean?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-26/p3-5.mp3",
+            "duration": 3.74
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Protecting water",
+          "text": "How can people use less water at home?",
+          "say": "How can people use less water at home?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-26/p3-6.mp3",
+            "duration": 2.93
+          }
+        }
+      ]
+    }
+  ]
+}

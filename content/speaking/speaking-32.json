@@ -1,0 +1,268 @@
+{
+  "id": "speaking-32",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 32",
+  "shortTitle": "Practice Test 32",
+  "durationMinutes": 14,
+  "sortOrder": 32,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "George",
+    "voice": "bm_george",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-32/p2-start.mp3",
+        "duration": 11.03
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-32/end.mp3",
+        "duration": 3.85
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Cameras",
+        "Memories"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "What is your home like?",
+          "say": "Good evening. My name is George, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. What is your home like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-1.mp3",
+            "duration": 16.19
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Which room do you spend the most time in?",
+          "say": "Which room do you spend the most time in?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-2.mp3",
+            "duration": 2.85
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Do you have any photographs or pictures on your walls?",
+          "say": "Do you have any photographs or pictures on your walls?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-3.mp3",
+            "duration": 4.08
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Would you like to live in a bigger home?",
+          "say": "Would you like to live in a bigger home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-4.mp3",
+            "duration": 3.19
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Cameras",
+          "text": "Do you use a camera, or only the camera on your phone?",
+          "say": "Now let's move on to talk about cameras. Do you use a camera, or only the camera on your phone?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-5.mp3",
+            "duration": 7.08
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Cameras",
+          "text": "When was the last time you took a photo?",
+          "say": "When was the last time you took a photo?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-6.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Cameras",
+          "text": "Do you like having your photo taken?",
+          "say": "Do you like having your photo taken?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-7.mp3",
+            "duration": 3.06
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Memories",
+          "text": "Do you have a good memory?",
+          "say": "Now let's move on to talk about memories. Do you have a good memory?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-8.mp3",
+            "duration": 5.33
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Memories",
+          "text": "What is your earliest memory?",
+          "say": "What is your earliest memory?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-9.mp3",
+            "duration": 2.44
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Memories",
+          "text": "How do you remember important dates?",
+          "say": "How do you remember important dates?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p1-10.mp3",
+            "duration": 3.02
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a photograph that you like.",
+        "points": [
+          "what is in the photograph",
+          "who took it",
+          "where you keep it"
+        ],
+        "explain": "and explain why you like this photograph."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a photograph that you like.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a photograph that you like. You should say: what is in the photograph; who took it; where you keep it; and explain why you like this photograph.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-32/p2-talk.mp3",
+            "duration": 26.82
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do other people in your family like this photograph too?",
+          "say": "Thank you. Do other people in your family like this photograph too?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-32/p2-follow.mp3",
+            "duration": 4.77
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Photography",
+        "Images in the media"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Photography",
+          "text": "Why do people take so many photos nowadays?",
+          "say": "Thank you. We've been talking about a photograph you like, and I'd like to discuss with you some more general questions related to this. Let's consider first of all photography. Why do people take so many photos nowadays?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-32/p3-1.mp3",
+            "duration": 15.66
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Photography",
+          "text": "Is photography a form of art?",
+          "say": "Is photography a form of art?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-32/p3-2.mp3",
+            "duration": 3.02
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Photography",
+          "text": "How has the way people keep their photos changed?",
+          "say": "How has the way people keep their photos changed?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-32/p3-3.mp3",
+            "duration": 3.68
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Images in the media",
+          "text": "Do you think photos in the news always show the truth?",
+          "say": "Now let's talk about images in the media. Do you think photos in the news always show the truth?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-32/p3-4.mp3",
+            "duration": 7.53
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Images in the media",
+          "text": "Should magazines be allowed to edit photographs of people?",
+          "say": "Should magazines be allowed to edit photographs of people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-32/p3-5.mp3",
+            "duration": 4.3
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Images in the media",
+          "text": "Why are pictures so important on social media?",
+          "say": "Why are pictures so important on social media?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-32/p3-6.mp3",
+            "duration": 3.96
+          }
+        }
+      ]
+    }
+  ]
+}

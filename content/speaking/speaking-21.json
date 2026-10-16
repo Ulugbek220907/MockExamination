@@ -1,0 +1,268 @@
+{
+  "id": "speaking-21",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 21",
+  "shortTitle": "Practice Test 21",
+  "durationMinutes": 14,
+  "sortOrder": 21,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lily",
+    "voice": "bf_lily",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-21/p2-start.mp3",
+        "duration": 10.5
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-21/end.mp3",
+        "duration": 3.42
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Mathematics",
+        "Keys"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "What kind of place is your hometown?",
+          "say": "Good morning. My name is Lily, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. What kind of place is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-1.mp3",
+            "duration": 16.58
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What do you remember most about your hometown as a child?",
+          "say": "What do you remember most about your hometown as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-2.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is there a lot to do there in the evenings?",
+          "say": "Is there a lot to do there in the evenings?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-3.mp3",
+            "duration": 3.21
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Would you recommend your hometown to tourists?",
+          "say": "Would you recommend your hometown to tourists?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-4.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Mathematics",
+          "text": "Were you good at maths at school?",
+          "say": "Now let's move on to talk about mathematics. Were you good at maths at school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-5.mp3",
+            "duration": 5.93
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Mathematics",
+          "text": "Do you use maths much in your daily life?",
+          "say": "Do you use maths much in your daily life?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-6.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Mathematics",
+          "text": "Do you use a calculator or do sums in your head?",
+          "say": "Do you use a calculator or do sums in your head?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-7.mp3",
+            "duration": 3.64
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Keys",
+          "text": "Do you often lose your keys?",
+          "say": "Now let's move on to talk about keys. Do you often lose your keys?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-8.mp3",
+            "duration": 5.52
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Keys",
+          "text": "How many keys do you carry with you?",
+          "say": "How many keys do you carry with you?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-9.mp3",
+            "duration": 2.78
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Keys",
+          "text": "Do you think we will still use keys in the future?",
+          "say": "Do you think we will still use keys in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p1-10.mp3",
+            "duration": 3.36
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you learned something from a mistake.",
+        "points": [
+          "what the mistake was",
+          "when it happened",
+          "what the result of the mistake was"
+        ],
+        "explain": "and explain what you learned from it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you learned something from a mistake.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you learned something from a mistake. You should say: what the mistake was; when it happened; what the result of the mistake was; and explain what you learned from it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-21/p2-talk.mp3",
+            "duration": 25.96
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think you would make the same mistake again?",
+          "say": "Thank you. Do you think you would make the same mistake again?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-21/p2-follow.mp3",
+            "duration": 3.85
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Learning from mistakes",
+        "Criticism and feedback"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Learning from mistakes",
+          "text": "Why are some people afraid of making mistakes?",
+          "say": "Thank you. We've been talking about a time when you learned from a mistake, and I'd like to discuss with you some more general questions related to this. Let's consider first of all learning from mistakes. Why are some people afraid of making mistakes?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-21/p3-1.mp3",
+            "duration": 15.58
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Learning from mistakes",
+          "text": "Should teachers correct every mistake that students make?",
+          "say": "Should teachers correct every mistake that students make?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-21/p3-2.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Learning from mistakes",
+          "text": "Can children learn more from their own mistakes than from advice?",
+          "say": "Can children learn more from their own mistakes than from advice?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-21/p3-3.mp3",
+            "duration": 4.23
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Criticism and feedback",
+          "text": "How should a manager tell an employee that they have done something wrong?",
+          "say": "Now let's talk about criticism and feedback. How should a manager tell an employee that they have done something wrong?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-21/p3-4.mp3",
+            "duration": 7.72
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Criticism and feedback",
+          "text": "Why do some people find it hard to accept criticism?",
+          "say": "Why do some people find it hard to accept criticism?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-21/p3-5.mp3",
+            "duration": 3.89
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Criticism and feedback",
+          "text": "Is online feedback, such as product reviews, useful?",
+          "say": "Is online feedback, such as product reviews, useful?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-21/p3-6.mp3",
+            "duration": 3.89
+          }
+        }
+      ]
+    }
+  ]
+}

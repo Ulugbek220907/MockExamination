@@ -1,0 +1,268 @@
+{
+  "id": "speaking-24",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 24",
+  "shortTitle": "Practice Test 24",
+  "durationMinutes": 14,
+  "sortOrder": 24,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-24/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-24/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Time management",
+        "Relaxing"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where are you from?",
+          "say": "Good morning. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where are you from?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-1.mp3",
+            "duration": 15.32
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What is the most interesting part of your hometown?",
+          "say": "What is the most interesting part of your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-2.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is it a busy place?",
+          "say": "Is it a busy place?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-3.mp3",
+            "duration": 2.27
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "How do people usually travel around there?",
+          "say": "How do people usually travel around there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-4.mp3",
+            "duration": 3.23
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Time management",
+          "text": "Are you good at managing your time?",
+          "say": "Now let's move on to talk about managing your time. Are you good at managing your time?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-5.mp3",
+            "duration": 6.46
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Time management",
+          "text": "Do you use a calendar or a diary?",
+          "say": "Do you use a calendar or a diary?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-6.mp3",
+            "duration": 3.06
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Time management",
+          "text": "What do you do when you have too much to do?",
+          "say": "What do you do when you have too much to do?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-7.mp3",
+            "duration": 2.89
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Relaxing",
+          "text": "How do you usually relax after a long day?",
+          "say": "Now let's move on to talk about relaxing. How do you usually relax after a long day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-8.mp3",
+            "duration": 6.42
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Relaxing",
+          "text": "Do you find it easy to relax?",
+          "say": "Do you find it easy to relax?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-9.mp3",
+            "duration": 2.78
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Relaxing",
+          "text": "Is it important to have time to do nothing?",
+          "say": "Is it important to have time to do nothing?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p1-10.mp3",
+            "duration": 3.23
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you were very busy.",
+        "points": [
+          "when it was",
+          "what you had to do",
+          "how you organised your time"
+        ],
+        "explain": "and explain how you felt during this busy time."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you were very busy.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you were very busy. You should say: when it was; what you had to do; how you organised your time; and explain how you felt during this busy time.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-24/p2-talk.mp3",
+            "duration": 25.49
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you enjoy being busy?",
+          "say": "Thank you. Do you enjoy being busy?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-24/p2-follow.mp3",
+            "duration": 2.8
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Work and free time",
+        "Stress"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Work and free time",
+          "text": "Do people in your country work longer hours than in the past?",
+          "say": "Thank you. We've been talking about a time when you were very busy, and I'd like to discuss with you some more general questions related to this. Let's consider first of all work and free time. Do people in your country work longer hours than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-24/p3-1.mp3",
+            "duration": 16.18
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Work and free time",
+          "text": "Why is it important to have a balance between work and free time?",
+          "say": "Why is it important to have a balance between work and free time?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-24/p3-2.mp3",
+            "duration": 4.34
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Work and free time",
+          "text": "Should employers allow staff to work from home?",
+          "say": "Should employers allow staff to work from home?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-24/p3-3.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Stress",
+          "text": "What are the main causes of stress for students?",
+          "say": "Now let's talk about stress. What are the main causes of stress for students?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-24/p3-4.mp3",
+            "duration": 5.71
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Stress",
+          "text": "How can people deal with stress in a healthy way?",
+          "say": "How can people deal with stress in a healthy way?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-24/p3-5.mp3",
+            "duration": 3.55
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Stress",
+          "text": "Do you think modern life is more stressful than life in the past?",
+          "say": "Do you think modern life is more stressful than life in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-24/p3-6.mp3",
+            "duration": 4.4
+          }
+        }
+      ]
+    }
+  ]
+}

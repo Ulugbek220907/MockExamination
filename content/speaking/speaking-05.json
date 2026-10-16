@@ -1,0 +1,268 @@
+{
+  "id": "speaking-05",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 5",
+  "shortTitle": "Practice Test 5",
+  "durationMinutes": 14,
+  "sortOrder": 5,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Isabella",
+    "voice": "bf_isabella",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-05/p2-start.mp3",
+        "duration": 9.82
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-05/end.mp3",
+        "duration": 3.29
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Helping others",
+        "Mornings"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Do you live in a house or a flat?",
+          "say": "Good evening. My name is Isabella, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Do you live in a house or a flat?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-1.mp3",
+            "duration": 15.34
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Which room in your home do you like most? Why?",
+          "say": "Which room in your home do you like most? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-2.mp3",
+            "duration": 4.16
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Is there anything you would like to change about your home?",
+          "say": "Is there anything you would like to change about your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-3.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Would you like to move to a different home in the future?",
+          "say": "Would you like to move to a different home in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-4.mp3",
+            "duration": 3.27
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Helping others",
+          "text": "Do you often help your friends or family?",
+          "say": "Now let's move on to talk about helping others. Do you often help your friends or family?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-5.mp3",
+            "duration": 6.06
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Helping others",
+          "text": "How did you help at home when you were a child?",
+          "say": "How did you help at home when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-6.mp3",
+            "duration": 2.87
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Helping others",
+          "text": "Do people in your area help their neighbours?",
+          "say": "Do people in your area help their neighbours?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-7.mp3",
+            "duration": 3.02
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Mornings",
+          "text": "Are you a morning person?",
+          "say": "Now let's move on to talk about mornings. Are you a morning person?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-8.mp3",
+            "duration": 5.05
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Mornings",
+          "text": "What do you usually do first thing in the morning?",
+          "say": "What do you usually do first thing in the morning?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-9.mp3",
+            "duration": 3.0
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Mornings",
+          "text": "Is your morning routine different at the weekend?",
+          "say": "Is your morning routine different at the weekend?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p1-10.mp3",
+            "duration": 3.36
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you helped someone.",
+        "points": [
+          "who you helped",
+          "when and where it happened",
+          "what you did to help"
+        ],
+        "explain": "and explain how you felt about helping this person."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you helped someone.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you helped someone. You should say: who you helped; when and where it happened; what you did to help; and explain how you felt about helping this person.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-05/p2-talk.mp3",
+            "duration": 23.66
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you often help people in this way?",
+          "say": "Thank you. Do you often help people in this way?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-05/p2-follow.mp3",
+            "duration": 3.06
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Helping in the community",
+        "Help from governments and businesses"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Helping in the community",
+          "text": "Why do some people volunteer to help others without being paid?",
+          "say": "Thank you. We've been talking about a time when you helped someone, and I'd like to discuss with you some more general questions related to this. Let's consider first of all helping in the community. Why do some people volunteer to help others without being paid?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-05/p3-1.mp3",
+            "duration": 15.07
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Helping in the community",
+          "text": "Should schools ask students to do volunteer work?",
+          "say": "Should schools ask students to do volunteer work?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-05/p3-2.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Helping in the community",
+          "text": "Do you think people help each other less than they used to?",
+          "say": "Do you think people help each other less than they used to?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-05/p3-3.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Help from governments and businesses",
+          "text": "What kinds of help should governments give to older people?",
+          "say": "Now let's talk about help from governments and businesses. What kinds of help should governments give to older people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-05/p3-4.mp3",
+            "duration": 6.99
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Help from governments and businesses",
+          "text": "Do large companies have a responsibility to help the community?",
+          "say": "Do large companies have a responsibility to help the community?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-05/p3-5.mp3",
+            "duration": 4.36
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Help from governments and businesses",
+          "text": "Is it better to give money to charity or to give your time?",
+          "say": "Is it better to give money to charity or to give your time?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-05/p3-6.mp3",
+            "duration": 3.83
+          }
+        }
+      ]
+    }
+  ]
+}
