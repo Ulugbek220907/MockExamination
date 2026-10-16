@@ -1,0 +1,93 @@
+{
+ "id": "academic-writing-13",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 13",
+ "shortTitle": "Practice Test 13",
+ "durationMinutes": 60,
+ "sortOrder": 13,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Line graph: how people travel to work",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The graph below shows the number of people in one city who travelled to work by four different methods between 2000 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "line",
+    "title": "Main way of travelling to work, 2000–2020",
+    "yLabel": "Number of commuters (thousands)",
+    "unit": "",
+    "yMax": 500,
+    "yStep": 100,
+    "categories": [
+     "2000",
+     "2005",
+     "2010",
+     "2015",
+     "2020"
+    ],
+    "series": [
+     {
+      "name": "Car",
+      "values": [
+       420,
+       450,
+       440,
+       400,
+       350
+      ]
+     },
+     {
+      "name": "Bus",
+      "values": [
+       180,
+       170,
+       160,
+       150,
+       140
+      ]
+     },
+     {
+      "name": "Metro",
+      "values": [
+       0,
+       60,
+       140,
+       210,
+       260
+      ]
+     },
+     {
+      "name": "Bicycle",
+      "values": [
+       20,
+       25,
+       45,
+       80,
+       120
+      ]
+     }
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: the car was always the most common method but declined after 2005; the metro grew from zero to second place; cycling grew strongly; bus use fell steadily.",
+    "Car: 420k → peak 450k (2005) → 350k. Bus: 180k → 140k.",
+    "Metro: none in 2000, 60k in 2005, still behind the bus in 2010 (140k vs 160k), ahead by 2015 (210k vs 150k), 260k in 2020.",
+    "Bicycle: 20k → 120k (six times higher)."
+   ],
+   "modelAnswer": "The line graph shows how many people in a city used four different methods of transport to travel to work between 2000 and 2020.\n\nOverall, the car remained the most popular way of commuting throughout the period, although its use fell after 2005. The most significant changes were the rapid growth of the metro and of cycling, while the number of people taking the bus declined steadily.\n\nIn 2000, 420,000 people drove to work, making the car far more popular than the bus, which was used by 180,000 people, and the bicycle, used by only 20,000. Car use rose slightly to a peak of 450,000 in 2005 but then fell gradually, reaching 350,000 by 2020. Meanwhile, the number of bus passengers decreased in every five-year period, to 140,000 at the end of the period.\n\nThe metro, which did not exist in 2000, carried 60,000 commuters in 2005. Its use then rose quickly, overtaking the bus by 2015 with 210,000 users and reaching 260,000 in 2020. Cycling also became much more common: the number of people cycling to work increased to 45,000 in 2010 and then rose sharply to 120,000 in 2020, six times the figure for 2000."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Causes and solutions essay: overweight children",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "problem_solution",
+   "prompt": "Write about the following topic:\n\nIn many countries, the number of children who are overweight is increasing.\n\nWhat are the causes of this problem? What solutions can you suggest?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Over the last few decades, the proportion of children who are overweight has risen sharply in many parts of the world. This is a serious concern, because overweight children are more likely to suffer from health problems such as diabetes and heart disease later in life. This essay will examine the main causes of the problem and propose some solutions.\n\nThe first cause is diet. Many children now eat large amounts of processed food, sweets and sugary drinks, which are cheap, widely advertised and easy to buy. Busy parents often have little time to cook, so ready meals and fast food have replaced home-cooked dishes in many households. The second cause is a lack of physical activity. Children today spend many hours sitting in front of screens, playing computer games or using their phones, rather than playing outside. In cities, parents may also be reluctant to let their children walk or cycle to school because of busy roads.\n\nSeveral solutions could help to tackle this problem. Schools have an important role to play: they can provide healthy lunches, remove vending machines selling sweets and fizzy drinks, and increase the time given to sport and physical education. Governments could also limit the advertising of unhealthy food to children and introduce taxes on sugary drinks, as several countries have already done with some success. Finally, parents can encourage healthy habits by cooking simple meals at home, setting limits on screen time and doing physical activities together as a family, such as walking or cycling at weekends.\n\nIn conclusion, the rise in overweight children is mainly caused by unhealthy diets and inactive lifestyles. A combination of action by schools, governments and families is needed to help children develop healthier habits."
+  }
+ ]
+}

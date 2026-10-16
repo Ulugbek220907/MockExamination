@@ -1,0 +1,222 @@
+{
+ "id": "academic-writing-23",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 23",
+ "shortTitle": "Practice Test 23",
+ "durationMinutes": 60,
+ "sortOrder": 23,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Maps: a town centre in 2000 and 2020",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The maps below show the centre of the town of Kingsford in 2000 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "map",
+    "title": "Kingsford town centre",
+    "note": "Fictional maps created for practice purposes.",
+    "maps": [
+     {
+      "title": "2000",
+      "width": 440,
+      "height": 290,
+      "items": [
+       {
+        "type": "area",
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 290,
+        "style": "grass"
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 60,
+        "w": 120,
+        "h": 65,
+        "style": "building",
+        "label": "Shops"
+       },
+       {
+        "type": "rect",
+        "x": 150,
+        "y": 60,
+        "w": 70,
+        "h": 65,
+        "style": "building",
+        "label": "Bank"
+       },
+       {
+        "type": "rect",
+        "x": 230,
+        "y": 50,
+        "w": 165,
+        "h": 75,
+        "style": "sand",
+        "label": "Market square"
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 148,
+        "x2": 440,
+        "y2": 148,
+        "style": "road",
+        "label": "High Street (cars)",
+        "lx": 0,
+        "ly": 5
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 170,
+        "w": 150,
+        "h": 95,
+        "style": "parking",
+        "label": "Car park"
+       },
+       {
+        "type": "rect",
+        "x": 185,
+        "y": 175,
+        "w": 100,
+        "h": 70,
+        "style": "building",
+        "label": "Bus station"
+       },
+       {
+        "type": "rect",
+        "x": 300,
+        "y": 170,
+        "w": 95,
+        "h": 95,
+        "style": "housing",
+        "label": "Houses"
+       },
+       {
+        "type": "compass",
+        "x": 418,
+        "y": 40
+       }
+      ]
+     },
+     {
+      "title": "2020",
+      "width": 440,
+      "height": 290,
+      "items": [
+       {
+        "type": "area",
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 290,
+        "style": "grass"
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 22,
+        "x2": 440,
+        "y2": 22,
+        "style": "road",
+        "label": "Ring road",
+        "lx": -150
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 60,
+        "w": 120,
+        "h": 65,
+        "style": "building",
+        "label": "Shops"
+       },
+       {
+        "type": "rect",
+        "x": 150,
+        "y": 60,
+        "w": 70,
+        "h": 65,
+        "style": "building",
+        "label": "Restaurant"
+       },
+       {
+        "type": "rect",
+        "x": 230,
+        "y": 50,
+        "w": 165,
+        "h": 75,
+        "style": "sand",
+        "label": "Market square"
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 148,
+        "x2": 440,
+        "y2": 148,
+        "style": "path",
+        "label": "High Street (pedestrians only)",
+        "lx": 0,
+        "ly": 5
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 170,
+        "w": 150,
+        "h": 95,
+        "style": "building",
+        "label": "Shopping centre"
+       },
+       {
+        "type": "rect",
+        "x": 185,
+        "y": 175,
+        "w": 100,
+        "h": 70,
+        "style": "building",
+        "label": "Cinema"
+       },
+       {
+        "type": "rect",
+        "x": 300,
+        "y": 170,
+        "w": 95,
+        "h": 95,
+        "style": "housing",
+        "label": "Apartments"
+       },
+       {
+        "type": "compass",
+        "x": 418,
+        "y": 62
+       }
+      ]
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: the town centre has become a place for shopping and leisure rather than cars and transport; the High Street is now for pedestrians only and a ring road has been built; the shops and market square are unchanged.",
+    "North: shops and market square unchanged; bank → restaurant; new ring road along the northern edge.",
+    "High Street: open to cars in 2000, pedestrians only in 2020.",
+    "South: car park → shopping centre; bus station → cinema; houses → apartments."
+   ],
+   "modelAnswer": "The two maps show the changes that took place in the centre of Kingsford between 2000 and 2020.\n\nOverall, the town centre was transformed from an area dominated by traffic and transport facilities into one focused on shopping and leisure. The most noticeable changes were the closure of the High Street to cars and the construction of a ring road, while the shops and the market square remained the same.\n\nIn 2000, the High Street ran through the middle of the town centre from west to east and was open to cars. By 2020, it had become a pedestrian street, and traffic had been diverted onto a new ring road built along the northern edge of the area.\n\nTo the north of the High Street, the row of shops and the market square did not change, but the bank between them was converted into a restaurant. The southern side of the town centre changed much more. The car park in the south-west was replaced by a large shopping centre, and the bus station next to it was turned into a cinema. Finally, the houses in the south-eastern corner were demolished and replaced by apartments."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Advantages/disadvantages essay: a gap year",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "advantages_disadvantages",
+   "prompt": "Write about the following topic:\n\nSome students take a year off between finishing school and starting university, in order to work or to travel.\n\nDo the advantages of this outweigh the disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "In many countries, it has become popular for young people to take a 'gap year' after leaving school, during which they work, travel or volunteer before beginning university. Although this choice has some disadvantages, I believe that the benefits are usually greater.\n\nThe main advantage of a gap year is that it gives young people time to mature and to think carefully about their future. Many students choose a university course at seventeen without knowing much about the subject or the careers it leads to. A year of work or volunteering can help them discover their real interests, so they are more likely to choose the right course and less likely to drop out. In addition, students who work can save money to reduce their future debts, and those who travel develop independence, confidence and an understanding of other cultures. These experiences can also make their CVs more attractive to employers.\n\nHowever, there are some disadvantages. A gap year delays the start of a student's career by a year, which may mean a year less of earnings. Some young people find it difficult to return to studying after a long break, as they lose the habit of reading and writing academically. Travelling can also be expensive, and a poorly planned year spent doing very little offers few benefits.\n\nIn my view, these disadvantages can largely be avoided with careful planning. If students set clear goals, such as saving a certain amount of money, gaining work experience in a relevant field or learning a language, their gap year will be productive and they will return to education with greater motivation.\n\nIn conclusion, although a gap year delays a career and can be costly, I believe its advantages, especially greater maturity and better decisions about the future, outweigh its disadvantages."
+  }
+ ]
+}

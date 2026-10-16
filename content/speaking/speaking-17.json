@@ -1,0 +1,268 @@
+{
+  "id": "speaking-17",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 17",
+  "shortTitle": "Practice Test 17",
+  "durationMinutes": 14,
+  "sortOrder": 17,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-17/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-17/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Handwriting",
+        "Science"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Where do you live now?",
+          "say": "Good evening. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Where do you live now?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-1.mp3",
+            "duration": 15.04
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Who do you live with?",
+          "say": "Who do you live with?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-2.mp3",
+            "duration": 1.95
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Which part of your home is your favourite place to relax?",
+          "say": "Which part of your home is your favourite place to relax?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-3.mp3",
+            "duration": 3.76
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Have you ever lived anywhere else?",
+          "say": "Have you ever lived anywhere else?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-4.mp3",
+            "duration": 2.72
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Handwriting",
+          "text": "Do you write by hand much these days?",
+          "say": "Now let's move on to talk about handwriting. Do you write by hand much these days?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-5.mp3",
+            "duration": 6.16
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Handwriting",
+          "text": "Is your handwriting easy to read?",
+          "say": "Is your handwriting easy to read?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-6.mp3",
+            "duration": 2.93
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Handwriting",
+          "text": "Do you think children should still learn to write by hand?",
+          "say": "Do you think children should still learn to write by hand?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-7.mp3",
+            "duration": 3.68
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Science",
+          "text": "Did you like science lessons at school?",
+          "say": "Now let's move on to talk about science. Did you like science lessons at school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-8.mp3",
+            "duration": 5.91
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Science",
+          "text": "Which science subject was your favourite?",
+          "say": "Which science subject was your favourite?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-9.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Science",
+          "text": "Do you watch programmes about science?",
+          "say": "Do you watch programmes about science?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p1-10.mp3",
+            "duration": 2.91
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a teacher who you remember well.",
+        "points": [
+          "who the teacher was",
+          "what subject they taught",
+          "what they were like"
+        ],
+        "explain": "and explain why you remember this teacher."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a teacher who you remember well.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a teacher who you remember well. You should say: who the teacher was; what subject they taught; what they were like; and explain why you remember this teacher.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-17/p2-talk.mp3",
+            "duration": 25.26
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Are you still in contact with this teacher?",
+          "say": "Thank you. Are you still in contact with this teacher?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-17/p2-follow.mp3",
+            "duration": 3.53
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Teachers",
+        "Education in the future"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Teachers",
+          "text": "What qualities does a good teacher need?",
+          "say": "Thank you. We've been talking about a teacher you remember well, and I'd like to discuss with you some more general questions related to this. Let's consider first of all teachers. What qualities does a good teacher need?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-17/p3-1.mp3",
+            "duration": 14.45
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Teachers",
+          "text": "Why do fewer people want to become teachers in some countries?",
+          "say": "Why do fewer people want to become teachers in some countries?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-17/p3-2.mp3",
+            "duration": 4.13
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Teachers",
+          "text": "Should teachers be paid more than they are now?",
+          "say": "Should teachers be paid more than they are now?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-17/p3-3.mp3",
+            "duration": 3.17
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Education in the future",
+          "text": "Will online learning ever replace teachers in classrooms?",
+          "say": "Now let's talk about education in the future. Will online learning ever replace teachers in classrooms?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-17/p3-4.mp3",
+            "duration": 7.4
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Education in the future",
+          "text": "What subjects do you think schools should teach in the future?",
+          "say": "What subjects do you think schools should teach in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-17/p3-5.mp3",
+            "duration": 3.87
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Education in the future",
+          "text": "Should students be allowed to choose what they study at a younger age?",
+          "say": "Should students be allowed to choose what they study at a younger age?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-17/p3-6.mp3",
+            "duration": 4.38
+          }
+        }
+      ]
+    }
+  ]
+}

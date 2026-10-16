@@ -1,0 +1,74 @@
+{
+ "id": "academic-writing-15",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 15",
+ "shortTitle": "Practice Test 15",
+ "durationMinutes": 60,
+ "sortOrder": 15,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Process diagram: collecting rainwater at home",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The diagram below shows how rainwater is collected and used in a house.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "process",
+    "title": "A rainwater collection system for a house",
+    "cycle": false,
+    "steps": [
+     {
+      "label": "Collection",
+      "text": "Rain falls on the roof and runs into the gutters"
+     },
+     {
+      "label": "Filtering",
+      "text": "A filter in the downpipe removes leaves and dirt"
+     },
+     {
+      "label": "Storage",
+      "text": "The water flows into an underground tank that holds 5,000 litres"
+     },
+     {
+      "label": "Overflow",
+      "text": "When the tank is full, extra water drains into the garden through a pipe"
+     },
+     {
+      "label": "Pumping",
+      "text": "An electric pump lifts water from the tank into the house"
+     },
+     {
+      "label": "Everyday use",
+      "text": "Most of the water is used for toilets, the washing machine and the garden"
+     },
+     {
+      "label": "Treatment",
+      "text": "Water for drinking passes through a second filter and an ultraviolet lamp"
+     },
+     {
+      "label": "Drinking",
+      "text": "The treated water is supplied to the kitchen tap"
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: eight stages, from rain landing on the roof to water being used in the house; most water is used untreated, and only drinking water is treated further.",
+    "Roof → gutters → filter in downpipe (leaves, dirt) → underground tank (5,000 litres) → overflow pipe to garden when full.",
+    "Electric pump → house: toilets, washing machine, garden.",
+    "Drinking water: second filter + ultraviolet lamp → kitchen tap."
+   ],
+   "modelAnswer": "The diagram illustrates how rainwater can be collected from the roof of a house and then used for various purposes in the home.\n\nOverall, the system consists of eight stages, beginning with rain falling on the roof and ending with the water being used inside the house. Most of the collected water is used without further treatment, while a small part is treated so that it is safe to drink.\n\nFirst, rain falls on the roof and runs into the gutters, from where it flows down a pipe. A filter inside this downpipe removes leaves and dirt before the water enters an underground storage tank with a capacity of 5,000 litres. When the tank is full, any extra water is carried away through an overflow pipe and drains into the garden.\n\nThe water in the tank is then lifted into the house by an electric pump. Most of it is used for purposes that do not require clean drinking water, namely flushing toilets, running the washing machine and watering the garden. However, the water that is intended for drinking first passes through a second filter and an ultraviolet lamp, after which it is supplied to the kitchen tap."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Opinion essay: advertising aimed at children",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "opinion",
+   "prompt": "Write about the following topic:\n\nSome people believe that all advertising aimed at children should be banned.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Children today see a huge number of advertisements on television, on websites and in mobile games, many of them designed specifically to appeal to young viewers. Some people believe that this kind of advertising should be completely banned. I largely agree with this view, although I think a total ban would be difficult to apply in every case.\n\nThe strongest argument for a ban is that young children cannot fully understand the purpose of advertising. Research suggests that until the age of about eight, many children do not realise that an advertisement is trying to sell them something, so they believe what they are told. This makes them easy targets for companies selling sweets, fast food and expensive toys. As a result, children often put pressure on their parents to buy products they do not need, which can cause arguments in families and problems for parents with limited money.\n\nSecondly, advertising aimed at children often promotes unhealthy habits. A large proportion of advertisements shown during children's programmes are for food and drinks high in sugar and fat, and this has been linked to rising rates of childhood obesity. Several countries, such as Sweden and Norway, already ban television advertising aimed at young children, and this approach seems reasonable.\n\nOn the other hand, a complete ban might be hard to enforce online, where advertisements are often hidden inside games and videos. Some advertising, such as campaigns encouraging children to read or to eat fruit, could also have positive effects.\n\nFor these reasons, I believe that governments should ban advertising aimed at children under twelve, and apply strict rules to online platforms, while allowing public information campaigns that genuinely benefit children's health and education.\n\nIn conclusion, I agree that most advertising aimed at children should be banned, because children are not able to protect themselves from its influence."
+  }
+ ]
+}

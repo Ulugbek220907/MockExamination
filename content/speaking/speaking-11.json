@@ -1,0 +1,268 @@
+{
+  "id": "speaking-11",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 11",
+  "shortTitle": "Practice Test 11",
+  "durationMinutes": 14,
+  "sortOrder": 11,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "George",
+    "voice": "bm_george",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-11/p2-start.mp3",
+        "duration": 11.03
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-11/end.mp3",
+        "duration": 3.85
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Languages",
+        "Chatting"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Do you live alone or with other people?",
+          "say": "Good evening. My name is George, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Do you live alone or with other people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-1.mp3",
+            "duration": 17.17
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What do you like most about your home?",
+          "say": "What do you like most about your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-2.mp3",
+            "duration": 2.76
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Do you spend much time at home?",
+          "say": "Do you spend much time at home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-3.mp3",
+            "duration": 2.55
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "What would your ideal home be like?",
+          "say": "What would your ideal home be like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-4.mp3",
+            "duration": 2.97
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Languages",
+          "text": "How many languages can you speak?",
+          "say": "Now let's move on to talk about languages. How many languages can you speak?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-5.mp3",
+            "duration": 6.08
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Languages",
+          "text": "Which language would you like to learn next? Why?",
+          "say": "Which language would you like to learn next? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-6.mp3",
+            "duration": 4.41
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Languages",
+          "text": "What do you find most difficult about learning a language?",
+          "say": "What do you find most difficult about learning a language?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-7.mp3",
+            "duration": 3.98
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Chatting",
+          "text": "Do you prefer chatting with friends in person or online?",
+          "say": "Now let's move on to talk about chatting with friends. Do you prefer chatting with friends in person or online?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-8.mp3",
+            "duration": 7.78
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Chatting",
+          "text": "What do you usually talk about with your friends?",
+          "say": "What do you usually talk about with your friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-9.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Chatting",
+          "text": "Do you like talking to people you don't know?",
+          "say": "Do you like talking to people you don't know?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p1-10.mp3",
+            "duration": 3.29
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe an interesting conversation you had with someone.",
+        "points": [
+          "who you talked to",
+          "when and where the conversation happened",
+          "what you talked about"
+        ],
+        "explain": "and explain why you found it interesting."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe an interesting conversation you had with someone.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe an interesting conversation you had with someone. You should say: who you talked to; when and where the conversation happened; what you talked about; and explain why you found it interesting.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-11/p2-talk.mp3",
+            "duration": 29.59
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Have you talked to this person again since then?",
+          "say": "Thank you. Have you talked to this person again since then?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-11/p2-follow.mp3",
+            "duration": 3.83
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Communication",
+        "Communication and technology"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Communication",
+          "text": "Why do some people find it easy to talk to strangers?",
+          "say": "Thank you. We've been talking about an interesting conversation, and I'd like to discuss with you some more general questions related to this. Let's consider first of all communication. Why do some people find it easy to talk to strangers?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-11/p3-1.mp3",
+            "duration": 16.79
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Communication",
+          "text": "What makes someone a good listener?",
+          "say": "What makes someone a good listener?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-11/p3-2.mp3",
+            "duration": 2.85
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Communication",
+          "text": "Do men and women communicate in different ways?",
+          "say": "Do men and women communicate in different ways?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-11/p3-3.mp3",
+            "duration": 3.98
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Communication and technology",
+          "text": "How has the way people keep in touch changed in recent years?",
+          "say": "Now let's talk about communication and technology. How has the way people keep in touch changed in recent years?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-11/p3-4.mp3",
+            "duration": 8.81
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Communication and technology",
+          "text": "Is a conversation on video as good as a conversation face to face?",
+          "say": "Is a conversation on video as good as a conversation face to face?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-11/p3-5.mp3",
+            "duration": 5.56
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Communication and technology",
+          "text": "Do you think children now have weaker communication skills because of technology?",
+          "say": "Do you think children now have weaker communication skills because of technology?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-11/p3-6.mp3",
+            "duration": 5.68
+          }
+        }
+      ]
+    }
+  ]
+}

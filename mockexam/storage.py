@@ -25,6 +25,7 @@ import urllib.request
 
 from . import content, pool
 from .db import RestDb, SqliteDb
+from .dbcache import CachedDb
 from .files import LocalFiles, SupabaseFiles
 
 log = logging.getLogger("mockexam.storage")
@@ -55,7 +56,7 @@ class LocalStore:
         self._tests = None
         self._lock = threading.Lock()
         self._init_db()
-        self.db = SqliteDb(self.db_path, lock=self._lock)
+        self.db = CachedDb(SqliteDb(self.db_path, lock=self._lock))
         self.files = LocalFiles(os.path.join(os.path.dirname(self.db_path), "recordings"))
 
     # -- content -----------------------------------------------------------
@@ -162,12 +163,24 @@ class LocalStore:
                 conn.close()
 
     def save_reading_attempt(self, rec):
-        return self._save_scored_attempt("reading_attempts", rec)
+        try:
+            return self._save_scored_attempt("reading_attempts", rec)
+        finally:
+            self.db.invalidate("reading_attempts")
 
     def save_listening_attempt(self, rec):
-        return self._save_scored_attempt("listening_attempts", rec)
+        try:
+            return self._save_scored_attempt("listening_attempts", rec)
+        finally:
+            self.db.invalidate("listening_attempts")
 
     def save_writing_submission(self, rec):
+        try:
+            return self._insert_writing_submission(rec)
+        finally:
+            self.db.invalidate("writing_submissions")
+
+    def _insert_writing_submission(self, rec):
         with self._lock:
             conn = self._connect()
             try:
@@ -254,7 +267,7 @@ class SupabaseStore:
         self._refreshing = False
         self._lock = threading.Lock()
         self._load_lock = threading.Lock()
-        self.db = RestDb(url, api_key, app_secret)
+        self.db = CachedDb(RestDb(url, api_key, app_secret))
         self.files = SupabaseFiles(url, api_key, app_secret)
 
     def _rpc(self, function, **params):
@@ -330,13 +343,22 @@ class SupabaseStore:
 
     # -- attempts ----------------------------------------------------------
     def save_reading_attempt(self, rec):
-        return self._rpc("app_save_reading_attempt", p_row=rec)
+        try:
+            return self._rpc("app_save_reading_attempt", p_row=rec)
+        finally:
+            self.db.invalidate("reading_attempts")
 
     def save_listening_attempt(self, rec):
-        return self._rpc("app_save_listening_attempt", p_row=rec)
+        try:
+            return self._rpc("app_save_listening_attempt", p_row=rec)
+        finally:
+            self.db.invalidate("listening_attempts")
 
     def save_writing_submission(self, rec):
-        return self._rpc("app_save_writing_submission", p_row=rec)
+        try:
+            return self._rpc("app_save_writing_submission", p_row=rec)
+        finally:
+            self.db.invalidate("writing_submissions")
 
     def list_history(self, client_id=None, limit=20, user_id=None):
         if user_id:

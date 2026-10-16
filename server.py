@@ -63,7 +63,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, analytics, api, auth, content, notify, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, analytics, api, auth, content, notify, pool, scoring, speaking, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -569,17 +569,24 @@ class HistoryHandler(BaseHandler):
         client_id = clean_client_id(self.get_query_argument("clientId", ""))
         if not user_id and not client_id:
             return self.send_json({"items": []})
-        try:
-            items = await in_thread(lambda: STORE.list_history(client_id, 20, user_id=user_id))
-        except Exception:
-            log.exception("Could not load history")
-            items = []
-        if user_id:
+        async def scored():
             try:
-                items += await in_thread(speaking.history_items, STORE.db, user_id, 20)
-                items.sort(key=lambda i: i["createdAt"] or "", reverse=True)
+                return await in_thread(lambda: STORE.list_history(client_id, 20, user_id=user_id))
+            except Exception:
+                log.exception("Could not load history")
+                return []
+
+        async def spoken():
+            if not user_id:
+                return []
+            try:
+                return await in_thread(speaking.history_items, STORE.db, user_id, 20)
             except Exception:
                 log.exception("Could not load speaking history")
+                return []
+
+        first, second = await asyncio.gather(scored(), spoken())
+        items = sorted(first + second, key=lambda i: i["createdAt"] or "", reverse=True)
         self.send_json({"items": items[:20]})
 
 
@@ -773,6 +780,9 @@ def main():
              SITE_NAME, PORT, STORE.name, AUTH.name, "on" if writing.ai_configured() else "off")
     log.info("Loaded %d reading, %d listening, %d writing and %d speaking tests",
              counts["reading"], counts["listening"], counts["writing"], counts["speaking"])
+    if STORE.name == "supabase" and os.environ.get("DB_KEEP_WARM", "1") != "0":
+        # The database is far away: keep a few connections open so no visitor waits for a handshake.
+        pool.keep_warm(STORE.db.ping_request)
     loop = tornado.ioloop.IOLoop.current()
     loop.call_later(60, clean_up_recordings)
     tornado.ioloop.PeriodicCallback(clean_up_recordings, 6 * 3600 * 1000).start()

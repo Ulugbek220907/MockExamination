@@ -3,7 +3,7 @@
  * pre-test instructions, launching exams, results, and the resources /
  * about pages.
  *
- * Routes: #/ (tests), #/resources, #/about, #/start (instructions),
+ * Routes: #/ (tests), #/tests/<module> (every test of one line), #/resources, #/about, #/start (instructions),
  *         #/exam (active test), #/results (last result), #/speaking/<id>
  *         (a recorded Speaking test), and the account
  *         pages from account.js: #/pricing, #/account, #/examiners,
@@ -70,6 +70,12 @@
   // Shown on the legal pages when the server has no CONTACT_EMAIL (never a blank).
   const SUPPORT_EMAIL = "ulugbekisoqov22@gmail.com";
   const MODULE_LABELS = { reading: "Reading", listening: "Listening", writing: "Writing", speaking: "Speaking" };
+  // A line shows this many stations; the rest are on the line's own page (#/tests/<module>).
+  const MAX_STATIONS = 6;
+  const CATALOG_PAGE = 24;
+  // The test list and settings from the last visit (see init); bump the version when their shape changes.
+  const BOOT_KEY = "testday:boot";
+  const BOOT_VERSION = 1;
 
   // The four lines, in the order of the real test day.
   const LINES = [
@@ -86,6 +92,7 @@
   };
 
   const ICON_ARROW = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const ICON_BACK = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H4M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const ICON_LOCK = `<svg width="10" height="11" viewBox="0 0 10 11" aria-hidden="true"><path fill="currentColor" d="M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z"/></svg>`;
 
   class App {
@@ -132,19 +139,50 @@
       this.main.addEventListener("pointerover", onIntent, { passive: true });
       this.main.addEventListener("focusin", onIntent, { passive: true });
 
+      // Draw at once from what this browser saw last time, then bring it up to date: nobody waits
+      // for the server (or the database behind it) before seeing the page.
+      const boot = U.store.get(BOOT_KEY, null);
+      const fromBoot = Boolean(boot && boot.v === BOOT_VERSION && Array.isArray(boot.tests) && boot.tests.length);
+      Account.primeMe();
+      if (fromBoot) this.applyBoot(boot);
       Account.renderAccountSlot();
+      const me = Account.refreshMe();
+      let firstDraw = fromBoot ? this.firstRoute() : null;
+
+      let fresh = null;
       try {
-        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe()]);
-        this.config = { ...this.config, ...config };
-        this.tests = data.tests || [];
-        this.modules = data.modules || {};
+        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests")]);
+        fresh = { v: BOOT_VERSION, config, tests: data.tests || [], modules: data.modules || {} };
+        U.store.set(BOOT_KEY, fresh);
       } catch (err) {
-        this.loadError = true;
+        if (!fromBoot) this.loadError = true;
       }
+      const seenMe = JSON.stringify(Account.state.me);
+      if (fresh) {
+        const changed = !fromBoot || JSON.stringify([boot.config, boot.tests, boot.modules]) !== JSON.stringify([fresh.config, fresh.tests, fresh.modules]);
+        this.applyBoot(fresh);
+        if (changed && firstDraw) await firstDraw.then(() => this.renderIfHome());
+      }
+      if (!firstDraw) firstDraw = this.firstRoute();
+      await me;
+      // The account decides which stations are open: redraw the home page if it changed.
+      if (JSON.stringify(Account.state.me) !== seenMe) {
+        await firstDraw;
+        this.renderIfHome();
+      }
+    }
+
+    applyBoot(data) {
+      this.config = { ...this.config, ...(data.config || {}) };
+      this.tests = data.tests || [];
+      this.modules = data.modules || {};
+      this.loadError = false;
       Account.setConfig(this.config);
-      Account.renderAccountSlot();
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
-      Promise.resolve(this.route()).finally(() => {
+    }
+
+    firstRoute() {
+      return Promise.resolve(this.route()).finally(() => {
         this.main.removeAttribute("aria-busy");
         // Prefetch exam and results bundles when the browser is idle so test launch is instant
         const warmIdle = () => {
@@ -196,7 +234,9 @@
       const check = path.match(/^\/check\/(\d+)$/);
       const spoken = path.match(/^\/speaking\/(\d+)$/);
       window.scrollTo(0, 0);
-      if (path === "/resources") this.renderResources();
+      const catalog = path.match(/^\/tests\/(listening|reading|writing|speaking)$/);
+      if (catalog) this.renderCatalog(catalog[1]);
+      else if (path === "/resources") this.renderResources();
       else if (path === "/about") this.renderAbout();
       else if (path === "/terms") this.renderLegal("terms");
       else if (path === "/privacy") this.renderLegal("privacy");
@@ -236,6 +276,18 @@
       if (nextStation) {
         const target = document.querySelector(`.station-btn[data-station="${CSS.escape(nextStation.dataset.nextStation)}"]`);
         if (target) return this.toggleSign(target);
+      }
+      const chip = e.target.closest("[data-catalog-filter]");
+      if (chip && this.catalogModule) {
+        const st = this.catalogStateOf(this.catalogModule);
+        st.filter = chip.dataset.catalogFilter;
+        st.shown = CATALOG_PAGE;
+        this.main.querySelectorAll("[data-catalog-filter]").forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
+        return this.renderCatalogGrid();
+      }
+      if (e.target.closest("[data-catalog-more]") && this.catalogModule) {
+        this.catalogStateOf(this.catalogModule).shown += CATALOG_PAGE;
+        return this.renderCatalogGrid();
       }
       const el = e.target.closest("[data-action]");
       if (!el) return;
@@ -355,12 +407,16 @@
     renderNetwork() {
       const list = document.getElementById("lines-list");
       if (!list) return;
-      const longest = Math.max(1, ...LINES.map((l) => this.testsOf(l.module).length));
-      list.style.setProperty("--rest", String(Math.max(1, longest - 1)));
-      list.innerHTML = LINES.map((line) => {
+      const plan = LINES.map((line) => {
         const tests = this.testsOf(line.module);
         const done = tests.filter((x) => this.ridden[x.id]);
         const next = done.length ? tests.find((x) => !this.ridden[x.id]) : null;
+        const shown = this.visibleStations(tests, next);
+        return { line, tests, next, shown, more: tests.length - shown.length };
+      });
+      const longest = Math.max(1, ...plan.map((p) => p.shown.length + (p.more ? 1 : 0)));
+      list.style.setProperty("--rest", String(Math.max(1, longest - 1)));
+      list.innerHTML = plan.map(({ line, tests, next, shown, more }) => {
         const free = tests.find((x) => x.access === "free" && !this.ridden[x.id]);
         // On phones the station labels are too narrow for a "Next" tag, so the line's row names the next station.
         const nextButton = !free && next ? `<button type="button" class="next-mobile" data-next-station="${esc(next.id)}"
@@ -370,18 +426,36 @@
             <div class="line-main">
               <div class="line-label">
                 <span class="bullet">${line.letter}</span>
-                <div><div class="line-name">${MODULE_LABELS[line.module]}</div><span class="line-meta">${esc(this.lineMeta(line.module))}</span></div>
+                <div><div class="line-name">${MODULE_LABELS[line.module]}</div><span class="line-meta">${esc(this.lineMeta(line.module))}</span>
+                  <a class="line-all" href="#/tests/${line.module}">${esc(t("All {n} tests", { n: tests.length }))}</a></div>
                 ${free ? `<button type="button" class="start-free start-free-mobile" data-action="start" data-test="${esc(free.id)}" data-mode="exam"
                   aria-label="${esc(t("Start {name}, free", { name: `${MODULE_LABELS[line.module]}, ${this.testName(free)}` }))}">${t("start.short")} ${ICON_ARROW}</button>` : nextButton}
               </div>
               <div class="track">
-                <ol class="stations">${tests.map((x) => this.stationHTML(x, line, x === next)).join("")}</ol>
+                <ol class="stations">${shown.map((x) => this.stationHTML(x, line, x === next)).join("")}${more ? this.moreStationHTML(line, tests.length, more) : ""}</ol>
               </div>
             </div>
             <div class="station-sign" id="sign-${line.module}" role="region" aria-live="polite" hidden></div>
           </li>`;
       }).join("");
       this.drawNetwork();
+    }
+
+    /** The stations a line shows: the first few, with the next test to take always among them. */
+    visibleStations(tests, next) {
+      if (tests.length <= MAX_STATIONS + 1) return tests; // one more fits in place of the "more" stop
+      const shown = tests.slice(0, MAX_STATIONS);
+      if (next && !shown.includes(next)) shown[MAX_STATIONS - 1] = next;
+      return shown;
+    }
+
+    moreStationHTML(line, total, more) {
+      const label = t("All {n} {module} tests", { n: total, module: MODULE_LABELS[line.module] });
+      return `
+        <li class="station station-more">
+          <a class="station-btn more-btn" href="#/tests/${line.module}" aria-label="${esc(label)}">
+            <span class="more-pill">+${more}</span><span class="station-name">${esc(t("All tests"))}</span></a>
+        </li>`;
     }
 
     stationHTML(test, line, isNext) {
@@ -572,40 +646,144 @@
       setTimeout(() => train.remove(), 1500);
     }
 
-    signHTML(test, line) {
+    /** What a station sign and a catalog card say about a test. */
+    testFacts(test) {
       const ride = this.ridden[test.id];
-      const items = test.module === "reading" ? test.passages.map((p) => [`P${p.number}`, p.title])
-        : test.module === "listening" ? test.parts.map((p) => [`${p.number}`, p.title])
-          : test.module === "speaking" ? test.parts.map((p) => [`${p.number}`, (p.topics || []).join(" · ") || p.title])
-            : test.tasks.map((k) => [`T${k.number}`, k.title]);
+      const items = test.module === "reading" ? (test.passages || []).map((p) => [`P${p.number}`, p.title])
+        : test.module === "listening" ? (test.parts || []).map((p) => [`${p.number}`, p.title])
+          : test.module === "speaking" ? (test.parts || []).map((p) => [`${p.number}`, (p.topics || []).join(" · ") || p.title])
+            : (test.tasks || []).map((k) => [`T${k.number}`, k.title]);
       const meta = test.module === "writing" ? t("{min} minutes · 2 tasks", { min: test.durationMinutes })
         : test.module === "speaking" ? t("11–14 minutes · {q} questions", { q: test.totalQuestions })
           : test.module === "listening" ? t("About {min} minutes · {q} questions", { min: test.durationMinutes, q: test.totalQuestions })
             : t("{min} minutes · {q} questions", { min: test.durationMinutes, q: test.totalQuestions });
       const locked = !this.canOpen(test);
+      const band = ride && ride.band !== null && ride.band !== undefined ? IeltsScoring.formatBand(ride.band) : "";
       const tag = test.access === "free" ? `<span class="sign-tag is-free">${t("Free")}</span>`
         : !locked ? `<span class="sign-tag">${t("In your pass")}</span>`
           : `<span class="sign-tag is-locked">${t("Opens with the pass")}</span>`;
       const extra = [
         this.hasProgress(test.id) ? t("Unfinished attempt saved") : "",
-        ride && ride.band !== null && ride.band !== undefined ? t("Your last band: {band}", { band: IeltsScoring.formatBand(ride.band) }) : "",
+        band ? t("Your last band: {band}", { band }) : "",
       ].filter(Boolean).join(" · ");
+      return { ride, items, meta, locked, band, tag, extra };
+    }
+
+    /** The two buttons of a sign or card; compact cards use short labels (their full meaning is in aria-label). */
+    testActionsHTML(test, facts, compact = false) {
+      const name = `${MODULE_LABELS[test.module]}, ${this.testName(test)}`;
+      if (facts.locked) {
+        return `
+          <a class="btn-secondary" href="#/pricing">${compact ? t("Prices") : t("See prices")}</a>
+          <button type="button" class="btn-line" data-action="buy-plan">${t("Get the pass")} ${ICON_ARROW}</button>`;
+      }
+      const start = facts.ride ? t("Take it again") : test.access === "free" ? t("Start free") : compact ? t("Start test") : t("Start timed test");
+      return `
+          <button type="button" class="btn-secondary" data-action="start" data-test="${esc(test.id)}" data-mode="practice"
+            ${compact ? `aria-label="${esc(t("Practice {name} without a timer", { name }))}"` : ""}>${compact ? t("Practice") : t("Practice, no timer")}</button>
+          <button type="button" class="btn-line" data-action="start" data-test="${esc(test.id)}" data-mode="exam"
+            ${compact ? `aria-label="${esc(t("Start {name}, timed", { name }))}"` : ""}>${start} ${ICON_ARROW}</button>`;
+    }
+
+    signHTML(test, line) {
+      const f = this.testFacts(test);
       return `
         <div>
-          <div class="sign-title"><span class="bullet sm">${line.letter}</span><h3>${esc(MODULE_LABELS[test.module])} · ${esc(this.testName(test))}</h3>${tag}</div>
-          <ul class="sign-items">${items.map(([k, v]) => `<li><b>${esc(k)}</b>${esc(v)}</li>`).join("")}</ul>
-          <p class="sign-meta">${esc(meta)}${extra ? ` · ${esc(extra)}` : ""}</p>
-          ${locked ? `<p class="sign-pass">${this.prices
+          <div class="sign-title"><span class="bullet sm">${line.letter}</span><h3>${esc(MODULE_LABELS[test.module])} · ${esc(this.testName(test))}</h3>${f.tag}</div>
+          <ul class="sign-items">${f.items.map(([k, v]) => `<li><b>${esc(k)}</b>${esc(v)}</li>`).join("")}</ul>
+          <p class="sign-meta">${esc(f.meta)}${f.extra ? ` · ${esc(f.extra)}` : ""}</p>
+          ${f.locked ? `<p class="sign-pass">${this.prices
             ? t("This station opens with the monthly pass: {price} a month, and your first payment gives two months.", { price: `<strong>${esc(U.money(this.prices.plan))}</strong>` })
             : t("This station opens with the monthly pass.")}</p>` : ""}
         </div>
-        <div class="sign-actions">
-          ${locked ? `
-          <a class="btn-secondary" href="#/pricing">${t("See prices")}</a>
-          <button type="button" class="btn-line" data-action="buy-plan">${t("Get the pass")} ${ICON_ARROW}</button>` : `
-          <button type="button" class="btn-secondary" data-action="start" data-test="${esc(test.id)}" data-mode="practice">${t("Practice, no timer")}</button>
-          <button type="button" class="btn-line" data-action="start" data-test="${esc(test.id)}" data-mode="exam">${ride ? t("Take it again") : t("Start timed test")} ${ICON_ARROW}</button>`}
-        </div>`;
+        <div class="sign-actions">${this.testActionsHTML(test, f)}</div>`;
+    }
+
+    /* A line's own page: every test, searchable --------------------------- */
+    catalogStateOf(module) {
+      if (!this.catalogState) this.catalogState = {};
+      if (!this.catalogState[module]) this.catalogState[module] = { filter: "all", q: "", shown: CATALOG_PAGE };
+      return this.catalogState[module];
+    }
+
+    renderCatalog(module) {
+      const line = lineOf(module);
+      const tests = this.testsOf(module);
+      const st = this.catalogStateOf(module);
+      this.catalogModule = module;
+      const title = t("{module} tests", { module: MODULE_LABELS[module] });
+      document.title = `${title} – ${this.config.siteName}`;
+      const done = tests.filter((x) => this.ridden[x.id]).length;
+      const filters = [["all", t("All"), tests.length], ["open", t("Not taken yet"), tests.length - done], ["done", t("Taken"), done]];
+      this.main.innerHTML = `
+        <section class="catalog ${line.cls}" aria-labelledby="catalog-title">
+          <a class="back-link" href="#/">${ICON_BACK} ${t("All lines")}</a>
+          <div class="catalog-head">
+            <span class="bullet lg" aria-hidden="true">${line.letter}</span>
+            <div>
+              <h1 id="catalog-title">${esc(title)}</h1>
+              <p class="muted-text">${esc(this.lineMeta(module))} · ${esc(t("{n} tests", { n: tests.length }))} · ${esc(t("Test 1 is free"))}</p>
+            </div>
+          </div>
+          <div class="catalog-tools">
+            <div class="chip-row" role="group" aria-label="${esc(t("Show"))}">
+              ${filters.map(([k, label, n]) => `<button type="button" class="chip" data-catalog-filter="${k}" aria-pressed="${st.filter === k}">${esc(label)} <span class="chip-count">${n}</span></button>`).join("")}
+            </div>
+            <input type="search" class="catalog-search" id="catalog-search" value="${esc(st.q)}" autocomplete="off"
+              placeholder="${esc(t("Search by topic"))}" aria-label="${esc(t("Search these tests by topic"))}">
+          </div>
+          <p class="catalog-count muted-text" id="catalog-count" aria-live="polite"></p>
+          <ol class="catalog-grid" id="catalog-grid"></ol>
+          <div class="catalog-more" id="catalog-more"></div>
+        </section>`;
+      let timer = null;
+      this.main.querySelector("#catalog-search").addEventListener("input", (e) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          st.q = e.target.value;
+          st.shown = CATALOG_PAGE;
+          this.renderCatalogGrid();
+        }, 120);
+      });
+      this.renderCatalogGrid();
+      this.loadHistory();
+    }
+
+    renderCatalogGrid() {
+      const module = this.catalogModule;
+      const grid = document.getElementById("catalog-grid");
+      if (!grid || !module) return;
+      const st = this.catalogStateOf(module);
+      const words = st.q.toLowerCase().split(/\s+/).filter(Boolean);
+      const list = this.testsOf(module).filter((test) => {
+        const taken = Boolean(this.ridden[test.id]);
+        if ((st.filter === "open" && taken) || (st.filter === "done" && !taken)) return false;
+        if (!words.length) return true;
+        const hay = [this.testName(test), ...this.testFacts(test).items.map(([, v]) => v)].join(" ").toLowerCase();
+        return words.every((w) => hay.includes(w));
+      });
+      const line = lineOf(module);
+      grid.innerHTML = list.slice(0, st.shown).map((test) => this.catalogCardHTML(test, line)).join("")
+        || `<li class="empty-note">${esc(t("No tests match. Try another word or show all tests."))}</li>`;
+      document.getElementById("catalog-count").textContent = words.length || st.filter !== "all"
+        ? t("{n} of {total} tests", { n: list.length, total: this.testsOf(module).length }) : "";
+      const rest = list.length - st.shown;
+      document.getElementById("catalog-more").innerHTML = rest > 0
+        ? `<button type="button" class="btn-secondary" data-catalog-more>${esc(t("Show {n} more", { n: Math.min(rest, CATALOG_PAGE) }))}</button>` : "";
+    }
+
+    catalogCardHTML(test, line) {
+      const f = this.testFacts(test);
+      const ring = f.ride ? `<span class="station-ring is-done-ring">${esc(f.band)}</span>`
+        : f.locked ? `<span class="station-ring is-locked" aria-hidden="true">${ICON_LOCK}</span>`
+          : `<span class="station-ring" aria-hidden="true"></span>`;
+      return `
+        <li class="test-card ${f.ride ? "is-done" : ""}">
+          <div class="test-card-head">${ring}<h2>${esc(this.testName(test))}</h2>${f.tag}</div>
+          <ul class="test-card-items">${f.items.map(([k, v]) => `<li><b>${esc(k)}</b><span>${esc(v)}</span></li>`).join("")}</ul>
+          <p class="test-card-meta">${esc(f.meta)}${f.extra ? ` · ${esc(f.extra)}` : ""}</p>
+          <div class="test-card-actions">${this.testActionsHTML(test, f, true)}</div>
+        </li>`;
     }
 
     async loadHistory() {
@@ -621,6 +799,7 @@
       this.ridden = ridden;
       U.store.set("testday:ridden", ridden);
       if (changed && document.getElementById("lines-list")) this.renderNetwork();
+      if (changed && document.getElementById("catalog-grid")) this.renderCatalogGrid();
       this.renderHistory(items);
     }
 
@@ -707,9 +886,12 @@
       }
     }
 
+    /** Redraw the page if it shows tests (after sign-in, a payment or fresh data). */
     renderIfHome() {
       const path = (location.hash || "#/").slice(1).split("?")[0];
+      const catalog = path.match(/^\/tests\/(listening|reading|writing|speaking)$/);
       if (path === "/" || path === "") this.renderHome();
+      else if (catalog) this.renderCatalog(catalog[1]);
     }
 
     showVerification() {

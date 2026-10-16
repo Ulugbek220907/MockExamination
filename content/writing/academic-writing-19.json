@@ -1,0 +1,98 @@
+{
+ "id": "academic-writing-19",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 19",
+ "shortTitle": "Practice Test 19",
+ "durationMinutes": 60,
+ "sortOrder": 19,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Line graph: average house prices in four cities",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The graph below shows average house prices in four cities between 2000 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "line",
+    "title": "Average house prices, 2000–2020",
+    "yLabel": "Thousands of US dollars",
+    "unit": "",
+    "yMax": 600,
+    "yStep": 100,
+    "categories": [
+     "2000",
+     "2004",
+     "2008",
+     "2012",
+     "2016",
+     "2020"
+    ],
+    "series": [
+     {
+      "name": "Kingsbridge",
+      "values": [
+       320,
+       390,
+       450,
+       400,
+       470,
+       560
+      ]
+     },
+     {
+      "name": "Harbourton",
+      "values": [
+       210,
+       280,
+       360,
+       330,
+       420,
+       510
+      ]
+     },
+     {
+      "name": "Millfield",
+      "values": [
+       150,
+       170,
+       200,
+       190,
+       210,
+       230
+      ]
+     },
+     {
+      "name": "Greywater",
+      "values": [
+       120,
+       135,
+       150,
+       140,
+       145,
+       150
+      ]
+     }
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: prices rose in all four cities, with a dip in 2012; Kingsbridge was the most expensive throughout, Harbourton grew fastest, Greywater was the cheapest and changed least.",
+    "Kingsbridge: 320 → 450 (2008) → 400 (2012) → 560.",
+    "Harbourton: 210 → 360 → 330 → 510 (more than doubled).",
+    "Millfield: 150 → 230; Greywater: 120 → 150 (+25%), almost flat after 2008."
+   ],
+   "modelAnswer": "The line graph compares the average price of a house in four cities, Kingsbridge, Harbourton, Millfield and Greywater, between 2000 and 2020.\n\nOverall, house prices rose in all four cities over the period, although each city experienced a fall around 2012. Kingsbridge was the most expensive city throughout, while Harbourton saw the fastest growth and Greywater remained the cheapest, with very little change.\n\nIn 2000, the average house in Kingsbridge cost $320,000, compared with $210,000 in Harbourton. Prices in both cities climbed steadily until 2008, reaching $450,000 and $360,000 respectively, before falling slightly in 2012. After this, they rose again quickly, and by 2020 a house cost $560,000 in Kingsbridge and $510,000 in Harbourton, meaning that prices in Harbourton had more than doubled and the gap between the two cities had narrowed considerably.\n\nPrices in the other two cities were much lower and grew more slowly. In Millfield, the average price increased from $150,000 to $200,000 in 2008, dipped to $190,000 and then rose to $230,000 by 2020. Greywater started at only $120,000 and reached $150,000 in 2008, after which prices hardly changed, finishing at the same level in 2020."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Opinion essay: practical skills at school",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "opinion",
+   "prompt": "Write about the following topic:\n\nSome people think that schools should spend more time teaching practical skills, such as cooking and managing money, than academic subjects.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Many adults leave school able to solve equations and analyse poems but unable to cook a simple meal or plan a monthly budget. For this reason, some people argue that practical skills should be given more time than academic subjects. Although I agree that such skills deserve a place in the curriculum, I do not believe they should replace academic learning.\n\nThere are strong reasons for teaching practical skills at school. Young people who understand how to manage money are less likely to fall into debt, and those who can cook healthy food are more likely to avoid problems such as obesity. Not all families teach these skills at home, so schools can help to give every child the same basic knowledge. In addition, practical lessons can motivate students who find traditional subjects difficult, showing them that school can be relevant to their lives.\n\nHowever, academic subjects remain essential. Mathematics, science and languages develop the ability to think logically, solve problems and communicate clearly, which are needed in almost every job. They also open the door to higher education and to professions such as medicine, engineering and law. If schools reduced the time spent on these subjects, students might be less prepared for university and less able to compete for skilled jobs.\n\nIn my view, the best solution is to combine the two. Practical skills can often be taught through academic subjects: for example, budgeting and interest rates can be part of mathematics lessons, and nutrition can be included in biology. Schools could also offer a short, compulsory course in life skills for older students.\n\nIn conclusion, I agree that practical skills are important and should be taught at school, but they should complement academic subjects rather than take up more time than them."
+  }
+ ]
+}

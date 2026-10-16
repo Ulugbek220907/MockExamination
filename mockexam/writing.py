@@ -38,7 +38,10 @@ INFORMAL_MARKERS = [
     "gonna", "wanna", "gotta", "kinda", "stuff", "things like that", "a lot of", "lots of",
     "kids", "guys", "okay", "ok", "etc", "nowadays", "big", "get",
 ]
-CONTRACTION_RE = re.compile(r"\b\w+'(?:t|s|re|ve|ll|d|m)\b", re.IGNORECASE)
+# "'s" is only a contraction after words like "it" or "there"; after a name it is a possessive ("Eastvale's").
+CONTRACTION_RE = re.compile(
+    r"\b(?:\w+[’'](?:t|re|ve|ll|d|m)|(?:it|that|there|here|what|who|he|she|let|where|how|when|why|everyone|everybody|"
+    r"nobody|someone|somebody|something|nothing|everything)[’']s)\b", re.IGNORECASE)
 STOPWORDS = set(
     "a an the and or but if of to in on at for with by from as is are was were be been being "
     "this that these those it its it's they them their there here which who whom whose what when "

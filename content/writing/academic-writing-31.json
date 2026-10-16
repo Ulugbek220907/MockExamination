@@ -1,0 +1,78 @@
+{
+ "id": "academic-writing-31",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 31",
+ "shortTitle": "Practice Test 31",
+ "durationMinutes": 60,
+ "sortOrder": 31,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Table: new cars sold by fuel type",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The table below shows the number of new cars sold in one country by type of fuel in 2015, 2019 and 2023.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "table",
+    "title": "New cars sold by fuel type (thousands)",
+    "headers": [
+     "Fuel type",
+     "2015",
+     "2019",
+     "2023"
+    ],
+    "rows": [
+     [
+      "Petrol",
+      "620",
+      "540",
+      "380"
+     ],
+     [
+      "Diesel",
+      "410",
+      "260",
+      "90"
+     ],
+     [
+      "Hybrid",
+      "35",
+      "140",
+      "260"
+     ],
+     [
+      "Electric",
+      "5",
+      "40",
+      "210"
+     ],
+     [
+      "Total",
+      "1,070",
+      "980",
+      "940"
+     ]
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: petrol cars were the best-selling type throughout but declined; diesel sales collapsed; hybrid and electric cars grew dramatically; total sales fell.",
+    "Petrol 620k → 540k → 380k. Diesel 410k → 260k → 90k.",
+    "Hybrid 35k → 140k → 260k (second place by 2023).",
+    "Electric 5k → 40k → 210k (42 times higher). Total 1.07m → 980k → 940k."
+   ],
+   "modelAnswer": "The table gives information about the number of new cars sold in one country according to the type of fuel they used, in 2015, 2019 and 2023.\n\nOverall, petrol cars remained the most popular type throughout the period, but their sales fell, and sales of diesel cars dropped dramatically. By contrast, hybrid and electric cars became far more popular. The total number of new cars sold declined slightly.\n\nIn 2015, 620,000 new petrol cars and 410,000 diesel cars were sold, together making up almost all of the 1,070,000 cars sold that year. Only 35,000 hybrid cars and a mere 5,000 electric cars were purchased. Over the next eight years, sales of petrol cars fell to 540,000 and then to 380,000. The decline in diesel sales was even sharper: they dropped to 260,000 in 2019 and to just 90,000 in 2023.\n\nMeanwhile, sales of hybrid cars rose to 140,000 in 2019 and 260,000 in 2023, making them the second most popular type. Electric cars grew fastest of all, from 40,000 in 2019 to 210,000 in 2023, which was 42 times the 2015 figure. Despite this growth, total sales decreased to 980,000 in 2019 and 940,000 in 2023."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Opinion essay: homework for young children",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "opinion",
+   "prompt": "Write about the following topic:\n\nSome people believe that homework should be banned for children at primary school.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "In many countries, primary school children are given homework almost every evening, and some parents complain that it causes stress and arguments at home. As a result, some people think that homework should be banned for young children altogether. I partly agree with this view: I believe that traditional homework should be greatly reduced for young children, but not completely removed.\n\nThere are good reasons to limit homework at primary school. Research suggests that, for young children, homework has little effect on how well they do at school, unlike for older students. After six hours of lessons, young children need time to play, rest, spend time with their families and develop interests such as sport and music, all of which are important for their development. Homework can also increase inequality, because children whose parents have time and education to help them have a clear advantage over those whose parents work long hours.\n\nHowever, a complete ban would also have disadvantages. Short, simple tasks, such as reading a book with a parent for fifteen minutes or practising multiplication tables, help children to remember what they have learned and develop good study habits that will be essential in secondary school. Homework can also give parents a valuable picture of what their children are learning and how they are progressing.\n\nIn my opinion, the best approach is for primary schools to replace long written assignments with brief, enjoyable activities, especially regular reading. Schools could also provide homework clubs where children who do not receive help at home can complete tasks with a teacher's support.\n\nIn conclusion, I agree that homework for primary school children should be strictly limited, but I believe that a small amount of well-designed homework is still beneficial, so it should not be banned completely."
+  }
+ ]
+}

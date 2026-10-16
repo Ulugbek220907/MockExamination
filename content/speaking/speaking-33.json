@@ -1,0 +1,268 @@
+{
+  "id": "speaking-33",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 33",
+  "shortTitle": "Practice Test 33",
+  "durationMinutes": 14,
+  "sortOrder": 33,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Isabella",
+    "voice": "bf_isabella",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-33/p2-start.mp3",
+        "duration": 9.82
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-33/end.mp3",
+        "duration": 3.29
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Neighbours",
+        "Cycling"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where exactly is your hometown?",
+          "say": "Good morning. My name is Isabella, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where exactly is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-1.mp3",
+            "duration": 15.72
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What are the people in your hometown like?",
+          "say": "What are the people in your hometown like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-2.mp3",
+            "duration": 2.7
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is your hometown a good place to live? Why or why not?",
+          "say": "Is your hometown a good place to live? Why or why not?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-3.mp3",
+            "duration": 4.82
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "What is the most famous place in your hometown?",
+          "say": "What is the most famous place in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-4.mp3",
+            "duration": 3.17
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Neighbours",
+          "text": "Do you know many of your neighbours?",
+          "say": "Now let's move on to talk about neighbours. Do you know many of your neighbours?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-5.mp3",
+            "duration": 5.22
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Neighbours",
+          "text": "How often do you talk to your neighbours?",
+          "say": "How often do you talk to your neighbours?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-6.mp3",
+            "duration": 2.68
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Neighbours",
+          "text": "Are neighbours as friendly as they used to be?",
+          "say": "Are neighbours as friendly as they used to be?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-7.mp3",
+            "duration": 3.08
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Cycling",
+          "text": "Can you ride a bicycle?",
+          "say": "Now let's move on to talk about cycling. Can you ride a bicycle?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-8.mp3",
+            "duration": 5.12
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Cycling",
+          "text": "Is it safe to cycle in your city?",
+          "say": "Is it safe to cycle in your city?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-9.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Cycling",
+          "text": "Would you like to cycle to work or school?",
+          "say": "Would you like to cycle to work or school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p1-10.mp3",
+            "duration": 2.85
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a town or city where you would like to live.",
+        "points": [
+          "where it is",
+          "how you know about it",
+          "what it is like"
+        ],
+        "explain": "and explain why you would like to live there."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a town or city where you would like to live.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a town or city where you would like to live. You should say: where it is; how you know about it; what it is like; and explain why you would like to live there.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-33/p2-talk.mp3",
+            "duration": 23.75
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think you will really live there one day?",
+          "say": "Thank you. Do you think you will really live there one day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-33/p2-follow.mp3",
+            "duration": 3.42
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Cities",
+        "Housing"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Cities",
+          "text": "What are the biggest problems in large cities today?",
+          "say": "Thank you. We've been talking about a town or city where you would like to live, and I'd like to discuss with you some more general questions related to this. Let's consider first of all cities. What are the biggest problems in large cities today?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-33/p3-1.mp3",
+            "duration": 14.51
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Cities",
+          "text": "Why do people continue to move to big cities?",
+          "say": "Why do people continue to move to big cities?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-33/p3-2.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Cities",
+          "text": "How can cities be made more pleasant to live in?",
+          "say": "How can cities be made more pleasant to live in?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-33/p3-3.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Housing",
+          "text": "Is it better to rent a home or to buy one?",
+          "say": "Now let's talk about housing. Is it better to rent a home or to buy one?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-33/p3-4.mp3",
+            "duration": 5.65
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Housing",
+          "text": "Why is housing so expensive in many cities?",
+          "say": "Why is housing so expensive in many cities?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-33/p3-5.mp3",
+            "duration": 3.4
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Housing",
+          "text": "Should governments build more homes for young people?",
+          "say": "Should governments build more homes for young people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-33/p3-6.mp3",
+            "duration": 3.34
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-23",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 23",
+  "shortTitle": "Practice Test 23",
+  "durationMinutes": 14,
+  "sortOrder": 23,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-23/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-23/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Music at festivals",
+        "Holidays"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Do you live in a flat or a house?",
+          "say": "Good evening. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Do you live in a flat or a house?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-1.mp3",
+            "duration": 15.34
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What is your favourite room? Why?",
+          "say": "What is your favourite room? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-2.mp3",
+            "duration": 3.52
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Do you like having guests in your home?",
+          "say": "Do you like having guests in your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-3.mp3",
+            "duration": 2.7
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "What do you usually do to make your home comfortable?",
+          "say": "What do you usually do to make your home comfortable?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-4.mp3",
+            "duration": 3.19
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Music at festivals",
+          "text": "Do you enjoy going to concerts or festivals?",
+          "say": "Now let's move on to talk about music festivals. Do you enjoy going to concerts or festivals?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-5.mp3",
+            "duration": 6.67
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Music at festivals",
+          "text": "What kind of music is popular at festivals in your country?",
+          "say": "What kind of music is popular at festivals in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-6.mp3",
+            "duration": 3.93
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Music at festivals",
+          "text": "Would you rather go to a festival with friends or with family?",
+          "say": "Would you rather go to a festival with friends or with family?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-7.mp3",
+            "duration": 4.04
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Holidays",
+          "text": "Where do you usually go on holiday?",
+          "say": "Now let's move on to talk about holidays. Where do you usually go on holiday?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-8.mp3",
+            "duration": 5.54
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Holidays",
+          "text": "Do you prefer short holidays or long ones?",
+          "say": "Do you prefer short holidays or long ones?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-9.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Holidays",
+          "text": "What did you do on holidays when you were a child?",
+          "say": "What did you do on holidays when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p1-10.mp3",
+            "duration": 3.12
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a festival or public holiday in your country.",
+        "points": [
+          "what it is called",
+          "when it takes place",
+          "what people do during it"
+        ],
+        "explain": "and explain how you feel about this festival or holiday."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a festival or public holiday in your country.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a festival or public holiday in your country. You should say: what it is called; when it takes place; what people do during it; and explain how you feel about this festival or holiday.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-23/p2-talk.mp3",
+            "duration": 25.9
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Has the way you celebrate it changed since you were a child?",
+          "say": "Thank you. Has the way you celebrate it changed since you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-23/p2-follow.mp3",
+            "duration": 4.3
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Traditions",
+        "Festivals and tourism"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Traditions",
+          "text": "Why is it important for countries to keep their traditional festivals?",
+          "say": "Thank you. We've been talking about a festival or holiday in your country, and I'd like to discuss with you some more general questions related to this. Let's consider first of all traditions. Why is it important for countries to keep their traditional festivals?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-23/p3-1.mp3",
+            "duration": 15.98
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Traditions",
+          "text": "Do you think festivals have become too commercial?",
+          "say": "Do you think festivals have become too commercial?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-23/p3-2.mp3",
+            "duration": 3.27
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Traditions",
+          "text": "How do young people in your country feel about traditional festivals?",
+          "say": "How do young people in your country feel about traditional festivals?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-23/p3-3.mp3",
+            "duration": 4.25
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Festivals and tourism",
+          "text": "Should tourists be encouraged to join local festivals?",
+          "say": "Now let's talk about festivals and tourism. Should tourists be encouraged to join local festivals?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-23/p3-4.mp3",
+            "duration": 6.91
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Festivals and tourism",
+          "text": "What are the benefits of festivals for a town's economy?",
+          "say": "What are the benefits of festivals for a town's economy?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-23/p3-5.mp3",
+            "duration": 3.74
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Festivals and tourism",
+          "text": "Can festivals cause problems for the people who live nearby?",
+          "say": "Can festivals cause problems for the people who live nearby?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-23/p3-6.mp3",
+            "duration": 3.98
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -60,11 +60,26 @@
     return (user() && user().role) || "guest";
   }
 
+  // The last /api/me is kept in this browser, so the next visit can draw the page before the server answers.
+  const ME_KEY = "testday:me";
+
+  /** Use the remembered account (no network); true if there was one. */
+  function primeMe() {
+    const saved = U.store.get(ME_KEY, null);
+    if (saved && typeof saved === "object" && "user" in saved) {
+      state.me = saved;
+      return true;
+    }
+    return false;
+  }
+
   async function refreshMe() {
     try {
       state.me = await U.api("/api/me");
+      U.store.set(ME_KEY, state.me);
     } catch (e) {
-      state.me = { user: null };
+      // A network hiccup keeps what we knew; only a refused session signs out.
+      if (!state.me || e.status === 401 || e.status === 403) state.me = { user: null };
     }
     renderAccountSlot();
     // Admins and examiners see new payments and checks in the menu without reloading.
@@ -244,6 +259,7 @@
   async function logout() {
     await U.api("/api/auth/logout", { method: "POST", body: "{}" }).catch(() => {});
     state.me = { user: null };
+    U.store.set(ME_KEY, state.me);
     renderAccountSlot();
     U.toast(t("You are signed out."));
     location.hash = "#/";
@@ -1195,7 +1211,7 @@
   }
 
   window.Account = {
-    state, refreshMe, user, planActive, role, login, logout, paywall, buy, billing, money, onClick, passCardHTML, passPriceHTML,
+    state, refreshMe, primeMe, user, planActive, role, login, logout, paywall, buy, billing, money, onClick, passCardHTML, passPriceHTML,
     renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
     setConfig(config) { state.config = config || {}; },
   };

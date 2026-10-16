@@ -1,0 +1,105 @@
+{
+ "id": "academic-writing-22",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 22",
+ "shortTitle": "Practice Test 22",
+ "durationMinutes": 60,
+ "sortOrder": 22,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Line graph and bar chart: a public library",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The line graph below shows the number of members of a public library between 2012 and 2022. The bar chart shows the number of items borrowed from the library in 2012 and 2022.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "multi",
+    "title": "Westfield Public Library",
+    "note": "Fictional data created for practice purposes.",
+    "parts": [
+     {
+      "type": "line",
+      "title": "Library members, 2012–2022",
+      "yLabel": "Members (thousands)",
+      "unit": "",
+      "yMax": 60,
+      "yStep": 10,
+      "categories": [
+       "2012",
+       "2014",
+       "2016",
+       "2018",
+       "2020",
+       "2022"
+      ],
+      "series": [
+       {
+        "name": "Members",
+        "values": [
+         48,
+         45,
+         41,
+         39,
+         44,
+         52
+        ]
+       }
+      ]
+     },
+     {
+      "type": "bar",
+      "title": "Items borrowed by type, 2012 and 2022",
+      "yLabel": "Items borrowed (thousands)",
+      "unit": "",
+      "yMax": 350,
+      "yStep": 50,
+      "categories": [
+       "Printed books",
+       "E-books",
+       "Audiobooks",
+       "DVDs"
+      ],
+      "series": [
+       {
+        "name": "2012",
+        "values": [
+         310,
+         20,
+         15,
+         60
+        ]
+       },
+       {
+        "name": "2022",
+        "values": [
+         190,
+         140,
+         85,
+         5
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: membership fell until 2018 and then recovered to its highest level; borrowing shifted strongly from printed books and DVDs to e-books and audiobooks.",
+    "Members: 48k (2012) → 39k (2018) → 52k (2022).",
+    "Printed books 310k → 190k; DVDs 60k → 5k.",
+    "E-books 20k → 140k (seven times); audiobooks 15k → 85k."
+   ],
+   "modelAnswer": "The line graph shows how many people were members of a public library between 2012 and 2022, and the bar chart compares the number of different items they borrowed in 2012 and 2022.\n\nOverall, library membership fell during the first half of the period but then recovered strongly, ending at its highest level. At the same time, there was a clear shift away from printed books and DVDs towards digital items.\n\nIn 2012, the library had 48,000 members. This figure declined steadily to a low of 39,000 in 2018. However, membership then began to rise again, reaching 44,000 in 2020 and 52,000 in 2022, slightly above the starting level.\n\nTurning to borrowing, printed books were by far the most popular items in both years, but the number borrowed fell from 310,000 to 190,000. DVDs almost disappeared, dropping from 60,000 loans to just 5,000. In contrast, e-books and audiobooks became much more popular. E-book loans rose sevenfold, from 20,000 to 140,000, while audiobook loans increased from 15,000 to 85,000. This suggests that the recent growth in membership may have been linked to the library's digital services."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Opinion essay: aid for poorer countries",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "opinion",
+   "prompt": "Write about the following topic:\n\nSome people believe that rich countries should give much more financial aid to poorer countries.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "The gap between the world's richest and poorest countries remains enormous, and millions of people still lack clean water, healthcare and education. Some people argue that wealthy nations should greatly increase the money they give to poorer ones. I agree that rich countries should give more, but I believe that how the aid is given matters as much as how much is given.\n\nThere are strong moral and practical reasons for increasing aid. Many rich countries became wealthy partly by using resources from other parts of the world, so it seems fair that they should help countries that are still developing. Aid has also achieved real successes: vaccination programmes funded by donor countries have saved millions of lives, and investment in schools has increased literacy in many regions. Furthermore, helping poorer countries to develop benefits everyone, because it reduces conflict, disease and forced migration, and creates new trading partners.\n\nOn the other hand, critics point out that aid does not always reach the people who need it. In some cases, money has been lost to corruption or spent on projects that local communities did not want. Large amounts of aid may also make some governments dependent on foreign money rather than developing their own economies.\n\nThese problems, however, are arguments for better aid rather than less aid. Donor countries can work with local organisations, fund specific projects such as clean water or teacher training, and monitor results carefully. They can also support development in other ways, for example by opening their markets to products from poorer countries and helping them to adapt to climate change.\n\nIn conclusion, I agree that rich countries should give more financial aid, provided that it is carefully targeted and combined with fair trade and long-term cooperation."
+  }
+ ]
+}

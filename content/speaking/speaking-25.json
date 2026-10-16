@@ -1,0 +1,268 @@
+{
+  "id": "speaking-25",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 25",
+  "shortTitle": "Practice Test 25",
+  "durationMinutes": 14,
+  "sortOrder": 25,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "George",
+    "voice": "bm_george",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-25/p2-start.mp3",
+        "duration": 11.03
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-25/end.mp3",
+        "duration": 3.85
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Friends",
+        "Social media"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Are you a student, or do you have a job?",
+          "say": "Good afternoon. My name is George, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about work or studies. Are you a student, or do you have a job?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-1.mp3",
+            "duration": 18.13
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "Why did you decide to do this?",
+          "say": "Why did you decide to do this?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-2.mp3",
+            "duration": 2.74
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "What do you do to prepare for an important day at work or school?",
+          "say": "What do you do to prepare for an important day at work or school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-3.mp3",
+            "duration": 4.75
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "Is there anything you would change about your workplace or school?",
+          "say": "Is there anything you would change about your workplace or school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-4.mp3",
+            "duration": 4.49
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Friends",
+          "text": "Do you have many friends?",
+          "say": "Now let's move on to talk about friends. Do you have many friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-5.mp3",
+            "duration": 4.97
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Friends",
+          "text": "How often do you see your friends?",
+          "say": "How often do you see your friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-6.mp3",
+            "duration": 2.61
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Friends",
+          "text": "Do you prefer to have a few close friends or many friends?",
+          "say": "Do you prefer to have a few close friends or many friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-7.mp3",
+            "duration": 4.04
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Social media",
+          "text": "Which social media do you use?",
+          "say": "Now let's move on to talk about social media. Which social media do you use?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-8.mp3",
+            "duration": 6.5
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Social media",
+          "text": "How much time do you spend on social media each day?",
+          "say": "How much time do you spend on social media each day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-9.mp3",
+            "duration": 4.13
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Social media",
+          "text": "Have you ever met anyone through social media?",
+          "say": "Have you ever met anyone through social media?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p1-10.mp3",
+            "duration": 3.68
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a friend you have known for a long time.",
+        "points": [
+          "who this person is",
+          "how you met",
+          "what you like to do together"
+        ],
+        "explain": "and explain why your friendship has lasted so long."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a friend you have known for a long time.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a friend you have known for a long time. You should say: who this person is; how you met; what you like to do together; and explain why your friendship has lasted so long.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-25/p2-talk.mp3",
+            "duration": 28.82
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think you will still be friends in ten years?",
+          "say": "Thank you. Do you think you will still be friends in ten years?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-25/p2-follow.mp3",
+            "duration": 4.15
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Friendship",
+        "Friendship and technology"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Friendship",
+          "text": "What qualities make someone a good friend?",
+          "say": "Thank you. We've been talking about a friend you have known for a long time, and I'd like to discuss with you some more general questions related to this. Let's consider first of all friendship. What qualities make someone a good friend?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-25/p3-1.mp3",
+            "duration": 15.92
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Friendship",
+          "text": "Is it easier to make friends when you are a child or an adult?",
+          "say": "Is it easier to make friends when you are a child or an adult?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-25/p3-2.mp3",
+            "duration": 4.68
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Friendship",
+          "text": "Why do some friendships end?",
+          "say": "Why do some friendships end?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-25/p3-3.mp3",
+            "duration": 2.53
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Friendship and technology",
+          "text": "Can you really be friends with someone you have only met online?",
+          "say": "Now let's talk about friendship and technology. Can you really be friends with someone you have only met online?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-25/p3-4.mp3",
+            "duration": 8.04
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Friendship and technology",
+          "text": "Has social media made friendships stronger or weaker?",
+          "say": "Has social media made friendships stronger or weaker?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-25/p3-5.mp3",
+            "duration": 4.47
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Friendship and technology",
+          "text": "Do people today have more friends than people did in the past?",
+          "say": "Do people today have more friends than people did in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-25/p3-6.mp3",
+            "duration": 4.96
+          }
+        }
+      ]
+    }
+  ]
+}

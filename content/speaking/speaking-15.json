@@ -1,0 +1,268 @@
+{
+  "id": "speaking-15",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 15",
+  "shortTitle": "Practice Test 15",
+  "durationMinutes": 14,
+  "sortOrder": 15,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-15/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-15/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Films",
+        "Laughing"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where did you grow up?",
+          "say": "Good morning. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where did you grow up?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-1.mp3",
+            "duration": 14.0
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What was it like growing up there?",
+          "say": "What was it like growing up there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-2.mp3",
+            "duration": 2.27
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is your hometown a good place to raise children?",
+          "say": "Is your hometown a good place to raise children?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-3.mp3",
+            "duration": 3.12
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "What changes would you like to see in your hometown?",
+          "say": "What changes would you like to see in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-4.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Films",
+          "text": "How often do you watch films?",
+          "say": "Now let's move on to talk about films. How often do you watch films?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-5.mp3",
+            "duration": 4.95
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Films",
+          "text": "What kind of films do you like?",
+          "say": "What kind of films do you like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-6.mp3",
+            "duration": 2.21
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Films",
+          "text": "Do you prefer watching films at home or at the cinema?",
+          "say": "Do you prefer watching films at home or at the cinema?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-7.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Laughing",
+          "text": "What kinds of things make you laugh?",
+          "say": "Now let's move on to talk about laughing. What kinds of things make you laugh?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-8.mp3",
+            "duration": 4.97
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Laughing",
+          "text": "Do you like watching comedy programmes?",
+          "say": "Do you like watching comedy programmes?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-9.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Laughing",
+          "text": "Do you think it is important to laugh every day?",
+          "say": "Do you think it is important to laugh every day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p1-10.mp3",
+            "duration": 3.04
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a film that you watched recently.",
+        "points": [
+          "what the film was",
+          "where and when you watched it",
+          "what happened in it"
+        ],
+        "explain": "and explain what you thought of it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a film that you watched recently.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a film that you watched recently. You should say: what the film was; where and when you watched it; what happened in it; and explain what you thought of it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-15/p2-talk.mp3",
+            "duration": 22.72
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you watch this film again?",
+          "say": "Thank you. Would you watch this film again?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-15/p2-follow.mp3",
+            "duration": 2.65
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Cinema and entertainment",
+        "Films and young people"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Cinema and entertainment",
+          "text": "Why do people still go to the cinema when they can watch films at home?",
+          "say": "Thank you. We've been talking about a film you watched recently, and I'd like to discuss with you some more general questions related to this. Let's consider first of all cinema and entertainment. Why do people still go to the cinema when they can watch films at home?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-15/p3-1.mp3",
+            "duration": 14.96
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Cinema and entertainment",
+          "text": "What makes a film successful?",
+          "say": "What makes a film successful?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-15/p3-2.mp3",
+            "duration": 2.29
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Cinema and entertainment",
+          "text": "Do films from other countries help people understand different cultures?",
+          "say": "Do films from other countries help people understand different cultures?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-15/p3-3.mp3",
+            "duration": 4.57
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Films and young people",
+          "text": "Should there be age limits on the films children can watch?",
+          "say": "Now let's talk about films and young people. Should there be age limits on the films children can watch?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-15/p3-4.mp3",
+            "duration": 6.33
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Films and young people",
+          "text": "Can films be a good way to learn about history?",
+          "say": "Can films be a good way to learn about history?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-15/p3-5.mp3",
+            "duration": 3.12
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Films and young people",
+          "text": "Do actors have too much influence on young people?",
+          "say": "Do actors have too much influence on young people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-15/p3-6.mp3",
+            "duration": 3.27
+          }
+        }
+      ]
+    }
+  ]
+}

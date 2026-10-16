@@ -1,0 +1,70 @@
+{
+ "id": "academic-writing-28",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 28",
+ "shortTitle": "Practice Test 28",
+ "durationMinutes": 60,
+ "sortOrder": 28,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Process diagram: solar electricity at home",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The diagram below shows how solar panels supply electricity to a house.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "process",
+    "title": "How a home solar power system works",
+    "cycle": false,
+    "steps": [
+     {
+      "label": "Sunlight",
+      "text": "Sunlight falls on the solar panels on the roof"
+     },
+     {
+      "label": "Generation",
+      "text": "Cells in the panels turn the light into direct current (DC) electricity"
+     },
+     {
+      "label": "Conversion",
+      "text": "An inverter changes the DC into alternating current (AC) for household use"
+     },
+     {
+      "label": "Use",
+      "text": "The electricity powers the lights and appliances in the house"
+     },
+     {
+      "label": "Storage",
+      "text": "Any extra electricity charges a battery for use in the evening"
+     },
+     {
+      "label": "Export",
+      "text": "When the battery is full, surplus electricity is sent to the national grid through a meter"
+     },
+     {
+      "label": "Import",
+      "text": "At night or on cloudy days, the house uses power from the battery or the grid"
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: seven stages; sunlight is turned into electricity, converted, used in the house, and any surplus is stored or sold to the grid; at night power comes back from the battery or grid.",
+    "Panels on the roof turn sunlight into DC → inverter converts DC to AC → lights and appliances.",
+    "Extra electricity → battery; when full → national grid via a meter.",
+    "At night or on cloudy days → battery or grid supplies the house."
+   ],
+   "modelAnswer": "The diagram illustrates how a solar power system on the roof of a house provides electricity for the home.\n\nOverall, the process involves seven stages, in which sunlight is converted into electricity that can be used in the house, stored, or sent to the national grid. When the panels are not producing enough power, electricity is taken back from the battery or the grid.\n\nFirst, sunlight falls on solar panels that are fixed to the roof of the house. The cells inside these panels turn the light into direct current (DC) electricity. However, household appliances need alternating current (AC), so the electricity then passes through an inverter, which converts it from DC to AC. At this point, it can be used to power the lights and appliances in the house.\n\nIf the panels produce more electricity than the household needs, the extra power is used to charge a battery, which can supply the house in the evening. Once the battery is fully charged, any surplus electricity is sent to the national grid, and the amount is recorded by a meter. Finally, at night or on cloudy days, when the panels produce little or no electricity, the house draws its power from the battery or from the grid."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Two-part essay: news from social media",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "two_part",
+   "prompt": "Write about the following topic:\n\nToday, many people get their news from social media rather than from newspapers, television or radio.\n\nWhy is this the case? Is this a positive or negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "In the past, most people learned about current events from newspapers, television and radio. Today, a growing number, especially young people, rely mainly on social media for news. This essay will explain the reasons for this change and argue that, on balance, it is a negative development.\n\nThere are several reasons why social media has become such an important source of news. Firstly, it is convenient: people already check their phones many times a day, and news appears in the same feed as messages from friends, so they do not need to look for it. Secondly, it is fast. Events are often reported on social media within minutes, sometimes by people who are actually there, long before traditional media can publish a full report. Finally, social media is free, while many newspapers now charge for online access.\n\nThis change has some advantages. It allows ordinary people to share information about events that the mainstream media might ignore, and it gives a voice to communities that were previously unheard. Readers can also follow a wider range of sources from different countries.\n\nHowever, I believe the disadvantages are more serious. Information on social media is often not checked by professional journalists, so false or misleading stories can spread very quickly. In addition, the programs that decide what users see tend to show them content that matches their existing views, which can make people less tolerant of other opinions. News on social media is also usually short and emotional, so readers may not understand complex issues in depth.\n\nIn conclusion, people turn to social media for news because it is convenient, fast and free. However, because of the risk of false information and one-sided views, I believe this is mainly a negative development, and people should also use reliable traditional sources."
+  }
+ ]
+}

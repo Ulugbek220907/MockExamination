@@ -1,0 +1,101 @@
+{
+ "id": "academic-writing-30",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 30",
+ "shortTitle": "Practice Test 30",
+ "durationMinutes": 60,
+ "sortOrder": 30,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Pie charts: household waste in a city",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The pie charts below show the types of household waste produced in one city in 2000 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "pie",
+    "title": "Household waste by type",
+    "unit": "%",
+    "charts": [
+     {
+      "title": "2000",
+      "slices": [
+       {
+        "label": "Food",
+        "value": 38
+       },
+       {
+        "label": "Paper and card",
+        "value": 27
+       },
+       {
+        "label": "Plastic",
+        "value": 11
+       },
+       {
+        "label": "Glass",
+        "value": 9
+       },
+       {
+        "label": "Metal",
+        "value": 6
+       },
+       {
+        "label": "Other",
+        "value": 9
+       }
+      ]
+     },
+     {
+      "title": "2020",
+      "slices": [
+       {
+        "label": "Food",
+        "value": 30
+       },
+       {
+        "label": "Paper and card",
+        "value": 18
+       },
+       {
+        "label": "Plastic",
+        "value": 24
+       },
+       {
+        "label": "Glass",
+        "value": 6
+       },
+       {
+        "label": "Metal",
+        "value": 5
+       },
+       {
+        "label": "Other",
+        "value": 17
+       }
+      ]
+     }
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: food was the largest type of waste in both years; plastic more than doubled to become second; paper and card fell, as did glass and metal.",
+    "Food 38% → 30%; paper and card 27% → 18%.",
+    "Plastic 11% → 24%; other 9% → 17%.",
+    "Glass 9% → 6%; metal 6% → 5%."
+   ],
+   "modelAnswer": "The two pie charts compare the composition of household waste in one city in 2000 and 2020.\n\nOverall, food was the largest category of household waste in both years, although its share decreased. The most striking change was the rise in the proportion of plastic waste, which more than doubled, while the share of paper and card fell considerably.\n\nIn 2000, food made up 38% of household waste, followed by paper and card at 27%. Plastic accounted for 11%, and glass and other materials each made up 9%. Metal was the smallest category, at 6%.\n\nBy 2020, the share of food waste had fallen to 30%, but it remained the biggest single type. Plastic waste, however, had increased from 11% to 24%, overtaking paper and card, whose share dropped to 18%. The proportion of waste classified as 'other' almost doubled, from 9% to 17%. Meanwhile, the shares of glass and metal both declined slightly, to 6% and 5% respectively, so that together they represented only around a tenth of all household waste."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Discussion essay: growing up in the city or the countryside",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "discussion",
+   "prompt": "Write about the following topic:\n\nSome people think that it is better for children to grow up in the countryside. Others believe that cities offer children a better environment.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Parents who have a choice about where to live often wonder whether their children would be better off in the countryside or in a city. Both environments offer advantages, and in my view the best choice depends on the needs of each family, although the countryside has some special benefits for young children.\n\nThose who prefer the countryside argue that it offers a healthier and safer childhood. Rural areas usually have cleaner air, less traffic and more open space, so children can play outside freely, explore nature and take plenty of exercise. Communities are often smaller and closer, which means that neighbours know each other and children feel secure. Growing up surrounded by fields, forests and animals can also teach children to respect the natural world.\n\nOn the other hand, supporters of city life point to the wider range of opportunities that cities offer. Urban areas generally have more schools to choose from, as well as museums, libraries, sports clubs and music classes, which allow children to develop many different interests. Children in cities also meet people from a variety of cultural backgrounds, which can make them more open-minded. When they are older, they have easier access to universities and jobs without having to leave home.\n\nIn my opinion, the countryside is often better for younger children, who benefit most from fresh air, space and a sense of freedom, while cities can be more suitable for teenagers, who need educational and social opportunities. Many families find a balance by living in a small town or the edge of a city, where children can enjoy green spaces while still having access to good services.\n\nIn conclusion, both the countryside and the city have strong advantages for children, and the right choice depends largely on the age and interests of the children involved."
+  }
+ ]
+}

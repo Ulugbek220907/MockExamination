@@ -1,0 +1,73 @@
+{
+ "id": "academic-writing-33",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 33",
+ "shortTitle": "Practice Test 33",
+ "durationMinutes": 60,
+ "sortOrder": 33,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Bar chart: sports done by men and women",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The chart below shows the percentage of men and women in one country who took part in five sports at least once a month.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "bar",
+    "title": "Adults doing each sport at least once a month, by gender",
+    "yLabel": "% of adults",
+    "unit": "%",
+    "yMax": 30,
+    "yStep": 5,
+    "categories": [
+     "Running",
+     "Swimming",
+     "Cycling",
+     "Football",
+     "Yoga"
+    ],
+    "series": [
+     {
+      "name": "Men",
+      "values": [
+       24,
+       15,
+       18,
+       16,
+       4
+      ]
+     },
+     {
+      "name": "Women",
+      "values": [
+       19,
+       18,
+       9,
+       3,
+       17
+      ]
+     }
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: running was the most popular sport for both men and women; cycling and especially football were much more popular with men, while swimming and especially yoga were more popular with women.",
+    "Running: men 24%, women 19%.",
+    "Swimming: women 18%, men 15%. Yoga: women 17%, men 4%.",
+    "Cycling: men 18%, women 9%. Football: men 16%, women 3%."
+   ],
+   "modelAnswer": "The bar chart compares the proportion of men and women in one country who took part in five different sports at least once a month.\n\nOverall, running was the most popular of the five sports for both men and women. However, there were clear differences between the genders: men were far more likely than women to play football and go cycling, whereas women were much more likely to do yoga and slightly more likely to swim.\n\nAlmost a quarter of men (24%) went running at least once a month, making it their most popular sport, followed by cycling at 18% and football at 16%. Swimming was done by 15% of men, while only 4% did yoga.\n\nAmong women, running was also the top activity, at 19%, but swimming and yoga were almost equally popular, at 18% and 17% respectively. By contrast, only 9% of women went cycling, half the figure for men, and just 3% played football, which was the least popular sport for women. The largest gender differences were therefore in football, where the figure for men was more than five times that for women, and in yoga, where women outnumbered men by a similar ratio."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Opinion essay: art and music at school",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "opinion",
+   "prompt": "Write about the following topic:\n\nSome people think that art and music should be compulsory subjects for all students until the age of sixteen.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "In many education systems, students are allowed to stop studying art and music at a young age in order to concentrate on subjects such as mathematics, science and languages. Some people believe that these creative subjects should instead be compulsory until the age of sixteen. I strongly agree with this view.\n\nThe first reason is that art and music develop skills that are valuable in every area of life. Creating a painting or learning a piece of music requires creativity, patience, concentration and the ability to solve problems, all of which are highly valued by employers. Many successful scientists and engineers say that creative activities helped them to think in original ways. Music in particular has been linked to improved memory and better performance in mathematics.\n\nSecondly, creative subjects are important for students' wellbeing. Secondary school can be stressful, with a heavy focus on examinations, and art and music lessons give young people a chance to express their feelings and relax. For students who struggle with academic subjects, success in drawing, singing or playing an instrument can build confidence that helps them in other lessons too.\n\nFinally, art and music are an important part of every culture. If schools stop teaching them, many young people, especially those whose families cannot afford private lessons, will never have the opportunity to discover a talent or develop a lifelong interest.\n\nSome people argue that the school timetable is already full and that students need more time for core subjects. However, one or two hours a week of art and music would not seriously reduce the time available for other subjects, and the benefits would be considerable.\n\nIn conclusion, I firmly believe that art and music should remain compulsory until sixteen, as they develop useful skills, support wellbeing and give every student access to culture."
+  }
+ ]
+}

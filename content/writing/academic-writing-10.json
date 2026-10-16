@@ -1,0 +1,266 @@
+{
+ "id": "academic-writing-10",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 10",
+ "shortTitle": "Practice Test 10",
+ "durationMinutes": 60,
+ "sortOrder": 10,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Maps: changes to a village",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The maps below show the village of Westbrook in 1990 and today.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "map",
+    "title": "Westbrook village, 1990 and today",
+    "note": "Fictional maps created for practice purposes.",
+    "maps": [
+     {
+      "title": "1990",
+      "width": 440,
+      "height": 300,
+      "items": [
+       {
+        "type": "area",
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 300,
+        "style": "grass"
+       },
+       {
+        "type": "rect",
+        "x": 15,
+        "y": 15,
+        "w": 165,
+        "h": 85,
+        "style": "field",
+        "label": "Farmland"
+       },
+       {
+        "type": "rect",
+        "x": 235,
+        "y": 15,
+        "w": 155,
+        "h": 85,
+        "style": "field",
+        "label": "Farmland"
+       },
+       {
+        "type": "line",
+        "x1": 205,
+        "y1": 0,
+        "x2": 205,
+        "y2": 300,
+        "style": "road"
+       },
+       {
+        "type": "rect",
+        "x": 0,
+        "y": 122,
+        "w": 440,
+        "h": 34,
+        "style": "water",
+        "label": "River",
+        "lx": -130
+       },
+       {
+        "type": "rect",
+        "x": 193,
+        "y": 118,
+        "w": 24,
+        "h": 42,
+        "style": "parking"
+       },
+       {
+        "type": "rect",
+        "x": 15,
+        "y": 175,
+        "w": 90,
+        "h": 50,
+        "style": "housing",
+        "label": "Houses"
+       },
+       {
+        "type": "rect",
+        "x": 112,
+        "y": 175,
+        "w": 75,
+        "h": 50,
+        "style": "building",
+        "label": "Shop"
+       },
+       {
+        "type": "rect",
+        "x": 15,
+        "y": 238,
+        "w": 172,
+        "h": 50,
+        "style": "building",
+        "label": "Post office"
+       },
+       {
+        "type": "trees",
+        "x": 230,
+        "y": 170,
+        "w": 165,
+        "h": 120,
+        "label": "Woodland"
+       },
+       {
+        "type": "compass",
+        "x": 418,
+        "y": 45
+       }
+      ]
+     },
+     {
+      "title": "Today",
+      "width": 440,
+      "height": 300,
+      "items": [
+       {
+        "type": "area",
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 300,
+        "style": "grass"
+       },
+       {
+        "type": "rect",
+        "x": 15,
+        "y": 15,
+        "w": 165,
+        "h": 72,
+        "style": "housing",
+        "label": "Housing estate"
+       },
+       {
+        "type": "rect",
+        "x": 235,
+        "y": 15,
+        "w": 70,
+        "h": 72,
+        "style": "field",
+        "label": "Farmland"
+       },
+       {
+        "type": "rect",
+        "x": 310,
+        "y": 15,
+        "w": 85,
+        "h": 72,
+        "style": "sports",
+        "label": "Sports field"
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 102,
+        "x2": 440,
+        "y2": 102,
+        "style": "road"
+       },
+       {
+        "type": "line",
+        "x1": 205,
+        "y1": 0,
+        "x2": 205,
+        "y2": 300,
+        "style": "road"
+       },
+       {
+        "type": "rect",
+        "x": 0,
+        "y": 122,
+        "w": 440,
+        "h": 34,
+        "style": "water",
+        "label": "River",
+        "lx": -130
+       },
+       {
+        "type": "rect",
+        "x": 193,
+        "y": 118,
+        "w": 24,
+        "h": 42,
+        "style": "parking"
+       },
+       {
+        "type": "rect",
+        "x": 15,
+        "y": 175,
+        "w": 90,
+        "h": 50,
+        "style": "housing",
+        "label": "Houses"
+       },
+       {
+        "type": "rect",
+        "x": 112,
+        "y": 175,
+        "w": 75,
+        "h": 50,
+        "style": "building",
+        "label": "Café"
+       },
+       {
+        "type": "rect",
+        "x": 15,
+        "y": 238,
+        "w": 172,
+        "h": 50,
+        "style": "parking",
+        "label": "Car park"
+       },
+       {
+        "type": "rect",
+        "x": 230,
+        "y": 175,
+        "w": 80,
+        "h": 70,
+        "style": "building",
+        "label": "School"
+       },
+       {
+        "type": "trees",
+        "x": 318,
+        "y": 170,
+        "w": 77,
+        "h": 120,
+        "label": "Woods"
+       },
+       {
+        "type": "compass",
+        "x": 418,
+        "y": 45
+       }
+      ]
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: the village has become more residential and developed; farmland and woodland have shrunk, a new road has been built north of the river, and the main road, river and original houses are unchanged.",
+    "North: west farmland → housing estate; east farmland partly kept, partly a sports field; new east–west road just north of the river.",
+    "South: shop → café; post office → car park; part of the woodland → new school; houses unchanged.",
+    "Unchanged: the river and the north–south main road."
+   ],
+   "modelAnswer": "The two maps show how the village of Westbrook has changed between 1990 and the present day.\n\nOverall, the village has become considerably more developed, with new housing, services and a new road, while the area of farmland and woodland has decreased. However, the river and the main road running from north to south have not changed.\n\nIn 1990, the land to the north of the river consisted entirely of farmland on both sides of the main road. Today, the farmland to the west of the road has been replaced by a large housing estate, and on the eastern side, only half of the fields remain, as the rest has been turned into a sports field. In addition, a new road has been built from west to east, running parallel to the river along its northern bank.\n\nSouth of the river, the houses to the west of the main road are still there, but the shop next to them has been converted into a café, and the post office has been demolished to make way for a car park. On the eastern side, part of the woodland has been cleared and a school has been built, so that only a smaller area of trees remains in the south-eastern corner."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Two-part essay: shopping online",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "two_part",
+   "prompt": "Write about the following topic:\n\nMany people today prefer to buy goods online rather than in shops.\n\nWhy is this the case? Is this a positive or negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "In recent years, online shopping has grown rapidly, and for many people it has become the normal way to buy everything from books to groceries. This essay will discuss the reasons for this change and argue that, although it has some negative effects, it is mainly a positive development.\n\nThere are several reasons why people prefer to shop online. The most important is convenience: customers can order products at any time of day without leaving their homes, which is especially valuable for busy workers, parents with young children and people who live far from large towns. Online shops also offer a much wider choice than most physical stores, and customers can quickly compare prices and read reviews from other buyers before making a decision. Finally, online retailers often have lower costs than traditional shops, so they can offer lower prices and frequent discounts.\n\nIn many ways, this trend is beneficial. It saves consumers time and money, and it gives people in rural areas access to the same products as city residents. It has also created new opportunities for small businesses, which can now sell their goods to customers all over the country without paying for an expensive shop in a city centre.\n\nNevertheless, the growth of online shopping has some drawbacks. Many traditional shops have closed, which has reduced employment in some areas and left town centres looking empty. In addition, the delivery of millions of small parcels increases traffic and packaging waste. These problems are serious, but they can be reduced, for example by encouraging the use of collection points and recyclable packaging.\n\nIn conclusion, people shop online mainly because it is convenient, offers more choice and is often cheaper. Overall, I believe this is a positive development, as long as its effects on town centres and the environment are carefully managed."
+  }
+ ]
+}

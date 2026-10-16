@@ -1,0 +1,268 @@
+{
+  "id": "speaking-30",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 30",
+  "shortTitle": "Practice Test 30",
+  "durationMinutes": 14,
+  "sortOrder": 30,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-30/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-30/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Teamwork",
+        "Being on time"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "What is your hometown like?",
+          "say": "Good morning. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. What is your hometown like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-1.mp3",
+            "duration": 15.4
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What do people in your hometown do in their free time?",
+          "say": "What do people in your hometown do in their free time?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-2.mp3",
+            "duration": 3.59
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is it a good place to find work?",
+          "say": "Is it a good place to find work?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-3.mp3",
+            "duration": 2.72
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Would you like to work in your hometown?",
+          "say": "Would you like to work in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-4.mp3",
+            "duration": 2.78
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Teamwork",
+          "text": "Do you prefer working in a team or alone?",
+          "say": "Now let's move on to talk about teamwork. Do you prefer working in a team or alone?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-5.mp3",
+            "duration": 5.95
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Teamwork",
+          "text": "Did you do much teamwork at school?",
+          "say": "Did you do much teamwork at school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-6.mp3",
+            "duration": 2.61
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Teamwork",
+          "text": "What makes a team successful?",
+          "say": "What makes a team successful?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-7.mp3",
+            "duration": 2.48
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Being on time",
+          "text": "Are you usually on time?",
+          "say": "Now let's move on to talk about being on time. Are you usually on time?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-8.mp3",
+            "duration": 5.54
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Being on time",
+          "text": "How do you feel when other people are late?",
+          "say": "How do you feel when other people are late?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-9.mp3",
+            "duration": 2.91
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Being on time",
+          "text": "Is being on time important in your culture?",
+          "say": "Is being on time important in your culture?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p1-10.mp3",
+            "duration": 3.25
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a job that you would like to do in the future.",
+        "points": [
+          "what the job is",
+          "how you heard about it",
+          "what skills it needs"
+        ],
+        "explain": "and explain why you would like to do this job."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a job that you would like to do in the future.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a job that you would like to do in the future. You should say: what the job is; how you heard about it; what skills it needs; and explain why you would like to do this job.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-30/p2-talk.mp3",
+            "duration": 24.85
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you know anyone who does this job?",
+          "say": "Thank you. Do you know anyone who does this job?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-30/p2-follow.mp3",
+            "duration": 3.29
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Choosing a career",
+        "Work in the future"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Choosing a career",
+          "text": "What do young people in your country think about when they choose a career?",
+          "say": "Thank you. We've been talking about a job you would like to do in the future, and I'd like to discuss with you some more general questions related to this. Let's consider first of all choosing a career. What do young people in your country think about when they choose a career?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-30/p3-1.mp3",
+            "duration": 15.83
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Choosing a career",
+          "text": "Should parents influence the careers their children choose?",
+          "say": "Should parents influence the careers their children choose?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-30/p3-2.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Choosing a career",
+          "text": "Is it better to have a job you love or a job that pays well?",
+          "say": "Is it better to have a job you love or a job that pays well?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-30/p3-3.mp3",
+            "duration": 4.11
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Work in the future",
+          "text": "How will people's jobs change in the next twenty years?",
+          "say": "Now let's talk about work in the future. How will people's jobs change in the next twenty years?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-30/p3-4.mp3",
+            "duration": 6.35
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Work in the future",
+          "text": "Do you think people will retire later in the future?",
+          "say": "Do you think people will retire later in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-30/p3-5.mp3",
+            "duration": 3.42
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Work in the future",
+          "text": "Will it become more common for people to change careers several times?",
+          "say": "Will it become more common for people to change careers several times?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-30/p3-6.mp3",
+            "duration": 4.49
+          }
+        }
+      ]
+    }
+  ]
+}

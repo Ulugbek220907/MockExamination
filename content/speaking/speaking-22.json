@@ -1,0 +1,268 @@
+{
+  "id": "speaking-22",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 22",
+  "shortTitle": "Practice Test 22",
+  "durationMinutes": 14,
+  "sortOrder": 22,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-22/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-22/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Emails and messages",
+        "News"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Can you tell me what you do?",
+          "say": "Good afternoon. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about work or studies. Can you tell me what you do?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-1.mp3",
+            "duration": 14.4
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "How long have you been doing that?",
+          "say": "How long have you been doing that?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-2.mp3",
+            "duration": 2.33
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "Do you use a computer much in your work or studies?",
+          "say": "Do you use a computer much in your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-3.mp3",
+            "duration": 3.12
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "What is the most useful thing you have learned so far?",
+          "say": "What is the most useful thing you have learned so far?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-4.mp3",
+            "duration": 3.19
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Emails and messages",
+          "text": "Do you send many emails?",
+          "say": "Now let's move on to talk about emails and messages. Do you send many emails?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-5.mp3",
+            "duration": 5.39
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Emails and messages",
+          "text": "Do you prefer sending text messages or calling people?",
+          "say": "Do you prefer sending text messages or calling people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-6.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Emails and messages",
+          "text": "Have you ever written a letter by hand?",
+          "say": "Have you ever written a letter by hand?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-7.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "News",
+          "text": "How do you usually find out about the news?",
+          "say": "Now let's move on to talk about the news. How do you usually find out about the news?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-8.mp3",
+            "duration": 5.29
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "News",
+          "text": "What kind of news are you interested in?",
+          "say": "What kind of news are you interested in?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-9.mp3",
+            "duration": 2.61
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "News",
+          "text": "Did your family watch the news together when you were young?",
+          "say": "Did your family watch the news together when you were young?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p1-10.mp3",
+            "duration": 3.23
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a website or app that you find useful.",
+        "points": [
+          "what it is",
+          "how you found out about it",
+          "what you use it for"
+        ],
+        "explain": "and explain why you find it useful."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a website or app that you find useful.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a website or app that you find useful. You should say: what it is; how you found out about it; what you use it for; and explain why you find it useful.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-22/p2-talk.mp3",
+            "duration": 23.3
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do your friends use it too?",
+          "say": "Thank you. Do your friends use it too?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-22/p2-follow.mp3",
+            "duration": 2.55
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "The internet in daily life",
+        "Information and privacy"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "The internet in daily life",
+          "text": "What do people in your country mainly use the internet for?",
+          "say": "Thank you. We've been talking about a website or app you find useful, and I'd like to discuss with you some more general questions related to this. Let's consider first of all the internet in daily life. What do people in your country mainly use the internet for?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-22/p3-1.mp3",
+            "duration": 14.92
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "The internet in daily life",
+          "text": "How has the internet changed the way people shop?",
+          "say": "How has the internet changed the way people shop?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-22/p3-2.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "The internet in daily life",
+          "text": "Do you think people spend too much time online?",
+          "say": "Do you think people spend too much time online?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-22/p3-3.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Information and privacy",
+          "text": "Can we trust the information we find on the internet?",
+          "say": "Now let's talk about information and privacy. Can we trust the information we find on the internet?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-22/p3-4.mp3",
+            "duration": 6.16
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Information and privacy",
+          "text": "Should young children be allowed to use social media?",
+          "say": "Should young children be allowed to use social media?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-22/p3-5.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Information and privacy",
+          "text": "Why are some people worried about their privacy online?",
+          "say": "Why are some people worried about their privacy online?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-22/p3-6.mp3",
+            "duration": 3.27
+          }
+        }
+      ]
+    }
+  ]
+}

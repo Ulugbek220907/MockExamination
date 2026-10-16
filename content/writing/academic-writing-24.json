@@ -1,0 +1,93 @@
+{
+ "id": "academic-writing-24",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 24",
+ "shortTitle": "Practice Test 24",
+ "durationMinutes": 60,
+ "sortOrder": 24,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Pie charts: energy use by sector, now and in the future",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The pie charts below show the proportion of energy used by different sectors in one country in 2020 and the projected figures for 2050.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "pie",
+    "title": "Energy use by sector",
+    "unit": "%",
+    "charts": [
+     {
+      "title": "2020",
+      "slices": [
+       {
+        "label": "Industry",
+        "value": 34
+       },
+       {
+        "label": "Transport",
+        "value": 29
+       },
+       {
+        "label": "Homes",
+        "value": 22
+       },
+       {
+        "label": "Commercial services",
+        "value": 11
+       },
+       {
+        "label": "Agriculture",
+        "value": 4
+       }
+      ]
+     },
+     {
+      "title": "2050 (projected)",
+      "slices": [
+       {
+        "label": "Industry",
+        "value": 30
+       },
+       {
+        "label": "Transport",
+        "value": 18
+       },
+       {
+        "label": "Homes",
+        "value": 26
+       },
+       {
+        "label": "Commercial services",
+        "value": 20
+       },
+       {
+        "label": "Agriculture",
+        "value": 6
+       }
+      ]
+     }
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: industry is the largest user in both years; transport is expected to fall sharply, while commercial services and homes are expected to rise.",
+    "Industry 34% → 30%.",
+    "Transport 29% → 18% (from second to fourth).",
+    "Homes 22% → 26%; commercial services 11% → 20% (almost double); agriculture 4% → 6%."
+   ],
+   "modelAnswer": "The pie charts illustrate how energy was divided between five sectors in one country in 2020 and how this is expected to change by 2050.\n\nOverall, industry was the largest user of energy in 2020 and is predicted to remain so in 2050, although its share will fall slightly. The most significant expected changes are a sharp fall in the proportion used by transport and a large increase in the share used by commercial services.\n\nIn 2020, industry accounted for just over a third of all energy use (34%), followed by transport at 29% and homes at 22%. Commercial services, such as offices and shops, used 11%, and agriculture only 4%.\n\nBy 2050, industry's share is forecast to decline to 30%. The share of energy used by transport is expected to drop dramatically to 18%, perhaps because vehicles will become more efficient, so transport will move from second place to fourth. In contrast, the proportion used by commercial services is projected to almost double to 20%, while homes will account for 26%, making them the second largest user. Agriculture's share is also expected to rise slightly, to 6%, but it will remain the smallest sector."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Two-part essay: disappearing languages",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "two_part",
+   "prompt": "Write about the following topic:\n\nIn many parts of the world, traditional languages are dying out because fewer and fewer people speak them.\n\nWhy is this happening? Does it matter if some languages disappear?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Linguists estimate that a large proportion of the world's languages could disappear by the end of this century, as the last native speakers die and their children grow up speaking other languages. This essay will discuss why this is happening and argue that the loss of these languages is a serious matter.\n\nThere are several reasons for the decline of traditional languages. The most important is economic. Young people often need a national or international language, such as English, Spanish or Chinese, to find good jobs, so parents encourage their children to speak these languages rather than their local one. Urbanisation also plays a role: when families move from villages to cities, they mix with people who speak other languages, and the traditional language is used less and less. Finally, television, the internet and social media are dominated by a small number of major languages, which makes minority languages seem old-fashioned to young people.\n\nSome people argue that the disappearance of these languages does not matter, because fewer languages make communication between people easier. However, I believe this view ignores what is lost. Each language contains a unique way of seeing the world, including knowledge of local plants, animals, history and traditions that may not exist in any other form. When a language dies, songs, stories and expressions that have been passed down for centuries disappear with it. In addition, language is closely connected to identity, and communities that lose their language often feel that they have lost part of who they are.\n\nIn conclusion, traditional languages are dying mainly for economic and social reasons. Their loss matters, because they carry knowledge and identity, and governments and communities should therefore support efforts to record and teach them."
+  }
+ ]
+}

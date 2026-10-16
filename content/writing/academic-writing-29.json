@@ -1,0 +1,209 @@
+{
+ "id": "academic-writing-29",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 29",
+ "shortTitle": "Practice Test 29",
+ "durationMinutes": 60,
+ "sortOrder": 29,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Maps: changes to a small airport",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The maps below show a small airport in 2000 and today.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "map",
+    "title": "Hollins Field Airport",
+    "note": "Fictional maps created for practice purposes.",
+    "maps": [
+     {
+      "title": "2000",
+      "width": 440,
+      "height": 300,
+      "items": [
+       {
+        "type": "area",
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 300,
+        "style": "grass"
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 18,
+        "x2": 440,
+        "y2": 18,
+        "style": "road",
+        "label": "Airport Road",
+        "lx": -140
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 48,
+        "w": 110,
+        "h": 92,
+        "style": "parking",
+        "label": "Car park"
+       },
+       {
+        "type": "rect",
+        "x": 145,
+        "y": 55,
+        "w": 145,
+        "h": 85,
+        "style": "building",
+        "label": "Terminal"
+       },
+       {
+        "type": "rect",
+        "x": 302,
+        "y": 70,
+        "w": 48,
+        "h": 70,
+        "style": "building",
+        "label": "Tower"
+       },
+       {
+        "type": "trees",
+        "x": 360,
+        "y": 45,
+        "w": 65,
+        "h": 95,
+        "label": "Woods"
+       },
+       {
+        "type": "rect",
+        "x": 145,
+        "y": 152,
+        "w": 145,
+        "h": 44,
+        "style": "sand",
+        "label": "Aircraft parking"
+       },
+       {
+        "type": "rect",
+        "x": 15,
+        "y": 210,
+        "w": 410,
+        "h": 36,
+        "style": "parking",
+        "label": "Runway"
+       },
+       {
+        "type": "compass",
+        "x": 30,
+        "y": 274
+       }
+      ]
+     },
+     {
+      "title": "Today",
+      "width": 440,
+      "height": 300,
+      "items": [
+       {
+        "type": "area",
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 300,
+        "style": "grass"
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 18,
+        "x2": 440,
+        "y2": 18,
+        "style": "road",
+        "label": "Airport Road",
+        "lx": -140
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 48,
+        "w": 110,
+        "h": 92,
+        "style": "building",
+        "label": "Hotel"
+       },
+       {
+        "type": "rect",
+        "x": 145,
+        "y": 55,
+        "w": 190,
+        "h": 85,
+        "style": "building",
+        "label": "Terminal (extended)"
+       },
+       {
+        "type": "rect",
+        "x": 345,
+        "y": 45,
+        "w": 80,
+        "h": 95,
+        "style": "parking",
+        "label": "Car park"
+       },
+       {
+        "type": "rect",
+        "x": 145,
+        "y": 152,
+        "w": 280,
+        "h": 44,
+        "style": "sand",
+        "label": "Aircraft parking"
+       },
+       {
+        "type": "rect",
+        "x": 15,
+        "y": 210,
+        "w": 410,
+        "h": 36,
+        "style": "parking",
+        "label": "Runway"
+       },
+       {
+        "type": "rect",
+        "x": 360,
+        "y": 256,
+        "w": 60,
+        "h": 36,
+        "style": "building",
+        "label": "Tower"
+       },
+       {
+        "type": "compass",
+        "x": 30,
+        "y": 274
+       }
+      ]
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: the airport has expanded; the terminal and aircraft parking are bigger, a hotel and a new car park have been built, and the control tower has moved; the road and runway are unchanged.",
+    "Car park (west) → hotel; woods (east) → new car park.",
+    "Terminal extended eastwards onto the site of the old tower; aircraft parking area about twice as long.",
+    "Control tower moved to the south side of the runway."
+   ],
+   "modelAnswer": "The maps compare the layout of Hollins Field Airport in 2000 and at the present time.\n\nOverall, the airport has been considerably expanded, with a larger terminal, more space for aircraft and new facilities for passengers. The main changes are the replacement of the car park by a hotel and the relocation of the control tower, while Airport Road and the runway have remained the same.\n\nIn 2000, passengers arriving from Airport Road could park in a car park at the western end of the site, next to the terminal building. To the east of the terminal stood the control tower, and beyond it there was a small area of woodland. An area for parking aircraft was located directly in front of the terminal, between the building and the runway.\n\nToday, the old car park has been replaced by a hotel, and a new car park has been built on the site of the woods in the north-east. The terminal has been extended eastwards, taking over the space previously occupied by the control tower, which has been moved to the south side of the runway. In addition, the aircraft parking area has been made roughly twice as long, now stretching almost as far as the eastern end of the runway."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Opinion essay: who can stop climate change",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "opinion",
+   "prompt": "Write about the following topic:\n\nSome people believe that individuals can do very little to slow climate change, and that only governments and large companies can make a real difference.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Climate change is one of the greatest challenges facing the world, and there is much debate about who is responsible for tackling it. Some people argue that the actions of individuals are almost meaningless compared with those of governments and large companies. While I agree that governments and businesses have the greatest power, I do not believe that individuals can do nothing.\n\nIt is true that the biggest changes depend on governments and large organisations. Most greenhouse gas emissions come from power stations, factories, transport systems and agriculture, which are controlled by governments and companies rather than by individuals. A single government decision to close coal-fired power stations or to invest in public transport can reduce emissions far more than millions of people switching off their lights. Large companies can also make a huge difference by changing the way they produce goods and transport them.\n\nNevertheless, individuals still have an important role to play. Firstly, small actions add up: if millions of people fly less, eat less meat, use public transport and waste less energy, the combined effect is significant. Secondly, individual choices influence companies. When consumers buy products from businesses that reduce their emissions, other firms are encouraged to follow. Thirdly, and most importantly, governments in democratic countries respond to the views of their citizens. People who vote for politicians with strong climate policies, join campaigns and talk about the issue create the public pressure that leads to government action.\n\nIn conclusion, I partly agree with the statement. Governments and large companies have the power to make the largest reductions in emissions, but individuals contribute both through their own behaviour and by pushing those in power to act. Both are necessary if climate change is to be slowed."
+  }
+ ]
+}

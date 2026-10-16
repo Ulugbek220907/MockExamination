@@ -1,0 +1,115 @@
+{
+ "id": "academic-writing-35",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 35",
+ "shortTitle": "Practice Test 35",
+ "durationMinutes": 60,
+ "sortOrder": 35,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Line graph and pie chart: jobs in a town",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The line graph below shows the number of jobs in manufacturing and services in one town between 1980 and 2020. The pie chart shows the types of service jobs in the town in 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "multi",
+    "title": "Employment in Ashby",
+    "note": "Fictional data created for practice purposes.",
+    "parts": [
+     {
+      "type": "line",
+      "title": "Jobs by sector, 1980–2020",
+      "yLabel": "Number of jobs (thousands)",
+      "unit": "",
+      "yMax": 45,
+      "yStep": 5,
+      "categories": [
+       "1980",
+       "1990",
+       "2000",
+       "2010",
+       "2020"
+      ],
+      "series": [
+       {
+        "name": "Manufacturing",
+        "values": [
+         28,
+         24,
+         17,
+         11,
+         8
+        ]
+       },
+       {
+        "name": "Services",
+        "values": [
+         15,
+         19,
+         26,
+         33,
+         41
+        ]
+       }
+      ]
+     },
+     {
+      "type": "pie",
+      "title": "Service jobs by type, 2020",
+      "unit": "%",
+      "charts": [
+       {
+        "title": "",
+        "slices": [
+         {
+          "label": "Health and care",
+          "value": 27
+         },
+         {
+          "label": "Retail",
+          "value": 22
+         },
+         {
+          "label": "Education",
+          "value": 16
+         },
+         {
+          "label": "Hotels and restaurants",
+          "value": 15
+         },
+         {
+          "label": "Finance and business",
+          "value": 12
+         },
+         {
+          "label": "Other",
+          "value": 8
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: manufacturing jobs fell steadily while service jobs rose, overtaking manufacturing in the 1990s; in 2020 health and care was the largest type of service job.",
+    "Manufacturing: 28k → 8k. Services: 15k → 41k; services overtook manufacturing between 1990 and 2000.",
+    "Total jobs: 43k (1980) → 49k (2020).",
+    "2020 services: health and care 27%, retail 22%, education 16%, hotels and restaurants 15%, finance and business 12%, other 8%."
+   ],
+   "modelAnswer": "The line graph shows how the number of manufacturing and service jobs in the town of Ashby changed between 1980 and 2020, while the pie chart breaks down the service jobs in 2020 by type.\n\nOverall, employment in Ashby shifted dramatically from manufacturing to services over the forty-year period. By 2020, service jobs far outnumbered manufacturing jobs, and the largest group of service jobs was in health and care.\n\nIn 1980, manufacturing provided 28,000 jobs, almost twice as many as the service sector, which employed 15,000 people. However, manufacturing jobs then declined in every decade, falling to 17,000 in 2000 and just 8,000 in 2020. In contrast, the number of service jobs increased steadily, overtaking manufacturing in the 1990s and reaching 41,000 by 2020. As a result, the total number of jobs in the town actually rose, from 43,000 to 49,000.\n\nLooking at the service sector in 2020, health and care accounted for the largest share of jobs (27%), followed by retail at 22%. Education and hotels and restaurants made up similar proportions, at 16% and 15% respectively, while finance and business represented 12%. The remaining 8% of service jobs were in other areas."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Discussion essay: artificial intelligence and jobs",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "discussion",
+   "prompt": "Write about the following topic:\n\nSome people believe that robots and artificial intelligence will create more jobs than they destroy. Others think that they will lead to widespread unemployment.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Robots and artificial intelligence (AI) are already able to drive vehicles, answer customer questions and analyse medical images, and their abilities are growing quickly. This has led to an intense debate about their effect on employment. In my view, these technologies will not cause permanent mass unemployment, but they will cause serious disruption that governments must prepare for.\n\nThose who fear widespread unemployment argue that AI is different from earlier technologies. In the past, machines mainly replaced physical work, but AI can now perform tasks that require thinking, such as writing reports, translating documents and processing legal or financial information. If machines can do both physical and mental work more cheaply than people, many workers, from lorry drivers to accountants, could lose their jobs, and it is not clear what new work would be available for them.\n\nOn the other hand, optimists point out that similar fears have been expressed many times before. When factories were mechanised and computers were introduced, many jobs disappeared, but far more new ones were created in industries that no one had imagined. AI is already creating demand for software engineers, data specialists and technicians, and by making businesses more productive, it may lower prices and increase demand for other goods and services. Moreover, many jobs involve skills that machines still find very difficult, such as caring for people, building relationships and creative problem-solving.\n\nIn my opinion, history suggests that the optimists are right in the long term, but the transition could be painful. Workers whose jobs are replaced may not have the skills needed for new ones. Governments should therefore invest heavily in retraining and lifelong education, and provide financial support for people who lose their jobs.\n\nIn conclusion, although AI will destroy many existing jobs, I believe it will create new ones, provided that workers are helped to adapt."
+  }
+ ]
+}

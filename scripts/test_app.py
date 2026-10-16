@@ -307,6 +307,11 @@ class WritingTests(unittest.TestCase):
         self.assertIn("Contractions", texts)
         self.assertIn("informal", texts)
 
+    def test_possessives_are_not_contractions(self):
+        a = writing.analyse_text("Eastvale's figure and the city’s total rose, but it's lower than Southbay's and they don’t say why.", 1, 1)
+        flagged = [c["text"] for c in a["checks"] if c["text"].startswith("Contractions found")]
+        self.assertEqual(flagged, ["Contractions found (don’t, it's). Use full forms in academic writing."])
+
     def test_model_answers_pass_checks(self):
         for t in WRITING:
             for task in t["tasks"]:
@@ -519,8 +524,102 @@ class SupabaseStoreTests(unittest.TestCase):
         self.assertIs(store.list_tests(), first)
 
 
+class CachedDbTests(unittest.TestCase):
+    """mockexam.dbcache: reads of hot tables are kept, and any write through it drops them at once."""
+
+    class FakeDb:
+        name = "fake"
+
+        def __init__(self):
+            self.rows = {"profiles": [{"id": "u1", "name": "A"}], "orders": [{"id": 1}]}
+            self.reads = 0
+
+        def select(self, table, where=None, order=None, limit=None):
+            self.reads += 1
+            return [dict(r) for r in self.rows.get(table, [])]
+
+        def count(self, table, where=None):
+            self.reads += 1
+            return len(self.rows.get(table, []))
+
+        def insert(self, table, row, ignore_conflict=False):
+            self.rows.setdefault(table, []).append(dict(row))
+            return row
+
+        def update(self, table, where, values):
+            for r in self.rows.get(table, []):
+                r.update(values)
+            return self.rows.get(table, [])
+
+        def delete(self, table, where):
+            n = len(self.rows.get(table, []))
+            self.rows[table] = []
+            return n
+
+    def setUp(self):
+        from mockexam.dbcache import CachedDb
+        self.raw = self.FakeDb()
+        self.db = CachedDb(self.raw, {"profiles": 60})
+
+    def test_reads_are_cached_and_copied(self):
+        first = self.db.select("profiles", {"id": "u1"}, limit=1)
+        first[0]["name"] = "changed by the caller"
+        self.assertEqual(self.db.select("profiles", {"id": "u1"}, limit=1)[0]["name"], "A")
+        self.assertEqual(self.raw.reads, 1)
+        self.db.select("profiles", {"id": "u2"}, limit=1)  # another query is its own entry
+        self.assertEqual(self.raw.reads, 2)
+        self.assertEqual(self.db.name, "fake")  # everything else is the wrapped database's
+
+    def test_writes_drop_the_table_at_once(self):
+        self.db.select("profiles")
+        self.db.update("profiles", {"id": "u1"}, {"name": "B"})
+        self.assertEqual(self.db.select("profiles")[0]["name"], "B")
+        self.db.insert("profiles", {"id": "u2"})
+        self.assertEqual(len(self.db.select("profiles")), 2)
+        self.db.delete("profiles", {"id": "u1"})
+        self.assertEqual(self.db.select("profiles"), [])
+        self.db.count("profiles")
+        self.db.invalidate("profiles")
+        self.raw.rows["profiles"] = [{"id": "u3"}]
+        self.assertEqual(self.db.count("profiles"), 1)
+
+    def test_uncached_tables_always_read(self):
+        self.db.select("orders")
+        self.db.select("orders")
+        self.assertEqual(self.raw.reads, 2)
+
+    def test_a_read_racing_a_write_is_not_kept(self):
+        db, raw = self.db, self.raw
+        original = raw.select
+
+        def slow_select(*args, **kwargs):
+            rows = original(*args, **kwargs)
+            db.update("profiles", {"id": "u1"}, {"name": "written meanwhile"})
+            return rows
+
+        raw.select = slow_select
+        self.assertEqual(db.select("profiles")[0]["name"], "A")  # the old value, read before the write
+        raw.select = original
+        self.assertEqual(db.select("profiles")[0]["name"], "written meanwhile")
+
+    def test_gather_runs_calls_side_by_side(self):
+        import time as _time
+        from mockexam.dbcache import gather
+        start = _time.monotonic()
+        self.assertEqual(gather(lambda: _time.sleep(0.2) or 1, lambda: _time.sleep(0.2) or 2), [1, 2])
+        self.assertLess(_time.monotonic() - start, 0.35)
+
+    def test_store_saves_refresh_history(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            store = storage.LocalStore(os.path.join(tmp, "t.sqlite3"))
+            self.assertEqual(store.db.select("reading_attempts", {"user_id": "u9"}), [])
+            store.save_reading_attempt({"test_id": "academic-reading-01", "user_id": "u9", "raw_score": 30,
+                                        "total_questions": 40, "band_score": 7.0})
+            self.assertEqual(len(store.db.select("reading_attempts", {"user_id": "u9"})), 1)
+
+
 class PoolTests(unittest.TestCase):
-    """mockexam.pool keeps one connection per thread open and behaves like urllib on errors."""
+    """mockexam.pool shares kept-alive connections between threads and behaves like urllib on errors."""
 
     @classmethod
     def setUpClass(cls):
@@ -528,6 +627,7 @@ class PoolTests(unittest.TestCase):
         import threading
 
         cls.ports = []
+        cls.pings = []
 
         class Handler(http.server.BaseHTTPRequestHandler):
             protocol_version = "HTTP/1.1"
@@ -546,6 +646,13 @@ class PoolTests(unittest.TestCase):
                 self.wfile.write(raw)
                 if self.path == "/drop":  # close the kept-alive connection without saying so
                     self.close_connection = True
+
+            def do_GET(self):
+                cls.pings.append(self.client_address[1])
+                self.send_response(200)
+                self.send_header("Content-Length", "2")
+                self.end_headers()
+                self.wfile.write(b"[]")
 
         cls.httpd = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
         threading.Thread(target=cls.httpd.serve_forever, daemon=True).start()
@@ -575,6 +682,35 @@ class PoolTests(unittest.TestCase):
         self.assertEqual(self.post("/d")[0], 200)  # retried on a new connection
         self.assertEqual(len(set(self.ports)), 2)
         self.assertEqual(len(pool._connections()), 1)
+
+    def test_threads_share_connections(self):
+        import threading
+        from mockexam import pool
+        pool._connections().clear()
+        del self.ports[:]
+        self.post("/warm")
+        t = threading.Thread(target=self.post, args=("/other-thread",))
+        t.start()
+        t.join()
+        self.assertEqual(len(set(self.ports)), 1)  # the second thread used the first thread's connection
+
+    def test_keep_warm_holds_spare_connections_open(self):
+        import time as _time
+        import urllib.request
+        from mockexam import pool
+        pool._connections().clear()
+        del self.pings[:]
+        warm = pool.keep_warm(lambda: urllib.request.Request(self.base + "/ping"), every=0.2, spare=2)
+        try:
+            _time.sleep(0.9)
+            key = ("http", self.base.split("//")[1], 15)
+            self.assertEqual(len(pool._connections().get(key, [])), 2)  # two warm connections waiting
+            self.assertEqual(len(set(self.pings)), 2)  # and the pings reused them
+            self.assertGreaterEqual(len(self.pings), 4)
+        finally:
+            warm.stop()
+            warm.join(2)
+            pool._connections().clear()
 
     def test_http_errors_raise_like_urllib(self):
         import urllib.error

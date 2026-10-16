@@ -1,0 +1,75 @@
+{
+ "id": "academic-writing-34",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 34",
+ "shortTitle": "Practice Test 34",
+ "durationMinutes": 60,
+ "sortOrder": 34,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Process diagram: developing a new medicine",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The diagram below shows the stages in the development of a new medicine.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "process",
+    "title": "How a new medicine is developed",
+    "cycle": false,
+    "note": "The whole process usually takes 10–15 years.",
+    "steps": [
+     {
+      "label": "Research",
+      "text": "Scientists identify a substance that may treat a disease"
+     },
+     {
+      "label": "Laboratory tests",
+      "text": "The substance is tested on cells to check that it works and is safe"
+     },
+     {
+      "label": "Trial: phase 1",
+      "text": "20–80 healthy volunteers take it to test its safety and find the right dose"
+     },
+     {
+      "label": "Trial: phase 2",
+      "text": "Several hundred patients take it to see whether it treats the disease"
+     },
+     {
+      "label": "Trial: phase 3",
+      "text": "Thousands of patients in several countries compare it with existing treatments"
+     },
+     {
+      "label": "Approval",
+      "text": "A government agency reviews all the results and decides whether it can be sold"
+     },
+     {
+      "label": "Manufacture",
+      "text": "The medicine is produced in large quantities and supplied to doctors and pharmacies"
+     },
+     {
+      "label": "Monitoring",
+      "text": "Side effects reported by doctors and patients continue to be checked"
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: eight stages over 10–15 years, from research and laboratory tests through three phases of trials with more and more people, to approval, manufacture and continued monitoring.",
+    "Research → laboratory tests on cells (does it work, is it safe).",
+    "Phase 1: 20–80 healthy volunteers (safety, dose); phase 2: several hundred patients; phase 3: thousands of patients in several countries, compared with existing treatments.",
+    "Government agency approval → large-scale manufacture → monitoring of side effects."
+   ],
+   "modelAnswer": "The diagram illustrates the process by which a new medicine is developed, from the first research to the period after it has been made available to patients.\n\nOverall, there are eight main stages, which typically take between ten and fifteen years to complete. After initial research and laboratory testing, the medicine goes through three phases of trials involving increasing numbers of people, and only then can it be approved, manufactured and sold.\n\nThe process begins when scientists identify a substance that might be used to treat a disease. This substance is then tested on cells in a laboratory to check whether it works and whether it is safe. If the results are positive, the first phase of trials begins, in which between 20 and 80 healthy volunteers take the substance so that its safety and the correct dose can be established.\n\nIn the second phase, several hundred patients with the disease are given the medicine to find out whether it is effective. The third phase involves thousands of patients in several countries, and the new medicine is compared with existing treatments. After that, a government agency reviews all the results and decides whether the medicine can be sold. If it is approved, it is manufactured in large quantities and supplied to doctors and pharmacies. Finally, any side effects reported by doctors and patients continue to be monitored."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Causes and solutions essay: noise in cities",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "problem_solution",
+   "prompt": "Write about the following topic:\n\nNoise in cities has become a serious problem, affecting people's health and quality of life.\n\nWhat are the main causes of noise in cities? What can be done to reduce it?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Many people who live in large cities are exposed to high levels of noise both day and night, and doctors warn that this can lead to stress, poor sleep and even heart problems. This essay will discuss the main sources of urban noise and suggest some ways of reducing it.\n\nThe most important cause of noise in cities is traffic. Cars, buses, lorries and motorbikes produce constant noise from their engines, tyres and horns, especially on busy main roads, and in many cities traffic continues late into the night. Aircraft and trains add to the problem for people who live near airports and railway lines. A second major cause is construction. Growing cities are constantly building new homes, offices and roads, and the machinery used can be extremely loud. Finally, entertainment, such as bars, restaurants and music venues, creates noise in the evenings, particularly in city centres.\n\nThere are several ways to reduce this problem. Governments can tackle traffic noise by encouraging the use of electric vehicles, which are much quieter than petrol or diesel ones, and by lowering speed limits in residential areas. Using quieter road surfaces and building noise barriers along motorways and railways can also make a significant difference. Construction work can be limited to certain hours, so that residents are not disturbed early in the morning or late at night. In addition, new buildings should be designed with good insulation and double-glazed windows to protect people inside. Finally, cities can create more parks and plant trees, which absorb sound and provide quiet places for residents to relax.\n\nIn conclusion, noise in cities is caused mainly by traffic, construction and entertainment, but it can be reduced through quieter transport, better regulation and careful urban design."
+  }
+ ]
+}

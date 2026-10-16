@@ -1,0 +1,91 @@
+{
+ "id": "academic-writing-06",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 6",
+ "shortTitle": "Practice Test 6",
+ "durationMinutes": 60,
+ "sortOrder": 6,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Line graph: daily water use in three cities",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The graph below shows the average amount of water used per person each day in three cities between 1990 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "line",
+    "title": "Average daily water use per person, 1990–2020",
+    "yLabel": "Litres per person per day",
+    "unit": "",
+    "yMax": 350,
+    "yStep": 50,
+    "categories": [
+     "1990",
+     "1995",
+     "2000",
+     "2005",
+     "2010",
+     "2015",
+     "2020"
+    ],
+    "series": [
+     {
+      "name": "Northport",
+      "values": [
+       310,
+       295,
+       270,
+       240,
+       210,
+       185,
+       160
+      ]
+     },
+     {
+      "name": "Eastvale",
+      "values": [
+       180,
+       190,
+       205,
+       220,
+       230,
+       235,
+       240
+      ]
+     },
+     {
+      "name": "Southbay",
+      "values": [
+       250,
+       260,
+       255,
+       245,
+       250,
+       240,
+       245
+      ]
+     }
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: Northport fell sharply (from highest to lowest), Eastvale rose steadily, Southbay stayed roughly stable.",
+    "Northport: 310 → 160 litres (about half); below Southbay by 2005 and below Eastvale by 2010.",
+    "Eastvale: 180 → 240, rising in every period.",
+    "Southbay: fluctuated between 240 and 260; 245 in 2020, almost the same as Eastvale."
+   ],
+   "modelAnswer": "The line graph compares the average amount of water used each day by one person in three cities, Northport, Eastvale and Southbay, between 1990 and 2020.\n\nOverall, water consumption per person fell sharply in Northport, while it rose steadily in Eastvale and remained fairly stable in Southbay. As a result, Northport went from having the highest level of consumption to the lowest.\n\nIn 1990, a resident of Northport used 310 litres a day, considerably more than people in Southbay (250 litres) and Eastvale (180 litres). Over the following thirty years, the figure for Northport declined continuously, dropping below Southbay's by 2005 and below Eastvale's by 2010, before reaching just 160 litres in 2020, roughly half of its original level.\n\nBy contrast, consumption in Eastvale increased in every five-year period, climbing from 180 to 240 litres. Southbay's figure fluctuated within a narrow range, peaking at 260 litres in 1995 and finishing at 245 litres in 2020. By the end of the period, therefore, Southbay and Eastvale had almost identical levels of use, both around 80 litres a day higher than Northport."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Discussion essay: an ageing population",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "discussion",
+   "prompt": "Write about the following topic:\n\nIn many countries, people are living longer than ever before. Some people believe that an ageing population creates serious problems for governments. Others think that there are benefits if a society has more elderly people.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Thanks to better healthcare and living standards, the proportion of older people is rising in many parts of the world. While some see this trend mainly as a burden on governments, others argue that it brings real advantages. In my view, an older population does create genuine challenges, but these can be managed, and the benefits are often underestimated.\n\nThose who focus on the problems usually point to money. When a larger share of the population is retired, governments must pay more in pensions and spend more on hospitals and care homes, while there are fewer working-age people paying taxes to fund these services. Japan, for example, has had to raise taxes and the retirement age to cope with this pressure. Critics also worry that a shortage of young workers could slow economic growth.\n\nOn the other hand, older citizens contribute to society in many ways that do not appear in government budgets. Grandparents often look after children, which allows parents to work, and many retired people volunteer in schools, hospitals and charities. Older people also have decades of experience, and those who continue to work part-time can pass on skills to younger colleagues. In addition, they form a large group of consumers, creating jobs in areas such as healthcare, travel and leisure.\n\nIn my opinion, an ageing population is a challenge rather than a crisis. Governments can reduce the financial pressure by encouraging healthy lifestyles, allowing flexible retirement and supporting older people who want to keep working. If these steps are taken, a society with more elderly people can benefit from their time, knowledge and experience.\n\nIn conclusion, although longer lives bring higher costs, I believe that the advantages of an older population can outweigh the problems, provided that governments plan carefully."
+  }
+ ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-18",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 18",
+  "shortTitle": "Practice Test 18",
+  "durationMinutes": 14,
+  "sortOrder": 18,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "George",
+    "voice": "bm_george",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-18/p2-start.mp3",
+        "duration": 11.03
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-18/end.mp3",
+        "duration": 3.85
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Clothes",
+        "Colours"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where is your hometown?",
+          "say": "Good morning. My name is George, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-1.mp3",
+            "duration": 16.79
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "Do you still live there?",
+          "say": "Do you still live there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-2.mp3",
+            "duration": 2.1
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "What is the weather usually like there?",
+          "say": "What is the weather usually like there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-3.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "What kind of jobs do people do in your hometown?",
+          "say": "What kind of jobs do people do in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-4.mp3",
+            "duration": 3.83
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Clothes",
+          "text": "What kind of clothes do you like to wear?",
+          "say": "Now let's move on to talk about clothes. What kind of clothes do you like to wear?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-5.mp3",
+            "duration": 6.06
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Clothes",
+          "text": "Do you wear different clothes at the weekend?",
+          "say": "Do you wear different clothes at the weekend?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-6.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Clothes",
+          "text": "Do you ever buy second-hand clothes?",
+          "say": "Do you ever buy second-hand clothes?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-7.mp3",
+            "duration": 3.21
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Colours",
+          "text": "What is your favourite colour?",
+          "say": "Now let's move on to talk about colours. What is your favourite colour?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-8.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Colours",
+          "text": "Are there any colours you would never wear?",
+          "say": "Are there any colours you would never wear?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-9.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Colours",
+          "text": "Do colours have special meanings in your country?",
+          "say": "Do colours have special meanings in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p1-10.mp3",
+            "duration": 3.91
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe an item of clothing that is special to you.",
+        "points": [
+          "what it is",
+          "where you got it",
+          "when you wear it"
+        ],
+        "explain": "and explain why it is special to you."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe an item of clothing that is special to you.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe an item of clothing that is special to you. You should say: what it is; where you got it; when you wear it; and explain why it is special to you.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-18/p2-talk.mp3",
+            "duration": 27.09
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think you will keep it for a long time?",
+          "say": "Thank you. Do you think you will keep it for a long time?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-18/p2-follow.mp3",
+            "duration": 3.61
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Fashion",
+        "Clothes and society"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Fashion",
+          "text": "Why do some people care a lot about fashion?",
+          "say": "Thank you. We've been talking about an item of clothing that is special to you, and I'd like to discuss with you some more general questions related to this. Let's consider first of all fashion. Why do some people care a lot about fashion?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-18/p3-1.mp3",
+            "duration": 16.39
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Fashion",
+          "text": "Do young people and older people dress differently in your country?",
+          "say": "Do young people and older people dress differently in your country?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-18/p3-2.mp3",
+            "duration": 5.04
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Fashion",
+          "text": "How does advertising influence what people wear?",
+          "say": "How does advertising influence what people wear?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-18/p3-3.mp3",
+            "duration": 3.89
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Clothes and society",
+          "text": "Should students wear school uniforms?",
+          "say": "Now let's talk about clothes and society. Should students wear school uniforms?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-18/p3-4.mp3",
+            "duration": 6.44
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Clothes and society",
+          "text": "Is it important to dress formally for work?",
+          "say": "Is it important to dress formally for work?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-18/p3-5.mp3",
+            "duration": 3.57
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Clothes and society",
+          "text": "What can be done to reduce the amount of clothing that people throw away?",
+          "say": "What can be done to reduce the amount of clothing that people throw away?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-18/p3-6.mp3",
+            "duration": 5.17
+          }
+        }
+      ]
+    }
+  ]
+}

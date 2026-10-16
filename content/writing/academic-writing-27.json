@@ -1,0 +1,79 @@
+{
+ "id": "academic-writing-27",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 27",
+ "shortTitle": "Practice Test 27",
+ "durationMinutes": 60,
+ "sortOrder": 27,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Bar chart: tourists visiting four regions",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The chart below shows the number of international tourists who visited four regions of one country in 2010, 2015 and 2019.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "bar",
+    "title": "International tourists by region, 2010–2019",
+    "yLabel": "Visitors (millions)",
+    "unit": "",
+    "yMax": 8,
+    "yStep": 2,
+    "categories": [
+     "Capital city",
+     "Coast",
+     "Mountains",
+     "Lakes"
+    ],
+    "series": [
+     {
+      "name": "2010",
+      "values": [
+       6.5,
+       4.2,
+       1.8,
+       0.9
+      ]
+     },
+     {
+      "name": "2015",
+      "values": [
+       7.1,
+       5.0,
+       2.6,
+       1.4
+      ]
+     },
+     {
+      "name": "2019",
+      "values": [
+       6.8,
+       5.3,
+       3.9,
+       2.7
+      ]
+     }
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: the capital was the most visited region in every year, but the mountains and lakes grew fastest; the capital's numbers fell slightly after 2015.",
+    "Capital: 6.5m → 7.1m → 6.8m. Coast: 4.2m → 5.0m → 5.3m.",
+    "Mountains: 1.8m → 2.6m → 3.9m (more than doubled).",
+    "Lakes: 0.9m → 1.4m → 2.7m (tripled)."
+   ],
+   "modelAnswer": "The bar chart illustrates how many international tourists visited four regions of a country in 2010, 2015 and 2019.\n\nOverall, the capital city attracted the largest number of foreign visitors in all three years, although its numbers fell slightly at the end of the period. The strongest growth took place in the mountain and lake regions, which were the least visited areas.\n\nIn 2010, the capital received 6.5 million international tourists, and this figure rose to 7.1 million in 2015 before falling to 6.8 million in 2019. The coast was the second most popular destination throughout, with numbers growing steadily from 4.2 million to 5.0 million and then 5.3 million.\n\nThe two smaller regions saw much faster increases. Visitors to the mountains rose from 1.8 million in 2010 to 2.6 million in 2015 and 3.9 million in 2019, more than double the original figure. The lakes, which attracted fewer than one million tourists in 2010 (0.9 million), experienced the most dramatic growth of all, with numbers reaching 1.4 million in 2015 and 2.7 million in 2019, three times the 2010 level. As a result, the difference between the most and least popular regions narrowed considerably."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Causes and solutions essay: the gap between rich and poor",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "problem_solution",
+   "prompt": "Write about the following topic:\n\nIn many countries, the gap between the richest and the poorest people is increasing.\n\nWhat problems does this cause? What solutions can you suggest?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "In many parts of the world, the incomes of the richest people have risen much faster than those of everyone else, and the gap between rich and poor has widened. This essay will consider the problems that this inequality causes and suggest some ways in which it could be reduced.\n\nOne of the most serious problems is that inequality limits opportunities. Children from poor families often attend under-funded schools, have less access to healthcare and cannot afford higher education, so they find it much harder to obtain well-paid jobs than children from wealthy families. Over time, this means that poverty is passed from one generation to the next. A large gap between rich and poor can also damage society as a whole. Research suggests that very unequal societies tend to have higher levels of crime, poorer health and lower levels of trust between people. In addition, when wealth is concentrated in the hands of a few, those people may gain too much political influence.\n\nSeveral measures could help to reduce the gap. Firstly, governments could make their tax systems fairer, for example by taxing very high incomes and large inheritances more heavily, and using the money to fund public services. Secondly, investing in good-quality free education, from early childhood to university, would give children from poorer families a better chance of success. Thirdly, a reasonable minimum wage and support for affordable housing would raise the living standards of low-paid workers. Finally, companies could be encouraged to share their profits more fairly with employees.\n\nIn conclusion, a growing gap between rich and poor reduces opportunities and harms society. Fairer taxation, better education and decent wages are the most effective ways to tackle the problem."
+  }
+ ]
+}
