@@ -111,20 +111,18 @@ scripts/
   build_listening_audio.py  generate listening MP3s from the scripts (Kokoro TTS)
   build_speaking_audio.py   generate the Speaking examiner's questions (Kokoro TTS)
   check_listening_audio.py  transcribe the MP3s with Whisper and check every answer is heard
-  test_app.py             test suite
-```
-
-### Legacy files to delete
-`data/tests.json`, `data/attempts.db` and `scripts/build_tests_data.py` hold the withdrawn Cambridge material. They are no longer loaded or served. Delete them from the repository before going live:
-
-```bash
-git rm data/tests.json data/attempts.db scripts/build_tests_data.py
+  test_app.py             test suite (prints the number of tests)
+  make_og_image.js        draws public/img/og.png, the picture shown when the site is shared (Node + Playwright)
+docs/
+  PAYMENTS_CHECKLIST.md   step-by-step test purchase and refund on production
+.github/workflows/ci.yml  runs the content check and the tests on every push and pull request
 ```
 
 ## API
 
 | Method | Path | Purpose |
 |---|---|---|
+| GET | `/robots.txt`, `/sitemap.xml` | for search engines; both use `SITE_URL` |
 | GET | `/api/health` | health check |
 | GET | `/api/config` | site name, whether AI marking is enabled |
 | GET | `/api/tests` | test summaries |

@@ -686,6 +686,36 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertNotIn("#/resources", footer)
         self.assertNotIn("#/about", footer)
 
+    def test_share_tags_canonical_and_structured_data(self):
+        import re
+        page = self.fetch("/").body.decode()
+        self.assertNotIn("%SITE_URL%", page)
+        base = server.PUBLIC_URL
+        for tag in (f'<link rel="canonical" href="{base}/"', f'<meta property="og:image" content="{base}/img/og.png"',
+                    f'<meta property="og:url" content="{base}/"', '<meta name="twitter:card" content="summary_large_image"'):
+            self.assertIn(tag, page)
+        self.assertEqual(self.fetch("/img/og.png").code, 200)
+        blocks = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', page)]
+        self.assertEqual({b["@type"] for b in blocks}, {"WebSite", "Organization", "FAQPage"})
+        # The FAQ for search engines says exactly what the Prices page says.
+        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
+            strings = f.read()
+        faq = next(b for b in blocks if b["@type"] == "FAQPage")["mainEntity"]
+        for key, item in zip(("faq.renew", "faq.check", "faq.checkfree", "faq.refund"), faq):
+            m = re.search(rf'^\s+"{re.escape(key)}":\s*("(?:[^"\\]|\\.)*"),?$', strings, re.M)
+            self.assertEqual(item["acceptedAnswer"]["text"], json.loads(m.group(1)), key)
+
+    def test_sitemap_and_robots(self):
+        r = self.fetch("/sitemap.xml")
+        self.assertEqual(r.code, 200)
+        self.assertTrue(r.headers["Content-Type"].startswith("application/xml"))
+        self.assertIn("max-age=3600", r.headers["Cache-Control"])
+        self.assertIn(f"<loc>{server.PUBLIC_URL}/</loc>", r.body.decode())
+        r = self.fetch("/robots.txt")
+        self.assertEqual(r.code, 200)
+        self.assertIn("Disallow: /api/", r.body.decode())
+        self.assertIn(f"Sitemap: {server.PUBLIC_URL}/sitemap.xml", r.body.decode())
+
     def test_test_list_revalidates_with_etag(self):
         r = self.fetch("/api/tests")
         self.assertEqual(r.headers["Cache-Control"], "private, no-cache")

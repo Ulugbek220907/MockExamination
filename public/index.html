@@ -10,7 +10,15 @@
   <meta property="og:site_name" content="TestDay" />
   <meta property="og:title" content="TestDay – practise for the computer-delivered IELTS" />
   <meta property="og:description" content="Original Listening, Reading, Writing and Speaking tests on a screen like test day. The first test of every module is free." />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="%SITE_URL%/" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:image" content="%SITE_URL%/img/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="TestDay: four coloured lines, Listening, Reading, Writing and Speaking, meeting at the Test day interchange." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="%SITE_URL%/img/og.png" />
+  <link rel="canonical" href="%SITE_URL%/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="fonts/jost-latin.woff2?v=5.3" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/portal.css" />
@@ -19,6 +27,10 @@
   <link rel="preload" href="/api/config" as="fetch" crossorigin />
   <link rel="preload" href="/api/me" as="fetch" crossorigin />
   <script type="application/json" id="asset-versions">{}</script>
+  <!-- For search engines: the site, its owner, and the questions on the Prices page (keep them in step with strings.js). -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TestDay","url":"%SITE_URL%/","inLanguage":"en","description":"Computer-delivered IELTS practice: Listening, Academic Reading, Writing and Speaking tests. The first test of every module is free."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TestDay","url":"%SITE_URL%/","logo":"%SITE_URL%/img/logo-512.png"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does the pass renew automatically?","acceptedAnswer":{"@type":"Answer","text":"No. Nothing is charged automatically. When your month ends, you can pay for another month. Your very first payment gives you two months."}},{"@type":"Question","name":"How does an examiner check work?","acceptedAnswer":{"@type":"Answer","text":"Finish a Writing or Speaking test while signed in. On your results page, choose an examiner and pay. The examiner reads your essays or listens to your recorded answers, usually within 48 hours, and you see the bands and feedback in your account. You can rate the examiner once for each check."}},{"@type":"Question","name":"Do I need the pass to order an examiner check?","acceptedAnswer":{"@type":"Answer","text":"No. You can order a check for any test you have taken, including the free tests."}},{"@type":"Question","name":"Can I get a refund?","acceptedAnswer":{"@type":"Answer","text":"If an examiner has not started your check yet, we can refund it. Contact us with your order number."}}]}</script>
   <script src="js/strings.js" defer></script>
   <script src="js/util.js" defer></script>
   <script src="js/scoring.js" defer></script>

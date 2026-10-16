@@ -29,6 +29,7 @@ import collections
 import datetime
 import hashlib
 import hmac
+import html
 import json
 import logging
 import mimetypes
@@ -75,6 +76,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 SITE_NAME = os.environ.get("SITE_NAME", "TestDay")
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "")
+# The public address of the site, for links that must be absolute: canonical, share image, sitemap.
+PUBLIC_URL = (os.environ.get("SITE_URL") or "https://testday.uz").strip().rstrip("/")
 
 AI_PER_IP_PER_HOUR = int(os.environ.get("AI_PER_IP_PER_HOUR", 6))
 AI_DAILY_LIMIT = int(os.environ.get("AI_DAILY_LIMIT", 300))
@@ -622,7 +625,8 @@ class IndexHandler(BaseHandler):
                 page = f.read()
             page = ASSET_REF_RE.sub(lambda m: m.group(1) + versioned(m.group(2)) + m.group(3), page)
             assets = json.dumps({path: versioned(path) for path in cls.LAZY_ASSETS})
-            cls._html = page.replace(cls.ASSET_SLOT, cls.ASSET_SLOT.replace("{}", assets))
+            page = page.replace(cls.ASSET_SLOT, cls.ASSET_SLOT.replace("{}", assets))
+            cls._html = page.replace("%SITE_URL%", html.escape(PUBLIC_URL, quote=True))
         return cls._html
 
     def get(self):
@@ -632,6 +636,30 @@ class IndexHandler(BaseHandler):
     def head(self):  # uptime monitors often ping with HEAD
         self.set_header("Content-Type", "text/html; charset=utf-8")
         self.set_header("Cache-Control", "no-cache")
+
+
+class RobotsHandler(BaseHandler):
+    """robots.txt, pointing crawlers at the sitemap on this site's own address."""
+
+    def get(self):
+        self.set_header("Content-Type", "text/plain; charset=utf-8")
+        self.set_header("Cache-Control", "public, max-age=3600")
+        self.finish(f"User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: {PUBLIC_URL}/sitemap.xml\n")
+
+
+class SitemapHandler(BaseHandler):
+    """
+    The pages search engines should index. The site is one page whose sections are #/ addresses,
+    which crawlers treat as the same URL, so the home page is the one entry.
+    """
+
+    def get(self):
+        self.set_header("Content-Type", "application/xml; charset=utf-8")
+        self.set_header("Cache-Control", "public, max-age=3600")
+        self.finish('<?xml version="1.0" encoding="UTF-8"?>\n'
+                    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                    f'  <url><loc>{html.escape(PUBLIC_URL)}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n'
+                    '</urlset>\n')
 
 
 class StaticHandler(tornado.web.StaticFileHandler):
@@ -696,6 +724,8 @@ def make_app():
             (r"/api/.*", ApiNotFoundHandler),
             (r"/audio/(.*)", AudioHandler, {"path": os.path.join(PUBLIC_DIR, "audio")}),
             (r"/(?:index\.html)?", IndexHandler),
+            (r"/robots\.txt", RobotsHandler),
+            (r"/sitemap\.xml", SitemapHandler),
             (r"/(.*)", StaticHandler, {"path": PUBLIC_DIR, "default_filename": "index.html"}),
         ],
         compress_response=True,
