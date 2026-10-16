@@ -494,6 +494,10 @@ class RestDb:
     def select(self, table, where=None, order=None, limit=None):
         return self._request("GET", table, self._query(where, order, limit, [("select", "*")]))
 
+    def ping_request(self):
+        """The cheapest authorised request (one test id), used to keep connections open."""
+        return urllib.request.Request(f"{self.rest}/tests?select=id&limit=1", headers=self._headers(), method="GET")
+
     def count(self, table, where=None):
         """Rows matching `where`, counted by Postgres (only the total comes back, not the rows)."""
         _check_table(table)
