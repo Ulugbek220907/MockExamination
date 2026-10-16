@@ -115,6 +115,15 @@ class InterfaceTextTests(unittest.TestCase):
             for k in (key, key + ".h"):
                 self.assertIn(f'"{k}":', strings, k)
 
+    def test_words_are_never_hyphenated(self):
+        # Automatic hyphens cut passage words in half at line ends on phones and Macs.
+        import re
+        for name in ("cd-ielts.css", "portal.css"):
+            with open(os.path.join(PUBLIC_DIR, "css", name), encoding="utf-8") as f:
+                css = f.read()
+            self.assertIsNone(re.search(r"hyphens:\s*auto", css), name)
+            self.assertIsNone(re.search(r"word-break:\s*break-all", css), name)
+
     def test_no_language_switch_or_translations_left(self):
         js = os.path.join(PUBLIC_DIR, "js")
         for name in ("i18n.js", "i18n-strings.js", "i18n-uz.js", "i18n-ru.js"):
