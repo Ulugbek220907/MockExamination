@@ -119,8 +119,7 @@ class AuthCodeHandler(BaseHandler):
         if not CODE_PER_IP.allow(self.client_ip()) or not CODE_PER_EMAIL.allow(email):
             raise ApiError(429, "Too many codes requested. Please wait a few minutes.")
         try:
-            lang = body.get("lang") if body.get("lang") in ("en", "uz", "ru") else "en"
-            code = await in_thread(self.auth.send_code, email, self.site_url() + "/auth-callback.html", lang)
+            code = await in_thread(self.auth.send_code, email, self.site_url() + "/auth-callback.html")
         except auth.AuthError as e:
             _raise(e)
         out = {"sent": True, "email": email}

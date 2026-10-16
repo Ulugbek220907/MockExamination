@@ -8,7 +8,7 @@
 
   const esc = (v) => U.escapeHtml(v);
   const S = window.IeltsScoring;
-  const tr = (key, vars) => I18N.t(key, vars);
+  const tr = window.t; // `t` is a common local name in this file
   const LINE = { Listening: ["line-l", "L"], Reading: ["line-r", "R"], Writing: ["line-w", "W"], Speaking: ["line-s", "S"] };
 
   function pct(correct, total) {

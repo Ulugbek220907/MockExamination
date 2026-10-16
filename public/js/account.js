@@ -17,12 +17,12 @@
   const state = { me: { user: null }, billing: null, config: {} };
   const siteName = () => state.config.siteName || "TestDay";
 
-  const money = (n) => I18N.money(n);
+  const money = (n) => U.money(n);
   const longDate = (iso) => {
     const d = new Date(iso);
     if (isNaN(d)) return "";
     try {
-      return d.toLocaleDateString(I18N.locale(), { day: "numeric", month: "long", year: "numeric" });
+      return d.toLocaleDateString(U.LOCALE, { day: "numeric", month: "long", year: "numeric" });
     } catch (e) {
       return d.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
     }
@@ -174,7 +174,7 @@
         showError("email", "");
         busy("email", true);
         try {
-          const res = await U.api("/api/auth/code", { method: "POST", body: JSON.stringify({ email, lang: I18N.lang() }) });
+          const res = await U.api("/api/auth/code", { method: "POST", body: JSON.stringify({ email }) });
           const emailTarget = el.querySelector("[data-email]");
           if (emailTarget) emailTarget.textContent = res.email;
           const hint = el.querySelector(".dev-hint");
@@ -353,13 +353,13 @@
   const stripes = `<div class="pass-stripes" aria-hidden="true"><span style="background:var(--line-l)"></span><span style="background:var(--line-r)"></span><span style="background:var(--line-w)"></span><span style="background:var(--line-s)"></span></div>`;
 
   function passPriceHTML(amount) {
-    return `${esc(I18N.number(amount))}<small>${t("so'm / month")}</small>`;
+    return `${esc(U.number(amount))}<small>${t("so'm / month")}</small>`;
   }
 
   /** The monthly pass as a transit card; the home page and the prices page share it. */
   function passCardHTML(amount) {
     return `
-      <div class="pass-card" role="img" aria-label="${esc(t("Monthly pass"))}${amount ? `: ${esc(I18N.money(amount))}` : ""}">
+      <div class="pass-card" role="img" aria-label="${esc(t("Monthly pass"))}${amount ? `: ${esc(U.money(amount))}` : ""}">
         ${stripes}
         <div class="pass-top"><span class="site-name">${esc(siteName())}</span><span class="pass-kind">${t("Monthly pass")}</span></div>
         <div class="pass-price" data-price="plan">${amount ? passPriceHTML(amount) : "&nbsp;"}</div>
@@ -535,13 +535,13 @@
             <h3>${esc(e.name)}</h3>
             ${e.headline ? `<p class="examiner-headline">${esc(e.headline)}</p>` : ""}
             <p class="examiner-rating">${e.rating != null
-              ? `${stars(e.rating)} <strong>${e.rating.toFixed(1)}</strong> <span class="muted-text">(${esc(I18N.plural(e.reviews, { en: ["{n} review", "{n} reviews"], uz: ["{n} ta sharh"], ru: ["{n} отзыв", "{n} отзыва", "{n} отзывов"] }))})</span>`
+              ? `${stars(e.rating)} <strong>${e.rating.toFixed(1)}</strong> <span class="muted-text">(${esc(plural(e.reviews, "{n} review", "{n} reviews"))})</span>`
               : `<span class="muted-text">${t("New examiner – no reviews yet")}</span>`}</p>
           </div>
         </div>
         <div class="examiner-tags">
           ${e.doesWriting ? `<span class="tag line-w">Writing</span>` : ""}${e.doesSpeaking ? `<span class="tag line-s">Speaking</span>` : ""}
-          <span class="tag tag-muted">${esc(I18N.plural(e.checksDone, { en: ["{n} check done", "{n} checks done"], uz: ["{n} ta tekshiruv"], ru: ["{n} проверка", "{n} проверки", "{n} проверок"] }))}</span>
+          <span class="tag tag-muted">${esc(plural(e.checksDone, "{n} check done", "{n} checks done"))}</span>
           ${e.queue ? `<span class="tag tag-muted">${esc(t("{n} in queue", { n: e.queue }))}</span>` : ""}
         </div>
         ${e.bio ? `<p class="examiner-bio">${esc(e.bio)}</p>` : ""}
@@ -677,7 +677,7 @@
             <div class="task-result-head"><h2 class="section-title">Task ${n}</h2><span class="task-band">Band ${IeltsScoring.formatBand(t.band)}</span></div>
             ${t.summary ? `<p class="lead-text">${esc(t.summary)}</p>` : ""}
             ${P.criteriaHTML(t)}
-            <div class="feedback-columns">${P.listBlock(I18N.t("What you did well"), t.strengths, "good")}${P.listBlock(I18N.t("How to improve"), t.improvements, "improve")}</div>
+            <div class="feedback-columns">${P.listBlock(window.t("What you did well"), t.strengths, "good")}${P.listBlock(window.t("How to improve"), t.improvements, "improve")}</div>
             ${P.correctionsHTML(t.corrections)}
           </section>`;
       }).join("")}`;

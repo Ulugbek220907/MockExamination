@@ -1,12 +1,14 @@
 /**
- * English interface text for dotted keys (short strings use the English itself
- * as the key). Uzbek and Russian live in i18n-uz.js and i18n-ru.js and are
- * loaded only for visitors who use them.
+ * The site's text. The interface is in English only.
+ *
+ * t("Some text") returns the text itself; long texts use a dotted key ("home.lead")
+ * whose wording lives below, so it is kept in one place. {name} placeholders are
+ * filled from the second argument: t("Start {name}", { name: "Reading" }).
  */
 (function () {
   "use strict";
 
-  Object.assign(I18N.EN, {
+  const TEXT = {
     "title.home": "IELTS-style Listening, Reading, Writing & Speaking practice",
     "so'm": "so‘m",
     "so'm / month": "so‘m / month",
@@ -102,5 +104,20 @@
     "selfcheck.part2": "Part 2: use your notes to cover every point on the card and keep talking until the examiner stops you.",
     "selfcheck.part3": "Part 3: give your opinion, explain why, and compare different views or situations.",
     "examiners.soon": "Take the free {skill} test while you are signed in. Once examiners are here, you can send it for a check from your results.",
-  });
+  };
+
+  function t(key, vars) {
+    let out = Object.prototype.hasOwnProperty.call(TEXT, key) ? TEXT[key] : key;
+    if (vars) out = out.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? String(vars[k]) : m));
+    return out;
+  }
+
+  /** "1 test", "3 tests": `one` and `many` take {n}. */
+  function plural(n, one, many) {
+    return (n === 1 ? one : many).replace("{n}", n);
+  }
+
+  window.TEXT = TEXT;
+  window.t = t;
+  window.plural = plural;
 })();

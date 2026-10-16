@@ -19,8 +19,7 @@
   <link rel="preload" href="/api/config" as="fetch" crossorigin />
   <link rel="preload" href="/api/me" as="fetch" crossorigin />
   <script type="application/json" id="asset-versions">{}</script>
-  <script src="js/i18n.js" defer></script>
-  <script src="js/i18n-strings.js" defer></script>
+  <script src="js/strings.js" defer></script>
   <script src="js/util.js" defer></script>
   <script src="js/scoring.js" defer></script>
   <script src="js/account.js" defer></script>
@@ -47,23 +46,18 @@
        ===================================================================== -->
   <div id="site-view" class="view-container active">
     <header class="site-nav">
-      <a class="site-brand" href="#/" data-i18n-label="TestDay home" aria-label="TestDay home">
+      <a class="site-brand" href="#/" aria-label="TestDay home">
         <svg class="site-mark" aria-hidden="true"><use href="#mark" /></svg>
         <span class="site-name" data-site-name>TestDay</span>
       </a>
-      <nav class="site-links" data-i18n-label="Main" aria-label="Main">
-        <a href="#/" data-nav="home" data-i18n="Tests">Tests</a>
-        <a href="#/pricing" data-nav="pricing" data-i18n="Prices">Prices</a>
-        <a href="#/examiners" data-nav="examiners" data-i18n="Examiners">Examiners</a>
-        <a href="#/resources" data-nav="resources" data-i18n="Free resources">Free resources</a>
-        <a href="#/about" data-nav="about" data-i18n="About">About</a>
+      <nav class="site-links" aria-label="Main">
+        <a href="#/" data-nav="home">Tests</a>
+        <a href="#/pricing" data-nav="pricing">Prices</a>
+        <a href="#/examiners" data-nav="examiners">Examiners</a>
+        <a href="#/resources" data-nav="resources">Free resources</a>
+        <a href="#/about" data-nav="about">About</a>
       </nav>
       <div class="site-tools">
-        <div class="lang-switch" role="group" data-i18n-label="Language" aria-label="Language">
-          <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
-          <button type="button" data-lang="uz" lang="uz" aria-pressed="false">UZ</button>
-          <button type="button" data-lang="ru" lang="ru" aria-pressed="false">RU</button>
-        </div>
         <div class="account-slot" id="account-slot"></div>
       </div>
     </header>
@@ -92,12 +86,12 @@
             <svg class="site-mark" aria-hidden="true"><use href="#mark" /></svg>
             <span class="site-name" data-site-name>TestDay</span>
           </div>
-          <p data-i18n="footer.independent">TestDay is an independent practice website. It is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press &amp; Assessment. IELTS is a registered trademark of its owners and is used here only to describe the exam this site helps you prepare for.</p>
-          <p data-i18n="footer.original">All passages, recordings, questions, tasks and model answers on this site are original. Band scores are practice estimates, not official results.</p>
+          <p>TestDay is an independent practice website. It is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press &amp; Assessment. IELTS is a registered trademark of its owners and is used here only to describe the exam this site helps you prepare for.</p>
+          <p>All passages, recordings, questions, tasks and model answers on this site are original. Band scores are practice estimates, not official results.</p>
         </div>
-        <nav class="footer-nav" data-i18n-label="More" aria-label="More">
-          <a href="#/pricing" data-i18n="Prices">Prices</a>
-          <a href="#/examiners" data-i18n="Examiners">Examiners</a>
+        <nav class="footer-nav" aria-label="More">
+          <a href="#/pricing">Prices</a>
+          <a href="#/examiners">Examiners</a>
         </nav>
       </div>
     </footer>

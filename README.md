@@ -25,10 +25,10 @@
 
 **All content is original** and written for this project. The recordings are voiced with the open-source Kokoro text-to-speech model (Apache 2.0). The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
 
-### Design and languages
+### Design
 - The home page is a metro map: each module is a line in its own colour (Listening blue, Reading red, Writing green, Speaking amber), each test is a station, and all four lines meet at the *Test day* interchange. The first station on every line starts a free test in one tap; tapping any station opens its details. Stations you have taken show your band. The monthly plan is presented as a monthly pass.
-- The interface is in English, Uzbek (Latin script) and Russian, with a switch in the header (`i18n.js`; English text in `i18n-strings.js`, Uzbek and Russian in `i18n-uz.js` and `i18n-ru.js`, fetched only when chosen; `?lang=uz` or `?lang=ru` opens a language directly). The exam screens, the instructions before a test and all test content stay in English, as on test day.
-- The site opens straight away. The home page loads only what it needs (about 58 KB compressed, and its three data requests start while the scripts download). A test's questions, the exam screen's code and styles (`css/cd-ielts.css`, `exam.js`, `speaking.js`, `charts.js`, `highlighter.js`), the results page and the progress chart load when a test is started or a result is opened; Uzbek and Russian text loads only when chosen. `U.need()` in `util.js` downloads each bundle whole and runs it in order, so a dropped connection never leaves it half-loaded.
+- The interface is in English only, like the exam itself (all text in `js/strings.js`; `t()` looks it up).
+- The site opens straight away. The home page loads only what it needs (about 58 KB compressed, and its three data requests start while the scripts download). A test's questions, the exam screen's code and styles (`css/cd-ielts.css`, `exam.js`, `speaking.js`, `charts.js`, `highlighter.js`), the results page and the progress chart load when a test is started or a result is opened. `U.need()` in `util.js` downloads each bundle whole and runs it in order, so a dropped connection never leaves it half-loaded.
 - Product context and the design direction live in `PRODUCT.md` and `.impeccable/surfaces/`; the visual system is documented in `DESIGN.md`.
 
 ### Exam experience
@@ -90,10 +90,8 @@ content/
 public/
   index.html              single-page app shell (header, footer, the TestDay mark)
   css/portal.css          site design system: tokens, the line network, every page outside the exam
-  fonts/                  Jost (self-hosted, Latin + Cyrillic subsets, OFL)
-  js/i18n.js              interface language: t(), plural forms, number and money formatting, the switch
-  js/i18n-strings.js      English interface text
-  js/i18n-uz.js, -ru.js   Uzbek and Russian interface text (loaded only when that language is chosen)
+  fonts/                  Jost (self-hosted, Latin subsets, OFL)
+  js/strings.js           interface text (English) and t()
   css/cd-ielts.css        exam environment, contrast themes, charts (loads when a test starts)
   js/app.js               router, the home page network, instructions, resources and legal pages
   js/account.js           sign-in, paywall, payments, pricing, account, examiners, checks, admin

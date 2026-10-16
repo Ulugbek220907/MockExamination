@@ -23,7 +23,7 @@
 
   const band = (v) => IeltsScoring.formatBand(v);
   const dayKey = (iso) => new Date(iso).toISOString().slice(0, 10);
-  const loc = () => (window.I18N ? I18N.locale() : undefined);
+  const loc = () => U.LOCALE;
   const shortDate = (t) => new Date(t).toLocaleDateString(loc(), { day: "numeric", month: "short" });
   const ARROW = (up) => `<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="${up ? "M5 1.5 9 7.5H1z" : "M5 8.5 1 2.5h8z"}" fill="currentColor"/></svg>`;
   const titleOf = (id) => {
@@ -50,7 +50,7 @@
           <div class="tile-label"><span class="line-key" style="background:${color}" aria-hidden="true"></span>${label}</div>
           <div class="tile-value">${last ? band(last.band) : "–"}</div>
           ${delta}
-          <div class="tile-sub">${pts.length ? `${t("Best {band}", { band: band(best) })} · ${I18N.plural(pts.length, { en: ["{n} test", "{n} tests"], uz: ["{n} ta test"], ru: ["{n} тест", "{n} теста", "{n} тестов"] })}` : "&nbsp;"}</div>
+          <div class="tile-sub">${pts.length ? `${t("Best {band}", { band: band(best) })} · ${plural(pts.length, "{n} test", "{n} tests")}` : "&nbsp;"}</div>
         </div>`;
     }).join("")}</div>`;
   }

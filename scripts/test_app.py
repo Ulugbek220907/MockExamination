@@ -75,43 +75,33 @@ def contains_key(obj, key):
     return False
 
 
-class InterfaceLanguageTests(unittest.TestCase):
-    """Every interface string passed to t() has an Uzbek and a Russian translation."""
+class InterfaceTextTests(unittest.TestCase):
+    """The interface is in English only, and every dotted text key has its wording in strings.js."""
 
-    INDIRECT = [  # strings that reach t() through a variable
-        "Waiting for the examiner", "Being marked", "Marked", "Cancelled", "Not paid", "Payment being checked",
-        "Paid", "Refunded", "Expert user", "Very good user", "Good user", "Competent user", "Modest user",
-        "Limited user", "Extremely limited user", "Intermittent user", "Non-user",
-        "marked automatically", "AI estimate", "examiner",
-    ]
-
-    @staticmethod
-    def dictionary(source, name):
-        import re
-        start = source.index(f"Object.assign(I18N.{name}, {{")
-        end = source.index("\n  });", start)
-        return {json.loads(f'"{k}"') for k in re.findall(r'^\s+"((?:[^"\\]|\\.)*)":', source[start:end], re.M)}
-
-    def test_every_string_is_translated(self):
+    def test_every_dotted_key_has_english_text(self):
         import glob
         import re
-        keys = set(self.INDIRECT)
-        call = re.compile(r'(?<![\w.])(?:t|tr|I18N\.t)\(\s*("(?:[^"\\]|\\.)*")')
-        for path in glob.glob(os.path.join(PUBLIC_DIR, "js", "*.js")) + [os.path.join(PUBLIC_DIR, "index.html")]:
+        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
+            source = f.read()
+        text = {json.loads(f'"{k}"') for k in re.findall(r'^\s+"((?:[^"\\]|\\.)*)":', source, re.M)}
+        call = re.compile(r'(?<![\w.])(?:t|tr|window\.t)\(\s*("(?:[^"\\]|\\.)*")')
+        keys = set()
+        for path in glob.glob(os.path.join(PUBLIC_DIR, "js", "*.js")):
             with open(path, encoding="utf-8") as f:
-                text = re.sub(r"/\*.*?\*/", "", f.read(), flags=re.S)  # skip examples in comments
-            keys.update(json.loads(m.group(1)) for m in call.finditer(text))
-            keys.update(re.findall(r'data-i18n(?:-html|-label)?="([^"]+)"', text))
-        source = ""
-        for name in ("i18n-strings.js", "i18n-uz.js", "i18n-ru.js"):
-            with open(os.path.join(PUBLIC_DIR, "js", name), encoding="utf-8") as f:
-                source += f.read()
-        en, uz, ru = (self.dictionary(source, n) for n in ("EN", "UZ", "RU"))
+                code = re.sub(r"/\*.*?\*/", "", f.read(), flags=re.S)  # skip examples in comments
+            keys.update(json.loads(m.group(1)) for m in call.finditer(code))
         dotted = {k for k in keys if re.fullmatch(r"[a-z]+(\.[a-z0-9]+)+", k)}
         self.assertGreater(len(keys), 300)
-        self.assertEqual(sorted(dotted - en), [], "keys without English text")
-        self.assertEqual(sorted(keys - uz), [], "missing Uzbek")
-        self.assertEqual(sorted(keys - ru), [], "missing Russian")
+        self.assertEqual(sorted(dotted - text), [], "keys without English text")
+
+    def test_no_language_switch_or_translations_left(self):
+        js = os.path.join(PUBLIC_DIR, "js")
+        for name in ("i18n.js", "i18n-strings.js", "i18n-uz.js", "i18n-ru.js"):
+            self.assertFalse(os.path.exists(os.path.join(js, name)), name)
+        with open(os.path.join(PUBLIC_DIR, "index.html"), encoding="utf-8") as f:
+            page = f.read()
+        for marker in ("lang-switch", "data-lang=", "data-i18n", 'lang="uz"', 'lang="ru"'):
+            self.assertNotIn(marker, page)
 
 
 class ContentTests(unittest.TestCase):
@@ -674,7 +664,7 @@ class ApiTests(AsyncHTTPTestCase):
         m = re.search(r'<script type="application/json" id="asset-versions">(.*?)</script>', page)
         assets = json.loads(m.group(1))
         lazy = ("css/cd-ielts.css", "js/highlighter.js", "js/charts.js", "js/exam.js", "js/results.js", "js/speaking.js",
-                "js/progress.js", "js/i18n-uz.js", "js/i18n-ru.js")
+                "js/progress.js")
         for path in lazy:
             self.assertRegex(assets[path], rf"^{re.escape(path)}\?v=[0-9a-f]{{12}}$")
             self.assertEqual(self.fetch("/" + assets[path]).code, 200)
@@ -1187,18 +1177,18 @@ class EmailCodeAuthTests(unittest.TestCase):
     def code(self):
         return re.search(r"\b(\d{6})\b", self.sent[-1]["subject"]).group(1)
 
-    def test_branded_email_in_the_visitors_language(self):
-        self.auth.send_code("a@example.com", "", "uz")
+    def test_branded_email(self):
+        self.auth.send_code("a@example.com", "")
         mail = self.sent[-1]
         self.assertEqual(mail["to"], ["a@example.com"])
-        self.assertIn("TestDay kodingiz", mail["subject"])
+        self.assertIn("is your TestDay code", mail["subject"])
         self.assertIn("https://www.testday.uz/img/email-logo.png", mail["html"])
         self.assertIn(self.code(), mail["html"])
         row = self.db.select("login_codes", {"email": "a@example.com"})[0]
         self.assertNotIn(self.code(), row["code_hash"])  # only a hash is stored
 
     def test_wrong_tries_expiry_and_one_use(self):
-        self.auth.send_code("b@example.com", "", "en")
+        self.auth.send_code("b@example.com", "")
         good = self.code()
         bad = "000000" if good != "000000" else "111111"
         with self.assertRaises(auth.AuthError):
@@ -1206,14 +1196,14 @@ class EmailCodeAuthTests(unittest.TestCase):
         self.assertEqual(self.auth.verify_code("b@example.com", good)["email"], "b@example.com")
         with self.assertRaises(auth.AuthError):  # used once
             self.auth.verify_code("b@example.com", good)
-        self.auth.send_code("b@example.com", "", "en")
+        self.auth.send_code("b@example.com", "")
         good = self.code()
         for _ in range(auth.EmailCodeAuth.MAX_TRIES):
             with self.assertRaises(auth.AuthError):
                 self.auth.verify_code("b@example.com", bad)
         with self.assertRaises(auth.AuthError):  # locked after too many guesses
             self.auth.verify_code("b@example.com", good)
-        self.auth.send_code("b@example.com", "", "en")
+        self.auth.send_code("b@example.com", "")
         self.db.update("login_codes", {"email": "b@example.com"}, {"expires_at": "2000-01-01T00:00:00+00:00"})
         with self.assertRaises(auth.AuthError):
             self.auth.verify_code("b@example.com", self.code())
@@ -1223,7 +1213,7 @@ class EmailCodeAuthTests(unittest.TestCase):
             raise urllib.error.HTTPError(url, 422, "bad", {}, io.BytesIO(b'{"message":"invalid"}'))
         with mock.patch.object(notify, "_post_json", refuse):
             with self.assertRaises(auth.AuthError) as ctx:
-                self.auth.send_code("c@example.com", "", "en")
+                self.auth.send_code("c@example.com", "")
         self.assertEqual(ctx.exception.status, 503)
 
 

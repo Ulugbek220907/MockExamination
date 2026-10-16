@@ -96,12 +96,7 @@
     }
 
     async init() {
-      I18N.applyStatic();
       window.addEventListener("hashchange", () => this.route());
-      document.addEventListener("langchange", () => {
-        Account.renderAccountSlot();
-        if (!this.exam && document.getElementById("site-view").classList.contains("active")) this.route();
-      });
       this.main.addEventListener("click", (e) => this.onMainClick(e));
       document.getElementById("account-slot").addEventListener("click", (e) => Account.onClick(e));
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") this.closeSigns(); });
@@ -119,7 +114,7 @@
 
       Account.renderAccountSlot();
       try {
-        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe(), I18N.ready]);
+        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe()]);
         this.config = { ...this.config, ...config };
         this.tests = data.tests || [];
         this.modules = data.modules || {};
@@ -127,8 +122,6 @@
         this.loadError = true;
       }
       Account.setConfig(this.config);
-      await I18N.ready;
-      I18N.applyStatic();
       Account.renderAccountSlot();
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
       Promise.resolve(this.route()).finally(() => {
@@ -210,8 +203,6 @@
       const ids = { site: "site-view", verification: "verification-view", exam: "exam-screen" };
       Object.entries(ids).forEach(([k, id]) => document.getElementById(id).classList.toggle("active", k === name));
       document.body.classList.toggle("in-exam", name === "exam");
-      // The instructions and the exam stay in English, like the real test.
-      document.documentElement.lang = name === "site" ? I18N.lang() : "en";
     }
 
     onMainClick(e) {
@@ -295,8 +286,8 @@
 
     checksLine() {
       const p = this.prices;
-      const w = p ? esc(I18N.money(p.writing_check)) : "…";
-      const s = p ? esc(I18N.money(p.speaking_check)) : "…";
+      const w = p ? esc(U.money(p.writing_check)) : "…";
+      const s = p ? esc(U.money(p.speaking_check)) : "…";
       return `${t("checks.line", { writing: w, speaking: s })} <a href="#/examiners">${t("Meet the examiners")}</a>`;
     }
 
@@ -565,7 +556,7 @@
           <ul class="sign-items">${items.map(([k, v]) => `<li><b>${esc(k)}</b>${esc(v)}</li>`).join("")}</ul>
           <p class="sign-meta">${esc(meta)}${extra ? ` · ${esc(extra)}` : ""}</p>
           ${locked ? `<p class="sign-pass">${this.prices
-            ? t("This station opens with the monthly pass: {price} a month, and your first payment gives two months.", { price: `<strong>${esc(I18N.money(this.prices.plan))}</strong>` })
+            ? t("This station opens with the monthly pass: {price} a month, and your first payment gives two months.", { price: `<strong>${esc(U.money(this.prices.plan))}</strong>` })
             : t("This station opens with the monthly pass.")}</p>` : ""}
         </div>
         <div class="sign-actions">

@@ -186,37 +186,20 @@ def check_completed(db, check):
 # --------------------------------------------------------------------------
 
 CODE_TEXT = {
-    "en": {
-        "subject": "{code} is your {site} code",
-        "title": "Your sign-in code",
-        "intro": "Enter this code on {site} to sign in. If you are new, this creates your free account.",
-        "expires": "The code works for 10 minutes and can be used once.",
-        "ignore": "If you did not ask for this code, you can ignore this email.",
-    },
-    "uz": {
-        "subject": "{site} kodingiz: {code}",
-        "title": "Kirish kodi",
-        "intro": "Tizimga kirish uchun ushbu kodni {site} saytiga kiriting. Agar siz yangi bo‘lsangiz, bepul hisobingiz yaratiladi.",
-        "expires": "Kod 10 daqiqa amal qiladi va faqat bir marta ishlatiladi.",
-        "ignore": "Agar siz bu kodni so‘ramagan bo‘lsangiz, ushbu xatni e’tiborsiz qoldiring.",
-    },
-    "ru": {
-        "subject": "{code} — ваш код для {site}",
-        "title": "Код для входа",
-        "intro": "Введите этот код на сайте {site}, чтобы войти. Если вы у нас впервые, мы создадим для вас бесплатный аккаунт.",
-        "expires": "Код действует 10 минут и подходит только один раз.",
-        "ignore": "Если вы не запрашивали код, просто проигнорируйте это письмо.",
-    },
+    "subject": "{code} is your {site} code",
+    "title": "Your sign-in code",
+    "intro": "Enter this code on {site} to sign in. If you are new, this creates your free account.",
+    "expires": "The code works for 10 minutes and can be used once.",
+    "ignore": "If you did not ask for this code, you can ignore this email.",
 }
 
 
-def send_login_code(to, code, lang="en"):
+def send_login_code(to, code):
     """Email a sign-in code now. Raises if the email service is not configured or refuses it."""
     if not email_enabled():
         raise RuntimeError("email is not configured")
-    t = CODE_TEXT.get(lang) or CODE_TEXT["en"]
     site = site_name()
-    fill = lambda key: t[key].format(site=site, code=code)
+    fill = lambda key: CODE_TEXT[key].format(site=site, code=code)
     logo = f"{site_url()}/img/email-logo.png"
     page = f"""<!doctype html><html><body style="margin:0;background:#f4f6fa">
 <div style="max-width:480px;margin:0 auto;padding:28px 20px;font-family:Arial,Helvetica,sans-serif;color:#142038">

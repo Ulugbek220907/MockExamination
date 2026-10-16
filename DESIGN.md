@@ -311,7 +311,7 @@ A cool granite-and-marble station palette carrying four saturated line colours, 
 - **Polished Granite** (#142038): the shell and every plaque. Used for the header, footer, station signs, the Test day hub label, the fare-board head, the pass card, primary buttons, the active filter chip, toasts and the replay bar. Also used for the interchange capsule's stroke and the "How a test works" ride line.
 - **Granite Plate** (#1d2b47): a raised plate on granite, used for the brand plate in the header, hovered nav links, the pre-test card header and the hub label on hover.
 - **Granite Edge** (#2c3c5d): the engraved hairline on granite plates, the hover state of primary buttons, the borders of ghost buttons on granite, and the language switch outline.
-- **Plaque Lettering** (#eef2f8): body text on granite. It is also the fill of light controls on granite (Sign in, the active language).
+- **Plaque Lettering** (#eef2f8): body text on granite. It is also the fill of light controls on granite (Sign in).
 - **Weathered Plaque Grey** (#a9b5ca): secondary text on granite, such as nav links at rest, the hub subtitle, sign meta lines and footer copy.
 
 ### Secondary
@@ -347,7 +347,7 @@ State colours. Three of the four reuse a line's hex value or its ink; only Error
 
 ## Typography
 
-**Display Font:** Jost (self-hosted variable woff2, weights 300–800; subsets for Latin, Latin Extended and Cyrillic), falling back to the system stack.
+**Display Font:** Jost (self-hosted variable woff2, weights 300–800; subsets for Latin and Latin Extended), falling back to the system stack.
 **Body Font:** the system stack (system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif).
 
 **Character:** Jost is a geometric Soviet-modernist sans, the lettering of a station plaque: round bowls, a single-storey a, confident at 650. The system stack does the reading and the controls, so pages stay light on mobile data and familiar in all three languages.
@@ -481,7 +481,7 @@ A results head with a large line bullet. Below it a score banner: a paper board 
 - **Do** draw lists of steps or points as stops on a line: rings joined by a bar, filled when reached.
 - **Do** show the four-colour band only in Listening, Reading, Writing, Speaking order, in equal quarters.
 - **Do** set bands, prices, counts and times in tabular numerals.
-- **Do** load Jost only from `public/fonts/` (CSP `font-src 'self'`). The three subsets cover English, Uzbek Latin (including oʻ and gʻ at U+02BB) and Russian.
+- **Do** load Jost only from `public/fonts/` (CSP `font-src 'self'`). The two subsets cover English and Uzbek Latin names (including oʻ and gʻ at U+02BB). The interface is English only.
 - **Do** stop the sign drop, the train and smooth scrolling under `prefers-reduced-motion`.
 
 ### Don't:

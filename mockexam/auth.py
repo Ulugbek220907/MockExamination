@@ -131,7 +131,7 @@ class SupabaseAuth:
             return AuthError("Your sign-in link has expired. Please sign in again.", 400)
         return AuthError("We could not send the code. Please try again in a minute.", 503 if status >= 500 else 400)
 
-    def send_code(self, email, redirect_to, lang="en"):
+    def send_code(self, email, redirect_to):
         self._call("POST", "/otp", {"email": email, "create_user": True}, query={"redirect_to": redirect_to}, action="send")
         return None  # the code goes by email
 
@@ -151,8 +151,7 @@ class SupabaseAuth:
 class EmailCodeAuth:
     """
     Sign-in codes made and checked by this server and emailed through Resend
-    (notify.send_login_code), in the visitor's language and with the site's
-    logo. Only a keyed hash of each code is stored, for TTL seconds and
+    (notify.send_login_code), with the site's logo. Only a keyed hash of each code is stored, for TTL seconds and
     MAX_TRIES guesses. Google sign-in, when switched on, still goes through
     Supabase (`fallback`).
     """
@@ -169,7 +168,7 @@ class EmailCodeAuth:
     def _hash(self, email, code):
         return hmac.new(self.key, f"{email}:{code}".encode("utf-8"), hashlib.sha256).hexdigest()
 
-    def send_code(self, email, redirect_to, lang="en"):
+    def send_code(self, email, redirect_to):
         from . import notify  # notify has no dependency on auth; imported here to keep auth light
 
         code = f"{secrets.randbelow(1_000_000):06d}"
@@ -178,7 +177,7 @@ class EmailCodeAuth:
         self.db.insert("login_codes", {"email": email, "code_hash": self._hash(email, code),
                                        "expires_at": expires.isoformat(timespec="seconds"), "attempts": 0})
         try:
-            notify.send_login_code(email, code, lang)
+            notify.send_login_code(email, code)
         except urllib.error.HTTPError as e:
             log.warning("Resend refused the sign-in email (%s): %s", e.code, e.read()[:300])
             raise AuthError("We could not send the code. Please check the address and try again.", 503) from e
@@ -231,7 +230,7 @@ class DevAuth:
         self.codes = {}
         self.lock = threading.Lock()
 
-    def send_code(self, email, redirect_to, lang="en"):
+    def send_code(self, email, redirect_to):
         code = f"{secrets.randbelow(1_000_000):06d}"
         with self.lock:
             self.codes[email] = (code, time.time() + self.TTL, 0)

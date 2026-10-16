@@ -113,11 +113,7 @@
     seconds = Math.max(0, Math.round(seconds || 0));
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
-    // The exam screens stay in English; the site follows the chosen language.
-    const inExam = document.body && (document.body.classList.contains("in-exam")
-      || document.getElementById("verification-view")?.classList.contains("active"));
-    const vars = { m, s: `${s < 10 ? "0" : ""}${s}` };
-    return window.I18N && !inExam ? I18N.t("{m}m {s}s", vars) : `${vars.m}m ${vars.s}s`;
+    return `${m}m ${s < 10 ? "0" : ""}${s}s`;
   }
 
   function formatClock(seconds) {
@@ -127,16 +123,23 @@
     return `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
   }
 
-  function formatDate(iso, locale) {
+  /** Dates and times are written the British way ("3 Oct, 14:05"). */
+  const LOCALE = "en-GB";
+
+  function formatDate(iso) {
     if (!iso) return "";
     const d = new Date(iso);
     if (isNaN(d)) return iso;
-    const loc = locale || (window.I18N ? I18N.locale() : undefined);
-    try {
-      return d.toLocaleString(loc, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
-    } catch (e) {
-      return d.toLocaleString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
-    }
+    return d.toLocaleString(LOCALE, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  }
+
+  /** Thousands with a thin space, the way prices are written in Uzbekistan: 39 000. */
+  function number(n) {
+    return String(Math.round(Number(n) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+
+  function money(n) {
+    return `${number(n)} ${t("so'm")}`;
   }
 
   function countWords(text) {
@@ -202,6 +205,98 @@
     setTimeout(() => el.remove(), 6000);
   }
 
+  /** Hashed address of a script the page loads on demand (the server lists them in #asset-versions). */
+  let assetMap = null;
+  function assetUrl(path) {
+    if (!assetMap) {
+      try { assetMap = JSON.parse((document.getElementById("asset-versions") || {}).textContent || "{}"); } catch (e) { assetMap = {}; }
+    }
+    return assetMap[path] || path;
+  }
+
+  const scripts = {};
+  /** Load a script once; scripts added this way run in the order they were requested. */
+  function loadScript(path) {
+    if (!scripts[path]) {
+      scripts[path] = new Promise((resolve, reject) => {
+        const el = document.createElement("script");
+        el.src = assetUrl(path);
+        el.async = false;
+        el.onload = () => resolve();
+        el.onerror = () => { delete scripts[path]; el.remove(); reject(new Error(`Could not load ${path}`)); };
+        document.head.appendChild(el);
+      });
+    }
+    return scripts[path];
+  }
+
+  const warmed = new Set();
+  const supportsPrefetch = (() => {
+    try {
+      const l = document.createElement("link");
+      return Boolean(l.relList && l.relList.supports && l.relList.supports("prefetch"));
+    } catch (e) {
+      return false;
+    }
+  })();
+
+  /**
+   * Warm an asset in browser cache without executing it (idle prefetch).
+   * Uses <link rel="prefetch"> when supported, with low-priority fetch fallback,
+   * so it primes the browser HTTP cache without blocking or using JS heap.
+   */
+  function warm(path) {
+    if (scripts[path] || styles[path] || warmed.has(path)) return Promise.resolve();
+    warmed.add(path);
+    const url = assetUrl(path);
+
+    if (supportsPrefetch) {
+      return new Promise((resolve) => {
+        const link = document.createElement("link");
+        link.rel = "prefetch";
+        link.as = path.endsWith(".css") ? "style" : "script";
+        link.href = url;
+        link.onload = () => resolve();
+        link.onerror = () => resolve();
+        setTimeout(resolve, 3000);
+        document.head.appendChild(link);
+      });
+    }
+
+    return fetch(url, { priority: "low" })
+      .then((res) => (res.ok ? res.blob() : null))
+      .catch(() => null);
+  }
+
+  /**
+   * Download a script without running it, and fail if it cannot be had. A bundle is downloaded whole
+   * before any of it runs, so one missing file never leaves the files that depend on it half-working.
+   * (Unlike warm(), which is only a hint. A failed fetch leaves nothing behind, so trying again works.)
+   */
+  async function download(path) {
+    if (scripts[path]) return;
+    const res = await fetch(assetUrl(path));
+    if (!res.ok) throw new Error(`Could not load ${path}`);
+    await res.arrayBuffer(); // read to the end, so the whole file is cached for the script tag
+  }
+
+  const styles = {};
+  /** Load a stylesheet once; resolves when it has applied, so nothing is shown unstyled. */
+  function loadStyle(path) {
+    if (!styles[path]) {
+      styles[path] = new Promise((resolve, reject) => {
+        const el = document.createElement("link");
+        el.rel = "stylesheet";
+        el.href = assetUrl(path);
+        el.onload = () => resolve();
+        el.onerror = () => { delete styles[path]; el.remove(); reject(new Error(`Could not load ${path}`)); };
+        document.head.appendChild(el);
+      });
+    }
+    return styles[path];
+  }
+
+
   // What the home page, prices and the other site pages do not need. Each name loads
   // when a page first uses it; order matters (Speaking builds on the exam engine and Results).
   const BUNDLES = {
@@ -228,14 +323,14 @@
         const scripts = paths.filter((p) => !p.endsWith(".css"));
         // Everything downloads at once; the scripts then run one after another, and only if all arrived.
         await Promise.all([
-          ...paths.filter((p) => p.endsWith(".css")).map((p) => I18N.loadStyle(p)),
-          ...scripts.map((p) => I18N.download(p)),
+          ...paths.filter((p) => p.endsWith(".css")).map((p) => loadStyle(p)),
+          ...scripts.map((p) => download(p)),
         ]);
-        for (const p of scripts) await I18N.loadScript(p);
+        for (const p of scripts) await loadScript(p);
         loadedBundles.add(name);
       } catch (err) {
         err.loadFailed = true; // the toast below is the message; callers need not repeat it
-        toast(I18N.t("Could not load this page. Check your connection and try again."), "warn");
+        toast(t("Could not load this page. Check your connection and try again."), "warn");
         throw err;
       } finally {
         loadingBundles.delete(name);
@@ -250,11 +345,11 @@
   function prefetch(name) {
     const paths = BUNDLES[name];
     if (!paths || loadedBundles.has(name) || loadingBundles.has(name)) return;
-    paths.forEach((path) => I18N.warm(path));
+    paths.forEach((path) => warm(path));
   }
 
   window.U = {
     escapeHtml, richText, paragraphs, api, store, clientId, formatDuration, formatClock,
-    formatDate, countWords, modal, loadingOverlay, toast, need, prefetch, clearApiCache: () => apiCache.clear(),
+    formatDate, number, money, LOCALE, countWords, assetUrl, loadScript, loadStyle, modal, loadingOverlay, toast, need, prefetch, clearApiCache: () => apiCache.clear(),
   };
 })();

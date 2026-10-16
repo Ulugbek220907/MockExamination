@@ -11,7 +11,7 @@ Scope: the home page (Persuade) and the portal screens that inherit its world (t
 
 Audience and job: Uzbek IELTS candidates, mostly on phones, full tests on laptops. First action: start a free test in one or two taps, no sign-up (Listening, Reading, Writing). Proof on hand: the real tests, the prices, the feature list. No testimonials or user counts exist; none may be invented.
 
-Constraints: plain HTML/CSS/JS, no framework, no build step; self-hosted fonts only (CSP font-src 'self'); light on mobile data. Interface in English, Uzbek and Russian with a switch.
+Constraints: plain HTML/CSS/JS, no framework, no build step; self-hosted fonts only (CSP font-src 'self'); light on mobile data. Interface in English only.
 
 Must not feel: a cold corporate template; cluttered.
 

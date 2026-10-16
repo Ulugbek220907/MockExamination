@@ -38,7 +38,7 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 - Progress page with latest band per module and band over time; history of attempts.
 - Examiner checks: Writing 10,000 so'm, Speaking 20,000 so'm; examiners mark the four official criteria and are rated once per check.
 - Stack: plain HTML/CSS/JavaScript single-page app served by a Python (Tornado) server; no build step and no framework. Keep it that way.
-- Interface languages: English, Uzbek and Russian with a switch. Test content (passages, recordings, questions, tasks) stays in English.
+- Interface language: English only. Students come to practise the test, which is in English; there is no language switch. Test content (passages, recordings, questions, tasks) is in English.
 - Band scores are practice estimates, not official results.
 
 ## Brand Commitments
@@ -57,7 +57,7 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 2. Free first, then pay: a candidate can start a full free test in one or two taps, with no sign-up for Listening, Reading and Writing.
 3. Honest feedback: estimated bands are labelled as estimates; every mark is explained.
 4. Light and fast on a phone: small pages, no heavy media, works on slow mobile connections.
-5. Local: so'm prices, local payment methods, and an interface in Uzbek, Russian or English.
+5. Local: so'm prices and local payment methods; the interface stays in English, like the exam.
 
 ## Accessibility & Inclusion
 
