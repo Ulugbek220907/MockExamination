@@ -26,7 +26,7 @@ import os
 import time
 import urllib.parse
 
-from . import accounts, checks, notify
+from . import accounts, analytics, checks, notify
 from .db import iso, now, parse_time
 
 log = logging.getLogger("mockexam.billing")
@@ -131,6 +131,29 @@ def public_order(order):
     }
 
 
+def user_orders(db, user_id, limit=50):
+    """
+    A user's orders, newest first, each with a receipt of what it unlocked: the plan period it
+    added, or the examiner check it paid for. A refunded or unpaid order has no "unlocked".
+    """
+    rows = db.select("orders", {"user_id": user_id}, order=[("created_at", "desc")], limit=limit)
+    periods = {p["order_id"]: p for p in db.select("subscription_periods", {"user_id": user_id}, limit=200)
+               if p.get("order_id") is not None}
+    paid_checks = {c["order_id"]: c for c in db.select("checks", {"student_id": user_id}, limit=200)}
+    out = []
+    for order in rows:
+        item = public_order(order)
+        if order["status"] == "paid":
+            if order["kind"] == "plan" and order["id"] in periods:
+                p = periods[order["id"]]
+                item["unlocked"] = {"plan": {"startsAt": p["starts_at"], "endsAt": p["ends_at"]}}
+            elif order["id"] in paid_checks:
+                c = paid_checks[order["id"]]
+                item["unlocked"] = {"check": {"id": c["id"], "kind": c["kind"], "status": c["status"]}}
+        out.append(item)
+    return out
+
+
 def create_order(db, user_id, kind, examiner_id=None, submission_id=None):
     if kind not in PRICES:
         raise BillingError("Unknown product.")
@@ -218,6 +241,7 @@ def fulfil_order(db, order_id, provider):
             notify.order_paid(db, order, provider, ends)
             if order["kind"] != "plan":
                 notify.check_assigned(db, check)
+            analytics.record(db, "paid", user_id=order["user_id"], detail=order["kind"], order_id=order["id"])
     log.info("Order %s (%s, %s) paid via %s", order["id"], order["kind"], order["amount"], provider)
     return order
 

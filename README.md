@@ -9,7 +9,7 @@
 | Module | Content | Marking |
 |---|---|---|
 | **Listening** | 3 full tests: 12 parts, 120 questions, about an hour of original recordings (form, note, table and flow-chart completion, map and plan labelling, multiple choice, choose two, matching) | Instant: estimated band, per-part and per-question-type analysis, explanations, and the full transcript with every answer highlighted and a *Listen again* button |
-| **Reading** | 4 full Academic tests: 12 original passages, 160 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
+| **Reading** | 8 full Academic tests: 24 passages, 320 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
 | **Writing** | 5 full Academic tests: Task 1 line graph, bar chart, process diagram, pie charts and table, plus 5 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** scores all four criteria and gives corrections |
 | **Speaking** | 3 full tests: Part 1 interview (8 questions), Part 2 cue card with 1 minute to prepare and 2 minutes to speak, Part 3 discussion (5 questions). The examiner's questions are original recordings | Answers are recorded in the browser and saved to the account. The candidate listens back, gets a self-check, and can order an examiner check |
 | **Examiner checks** | Students choose a human examiner (rated by other students) and pay per check: Writing 10,000 so'm, Speaking 20,000 so'm | The examiner marks the four official criteria (reading the essays or playing the recordings) with feedback; the student rates the examiner once |
@@ -25,10 +25,10 @@
 
 **All content is original** and written for this project. The recordings are voiced with the open-source Kokoro text-to-speech model (Apache 2.0). The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
 
-### Design and languages
+### Design
 - The home page is a metro map: each module is a line in its own colour (Listening blue, Reading red, Writing green, Speaking amber), each test is a station, and all four lines meet at the *Test day* interchange. The first station on every line starts a free test in one tap; tapping any station opens its details. Stations you have taken show your band. The monthly plan is presented as a monthly pass.
-- The interface is in English, Uzbek (Latin script) and Russian, with a switch in the header (`i18n.js`; English text in `i18n-strings.js`, Uzbek and Russian in `i18n-uz.js` and `i18n-ru.js`, fetched only when chosen; `?lang=uz` or `?lang=ru` opens a language directly). The exam screens, the instructions before a test and all test content stay in English, as on test day.
-- The site opens straight away. The home page loads only what it needs (about 58 KB compressed, and its three data requests start while the scripts download). A test's questions, the exam screen's code and styles (`css/cd-ielts.css`, `exam.js`, `speaking.js`, `charts.js`, `highlighter.js`), the results page and the progress chart load when a test is started or a result is opened; Uzbek and Russian text loads only when chosen. `U.need()` in `util.js` downloads each bundle whole and runs it in order, so a dropped connection never leaves it half-loaded.
+- The interface is in English only, like the exam itself (all text in `js/strings.js`; `t()` looks it up).
+- The site opens straight away. The home page loads only what it needs (about 58 KB compressed, and its three data requests start while the scripts download). A test's questions, the exam screen's code and styles (`css/cd-ielts.css`, `exam.js`, `speaking.js`, `charts.js`, `highlighter.js`), the results page and the progress chart load when a test is started or a result is opened. `U.need()` in `util.js` downloads each bundle whole and runs it in order, so a dropped connection never leaves it half-loaded.
 - Product context and the design direction live in `PRODUCT.md` and `.impeccable/surfaces/`; the visual system is documented in `DESIGN.md`.
 
 ### Exam experience
@@ -56,7 +56,7 @@ Nothing else is required. Without configuration, tests are read from `content/` 
 
 ```bash
 python scripts/validate_content.py   # validates every test (answer keys, word limits, gaps, charts, audio)
-python scripts/test_app.py           # 69 automated tests: scoring, API, caching, translations, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
+python scripts/test_app.py           # the automated tests (it prints the count): scoring, API, caching, interface text, sign-in, plan, Payme, Click, examiner checks, Speaking, notifications
 ```
 
 ## Deploying
@@ -90,10 +90,8 @@ content/
 public/
   index.html              single-page app shell (header, footer, the TestDay mark)
   css/portal.css          site design system: tokens, the line network, every page outside the exam
-  fonts/                  Jost (self-hosted, Latin + Cyrillic subsets, OFL)
-  js/i18n.js              interface language: t(), plural forms, number and money formatting, the switch
-  js/i18n-strings.js      English interface text
-  js/i18n-uz.js, -ru.js   Uzbek and Russian interface text (loaded only when that language is chosen)
+  fonts/                  Jost (self-hosted, Latin subsets, OFL)
+  js/strings.js           interface text (English) and t()
   css/cd-ielts.css        exam environment, contrast themes, charts (loads when a test starts)
   js/app.js               router, the home page network, instructions, resources and legal pages
   js/account.js           sign-in, paywall, payments, pricing, account, examiners, checks, admin
@@ -113,20 +111,21 @@ scripts/
   build_listening_audio.py  generate listening MP3s from the scripts (Kokoro TTS)
   build_speaking_audio.py   generate the Speaking examiner's questions (Kokoro TTS)
   check_listening_audio.py  transcribe the MP3s with Whisper and check every answer is heard
-  test_app.py             test suite
-```
-
-### Legacy files to delete
-`data/tests.json`, `data/attempts.db` and `scripts/build_tests_data.py` hold the withdrawn Cambridge material. They are no longer loaded or served. Delete them from the repository before going live:
-
-```bash
-git rm data/tests.json data/attempts.db scripts/build_tests_data.py
+  test_app.py             test suite (prints the number of tests)
+  make_og_image.js        draws public/img/og.png, the picture shown when the site is shared (Node + Playwright)
+docs/
+  PAYMENTS_CHECKLIST.md   step-by-step test purchase and refund on production
+.github/workflows/ci.yml  runs the content check and the tests on every push and pull request
 ```
 
 ## API
 
 | Method | Path | Purpose |
 |---|---|---|
+| GET | `/robots.txt`, `/sitemap.xml` | for search engines; both use `SITE_URL` |
+| POST | `/api/events` | funnel events from the browser: visit, free_test_started, cta_click (204) |
+| POST | `/api/feedback` | a message from the Feedback button |
+| GET | `/api/admin/feedback` | admins: the latest feedback (the funnel is in `/api/admin/stats`) |
 | GET | `/api/health` | health check |
 | GET | `/api/config` | site name, whether AI marking is enabled |
 | GET | `/api/tests` | test summaries |

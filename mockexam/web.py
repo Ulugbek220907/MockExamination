@@ -17,7 +17,7 @@ from urllib.parse import urlparse
 import tornado.ioloop
 import tornado.web
 
-from . import accounts
+from . import accounts, analytics
 
 TRUST_PROXY = os.environ.get("TRUST_PROXY", "1") != "0"
 ADMIN_TOKEN = os.environ.get("ADMIN_TOKEN", "")
@@ -63,6 +63,10 @@ class BaseHandler(tornado.web.RequestHandler):
     @property
     def db(self):
         return self.application.settings["store"].db
+
+    def track(self, name, **fields):
+        """Record a funnel event in the background: it never delays or fails the response."""
+        return tornado.ioloop.IOLoop.current().run_in_executor(None, lambda: analytics.record(self.db, name, **fields))
 
     @property
     def auth(self):

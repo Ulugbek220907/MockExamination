@@ -8,8 +8,11 @@
 
   const esc = (v) => U.escapeHtml(v);
   const S = window.IeltsScoring;
-  const tr = (key, vars) => I18N.t(key, vars);
+  const tr = window.t; // `t` is a common local name in this file
   const LINE = { Listening: ["line-l", "L"], Reading: ["line-r", "R"], Writing: ["line-w", "W"], Speaking: ["line-s", "S"] };
+
+  /** Smooth scrolling, unless the student has asked their device for less motion. */
+  const scrollMotion = () => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
 
   function pct(correct, total) {
     return total ? Math.round((correct / total) * 100) : 0;
@@ -140,12 +143,13 @@
       </article>`;
   }
 
-  function renderReading(data, root) {
+  function renderReading(data, root, extra = {}) {
     root.innerHTML = `
       <section class="results-page line-r">
         ${header("Reading", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"))}
         ${scoreBanner(data)}
         <p class="score-note">${tr("results.note.reading")}</p>
+        ${extra.next || ""}
         ${breakdownHTML(tr("By passage"), Object.entries(data.passageBreakdown || {}), "Passage")}
         ${typesHTML(data)}
         ${reviewHTML(data)}
@@ -173,7 +177,7 @@
     return out + esc(text.slice(pos));
   }
 
-  function renderListening(data, root) {
+  function renderListening(data, root, extra = {}) {
     const transcript = data.transcript || [];
     const byNumber = {};
     data.results.forEach((r) => { byNumber[r.number] = r; });
@@ -184,6 +188,7 @@
         ${header("Listening", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"))}
         ${scoreBanner(data)}
         <p class="score-note">${tr("results.note.listening")}</p>
+        ${extra.next || ""}
         ${breakdownHTML(tr("By part"), Object.entries(data.partBreakdown || {}), "Part")}
         ${typesHTML(data)}
         ${reviewHTML(data)}
@@ -289,7 +294,7 @@
         renderTranscript(partIndex(r.partNumber));
         const mark = tEl.querySelector(`#t-q-${r.number}`);
         if (mark) {
-          mark.scrollIntoView({ behavior: "smooth", block: "center" });
+          mark.scrollIntoView({ behavior: scrollMotion(), block: "center" });
           mark.classList.add("flash");
           setTimeout(() => mark.classList.remove("flash"), 2200);
         }
@@ -411,7 +416,7 @@
       </section>`;
   }
 
-  function renderWriting(data, root) {
+  function renderWriting(data, root, extra = {}) {
     const a = data.assessment;
     const t1 = a && a.tasks["1"];
     const t2 = a && a.tasks["2"];
@@ -435,9 +440,13 @@
               <h2>${tr("Get your writing marked by an examiner")}</h2>
               <p>${tr("examiner.offer.writing")}</p>
             </div>
-            <button type="button" class="btn-primary" data-action="order-writing-check" data-submission="${Number(data.submissionId)}">
-              ${tr("Choose an examiner")}</button>
+            <div class="offer-action">
+              ${extra.checkPrice ? `<div class="offer-price">${esc(extra.checkPrice)}</div>` : ""}
+              <button type="button" class="btn-primary" data-action="order-writing-check" data-submission="${Number(data.submissionId)}"
+                data-track="examiner_check">${tr("Choose an examiner")}</button>
+            </div>
           </div>` : ""}
+        ${extra.next || ""}
         <nav class="task-jump" aria-label="${esc(tr("Tasks"))}">
           <a href="#task-result-1" data-jump="1">Task 1</a><a href="#task-result-2" data-jump="2">Task 2</a>
         </nav>
@@ -449,7 +458,7 @@
       link.addEventListener("click", (e) => {
         e.preventDefault();
         const target = root.querySelector(`#task-result-${link.dataset.jump}`);
-        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (target) target.scrollIntoView({ behavior: scrollMotion(), block: "start" });
       });
     });
   }

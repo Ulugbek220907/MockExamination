@@ -907,8 +907,8 @@
   function submissionHTML(sub, opts = {}) {
     if (!sub || !sub.parts) return "";
     if (sub.recordingsDeleted) {
-      return `<div class="notice notice-info"><strong>${I18N.t("The recordings have been deleted.")}</strong>
-        <span>${I18N.t("Speaking recordings are kept for {days} days.", { days: sub.keepDays })}</span></div>`;
+      return `<div class="notice notice-info"><strong>${window.t("The recordings have been deleted.")}</strong>
+        <span>${window.t("Speaking recordings are kept for {days} days.", { days: sub.keepDays })}</span></div>`;
     }
     return sub.parts.map((p) => `
       <details class="fold speak-fold" ${opts.open ? "open" : ""}>
@@ -929,31 +929,31 @@
   function resultHTML(result) {
     const P = Results.parts;
     return `
-      ${result.comment ? `<div class="examiner-comment"><h3>${I18N.t("Message from your examiner")}</h3><p>${esc(result.comment)}</p></div>` : ""}
+      ${result.comment ? `<div class="examiner-comment"><h3>${window.t("Message from your examiner")}</h3><p>${esc(result.comment)}</p></div>` : ""}
       <section class="task-result">
         ${result.summary ? `<p class="lead-text">${esc(result.summary)}</p>` : ""}
         ${P.criteriaHTML(result)}
-        <div class="feedback-columns">${P.listBlock(I18N.t("What you did well"), result.strengths, "good")}${P.listBlock(I18N.t("How to improve"), result.improvements, "improve")}</div>
+        <div class="feedback-columns">${P.listBlock(window.t("What you did well"), result.strengths, "good")}${P.listBlock(window.t("How to improve"), result.improvements, "improve")}</div>
       </section>`;
   }
 
   function selfCheckHTML() {
     return `
       <section class="speak-selfcheck">
-        <h2 class="section-title">${I18N.t("Check yourself while you listen")}</h2>
-        <p class="muted-text">${I18N.t("selfcheck.lead")}</p>
+        <h2 class="section-title">${window.t("Check yourself while you listen")}</h2>
+        <p class="muted-text">${window.t("selfcheck.lead")}</p>
         <div class="criteria-grid">${CRITERIA.map(([, label, q]) => `
-          <div class="criterion-card"><div class="criterion-head"><span>${esc(label)}</span></div><p>${esc(I18N.t(q))}</p></div>`).join("")}</div>
+          <div class="criterion-card"><div class="criterion-head"><span>${esc(label)}</span></div><p>${esc(window.t(q))}</p></div>`).join("")}</div>
         <ul class="plan-points speak-tips">
-          <li>${I18N.t("selfcheck.part1")}</li>
-          <li>${I18N.t("selfcheck.part2")}</li>
-          <li>${I18N.t("selfcheck.part3")}</li>
+          <li>${window.t("selfcheck.part1")}</li>
+          <li>${window.t("selfcheck.part2")}</li>
+          <li>${window.t("selfcheck.part3")}</li>
         </ul>
       </section>`;
   }
 
   async function renderResult(main, id) {
-    const tr = I18N.t;
+    const tr = window.t;
     document.title = tr("Your Speaking test");
     main.innerHTML = `<section class="page page-loading" aria-busy="true"><div class="skeleton" style="height:44px;width:min(420px,80%)"></div><div class="skeleton" style="height:180px"></div></section>`;
     let sub;
@@ -979,7 +979,7 @@
           </div>
           <div class="offer-action">
             ${b.prices.speaking_check ? `<div class="offer-price">${esc(Account.money(b.prices.speaking_check))}</div>` : ""}
-            <a class="btn-primary btn-lg" href="#/examiners?kind=speaking&submission=${Number(sub.id)}">${tr("Choose an examiner")}</a>
+            <a class="btn-primary btn-lg" href="#/examiners?kind=speaking&submission=${Number(sub.id)}" data-track="examiner_check">${tr("Choose an examiner")}</a>
           </div>
         </div>`;
     main.innerHTML = `
@@ -997,6 +997,7 @@
         </div>
         ${sub.status !== "completed" ? `<div class="notice notice-warn"><strong>${tr("This test was not finished.")}</strong><span>${tr("You can listen to the answers you recorded.")}</span></div>` : ""}
         ${offer}
+        ${window.app ? window.app.nextStopHTML("speaking", sub.testId, null) : ""}
         <h2 class="section-title">${tr("Listen to your answers")}</h2>
         <p class="muted-text section-sub">${check ? tr("Only you and your examiner can play these recordings. They are kept for {days} days.", { days: sub.keepDays })
           : tr("Only you can play these recordings. They are kept for {days} days.", { days: sub.keepDays })}</p>

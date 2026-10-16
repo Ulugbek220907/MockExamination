@@ -1,12 +1,14 @@
 /**
- * English interface text for dotted keys (short strings use the English itself
- * as the key). Uzbek and Russian live in i18n-uz.js and i18n-ru.js and are
- * loaded only for visitors who use them.
+ * The site's text. The interface is in English only.
+ *
+ * t("Some text") returns the text itself; long texts use a dotted key ("home.lead")
+ * whose wording lives below, so it is kept in one place. {name} placeholders are
+ * filled from the second argument: t("Start {name}", { name: "Reading" }).
  */
 (function () {
   "use strict";
 
-  Object.assign(I18N.EN, {
+  const TEXT = {
     "title.home": "IELTS-style Listening, Reading, Writing & Speaking practice",
     "so'm": "so‘m",
     "so'm / month": "so‘m / month",
@@ -68,7 +70,7 @@
     "faq.renew": "No. Nothing is charged automatically. When your month ends, you can pay for another month. Your very first payment gives you two months.",
     "faq.check": "Finish a Writing or Speaking test while signed in. On your results page, choose an examiner and pay. The examiner reads your essays or listens to your recorded answers, usually within 48 hours, and you see the bands and feedback in your account. You can rate the examiner once for each check.",
     "faq.checkfree": "No. You can order a check for any test you have taken, including the free tests.",
-    "faq.refund": "If an examiner has not started your check yet, we can refund it. Contact us with your order number.",
+    "faq.refund": "Yes. The monthly pass can be refunded within 3 days of payment if you have not started a test that needs the pass, and an examiner check until the examiner starts marking it. Write to us with your order number; the money goes back the way you paid. See the <a href=\"#/refunds\">refund policy</a>.",
     "paywall.text": "{test} is included in the monthly pass ({price} a month). Test 1 of each module is free.",
     "pay.manual.note": "Transfer to our card, then press “I have paid”. We confirm within a few hours.",
     "pay.setup.contact": "Online payment is not switched on yet. Please write to {contact} and we will activate your order {order}.",
@@ -102,5 +104,87 @@
     "selfcheck.part2": "Part 2: use your notes to cover every point on the card and keep talking until the examiner stops you.",
     "selfcheck.part3": "Part 3: give your opinion, explain why, and compare different views or situations.",
     "examiners.soon": "Take the free {skill} test while you are signed in. Once examiners are here, you can send it for a check from your results.",
-  });
+    "next.open": "The next station on this line is open to you.",
+    "next.locked": "It opens with the monthly pass: {price} a month, and your first payment gives two months.",
+    "next.locked.noprice": "It opens with the monthly pass. Your first payment gives two months.",
+    "tip.true_false_not_given": "False means the passage says the opposite; Not Given means it does not say. Find the exact sentence before you choose.",
+    "tip.yes_no_not_given": "These ask about the writer's views. Look for opinion words such as argue, believe or doubt, not just the facts.",
+    "tip.multiple_choice": "Check every option against the text. Wrong options often reuse words from the text with a different meaning.",
+    "tip.choose_multiple": "Judge each option on its own against the text, and give exactly as many answers as the question asks for.",
+    "tip.matching_headings": "Read the first and last sentences of each paragraph for its main idea; a heading that matches only one detail is a trap.",
+    "tip.matching_information": "You are looking for a kind of information, such as an example, a reason or a date, not the paragraph's topic.",
+    "tip.matching_features": "Find each name in the text first, then compare what is said about it with the statements.",
+    "tip.matching_sentence_endings": "The ending must make one correct sentence with the beginning, in grammar as well as meaning.",
+    "tip.classification": "Mark the category words, then find each statement in the text; they usually come in order.",
+    "tip.map_labelling": "Before the recording starts, find where you are on the map, then follow the directions step by step.",
+    "tip.note_completion": "Predict the kind of word each gap needs (a number, a name, a noun) and keep to the word limit.",
+    "tip.summary_completion": "Find the part of the text the summary covers, then check the word limit and the grammar of each gap.",
+    "tip.table_completion": "Use the row and column headings to predict each answer, and copy the spelling exactly.",
+    "tip.flow_chart_completion": "Follow the steps in order: the answers come in the same order as the text.",
+    "tip.sentence_completion": "The answer must fit the sentence grammatically and keep to the word limit.",
+    "tip.short_answer": "Answer with words from the text or recording, within the word limit. Spelling counts.",
+    "legal.updated": "Last updated: {date}",
+    "legal.contact": "Questions about this page: write to {contact}.",
+    "about.legal": "How we handle your data, the rules for using {name}, and when you can get your money back:",
+    "terms.lead": "These terms apply when you use {name} (testday.uz). By using the site, or by paying for the monthly pass or an examiner check, you agree to them. Please read them with the <a href=\"#/privacy\">privacy policy</a> and the <a href=\"#/refunds\">refund policy</a>.",
+    "terms.service.h": "What {name} is",
+    "terms.service": "{name} is an independent website for practising the IELTS test. It is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press &amp; Assessment. Band scores on {name} are practice estimates, not official IELTS results, and cannot be used as proof of your English level.",
+    "terms.account.h": "Your account",
+    "terms.account": "You sign in with a one-time code sent to your email, or with Google. Keep access to your email safe: anyone who can read it can sign in as you. One account is for one person; do not share it or the monthly pass.",
+    "terms.pass.h": "Free tests and the monthly pass",
+    "terms.pass": "The first test of every module is free. The monthly pass opens every test on the site for the period you paid for: {price} for a month, and your first payment gives two months. The pass does not renew by itself and nothing is charged automatically; when it ends, you can pay for another month. New tests may be added during your pass at no extra cost.",
+    "terms.checks.h": "Examiner checks",
+    "terms.checks": "An examiner check is a paid review of one Writing or Speaking test by an examiner you choose: {writing} for Writing, {speaking} for Speaking. The examiner gives a band for each of the four public criteria, with feedback. Examiners are independent teachers, not IELTS examiners acting for the IELTS partners. Most checks are finished within 48 hours; if your examiner cannot mark your test, we refund it.",
+    "terms.payment.h": "Payment",
+    "terms.payment": "Prices are in Uzbek so‘m and are shown before you pay. You can pay with Payme, Click or, where offered, a bank card transfer. Card payments are handled by Payme, Click or your bank; we never see your card details. Your pass or check starts as soon as the payment is confirmed. Every payment has a receipt on your account page.",
+    "terms.refunds.h": "Refunds",
+    "terms.refunds": "See the <a href=\"#/refunds\">refund policy</a>.",
+    "terms.use.h": "Fair use",
+    "terms.use": "The tests, recordings, questions, explanations and model answers on {name} are protected by copyright. You may use them for your own practice. You may not copy, publish, sell or share them, record or download the tests in bulk, or use automated tools to collect them. Do not upload anything unlawful or abusive, and treat examiners with respect. We may close an account that breaks these rules; if you had a paid pass, we refund the unused days.",
+    "terms.work.h": "Your answers and recordings",
+    "terms.work": "Your answers, essays and Speaking recordings stay yours. You allow us to store them, mark them, show them to you, and show them to the examiner you choose when you order a check. Speaking recordings are deleted automatically after {days} days. The <a href=\"#/privacy\">privacy policy</a> explains the rest.",
+    "terms.availability.h": "Availability and changes",
+    "terms.availability": "We work to keep {name} running and your results safe, but the site may sometimes be unavailable, for example during updates. We may change or improve tests, features and prices; a price change never affects a pass or check you have already paid for. If we change these terms, we update the date at the top of this page.",
+    "terms.liability.h": "Our responsibility",
+    "terms.liability": "{name} is a practice tool. We do our best to make the tests and band estimates realistic, but we cannot promise that your practice scores will match your official IELTS result. As far as the law allows, our responsibility to you for any claim is limited to the amount you paid us in the three months before it. Nothing in these terms takes away your rights as a consumer under the law of the Republic of Uzbekistan.",
+    "terms.law.h": "Law",
+    "terms.law": "These terms are governed by the law of the Republic of Uzbekistan.",
+    "privacy.lead": "This page explains what {name} stores about you, why, and what you can ask us to do with it. We do not sell your data and we do not show advertising.",
+    "privacy.collect.h": "What we store",
+    "privacy.analytics": "To see how people use the site, we count a few steps without knowing who you are: a visit (once a day per browser), signing up, starting a free test, finishing a test, paying, and clicks on a few main buttons. Each is stored with the same anonymous browser ID and, if you are signed in, your account ID. We use no third-party analytics, advertising or tracking scripts.",
+    "privacy.feedback": "If you send a message with the Feedback button, we store the message, your rating and the page you were on, and your email address only if you type it in.",
+    "privacy.cookies": "We use one cookie, which keeps you signed in. It is set only when you sign in and is not used for anything else.",
+    "privacy.where.h": "Who handles your data for us",
+    "privacy.where": "The site runs on Render, and your account, results and recordings are stored with Supabase. Sign-in codes and emails about your payments and checks are sent through Resend. Payments are processed by Payme and Click. If you ask for AI feedback on Writing, your essays are sent to Anthropic for marking. Each of them handles the data only to provide their service to us.",
+    "privacy.keep.h": "How long we keep it",
+    "privacy.keep": "Speaking recordings are deleted after {days} days. Your account, results and payment records are kept while your account exists, because they are your history and our accounting records. Anonymous usage counts are kept to see trends over time.",
+    "privacy.rights.h": "What you can ask",
+    "privacy.rights": "You can ask for a copy of your data, ask us to correct it, or ask us to delete your account and everything linked to it. Write to {contact} from the email address of your account. We answer within 30 days. We keep only what the law requires us to keep, such as payment records.",
+    "privacy.children": "If you are under 16, please use {name} with a parent’s or teacher’s permission.",
+    "refund.lead": "We want you to pay only for what is useful to you. This is when you can get your money back, and how.",
+    "refund.pass.h": "The monthly pass",
+    "refund.pass": "You can have the monthly pass refunded in full within 3 days of paying if you have not started any test that needs the pass. After that, or once you have started such a test, the pass cannot be refunded, but it never renews by itself.",
+    "refund.checks.h": "Examiner checks",
+    "refund.checks": "An examiner check can be refunded in full until the examiner starts marking it. If your examiner cannot mark your test, we refund it in full. Once the examiner has started, the check cannot be refunded.",
+    "refund.how.h": "How to ask",
+    "refund.how": "Write to {contact} with your order number (it starts with MX and is on the receipt in your account). We reply within 2 working days.",
+    "refund.money.h": "How the money comes back",
+    "refund.money": "We send the money back the way you paid: to your Payme or Click account or card, or to the card you transferred from. Payme and Click refunds usually arrive within a few working days; a bank transfer can take longer, depending on your bank. Your receipt then shows the order as refunded, and the pass days or the check are removed.",
+    "pay.agree": "By paying you agree to the <a href=\"#/terms\" target=\"_blank\" rel=\"noopener\">Terms</a> and the <a href=\"#/refunds\" target=\"_blank\" rel=\"noopener\">Refund policy</a>.",
+  };
+
+  function t(key, vars) {
+    let out = Object.prototype.hasOwnProperty.call(TEXT, key) ? TEXT[key] : key;
+    if (vars) out = out.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? String(vars[k]) : m));
+    return out;
+  }
+
+  /** "1 test", "3 tests": `one` and `many` take {n}. */
+  function plural(n, one, many) {
+    return (n === 1 ? one : many).replace("{n}", n);
+  }
+
+  window.TEXT = TEXT;
+  window.t = t;
+  window.plural = plural;
 })();

@@ -17,12 +17,12 @@
   const state = { me: { user: null }, billing: null, config: {} };
   const siteName = () => state.config.siteName || "TestDay";
 
-  const money = (n) => I18N.money(n);
+  const money = (n) => U.money(n);
   const longDate = (iso) => {
     const d = new Date(iso);
     if (isNaN(d)) return "";
     try {
-      return d.toLocaleDateString(I18N.locale(), { day: "numeric", month: "long", year: "numeric" });
+      return d.toLocaleDateString(U.LOCALE, { day: "numeric", month: "long", year: "numeric" });
     } catch (e) {
       return d.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
     }
@@ -174,7 +174,7 @@
         showError("email", "");
         busy("email", true);
         try {
-          const res = await U.api("/api/auth/code", { method: "POST", body: JSON.stringify({ email, lang: I18N.lang() }) });
+          const res = await U.api("/api/auth/code", { method: "POST", body: JSON.stringify({ email }) });
           const emailTarget = el.querySelector("[data-email]");
           if (emailTarget) emailTarget.textContent = res.email;
           const hint = el.querySelector(".dev-hint");
@@ -295,7 +295,8 @@
         <div class="pay-methods">${b.providers.map((p) => `
           <button type="button" class="pay-method" data-method="${p}">
             <span class="pay-method-name">${esc(labels[p][0])}</span><span class="pay-method-note">${esc(labels[p][1])}</span>
-          </button>`).join("")}</div>`,
+          </button>`).join("")}</div>
+        <p class="pay-agree muted-text small-text">${t("pay.agree")}</p>`,
       buttons: [{ label: t("Cancel"), className: "btn-secondary", value: null }],
       onOpen: (root, close) => root.querySelectorAll("[data-method]").forEach((btn) =>
         btn.addEventListener("click", () => close(btn.dataset.method))),
@@ -353,13 +354,13 @@
   const stripes = `<div class="pass-stripes" aria-hidden="true"><span style="background:var(--line-l)"></span><span style="background:var(--line-r)"></span><span style="background:var(--line-w)"></span><span style="background:var(--line-s)"></span></div>`;
 
   function passPriceHTML(amount) {
-    return `${esc(I18N.number(amount))}<small>${t("so'm / month")}</small>`;
+    return `${esc(U.number(amount))}<small>${t("so'm / month")}</small>`;
   }
 
   /** The monthly pass as a transit card; the home page and the prices page share it. */
   function passCardHTML(amount) {
     return `
-      <div class="pass-card" role="img" aria-label="${esc(t("Monthly pass"))}${amount ? `: ${esc(I18N.money(amount))}` : ""}">
+      <div class="pass-card" role="img" aria-label="${esc(t("Monthly pass"))}${amount ? `: ${esc(U.money(amount))}` : ""}">
         ${stripes}
         <div class="pass-top"><span class="site-name">${esc(siteName())}</span><span class="pass-kind">${t("Monthly pass")}</span></div>
         <div class="pass-price" data-price="plan">${amount ? passPriceHTML(amount) : "&nbsp;"}</div>
@@ -505,10 +506,11 @@
         <h2 class="section-title">${t("Payments")}</h2>
         ${orders.length ? `
           <div class="table-scroll"><table class="history-table">
-            <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Order")}</th><th scope="col">${t("Item")}</th><th scope="col">${t("Amount")}</th><th scope="col">${t("Status")}</th></tr></thead>
+            <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Order")}</th><th scope="col">${t("Item")}</th><th scope="col">${t("Amount")}</th><th scope="col">${t("Status")}</th><th scope="col"><span class="sr-only">${t("Receipt")}</span></th></tr></thead>
             <tbody>${orders.map((o) => `
               <tr><td>${esc(U.formatDate(o.createdAt))}</td><td>#MX${o.id}</td><td>${esc(o.title)}</td>
-                <td>${esc(money(o.amount))}</td><td>${statusBadge(o.status)}</td></tr>`).join("")}</tbody>
+                <td>${esc(money(o.amount))}</td><td>${statusBadge(o.status)}</td>
+                <td>${o.status === "paid" ? `<button type="button" class="btn-link" data-action="receipt" data-order="${o.id}">${t("Receipt")}</button>` : ""}</td></tr>`).join("")}</tbody>
           </table></div>` : `<p class="empty-inline">${t("No payments yet.")}</p>`}
       </section>`;
     main.querySelector("#name-form").addEventListener("submit", async (e) => {
@@ -535,13 +537,13 @@
             <h3>${esc(e.name)}</h3>
             ${e.headline ? `<p class="examiner-headline">${esc(e.headline)}</p>` : ""}
             <p class="examiner-rating">${e.rating != null
-              ? `${stars(e.rating)} <strong>${e.rating.toFixed(1)}</strong> <span class="muted-text">(${esc(I18N.plural(e.reviews, { en: ["{n} review", "{n} reviews"], uz: ["{n} ta sharh"], ru: ["{n} отзыв", "{n} отзыва", "{n} отзывов"] }))})</span>`
+              ? `${stars(e.rating)} <strong>${e.rating.toFixed(1)}</strong> <span class="muted-text">(${esc(plural(e.reviews, "{n} review", "{n} reviews"))})</span>`
               : `<span class="muted-text">${t("New examiner – no reviews yet")}</span>`}</p>
           </div>
         </div>
         <div class="examiner-tags">
           ${e.doesWriting ? `<span class="tag line-w">Writing</span>` : ""}${e.doesSpeaking ? `<span class="tag line-s">Speaking</span>` : ""}
-          <span class="tag tag-muted">${esc(I18N.plural(e.checksDone, { en: ["{n} check done", "{n} checks done"], uz: ["{n} ta tekshiruv"], ru: ["{n} проверка", "{n} проверки", "{n} проверок"] }))}</span>
+          <span class="tag tag-muted">${esc(plural(e.checksDone, "{n} check done", "{n} checks done"))}</span>
           ${e.queue ? `<span class="tag tag-muted">${esc(t("{n} in queue", { n: e.queue }))}</span>` : ""}
         </div>
         ${e.bio ? `<p class="examiner-bio">${esc(e.bio)}</p>` : ""}
@@ -677,7 +679,7 @@
             <div class="task-result-head"><h2 class="section-title">Task ${n}</h2><span class="task-band">Band ${IeltsScoring.formatBand(t.band)}</span></div>
             ${t.summary ? `<p class="lead-text">${esc(t.summary)}</p>` : ""}
             ${P.criteriaHTML(t)}
-            <div class="feedback-columns">${P.listBlock(I18N.t("What you did well"), t.strengths, "good")}${P.listBlock(I18N.t("How to improve"), t.improvements, "improve")}</div>
+            <div class="feedback-columns">${P.listBlock(window.t("What you did well"), t.strengths, "good")}${P.listBlock(window.t("How to improve"), t.improvements, "improve")}</div>
             ${P.correctionsHTML(t.corrections)}
           </section>`;
       }).join("")}`;
@@ -997,7 +999,8 @@
     }
     const tab = params.get("tab") || "payments";
     const waiting = (state.me.todo || {}).payments || 0;
-    const tabs = [["payments", `Payments to confirm${waiting ? ` (${waiting})` : ""}`], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"]];
+    const tabs = [["payments", `Payments to confirm${waiting ? ` (${waiting})` : ""}`], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"],
+      ["insights", "Funnel & feedback"]];
     main.innerHTML = `
       <section class="page admin-page">
         <h1>Admin</h1>
@@ -1082,6 +1085,16 @@
           renderAdmin(main, params);
         } catch (err) { U.toast(err.message, "warn"); }
       });
+    } else if (tab === "insights") {
+      const [stats, { feedback }] = await Promise.all([U.api("/api/admin/stats", { fresh: true }), U.api("/api/admin/feedback")]);
+      body.innerHTML = `${funnelHTML(stats.funnel)}
+        <h2 class="section-title">Feedback</h2>
+        ${feedback.length ? `<div class="feedback-list">${feedback.map((f) => `
+          <article class="feedback-item">
+            <div class="feedback-meta">${esc(U.formatDate(f.createdAt))}${f.rating ? ` · ${stars(f.rating)}` : ""}${f.page ? ` · <code>${esc(f.page)}</code>` : ""}
+              ${f.email ? ` · <a href="mailto:${esc(f.email)}">${esc(f.email)}</a>` : f.signedIn ? " · signed in" : ""}</div>
+            <p>${esc(f.message)}</p>
+          </article>`).join("")}</div>` : `<p class="empty-inline">No feedback yet.</p>`}`;
     } else {
       const q = params.get("q") || "";
       const { users } = await U.api(`/api/admin/users${q ? `?q=${encodeURIComponent(q)}` : ""}`);
@@ -1109,6 +1122,29 @@
     }
   }
 
+  /* ================================================================ funnel */
+  const STEP_NAMES = { visit: "Visits (browsers a day)", signup: "Sign-ups", free_test_started: "Free tests started",
+    test_finished: "Tests finished", paid: "Paid orders" };
+
+  /** The funnel for the last 7 and 30 days, with each step as a share of the step before it. */
+  function funnelHTML(funnel) {
+    if (!funnel) return `<p class="empty-inline">The funnel could not be counted. Check the server log.</p>`;
+    const share = (counts, i, step) => {
+      if (!i) return "";
+      const before = counts[funnel.steps[i - 1]];
+      return before ? ` <span class="muted-text">${Math.round((counts[step] / before) * 100)}%</span>` : "";
+    };
+    return `
+      <h2 class="section-title">Funnel</h2>
+      <div class="table-scroll"><table class="history-table funnel-table">
+        <thead><tr><th scope="col">Step</th><th scope="col">Last 7 days</th><th scope="col">Last 30 days</th></tr></thead>
+        <tbody>${funnel.steps.map((step, i) => `<tr><th scope="row">${esc(STEP_NAMES[step] || step)}</th>
+          <td>${U.number(funnel["7"][step])}${share(funnel["7"], i, step)}</td>
+          <td>${U.number(funnel["30"][step])}${share(funnel["30"], i, step)}</td></tr>`).join("")}</tbody>
+      </table></div>
+      <p class="muted-text small-text">Visits count each browser once a day. The percentage is the share of the step above.</p>`;
+  }
+
   /* ================================================================ click handling */
   function onClick(e) {
     const el = e.target.closest("[data-action]");
@@ -1123,7 +1159,39 @@
       return true;
     }
     if (a === "order-writing-check") { location.hash = `#/examiners?submission=${Number(el.dataset.submission)}`; return true; }
+    if (a === "receipt") { showReceipt(Number(el.dataset.order)); return true; }
     return false;
+  }
+
+  /* ================================================================ receipts */
+  const PAID_WITH = { payme: "Payme", click: "Click", manual: "Card transfer" };
+
+  /** What a paid order bought: the amount, when, how, and what it opened. */
+  function receiptHTML(o) {
+    const u = o.unlocked || {};
+    const unlocked = u.plan
+      ? t("Monthly pass: every test, {from} to {to}", { from: longDate(u.plan.startsAt), to: longDate(u.plan.endsAt) })
+      : u.check
+        ? `${t(u.check.kind === "speaking" ? "Speaking check" : "Writing check")} · <a href="#/check/${Number(u.check.id)}">${t("Open the check")}</a>`
+        : esc(o.title);
+    const row = (label, value) => `<tr><th scope="row">${label}</th><td>${value}</td></tr>`;
+    return `<table class="receipt-table"><tbody>
+      ${row(t("Order"), `#MX${Number(o.id)}`)}
+      ${row(t("Item"), esc(o.title))}
+      ${row(t("Amount"), esc(money(o.amount)))}
+      ${row(t("Paid on"), esc(longDate(o.paidAt || o.createdAt)))}
+      ${row(t("Paid with"), esc(PAID_WITH[o.provider] || o.provider || "–"))}
+      ${row(t("Unlocked"), u.plan ? esc(unlocked) : unlocked)}
+    </tbody></table>
+    <p class="muted-text small-text">${t("Keep this receipt. If something is wrong, write to us and quote the order number.")}</p>`;
+  }
+
+  async function showReceipt(orderId) {
+    const { orders } = await U.api("/api/orders").catch(() => ({ orders: [] }));
+    const order = (orders || []).find((o) => o.id === orderId);
+    if (!order) return U.toast(t("Could not load this page. Check your connection and try again."), "warn");
+    U.modal({ title: t("Receipt #MX{id}", { id: orderId }), bodyHTML: receiptHTML(order),
+      buttons: [{ label: t("Close"), className: "btn-primary", value: true }] });
   }
 
   window.Account = {

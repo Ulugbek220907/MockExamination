@@ -13,7 +13,7 @@
   const title = document.getElementById("cb-title");
   const message = document.getElementById("cb-message");
   const back = document.getElementById("cb-back");
-  const tr = (text) => (window.I18N ? I18N.t(text) : text);
+  const tr = (text) => (window.t ? window.t(text) : text);
   title.textContent = tr("Signing you in…");
   message.textContent = tr("Please wait a moment.");
   back.textContent = tr("Back to the site");

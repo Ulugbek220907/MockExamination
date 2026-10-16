@@ -18,6 +18,7 @@ import os
 import re
 import sys
 import tempfile
+import time
 import types
 import unittest
 import urllib.error
@@ -41,7 +42,7 @@ os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
 from mockexam import accounts, api, auth, billing, checks, content, notify, scoring, speaking, storage, writing  # noqa: E402
-from mockexam.db import SqliteDb, iso, now  # noqa: E402
+from mockexam.db import SqliteDb, iso, now, parse_time  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
 
@@ -75,43 +76,62 @@ def contains_key(obj, key):
     return False
 
 
-class InterfaceLanguageTests(unittest.TestCase):
-    """Every interface string passed to t() has an Uzbek and a Russian translation."""
+class InterfaceTextTests(unittest.TestCase):
+    """The interface is in English only, and every dotted text key has its wording in strings.js."""
 
-    INDIRECT = [  # strings that reach t() through a variable
-        "Waiting for the examiner", "Being marked", "Marked", "Cancelled", "Not paid", "Payment being checked",
-        "Paid", "Refunded", "Expert user", "Very good user", "Good user", "Competent user", "Modest user",
-        "Limited user", "Extremely limited user", "Intermittent user", "Non-user",
-        "marked automatically", "AI estimate", "examiner",
-    ]
-
-    @staticmethod
-    def dictionary(source, name):
-        import re
-        start = source.index(f"Object.assign(I18N.{name}, {{")
-        end = source.index("\n  });", start)
-        return {json.loads(f'"{k}"') for k in re.findall(r'^\s+"((?:[^"\\]|\\.)*)":', source[start:end], re.M)}
-
-    def test_every_string_is_translated(self):
+    def test_every_dotted_key_has_english_text(self):
         import glob
         import re
-        keys = set(self.INDIRECT)
-        call = re.compile(r'(?<![\w.])(?:t|tr|I18N\.t)\(\s*("(?:[^"\\]|\\.)*")')
-        for path in glob.glob(os.path.join(PUBLIC_DIR, "js", "*.js")) + [os.path.join(PUBLIC_DIR, "index.html")]:
+        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
+            source = f.read()
+        text = {json.loads(f'"{k}"') for k in re.findall(r'^\s+"((?:[^"\\]|\\.)*)":', source, re.M)}
+        call = re.compile(r'(?<![\w.])(?:t|tr|window\.t)\(\s*("(?:[^"\\]|\\.)*")')
+        keys = set()
+        for path in glob.glob(os.path.join(PUBLIC_DIR, "js", "*.js")):
             with open(path, encoding="utf-8") as f:
-                text = re.sub(r"/\*.*?\*/", "", f.read(), flags=re.S)  # skip examples in comments
-            keys.update(json.loads(m.group(1)) for m in call.finditer(text))
-            keys.update(re.findall(r'data-i18n(?:-html|-label)?="([^"]+)"', text))
-        source = ""
-        for name in ("i18n-strings.js", "i18n-uz.js", "i18n-ru.js"):
-            with open(os.path.join(PUBLIC_DIR, "js", name), encoding="utf-8") as f:
-                source += f.read()
-        en, uz, ru = (self.dictionary(source, n) for n in ("EN", "UZ", "RU"))
+                code = re.sub(r"/\*.*?\*/", "", f.read(), flags=re.S)  # skip examples in comments
+            keys.update(json.loads(m.group(1)) for m in call.finditer(code))
         dotted = {k for k in keys if re.fullmatch(r"[a-z]+(\.[a-z0-9]+)+", k)}
         self.assertGreater(len(keys), 300)
-        self.assertEqual(sorted(dotted - en), [], "keys without English text")
-        self.assertEqual(sorted(keys - uz), [], "missing Uzbek")
-        self.assertEqual(sorted(keys - ru), [], "missing Russian")
+        self.assertEqual(sorted(dotted - text), [], "keys without English text")
+
+    def test_every_question_type_has_a_tip(self):
+        # The results page's "next stop" names the weakest question type with a one-line tip.
+        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
+            source = f.read()
+        for key in scoring.TYPE_LABELS:
+            self.assertIn(f'"tip.{key}":', source, key)
+
+    def test_legal_pages_have_their_text(self):
+        # renderLegal builds headings from keys ("terms.pass" -> "terms.pass.h"), which the dotted-key test cannot see.
+        import re
+        with open(os.path.join(PUBLIC_DIR, "js", "app.js"), encoding="utf-8") as f:
+            app = f.read()
+        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
+            strings = f.read()
+        sections = re.findall(r'section\("([a-z.]+)"', app)
+        self.assertGreaterEqual(len(sections), 15)
+        for key in sections:
+            for k in (key, key + ".h"):
+                self.assertIn(f'"{k}":', strings, k)
+
+    def test_words_are_never_hyphenated(self):
+        # Automatic hyphens cut passage words in half at line ends on phones and Macs.
+        import re
+        for name in ("cd-ielts.css", "portal.css"):
+            with open(os.path.join(PUBLIC_DIR, "css", name), encoding="utf-8") as f:
+                css = f.read()
+            self.assertIsNone(re.search(r"hyphens:\s*auto", css), name)
+            self.assertIsNone(re.search(r"word-break:\s*break-all", css), name)
+
+    def test_no_language_switch_or_translations_left(self):
+        js = os.path.join(PUBLIC_DIR, "js")
+        for name in ("i18n.js", "i18n-strings.js", "i18n-uz.js", "i18n-ru.js"):
+            self.assertFalse(os.path.exists(os.path.join(js, name)), name)
+        with open(os.path.join(PUBLIC_DIR, "index.html"), encoding="utf-8") as f:
+            page = f.read()
+        for marker in ("lang-switch", "data-lang=", "data-i18n", 'lang="uz"', 'lang="ru"'):
+            self.assertNotIn(marker, page)
 
 
 class ContentTests(unittest.TestCase):
@@ -674,7 +694,7 @@ class ApiTests(AsyncHTTPTestCase):
         m = re.search(r'<script type="application/json" id="asset-versions">(.*?)</script>', page)
         assets = json.loads(m.group(1))
         lazy = ("css/cd-ielts.css", "js/highlighter.js", "js/charts.js", "js/exam.js", "js/results.js", "js/speaking.js",
-                "js/progress.js", "js/i18n-uz.js", "js/i18n-ru.js")
+                "js/progress.js")
         for path in lazy:
             self.assertRegex(assets[path], rf"^{re.escape(path)}\?v=[0-9a-f]{{12}}$")
             self.assertEqual(self.fetch("/" + assets[path]).code, 200)
@@ -695,6 +715,47 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertIn('href="#/pricing"', footer)
         self.assertNotIn("#/resources", footer)
         self.assertNotIn("#/about", footer)
+
+    def test_share_tags_canonical_and_structured_data(self):
+        import re
+        page = self.fetch("/").body.decode()
+        self.assertNotIn("%SITE_URL%", page)
+        base = server.PUBLIC_URL
+        for tag in (f'<link rel="canonical" href="{base}/"', f'<meta property="og:image" content="{base}/img/og.png"',
+                    f'<meta property="og:url" content="{base}/"', '<meta name="twitter:card" content="summary_large_image"',
+                    '<meta name="google-site-verification" content="Prm-tWClyByMpQqNwmQhTiq2pMa4gYLGruGIfOelJ1I"'):
+            self.assertIn(tag, page)
+        self.assertEqual(self.fetch("/img/og.png").code, 200)
+        blocks = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', page)]
+        self.assertEqual({b["@type"] for b in blocks}, {"WebSite", "Organization", "FAQPage"})
+        # The FAQ for search engines says exactly what the Prices page says.
+        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
+            strings = f.read()
+        faq = next(b for b in blocks if b["@type"] == "FAQPage")["mainEntity"]
+        for key, item in zip(("faq.renew", "faq.check", "faq.checkfree", "faq.refund"), faq):
+            m = re.search(rf'^\s+"{re.escape(key)}":\s*("(?:[^"\\]|\\.)*"),?$', strings, re.M)
+            self.assertEqual(item["acceptedAnswer"]["text"], json.loads(m.group(1)), key)
+
+    def test_contact_email_is_never_blank(self):
+        r = self.fetch("/api/config")
+        email = json.loads(r.body)["contactEmail"]
+        self.assertRegex(email, r"^[^@\s]+@[^@\s]+\.[a-z]{2,}$")
+        page = self.fetch("/").body.decode()
+        footer = page[page.index('<nav class="footer-nav"'):]
+        footer = footer[:footer.index("</nav>")]
+        for link in ("#/terms", "#/privacy", "#/refunds"):
+            self.assertIn(link, footer)
+
+    def test_sitemap_and_robots(self):
+        r = self.fetch("/sitemap.xml")
+        self.assertEqual(r.code, 200)
+        self.assertTrue(r.headers["Content-Type"].startswith("application/xml"))
+        self.assertIn("max-age=3600", r.headers["Cache-Control"])
+        self.assertIn(f"<loc>{server.PUBLIC_URL}/</loc>", r.body.decode())
+        r = self.fetch("/robots.txt")
+        self.assertEqual(r.code, 200)
+        self.assertIn("Disallow: /api/", r.body.decode())
+        self.assertIn(f"Sitemap: {server.PUBLIC_URL}/sitemap.xml", r.body.decode())
 
     def test_test_list_revalidates_with_etag(self):
         r = self.fetch("/api/tests")
@@ -1187,18 +1248,18 @@ class EmailCodeAuthTests(unittest.TestCase):
     def code(self):
         return re.search(r"\b(\d{6})\b", self.sent[-1]["subject"]).group(1)
 
-    def test_branded_email_in_the_visitors_language(self):
-        self.auth.send_code("a@example.com", "", "uz")
+    def test_branded_email(self):
+        self.auth.send_code("a@example.com", "")
         mail = self.sent[-1]
         self.assertEqual(mail["to"], ["a@example.com"])
-        self.assertIn("TestDay kodingiz", mail["subject"])
+        self.assertIn("is your TestDay code", mail["subject"])
         self.assertIn("https://www.testday.uz/img/email-logo.png", mail["html"])
         self.assertIn(self.code(), mail["html"])
         row = self.db.select("login_codes", {"email": "a@example.com"})[0]
         self.assertNotIn(self.code(), row["code_hash"])  # only a hash is stored
 
     def test_wrong_tries_expiry_and_one_use(self):
-        self.auth.send_code("b@example.com", "", "en")
+        self.auth.send_code("b@example.com", "")
         good = self.code()
         bad = "000000" if good != "000000" else "111111"
         with self.assertRaises(auth.AuthError):
@@ -1206,14 +1267,14 @@ class EmailCodeAuthTests(unittest.TestCase):
         self.assertEqual(self.auth.verify_code("b@example.com", good)["email"], "b@example.com")
         with self.assertRaises(auth.AuthError):  # used once
             self.auth.verify_code("b@example.com", good)
-        self.auth.send_code("b@example.com", "", "en")
+        self.auth.send_code("b@example.com", "")
         good = self.code()
         for _ in range(auth.EmailCodeAuth.MAX_TRIES):
             with self.assertRaises(auth.AuthError):
                 self.auth.verify_code("b@example.com", bad)
         with self.assertRaises(auth.AuthError):  # locked after too many guesses
             self.auth.verify_code("b@example.com", good)
-        self.auth.send_code("b@example.com", "", "en")
+        self.auth.send_code("b@example.com", "")
         self.db.update("login_codes", {"email": "b@example.com"}, {"expires_at": "2000-01-01T00:00:00+00:00"})
         with self.assertRaises(auth.AuthError):
             self.auth.verify_code("b@example.com", self.code())
@@ -1223,7 +1284,7 @@ class EmailCodeAuthTests(unittest.TestCase):
             raise urllib.error.HTTPError(url, 422, "bad", {}, io.BytesIO(b'{"message":"invalid"}'))
         with mock.patch.object(notify, "_post_json", refuse):
             with self.assertRaises(auth.AuthError) as ctx:
-                self.auth.send_code("c@example.com", "", "en")
+                self.auth.send_code("c@example.com", "")
         self.assertEqual(ctx.exception.status, 503)
 
 
@@ -1411,6 +1472,195 @@ class ClickTests(unittest.TestCase):
         self.assertEqual(self.api.complete(self.form(1, 999))["error"], -6)
 
 
+class PaymentHardeningTests(unittest.TestCase):
+    """Replayed callbacks change nothing twice; refunds take back exactly what was bought."""
+
+    def periods(self, db, uid):
+        return db.select("subscription_periods", {"user_id": uid}, order=[("starts_at", "asc")])
+
+    def test_payme_replays_are_idempotent(self):
+        db, uid, order = _db_with_order()
+        api = billing.PaymeApi(db, key="secret-key")
+        p = {"id": "pm-r", "time": 1700000000000, "amount": order["amount"] * 100, "account": {"order_id": str(order["id"])}}
+        _payme(api, "CreateTransaction", p)
+        first = _payme(api, "PerformTransaction", {"id": "pm-r"})["result"]
+        again = _payme(api, "PerformTransaction", {"id": "pm-r"})["result"]
+        self.assertEqual(first, again)
+        self.assertEqual(len(self.periods(db, uid)), 1)  # the plan was granted once
+        self.assertEqual(_payme(api, "CreateTransaction", p)["error"]["code"], -31008)  # performed: no new create
+        c1 = _payme(api, "CancelTransaction", {"id": "pm-r", "reason": 5})["result"]
+        c2 = _payme(api, "CancelTransaction", {"id": "pm-r", "reason": 5})["result"]
+        self.assertEqual(c1, c2)
+        self.assertEqual(self.periods(db, uid), [])
+        self.assertEqual(billing.get_order(db, order["id"])["status"], "refunded")
+
+    def test_payme_wrong_amount_is_refused_before_anything_is_stored(self):
+        db, uid, order = _db_with_order()
+        api = billing.PaymeApi(db, key="secret-key")
+        p = {"id": "pm-a", "time": 1, "amount": order["amount"] * 100 - 100, "account": {"order_id": str(order["id"])}}
+        self.assertEqual(_payme(api, "CreateTransaction", p)["error"]["code"], -31001)
+        self.assertEqual(db.select("payme_transactions", {"order_id": order["id"]}), [])
+        self.assertEqual(billing.get_order(db, order["id"])["status"], "pending")
+
+    def click_form(self, order, action, prepare_id="", amount=None, click_id="900"):
+        import hashlib
+        f = {"click_trans_id": click_id, "service_id": "777", "merchant_trans_id": str(order["id"]),
+             "amount": str(amount if amount is not None else order["amount"]), "action": str(action), "error": "0",
+             "sign_time": "2026-10-16 10:00:00"}
+        if action == 1:
+            f["merchant_prepare_id"] = str(prepare_id)
+        raw = f["click_trans_id"] + f["service_id"] + "click-secret" + f["merchant_trans_id"] + \
+            (f.get("merchant_prepare_id", "") if action == 1 else "") + f["amount"] + f["action"] + f["sign_time"]
+        f["sign_string"] = hashlib.md5(raw.encode()).hexdigest()
+        return f
+
+    def test_click_replays_are_idempotent_and_amount_is_checked(self):
+        db, uid, order = _db_with_order()
+        api = billing.ClickApi(db, service_id="777", secret_key="click-secret")
+        p1 = api.prepare(self.click_form(order, 0))
+        p2 = api.prepare(self.click_form(order, 0))
+        self.assertEqual(p1["merchant_prepare_id"], p2["merchant_prepare_id"])
+        self.assertEqual(len(db.select("click_transactions", {"order_id": order["id"]})), 1)
+        # A complete for a different amount is refused and nothing is paid.
+        bad = api.complete(self.click_form(order, 1, p1["merchant_prepare_id"], amount=order["amount"] - 1000))
+        self.assertEqual(bad["error"], -2)
+        self.assertFalse(accounts.plan_status(db, uid)["active"])
+        self.assertEqual(api.complete(self.click_form(order, 1, p1["merchant_prepare_id"]))["error"], 0)
+        self.assertEqual(api.complete(self.click_form(order, 1, p1["merchant_prepare_id"]))["error"], -4)
+        self.assertEqual(len(self.periods(db, uid)), 1)
+
+    def test_refund_moves_queued_plan_time_up(self):
+        db, uid, first = _db_with_order()
+        billing.fulfil_order(db, first["id"], "payme")  # 30 days + the 30-day first-payment bonus
+        second = billing.create_order(db, uid, "plan")
+        billing.fulfil_order(db, second["id"], "click")  # queued after the first
+        a, b = self.periods(db, uid)
+        self.assertEqual(b["starts_at"], a["ends_at"])
+        billing.refund_order(db, billing.get_order(db, first["id"]))
+        (left,) = self.periods(db, uid)
+        starts, ends = parse_time(left["starts_at"]), parse_time(left["ends_at"])
+        self.assertLess(abs((starts - now()).total_seconds()), 5)  # no gap without the plan
+        self.assertEqual((ends - starts).days, billing.PLAN_DAYS)  # and no paid day lost
+        self.assertTrue(accounts.plan_status(db, uid)["active"])
+
+    def test_check_refund_only_until_the_examiner_starts(self):
+        db, uid, _ = _db_with_order()
+        order = db.insert("orders", {"user_id": uid, "kind": "writing_check", "amount": 10000, "status": "paid"})
+        check = db.insert("checks", {"order_id": order["id"], "kind": "writing", "student_id": uid,
+                                     "examiner_id": "33333333-2222-4333-8444-555555555555", "submission_id": 1,
+                                     "status": "in_progress"})
+        db.insert("payme_transactions", {"id": "pm-c", "order_id": order["id"], "amount": 1000000, "state": 2,
+                                         "payme_time": 1, "create_time": 1, "perform_time": 2})
+        api = billing.PaymeApi(db, key="secret-key")
+        self.assertEqual(_payme(api, "CancelTransaction", {"id": "pm-c", "reason": 5})["error"]["code"], -31007)
+        self.assertEqual(billing.get_order(db, order["id"])["status"], "paid")
+        db.update("checks", {"id": check["id"]}, {"status": "waiting"})
+        self.assertEqual(_payme(api, "CancelTransaction", {"id": "pm-c", "reason": 5})["result"]["state"], -2)
+        self.assertEqual(db.select("checks", {"id": check["id"]})[0]["status"], "cancelled")
+        self.assertEqual(billing.get_order(db, order["id"])["status"], "refunded")
+
+
+class PaymentAccessTests(AccountApiBase):
+    """The server unlocks paid tests and their audio the moment an order is fulfilled, and locks them on refund."""
+
+    def test_unlock_is_immediate_and_refund_locks_again(self):
+        cookie, data = self.login("unlock@example.com")
+        db = self._app.settings["store"].db
+        uid = data["user"]["id"]
+        audio = lambda: self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)[0].code, 402)
+        self.assertEqual(audio(), 402)
+        order = billing.create_order(db, uid, "plan")
+        billing.fulfil_order(db, order["id"], "payme")
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)[0].code, 200)
+        self.assertEqual(audio(), 206)  # the active plan is now cached for audio range requests
+        r, data = self.call("GET", "/api/orders", cookie=cookie)
+        receipt = next(o for o in data["orders"] if o["id"] == order["id"])
+        self.assertEqual((receipt["status"], receipt["amount"]), ("paid", billing.PRICES["plan"]))
+        self.assertIn("endsAt", receipt["unlocked"]["plan"])
+        billing.refund_order(db, billing.get_order(db, order["id"]))
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)[0].code, 402)
+        self.assertEqual(audio(), 402)  # no minute of free access after a refund
+        r, data = self.call("GET", "/api/orders", cookie=cookie)
+        self.assertNotIn("unlocked", next(o for o in data["orders"] if o["id"] == order["id"]))
+
+
+class AnalyticsApiTests(AccountApiBase):
+    """Funnel events (browser and server) and the Feedback button's messages."""
+
+    def setUp(self):
+        super().setUp()
+        api.EVENTS_PER_IP.hits.clear()
+        api.FEEDBACK_PER_IP.hits.clear()
+        self.db = self._app.settings["store"].db
+
+    def events(self, **where):
+        return self.db.select("product_events", where)
+
+    def wait_for(self, check, timeout=3.0):
+        """Events are written in the background, just after the response; give them a moment."""
+        end = time.time() + timeout
+        while time.time() < end:
+            if check():
+                return True
+            time.sleep(0.02)
+        return check()
+
+    def post_event(self, body, raw=None):
+        return self.fetch("/api/events", method="POST", headers={"Content-Type": "application/json"},
+                          body=raw if raw is not None else json.dumps(body))
+
+    def test_visit_counts_once_per_browser_per_day(self):
+        a, b = "0f3a5c2e-aaaa-4222-8333-944455556666", "0f3a5c2e-bbbb-4222-8333-944455556666"
+        for client in (a, a, b):
+            self.assertEqual(self.post_event({"name": "visit", "clientId": client}).code, 204)
+        self.assertTrue(self.wait_for(lambda: len(self.events(name="visit")) >= 2))
+        self.assertEqual(sorted(e["client_id"] for e in self.events(name="visit") if e["client_id"] in (a, b)), [a, b])
+
+    def test_browsers_cannot_send_unknown_or_server_events(self):
+        for body in ({"name": "hack"}, {"name": "paid"}, {"name": "signup"}, {"name": "free_test_started"},
+                     {"name": "cta_click", "detail": "DROP TABLE"}, {"name": "visit", "module": "maths"}):
+            self.assertEqual(self.post_event(body).code, 400, body)
+        self.assertEqual(self.post_event(None, raw=json.dumps({"name": "visit", "pad": "x" * 2000})).code, 413)
+        self.assertEqual(self.post_event({"name": "cta_click", "detail": "next_test"}).code, 204)
+
+    def test_server_records_signup_finish_and_paid_once(self):
+        cookie, data = self.login("funnel@example.com")
+        uid = data["user"]["id"]
+        self.login("funnel@example.com")  # a second sign-in is not a second signup
+        self.assertTrue(self.wait_for(lambda: len(self.events(name="signup", user_id=uid)) == 1))
+        r, _ = self.call("POST", "/api/reading/academic-reading-01/submit", {"answers": {"1": "x"}}, cookie=cookie)
+        self.assertEqual(r.code, 200)
+        self.assertTrue(self.wait_for(lambda: any(e["module"] == "reading" and e["test_id"] == "academic-reading-01"
+                                                  for e in self.events(name="test_finished", user_id=uid))))
+        order = billing.create_order(self.db, uid, "plan")
+        billing.fulfil_order(self.db, order["id"], "payme")
+        billing.fulfil_order(self.db, order["id"], "payme")
+        self.assertEqual(len(self.events(name="paid", user_id=uid)), 1)
+        time.sleep(0.2)  # a late duplicate signup would have landed by now
+        self.assertEqual(len(self.events(name="signup", user_id=uid)), 1)
+        for e in self.events(user_id=uid):  # nothing personal is stored with an event
+            self.assertNotIn("funnel@example.com", json.dumps(e))
+
+    def test_feedback_and_admin_view(self):
+        for bad in ({"message": " "}, {"message": "Hi", "rating": 6}, {"message": "Hi", "rating": True},
+                    {"message": "Hi", "email": "not-an-email"}, {"message": "x" * 2001}):
+            r, _ = self.call("POST", "/api/feedback", bad)
+            self.assertIn(r.code, (400, 413), bad)
+        r, data = self.call("POST", "/api/feedback", {"message": "The timer is great", "rating": 5, "email": "Ali@Example.com",
+                                                      "page": "#/results"})
+        self.assertEqual((r.code, data), (200, {"ok": True}))
+        student, _ = self.login("student-fb@example.com")
+        self.assertEqual(self.call("GET", "/api/admin/feedback", cookie=student)[0].code, 403)
+        admin, _ = self.login("owner@example.com")
+        r, data = self.call("GET", "/api/admin/feedback", cookie=admin)
+        item = next(f for f in data["feedback"] if f["message"] == "The timer is great")
+        self.assertEqual((item["rating"], item["email"], item["page"]), (5, "ali@example.com", "#/results"))
+        r, data = self.call("GET", "/api/admin/stats", cookie=admin)
+        self.assertEqual(data["funnel"]["steps"], ["visit", "signup", "free_test_started", "test_finished", "paid"])
+        self.assertIn("visit", data["funnel"]["7"])
+
+
 class SecurityAndHardeningTests(AccountApiBase):
     """Tests verifying CSRF defenses, stable cookie secret, SQL injection guards, and logic fixes."""
 
@@ -1529,4 +1779,7 @@ class SecurityAndHardeningTests(AccountApiBase):
 
 
 if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    result = unittest.main(verbosity=2, exit=False).result
+    # One line to read (the README does not repeat the count, so it cannot drift).
+    print(f"\n{result.testsRun} tests: {len(result.failures)} failed, {len(result.errors)} errors, {len(result.skipped)} skipped")
+    sys.exit(0 if result.wasSuccessful() else 1)

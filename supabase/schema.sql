@@ -526,3 +526,46 @@ alter table public.login_codes enable row level security;
 drop policy if exists server_access on public.login_codes;
 create policy server_access on public.login_codes for all to anon
   using ((select private.request_has_app_key())) with check ((select private.request_has_app_key()));
+
+-- ============================================================================
+-- Funnel analytics and in-app feedback (mockexam/analytics.py).
+-- Events carry an anonymous browser id and, when signed in, the user id; no
+-- personal data. dedupe_key (unique; NULL allows repeats) keeps one visit per
+-- browser per day, one signup per user and one paid event per order.
+-- Feedback may include an email address only if the student typed one.
+-- Safe to run again on an existing database.
+-- ============================================================================
+
+create table if not exists public.product_events (
+  id          bigint generated always as identity primary key,
+  name        text not null check (name in ('visit', 'signup', 'free_test_started', 'test_finished', 'paid', 'cta_click')),
+  client_id   uuid,
+  user_id     uuid,
+  module      text check (module is null or module in ('reading', 'listening', 'writing', 'speaking')),
+  test_id     text check (test_id is null or char_length(test_id) <= 64),
+  detail      text check (detail is null or char_length(detail) <= 40),
+  day         date not null,
+  dedupe_key  text unique,
+  created_at  timestamptz not null default now()
+);
+create index if not exists product_events_name_time on public.product_events (name, created_at);
+alter table public.product_events enable row level security;
+drop policy if exists server_access on public.product_events;
+create policy server_access on public.product_events for all to anon
+  using ((select private.request_has_app_key())) with check ((select private.request_has_app_key()));
+
+create table if not exists public.feedback (
+  id          bigint generated always as identity primary key,
+  message     text not null check (char_length(message) between 1 and 2000),
+  rating      smallint check (rating is null or rating between 1 and 5),
+  email       text check (email is null or char_length(email) <= 254),
+  page        text check (page is null or char_length(page) <= 80),
+  client_id   uuid,
+  user_id     uuid,
+  created_at  timestamptz not null default now()
+);
+create index if not exists feedback_time on public.feedback (created_at desc);
+alter table public.feedback enable row level security;
+drop policy if exists server_access on public.feedback;
+create policy server_access on public.feedback for all to anon
+  using ((select private.request_has_app_key())) with check ((select private.request_has_app_key()));

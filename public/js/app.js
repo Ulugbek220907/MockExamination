@@ -67,6 +67,8 @@
     },
   ];
 
+  // Shown on the legal pages when the server has no CONTACT_EMAIL (never a blank).
+  const SUPPORT_EMAIL = "ulugbekisoqov22@gmail.com";
   const MODULE_LABELS = { reading: "Reading", listening: "Listening", writing: "Writing", speaking: "Speaking" };
 
   // The four lines, in the order of the real test day.
@@ -77,13 +79,18 @@
     { module: "speaking", letter: "S", cls: "line-s" },
   ];
   const lineOf = (module) => LINES.find((l) => l.module === module) || LINES[1];
+  /** "Test 7" with the word in its own span, so a crowded line can show just "7". */
+  const stationLabel = (name) => {
+    const m = /^(\D+?)\s*(\d+)$/.exec(name);
+    return m ? `<span class="station-word">${esc(m[1])} </span>${esc(m[2])}` : esc(name);
+  };
 
   const ICON_ARROW = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const ICON_LOCK = `<svg width="10" height="11" viewBox="0 0 10 11" aria-hidden="true"><path fill="currentColor" d="M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z"/></svg>`;
 
   class App {
     constructor() {
-      this.config = { siteName: "TestDay", aiMarking: false, contactEmail: "" };
+      this.config = { siteName: "TestDay", aiMarking: false, contactEmail: SUPPORT_EMAIL };
       this.tests = [];
       this.exam = null;
       this.pending = null;
@@ -96,12 +103,18 @@
     }
 
     async init() {
-      I18N.applyStatic();
       window.addEventListener("hashchange", () => this.route());
-      document.addEventListener("langchange", () => {
-        Account.renderAccountSlot();
-        if (!this.exam && document.getElementById("site-view").classList.contains("active")) this.route();
+      // Funnel: one visit a day per browser (the server drops repeats too), and the main buttons' clicks.
+      const day = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Tashkent" });
+      if (U.store.get("testday:visitDay") !== day) {
+        U.store.set("testday:visitDay", day);
+        U.track("visit");
+      }
+      document.addEventListener("click", (e) => {
+        const el = e.target.closest("[data-track]");
+        if (el) U.track("cta_click", { detail: el.dataset.track });
       });
+      document.getElementById("feedback-open").addEventListener("click", () => this.openFeedback());
       this.main.addEventListener("click", (e) => this.onMainClick(e));
       document.getElementById("account-slot").addEventListener("click", (e) => Account.onClick(e));
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") this.closeSigns(); });
@@ -111,15 +124,17 @@
         const target = e.target.closest("[data-station], [data-test], [data-action='start']");
         if (!target) return;
         U.prefetch("exam");
+        // Only tests this visitor can open: a locked one would just be refused (401/402).
         const testId = target.dataset.station || target.dataset.test;
-        if (testId) U.api(`/api/tests/${encodeURIComponent(testId)}`);
+        const test = testId && this.tests.find((x) => x.id === testId);
+        if (test && this.canOpen(test)) U.api(`/api/tests/${encodeURIComponent(testId)}`).catch(() => {});
       };
       this.main.addEventListener("pointerover", onIntent, { passive: true });
       this.main.addEventListener("focusin", onIntent, { passive: true });
 
       Account.renderAccountSlot();
       try {
-        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe(), I18N.ready]);
+        const [config, data] = await Promise.all([U.api("/api/config"), U.api("/api/tests"), Account.refreshMe()]);
         this.config = { ...this.config, ...config };
         this.tests = data.tests || [];
         this.modules = data.modules || {};
@@ -127,8 +142,6 @@
         this.loadError = true;
       }
       Account.setConfig(this.config);
-      await I18N.ready;
-      I18N.applyStatic();
       Account.renderAccountSlot();
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
       Promise.resolve(this.route()).finally(() => {
@@ -185,6 +198,9 @@
       window.scrollTo(0, 0);
       if (path === "/resources") this.renderResources();
       else if (path === "/about") this.renderAbout();
+      else if (path === "/terms") this.renderLegal("terms");
+      else if (path === "/privacy") this.renderLegal("privacy");
+      else if (path === "/refunds") this.renderLegal("refunds");
       else if (path === "/results" && this.lastResult) await this.renderResults();
       else if (path === "/pricing") await Account.renderPricing(this.main);
       else if (path === "/account") await Account.renderAccount(this.main);
@@ -198,7 +214,7 @@
 
     setNav(hash) {
       const path = hash.slice(1).split("?")[0];
-      const key = { "/resources": "resources", "/about": "about", "/pricing": "pricing", "/examiners": "examiners",
+      const key = { "/resources": "resources", "/about": "about", "/terms": "about", "/privacy": "about", "/refunds": "about", "/pricing": "pricing", "/examiners": "examiners",
         "/account": "account", "/examiner": "examiner", "/admin": "admin" }[path] || (path.startsWith("/check") ? "account" : "home");
       document.querySelectorAll("[data-nav]").forEach((a) => {
         if (a.dataset.nav === key) a.setAttribute("aria-current", "page");
@@ -210,8 +226,6 @@
       const ids = { site: "site-view", verification: "verification-view", exam: "exam-screen" };
       Object.entries(ids).forEach(([k, id]) => document.getElementById(id).classList.toggle("active", k === name));
       document.body.classList.toggle("in-exam", name === "exam");
-      // The instructions and the exam stay in English, like the real test.
-      document.documentElement.lang = name === "site" ? I18N.lang() : "en";
     }
 
     onMainClick(e) {
@@ -295,8 +309,8 @@
 
     checksLine() {
       const p = this.prices;
-      const w = p ? esc(I18N.money(p.writing_check)) : "…";
-      const s = p ? esc(I18N.money(p.speaking_check)) : "…";
+      const w = p ? esc(U.money(p.writing_check)) : "…";
+      const s = p ? esc(U.money(p.speaking_check)) : "…";
       return `${t("checks.line", { writing: w, speaking: s })} <a href="#/examiners">${t("Meet the examiners")}</a>`;
     }
 
@@ -373,11 +387,15 @@
     stationHTML(test, line, isNext) {
       const ride = this.ridden[test.id];
       const name = this.testName(test);
-      const label = `${MODULE_LABELS[test.module]}, ${name}${isNext ? `, ${t("Next")}` : ""}`;
+      // What a screen reader says for the station: the line, the test, and its state.
+      const state = ride
+        ? (ride.band !== null && ride.band !== undefined ? t("taken, band {band}", { band: IeltsScoring.formatBand(ride.band) }) : t("taken"))
+        : this.canOpen(test) ? "" : t("opens with the pass");
+      const label = [MODULE_LABELS[test.module], name, state, isNext ? t("Next") : ""].filter(Boolean).join(", ");
       const btn = (inner, extra = "") => `
         <button type="button" class="station-btn" data-station="${esc(test.id)}" aria-expanded="false"
           aria-controls="sign-${line.module}" aria-label="${esc(label)}: ${esc(t("details"))}" ${extra}>
-          ${inner}<span class="station-name">${esc(name)}</span></button>`;
+          ${inner}<span class="station-name">${stationLabel(name)}</span></button>`;
       if (test.access === "free" && !ride) {
         return `
           <li class="station is-free">
@@ -409,14 +427,27 @@
         const list = net.querySelector("#lines-list");
         if (!svg || !hub || !list) return;
 
-        // Measure station button widths directly without unsetting CSS variable to prevent layout thrashing
-        const firstBtns = [...net.querySelectorAll(".station:first-child .station-btn, .station:first-child .start-free")];
-        if (firstBtns.length) {
-          const maxW = Math.ceil(Math.max(...firstBtns.map((el) => el.getBoundingClientRect().width)));
+        // The first column fits the widest first station: the whole Start free pill (ring and button) plus the
+        // station's own right padding. Its content is measured, not the column, so nothing is reset (no reflow loop).
+        const firsts = [...net.querySelectorAll(".station:first-child")];
+        if (firsts.length) {
+          const maxW = Math.ceil(Math.max(...firsts.map((li) => {
+            const body = li.firstElementChild;
+            return (body ? body.getBoundingClientRect().width : 0) + (parseFloat(getComputedStyle(li).paddingRight) || 0);
+          })));
           if (maxW > 0 && maxW !== lastCellWidth) {
             lastCellWidth = maxW;
             list.style.setProperty("--first-cell", `${maxW}px`);
           }
+        }
+
+        // Many tests on a narrow screen: rings shrink to fit their column and labels drop "Test".
+        const cell = list.querySelector(".station:nth-child(2)");
+        if (cell) {
+          const pitch = cell.getBoundingClientRect().width;
+          list.style.setProperty("--ring", `${Math.max(18, Math.min(30, Math.floor(pitch - 6)))}px`);
+          list.style.setProperty("--ring-done", `${Math.max(26, Math.min(44, Math.floor(pitch - 2)))}px`);
+          net.classList.toggle("is-tight", pitch < 56);
         }
 
         const box = net.getBoundingClientRect();
@@ -565,7 +596,7 @@
           <ul class="sign-items">${items.map(([k, v]) => `<li><b>${esc(k)}</b>${esc(v)}</li>`).join("")}</ul>
           <p class="sign-meta">${esc(meta)}${extra ? ` · ${esc(extra)}` : ""}</p>
           ${locked ? `<p class="sign-pass">${this.prices
-            ? t("This station opens with the monthly pass: {price} a month, and your first payment gives two months.", { price: `<strong>${esc(I18N.money(this.prices.plan))}</strong>` })
+            ? t("This station opens with the monthly pass: {price} a month, and your first payment gives two months.", { price: `<strong>${esc(U.money(this.prices.plan))}</strong>` })
             : t("This station opens with the monthly pass.")}</p>` : ""}
         </div>
         <div class="sign-actions">
@@ -833,6 +864,8 @@
 
     launch(test, mode, name, saved) {
       this.pending = null;
+      const summary = this.tests.find((x) => x.id === test.id);
+      if (summary && summary.access === "free") U.track("free_test_started", { module: test.module, testId: test.id });
       this.showView("exam");
       const Exam = { writing: WritingExam, listening: ListeningExam, speaking: SpeakingExam }[test.module] || ReadingExam;
       this.exam = new Exam({
@@ -878,9 +911,114 @@
       // Writing results draw the Task 1 charts, which come with the exam bundle.
       if (!(await this.loadFor(r.module === "writing" ? "exam" : "results"))) return;
       document.title = `${t("Your results")} – ${this.config.siteName}`;
-      if (r.module === "writing") Results.renderWriting(r, this.main);
-      else if (r.module === "listening") Results.renderListening(r, this.main);
-      else Results.renderReading(r, this.main);
+      await this.loadPrices();
+      const extra = {
+        next: this.nextStopHTML(r.module, r.testId, r.typeBreakdown),
+        checkPrice: this.prices && this.prices.writing_check ? U.money(this.prices.writing_check) : "",
+      };
+      if (r.module === "writing") Results.renderWriting(r, this.main, extra);
+      else if (r.module === "listening") Results.renderListening(r, this.main, extra);
+      else Results.renderReading(r, this.main, extra);
+    }
+
+    /**
+     * "Your next stop" on a results page: the question type to practise (Reading and Listening)
+     * and the next test on the same line. Without the pass, a locked test says it opens with the
+     * pass and what that costs; with the pass (or as staff) there is only a Start button.
+     */
+    nextStopHTML(module, testId, typeBreakdown) {
+      const line = lineOf(module);
+      const weak = Object.entries(typeBreakdown || {})
+        .filter(([, v]) => v.total > 0 && v.correct < v.total)
+        .sort(([, a], [, b]) => (a.correct / a.total - b.correct / b.total) || (b.total - a.total))[0];
+      const tests = this.testsOf(module);
+      const at = tests.findIndex((x) => x.id === testId);
+      const next = tests.slice(at + 1).concat(tests.slice(0, Math.max(at, 0))).find((x) => !this.ridden[x.id]);
+      if (!weak && !next) return "";
+      const focus = weak ? `
+        <div class="next-card">
+          <h3>${t("Practise: {type}", { type: esc(weak[1].label) })}</h3>
+          <p>${esc(t(`tip.${weak[0]}`))}</p>
+          <p class="muted-text small-text">${t("{n} of {total} correct in this test", { n: weak[1].correct, total: weak[1].total })}</p>
+        </div>` : "";
+      const name = next ? this.testName(next) : "";
+      const price = this.prices && this.prices.plan ? U.money(this.prices.plan) : "";
+      const ride = next ? `
+        <div class="next-card">
+          <div class="next-ride"><span class="bullet" aria-hidden="true">${line.letter}</span>
+            <h3>${esc(MODULE_LABELS[module])} · ${esc(name)}</h3></div>
+          ${this.canOpen(next)
+            ? `<p>${t("next.open")}</p>
+              <div class="next-actions"><button type="button" class="btn-line" data-action="start" data-test="${esc(next.id)}" data-mode="exam"
+                data-track="next_test">${t("Start {name}", { name: esc(name) })} ${ICON_ARROW}</button></div>`
+            : `<p>${price ? t("next.locked", { price: `<strong>${esc(price)}</strong>` }) : t("next.locked.noprice")}</p>
+              <div class="next-actions"><button type="button" class="btn-line" data-action="buy-plan" data-track="next_test_pass">${t("Get the pass")}</button>
+                <a class="btn-secondary" href="#/pricing">${t("See prices")}</a></div>`}
+        </div>` : "";
+      return `
+        <section class="next-stop ${line.cls}" aria-labelledby="next-stop-title">
+          <h2 class="section-title" id="next-stop-title">${t("Your next stop")}</h2>
+          <div class="next-grid">${focus}${ride}</div>
+        </section>`;
+    }
+
+    /* Feedback ----------------------------------------------------------- */
+    openFeedback() {
+      const page = location.hash && location.hash.length < 80 ? location.hash : "#/";
+      const rating = [1, 2, 3, 4, 5].map((n) => `
+        <label class="rate-opt"><input type="radio" name="rating" value="${n}" /><span>${n}</span></label>`).join("");
+      U.modal({
+        title: t("Feedback"),
+        buttons: [],
+        bodyHTML: `
+          <form id="feedback-form" class="feedback-form" novalidate>
+            <label for="fb-message">${t("What should we know? Ideas, problems, anything.")}</label>
+            <textarea id="fb-message" name="message" rows="5" maxlength="2000" required></textarea>
+            <fieldset class="rate-row"><legend>${t("How useful is TestDay so far? (optional)")}</legend>
+              <div class="rate-opts">${rating}</div>
+              <div class="rate-ends"><span>${t("Not useful")}</span><span>${t("Very useful")}</span></div>
+            </fieldset>
+            <label for="fb-email">${t("Your email, if you would like a reply (optional)")}</label>
+            <input id="fb-email" name="email" type="email" maxlength="254" autocomplete="email" />
+            <p class="form-error" id="fb-error" role="alert" hidden></p>
+            <div class="feedback-actions">
+              <button type="button" class="btn-secondary" data-close>${t("Cancel")}</button>
+              <button type="submit" class="btn-primary">${t("Send")}</button>
+            </div>
+          </form>`,
+        onOpen: (root, close) => {
+          const form = root.querySelector("#feedback-form");
+          const error = root.querySelector("#fb-error");
+          root.querySelector("[data-close]").addEventListener("click", () => close(null));
+          root.querySelector("#fb-message").focus();
+          form.addEventListener("input", () => { error.hidden = true; });
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const message = form.message.value.trim();
+            if (!message) {
+              error.textContent = t("Please write a message.");
+              error.hidden = false;
+              form.message.focus();
+              return;
+            }
+            const button = form.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.classList.add("is-busy");
+            try {
+              await U.api("/api/feedback", { method: "POST", body: JSON.stringify({
+                message, rating: Number(form.rating.value) || null, email: form.email.value.trim(), page, clientId: U.clientId(),
+              }) });
+              close(true);
+              U.toast(t("Thank you! We read every message."));
+            } catch (err) {
+              error.textContent = err.message;
+              error.hidden = false;
+              button.disabled = false;
+              button.classList.remove("is-busy");
+            }
+          });
+        },
+      });
     }
 
     /* Static pages ----------------------------------------------------- */
@@ -904,12 +1042,79 @@
         </section>`;
     }
 
+    /** The site's email for support and requests: CONTACT_EMAIL, or the owner's address. */
+    contactHTML() {
+      const email = this.config.contactEmail || SUPPORT_EMAIL;
+      return `<a href="mailto:${esc(email)}">${esc(email)}</a>`;
+    }
+
+    /** Terms of use, privacy policy and refund policy. The wording lives in strings.js. */
+    renderLegal(page) {
+      const name = esc(this.config.siteName);
+      const contact = this.contactHTML();
+      const days = Number(this.config.speakingKeepDays) || 60;
+      const p = this.prices || {};
+      const price = (n) => (n ? esc(U.money(n)) : "…");
+      const section = (key, vars) => `<h2>${t(`${key}.h`, { name })}</h2><p>${t(key, { name, ...vars })}</p>`;
+      const pages = {
+        terms: [t("Terms of use"), `
+          <p class="lead-text">${t("terms.lead", { name })}</p>
+          ${section("terms.service")}
+          ${section("terms.account")}
+          ${section("terms.pass", { price: price(p.plan) })}
+          ${section("terms.checks", { writing: price(p.writing_check), speaking: price(p.speaking_check) })}
+          ${section("terms.payment")}
+          ${section("terms.refunds")}
+          ${section("terms.use")}
+          ${section("terms.work", { days })}
+          ${section("terms.availability")}
+          ${section("terms.liability")}
+          ${section("terms.law")}`],
+        privacy: [t("Privacy policy"), `
+          <p class="lead-text">${t("privacy.lead", { name })}</p>
+          <h2>${t("privacy.collect.h")}</h2>
+          <ul>
+            <li>${t("about.privacy.1")}</li>
+            <li>${t("about.privacy.2")}</li>
+            <li>${t("about.privacy.3", { days })}</li>
+            <li>${t("about.privacy.4")}</li>
+            <li>${t("about.privacy.5")}</li>
+            ${this.config.aiMarking ? `<li>${t("about.privacy.ai")}</li>` : ""}
+            <li>${t("privacy.analytics")}</li>
+            <li>${t("privacy.feedback")}</li>
+            <li>${t("about.privacy.6")}</li>
+            <li>${t("privacy.cookies")}</li>
+          </ul>
+          <h2>${t("privacy.where.h")}</h2><p>${t("privacy.where")}</p>
+          <h2>${t("privacy.keep.h")}</h2><p>${t("privacy.keep", { days })}</p>
+          <h2>${t("privacy.rights.h")}</h2><p>${t("privacy.rights", { contact })}</p>
+          <p>${t("privacy.children", { name })}</p>`],
+        refunds: [t("Refund policy"), `
+          <p class="lead-text">${t("refund.lead")}</p>
+          ${section("refund.pass")}
+          ${section("refund.checks")}
+          ${section("refund.how", { contact })}
+          ${section("refund.money")}`],
+      };
+      const [title, body] = pages[page];
+      document.title = `${title} – ${this.config.siteName}`;
+      this.main.innerHTML = `
+        <section class="page prose legal-page">
+          <h1>${title}</h1>
+          <p class="muted-text small-text">${t("legal.updated", { date: "16 October 2026" })}</p>
+          ${body}
+          <p class="legal-contact">${t("legal.contact", { contact })}</p>
+          <p class="muted-text small-text">${t("about.independent", { name })}</p>
+        </section>`;
+      // The terms quote the prices; draw again once they arrive (only if they did, so a failure cannot loop).
+      if (!this.prices && page === "terms") {
+        this.loadPrices().then(() => { if (this.prices && location.hash === "#/terms") this.renderLegal(page); });
+      }
+    }
+
     renderAbout() {
       document.title = `${t("About, privacy and legal")} – ${this.config.siteName}`;
       const name = esc(this.config.siteName);
-      const contact = this.config.contactEmail
-        ? `<a href="mailto:${esc(this.config.contactEmail)}">${esc(this.config.contactEmail)}</a>`
-        : t("the contact address published by the site owner");
       const days = Number(this.config.speakingKeepDays) || 60;
       this.main.innerHTML = `
         <section class="page prose">
@@ -934,16 +1139,12 @@
             <li>${t("about.scores.speaking")}</li>
           </ul>
 
-          <h2>${t("Privacy")}</h2>
-          <ul>
-            <li>${t("about.privacy.1")}</li>
-            <li>${t("about.privacy.2")}</li>
-            <li>${t("about.privacy.3", { days })}</li>
-            <li>${t("about.privacy.4")}</li>
-            <li>${t("about.privacy.5")}</li>
-            ${this.config.aiMarking ? `<li>${t("about.privacy.ai")}</li>` : ""}
-            <li>${t("about.privacy.6")}</li>
-            <li>${t("about.privacy.7", { contact })}</li>
+          <h2>${t("Privacy, terms and refunds")}</h2>
+          <p>${t("about.legal", { name })}</p>
+          <ul class="legal-links">
+            <li><a href="#/privacy">${t("Privacy policy")}</a></li>
+            <li><a href="#/terms">${t("Terms of use")}</a></li>
+            <li><a href="#/refunds">${t("Refund policy")}</a></li>
           </ul>
         </section>`;
     }

@@ -19,6 +19,14 @@ from .db import iso, now, parse_time
 ADMIN_EMAILS = {e.strip().lower() for e in os.environ.get("ADMIN_EMAILS", "").split(",") if e.strip()}
 _plan_lock = threading.Lock()
 
+# Called with a user id whenever that user's plan changes (the server forgets its cached plan).
+PLAN_LISTENERS = []
+
+
+def _plan_changed(user_id):
+    for listener in PLAN_LISTENERS:
+        listener(user_id)
+
 
 def profile_role(profile):
     if profile and profile.get("email", "").lower() in ADMIN_EMAILS:
@@ -39,10 +47,13 @@ def upsert_profile(db, identity):
         updated = db.update("profiles", {"id": profile["id"]}, values)
         profile = updated[0] if updated else profile
     else:
-        profile = db.insert("profiles", {
+        created = db.insert("profiles", {
             "id": identity["id"], "email": email, "name": (identity.get("name") or "")[:80] or None,
             "role": "student", "last_login_at": stamp,
-        }, ignore_conflict=True) or db.select("profiles", {"email": email}, limit=1)[0]
+        }, ignore_conflict=True)
+        profile = created or db.select("profiles", {"email": email}, limit=1)[0]
+        if created:
+            profile["created_now"] = True  # the first sign-in (for the signup event); not stored
     role = profile_role(profile)
     if role != profile.get("role"):
         db.update("profiles", {"id": profile["id"]}, {"role": role})
@@ -98,14 +109,37 @@ def grant_plan_period(db, user_id, days, source, order_id=None, note=None):
         row = {"user_id": user_id, "starts_at": iso(start), "ends_at": iso(end), "source": source, "note": note}
         if order_id is not None:
             row["order_id"] = order_id
-            return db.insert("subscription_periods", row, ignore_conflict="order_id") or \
+            period = db.insert("subscription_periods", row, ignore_conflict="order_id") or \
                 db.select("subscription_periods", {"order_id": order_id}, limit=1)[0]
-        return db.insert("subscription_periods", row)
+        else:
+            period = db.insert("subscription_periods", row)
+    _plan_changed(user_id)
+    return period
 
 
 def revoke_plan_period(db, order_id):
-    """Remove the plan time bought by a refunded order."""
-    return db.delete("subscription_periods", {"order_id": order_id})
+    """
+    Remove the plan time bought by a refunded order. Time queued after it (a month bought
+    while this one was running) moves up to fill the unused part, so no paid day is lost
+    and there is no gap without the plan. Safe to repeat.
+    """
+    with _plan_lock:
+        rows = db.select("subscription_periods", {"order_id": order_id}, limit=1)
+        if not rows:
+            return None
+        gone = rows[0]
+        db.delete("subscription_periods", {"order_id": order_id})
+        start, end = parse_time(gone["starts_at"]), parse_time(gone["ends_at"])
+        unused = end - max(start, now())
+        if unused.total_seconds() > 0:
+            for p in db.select("subscription_periods", {"user_id": gone["user_id"]}, order=[("starts_at", "asc")], limit=50):
+                if parse_time(p["starts_at"]) >= end:  # queued after the refunded period
+                    db.update("subscription_periods", {"id": p["id"]}, {
+                        "starts_at": iso(parse_time(p["starts_at"]) - unused),
+                        "ends_at": iso(parse_time(p["ends_at"]) - unused),
+                    })
+    _plan_changed(gone["user_id"])
+    return gone
 
 
 # --------------------------------------------------------------------------
