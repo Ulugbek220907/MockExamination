@@ -3,7 +3,7 @@
  * pre-test instructions, launching exams, results, and the resources /
  * about pages.
  *
- * Routes: #/ (tests), #/resources, #/about, #/start (instructions),
+ * Routes: #/ (tests), #/tests/<module> (every test of one line), #/resources, #/about, #/start (instructions),
  *         #/exam (active test), #/results (last result), #/speaking/<id>
  *         (a recorded Speaking test), and the account
  *         pages from account.js: #/pricing, #/account, #/examiners,

@@ -1,0 +1,79 @@
+{
+ "id": "academic-writing-07",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 7",
+ "shortTitle": "Practice Test 7",
+ "durationMinutes": 60,
+ "sortOrder": 7,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Bar chart: household appliances",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The chart below shows the percentage of households in one country that owned four household appliances in 1980, 2000 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "bar",
+    "title": "Households owning selected appliances, 1980–2020",
+    "yLabel": "% of households",
+    "unit": "%",
+    "yMax": 100,
+    "yStep": 20,
+    "categories": [
+     "Washing machine",
+     "Microwave oven",
+     "Dishwasher",
+     "Air conditioner"
+    ],
+    "series": [
+     {
+      "name": "1980",
+      "values": [
+       72,
+       8,
+       12,
+       5
+      ]
+     },
+     {
+      "name": "2000",
+      "values": [
+       89,
+       70,
+       30,
+       18
+      ]
+     },
+     {
+      "name": "2020",
+      "values": [
+       96,
+       88,
+       52,
+       47
+      ]
+     }
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: ownership of all four appliances rose; washing machines were the most common throughout; microwaves grew most dramatically.",
+    "Washing machine: 72% → 89% → 96%.",
+    "Microwave oven: 8% → 70% → 88% (rise of 80 percentage points, mostly 1980–2000).",
+    "Dishwasher: 12% → 30% → 52%; air conditioner: 5% → 18% → 47% (almost ten times higher)."
+   ],
+   "modelAnswer": "The bar chart illustrates the proportion of households in one country that had four types of household appliance in 1980, 2000 and 2020.\n\nOverall, ownership of all four appliances increased over the forty-year period. Washing machines were the most widely owned item in every year, while microwave ovens showed the most dramatic growth.\n\nIn 1980, almost three quarters of households (72%) already had a washing machine, and this figure rose to 89% in 2000 and to almost every home (96%) by 2020. Microwave ovens, by contrast, were found in only 8% of homes in 1980. Their popularity then soared, reaching 70% in 2000 and 88% in 2020, which means that they had become nearly as common as washing machines.\n\nDishwashers and air conditioners were the least common appliances throughout, but both became far more popular. The percentage of households with a dishwasher rose from 12% to 30% and then to just over half (52%). Air conditioners grew even faster in relative terms: from only 5% in 1980, ownership climbed to 18% in 2000 and to 47% in 2020, almost ten times the original figure."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Opinion essay: compulsory community service",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "opinion",
+   "prompt": "Write about the following topic:\n\nSome people believe that unpaid community service, such as helping in hospitals or cleaning parks, should be a compulsory part of high school programmes.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "In some countries, secondary school students must spend a certain number of hours each year doing unpaid work in their local community. I strongly agree that this kind of service should be compulsory, as it benefits both young people and society, although schools need to organise it carefully.\n\nThe first reason is that community service teaches young people skills that are difficult to learn in a classroom. A teenager who helps in a hospital or a home for elderly people must communicate with strangers, follow instructions and take responsibility for other people's comfort. These experiences build confidence and teamwork, qualities that employers value highly. In addition, students may discover interests that shape their future careers; a student who volunteers in an animal shelter, for example, might decide to study veterinary science.\n\nSecondly, compulsory service helps to build stronger communities. When young people clean parks or help at food banks, they see the problems that exist in their own neighbourhoods and understand that they can do something about them. This sense of responsibility often continues into adult life. Communities also gain practical help that local governments may not be able to afford.\n\nSome people argue that teenagers already have too much schoolwork and that making service compulsory removes the spirit of volunteering. These concerns are understandable, but they can be solved. Schools can limit the time required to a few hours a month and allow students to choose the type of work they do, so that it feels meaningful rather than a punishment.\n\nIn conclusion, I believe that unpaid community service should be part of every high school programme. If students are given a choice of activities and a reasonable workload, the experience can help them become more capable and caring adults."
+  }
+ ]
+}

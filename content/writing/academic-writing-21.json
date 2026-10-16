@@ -1,0 +1,74 @@
+{
+ "id": "academic-writing-21",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 21",
+ "shortTitle": "Practice Test 21",
+ "durationMinutes": 60,
+ "sortOrder": 21,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Process diagram: producing black tea",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The diagram below shows how black tea is produced.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "process",
+    "title": "The production of black tea",
+    "cycle": false,
+    "steps": [
+     {
+      "label": "Plucking",
+      "text": "The top two leaves and a bud are picked from each tea bush by hand"
+     },
+     {
+      "label": "Withering",
+      "text": "The leaves are spread on racks and air is blown over them for 12–18 hours"
+     },
+     {
+      "label": "Rolling",
+      "text": "Machines roll and twist the soft leaves, breaking their surface"
+     },
+     {
+      "label": "Oxidising",
+      "text": "The leaves rest in a cool, humid room for 1–3 hours and turn dark brown"
+     },
+     {
+      "label": "Drying",
+      "text": "Hot air at about 120°C stops the oxidation and removes the remaining moisture"
+     },
+     {
+      "label": "Sorting",
+      "text": "The dried leaves pass through sieves and are graded by size"
+     },
+     {
+      "label": "Tasting",
+      "text": "Experts taste samples from each batch to check the quality"
+     },
+     {
+      "label": "Packing",
+      "text": "The tea is packed into bags or boxes and sent to shops"
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: eight stages, from picking leaves on the plantation to packing; the leaves are dried twice (withering, drying) and changed by rolling and oxidising.",
+    "Plucking (top two leaves and a bud, by hand) → withering on racks with air, 12–18 hours → rolling and twisting by machine.",
+    "Oxidising in a cool, humid room, 1–3 hours, leaves turn dark brown → drying with hot air at about 120°C.",
+    "Sorting by size with sieves → tasting by experts → packing into bags or boxes for shops."
+   ],
+   "modelAnswer": "The diagram shows the various stages involved in the production of black tea, from the picking of the leaves to the delivery of the finished product to shops.\n\nOverall, there are eight stages in the process. The leaves are first picked and partly dried, then rolled, oxidised and fully dried, after which the tea is sorted, checked for quality and packed.\n\nThe process begins on the tea plantation, where the top two leaves and a bud are picked from each bush by hand. These leaves are then spread out on racks, and air is blown over them for between 12 and 18 hours in order to soften them. In the next stage, machines roll and twist the soft leaves, which breaks their surface.\n\nAfter rolling, the leaves are left in a cool, humid room for one to three hours, during which time they oxidise and turn dark brown. They are subsequently dried with hot air at around 120°C, which stops the oxidation and removes any remaining moisture. The dried tea is then passed through sieves and graded according to the size of the pieces. Finally, experts taste samples from each batch to check its quality, and the tea is packed into bags or boxes and sent to shops."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Discussion essay: sports facilities and public health",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "discussion",
+   "prompt": "Write about the following topic:\n\nSome people say that the best way to improve public health is to increase the number of sports facilities. Others, however, believe that this would have little effect and that other measures are required.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Rising rates of obesity, heart disease and diabetes have led governments to look for ways of making their populations healthier. Some believe that building more sports facilities is the most effective solution, while others argue that this would achieve little on its own. In my opinion, sports facilities are useful, but other measures are more important.\n\nSupporters of more sports facilities argue that many people do not exercise simply because they have nowhere to do so. In crowded cities, there may be few parks, pitches or affordable gyms, and swimming pools may be far away. Providing free or cheap facilities near people's homes could encourage them to take up regular exercise, which improves both physical and mental health. Facilities such as public courts and outdoor gyms can also bring communities together.\n\nHowever, others point out that many existing facilities are already underused. People who are busy, tired or uninterested in sport are unlikely to start exercising just because a new sports centre opens. Moreover, exercise is only one part of health. Diet plays an even bigger role in conditions such as obesity, and other factors, including smoking, stress and poor sleep, also have a major influence. From this point of view, money would be better spent on health education, controls on unhealthy food and better access to doctors.\n\nIn my view, the second argument is more convincing. The most effective approach is to make healthy choices easy in everyday life, for example by creating safe cycle lanes, taxing sugary drinks and teaching children about nutrition at school. Sports facilities can be part of this strategy, but they will only reach people who are already motivated to use them.\n\nIn conclusion, although more sports facilities would benefit some people, a wider range of measures is needed to improve public health significantly."
+  }
+ ]
+}

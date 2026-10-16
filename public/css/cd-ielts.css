@@ -225,8 +225,17 @@ body.text-extra-large { --cd-base-font-size: 20px; }
 .fig-slice-label { font-size: 14px; font-weight: 700; }
 .fig-pies { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
 .fig-pie { margin: 0; }
+.fig-pies:has(> .fig-pie:only-child) { max-width: 340px; margin-inline: auto; }
 .fig-pie figcaption { text-align: center; font-weight: 700; margin-top: 6px; }
 .fig-note { text-align: center; font-size: 0.8em; color: #52514e; margin-top: 6px; font-style: italic; }
+/* Task 1 maps: two plans of the same place, side by side when there is room */
+.fig-maps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 8px; }
+.fig-map { margin: 0; min-width: 0; }
+.fig-map-title { text-align: center; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; }
+.fig-maps .map-svg { min-width: 0; width: 100%; height: auto; display: block; border: 1px solid #e1e0d9; border-radius: 6px; }
+/* Two charts about one topic */
+.fig-part + .fig-part { margin-top: 18px; padding-top: 14px; border-top: 1px dashed #e1e0d9; }
+.fig-part-title { text-align: center; font-weight: 650; font-size: 0.95em; margin-bottom: 2px; }
 .fig-table { border-collapse: collapse; width: 100%; margin-top: 8px; }
 .fig-table th, .fig-table td { border: 1px solid #c3c2b7; padding: 6px 10px; text-align: left; }
 .fig-table th { background: #f0efec; }

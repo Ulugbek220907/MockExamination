@@ -1,0 +1,77 @@
+{
+ "id": "academic-writing-11",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 11",
+ "shortTitle": "Practice Test 11",
+ "durationMinutes": 60,
+ "sortOrder": 11,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Table: student spending in four cities",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The table below shows the average amount that university students spend each month on four items in four cities.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "table",
+    "title": "Average monthly spending by students (US dollars)",
+    "headers": [
+     "City",
+     "Accommodation",
+     "Food",
+     "Transport",
+     "Entertainment"
+    ],
+    "rows": [
+     [
+      "Avalon",
+      "620",
+      "280",
+      "60",
+      "90"
+     ],
+     [
+      "Lindford",
+      "450",
+      "240",
+      "85",
+      "70"
+     ],
+     [
+      "Marston",
+      "380",
+      "310",
+      "40",
+      "120"
+     ],
+     [
+      "Port Ellis",
+      "700",
+      "260",
+      "95",
+      "60"
+     ]
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: accommodation is the biggest cost in every city and transport the smallest; Port Ellis is the most expensive overall, Lindford and Marston the cheapest.",
+    "Accommodation: Port Ellis $700, Avalon $620, Lindford $450, Marston $380.",
+    "Food: Marston highest ($310), Lindford lowest ($240); entertainment: Marston $120 vs Port Ellis $60.",
+    "Transport: $40 (Marston) to $95 (Port Ellis). Totals approx. $1,115 / $1,050 / $850 / $845."
+   ],
+   "modelAnswer": "The table compares how much university students in four cities spend each month, on average, on accommodation, food, transport and entertainment.\n\nOverall, accommodation is the largest monthly expense in every city, while transport is generally the smallest. Students in Port Ellis spend the most in total, whereas those in Lindford and Marston spend the least.\n\nAccommodation costs vary considerably. Students in Port Ellis pay $700 a month, followed by those in Avalon at $620. In Lindford and Marston, accommodation is far cheaper, at $450 and $380 respectively, which explains why total spending is much lower in these two cities, at roughly $850 a month compared with over $1,000 in Port Ellis and Avalon.\n\nThe pattern for the other items is less consistent. Marston has the cheapest housing but the highest spending on food ($310) and entertainment ($120), perhaps because students there have more money left over for these activities. In contrast, students in Port Ellis spend only $60 on entertainment, the lowest figure in the table, although they pay the most for transport ($95). Transport costs in the other cities range from just $40 in Marston to $85 in Lindford."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Discussion essay: the age to start school",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "discussion",
+   "prompt": "Write about the following topic:\n\nSome people think that children should begin their formal education at a very early age. Others believe that children should not start school until they are at least seven years old.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "The age at which children begin school varies widely around the world, from four or five in some countries to seven in others. There are reasonable arguments on both sides of this debate, but I believe that a later start to formal lessons, combined with good early childhood care, is better for most children.\n\nSupporters of an early start argue that young children learn extremely quickly, so it makes sense to teach them reading, writing and numbers as soon as possible. Children who start school early may also develop social skills by spending time with others of the same age. In addition, early schooling helps working parents, who might otherwise struggle to find or pay for childcare, and it can give children from poorer families the same opportunities as their wealthier classmates.\n\nOn the other hand, many educators believe that young children learn best through play rather than formal lessons. Activities such as building, drawing and make-believe games develop creativity, language and problem-solving skills in a natural way. When children are pushed to sit at desks and complete tests too early, some lose interest in learning or feel that they are failures before they are even seven. Countries such as Finland, where formal school begins at seven, still achieve excellent educational results.\n\nIn my view, the question is not simply when children should go to school, but what they should do there. Young children certainly benefit from spending time with teachers and other children, but this should be in play-based kindergartens rather than traditional classrooms. Formal academic lessons can then begin at around six or seven, when most children are ready to concentrate.\n\nIn conclusion, although an early start has some benefits, especially for working families, I believe that children gain more from a few extra years of learning through play."
+  }
+ ]
+}

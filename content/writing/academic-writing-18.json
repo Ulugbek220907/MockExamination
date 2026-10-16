@@ -1,0 +1,77 @@
+{
+ "id": "academic-writing-18",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 18",
+ "shortTitle": "Practice Test 18",
+ "durationMinutes": 60,
+ "sortOrder": 18,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Table: how adults use the internet",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The table below shows the percentage of adults in one country who used the internet for six activities in 2005 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "table",
+    "title": "Adults using the internet for selected activities (%)",
+    "headers": [
+     "Activity",
+     "2005",
+     "2020"
+    ],
+    "rows": [
+     [
+      "Sending emails",
+      "64",
+      "82"
+     ],
+     [
+      "Reading the news",
+      "31",
+      "70"
+     ],
+     [
+      "Online banking",
+      "18",
+      "76"
+     ],
+     [
+      "Shopping",
+      "22",
+      "81"
+     ],
+     [
+      "Watching videos",
+      "9",
+      "79"
+     ],
+     [
+      "Making video calls",
+      "4",
+      "63"
+     ]
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: every activity became more common; emailing was the most common use in 2005 and grew least; by 2020 most activities were done by over 60% of adults, with watching videos and video calls growing most.",
+    "Emails 64% → 82%; news 31% → 70%.",
+    "Banking 18% → 76%; shopping 22% → 81%.",
+    "Videos 9% → 79% (almost nine times); video calls 4% → 63%."
+   ],
+   "modelAnswer": "The table shows the proportion of adults in one country who used the internet for six different activities in 2005 and 2020.\n\nOverall, the percentage of adults doing each activity online rose considerably over the fifteen-year period. Sending emails was the most common online activity in 2005, but by 2020 several other uses were almost as popular, and the fastest growth was in watching videos and making video calls.\n\nIn 2005, almost two thirds of adults (64%) used the internet to send emails, while every other activity was done by fewer than a third. Reading the news was second at 31%, followed by shopping (22%) and online banking (18%). Watching videos and making video calls were rare, at only 9% and 4% respectively.\n\nBy 2020, emailing had risen to 82%. However, this was the smallest increase in the table. Shopping (81%), watching videos (79%) and online banking (76%) had all become almost as common as emailing. In contrast, the rise in watching videos was particularly striking, as the figure was nearly nine times higher than in 2005. Similarly, making video calls grew dramatically, reaching 63%, while the proportion reading the news online more than doubled to 70%."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Causes and solutions essay: museums and local people",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "problem_solution",
+   "prompt": "Write about the following topic:\n\nIn many cities, museums and historical sites are visited mainly by tourists rather than by local people.\n\nWhy is this the case? What can be done to encourage more local people to visit them?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "In many famous cities, the queues outside museums and historical buildings consist largely of foreign visitors, while local residents rarely go inside. This essay will explain why this happens and suggest ways of attracting more local people.\n\nOne reason is that local people often take the attractions in their own city for granted. Because a museum or castle is always nearby, residents assume they can visit it at any time, and so they never actually do. Tourists, by contrast, may only have a few days in the city and want to see its most famous sights. Another reason is cost: entrance fees are often set with tourists in mind, and a family visit can be expensive for local people who earn average salaries. Finally, many museums have changed little for years, so residents who visited once at school see no reason to return.\n\nThere are several ways to change this situation. Firstly, museums could offer free or reduced entry to local residents, for example on certain days of the month or through an annual pass. Secondly, they could make their programmes more varied by organising temporary exhibitions, evening events, concerts and workshops, which give people a reason to come back regularly. Thirdly, schools and community groups could work with museums on projects about local history, so that residents feel that the museum's collections are connected to their own lives. Finally, better use of social media and local news could inform residents about new events.\n\nIn conclusion, local people often ignore the museums in their own city because they take them for granted, find them expensive and see little that is new. Lower prices for residents, more varied events and closer links with schools and communities could encourage them to visit more often."
+  }
+ ]
+}

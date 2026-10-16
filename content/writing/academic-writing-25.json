@@ -1,0 +1,84 @@
+{
+ "id": "academic-writing-25",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 25",
+ "shortTitle": "Practice Test 25",
+ "durationMinutes": 60,
+ "sortOrder": 25,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Table: coffee and tea drinking in five countries",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The table below shows the average number of cups of coffee and tea drunk per person each week in five countries in 2000 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "table",
+    "title": "Average cups per person per week",
+    "headers": [
+     "Country",
+     "Coffee 2000",
+     "Coffee 2020",
+     "Tea 2000",
+     "Tea 2020"
+    ],
+    "rows": [
+     [
+      "Norvia",
+      "18",
+      "21",
+      "3",
+      "4"
+     ],
+     [
+      "Talis",
+      "6",
+      "14",
+      "15",
+      "9"
+     ],
+     [
+      "Corvan",
+      "2",
+      "7",
+      "22",
+      "20"
+     ],
+     [
+      "Delmar",
+      "12",
+      "12",
+      "8",
+      "6"
+     ],
+     [
+      "Ostra",
+      "9",
+      "16",
+      "10",
+      "11"
+     ]
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: coffee drinking rose in four of the five countries (no change in Delmar), while tea drinking fell in three; Norvia drank the most coffee and Corvan the most tea; Talis switched from tea to coffee.",
+    "Coffee: Norvia 18 → 21; Talis 6 → 14; Corvan 2 → 7; Delmar 12 → 12; Ostra 9 → 16.",
+    "Tea: Corvan 22 → 20; Talis 15 → 9; Delmar 8 → 6; Ostra 10 → 11; Norvia 3 → 4.",
+    "Talis: tea higher than coffee in 2000 (15 v 6), coffee higher in 2020 (14 v 9)."
+   ],
+   "modelAnswer": "The table compares the average number of cups of coffee and tea that people in five countries drank each week in 2000 and 2020.\n\nOverall, coffee drinking became more common in four of the five countries, while tea drinking declined in three of them. Norvia had the highest coffee consumption and Corvan the highest tea consumption in both years, and the most dramatic change was seen in Talis, where coffee replaced tea as the more popular drink.\n\nIn 2000, people in Norvia drank 18 cups of coffee a week, far more than in any other country, and this rose to 21 cups in 2020. Coffee consumption also increased in Talis (from 6 to 14 cups), Ostra (from 9 to 16) and Corvan (from 2 to 7), whereas in Delmar it stayed the same, at 12 cups.\n\nTea was most popular in Corvan, where people drank 22 cups a week in 2000 and 20 cups in 2020. In Talis, tea consumption fell sharply from 15 to 9 cups, so that by 2020 people there were drinking more coffee than tea. Tea drinking also decreased slightly in Delmar, from 8 to 6 cups, but rose marginally in Ostra and Norvia, to 11 and 4 cups respectively."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Opinion essay: the private lives of famous people",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "opinion",
+   "prompt": "Write about the following topic:\n\nSome people believe that newspapers, magazines and websites should not be allowed to report on the private lives of famous people.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Stories about the relationships, homes and personal problems of actors, athletes and other celebrities fill many newspapers and websites. Some people think that such reporting should be banned. I agree that famous people deserve much stronger protection of their privacy, although I do not think a complete ban would be justified.\n\nThere are several reasons why the media should not be free to report on celebrities' private lives. Firstly, famous people are human beings with the same right to privacy as everyone else. Being a talented singer or footballer does not mean that a person has agreed to have their family, health or relationships discussed by millions of strangers. Secondly, media attention can cause real harm. Photographers following celebrities have caused dangerous situations, and constant public criticism has contributed to depression and anxiety among some well-known people. Their children, who have chosen nothing, often suffer as well.\n\nOn the other hand, there are cases in which reporting on a famous person's private life is in the public interest. If a politician who campaigns for honesty is secretly involved in corruption, or a celebrity who promotes a product in public uses it in a dangerous way, people have a right to know. A total ban could therefore protect powerful people from legitimate criticism.\n\nFor these reasons, I believe the law should distinguish between public interest and mere curiosity. The media should be allowed to report on a famous person's private life only when it is directly connected to their public role or reveals wrongdoing, and photographing people in private places, or publishing information about their children, should be strictly prohibited.\n\nIn conclusion, I largely agree that the private lives of famous people should be protected, but some reporting must remain possible when the public interest clearly requires it."
+  }
+ ]
+}

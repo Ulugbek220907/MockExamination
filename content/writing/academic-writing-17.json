@@ -1,0 +1,251 @@
+{
+ "id": "academic-writing-17",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 17",
+ "shortTitle": "Practice Test 17",
+ "durationMinutes": 60,
+ "sortOrder": 17,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Maps: plans for a college campus",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The maps below show a college campus at present and the changes that are planned for it.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "map",
+    "title": "Riverside College campus",
+    "note": "Fictional maps created for practice purposes.",
+    "maps": [
+     {
+      "title": "Present",
+      "width": 440,
+      "height": 300,
+      "items": [
+       {
+        "type": "area",
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 300,
+        "style": "grass"
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 14,
+        "x2": 440,
+        "y2": 14,
+        "style": "road",
+        "label": "College Road",
+        "lx": -120
+       },
+       {
+        "type": "gate",
+        "x": 220,
+        "y": 34,
+        "label": "Entrance"
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 50,
+        "w": 110,
+        "h": 80,
+        "style": "parking",
+        "label": "Car park"
+       },
+       {
+        "type": "rect",
+        "x": 150,
+        "y": 55,
+        "w": 140,
+        "h": 75,
+        "style": "building",
+        "label": "Main building"
+       },
+       {
+        "type": "rect",
+        "x": 305,
+        "y": 55,
+        "w": 90,
+        "h": 60,
+        "style": "building",
+        "label": "Library"
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 150,
+        "w": 230,
+        "h": 90,
+        "style": "sports",
+        "label": "Sports field"
+       },
+       {
+        "type": "trees",
+        "x": 265,
+        "y": 140,
+        "w": 130,
+        "h": 100,
+        "label": "Garden"
+       },
+       {
+        "type": "rect",
+        "x": 0,
+        "y": 256,
+        "w": 440,
+        "h": 34,
+        "style": "water",
+        "label": "River",
+        "lx": -150
+       },
+       {
+        "type": "compass",
+        "x": 418,
+        "y": 62
+       }
+      ]
+     },
+     {
+      "title": "Planned",
+      "width": 440,
+      "height": 300,
+      "items": [
+       {
+        "type": "area",
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 300,
+        "style": "grass"
+       },
+       {
+        "type": "line",
+        "x1": 0,
+        "y1": 14,
+        "x2": 440,
+        "y2": 14,
+        "style": "road",
+        "label": "College Road",
+        "lx": -120
+       },
+       {
+        "type": "gate",
+        "x": 220,
+        "y": 34,
+        "label": "Entrance"
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 50,
+        "w": 110,
+        "h": 80,
+        "style": "housing",
+        "label": "Student flats"
+       },
+       {
+        "type": "rect",
+        "x": 150,
+        "y": 55,
+        "w": 140,
+        "h": 75,
+        "style": "building",
+        "label": "Main building"
+       },
+       {
+        "type": "rect",
+        "x": 305,
+        "y": 55,
+        "w": 90,
+        "h": 95,
+        "style": "building",
+        "label": "Library"
+       },
+       {
+        "type": "rect",
+        "x": 20,
+        "y": 150,
+        "w": 130,
+        "h": 90,
+        "style": "sports",
+        "label": "Sports field"
+       },
+       {
+        "type": "rect",
+        "x": 158,
+        "y": 150,
+        "w": 92,
+        "h": 90,
+        "style": "building",
+        "label": "Sports hall"
+       },
+       {
+        "type": "rect",
+        "x": 258,
+        "y": 175,
+        "w": 55,
+        "h": 50,
+        "style": "building",
+        "label": "Café"
+       },
+       {
+        "type": "trees",
+        "x": 320,
+        "y": 165,
+        "w": 75,
+        "h": 75,
+        "label": "Garden"
+       },
+       {
+        "type": "rect",
+        "x": 0,
+        "y": 256,
+        "w": 440,
+        "h": 34,
+        "style": "water",
+        "label": "River",
+        "lx": -150
+       },
+       {
+        "type": "line",
+        "x1": 350,
+        "y1": 244,
+        "x2": 350,
+        "y2": 300,
+        "style": "path",
+        "label": "Footbridge",
+        "lx": -48,
+        "ly": 0
+       },
+       {
+        "type": "compass",
+        "x": 418,
+        "y": 62
+       }
+      ]
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: the campus will be developed with new buildings for students; the car park and much of the open space will go, while the main building, entrance, road and river stay the same.",
+    "Car park (north-west) → student flats.",
+    "Library extended southwards; sports field halved, with a new sports hall to its east.",
+    "Part of the garden → café; a footbridge will be built across the river in the south-east."
+   ],
+   "modelAnswer": "The maps illustrate the present layout of Riverside College and the changes that are planned for the campus in the future.\n\nOverall, the campus will become more developed, with several new facilities for students, but there will be less open space and no car park. The main building, the entrance on College Road and the river to the south will remain unchanged.\n\nAt present, the north-western corner of the campus is occupied by a car park, but this will be replaced by a block of student flats. To the east of the main building, the library will be extended southwards, roughly doubling its size.\n\nThe biggest changes will take place in the southern part of the campus. Currently, a large sports field stretches from the western edge to the middle of the site, but it will be reduced to about half its size, as a sports hall will be built on its eastern part. The garden in the south-east will also become smaller, because a café is planned on its western side. Finally, a footbridge will be constructed across the river near the south-eastern corner, giving students direct access to the land on the other side."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Advantages/disadvantages essay: learning online",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "advantages_disadvantages",
+   "prompt": "Write about the following topic:\n\nIncreasingly, people are choosing to take courses online instead of attending classes in person.\n\nDo the advantages of this outweigh the disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Online courses, from short language programmes to full university degrees, have become extremely popular, and many learners now choose them instead of traditional classes. Although studying online has some clear drawbacks, I believe its advantages are greater for most people.\n\nThe main advantage of online learning is flexibility. Students can watch lectures and complete tasks at any time, which allows people with jobs or young children to continue their education. It also removes the need to travel, saving time and money, and gives learners in small towns or poorer regions access to courses from leading institutions that they could never attend in person. In addition, online courses are often cheaper than traditional ones, and students can usually work at their own pace, repeating difficult material as often as they need to.\n\nHowever, online learning also has disadvantages. Without regular classes and a teacher in the room, many students find it difficult to stay motivated, and dropout rates for online courses are often high. Learners also miss the chance to discuss ideas face to face and build friendships with classmates, which can make studying lonely. Finally, some subjects, such as medicine, engineering or the performing arts, require practical training that cannot easily be provided through a screen.\n\nDespite these problems, I believe the benefits are more significant. Many of the difficulties can be reduced by good course design, for example through live online seminars, group projects and regular deadlines. For practical subjects, a combination of online theory and in-person workshops can work well.\n\nIn conclusion, while online courses can be isolating and are not suitable for every subject, their flexibility, lower cost and wider access mean that, in my view, the advantages outweigh the disadvantages."
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "id": "academic-writing-09",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 9",
+ "shortTitle": "Practice Test 9",
+ "durationMinutes": 60,
+ "sortOrder": 9,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Process diagram: how chocolate is made",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The diagram below shows the stages in the production of chocolate.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "process",
+    "title": "How chocolate is produced",
+    "cycle": false,
+    "steps": [
+     {
+      "label": "Harvesting",
+      "text": "Ripe cocoa pods are cut from the trees and opened by hand"
+     },
+     {
+      "label": "Fermenting",
+      "text": "The beans are covered with leaves and left to ferment for 5–7 days"
+     },
+     {
+      "label": "Drying",
+      "text": "The beans are spread out in the sun to dry for about a week"
+     },
+     {
+      "label": "Shipping",
+      "text": "Dried beans are packed into sacks and transported to a factory"
+     },
+     {
+      "label": "Roasting",
+      "text": "The beans are roasted at 120–140°C to develop their flavour"
+     },
+     {
+      "label": "Shelling",
+      "text": "The shells are cracked and removed, leaving small pieces called nibs"
+     },
+     {
+      "label": "Grinding",
+      "text": "The nibs are ground into a thick paste known as cocoa liquor"
+     },
+     {
+      "label": "Mixing",
+      "text": "The cocoa liquor is mixed with sugar, milk powder and cocoa butter"
+     },
+     {
+      "label": "Moulding",
+      "text": "The mixture is poured into moulds, cooled and wrapped"
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: nine stages, beginning on the farm (harvesting, fermenting, drying) and ending in the factory with finished bars.",
+    "Farm: pods cut and opened → beans fermented 5–7 days under leaves → dried in the sun about a week → packed in sacks and shipped.",
+    "Factory: roasted at 120–140°C → shells removed, leaving nibs → ground into cocoa liquor → mixed with sugar, milk powder and cocoa butter → moulded, cooled and wrapped.",
+    "Good answers use passive forms and sequencing language."
+   ],
+   "modelAnswer": "The diagram illustrates the process by which chocolate is produced, from the harvesting of cocoa pods to the wrapping of the finished product.\n\nOverall, there are nine stages in the process. The first three take place on the farm where the cocoa is grown, while the remaining stages are carried out in a factory, where the beans are gradually turned into chocolate.\n\nTo begin with, ripe cocoa pods are cut from the trees and opened by hand to remove the beans. These are then covered with leaves and left to ferment for between five and seven days, after which they are spread out in the sun and dried for approximately a week. Once they are dry, the beans are packed into sacks and transported to a factory.\n\nAt the factory, the beans are first roasted at a temperature of 120 to 140°C in order to develop their flavour. Next, their shells are cracked and removed, leaving small pieces known as nibs, which are ground into a thick paste called cocoa liquor. This liquor is subsequently mixed with sugar, milk powder and cocoa butter. Finally, the mixture is poured into moulds, cooled and wrapped, ready to be sold."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Advantages/disadvantages essay: working from home",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "advantages_disadvantages",
+   "prompt": "Write about the following topic:\n\nMore and more people are choosing to work from home rather than travelling to an office every day.\n\nDo the advantages of this development outweigh the disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Since the development of fast internet connections and video-calling software, a growing number of employees work from home for some or all of the week. Although this trend has some drawbacks, I believe that its advantages are more significant.\n\nThe most obvious benefit for workers is the time and money they save. Someone who used to spend an hour travelling to work in each direction gains ten hours a week, which can be used for family, exercise or rest. They also spend less on fuel, public transport and lunches. Many people find that they can concentrate better without the noise and interruptions of a busy office, so they may actually be more productive. For employers, home working means they can rent smaller offices and hire talented staff who live far away.\n\nThere are, however, some real disadvantages. Working alone can be lonely, and employees who rarely meet their colleagues may feel less connected to their company. Young workers in particular may learn more slowly, because they miss the chance to watch experienced colleagues and ask quick questions. In addition, some people find it hard to separate work from home life, and end up answering emails late at night.\n\nIn my opinion, these problems are real but manageable. Many companies now use a hybrid model, in which staff work from home for part of the week and meet in the office on the other days. This allows teams to build relationships and train new staff while still giving employees the flexibility they value. Clear rules about working hours can also protect people's free time.\n\nIn conclusion, while working from home can cause isolation and blur the line between work and leisure, the savings in time and money, together with greater flexibility, mean that the advantages outweigh the disadvantages."
+  }
+ ]
+}

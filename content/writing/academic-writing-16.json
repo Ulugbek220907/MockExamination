@@ -1,0 +1,101 @@
+{
+ "id": "academic-writing-16",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 16",
+ "shortTitle": "Practice Test 16",
+ "durationMinutes": 60,
+ "sortOrder": 16,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Pie charts: reasons for leaving a job",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The pie charts below show the main reasons that employees in one country gave for leaving their jobs in 2010 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "pie",
+    "title": "Main reason given for leaving a job",
+    "unit": "%",
+    "charts": [
+     {
+      "title": "2010",
+      "slices": [
+       {
+        "label": "Higher salary elsewhere",
+        "value": 34
+       },
+       {
+        "label": "Better career prospects",
+        "value": 22
+       },
+       {
+        "label": "Moving home",
+        "value": 15
+       },
+       {
+        "label": "Poor management",
+        "value": 12
+       },
+       {
+        "label": "Work-life balance",
+        "value": 9
+       },
+       {
+        "label": "Other",
+        "value": 8
+       }
+      ]
+     },
+     {
+      "title": "2020",
+      "slices": [
+       {
+        "label": "Higher salary elsewhere",
+        "value": 25
+       },
+       {
+        "label": "Better career prospects",
+        "value": 20
+       },
+       {
+        "label": "Moving home",
+        "value": 8
+       },
+       {
+        "label": "Poor management",
+        "value": 14
+       },
+       {
+        "label": "Work-life balance",
+        "value": 24
+       },
+       {
+        "label": "Other",
+        "value": 9
+       }
+      ]
+     }
+    ],
+    "note": "Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: a higher salary was the most common reason in both years but became less dominant; work-life balance became far more important.",
+    "Higher salary 34% → 25%; career prospects 22% → 20%.",
+    "Work-life balance 9% → 24% (from fifth to second).",
+    "Moving home 15% → 8%; poor management 12% → 14%; other 8% → 9%."
+   ],
+   "modelAnswer": "The two pie charts show the main reasons why employees in one country left their jobs in 2010 and in 2020.\n\nOverall, the desire for a higher salary was the most common reason for leaving a job in both years, although it became less dominant. The most significant change was the sharp rise in the proportion of people who left in search of a better balance between work and their personal lives.\n\nIn 2010, just over a third of employees (34%) left because they could earn more elsewhere, and 22% left for better career prospects. Moving home was the third most common reason, at 15%, followed by poor management (12%). Only 9% of people said that they had left to improve their work-life balance, while 8% gave other reasons.\n\nBy 2020, the share of people leaving for a higher salary had fallen to a quarter (25%), and the figure for career prospects had also declined slightly, to 20%. In contrast, the proportion leaving for a better work-life balance had almost tripled to 24%, making it the second most common reason. The percentage of people who left because they moved home roughly halved to 8%, whereas poor management became a slightly more frequent reason (14%)."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Discussion essay: technology and modern life",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "discussion",
+   "prompt": "Write about the following topic:\n\nSome people believe that technology has made our lives more complicated. Others think that it has made life much easier.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Technology now affects almost every part of daily life, from the way we work and shop to the way we communicate with family and friends. While some people feel that it has made life unnecessarily complicated, others believe it has made everything simpler. In my view, technology has made most tasks easier, but it has also created new pressures that we need to manage.\n\nThose who think technology complicates life point to the constant need to learn new systems. Phones, computers and apps are updated regularly, and older people in particular may struggle to keep up. Many everyday tasks, such as booking a doctor's appointment or paying a bill, now require passwords, online accounts and verification codes, which can be stressful when something goes wrong. In addition, smartphones mean that people are always reachable, so the boundary between work and free time has become less clear.\n\nOn the other hand, it is hard to deny that technology has saved people enormous amounts of time and effort. Tasks that once required a trip to a bank, a shop or a government office can now be completed in minutes from home. Navigation apps make travelling in unfamiliar places much easier, and video calls allow families who live far apart to see each other regularly. In medicine, technology has made diagnosis faster and treatment more effective.\n\nIn my opinion, the second view is more convincing. Most of the complications people complain about are temporary, as systems become simpler and people become familiar with them. The problem of always being connected is real, but it can be solved by setting limits, such as switching off work emails in the evening.\n\nIn conclusion, although technology can sometimes be confusing and demanding, I believe that, overall, it has made our lives considerably easier."
+  }
+ ]
+}

@@ -1,0 +1,107 @@
+{
+ "id": "academic-writing-12",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 12",
+ "shortTitle": "Practice Test 12",
+ "durationMinutes": 60,
+ "sortOrder": 12,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Bar chart and pie chart: visitors to a national park",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The bar chart below shows the number of visitors to a national park in each season in 2010 and 2020. The pie chart shows the main activity of visitors to the park in 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "multi",
+    "title": "Lake Alma National Park",
+    "note": "Fictional data created for practice purposes.",
+    "parts": [
+     {
+      "type": "bar",
+      "title": "Visitors by season, 2010 and 2020",
+      "yLabel": "Visitors (thousands)",
+      "unit": "",
+      "yMax": 160,
+      "yStep": 40,
+      "categories": [
+       "Spring",
+       "Summer",
+       "Autumn",
+       "Winter"
+      ],
+      "series": [
+       {
+        "name": "2010",
+        "values": [
+         40,
+         110,
+         35,
+         10
+        ]
+       },
+       {
+        "name": "2020",
+        "values": [
+         65,
+         150,
+         70,
+         25
+        ]
+       }
+      ]
+     },
+     {
+      "type": "pie",
+      "title": "Main activity of visitors, 2020",
+      "unit": "%",
+      "charts": [
+       {
+        "title": "",
+        "slices": [
+         {
+          "label": "Hiking",
+          "value": 38
+         },
+         {
+          "label": "Boating and fishing",
+          "value": 22
+         },
+         {
+          "label": "Camping",
+          "value": 18
+         },
+         {
+          "label": "Watching wildlife",
+          "value": 14
+         },
+         {
+          "label": "Other",
+          "value": 8
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "examinerNotes": [
+    "Overview should note: visitor numbers rose in every season, summer was by far the busiest season and winter the quietest; hiking was the most popular activity.",
+    "Spring 40k → 65k; summer 110k → 150k; autumn 35k → 70k (doubled); winter 10k → 25k. Total about 195k → 310k.",
+    "2020 activities: hiking 38%, boating and fishing 22%, camping 18%, watching wildlife 14%, other 8%."
+   ],
+   "modelAnswer": "The bar chart shows how many people visited Lake Alma National Park in each season of 2010 and 2020, while the pie chart shows what visitors mainly did in the park in 2020.\n\nOverall, the park became more popular in every season, with summer remaining by far the busiest time of year and winter the quietest. In 2020, hiking was the most common activity among visitors.\n\nIn 2010, the park received 110,000 visitors in summer, compared with 40,000 in spring, 35,000 in autumn and only 10,000 in winter. Ten years later, numbers had risen across the year. The summer figure grew to 150,000, while autumn saw the most dramatic change, doubling to 70,000 and overtaking spring, which reached 65,000. Winter numbers also increased, to 25,000, although they remained much lower than in the other seasons. In total, the number of visitors rose from about 195,000 to around 310,000.\n\nAs for activities, almost four in ten visitors (38%) came mainly to go hiking. Boating and fishing was the second most popular activity, at 22%, followed by camping (18%) and watching wildlife (14%). Other activities accounted for the remaining 8%."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Opinion essay: spending on space exploration",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "opinion",
+   "prompt": "Write about the following topic:\n\nSome people think that spending large amounts of money on space exploration is a waste when there are so many problems that need solving on Earth.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Governments and private companies spend billions of dollars every year on rockets, satellites and missions to other planets. Some people argue that this money would be better used to fight poverty, disease and climate change. Although I understand this view, I disagree that space exploration is a waste of money.\n\nIt is true that the sums involved are enormous, and that many people on Earth lack clean water, healthcare and education. A single mission to Mars could pay for thousands of schools or hospitals, so it is easy to see why critics believe that space programmes reflect the wrong priorities.\n\nHowever, space research has already helped to solve many problems on Earth. Satellites allow scientists to forecast storms and floods, saving thousands of lives, and they monitor deforestation, melting ice and other effects of climate change. Technologies first developed for space travel, such as water purification systems, improved materials and medical imaging, are now used in everyday life. In addition, satellite communication makes it possible for people in remote areas to access the internet and online education.\n\nFurthermore, space exploration inspires young people to study science and engineering, which are essential for solving future problems. Exploring space also increases our understanding of how our own planet works. In the long term, some resources found in space may even reduce pressure on the Earth's environment.\n\nFinally, it is a mistake to think that the choice is between space exploration and solving problems on Earth. Space budgets are usually a very small part of government spending, and many countries manage to fund both.\n\nIn conclusion, while the world certainly faces urgent problems, I believe that investment in space exploration brings practical benefits that help to solve them, and it should therefore continue."
+  }
+ ]
+}

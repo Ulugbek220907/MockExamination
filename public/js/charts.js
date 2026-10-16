@@ -1,6 +1,7 @@
 /**
  * Task 1 visual renderer: line graphs, grouped bar charts, pie charts,
- * tables and process diagrams, drawn as inline SVG/HTML from JSON specs.
+ * tables, process diagrams, before/after maps and pairs of charts ("multi"),
+ * drawn as inline SVG/HTML from JSON specs.
  * Also draws the maps used in Listening "label the map" questions.
  *
  * Charts sit on their own light "paper" surface (like a printed exam figure),
@@ -213,12 +214,12 @@
         }
       });
       return `<figure class="fig-pie">
-        <figcaption>${esc(chart.title)}</figcaption>
-        <svg class="fig-svg" viewBox="-20 -8 ${S + 40} ${S + 16}" role="img" aria-label="${esc(v.title + " – " + chart.title)}">${paths}${texts}</svg>
+        ${chart.title ? `<figcaption>${esc(chart.title)}</figcaption>` : ""}
+        <svg class="fig-svg" viewBox="-20 -8 ${S + 40} ${S + 16}" role="img" aria-label="${esc([v.title, chart.title].filter(Boolean).join(" – "))}">${paths}${texts}</svg>
       </figure>`;
     });
 
-    const headers = ["Category", ...v.charts.map((c) => c.title)];
+    const headers = ["Category", ...v.charts.map((c) => c.title || "Share")];
     const rows = labels.map((l) => [l, ...v.charts.map((c) => {
       const s = c.slices.find((x) => x.label === l);
       return s ? fmt(s.value, v.unit || "%") : "–";
@@ -252,8 +253,9 @@
   // Plan/map for "Label the map" questions. Letters are drawn on white discs;
   // every label has a paper-coloured halo so it stays legible over any fill.
   const MAP = {
-    grass: ["#e6f0dc", "#9fbf8a"], water: ["#cfe6f7", "#6f9fcb"], path: "#dccaa3",
+    grass: ["#e6f0dc", "#9fbf8a"], water: ["#cfe6f7", "#6f9fcb"], path: "#dccaa3", road: "#c4c8cf",
     parking: ["#eef0f3", "#8a94a3"], building: ["#f6e7c8", "#a37b3b"], tree: ["#8fbf7a", "#5f8f4c"],
+    field: ["#f4eec9", "#b8a557"], sand: ["#f7ead2", "#c9a96a"], housing: ["#f1dcd6", "#a86b5c"], sports: ["#d9efe6", "#4f9a7c"],
   };
 
   function mapLabel(x, y, text, { anchor = "middle", italic = false } = {}) {
@@ -282,12 +284,15 @@
         }
         return `<ellipse cx="${it.cx}" cy="${it.cy}" rx="${it.rx}" ry="${it.ry}" fill="${MAP.water[0]}" stroke="${MAP.water[1]}" stroke-width="2"/>
           ${it.label ? mapLabel(it.cx, it.cy + 5, it.label, { italic: true }) : ""}`;
-      case "line":
-        return `<line x1="${it.x1}" y1="${it.y1}" x2="${it.x2}" y2="${it.y2}" stroke="${MAP.path}" stroke-width="12" stroke-linecap="round"/>`;
+      case "line": {
+        const road = it.style === "road";
+        return `<line x1="${it.x1}" y1="${it.y1}" x2="${it.x2}" y2="${it.y2}" stroke="${road ? MAP.road : MAP.path}" stroke-width="${road ? 18 : 12}" stroke-linecap="round"/>
+          ${it.label ? mapLabel((it.x1 + it.x2) / 2 + (it.lx || 0), (it.y1 + it.y2) / 2 + (it.ly || 5), it.label, { italic: true }) : ""}`;
+      }
       case "rect": {
         const [fill, stroke] = MAP[it.style] || MAP.building;
         return `<rect x="${it.x}" y="${it.y}" width="${it.w}" height="${it.h}" rx="4" fill="${fill}" stroke="${stroke}" stroke-width="2"/>
-          ${it.label ? mapLabel(it.x + it.w / 2, it.y + it.h / 2 + 5, it.label) : ""}`;
+          ${it.label ? mapLabel(it.x + it.w / 2 + (it.lx || 0), it.y + it.h / 2 + 5 + (it.ly || 0), it.label) : ""}`;
       }
       case "gate":
         return `<rect x="${it.x - 16}" y="${it.y - 6}" width="32" height="7" rx="2" fill="${INK_2}"/>
@@ -319,21 +324,46 @@
     </div>`;
   }
 
-  function render(visual) {
-    if (!visual) return "";
-    let body = "";
+  /* ------------------------------------------------- Task 1 maps (before / after) */
+  function mapsChart(v) {
+    const plans = (v.maps || []).map((m) => {
+      const names = (m.items || []).filter((i) => i.label).map((i) => i.label);
+      const label = `${m.title}: ${names.join(", ")}`;
+      return `<figure class="fig-map">
+        <figcaption class="fig-map-title">${esc(m.title)}</figcaption>
+        <svg class="fig-svg map-svg" viewBox="0 0 ${m.width} ${m.height}" role="img" aria-label="${esc(label)}">
+          ${(m.items || []).map(mapItem).join("")}
+        </svg>
+      </figure>`;
+    }).join("");
+    return `<div class="fig-maps">${plans}</div>`;
+  }
+
+  function body(visual) {
     switch (visual.type) {
-      case "line": body = lineChart(visual); break;
-      case "bar": body = barChart(visual); break;
-      case "pie": body = pieChart(visual); break;
-      case "table": body = tableChart(visual); break;
-      case "process": body = processChart(visual); break;
+      case "line": return lineChart(visual);
+      case "bar": return barChart(visual);
+      case "pie": return pieChart(visual);
+      case "table": return tableChart(visual);
+      case "process": return processChart(visual);
+      case "map": return mapsChart(visual);
+      case "multi": // two charts about one topic, each with its own heading
+        return (visual.parts || []).map((part) => `<div class="fig-part">
+          ${part.title ? `<div class="fig-part-title">${esc(part.title)}</div>` : ""}
+          ${part.yLabel && (part.type === "line" || part.type === "bar") ? `<div class="fig-subtitle">${esc(part.yLabel)}</div>` : ""}
+          ${body(part)}</div>`).join("");
       default: return "";
     }
+  }
+
+  function render(visual) {
+    if (!visual) return "";
+    const inner = body(visual);
+    if (!inner) return "";
     return `<div class="task-figure">
       ${visual.title ? `<div class="fig-title">${esc(visual.title)}</div>` : ""}
       ${visual.yLabel && (visual.type === "line" || visual.type === "bar") ? `<div class="fig-subtitle">${esc(visual.yLabel)}</div>` : ""}
-      ${body}
+      ${inner}
       ${visual.note ? `<div class="fig-note">${esc(visual.note)}</div>` : ""}
     </div>`;
   }

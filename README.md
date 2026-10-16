@@ -73,6 +73,7 @@ mockexam/
   writing.py              writing text analysis + Claude AI examiner
   storage.py              LocalStore (JSON + SQLite) and SupabaseStore (REST)
   db.py                   table access for accounts/payments: SQLite locally, Supabase REST in production
+  dbcache.py              short-lived read cache in front of db.py (the database can be far from the server)
   auth.py                 sign-in with email codes and Google (Supabase Auth); development mode
   accounts.py             profiles, roles, the monthly plan, which tests a user may open
   billing.py              prices, orders, Payme Merchant API, Click SHOP API, card transfers

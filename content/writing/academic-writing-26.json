@@ -1,0 +1,83 @@
+{
+ "id": "academic-writing-26",
+ "module": "writing",
+ "variant": "academic",
+ "title": "Academic Writing Practice Test 26",
+ "shortTitle": "Practice Test 26",
+ "durationMinutes": 60,
+ "sortOrder": 26,
+ "license": "Original work written for this project. All rights reserved by the site owner.",
+ "tasks": [
+  {
+   "taskNumber": 1,
+   "title": "Line graph: older people in three countries",
+   "recommendedMinutes": 20,
+   "minWords": 150,
+   "prompt": "The graph below shows the percentage of the population aged 65 and over in three countries between 1960 and 2020, with projections for 2040.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "visual": {
+    "type": "line",
+    "title": "Population aged 65 and over, 1960–2040",
+    "yLabel": "% of total population",
+    "unit": "%",
+    "yMax": 30,
+    "yStep": 5,
+    "categories": [
+     "1960",
+     "1980",
+     "2000",
+     "2020",
+     "2040*"
+    ],
+    "series": [
+     {
+      "name": "Nordania",
+      "values": [
+       9,
+       12,
+       15,
+       21,
+       27
+      ]
+     },
+     {
+      "name": "Vestria",
+      "values": [
+       11,
+       13,
+       14,
+       16,
+       19
+      ]
+     },
+     {
+      "name": "Pellan",
+      "values": [
+       4,
+       5,
+       7,
+       12,
+       22
+      ]
+     }
+    ],
+    "note": "* Projected figures. Fictional data created for practice purposes."
+   },
+   "examinerNotes": [
+    "Overview should note: the proportion of older people rose (and is expected to keep rising) in all three countries; Nordania has the highest share from 2000; Pellan grows fastest and is expected to overtake Vestria.",
+    "Nordania: 9% → 21% (2020) → 27% (2040).",
+    "Vestria: highest in 1960 and 1980 (11%, 13%), then slow growth to 16% and 19%.",
+    "Pellan: 4% → 12% (2020) → 22% (2040), overtaking Vestria."
+   ],
+   "modelAnswer": "The line graph shows the proportion of people aged 65 or over in three countries, Nordania, Vestria and Pellan, from 1960 to 2020, together with predictions for 2040.\n\nOverall, the percentage of older people increased in all three countries and is expected to continue rising. Nordania has had the largest share of older people since 2000, while Pellan has seen the fastest growth and is predicted to overtake Vestria by 2040.\n\nIn 1960, Vestria had the highest proportion of people aged 65 and over, at 11%, compared with 9% in Nordania and only 4% in Pellan. Over the next forty years, the figure for Vestria rose slowly to 14%, while Nordania's increased more quickly, reaching 15% in 2000 and becoming the highest of the three.\n\nFrom 2000 onwards, the gap between the countries changed considerably. In Nordania, older people made up 21% of the population in 2020, and this is projected to rise to 27% by 2040. Pellan's figure grew from 7% to 12% between 2000 and 2020 and is expected to almost double again to 22% in 2040. By contrast, Vestria's share is forecast to increase only gradually, from 16% to 19%, meaning that it will have the smallest proportion of older people by the end of the period."
+  },
+  {
+   "taskNumber": 2,
+   "title": "Discussion essay: accepting or changing a situation",
+   "recommendedMinutes": 40,
+   "minWords": 250,
+   "essayType": "discussion",
+   "prompt": "Write about the following topic:\n\nSome people believe that it is best to accept a bad situation, such as an unsatisfying job or a shortage of money. Others argue that it is better to try to improve such situations.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.",
+   "modelAnswer": "Everyone faces difficult situations at some point, such as a boring job, a lack of money or an unhappy living arrangement. Some people think that the wisest response is to accept these situations, whereas others believe that we should always try to change them. In my view, trying to improve our circumstances is usually the better approach, although acceptance has its place.\n\nPeople who favour acceptance argue that constant dissatisfaction makes life unhappy. If a person is always comparing their job or income with those of others, they may never feel content, even when their situation is reasonably good. Some problems, such as an economic recession, cannot easily be changed by individuals, and fighting against them can lead to stress and disappointment. Accepting such difficulties calmly allows people to focus on the positive aspects of their lives, such as family and friends.\n\nOn the other hand, those who believe in trying to improve bad situations point out that progress depends on it. Many people who were unhappy in their jobs have retrained, started businesses or moved to new cities and found far more satisfying lives. Similarly, people who are short of money can often improve their situation by learning new skills, asking for promotion or managing their spending more carefully. If everyone simply accepted their problems, there would be little personal or social progress.\n\nIn my opinion, the key is to distinguish between situations that can be changed and those that cannot. Where improvement is possible, as with most jobs or financial problems, people should make a realistic plan and take action. Where it is not, acceptance is healthier than endless frustration.\n\nIn conclusion, although accepting difficulties can bring peace of mind, I believe that in most cases people should try to improve a bad situation rather than simply live with it."
+  }
+ ]
+}

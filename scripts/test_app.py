@@ -307,6 +307,11 @@ class WritingTests(unittest.TestCase):
         self.assertIn("Contractions", texts)
         self.assertIn("informal", texts)
 
+    def test_possessives_are_not_contractions(self):
+        a = writing.analyse_text("Eastvale's figure and the city’s total rose, but it's lower than Southbay's and they don’t say why.", 1, 1)
+        flagged = [c["text"] for c in a["checks"] if c["text"].startswith("Contractions found")]
+        self.assertEqual(flagged, ["Contractions found (don’t, it's). Use full forms in academic writing."])
+
     def test_model_answers_pass_checks(self):
         for t in WRITING:
             for task in t["tasks"]:
@@ -622,6 +627,7 @@ class PoolTests(unittest.TestCase):
         import threading
 
         cls.ports = []
+        cls.pings = []
 
         class Handler(http.server.BaseHTTPRequestHandler):
             protocol_version = "HTTP/1.1"
@@ -640,6 +646,13 @@ class PoolTests(unittest.TestCase):
                 self.wfile.write(raw)
                 if self.path == "/drop":  # close the kept-alive connection without saying so
                     self.close_connection = True
+
+            def do_GET(self):
+                cls.pings.append(self.client_address[1])
+                self.send_response(200)
+                self.send_header("Content-Length", "2")
+                self.end_headers()
+                self.wfile.write(b"[]")
 
         cls.httpd = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
         threading.Thread(target=cls.httpd.serve_forever, daemon=True).start()
@@ -680,6 +693,19 @@ class PoolTests(unittest.TestCase):
         t.start()
         t.join()
         self.assertEqual(len(set(self.ports)), 1)  # the second thread used the first thread's connection
+
+    def test_keep_warm_holds_spare_connections_open(self):
+        import time as _time
+        import urllib.request
+        from mockexam import pool
+        pool._connections().clear()
+        del self.pings[:]
+        pool.keep_warm(lambda: urllib.request.Request(self.base + "/ping"), every=0.2, spare=2)
+        _time.sleep(0.9)
+        key = ("http", self.base.split("//")[1], 15)
+        self.assertEqual(len(pool._connections().get(key, [])), 2)  # two warm connections waiting
+        self.assertEqual(len(set(self.pings)), 2)  # and the pings reused them
+        self.assertGreaterEqual(len(self.pings), 4)
 
     def test_http_errors_raise_like_urllib(self):
         import urllib.error

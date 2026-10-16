@@ -609,16 +609,54 @@ def validate_writing_test(test):
             errors.append(f"{where}: model answer is shorter than the minimum word count")
         visual = t.get("visual")
         if t.get("taskNumber") == 1:
-            if not visual or visual.get("type") not in ("line", "bar", "pie", "table", "process"):
-                errors.append(f"{where}: Task 1 needs a visual of type line/bar/pie/table/process")
-            elif visual["type"] in ("line", "bar"):
-                n = len(visual.get("categories", []))
-                for s in visual.get("series", []):
-                    if len(s.get("values", [])) != n:
-                        errors.append(f"{where}: series '{s.get('name')}' has wrong number of values")
-            elif visual["type"] == "pie":
-                for chart in visual.get("charts", []):
-                    total = sum(sl["value"] for sl in chart.get("slices", []))
-                    if abs(total - 100) > 0.51:
-                        errors.append(f"{where}: pie '{chart.get('title')}' sums to {total}, not 100")
+            if not visual or visual.get("type") not in VISUAL_TYPES:
+                errors.append(f"{where}: Task 1 needs a visual of type {'/'.join(VISUAL_TYPES)}")
+            elif visual["type"] == "multi":
+                parts = visual.get("parts") or []
+                if len(parts) != 2:
+                    errors.append(f"{where}: a multi visual needs two parts")
+                for i, part in enumerate(parts, 1):
+                    errors += _visual_problems(part, f"{where} part {i}")
+            else:
+                errors += _visual_problems(visual, where)
+    return errors
+
+
+VISUAL_TYPES = ("line", "bar", "pie", "table", "process", "map", "multi")
+
+
+def _visual_problems(visual, where):
+    """Problems in one Task 1 chart, table, process diagram or set of maps."""
+    kind = visual.get("type")
+    if kind not in VISUAL_TYPES or kind == "multi":
+        return [f"{where}: unknown visual type {kind!r}"]
+    errors = []
+    if kind == "map":
+        maps = visual.get("maps") or []
+        if len(maps) < 2:
+            errors.append(f"{where}: a map task needs at least two maps")
+        for m in maps:
+            if not m.get("title") or not m.get("width") or not m.get("height") or not m.get("items"):
+                errors.append(f"{where}: each map needs a title, width, height and items")
+            elif not any(i.get("label") for i in m["items"]):
+                errors.append(f"{where}: map '{m.get('title')}' has no labels")
+    elif kind in ("line", "bar"):
+        n = len(visual.get("categories", []))
+        if not n or not visual.get("series"):
+            errors.append(f"{where}: a {kind} chart needs categories and series")
+        for s in visual.get("series", []):
+            if len(s.get("values", [])) != n:
+                errors.append(f"{where}: series '{s.get('name')}' has wrong number of values")
+    elif kind == "pie":
+        for chart in visual.get("charts", []):
+            total = sum(sl["value"] for sl in chart.get("slices", []))
+            if abs(total - 100) > 0.51:
+                errors.append(f"{where}: pie '{chart.get('title')}' sums to {total}, not 100")
+    elif kind == "table":
+        width = len(visual.get("headers", []))
+        if not width or any(len(r) != width for r in visual.get("rows", [])):
+            errors.append(f"{where}: every table row needs one cell per header")
+    elif kind == "process":
+        if len(visual.get("steps", [])) < 3:
+            errors.append(f"{where}: a process needs at least three steps")
     return errors
