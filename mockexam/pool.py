@@ -136,6 +136,7 @@ def keep_warm(make_request, every=25, spare=3):
     Keep `spare` connections to make_request()'s host open: every `every` seconds,
     send make_request() (a cheap GET) on each idle connection, opening new ones
     when there are fewer than `spare`. Runs in a daemon thread; errors are ignored.
+    Returns the thread (None if the host goes through a proxy); thread.stop() ends it.
     """
     sample = make_request()
     parts = urllib.parse.urlsplit(sample.full_url)
@@ -150,10 +151,12 @@ def keep_warm(make_request, every=25, spare=3):
         resp.read()
         return not resp.will_close
 
+    stopped = threading.Event()
+
     def loop():
         import concurrent.futures
         workers = concurrent.futures.ThreadPoolExecutor(max_workers=spare, thread_name_prefix="keepwarm")
-        while True:
+        while not stopped.is_set():
             with _lock:
                 timeouts = {k[2] for k in _idle if k[:2] == (parts.scheme, parts.netloc)} | {15}
             for timeout in sorted(timeouts):
@@ -177,8 +180,10 @@ def keep_warm(make_request, every=25, spare=3):
                     c.close()
 
                 list(workers.map(refresh, conns))
-            time.sleep(every)
+            stopped.wait(every)
+        workers.shutdown(wait=False)
 
     thread = threading.Thread(target=loop, daemon=True, name="db-keep-warm")
+    thread.stop = stopped.set
     thread.start()
     return thread

@@ -277,12 +277,12 @@
         const target = document.querySelector(`.station-btn[data-station="${CSS.escape(nextStation.dataset.nextStation)}"]`);
         if (target) return this.toggleSign(target);
       }
-      const chip = e.target.closest("[data-filter]");
+      const chip = e.target.closest("[data-catalog-filter]");
       if (chip && this.catalogModule) {
         const st = this.catalogStateOf(this.catalogModule);
-        st.filter = chip.dataset.filter;
+        st.filter = chip.dataset.catalogFilter;
         st.shown = CATALOG_PAGE;
-        this.main.querySelectorAll("[data-filter]").forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
+        this.main.querySelectorAll("[data-catalog-filter]").forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
         return this.renderCatalogGrid();
       }
       if (e.target.closest("[data-catalog-more]") && this.catalogModule) {
@@ -727,7 +727,7 @@
           </div>
           <div class="catalog-tools">
             <div class="chip-row" role="group" aria-label="${esc(t("Show"))}">
-              ${filters.map(([k, label, n]) => `<button type="button" class="chip" data-filter="${k}" aria-pressed="${st.filter === k}">${esc(label)} <span class="chip-count">${n}</span></button>`).join("")}
+              ${filters.map(([k, label, n]) => `<button type="button" class="chip" data-catalog-filter="${k}" aria-pressed="${st.filter === k}">${esc(label)} <span class="chip-count">${n}</span></button>`).join("")}
             </div>
             <input type="search" class="catalog-search" id="catalog-search" value="${esc(st.q)}" autocomplete="off"
               placeholder="${esc(t("Search by topic"))}" aria-label="${esc(t("Search these tests by topic"))}">

@@ -700,12 +700,17 @@ class PoolTests(unittest.TestCase):
         from mockexam import pool
         pool._connections().clear()
         del self.pings[:]
-        pool.keep_warm(lambda: urllib.request.Request(self.base + "/ping"), every=0.2, spare=2)
-        _time.sleep(0.9)
-        key = ("http", self.base.split("//")[1], 15)
-        self.assertEqual(len(pool._connections().get(key, [])), 2)  # two warm connections waiting
-        self.assertEqual(len(set(self.pings)), 2)  # and the pings reused them
-        self.assertGreaterEqual(len(self.pings), 4)
+        warm = pool.keep_warm(lambda: urllib.request.Request(self.base + "/ping"), every=0.2, spare=2)
+        try:
+            _time.sleep(0.9)
+            key = ("http", self.base.split("//")[1], 15)
+            self.assertEqual(len(pool._connections().get(key, [])), 2)  # two warm connections waiting
+            self.assertEqual(len(set(self.pings)), 2)  # and the pings reused them
+            self.assertGreaterEqual(len(self.pings), 4)
+        finally:
+            warm.stop()
+            warm.join(2)
+            pool._connections().clear()
 
     def test_http_errors_raise_like_urllib(self):
         import urllib.error
