@@ -47,10 +47,13 @@ def upsert_profile(db, identity):
         updated = db.update("profiles", {"id": profile["id"]}, values)
         profile = updated[0] if updated else profile
     else:
-        profile = db.insert("profiles", {
+        created = db.insert("profiles", {
             "id": identity["id"], "email": email, "name": (identity.get("name") or "")[:80] or None,
             "role": "student", "last_login_at": stamp,
-        }, ignore_conflict=True) or db.select("profiles", {"email": email}, limit=1)[0]
+        }, ignore_conflict=True)
+        profile = created or db.select("profiles", {"email": email}, limit=1)[0]
+        if created:
+            profile["created_now"] = True  # the first sign-in (for the signup event); not stored
     role = profile_role(profile)
     if role != profile.get("role"):
         db.update("profiles", {"id": profile["id"]}, {"role": role})

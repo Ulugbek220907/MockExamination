@@ -97,6 +97,17 @@
 
     async init() {
       window.addEventListener("hashchange", () => this.route());
+      // Funnel: one visit a day per browser (the server drops repeats too), and the main buttons' clicks.
+      const day = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Tashkent" });
+      if (U.store.get("testday:visitDay") !== day) {
+        U.store.set("testday:visitDay", day);
+        U.track("visit");
+      }
+      document.addEventListener("click", (e) => {
+        const el = e.target.closest("[data-track]");
+        if (el) U.track("cta_click", { detail: el.dataset.track });
+      });
+      document.getElementById("feedback-open").addEventListener("click", () => this.openFeedback());
       this.main.addEventListener("click", (e) => this.onMainClick(e));
       document.getElementById("account-slot").addEventListener("click", (e) => Account.onClick(e));
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") this.closeSigns(); });
@@ -824,6 +835,8 @@
 
     launch(test, mode, name, saved) {
       this.pending = null;
+      const summary = this.tests.find((x) => x.id === test.id);
+      if (summary && summary.access === "free") U.track("free_test_started", { module: test.module, testId: test.id });
       this.showView("exam");
       const Exam = { writing: WritingExam, listening: ListeningExam, speaking: SpeakingExam }[test.module] || ReadingExam;
       this.exam = new Exam({
@@ -918,6 +931,65 @@
           <h2 class="section-title" id="next-stop-title">${t("Your next stop")}</h2>
           <div class="next-grid">${focus}${ride}</div>
         </section>`;
+    }
+
+    /* Feedback ----------------------------------------------------------- */
+    openFeedback() {
+      const page = location.hash && location.hash.length < 80 ? location.hash : "#/";
+      const rating = [1, 2, 3, 4, 5].map((n) => `
+        <label class="rate-opt"><input type="radio" name="rating" value="${n}" /><span>${n}</span></label>`).join("");
+      U.modal({
+        title: t("Feedback"),
+        buttons: [],
+        bodyHTML: `
+          <form id="feedback-form" class="feedback-form" novalidate>
+            <label for="fb-message">${t("What should we know? Ideas, problems, anything.")}</label>
+            <textarea id="fb-message" name="message" rows="5" maxlength="2000" required></textarea>
+            <fieldset class="rate-row"><legend>${t("How useful is TestDay so far? (optional)")}</legend>
+              <div class="rate-opts">${rating}</div>
+              <div class="rate-ends"><span>${t("Not useful")}</span><span>${t("Very useful")}</span></div>
+            </fieldset>
+            <label for="fb-email">${t("Your email, if you would like a reply (optional)")}</label>
+            <input id="fb-email" name="email" type="email" maxlength="254" autocomplete="email" />
+            <p class="form-error" id="fb-error" role="alert" hidden></p>
+            <div class="feedback-actions">
+              <button type="button" class="btn-secondary" data-close>${t("Cancel")}</button>
+              <button type="submit" class="btn-primary">${t("Send")}</button>
+            </div>
+          </form>`,
+        onOpen: (root, close) => {
+          const form = root.querySelector("#feedback-form");
+          const error = root.querySelector("#fb-error");
+          root.querySelector("[data-close]").addEventListener("click", () => close(null));
+          root.querySelector("#fb-message").focus();
+          form.addEventListener("input", () => { error.hidden = true; });
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const message = form.message.value.trim();
+            if (!message) {
+              error.textContent = t("Please write a message.");
+              error.hidden = false;
+              form.message.focus();
+              return;
+            }
+            const button = form.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.classList.add("is-busy");
+            try {
+              await U.api("/api/feedback", { method: "POST", body: JSON.stringify({
+                message, rating: Number(form.rating.value) || null, email: form.email.value.trim(), page, clientId: U.clientId(),
+              }) });
+              close(true);
+              U.toast(t("Thank you! We read every message."));
+            } catch (err) {
+              error.textContent = err.message;
+              error.hidden = false;
+              button.disabled = false;
+              button.classList.remove("is-busy");
+            }
+          });
+        },
+      });
     }
 
     /* Static pages ----------------------------------------------------- */

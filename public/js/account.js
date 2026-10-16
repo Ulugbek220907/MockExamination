@@ -998,7 +998,8 @@
     }
     const tab = params.get("tab") || "payments";
     const waiting = (state.me.todo || {}).payments || 0;
-    const tabs = [["payments", `Payments to confirm${waiting ? ` (${waiting})` : ""}`], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"]];
+    const tabs = [["payments", `Payments to confirm${waiting ? ` (${waiting})` : ""}`], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"],
+      ["insights", "Funnel & feedback"]];
     main.innerHTML = `
       <section class="page admin-page">
         <h1>Admin</h1>
@@ -1083,6 +1084,16 @@
           renderAdmin(main, params);
         } catch (err) { U.toast(err.message, "warn"); }
       });
+    } else if (tab === "insights") {
+      const [stats, { feedback }] = await Promise.all([U.api("/api/admin/stats", { fresh: true }), U.api("/api/admin/feedback")]);
+      body.innerHTML = `${funnelHTML(stats.funnel)}
+        <h2 class="section-title">Feedback</h2>
+        ${feedback.length ? `<div class="feedback-list">${feedback.map((f) => `
+          <article class="feedback-item">
+            <div class="feedback-meta">${esc(U.formatDate(f.createdAt))}${f.rating ? ` · ${stars(f.rating)}` : ""}${f.page ? ` · <code>${esc(f.page)}</code>` : ""}
+              ${f.email ? ` · <a href="mailto:${esc(f.email)}">${esc(f.email)}</a>` : f.signedIn ? " · signed in" : ""}</div>
+            <p>${esc(f.message)}</p>
+          </article>`).join("")}</div>` : `<p class="empty-inline">No feedback yet.</p>`}`;
     } else {
       const q = params.get("q") || "";
       const { users } = await U.api(`/api/admin/users${q ? `?q=${encodeURIComponent(q)}` : ""}`);
@@ -1108,6 +1119,29 @@
         } catch (err) { U.toast(err.message, "warn"); }
       }));
     }
+  }
+
+  /* ================================================================ funnel */
+  const STEP_NAMES = { visit: "Visits (browsers a day)", signup: "Sign-ups", free_test_started: "Free tests started",
+    test_finished: "Tests finished", paid: "Paid orders" };
+
+  /** The funnel for the last 7 and 30 days, with each step as a share of the step before it. */
+  function funnelHTML(funnel) {
+    if (!funnel) return `<p class="empty-inline">The funnel could not be counted. Check the server log.</p>`;
+    const share = (counts, i, step) => {
+      if (!i) return "";
+      const before = counts[funnel.steps[i - 1]];
+      return before ? ` <span class="muted-text">${Math.round((counts[step] / before) * 100)}%</span>` : "";
+    };
+    return `
+      <h2 class="section-title">Funnel</h2>
+      <div class="table-scroll"><table class="history-table funnel-table">
+        <thead><tr><th scope="col">Step</th><th scope="col">Last 7 days</th><th scope="col">Last 30 days</th></tr></thead>
+        <tbody>${funnel.steps.map((step, i) => `<tr><th scope="row">${esc(STEP_NAMES[step] || step)}</th>
+          <td>${U.number(funnel["7"][step])}${share(funnel["7"], i, step)}</td>
+          <td>${U.number(funnel["30"][step])}${share(funnel["30"], i, step)}</td></tr>`).join("")}</tbody>
+      </table></div>
+      <p class="muted-text small-text">Visits count each browser once a day. The percentage is the share of the step above.</p>`;
   }
 
   /* ================================================================ click handling */

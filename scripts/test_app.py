@@ -18,6 +18,7 @@ import os
 import re
 import sys
 import tempfile
+import time
 import types
 import unittest
 import urllib.error
@@ -1549,6 +1550,82 @@ class PaymentAccessTests(AccountApiBase):
         self.assertEqual(audio(), 402)  # no minute of free access after a refund
         r, data = self.call("GET", "/api/orders", cookie=cookie)
         self.assertNotIn("unlocked", next(o for o in data["orders"] if o["id"] == order["id"]))
+
+
+class AnalyticsApiTests(AccountApiBase):
+    """Funnel events (browser and server) and the Feedback button's messages."""
+
+    def setUp(self):
+        super().setUp()
+        api.EVENTS_PER_IP.hits.clear()
+        api.FEEDBACK_PER_IP.hits.clear()
+        self.db = self._app.settings["store"].db
+
+    def events(self, **where):
+        return self.db.select("product_events", where)
+
+    def wait_for(self, check, timeout=3.0):
+        """Events are written in the background, just after the response; give them a moment."""
+        end = time.time() + timeout
+        while time.time() < end:
+            if check():
+                return True
+            time.sleep(0.02)
+        return check()
+
+    def post_event(self, body, raw=None):
+        return self.fetch("/api/events", method="POST", headers={"Content-Type": "application/json"},
+                          body=raw if raw is not None else json.dumps(body))
+
+    def test_visit_counts_once_per_browser_per_day(self):
+        a, b = "0f3a5c2e-aaaa-4222-8333-944455556666", "0f3a5c2e-bbbb-4222-8333-944455556666"
+        for client in (a, a, b):
+            self.assertEqual(self.post_event({"name": "visit", "clientId": client}).code, 204)
+        self.assertTrue(self.wait_for(lambda: len(self.events(name="visit")) >= 2))
+        self.assertEqual(sorted(e["client_id"] for e in self.events(name="visit") if e["client_id"] in (a, b)), [a, b])
+
+    def test_browsers_cannot_send_unknown_or_server_events(self):
+        for body in ({"name": "hack"}, {"name": "paid"}, {"name": "signup"}, {"name": "free_test_started"},
+                     {"name": "cta_click", "detail": "DROP TABLE"}, {"name": "visit", "module": "maths"}):
+            self.assertEqual(self.post_event(body).code, 400, body)
+        self.assertEqual(self.post_event(None, raw=json.dumps({"name": "visit", "pad": "x" * 2000})).code, 413)
+        self.assertEqual(self.post_event({"name": "cta_click", "detail": "next_test"}).code, 204)
+
+    def test_server_records_signup_finish_and_paid_once(self):
+        cookie, data = self.login("funnel@example.com")
+        uid = data["user"]["id"]
+        self.login("funnel@example.com")  # a second sign-in is not a second signup
+        self.assertTrue(self.wait_for(lambda: len(self.events(name="signup", user_id=uid)) == 1))
+        r, _ = self.call("POST", "/api/reading/academic-reading-01/submit", {"answers": {"1": "x"}}, cookie=cookie)
+        self.assertEqual(r.code, 200)
+        self.assertTrue(self.wait_for(lambda: any(e["module"] == "reading" and e["test_id"] == "academic-reading-01"
+                                                  for e in self.events(name="test_finished", user_id=uid))))
+        order = billing.create_order(self.db, uid, "plan")
+        billing.fulfil_order(self.db, order["id"], "payme")
+        billing.fulfil_order(self.db, order["id"], "payme")
+        self.assertEqual(len(self.events(name="paid", user_id=uid)), 1)
+        time.sleep(0.2)  # a late duplicate signup would have landed by now
+        self.assertEqual(len(self.events(name="signup", user_id=uid)), 1)
+        for e in self.events(user_id=uid):  # nothing personal is stored with an event
+            self.assertNotIn("funnel@example.com", json.dumps(e))
+
+    def test_feedback_and_admin_view(self):
+        for bad in ({"message": " "}, {"message": "Hi", "rating": 6}, {"message": "Hi", "rating": True},
+                    {"message": "Hi", "email": "not-an-email"}, {"message": "x" * 2001}):
+            r, _ = self.call("POST", "/api/feedback", bad)
+            self.assertIn(r.code, (400, 413), bad)
+        r, data = self.call("POST", "/api/feedback", {"message": "The timer is great", "rating": 5, "email": "Ali@Example.com",
+                                                      "page": "#/results"})
+        self.assertEqual((r.code, data), (200, {"ok": True}))
+        student, _ = self.login("student-fb@example.com")
+        self.assertEqual(self.call("GET", "/api/admin/feedback", cookie=student)[0].code, 403)
+        admin, _ = self.login("owner@example.com")
+        r, data = self.call("GET", "/api/admin/feedback", cookie=admin)
+        item = next(f for f in data["feedback"] if f["message"] == "The timer is great")
+        self.assertEqual((item["rating"], item["email"], item["page"]), (5, "ali@example.com", "#/results"))
+        r, data = self.call("GET", "/api/admin/stats", cookie=admin)
+        self.assertEqual(data["funnel"]["steps"], ["visit", "signup", "free_test_started", "test_finished", "paid"])
+        self.assertIn("visit", data["funnel"]["7"])
 
 
 class SecurityAndHardeningTests(AccountApiBase):

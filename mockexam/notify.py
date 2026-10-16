@@ -194,6 +194,14 @@ CODE_TEXT = {
 }
 
 
+def feedback_received(row):
+    """Tell the owner on Telegram about a message from the Feedback button (if Telegram is set up)."""
+    stars = f" {row['rating']}/5" if row.get("rating") else ""
+    reply = f"\nReply to: {row['email']}" if row.get("email") else ""
+    page = f" on {row['page']}" if row.get("page") else ""
+    _run(send_telegram, f"Feedback{stars}{page}\n{row['message'][:1500]}{reply}")
+
+
 def send_login_code(to, code):
     """Email a sign-in code now. Raises if the email service is not configured or refuses it."""
     if not email_enabled():

@@ -41,7 +41,7 @@ import re
 
 import tornado.web
 
-from . import accounts, auth, billing, checks, notify, speaking
+from . import accounts, analytics, auth, billing, checks, notify, speaking
 from .web import BaseHandler, in_thread
 
 log = logging.getLogger("mockexam.api")
@@ -131,6 +131,8 @@ class AuthCodeHandler(BaseHandler):
 class SessionMixin:
     async def finish_login(self, identity, client_id):
         profile = await in_thread(accounts.upsert_profile, self.db, identity)
+        if profile.pop("created_now", False):
+            self.track("signup", client_id=client_id, user_id=profile["id"])
         if client_id:
             await in_thread(claim_attempts, self.db, client_id, profile["id"])
         self.start_session(profile["id"])
@@ -520,6 +522,7 @@ class SpeakingCompleteHandler(BaseHandler):
         except speaking.SpeakingError as e:
             _raise(e)
         self.send_json({"submission": view})
+        self.track("test_finished", user_id=profile["id"], module="speaking", test_id=view.get("testId"))
 
 
 class SpeakingSubmissionHandler(BaseHandler):
@@ -579,6 +582,56 @@ class RecordingHandler(BaseHandler):
 # Admin
 # --------------------------------------------------------------------------
 
+# --------------------------------------------------------------------------
+# Funnel events and feedback (see mockexam/analytics.py)
+# --------------------------------------------------------------------------
+
+EVENTS_PER_IP = auth.AttemptLimiter(120, 600)
+FEEDBACK_PER_IP = auth.AttemptLimiter(5, 3600)
+MAX_EVENT_BYTES = 1024
+MAX_FEEDBACK_BYTES = 6 * 1024
+
+
+class EventsHandler(BaseHandler):
+    """POST /api/events: a browser reports visit, free_test_started or cta_click. Answers 204 at once."""
+
+    async def post(self):
+        if len(self.request.body or b"") > MAX_EVENT_BYTES:
+            raise ApiError(413, "Event too large.")
+        try:
+            event = analytics.client_event(self.body_json())
+        except analytics.AnalyticsError as e:
+            raise ApiError(e.status, str(e))
+        if not EVENTS_PER_IP.allow(self.client_ip()):
+            raise ApiError(429, "Too many events.")
+        body = self.body_json()
+        self.track(event.pop("name"), client_id=_uuid(body.get("clientId")), user_id=self.current_user, **event)
+        self.set_status(204)
+        self.finish()
+
+
+class FeedbackHandler(BaseHandler):
+    """POST /api/feedback: a message from the Feedback button (rating and email optional)."""
+
+    async def post(self):
+        if len(self.request.body or b"") > MAX_FEEDBACK_BYTES:
+            raise ApiError(413, "Please keep the message shorter.")
+        body = self.body_json()
+        try:
+            fields = analytics.clean_feedback(body)
+        except analytics.AnalyticsError as e:
+            raise ApiError(e.status, str(e))
+        if not FEEDBACK_PER_IP.allow(self.client_ip()):
+            raise ApiError(429, "Thank you! You have sent several messages already; please try again later.")
+        row = dict(fields, client_id=_uuid(body.get("clientId")), user_id=self.current_user)
+        saved = await in_thread(self.db.insert, "feedback", row)
+        try:
+            await in_thread(notify.feedback_received, saved)
+        except Exception:  # noqa: BLE001 – the message is saved; the owner sees it in Admin
+            log.warning("Could not notify about feedback", exc_info=True)
+        self.send_json({"ok": True})
+
+
 class AdminHandler(BaseHandler):
     async def require_admin(self):
         if self.require_admin_token():
@@ -605,6 +658,13 @@ class AdminOrdersHandler(AdminHandler):
             return [dict(billing.public_order(r), userEmail=emails.get(r["user_id"]),
                          examinerEmail=emails.get(r.get("examiner_id"))) for r in rows]
         self.send_json({"orders": await in_thread(load)})
+
+
+class AdminFeedbackHandler(AdminHandler):
+    async def get(self):
+        await self.require_admin()
+        rows = await in_thread(lambda: self.db.select("feedback", order=[("created_at", "desc")], limit=100))
+        self.send_json({"feedback": [analytics.public_feedback(r) for r in rows]})
 
 
 class AdminOrderActionHandler(AdminHandler):
@@ -721,6 +781,9 @@ def routes():
         (r"/api/speaking/recordings/([0-9a-f\-]{36})", RecordingHandler),
         (r"/api/admin/orders", AdminOrdersHandler),
         (r"/api/admin/orders/(\d+)/(confirm|refund|cancel)", AdminOrderActionHandler),
+        (r"/api/admin/feedback", AdminFeedbackHandler),
+        (r"/api/events", EventsHandler),
+        (r"/api/feedback", FeedbackHandler),
         (r"/api/admin/examiners", AdminExaminersHandler),
         (r"/api/admin/users", AdminUsersHandler),
         (r"/api/admin/plan", AdminPlanHandler),

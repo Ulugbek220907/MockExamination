@@ -63,7 +63,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, api, auth, content, notify, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, analytics, api, auth, content, notify, scoring, speaking, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -445,6 +445,8 @@ class ScoredSubmitHandler(BaseHandler):
             log.exception("Could not save %s attempt", self.MODULE)
             result["attemptId"] = None
         self.send_json(result)
+        self.track("test_finished", client_id=record["client_id"], user_id=record["user_id"],
+                   module=self.MODULE, test_id=test["id"], detail=mode)
 
 
 class ReadingSubmitHandler(ScoredSubmitHandler):
@@ -555,6 +557,8 @@ class WritingSubmitHandler(BaseHandler):
             log.exception("Could not save writing submission")
             result["submissionId"] = None
         self.send_json(result)
+        self.track("test_finished", client_id=record["client_id"], user_id=record["user_id"],
+                   module="writing", test_id=test["id"])
 
 
 class HistoryHandler(BaseHandler):
@@ -583,6 +587,12 @@ class AdminStatsHandler(api.AdminHandler):
         stats = await in_thread(STORE.stats)
         stats["storage"] = STORE.name
         stats["tests"] = len(await in_thread(STORE.list_tests))
+        try:
+            week, month = await asyncio.gather(in_thread(analytics.funnel, STORE.db, 7), in_thread(analytics.funnel, STORE.db, 30))
+            stats["funnel"] = {"7": week, "30": month, "steps": list(analytics.FUNNEL)}
+        except Exception:
+            log.exception("Could not count funnel events")
+            stats["funnel"] = None
         self.send_json(stats)
 
 

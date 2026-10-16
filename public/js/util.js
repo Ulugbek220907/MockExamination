@@ -196,6 +196,19 @@
     return () => overlay.remove();
   }
 
+  /**
+   * Report a funnel event (visit, free_test_started, cta_click) to our own server.
+   * Anonymous: only the browser's client id goes with it. Never waits, never fails the page.
+   */
+  function track(name, data = {}) {
+    try {
+      fetch("/api/events", {
+        method: "POST", keepalive: true, headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, clientId: clientId(), ...data }),
+      }).catch(() => {});
+    } catch (e) { /* ignore */ }
+  }
+
   function toast(message, tone = "info") {
     const el = document.createElement("div");
     el.className = `toast toast-${tone}`;
@@ -350,6 +363,6 @@
 
   window.U = {
     escapeHtml, richText, paragraphs, api, store, clientId, formatDuration, formatClock,
-    formatDate, number, money, LOCALE, countWords, assetUrl, loadScript, loadStyle, modal, loadingOverlay, toast, need, prefetch, clearApiCache: () => apiCache.clear(),
+    formatDate, number, money, LOCALE, countWords, track, assetUrl, loadScript, loadStyle, modal, loadingOverlay, toast, need, prefetch, clearApiCache: () => apiCache.clear(),
   };
 })();

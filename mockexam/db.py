@@ -4,6 +4,7 @@ Table access for accounts, payments, examiners and checks.
 Two interchangeable backends expose the same four operations:
 
   select(table, where, order, limit)   -> list of rows (dicts)
+  count(table, where)                  -> number of matching rows
   insert(table, row, ignore_conflict)  -> inserted row, or None if it already existed
   update(table, where, values)         -> list of updated rows
   delete(table, where)                 -> number of deleted rows
@@ -41,12 +42,12 @@ BOOL_COLUMNS = {
 }
 # Tables whose rows get `created_at` filled in by SQLite callers that omit it.
 TIMESTAMPED = {"profiles", "orders", "subscription_periods", "click_transactions", "examiners", "checks",
-               "speaking_submissions", "recordings", "login_codes"}
+               "speaking_submissions", "recordings", "login_codes", "product_events", "feedback"}
 
 ALLOWED_TABLES = {
     "profiles", "orders", "subscription_periods", "payme_transactions", "click_transactions",
     "examiners", "checks", "reading_attempts", "listening_attempts", "writing_submissions",
-    "speaking_submissions", "recordings", "login_codes",
+    "speaking_submissions", "recordings", "login_codes", "product_events", "feedback",
 }
 
 SQLITE_SCHEMA = """
@@ -165,6 +166,29 @@ CREATE TABLE IF NOT EXISTS login_codes (
     code_hash TEXT NOT NULL,
     expires_at TEXT NOT NULL,
     attempts INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT
+);
+CREATE TABLE IF NOT EXISTS product_events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    client_id TEXT,
+    user_id TEXT,
+    module TEXT,
+    test_id TEXT,
+    detail TEXT,
+    day TEXT NOT NULL,
+    dedupe_key TEXT UNIQUE,
+    created_at TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_events_name_time ON product_events(name, created_at);
+CREATE TABLE IF NOT EXISTS feedback (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    message TEXT NOT NULL,
+    rating INTEGER,
+    email TEXT,
+    page TEXT,
+    client_id TEXT,
+    user_id TEXT,
     created_at TEXT
 );
 """
@@ -314,6 +338,16 @@ class SqliteDb:
             finally:
                 conn.close()
 
+    def count(self, table, where=None):
+        _check_table(table)
+        sql_where, params = self._where_sql(table, where)
+        with self.lock:
+            conn = self._connect()
+            try:
+                return conn.execute(f'SELECT COUNT(*) FROM "{table}"{sql_where}', params).fetchone()[0]
+            finally:
+                conn.close()
+
     def insert(self, table, row, ignore_conflict=False):
         _check_table(table)
         row = dict(row)
@@ -459,6 +493,21 @@ class RestDb:
 
     def select(self, table, where=None, order=None, limit=None):
         return self._request("GET", table, self._query(where, order, limit, [("select", "*")]))
+
+    def count(self, table, where=None):
+        """Rows matching `where`, counted by Postgres (only the total comes back, not the rows)."""
+        _check_table(table)
+        url = f"{self.rest}/{table}?" + self._query(where, None, 1, [("select", "id")])
+        req = urllib.request.Request(url, headers=self._headers("count=exact"), method="GET")
+        try:
+            with pool.urlopen(req, timeout=self.timeout) as resp:
+                resp.read()
+                total = str(resp.headers.get("Content-Range") or "").rpartition("/")[2]
+        except urllib.error.HTTPError as e:
+            raise DbError(f"COUNT {table} failed ({e.code}): {e.read().decode('utf-8', 'replace')[:300]}") from e
+        except urllib.error.URLError as e:
+            raise DbError(f"COUNT {table} failed: {e.reason}") from e
+        return int(total) if total.isdigit() else 0
 
     def insert(self, table, row, ignore_conflict=False):
         prefer = "return=representation"

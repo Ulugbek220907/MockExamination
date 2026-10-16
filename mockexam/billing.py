@@ -26,7 +26,7 @@ import os
 import time
 import urllib.parse
 
-from . import accounts, checks, notify
+from . import accounts, analytics, checks, notify
 from .db import iso, now, parse_time
 
 log = logging.getLogger("mockexam.billing")
@@ -241,6 +241,7 @@ def fulfil_order(db, order_id, provider):
             notify.order_paid(db, order, provider, ends)
             if order["kind"] != "plan":
                 notify.check_assigned(db, check)
+            analytics.record(db, "paid", user_id=order["user_id"], detail=order["kind"], order_id=order["id"])
     log.info("Order %s (%s, %s) paid via %s", order["id"], order["kind"], order["amount"], provider)
     return order
 
