@@ -722,7 +722,8 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertNotIn("%SITE_URL%", page)
         base = server.PUBLIC_URL
         for tag in (f'<link rel="canonical" href="{base}/"', f'<meta property="og:image" content="{base}/img/og.png"',
-                    f'<meta property="og:url" content="{base}/"', '<meta name="twitter:card" content="summary_large_image"'):
+                    f'<meta property="og:url" content="{base}/"', '<meta name="twitter:card" content="summary_large_image"',
+                    '<meta name="google-site-verification" content="Prm-tWClyByMpQqNwmQhTiq2pMa4gYLGruGIfOelJ1I"'):
             self.assertIn(tag, page)
         self.assertEqual(self.fetch("/img/og.png").code, 200)
         blocks = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', page)]
