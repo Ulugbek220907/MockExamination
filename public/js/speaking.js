@@ -979,7 +979,7 @@
           </div>
           <div class="offer-action">
             ${b.prices.speaking_check ? `<div class="offer-price">${esc(Account.money(b.prices.speaking_check))}</div>` : ""}
-            <a class="btn-primary btn-lg" href="#/examiners?kind=speaking&submission=${Number(sub.id)}">${tr("Choose an examiner")}</a>
+            <a class="btn-primary btn-lg" href="#/examiners?kind=speaking&submission=${Number(sub.id)}" data-track="examiner_check">${tr("Choose an examiner")}</a>
           </div>
         </div>`;
     main.innerHTML = `
@@ -997,6 +997,7 @@
         </div>
         ${sub.status !== "completed" ? `<div class="notice notice-warn"><strong>${tr("This test was not finished.")}</strong><span>${tr("You can listen to the answers you recorded.")}</span></div>` : ""}
         ${offer}
+        ${window.app ? window.app.nextStopHTML("speaking", sub.testId, null) : ""}
         <h2 class="section-title">${tr("Listen to your answers")}</h2>
         <p class="muted-text section-sub">${check ? tr("Only you and your examiner can play these recordings. They are kept for {days} days.", { days: sub.keepDays })
           : tr("Only you can play these recordings. They are kept for {days} days.", { days: sub.keepDays })}</p>

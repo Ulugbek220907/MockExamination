@@ -94,6 +94,13 @@ class InterfaceTextTests(unittest.TestCase):
         self.assertGreater(len(keys), 300)
         self.assertEqual(sorted(dotted - text), [], "keys without English text")
 
+    def test_every_question_type_has_a_tip(self):
+        # The results page's "next stop" names the weakest question type with a one-line tip.
+        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
+            source = f.read()
+        for key in scoring.TYPE_LABELS:
+            self.assertIn(f'"tip.{key}":', source, key)
+
     def test_no_language_switch_or_translations_left(self):
         js = os.path.join(PUBLIC_DIR, "js")
         for name in ("i18n.js", "i18n-strings.js", "i18n-uz.js", "i18n-ru.js"):

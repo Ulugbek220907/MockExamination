@@ -12,7 +12,7 @@ the env vars below, never from the browser.
 
 | Variable | Needed for | Notes |
 |---|---|---|
-| `SITE_URL` | all | `https://testday.uz`. Return links after payment use it. |
+| `SITE_URL` | all | `https://www.testday.uz` (the address the site ends up on; testday.uz redirects there). Return links after payment use it. |
 | `SESSION_SECRET` | all | Long random string. Changing it signs everyone out. |
 | `ADMIN_EMAILS` | refunds, card transfers | Your sign-in email. Admins see **Account → Admin → Orders**. |
 | `CONTACT_EMAIL` | receipts, refund policy | Shown to students for refund requests. |
@@ -30,17 +30,19 @@ A provider shows on the Prices page only when all of its variables are set.
 ## 2. Cabinet settings
 
 - **Payme** business cabinet → the cash register (kassa) → endpoint URL:
-  `https://testday.uz/api/pay/payme`. The login is `Paycom`; the password is `PAYME_KEY`.
+  `https://www.testday.uz/api/pay/payme`. The login is `Paycom`; the password is `PAYME_KEY`.
 - **Click** merchant cabinet → the service → URLs:
-  - Prepare: `https://testday.uz/api/pay/click/prepare`
-  - Complete: `https://testday.uz/api/pay/click/complete`
+  - Prepare: `https://www.testday.uz/api/pay/click/prepare`
+  - Complete: `https://www.testday.uz/api/pay/click/complete`
+- Use the **www** address. `testday.uz` without www answers with a redirect, and payment
+  servers do not follow redirects for their callbacks, so a payment would never be confirmed.
 - Both must be HTTPS. No other URL is needed: the student is sent back to the site afterwards.
 
 ## 3. Sandbox first (no real money)
 
 1. Set `PAYME_TEST=1` and the **test** key from the Payme sandbox, then redeploy.
 2. In the Payme sandbox (test.paycom.uz), run the merchant API checks against
-   `https://testday.uz/api/pay/payme`. Every check should pass: CheckPerformTransaction,
+   `https://www.testday.uz/api/pay/payme`. Every check should pass: CheckPerformTransaction,
    CreateTransaction, PerformTransaction, CancelTransaction (before and after perform),
    CheckTransaction, GetStatement, wrong amount (-31001), unknown order (-31050) and wrong
    password (-32504).

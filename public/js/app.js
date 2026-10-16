@@ -869,9 +869,55 @@
       // Writing results draw the Task 1 charts, which come with the exam bundle.
       if (!(await this.loadFor(r.module === "writing" ? "exam" : "results"))) return;
       document.title = `${t("Your results")} – ${this.config.siteName}`;
-      if (r.module === "writing") Results.renderWriting(r, this.main);
-      else if (r.module === "listening") Results.renderListening(r, this.main);
-      else Results.renderReading(r, this.main);
+      await this.loadPrices();
+      const extra = {
+        next: this.nextStopHTML(r.module, r.testId, r.typeBreakdown),
+        checkPrice: this.prices && this.prices.writing_check ? U.money(this.prices.writing_check) : "",
+      };
+      if (r.module === "writing") Results.renderWriting(r, this.main, extra);
+      else if (r.module === "listening") Results.renderListening(r, this.main, extra);
+      else Results.renderReading(r, this.main, extra);
+    }
+
+    /**
+     * "Your next stop" on a results page: the question type to practise (Reading and Listening)
+     * and the next test on the same line. Without the pass, a locked test says it opens with the
+     * pass and what that costs; with the pass (or as staff) there is only a Start button.
+     */
+    nextStopHTML(module, testId, typeBreakdown) {
+      const line = lineOf(module);
+      const weak = Object.entries(typeBreakdown || {})
+        .filter(([, v]) => v.total > 0 && v.correct < v.total)
+        .sort(([, a], [, b]) => (a.correct / a.total - b.correct / b.total) || (b.total - a.total))[0];
+      const tests = this.testsOf(module);
+      const at = tests.findIndex((x) => x.id === testId);
+      const next = tests.slice(at + 1).concat(tests.slice(0, Math.max(at, 0))).find((x) => !this.ridden[x.id]);
+      if (!weak && !next) return "";
+      const focus = weak ? `
+        <div class="next-card">
+          <h3>${t("Practise: {type}", { type: esc(weak[1].label) })}</h3>
+          <p>${esc(t(`tip.${weak[0]}`))}</p>
+          <p class="muted-text small-text">${t("{n} of {total} correct in this test", { n: weak[1].correct, total: weak[1].total })}</p>
+        </div>` : "";
+      const name = next ? this.testName(next) : "";
+      const price = this.prices && this.prices.plan ? U.money(this.prices.plan) : "";
+      const ride = next ? `
+        <div class="next-card">
+          <div class="next-ride"><span class="bullet" aria-hidden="true">${line.letter}</span>
+            <h3>${esc(MODULE_LABELS[module])} · ${esc(name)}</h3></div>
+          ${this.canOpen(next)
+            ? `<p>${t("next.open")}</p>
+              <div class="next-actions"><button type="button" class="btn-line" data-action="start" data-test="${esc(next.id)}" data-mode="exam"
+                data-track="next_test">${t("Start {name}", { name: esc(name) })} ${ICON_ARROW}</button></div>`
+            : `<p>${price ? t("next.locked", { price: `<strong>${esc(price)}</strong>` }) : t("next.locked.noprice")}</p>
+              <div class="next-actions"><button type="button" class="btn-line" data-action="buy-plan" data-track="next_test_pass">${t("Get the pass")}</button>
+                <a class="btn-secondary" href="#/pricing">${t("See prices")}</a></div>`}
+        </div>` : "";
+      return `
+        <section class="next-stop ${line.cls}" aria-labelledby="next-stop-title">
+          <h2 class="section-title" id="next-stop-title">${t("Your next stop")}</h2>
+          <div class="next-grid">${focus}${ride}</div>
+        </section>`;
     }
 
     /* Static pages ----------------------------------------------------- */

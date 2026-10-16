@@ -133,13 +133,13 @@
     return d.toLocaleString(LOCALE, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
   }
 
-  /** Thousands with a thin space, the way prices are written in Uzbekistan: 39 000. */
+  /** Thousands with a space, the way prices are written in Uzbekistan: 39 000. The spaces never break a line. */
   function number(n) {
-    return String(Math.round(Number(n) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return String(Math.round(Number(n) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0");
   }
 
   function money(n) {
-    return `${number(n)} ${t("so'm")}`;
+    return `${number(n)}\u00a0${t("so'm")}`;
   }
 
   function countWords(text) {
