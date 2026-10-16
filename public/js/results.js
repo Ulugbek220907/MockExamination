@@ -11,6 +11,9 @@
   const tr = window.t; // `t` is a common local name in this file
   const LINE = { Listening: ["line-l", "L"], Reading: ["line-r", "R"], Writing: ["line-w", "W"], Speaking: ["line-s", "S"] };
 
+  /** Smooth scrolling, unless the student has asked their device for less motion. */
+  const scrollMotion = () => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
+
   function pct(correct, total) {
     return total ? Math.round((correct / total) * 100) : 0;
   }
@@ -291,7 +294,7 @@
         renderTranscript(partIndex(r.partNumber));
         const mark = tEl.querySelector(`#t-q-${r.number}`);
         if (mark) {
-          mark.scrollIntoView({ behavior: "smooth", block: "center" });
+          mark.scrollIntoView({ behavior: scrollMotion(), block: "center" });
           mark.classList.add("flash");
           setTimeout(() => mark.classList.remove("flash"), 2200);
         }
@@ -455,7 +458,7 @@
       link.addEventListener("click", (e) => {
         e.preventDefault();
         const target = root.querySelector(`#task-result-${link.dataset.jump}`);
-        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (target) target.scrollIntoView({ behavior: scrollMotion(), block: "start" });
       });
     });
   }

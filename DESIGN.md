@@ -25,6 +25,7 @@ colors:
   line-s-soft: "#fcf0d5"
   line-s-ink: "#8a5a00"
   line-w-ink: "#1a7340"
+  line-r-ink: "#b02e25"
   primary-hover: "#194f9f"
   ok: "#1a7340"
   ok-soft: "#e1f1e7"
@@ -317,7 +318,7 @@ A cool granite-and-marble station palette carrying four saturated line colours, 
 ### Secondary
 The four lines. Each `.line-*` class sets `--line`, `--line-soft`, `--line-ink` and `--line-on` for everything inside it.
 - **Listening Line Blue** (#1f5fbf), with **Listening Tint** (#e3ecf9): Listening's line, bullets and results. Outside a module it is also the link colour, the caret, the focus border on inputs and the transcript play buttons. **Deep Listening Blue** (#194f9f, `--primary-hover`) is the hover colour for links and link buttons.
-- **Reading Line Red** (#cf3a2c), with **Reading Tint** (#fbe6e3): Reading's line, bullets and results. Outside a module it is the fill of the unread-count pill in the header.
+- **Reading Line Red** (#cf3a2c), with **Reading Tint** (#fbe6e3) and **Reading Ink** (#b02e25, 5.4:1 on the tint; `.line-r` sets `--line-ink` to it): Reading's line, bullets and results. Outside a module it is the fill of the unread-count pill in the header.
 - **Writing Line Green** (#1e7c42), with **Writing Tint** (#e1f1e7) and **Writing Ink** (#1a7340): Writing's line, bullets, results and the task-band pill. Writing text and tags use Writing Ink, which reads at 5.0:1 on the tint where the line colour is 4.47:1; `.line-w` sets `--line-ink` to it.
 - **Speaking Line Amber** (#e3a21a), with **Speaking Tint** (#fcf0d5) and **Amber Ink** (#8a5a00): Speaking's line and bullets. Outside a module it marks the current place: the underline under the active nav link, the focus ring on granite ground, star ratings and the avatar. Speaking Tint is also the ground of answer explanations and examiner comments.
 
@@ -456,6 +457,10 @@ The home page's metro map, built on a paper board (18px).
 - **Interchange:** a paper capsule with a 5px granite stroke, sized by script to fit the four connectors (62px tall on desktop; 62px wide and 34px tall on phones). Next to it sits a granite hub plaque reading "Test day / All lines meet here".
 - **Station sign:** tapping a station opens a granite plaque (14px corners, padding 18px 22px) under its line, with a 10px notch pointing at the station. It holds the bullet, a Jost title, a tag, the parts or passages with bold keys, a meta line, a pass note when locked, and the actions: a ghost secondary button and a line button. It drops in over 0.22s (fade and 6px rise). At the same time a 6px paper train with a granite rim runs from the station along the line into the interchange over 1.3s.
 - **Key:** below the board, an 18px ring legend for free, locked and taken stations.
+
+- **Crowded lines:** the network measures its station columns. Rings shrink to fit (`--ring` 18–30px, `--ring-done` 26–44px) and, when a column is under 56px, labels drop the word "Test" and show only the number (`.network.is-tight`). The first column always fits the whole Start free pill, so station 2 never sits under it. Screen readers hear the full name and state ("Reading, Test 3, opens with the pass").
+- **Touch:** on phones (≤860px) every control is at least 44px tall, the exam's included.
+- **Motion:** under reduced motion nothing slides, fades or pulses; spinners keep a slow turn so waiting stays visible.
 
 ### The Ride
 "How a test works" as four stops on a 6px granite line: 36px rings with 6px granite strokes. The last stop is filled with a paper halo, because it is the destination. It runs horizontally on desktop and vertically on phones.

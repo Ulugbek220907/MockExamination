@@ -164,13 +164,27 @@
           <div class="modal-body">${bodyHTML}</div>
           <div class="modal-footer">${buttons.map((b, i) => `<button type="button" class="${b.className || "btn-secondary"}" data-i="${i}">${escapeHtml(b.label)}</button>`).join("")}</div>
         </div>`;
+      const opener = document.activeElement; // focus goes back here when the dialog closes
       const close = (value) => {
         if (onClose) onClose(value, overlay);
         overlay.remove();
         document.removeEventListener("keydown", onKey);
+        if (opener && opener.focus && document.contains(opener)) opener.focus({ preventScroll: true });
         resolve(value);
       };
-      const onKey = (e) => { if (e.key === "Escape") close(null); };
+      // Esc closes; Tab and Shift+Tab stay inside the dialog.
+      const onKey = (e) => {
+        if (e.key === "Escape") return close(null);
+        if (e.key !== "Tab") return;
+        const items = [...overlay.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select, [tabindex]:not([tabindex="-1"])')]
+          .filter((el) => el.offsetParent !== null);
+        if (!items.length) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (!overlay.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+        else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      };
       overlay.querySelector(".modal-close").addEventListener("click", () => close(null));
       overlay.querySelectorAll(".modal-footer button").forEach((btn) => {
         btn.addEventListener("click", () => close(buttons[Number(btn.dataset.i)].value));

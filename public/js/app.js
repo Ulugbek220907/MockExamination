@@ -77,6 +77,11 @@
     { module: "speaking", letter: "S", cls: "line-s" },
   ];
   const lineOf = (module) => LINES.find((l) => l.module === module) || LINES[1];
+  /** "Test 7" with the word in its own span, so a crowded line can show just "7". */
+  const stationLabel = (name) => {
+    const m = /^(\D+?)\s*(\d+)$/.exec(name);
+    return m ? `<span class="station-word">${esc(m[1])} </span>${esc(m[2])}` : esc(name);
+  };
 
   const ICON_ARROW = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const ICON_LOCK = `<svg width="10" height="11" viewBox="0 0 10 11" aria-hidden="true"><path fill="currentColor" d="M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z"/></svg>`;
@@ -117,8 +122,10 @@
         const target = e.target.closest("[data-station], [data-test], [data-action='start']");
         if (!target) return;
         U.prefetch("exam");
+        // Only tests this visitor can open: a locked one would just be refused (401/402).
         const testId = target.dataset.station || target.dataset.test;
-        if (testId) U.api(`/api/tests/${encodeURIComponent(testId)}`);
+        const test = testId && this.tests.find((x) => x.id === testId);
+        if (test && this.canOpen(test)) U.api(`/api/tests/${encodeURIComponent(testId)}`).catch(() => {});
       };
       this.main.addEventListener("pointerover", onIntent, { passive: true });
       this.main.addEventListener("focusin", onIntent, { passive: true });
@@ -375,11 +382,15 @@
     stationHTML(test, line, isNext) {
       const ride = this.ridden[test.id];
       const name = this.testName(test);
-      const label = `${MODULE_LABELS[test.module]}, ${name}${isNext ? `, ${t("Next")}` : ""}`;
+      // What a screen reader says for the station: the line, the test, and its state.
+      const state = ride
+        ? (ride.band !== null && ride.band !== undefined ? t("taken, band {band}", { band: IeltsScoring.formatBand(ride.band) }) : t("taken"))
+        : this.canOpen(test) ? "" : t("opens with the pass");
+      const label = [MODULE_LABELS[test.module], name, state, isNext ? t("Next") : ""].filter(Boolean).join(", ");
       const btn = (inner, extra = "") => `
         <button type="button" class="station-btn" data-station="${esc(test.id)}" aria-expanded="false"
           aria-controls="sign-${line.module}" aria-label="${esc(label)}: ${esc(t("details"))}" ${extra}>
-          ${inner}<span class="station-name">${esc(name)}</span></button>`;
+          ${inner}<span class="station-name">${stationLabel(name)}</span></button>`;
       if (test.access === "free" && !ride) {
         return `
           <li class="station is-free">
@@ -411,14 +422,27 @@
         const list = net.querySelector("#lines-list");
         if (!svg || !hub || !list) return;
 
-        // Measure station button widths directly without unsetting CSS variable to prevent layout thrashing
-        const firstBtns = [...net.querySelectorAll(".station:first-child .station-btn, .station:first-child .start-free")];
-        if (firstBtns.length) {
-          const maxW = Math.ceil(Math.max(...firstBtns.map((el) => el.getBoundingClientRect().width)));
+        // The first column fits the widest first station: the whole Start free pill (ring and button) plus the
+        // station's own right padding. Its content is measured, not the column, so nothing is reset (no reflow loop).
+        const firsts = [...net.querySelectorAll(".station:first-child")];
+        if (firsts.length) {
+          const maxW = Math.ceil(Math.max(...firsts.map((li) => {
+            const body = li.firstElementChild;
+            return (body ? body.getBoundingClientRect().width : 0) + (parseFloat(getComputedStyle(li).paddingRight) || 0);
+          })));
           if (maxW > 0 && maxW !== lastCellWidth) {
             lastCellWidth = maxW;
             list.style.setProperty("--first-cell", `${maxW}px`);
           }
+        }
+
+        // Many tests on a narrow screen: rings shrink to fit their column and labels drop "Test".
+        const cell = list.querySelector(".station:nth-child(2)");
+        if (cell) {
+          const pitch = cell.getBoundingClientRect().width;
+          list.style.setProperty("--ring", `${Math.max(18, Math.min(30, Math.floor(pitch - 6)))}px`);
+          list.style.setProperty("--ring-done", `${Math.max(26, Math.min(44, Math.floor(pitch - 2)))}px`);
+          net.classList.toggle("is-tight", pitch < 56);
         }
 
         const box = net.getBoundingClientRect();
