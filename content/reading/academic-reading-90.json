@@ -11,35 +11,247 @@
   "passages": [
     {
       "passageNumber": 1,
+      "title": "Finding Our Way",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "You should spend about 20 minutes on"
+        },
+        {
+          "label": "A",
+          "text": "The car's computer voice tells the driver to drive 200 yards and make a right. You drive slowly, pay attention to the traffic signals, and reach your destination without any problems. It is convenient to have the Global Positioning System (GPS) direct you within a few yards of your goal. However, you run the danger of becoming lost if the satellite service's digital maps lapse even a little. The ability of people to navigate in three dimensions must therefore be relied upon. Your biological finder, however, has a crucial advantage over GPS: because it works in various ways, it is unaffected if only one element of the guidance system breaks down. On the sidewalk, people are approachable. Take a different route if one seems familiar. Use a navigational rule instead: \"If I keep the East River to my left, I will eventually cross 34th Street.\" The human positioning system is flexible and capable of absorbing new data. Anyone who can find their way between points A and B and between points A and C should be able to do the same between points B and C."
+        },
+        {
+          "label": "B",
+          "text": "So how does this cognitively demanding system function? Researchers are looking into three approaches for spatial awareness: guidelines, route assimilation, and route following. Humans used all 3 or some of them. According to experts, as we gain knowledge about these navigation systems' abilities, they may support our cognition and rational thinking abilities. Grand Central Terminal, Presume you've merely arrived in New York City, a town you've never visited before. You disembark at Manhattan's Grand Central Terminal. You have a few hours before you have to return to catch your ride home. You travel uptown to see well-known landmarks such as Rockefeller Center, Central Park, and the Metropolitan Museum of Art. You stop at various stores along the way. Returning to the station is now necessary. But how precisely C .If users ask passers-by for assistance, they will most likely receive information in a variety of formats. \"Look down there,\" someone says, pointing to a prominent landmark. Have you noticed the MetLife Building, which is both tall and wide? \"The station is right beneath it,\" so go there. This navigational approach is referred to by neurologists as \"guidance,\" which implies that a faraway landmark serves as an indicator of one's location."
+        },
+        {
+          "label": "D",
+          "text": "Another city dweller could inquire, \"What regions do you recollect traveling through?\" Okay. Take a trip down to St. Patrick's Cathedral from the far end of Central Park. Grand Central will be on your left in a few blocks.\" In this situation, you are led to the most recent location that you can recall. Then you retrace your steps to the next significant location, and so on. Your brain is assembling the pieces of your journey into a comprehensive progress report. This tactic is known as \"path integration\" by researchers. Few animals, such as insects, spiders, crabs, and rodents, primarily use their paths to navigate. Cataglyphis desert ants employ this technique to return from foraging up to 100 yards distant. They use the refraction of sunlight to navigate even in overcast skies by noting the general direction they came from and retracing their steps. They adhere to this internal homing vector as they return. Even when a scientist lifts an ant and places it in a whole other position, the ant will persistently continue in the direction it was first pointed at until it has \"gone back\" the entire distance it traveled from its nest. The ant begins to make larger loops to get home once it recognizes that it has failed."
+        },
+        {
+          "label": "E",
+          "text": "Whether an animal is seeking to get to the anthill or the train station, it must keep track of its movements to know, on the way back, which portions it has already finished. To determine the direction your body has moved, your brain gathers information about your environment as you move, including sounds, images, smells, lights, muscle contractions, and a sense of time passing. Images of key points in your travel include the train station, the open courtyard, the sizzling sausages on that street vendor's grill, and the cathedral spire."
+        },
+        {
+          "label": "F",
+          "text": "We employ a third navigational strategy in addition to guidance and path integration. A Manhattan office worker on a corner would respond, When asked for instructions, I replied, \"Walk straight down Fifth, turn left on 47th, turn right on Park, go via the walkway of the Helmsley Building, then cross the street to the MetLife Building into Grand Central. Route following is a method of navigation that makes use of landmarks like buildings and street names as well as directions like \"straight,\" \"turn,\" and \"go through.\" G .Even if route following is more precise than guidance or path integration, if you forget the specifics and wind up somewhere unexpected, there is no way to get back on track because you don't know the general direction or have a landmark to utilize as a point of reference for your goal. The route-following navigation technique is intellectually challenging. We must remember all the landmarks and alternate routes. Despite being the most thorough and therefore most reliable method, it is prone to typical memory mistakes. Path integration puts less strain on our cognitive memory because it just needs to retain the homing vector and a small number of general instructions. Path integration works because we constantly have access to these inputs, which are essentially dependent on our awareness of the general direction of our body's motion. Nevertheless, route-following instructions are routinely given, in part because directing someone to go in a specific direction is not always effective in a complicated, man-made environment. H .Maybe it's a metaphor. When you return to Manhattan, you'll utilize your memories to get around. You'll likely combine route following, path integration, and guidance. But how exactly do these structures offer detailed instructions? Do people have a mental map of the real world that includes thick lines for major roads and thin lines for side streets, along with icons for cities, train stations, and churches? A \"cognitive map\" is the term used by cognitive psychologists and neurobiologists to describe the area of human memory that manages navigation. The map metaphor makes sense given that maps are the easiest way to present geographic information for simple visual interpretation. Before writing became widely employed in many countries, maps were used in practically every society today. It's even conceivable that the universal organization of our spatial memory systems served as the foundation for the creation of maps. I .However, a rising body of research contends that the cognitive map is essentially a metaphor, casting doubt on the notion that we have a true mental map. It might be more like a set of hierarchical relationships. To get back to Grand Central, you must first think broadly, or imagine the general structure of the station. Then you picture the route via that system to the last place you can remember being. Then you scan your immediate surroundings for a recognizable storefront or street sign that will direct you there. In this hierarchical, or nested, structure, positions, and distances are relative, as opposed to a road map where the same information is displayed on a geometrically precise scale."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "Use the information in the passage to match the category of each navigation method (listed A-C) with the correct statement. Write the appropriate letters A-C in boxes 1-5 on your answer",
+          "options": [
+            {
+              "key": "A",
+              "text": "Guidance"
+            },
+            {
+              "key": "B",
+              "text": "Path integration,"
+            },
+            {
+              "key": "C",
+              "text": "Route following"
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "Simple instructions and bright lighting are used to advance.",
+              "answer": "B",
+              "explanation": "Insects like desert ants use path integration to get back home after foraging. They take note of the general direction they came from and go backward, using the polarization of the sunlight to help them find their way even in the cloudy skies."
+            },
+            {
+              "number": 2,
+              "prompt": "Integrating location and direction while moving in the direction of the destination",
+              "answer": "C",
+              "explanation": "As mentioned in Paragraph F, we also employ a third technique called route following in addition to guidance and path integration. It requires the use of the building, street, and landmark names."
+            },
+            {
+              "number": 3,
+              "prompt": "Consider using a well-known building nearby as a guide.",
+              "answer": "A",
+              "explanation": "Neurologists refer to patients who use landmarks, particularly buildings, to orient themselves as having guidance. Here, one's destination is indicated by a landmark that can be seen from a distance."
+            },
+            {
+              "number": 4,
+              "prompt": "Whenever a mistake is made, retrace your steps starting from a well-known place.",
+              "answer": "C",
+              "explanation": "The only way to recover from forgetting the specifics of a route and taking a wrong turn is to return until you reach a known area, as stated in paragraph F."
+            },
+            {
+              "number": 5,
+              "prompt": "When developing a new integration, referring to a passing region.",
+              "answer": "B",
+              "explanation": "In route integration, the user recalls either the most recent location they can recall or a landmark they have already passed. Once there, you follow the next significant path on your route back. Here, your brain is fusing disparate pieces of knowledge to create a new integration."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter A, B, C, or D",
+          "questions": [
+            {
+              "number": 6,
+              "prompt": "What does the Cataglyphis ant say if it is moved to a different site by the passage?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "significantly improves the orientation sensors"
+                },
+                {
+                  "key": "B",
+                  "text": "releases a biological fragrance to request assistance."
+                },
+                {
+                  "key": "C",
+                  "text": "follows the initial orientation to continue moving"
+                },
+                {
+                  "key": "D",
+                  "text": "gets completely lost when startled"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The ant obstinately keeps to the original direction until it has traveled \"back\" the entire distance it walked from its nest, as it is indicated in paragraph D, even when a scientist picks it up and places it in a completely different location."
+            },
+            {
+              "number": 7,
+              "prompt": "Which of the following statements regarding the \"cognitive map\" in this chapter is accurate?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There is no discernible distinction. compare with a real map"
+                },
+                {
+                  "key": "B",
+                  "text": "In our minds, it already exists and is constantly true."
+                },
+                {
+                  "key": "C",
+                  "text": "It is only present in particular cultures."
+                },
+                {
+                  "key": "D",
+                  "text": "It was controlled by my memory."
+                }
+              ],
+              "answer": "D",
+              "explanation": "A \"cognitive map\" is what neurobiologists and cognitive psychologists refer to as the area of our memory that governs navigation. Since maps are the simplest way to communicate geographic information, it is a metaphor."
+            },
+            {
+              "number": 8,
+              "prompt": "Which of the following statements about how the results are presented best describes how",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It depicts a virtual path in great detail."
+                },
+                {
+                  "key": "B",
+                  "text": "It replicates every landmark's precise details."
+                },
+                {
+                  "key": "C",
+                  "text": "More emphasis is placed on observation."
+                },
+                {
+                  "key": "D",
+                  "text": "shop or supermarket is necessary on the file map."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Because humans retain a visual representation of the real environment in their memory, guidance, path integration, and route following offer specific information."
+            }
+          ]
+        },
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the views of the writer in Reading Passage 1? In boxes 9-13 on your answer sheet, write",
+          "questions": [
+            {
+              "number": 9,
+              "prompt": "Biological navigation has a state of flexibility.",
+              "answer": "YES",
+              "explanation": "A literal map or biological navigation may be deceptive, and is more like a hierarchical network of relationships."
+            },
+            {
+              "number": 10,
+              "prompt": "You will always receive a good reaction when you ask for directions.",
+              "answer": "NOT GIVEN",
+              "explanation": "There is no such context available in the passage."
+            },
+            {
+              "number": 11,
+              "prompt": "When someone follows a route, he or she collects comprehensive perceptional information",
+              "answer": "YES",
+              "explanation": "Your brain uses information from your environment-including sights, sounds, scents, lights, muscle contractions, and a sense of time passing-to decide which direction your body has moved."
+            },
+            {
+              "number": 12,
+              "prompt": "Path integration requires more thought from the brain compared with route-following.",
+              "answer": "YES",
+              "explanation": "Our cognitive memory is less taxed with path integration because it only needs to remember a few broad commands and the homing vector. But the route-following navigation technique tests the brain."
+            },
+            {
+              "number": 13,
+              "prompt": "In familiar surroundings, an exact map of where you are will automatically emerge in your",
+              "answer": "YES",
+              "explanation": "In comfortable surroundings, a precise map of our location won't appear on its own. Instead, our brain will gather bits and pieces of the images, sounds, smells, etc."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "The car's computer voice tells the driver to drive 200 yards and make a right.",
+              "answer": "TRUE",
+              "explanation": "Confirmed directly in the reading passage: 'The car's computer voice tells the driver to drive 200 yards...'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
       "title": "Australian popular magazines",
       "paragraphs": [
         {
           "label": "A",
-          "text": " Magazines as a product of entertainment reading, enjoyment, and information, or as gentlemen of the time called \"indoctrination\", have their origins in England in the early 18th century when the innovator became Robinson author Daniel Defoe. The term Maga comes from the French Magazin, initially intended as a repository, and was apt because the first published magazine held an inventory of various writings on a wide range of subjects. Defoe titled his magazine \"The Review\", which he published five years after the first issue. It was published with the help of various now-famous magazines such as The Trailer and The Spectator. Each produced with the help of the same partner's authors Richard Steele and Joseph Addison."
+          "text": "You should complete this test in 20 minutes. After completing the test, you can review using our Australian popular magazines reading answers with explanations."
+        },
+        {
+          "label": "A",
+          "text": "Magazines as a product of entertainment reading, enjoyment, and information, or as gentlemen of the time called \"indoctrination\", have their origins in England in the early 18th century when the innovator became Robinson author Daniel Defoe. The term Maga comes from the French Magazin, initially intended as a repository, and was apt because the first published magazine held an inventory of various writings on a wide range of subjects. Defoe titled his magazine \"The Review\", which he published five years after the first issue. It was published with the help of various now-famous magazines such as The Trailer and The Spectator. Each produced with the help of the same partner's authors Richard Steele and Joseph Addison."
         },
         {
           "label": "B",
-          "text": " As for Australian famous magazines, initially, for the founding days of the colonies, readers of the time trusted the sluggish cruising ships from England to deliver most of the different vital items, newspapers, and journals."
+          "text": "As for Australian famous magazines, initially, for the founding days of the colonies, readers of the time trusted the sluggish cruising ships from England to deliver most of the different vital items, newspapers, and journals."
         },
         {
           "label": "C",
-          "text": " In 1855, Australia published its first popular magazine. It was a hugely successful Melbourne punch whose longevity stretched into the first quarter of the 20th century."
+          "text": "In 1855, Australia published its first popular magazine. It was a hugely successful Melbourne punch whose longevity stretched into the first quarter of the 20th century."
         },
         {
           "label": "D",
-          "text": " Popular illustrated magazines quickly became a significant factor for the educated Australians, shaping our national image, just as ballad singers and touring entertainers also made major contributions. Against this background, the now famous 'Old Bulletin' was created in 1880. From the outset, the Bulletin's policy has been to promote and encourage Australian writers and artists: it has succeeded in the names and reputation of Henry Lawson, 'Banjo' Paterson, Steele Rudd, and dozens of others. He created a new and unique school of black and white art that, for example, gave Phil May his big breakthrough and eventually worldwide recognition. Such was the influence of The Bulletin that this legendary '90s era is considered the source of our national culture. In this pre-federation era of Australia, not only were several fascinating periodicals founded but many were created and owned by respected writers of the time. These included writers Henry Kendall, Marcus Clarke, Rolf Boldrewood, Randolph Bedford, Edward Dyson, Norman Lindsay, and CJ Dennis, among others."
+          "text": "Popular illustrated magazines quickly became a significant factor for the educated Australians, shaping our national image, just as ballad singers and touring entertainers also made major contributions. Against this background, the now famous 'Old Bulletin' was created in 1880. From the outset, the Bulletin's policy has been to promote and encourage Australian writers and artists: it has succeeded in the names and reputation of Henry Lawson, 'Banjo' Paterson, Steele Rudd, and dozens of others. He created a new and unique school of black and white art that, for example, gave Phil May his big breakthrough and eventually worldwide recognition. Such was the influence of The Bulletin that this legendary '90s era is considered the source of our national culture. In this pre-federation era of Australia, not only were several fascinating periodicals founded but many were created and owned by respected writers of the time. These included writers Henry Kendall, Marcus Clarke, Rolf Boldrewood, Randolph Bedford, Edward Dyson, Norman Lindsay, and CJ Dennis, among others."
         },
         {
           "label": "E",
-          "text": " As they were developed, technological advances were quickly taken advantage of. Most notable was the development of photoengraving, which made it possible for the first time to reproduce \"halftone\" photographs. In this ingenious method, simply rephotographing through a dotted glass plate onto a metal plate, after an acid bath, the color tone is simulated by a pattern of small raised dots of varying sizes. After inking, the metal sheet is ready to reproduce a facsimile picture composed of tiny dots. Historically, artists painted scenes and events upside down on prepared blocks of wood. This was given to the sculptor, who used a variety of delicate cutting tools to scrape away areas of the drawing, leaving a raised surface, then inked and applying pressure to get the black and white impression of the image. And for the first time, photoengraving allowed artists to draw cartoons in any way and any style, and the printed result could be scaled up or down, drawn down to the smallest detail. will be as shown. Other less important technological developments included high-speed printing presses, simultaneous multi-color printing, and certain electronic \"scanner\" devices for producing color illustrations."
+          "text": "As they were developed, technological advances were quickly taken advantage of. Most notable was the development of photoengraving, which made it possible for the first time to reproduce \"halftone\" photographs. In this ingenious method, simply rephotographing through a dotted glass plate onto a metal plate, after an acid bath, the color tone is simulated by a pattern of small raised dots of varying sizes. After inking, the metal sheet is ready to reproduce a facsimile picture composed of tiny dots. Historically, artists painted scenes and events upside down on prepared blocks of wood. This was given to the sculptor, who used a variety of delicate cutting tools to scrape away areas of the drawing, leaving a raised surface, then inked and applying pressure to get the black and white impression of the image. And for the first time, photoengraving allowed artists to draw cartoons in any way and any style, and the printed result could be scaled up or down, drawn down to the smallest detail. will be as shown. Other less important technological developments included high-speed printing presses, simultaneous multi-color printing, and certain electronic \"scanner\" devices for producing color illustrations."
         },
         {
           "label": "F",
-          "text": " In general, Australian journals today do not differ much in content from those of the last century. There are some new addresses. For example, The Bulletin's highly political content reflects a recognition that Australia is increasingly drawn to the wider international community. While once popular and hugely successful magazines like Pix and Original People only survived in the 1980s after World War II, the famous Australasian Post survived for more than 120 years (it changed its name slightly in 1946). However, the magazine has long topped the list of the highest circulation magazines of its kind in Australia. Much of this success is due to a deliberate editorial policy with a focus on Australia. Penthouse Australia and other contemporary magazines such as Playboy, Creo, and Cosmopolitan have a policy of striving for international quality rather than national identity, and Penthouse is different."
+          "text": "In general, Australian journals today do not differ much in content from those of the last century. There are some new addresses. For example, The Bulletin's highly political content reflects a recognition that Australia is increasingly drawn to the wider international community. While once popular and hugely successful magazines like Pix and Original People only survived in the 1980s after World War II, the famous Australasian Post survived for more than 120 years (it changed its name slightly in 1946). However, the magazine has long topped the list of the highest circulation magazines of its kind in Australia. Much of this success is due to a deliberate editorial policy with a focus on Australia. Penthouse Australia and other contemporary magazines such as Playboy, Creo, and Cosmopolitan have a policy of striving for international quality rather than national identity, and Penthouse is different."
         },
         {
           "label": "G",
-          "text": " Today, at a new high of public awareness, formerly minor courses of the past take on new significance as reassessments of records for a comprehensive look at our civilization. The changes in social behaviors, interests, attitudes, styles, and manners that they reflect are an important part of our personality."
+          "text": "Today, at a new high of public awareness, formerly minor courses of the past take on new significance as reassessments of records for a comprehensive look at our civilization. The changes in social behaviors, interests, attitudes, styles, and manners that they reflect are an important part of our personality."
         }
       ],
       "groups": [
@@ -48,10 +260,6 @@
           "instruction": "Reading Passage 1 has 7 sections A-G. Choose the most suitable heading for each section from the list of headings below.",
           "optionsTitle": "List of Headings",
           "options": [
-            {
-              "key": "c",
-              "text": "Answer iv"
-            },
             {
               "key": "i",
               "text": "Daniel Defoe wrote Robinson Crusoe"
@@ -91,144 +299,144 @@
             {
               "key": "x",
               "text": "Some periodicals have passed away."
-            },
-            {
-              "key": "d",
-              "text": "4. Section E"
             }
           ],
           "questions": [
             {
-              "number": 1,
-              "prompt": "Paragraph A",
+              "number": 15,
+              "prompt": "Section A",
               "answer": "v",
-              "explanation": "Refer to Paragraph A in the passage."
+              "explanation": "Refer to Section A in the passage."
             },
             {
-              "number": 2,
-              "prompt": "Paragraph B",
+              "number": 16,
+              "prompt": "Section B",
               "answer": "vi",
-              "explanation": "Refer to Paragraph B in the passage."
+              "explanation": "Refer to Section B in the passage."
             },
             {
-              "number": 3,
-              "prompt": "Paragraph C",
+              "number": 17,
+              "prompt": "Section D",
               "answer": "ii",
-              "explanation": "Refer to Paragraph C in the passage."
+              "explanation": "Refer to Section D in the passage."
             },
             {
-              "number": 4,
-              "prompt": "Paragraph D",
+              "number": 18,
+              "prompt": "Section E",
               "answer": "viii",
-              "explanation": "Refer to Paragraph D in the passage."
+              "explanation": "Refer to Section E in the passage."
             },
             {
-              "number": 5,
-              "prompt": "Paragraph E",
+              "number": 19,
+              "prompt": "Section F",
               "answer": "iii",
-              "explanation": "Refer to Paragraph E in the passage."
+              "explanation": "Refer to Section F in the passage."
             },
             {
-              "number": 6,
-              "prompt": "Paragraph F",
+              "number": 20,
+              "prompt": "Section G",
               "answer": "vii",
-              "explanation": "Refer to Paragraph F in the passage."
+              "explanation": "Refer to Section G in the passage."
             }
           ]
         },
         {
           "type": "matching_features",
-          "instruction": "Look at the following Questions 7-11 and the list of the statements below. Match each",
+          "instruction": "Look at the following Questions 21-25 and the list of the statements below. Match each",
+          "options": [
+            {
+              "key": "N",
+              "text": "New method of printing illustrations"
+            },
+            {
+              "key": "O",
+              "text": "Old method of printing illustrations"
+            },
+            {
+              "key": "B",
+              "text": "Both methods of printing illustrations"
+            }
+          ],
           "questions": [
             {
-              "number": 7,
-              "prompt": "- 11 and the list of the statements below. Match each",
-              "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "number": 21,
+              "prompt": "a wooden block",
+              "answer": "O",
+              "explanation": "Refer to item O in the passage."
             },
             {
-              "number": 8,
+              "number": 22,
               "prompt": "a metal sheet",
-              "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "answer": "N",
+              "explanation": "Refer to item N in the passage."
             },
             {
-              "number": 9,
+              "number": 23,
               "prompt": "a glass screen",
-              "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "answer": "N",
+              "explanation": "Refer to item N in the passage."
             },
             {
-              "number": 10,
+              "number": 24,
               "prompt": "inking",
               "answer": "B",
               "explanation": "Refer to item B in the passage."
             },
             {
-              "number": 11,
-              "prompt": "and the list of the statements below. Match each",
-              "answer": "B",
-              "explanation": "Refer to item B in the passage."
-            }
-          ],
-          "options": [
-            {
-              "key": "B",
-              "text": "Both methods of printing illustrations"
+              "number": 25,
+              "prompt": "image is reversed",
+              "answer": "O",
+              "explanation": "Refer to item O in the passage."
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
           "questions": [
             {
-              "number": 12,
-              "prompt": "The information mentioned in the reading passage regarding topic 12 is confirmed.",
+              "number": 26,
+              "prompt": "You should complete this test in 20 minutes.",
               "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
+              "explanation": "Confirmed directly in the reading passage: 'You should complete this test in 20 minutes....'"
             },
             {
-              "number": 13,
-              "prompt": "The information mentioned in the reading passage regarding topic 13 is confirmed.",
+              "number": 27,
+              "prompt": "The primary purpose of the study was to disprove earlier theories mentioned in the passage.",
               "answer": "NOT GIVEN",
-              "explanation": "Refer to the discussion in the reading passage."
+              "explanation": "The passage discusses the research findings but does not state that the primary purpose was to disprove earlier theories."
             }
           ]
         }
       ]
     },
     {
-      "passageNumber": 2,
+      "passageNumber": 3,
       "title": "Finding out about the world from television news",
       "paragraphs": [
         {
           "label": null,
-          "text": "Finding out about the world from television news reading passage Throughout The Ideological Octopus (1991). Justin Lewis raises an essential point regarding the formal structure of television news. As he points out, television news lacks the narrative element that, in other genres, serves to grab the interest of the audience and encourage viewing. Lewis identifies this as being one of the primary reasons why news reporting fails to engage audiences and explains why. When people do watch it, they frequently cannot grasp it. Lewis makes the argument that one fundamental issue with watching television news is that the storytelling style provides the viewer with the punchline before the joke - because the main point (the headline) is conveyed right at the beginning, thereafter the programme by the understanding of the term deals with fewer and fewer critical matters. Thus, in"
+          "text": "Read the following passage and answer the questions in 20 minutes. Check the 'Finding out about the world from television news reading answers' with explanations to validate your mistakes."
         },
         {
           "label": null,
-          "text": "television news, our curiosity is not sparked by a mystery that is secondary to bring a satisfying resolution, as is so frequently the case in fictional storylines. In Lewis's perspective, there is no mystery in news channels whose explanation will motivate viewers to tune in. As he simply argues, 'If we attempted to create a television broadcast with a framework that would entirely fail to grab an audience's interest, we might (eventually) arrive at the format of the typical television news programme (Lewis 1991). Lewis also provides a fascinating contrast between the high-status phenomena of news programs and the minimal genre of soap operas in this respect. He notes that the latter has the most extensive usage of effective storytelling patterns. Soap opera, with its multiple storylines, might be viewed, in formal situations, as the most effective form of television"
+          "text": "Finding out about the world from television news"
         },
         {
           "label": null,
-          "text": "for cultivating audience attention, much more so than television news. Part of Lewis's supposition is problematic in this instance. There are counterarguments to his ideas, such as sports news programmes that reflect the problematic shows the role he identifies but is still popular, at least among certain types of listeners. Furthermore, he may overstate the role of structure as opposed to content relevance in creating the foundation for programming appeal. Nonetheless, I would argue that his argument in this regard is quite interesting. Lewis believes not only that soap opera is more descriptively interesting than news programs in formal terms, but also because the world of television fiction is considerably closer to the lives of the majority of people compared to that of news programs. According to him, this is because the world of television fiction often reflects the actual"
+          "text": "Throughout The Ideological Octopus (1991). Justin Lewis raises an essential point regarding the formal structure of television news. As he points out, television news lacks the narrative element that, in other genres, serves to grab the interest of the audience and encourage viewing. Lewis identifies this as being one of the primary reasons why news reporting fails to engage audiences and explains why. When people do watch it, they frequently cannot grasp it. Lewis makes the argument that one fundamental issue with watching television news is that the storytelling style provides the viewer with the punchline before the joke - because the main point (the headline) is conveyed right at the beginning, thereafter the programme by the understanding of the term deals with fewer and fewer critical matters. Thus, in television news, our curiosity is not sparked by a mystery that is secondary to bring a satisfying resolution, as is so frequently the case in fictional storylines. In Lewis's perspective, there is no mystery in news channels whose explanation will motivate viewers to tune in. As he simply argues, 'If we attempted to create a television broadcast with a framework that would entirely fail to grab an audience's interest, we might (eventually) arrive at the format of the typical television news programme (Lewis 1991)."
         },
         {
           "label": null,
-          "text": "world. They can quickly connect to the moral difficulties and emotional problems experienced by the actors in their favourite soap opera, for example. In contrast, the world of television news is considerably far in all senses; it is a socially distant world occupied by a different race of exceptional or \"elite\" individuals, the world of \"they\" rather than \"we.\" This is also why 'most people feel better capable of assessing TV fiction than Television news,' as it seems closer to their own lives and the world in which they reside, whereas the world of television news may as well have been broadcast in from another planet (Lewis 1991). It appears that the faraway world of \"the news\" is so divorced from common experience that many viewers are incapable of exercising critical judgement. Therefore, regardless of how far they feel from"
+          "text": "Lewis also provides a fascinating contrast between the high-status phenomena of news programs and the minimal genre of soap operas in this respect. He notes that the latter has the most extensive usage of effective storytelling patterns. Soap opera, with its multiple storylines, might be viewed, in formal situations, as the most effective form of television for cultivating audience attention, much more so than television news. Part of Lewis's supposition is problematic in this instance. There are counterarguments to his ideas, such as sports news programmes that reflect the problematic shows the role he identifies but is still popular, at least among certain types of listeners. Furthermore, he may overstate the role of structure as opposed to content relevance in creating the foundation for programming appeal. Nonetheless, I would argue that his argument in this regard is quite interesting."
         },
         {
           "label": null,
-          "text": "it, they lack any alternate perspective on the events it depicts. One result of this, according to Lewis, is that people who feel this type of detachment from 'global news' continue to rely on frameworks to grasp news iterms that originate inside the news themselves. In the absence of any alternative source of data or opinion, they are compelled to rely on the media's framework, according to his argument. Many viewers are incapable of situating the media's portrayal of events within any other critical framework (from where would they obtain it?). To this extent, argues Lewis. Gerbner, also his colleagues (see Gerbner et al. 1986; Signorielli and Morgan 1990) may be correct in assuming that viewers absorb the dominant perspectives and \"associative logics\" given by the media simply under their recurrence. This is not to imply that such viewers necessarily"
+          "text": "Lewis believes not only that soap opera is more descriptively interesting than news programs in formal terms, but also because the world of television fiction is considerably closer to the lives of the majority of people compared to that of news programs. According to him, this is because the world of television fiction often reflects the actual world. They can quickly connect to the moral difficulties and emotional problems experienced by the actors in their favourite soap opera, for example. In contrast, the world of television news is considerably far in all senses; it is a socially distant world occupied by a different race of exceptional or \"elite\" individuals, the world of \"they\" rather than \"we.\" This is also why 'most people feel better capable of assessing TV fiction than Television news,' as it seems closer to their own lives and the world in which they reside, whereas the world of television news may as well have been broadcast in from another planet (Lewis 1991). It appears that the faraway world of \"the news\" is so divorced from common experience that many viewers are incapable of exercising critical judgement. Therefore, regardless of how far they feel from it, they lack any alternate perspective on the events it depicts."
         },
         {
           "label": null,
-          "text": "believe or explicitly accept these perspectives; rather, it is to point out that they have no other starting point, regardless of how cynical they may be about 'not believing what you see on television,' and they may therefore tend to rely on 'what was said on television. In a way, this may be considered the opposite of Hall's negotiated code. (1980), as taken over from Parkin (1973). Parkin had suggested that many working-class individuals exhibit a split consciousness,' in which they accept ideas from the dominant ideology on an abstract level, but 'bargain' or 'discount' the relevance of these ideological truths to their circumstances. Here, by contrast, we are confronted with a situation in which people frequently express cynicism in general (so that Hot believing what you see in the media is merely common sense), but in any particular case,"
-        },
-        {
-          "label": null,
-          "text": "they are frequently forced to rely on the mainstream media's account of anything beyond the realm of their direct personal experience, simply for lack of an alternative viewpoint."
+          "text": "One result of this, according to Lewis, is that people who feel this type of detachment from 'global news' continue to rely on frameworks to grasp news iterms that originate inside the news themselves. In the absence of any alternative source of data or opinion, they are compelled to rely on the media's framework, according to his argument. Many viewers are incapable of situating the media's portrayal of events within any other critical framework (from where would they obtain it?). To this extent, argues Lewis. Gerbner, also his colleagues (see Gerbner et al. 1986; Signorielli and Morgan 1990) may be correct in assuming that viewers absorb the dominant perspectives and \"associative logics\" given by the media simply under their recurrence. This is not to imply that such viewers necessarily believe or explicitly accept these perspectives; rather, it is to point out that they have no other starting point, regardless of how cynical they may be about 'not believing what you see on television,' and they may therefore tend to rely on 'what was said on television. In a way, this may be considered the opposite of Hall's negotiated code. (1980), as taken over from Parkin (1973). Parkin had suggested that many working-class individuals exhibit a split consciousness,' in which they accept ideas from the dominant ideology on an abstract level, but 'bargain' or 'discount' the relevance of these ideological truths to their circumstances. Here, by contrast, we are confronted with a situation in which people frequently express cynicism in general (so that Hot believing what you see in the media is merely common sense), but in any particular case, they are frequently forced to rely on the mainstream media's account of anything beyond the realm of their direct personal experience, simply for lack of an alternative viewpoint."
         }
       ],
       "groups": [
@@ -238,31 +446,31 @@
           "maxWords": 2,
           "questions": [
             {
-              "number": 14,
+              "number": 28,
               "prompt": "Question 1",
               "answer": [
-                "Ideological"
+                "television"
               ],
-              "explanation": "Found directly in the reading passage: 'Ideological'."
+              "explanation": "Found directly in the reading passage: 'television'."
             },
             {
-              "number": 15,
+              "number": 29,
               "prompt": "Question 2",
               "answer": [
-                "regarding"
+                "television"
               ],
-              "explanation": "Found directly in the reading passage: 'regarding'."
+              "explanation": "Found directly in the reading passage: 'television'."
             },
             {
-              "number": 16,
+              "number": 30,
               "prompt": "Question 3",
               "answer": [
-                "narrative"
+                "essential"
               ],
-              "explanation": "Found directly in the reading passage: 'narrative'."
+              "explanation": "Found directly in the reading passage: 'essential'."
             },
             {
-              "number": 17,
+              "number": 31,
               "prompt": "Question 4",
               "answer": [
                 "Secondary"
@@ -270,36 +478,36 @@
               "explanation": "Found directly in the reading passage: 'Secondary'."
             },
             {
-              "number": 18,
+              "number": 32,
               "prompt": "Question 5",
               "answer": [
-                "engage"
+                "audience"
               ],
-              "explanation": "Found directly in the reading passage: 'engage'."
+              "explanation": "Found directly in the reading passage: 'audience'."
             },
             {
-              "number": 19,
+              "number": 33,
               "prompt": "Question 6",
               "answer": [
-                "grasp"
+                "reporting"
               ],
-              "explanation": "Found directly in the reading passage: 'grasp'."
+              "explanation": "Found directly in the reading passage: 'reporting'."
             },
             {
-              "number": 20,
+              "number": 34,
               "prompt": "Question 7",
               "answer": [
-                "television"
+                "frequently"
               ],
-              "explanation": "Found directly in the reading passage: 'television'."
+              "explanation": "Found directly in the reading passage: 'frequently'."
             },
             {
-              "number": 21,
-              "prompt": "on your answer sheet.",
+              "number": 35,
+              "prompt": "______ to what makes a compelling broadcast.",
               "answer": [
-                "because"
+                "issue"
               ],
-              "explanation": "Found directly in the reading passage: 'because'."
+              "explanation": "Found directly in the reading passage: 'issue'."
             }
           ]
         },
@@ -308,195 +516,34 @@
           "instruction": "Are the following claims consistent with the data presented in the Reading Passage? Write in boxes 9 - 13 of your answer sheet.",
           "questions": [
             {
-              "number": 22,
-              "prompt": "- 13 of your answer sheet.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
-            },
-            {
-              "number": 23,
-              "prompt": "Statement regarding Question 10.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 24,
-              "prompt": "Statement regarding Question 11.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 25,
-              "prompt": "Statement regarding Question 12.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
-            },
-            {
-              "number": 26,
-              "prompt": "of your answer sheet.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "passageNumber": 3,
-      "title": "Reading Passage 151",
-      "paragraphs": [
-        {
-          "label": "A",
-          "text": "library at your fingertips"
-        },
-        {
-          "label": "A",
-          "text": "A publishing revolution, in which the printed word will be replaced by the computer screen, was widely predicted during the height of the dot-com bubble a few years ago. It wasn't, and the sensation of losing oneself in a book for an hour or two is still highly valued by many. In recent times, major tech companies like Google, Amazon, Microsoft, and Yahoo! have been quite active, showing that the dream of providing books online is still alive."
-        },
-        {
-          "label": "B",
-          "text": "The controversial subject of digitizing thousands of print volumes. The first books on Google Print were made available to the public on November 3, 2015, after the idea had been debated for almost a year. Together, Google and several of the world's best research libraries are working to offer tens of thousands of books freely searchable and readable online. Publishers are upset by the decision, even though the works featured so far are not subject to copyright protection."
-        },
-        {
-          "label": "C",
-          "text": "Five major publishing houses have filed a lawsuit against Google, alleging that the search engine infringed upon their copyright by distributing digital copies of out-of-print publications. There is skepticism among publishers over Google's promises that it will only publish minimal snippets of protected work without permission. Ironically, many publishers are collaborating with Google on a different venture called Google Print Publisher to provide consumers with a taste of commercially accessible books online. The indexed library's description and snippets are provided to entice readers to buy the complete works in digital or print formats."
-        },
-        {
-          "label": "D",
-          "text": "In retaliation, the world's largest online retailer, Amazon, has declared its intentions to compete in the mass market for e-books. Since its inception as an online bookshop a decade ago, the company has expanded greatly. On Thursday, Amazon announced the debut of two new services, possibly in response to Google's expansion into Amazon's traditional market. With Amazon Pages, customers can conduct keyword searches within books, buy individual chapters or sections, and read them online in their entirety. Thanks to Amazon Upgrade, customers who have already purchased a physical copy of a book can access it digitally. Customers should expect to pay around five cents per page, the vast bulk of which will go to the publisher."
-        },
-        {
-          "label": "E",
-          "text": "In recent years, Microsoft has joined the ranks of those who offer books via the internet. The software company announced at the end of October that it would spend around $200 million digitizing manuscripts, starting with 150,000 that are in the public domain, to avoid legal complications. That will be carried out in conjunction with the Open Content Alliance, a group of educational institutions. (Yahoo! has also promised the same group that they will make 18,000 books available through their service.) Microsoft announced a cooperation with the British Library, the country's principal reference library, on Thursday, the same day that Google and Amazon revealed their plans to digitize some 25 million pages. The next MSN Book Search will make these available to users."
-        },
-        {
-          "label": "F",
-          "text": "Businesses are anticipating an uptick in sales of electronic books similar to that which followed the online-only release of Stephen King's \"Riding the Bullet\" in the year 2000. Two days following its release, half a million copies were downloaded. This was not a portent of things to come; instead, it set a new benchmark. As consumers were reluctant to read the latest bestsellers while seated in front of a computer screen, e-book reading devices struggled to gain traction in the market. Barnes & Noble, the behemoth American bookseller, made a great deal out of selling e-books in the year 2000, but quietly stopped doing so in 2003 when demand began to wane."
-        },
-        {
-          "label": "G",
-          "text": "The e-book industry is slowly but surely exhibiting signs of recovery, albeit from a low starting point. According to the International Digital Publishing Forum, which aggregates data from several of the world's largest publishers, sales grew 25% worldwide in the third quarter of 2004. The publishing industry as a whole made almost $100 billion that year, yet only 23 companies split $3.2 million."
-        },
-        {
-          "label": "H",
-          "text": "Stores and publishers are confident in their long-term ability to persuade customers to consume more of their content in digital formats. Several people have speculated that they will eventually become as commonplace as Apple's iTunes. When comparing fiction and funk, there are obvious differences. The online music industry has been driven from the bottom up, with legal providers confident that more and more consumers will pay small sums for music rather than remain beyond the law, with the transition from illegal file sharing services to legal firms when the pirates were forced (by a wave of lawsuits) to retreat. Portable music players, such as the iPod, have become a popular and hip substitute for home stereos. Nothing else like it exists in written form."
-        },
-        {
-          "label": "I",
-          "text": "As a result, selling books online is not a particularly lucrative business right now. It's possible that some fresh thinking could help them out. Some clients may be enticed to purchase if they can download only a small sample of a book; for example, students may want to download just the relevant sections of course materials, and readers may want to have a taste of a book before purchasing the full version. Offering downloadable content for today's ubiquitous mobile phones and tablets may also be appealing. Despite this growth, it is anticipated that the value of electronic publications (mostly manga comic books) distributed to mobile phones in Japan will only reach around 6 billion ($51 million) in 2005."
-        }
-      ],
-      "groups": [
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the views of the writer in Reading Passage 1? In boxes 1-5 on your answer sheet, write",
-          "questions": [
-            {
-              "number": 27,
-              "prompt": "Amazon was originally an electronic bookseller.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 28,
-              "prompt": "The day that Microsoft inked their deal with the British Library also saw announcements from",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 29,
-              "prompt": "The book Riding the Bullet is now available online at Barnes & Noble.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 30,
-              "prompt": "It's conceivable that book sales would rise if customers could read a sample online before",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 31,
-              "prompt": "on your answer sheet, write",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            }
-          ]
-        },
-        {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
-          "maxWords": 3,
-          "questions": [
-            {
-              "number": 32,
-              "prompt": "The ______ has nothing in common with an iPod.",
-              "answer": [
-                "debated"
-              ],
-              "explanation": "Found directly in the reading passage: 'debated'."
-            },
-            {
-              "number": 33,
-              "prompt": "____________ is the place where most of the mobile phones are sent off to.",
-              "answer": [
-                "offer"
-              ],
-              "explanation": "Found directly in the reading passage: 'offer'."
-            },
-            {
-              "number": 34,
-              "prompt": "Companies avoid _________ by publishing books online that are not protected by copyright.",
-              "answer": [
-                "upset"
-              ],
-              "explanation": "Found directly in the reading passage: 'upset'."
-            },
-            {
-              "number": 35,
-              "prompt": "The ______ is small at first, but it is growing.",
-              "answer": [
-                "Manga comic books"
-              ],
-              "explanation": "Found directly in the reading passage: 'Manga comic books'."
-            },
-            {
               "number": 36,
-              "prompt": "The ______ believes they will be able to persuade more people to read online.",
-              "answer": [
-                "engine"
-              ],
-              "explanation": "Found directly in the reading passage: 'engine'."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "For each question, only one of the choices is correct. Write the corresponding letter in the",
-          "questions": [
+              "prompt": "Lewis regrets that audiences prefer soap operas to televised news.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
             {
               "number": 37,
-              "prompt": "Amazon will",
+              "prompt": "Lewis feels that consumers' perceptions of the dependability of television news are",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
               "number": 38,
-              "prompt": "Most readers, when given the option, favor",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "prompt": "According to Parkin, many members of the working class view themselves as exceptions to",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
             },
             {
               "number": 39,
-              "prompt": "Before the last few years, it was widely believed that",
+              "prompt": "The author of the text feels that viewers should be less responsive to what the media",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
               "number": 40,
-              "prompt": "Many publishers are unhappy with Google",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "prompt": "Lewis says that viewers occasionally discover that television news contradicts their",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
             }
           ]
         }

@@ -40,80 +40,60 @@
       ],
       "groups": [
         {
-          "type": "matching_headings",
-          "instruction": "Write the appropriate letters in Boxes 1-3 on your answer sheet, Note that there are more items",
-          "optionsTitle": "List of Headings",
-          "options": [
-            {
-              "key": "i",
-              "text": "Severe penalties for drop-out are developed as part of college funding mechanisms"
-            },
-            {
-              "key": "ii",
-              "text": "Serious attempts are made to improve student support"
-            },
-            {
-              "key": "iii",
-              "text": "An Influential report showing that non-completion rates are significantly high is published"
-            },
-            {
-              "key": "iv",
-              "text": "The lack of a strategical basis is officially recognized"
-            },
-            {
-              "key": "v",
-              "text": "The HMI is created"
-            },
-            {
-              "key": "vi",
-              "text": "Data oil student completion rates for further education are published"
-            },
-            {
-              "key": "vii",
-              "text": "A minor report showing that non-completion is significantly high is published"
-            }
-          ],
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
           "questions": [
             {
               "number": 1,
-              "prompt": "Paragraph A",
-              "answer": "vi",
-              "explanation": "Refer to Paragraph A in the passage."
+              "prompt": "1991",
+              "answer": [
+                "attrition"
+              ],
+              "explanation": "Found directly in the reading passage: 'attrition'."
             },
             {
               "number": 2,
-              "prompt": "Paragraph B",
-              "answer": "iii",
-              "explanation": "Refer to Paragraph B in the passage."
+              "prompt": "1993",
+              "answer": [
+                "trainees"
+              ],
+              "explanation": "Found directly in the reading passage: 'trainees'."
             },
             {
               "number": 3,
-              "prompt": "Paragraph C",
-              "answer": "i",
+              "prompt": "1994",
+              "answer": [
+                "provide"
+              ],
               "explanation": "s. Examine the following question types in this article."
             },
             {
               "number": 4,
-              "prompt": "Paragraph D",
-              "answer": "i",
-              "explanation": "Refer to Paragraph D in the passage."
+              "prompt": "Question 4",
+              "answer": [
+                "schooling"
+              ],
+              "explanation": "Found directly in the reading passage: 'schooling'."
             },
             {
               "number": 5,
-              "prompt": "Paragraph E",
-              "answer": "i",
-              "explanation": "Refer to Paragraph E in the passage."
+              "prompt": "Question 5",
+              "answer": [
+                "continually"
+              ],
+              "explanation": "Found directly in the reading passage: 'continually'."
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "type": "summary_completion",
+          "instruction": "Complete the sentences below, Use NO MORE THAN THREE WORDS from the passage to fill",
+          "content": "Complete the sentences below, Use NO MORE THAN THREE WORDS from the passage to fill\neach blank space.\n4) Further education colleges in Britain were originally not worried about student drop-out,\nbecause students did not leave college out of fear of___.\n5) According to the writer, the philosophy at further education colleges was___.\n {{6}} ) As people became more aware of equal opportunities, colleges encouraged students from\nunder-represented groups, as a move to___.\n {{7}} )The HMI's report focused on completion rates, based on reasons for students' departure from\n\ncollege___.\n {{8}} ) In the early 1990s, the political situation, both in Britain and the US, demanded a drastic___.",
           "maxWords": 3,
           "questions": [
             {
               "number": 6,
-              "prompt": "Question 6",
               "answer": [
                 "staff"
               ],
@@ -121,7 +101,6 @@
             },
             {
               "number": 7,
-              "prompt": "Question 7",
               "answer": [
                 "equal"
               ],
@@ -129,7 +108,6 @@
             },
             {
               "number": 8,
-              "prompt": "Question 8",
               "answer": [
                 "students"
               ],
@@ -138,49 +116,148 @@
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
-          "maxWords": 2,
+          "type": "multiple_choice",
+          "instruction": "Choose the appropriate letters A-D and write them on your answer sheet,",
           "questions": [
             {
               "number": 9,
-              "prompt": "Question 9",
-              "answer": [
-                "reflective"
+              "prompt": "The report Unfinished Business …",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "pointed out the politics of the time"
+                },
+                {
+                  "key": "B",
+                  "text": "gave 1500 mil 11 on to the state"
+                },
+                {
+                  "key": "C",
+                  "text": "linked drop-out to wasting money"
+                },
+                {
+                  "key": "D",
+                  "text": "turned the spotlight"
+                }
               ],
-              "explanation": "Found directly in the reading passage: 'reflective'."
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             },
             {
               "number": 10,
-              "prompt": "Question 10",
-              "answer": [
-                "works"
+              "prompt": "The new series of principles developed in 1994 by the PEPC",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "gave money to each student"
+                },
+                {
+                  "key": "B",
+                  "text": "was quasi-independent"
+                },
+                {
+                  "key": "C",
+                  "text": "meant colleges had to turn their immediate attention to improving student retention rates"
+                },
+                {
+                  "key": "D",
+                  "text": "was aimed fit improving teacher retention rates"
+                }
               ],
-              "explanation": "Found directly in the reading passage: 'works'."
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             },
             {
               "number": 11,
-              "prompt": "on to the state",
-              "answer": [
-                "A"
+              "prompt": "Attempts to reduce the student drop-out rate were hindered, because …",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "there was a lack of research data on which to base strategies"
+                },
+                {
+                  "key": "B",
+                  "text": "col logos did not know what to do"
+                },
+                {
+                  "key": "C",
+                  "text": "computers in colleges were slow"
+                },
+                {
+                  "key": "D",
+                  "text": "colleges had no patterns"
+                }
               ],
-              "explanation": "Found directly in the reading passage: 'A'."
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             },
             {
               "number": 12,
-              "prompt": "Question 12",
-              "answer": [
-                "A"
+              "prompt": "Further hindrances in reducing the student drop-out rate were",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "collages slowness in computerizing data and tint knowing their retention rates, nor what"
+                },
+                {
+                  "key": "B",
+                  "text": "collage inertia and administrative incompetence"
+                },
+                {
+                  "key": "C",
+                  "text": "com put or glitches and strikes, Which occurred at most colleges"
+                },
+                {
+                  "key": "D",
+                  "text": "colleges not knowing their retention rates or where the patterns were"
+                }
               ],
-              "explanation": "Found directly in the reading passage: 'A'."
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             },
             {
               "number": 13,
-              "prompt": "Question 13",
-              "answer": [
-                "turning"
+              "prompt": "Colleges' strategies to deal with the problem of low retention …",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "brought administrative and academic staff together"
+                },
+                {
+                  "key": "B",
+                  "text": "varied enormously"
+                },
+                {
+                  "key": "C",
+                  "text": "jumped"
+                },
+                {
+                  "key": "D",
+                  "text": "were based on something other than data"
+                }
               ],
-              "explanation": "Found directly in the reading passage: 'turning'."
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
+            {
+              "number": 14,
+              "prompt": "The main strategies to improve retention included,",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "activities to support and transform the Student"
+                },
+                {
+                  "key": "B",
+                  "text": "the raising of College expectations"
+                },
+                {
+                  "key": "C",
+                  "text": "a summary by Martinez"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             }
           ]
         }
@@ -188,31 +265,237 @@
     },
     {
       "passageNumber": 2,
+      "title": "The Developing World",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "The developing world is made up of Asia and Africa's underdeveloped economies. Oceania and Latin America are viewed as a single entity that shares traits with the developed world, including poverty, large fertility rates, and financial reliance. The developing world was previously referred to as \"the third world.\" By drawing a parallel between the \"third estate\"-the common french people before and during the French Revolution-and the monks and nobility who made up the \"first\" and \"second\" estates, respectively, the French researcher Alfred Sauvy first used the phrase in 1952. According to Sauvy, \"the poor country is nothing, and it strives to be something,\" similar to the third estate. The phrase, therefore, indicates that, like the third estate, the third world is abused and also that, as the third estate, its future is one of revolution. It also expresses a second point that Sauvy also touches on a nonalignment. This is because the developing world does not belong to either the developed capitalist world or the affluent former communist union. At the 1955 meeting of Afro-Asian nations conducted in Bandung and Indonesia, the term \"third world\" was coined. Le Tiers-Monde was a book written in 1956 by a group of social researchers affiliated with Sauvy's Research Center of Population Studies in Paris. Francois Perroux, a French economist, created the same-named journal three years later, focusing on issues related to backwardness. By the 1950s, the phrase was often used in French media to allude to Asia's developing nations like Oceania, Latin America, and Africa. However, in an attempt to destroy the stigma associated with the phrase \"third world,\" national politicians and social pundits now refer to it as the \"developing world.\""
+        },
+        {
+          "label": "B",
+          "text": "The emerging world shares several characteristics with other nations, including skewed economies that are heavily dependent on manufacturing basic goods for the developed world, rural social structures, rapid population growth, and pervasive poverty. However, the developing world is starkly defined since it contains nations with differing levels of economic growth. And while the majority of third-world nations have impoverished rural areas and urban squatter settlements, their ruling classes typically have rich lifestyles."
+        },
+        {
+          "label": "C",
+          "text": "The integration of the undeveloped nations into the global capitalist economy through invasion or indirect dominance is related to the confluence of circumstances in Asia, Africa, Oceania, and Latin America. The biggest economic impact of Western dominance was the development of the first global market ever. Industrial capitalism upended ancient economies and, in fact, entire communities by establishing sub-economies connected to the West all across the developing globe and by importing other contemporary institutions. Lack of development resulted from this setback."
+        },
+        {
+          "label": "D",
+          "text": "The industries of underdeveloped nations sometimes consist of just a few modern economic activities, such as mining or the growing of agricultural products, because they have been tailored to the requirements of developed countries. Large foreign businesses have frequently maintained control over these operations. Large consumers in the economically powerful Western nations typically set prices for goods produced in developing nations, and commerce with the West accounts for the vast majority of their revenue. The capitalization of the nations under foreign rule was severely constrained during the colonial period by open abuse. Also, after decolonization (in the 1950s, 1960s, and 1970s), the emerging world's economies only gradually grew or just did not. This was large because of the worsening \"balance of trade,\" or the ratio between the value of the commodities a country must buy from abroad and its revenue from export sales to other nations. When import prices increase more quickly than export revenues, the trade agreements are considered to be deteriorating. The majority of goods traded internationally are priced by consumers in industrialized nations, so the worsening situation of poor nations was not unexpected. Only the oil-producing nations were able to avoid the repercussions of the Western dominance of the global economy after 1973."
+        },
+        {
+          "label": "E",
+          "text": "Without accounting for population growth, no analysis of the underdeveloped world could hope to evaluate its prospects. The birth rate is still increasing at unheard-of rates, even though the mortality rate from diseases linked to poverty remains high enough to raise concerns on a global scale. Population development in the global world will undoubtedly limit meaningful increases in livelihoods and put people in stagnating economies at risk of rising levels of starvation and malnutrition. The Developing World Reading Question"
+        },
+        {
+          "label": "I",
+          "text": "The great divide between rich and poor. II. The status and destiny of the developing world follow a European precedent. III. Economic progress in the developing world slowed down In political unrest. IV. More people, less food. V. Western countries refuse to acknowledge their history of colonization. VI. Open trade is the main reason these countries become impoverished. VII.Rivalry in the developing world between capitalist and former communist countries. VIII. Prices and conditions set by outsiders"
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "Choose the most suitable heading for each paragraph from the list of headings below :",
+          "optionsTitle": "List of Headings",
+          "options": [
+            {
+              "key": "i",
+              "text": "The great divide between rich and poor."
+            },
+            {
+              "key": "ii",
+              "text": "The status and destiny of the developing world follow a European precedent."
+            },
+            {
+              "key": "iii",
+              "text": "Economic progress in the developing world slowed down In political unrest."
+            },
+            {
+              "key": "iv",
+              "text": "More people, less food."
+            },
+            {
+              "key": "v",
+              "text": "Western countries refuse to acknowledge their history of colonization."
+            },
+            {
+              "key": "vi",
+              "text": "Open trade is the main reason these countries become impoverished."
+            },
+            {
+              "key": "vii",
+              "text": "Rivalry in the developing world between capitalist and former communist countries."
+            },
+            {
+              "key": "viii",
+              "text": "Prices and conditions set by outsiders"
+            }
+          ],
+          "questions": [
+            {
+              "number": 15,
+              "prompt": "Paragraph A",
+              "answer": "i",
+              "explanation": "Refer to Paragraph A in the passage."
+            },
+            {
+              "number": 16,
+              "prompt": "Paragraph B",
+              "answer": "i",
+              "explanation": "Refer to Paragraph B in the passage."
+            },
+            {
+              "number": 17,
+              "prompt": "Paragraph C",
+              "answer": "i",
+              "explanation": "Refer to Paragraph C in the passage."
+            },
+            {
+              "number": 18,
+              "prompt": "Paragraph D",
+              "answer": "i",
+              "explanation": "Refer to Paragraph D in the passage."
+            },
+            {
+              "number": 19,
+              "prompt": "Paragraph E",
+              "answer": "i",
+              "explanation": "Refer to Paragraph E in the passage."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 20,
+              "prompt": "Question 6",
+              "answer": [
+                "third"
+              ],
+              "explanation": "Found directly in the reading passage: 'third'."
+            },
+            {
+              "number": 21,
+              "prompt": "Question 7",
+              "answer": [
+                "future"
+              ],
+              "explanation": "Found directly in the reading passage: 'future'."
+            },
+            {
+              "number": 22,
+              "prompt": "Question 8",
+              "answer": [
+                "developing"
+              ],
+              "explanation": "Found directly in the reading passage: 'developing'."
+            },
+            {
+              "number": 23,
+              "prompt": "Question 9",
+              "answer": [
+                "affluent"
+              ],
+              "explanation": "Found directly in the reading passage: 'affluent'."
+            }
+          ]
+        },
+        {
+          "type": "matching_sentence_endings",
+          "instruction": "Complete each sentence with the correct ending given below :",
+          "options": [
+            {
+              "key": "A",
+              "text": "economic dependence on developed countries."
+            },
+            {
+              "key": "B",
+              "text": "that decolonization took a long time to achieve."
+            },
+            {
+              "key": "C",
+              "text": "dictate the needs of industrialized countries."
+            },
+            {
+              "key": "D",
+              "text": "share common characteristics."
+            },
+            {
+              "key": "E",
+              "text": "that many economies stagnated."
+            },
+            {
+              "key": "F",
+              "text": "a society that wants something it does not have."
+            }
+          ],
+          "questions": [
+            {
+              "number": 24,
+              "prompt": "Companies in the developing world _____",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 25,
+              "prompt": "The term third world implies __________",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 26,
+              "prompt": "One factor that is prevalent in the developing world is ________",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 27,
+              "prompt": "One consequence of the term of trade was __________",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
       "title": "Australia's Sporting Success",
       "paragraphs": [
         {
           "label": "A",
-          "text": "Australians play very often, they play hard and they play to win only. Annihilating opponents with an easy-going demeanor, they win more championships than they even have a fair share of. What's their secret? The secret behind their success is their sporting academic network which is hinged on science and medicine. Many young athletes and professionals train at the AIS which is the Australian Institute of Sports. Whereas, the other body called the Australian Sports Commission (ASC) provides finance to almost 96 sports programs for thousands of women and sportsmen. These two firms provide extensive instruction as well as facilities and nutritional guidance."
+          "text": "Check out Australia's Sporting Success Reading Answers after attempting to solve this passage. Try completing this section within 20 minutes."
         },
         {
           "label": "B",
-          "text": "Science plays a vital role in academics. As many as 100 sports doctors and scientists are employed by the AIS, which collaborates with a plethora of colleges and research centers throughout the world. AIS scientists apply skills through numerous sports such as swimming and squash to building muscle strength in golfers. They've got plenty of technicians who design gadgets for collecting the athletes' data. Their main aim is to win and everyone is focused on it. The chief of science at AIS, Peter Prickers says that 'Etheral science questions are not important as long as it can't help the coach to improve the athlete's performance'."
+          "text": "Australia's Sporting Success"
         },
         {
           "label": "C",
-          "text": "Every athlete's effort is scrutinized, from cyclists' power to swimmers' diving angle. Data is exploited to harm athletes. Individuals' performances are tailored to shave off a tenth of a second here or a millimeter there for optimal efficiency. Even tiny changes over time can have a big impact. Small benefits are worth great effort. Bruce Mason of AIS validates how a 3D analysis tool for swimmers works. A champion swimmer's wire-frame model divides the water in slow motion. Mason measures the distance between strokes and watches her spine's spindle. Once the technology is complete, he'll be able to produce a biomechanical profile for coaches to aid pullulate swimmers. Mason created the SWAN system utilized in Australian national competitions. It uses 50 fps digital cameras to capture a swimmer's stroke length, frequency, median stroke duration, velocity, start, lap, finish times, etc. SWAN produces swimmer data after races."
+          "text": "Australians play very often, they play hard and they play to win only. Annihilating opponents with an easy-going demeanor, they win more championships than they even have a fair share of. What's their secret? The secret behind their success is their sporting academic network which is hinged on science and medicine. Many young athletes and professionals train at the AIS which is the Australian Institute of Sports. Whereas, the other body called the Australian Sports Commission (ASC) provides finance to almost 96 sports programs for thousands of women and sportsmen. These two firms provide extensive instruction as well as facilities and nutritional guidance."
         },
         {
           "label": "D",
-          "text": "Look at it now,' Mason replies, pointing to a file of data. Data on the swimmers who finished in second and third place reveals that the third-place finisher swam faster than the second-place finisher. How did he lose 35 hundredths of a second at the finish line, then? Says Mason: \"He's turning timings were 44 hundredths of a second behind the other man.\"' Improve his turns, and he'll perform even better.' A wide range of sports is benefiting from the research of AIS scientists. These sensors will be implanted in an athlete's clothing or running shoes so that they can supervise heart rate, perspiration, heat generation, or any other factor that can affect an athlete's ability to run. They are working with the Cooperative Research Centre for Micro Technology in Melbourne. Measurement isn't the only way to go about it. As an example, Pricker cites the case of athletes, who may get sick up to 12 times a year. AIS and the University of Newcastle in New South Wales have matured a test that assesses the chunk of immune-system protein immunoglobulin A in athletes' saliva after years of trial. The intensity of exercise is reduced or halted if lgA levels fall too low. The risk is over when lgA levels begin to rise again. Athletes from all sports at the AIS have been exceptionally healthy since the tests were established."
+          "text": "Science plays a vital role in academics. As many as 100 sports doctors and scientists are employed by the AIS, which collaborates with a plethora of colleges and research centers throughout the world. AIS scientists apply skills through numerous sports such as swimming and squash to building muscle strength in golfers. They've got plenty of technicians who design gadgets for collecting the athletes' data. Their main aim is to win and everyone is focused on it. The chief of science at AIS, Peter Prickers says that 'Etheral science questions are not important as long as it can't help the coach to improve the athlete's performance'."
         },
         {
           "label": "E",
-          "text": "Using data is a difficult task. Sports scientists and coaches begin preparing athletes well before a championship by building a 'competition model' based on what they expect in winning times. Mason says, \"You create the model to make that time.\" At the start of this much, each free-swimming period has to be this fast, with a specific stroke frequency and stroke length, and all turns must be completed within these durations. The athlete's whole training regimen is therefore aimed toward achieving those goals, both overall and for each race phase. These techniques have helped Australia become probably the most successful sporting nation on the planet."
+          "text": "Every athlete's effort is scrutinized, from cyclists' power to swimmers' diving angle. Data is exploited to harm athletes. Individuals' performances are tailored to shave off a tenth of a second here or a millimeter there for optimal efficiency. Even tiny changes over time can have a big impact. Small benefits are worth great effort. Bruce Mason of AIS validates how a 3D analysis tool for swimmers works. A champion swimmer's wire-frame model divides the water in slow motion. Mason measures the distance between strokes and watches her spine's spindle. Once the technology is complete, he'll be able to produce a biomechanical profile for coaches to aid pullulate swimmers. Mason created the SWAN system utilized in Australian national competitions. It uses 50 fps digital cameras to capture a swimmer's stroke length, frequency, median stroke duration, velocity, start, lap, finish times, etc. SWAN produces swimmer data after races."
         },
         {
           "label": "F",
-          "text": " Obviously, nothing is stopping other nations from replicating, and many have tried. The AIS unveiled coolant-lined jackets for endurance athletes several years ago. At the 1996 Olympic Games in Atlanta, these sliced as much as two percent off the timings of cyclists and rowers. Everyone now utilizes them. The same has occurred with AIS's \"altitude tent,\" which was designed to simulate the effects of altitude training at sea level. But Australia's success story is based on more than easily reproducible technological fixes, and no nation has yet imitated its comprehensive system. Australia's Sporting Success IELTS Reading Questions"
+          "text": "Look at it now,' Mason replies, pointing to a file of data. Data on the swimmers who finished in second and third place reveals that the third-place finisher swam faster than the second-place finisher. How did he lose 35 hundredths of a second at the finish line, then? Says Mason: \"He's turning timings were 44 hundredths of a second behind the other man.\"' Improve his turns, and he'll perform even better.' A wide range of sports is benefiting from the research of AIS scientists. These sensors will be implanted in an athlete's clothing or running shoes so that they can supervise heart rate, perspiration, heat generation, or any other factor that can affect an athlete's ability to run. They are working with the Cooperative Research Centre for Micro Technology in Melbourne. Measurement isn't the only way to go about it. As an example, Pricker cites the case of athletes, who may get sick up to 12 times a year. AIS and the University of Newcastle in New South Wales have matured a test that assesses the chunk of immune-system protein immunoglobulin A in athletes' saliva after years of trial. The intensity of exercise is reduced or halted if lgA levels fall too low. The risk is over when lgA levels begin to rise again. Athletes from all sports at the AIS have been exceptionally healthy since the tests were established."
+        },
+        {
+          "label": "G",
+          "text": "Using data is a difficult task. Sports scientists and coaches begin preparing athletes well before a championship by building a 'competition model' based on what they expect in winning times. Mason says, \"You create the model to make that time.\" At the start of this much, each free-swimming period has to be this fast, with a specific stroke frequency and stroke length, and all turns must be completed within these durations. The athlete's whole training regimen is therefore aimed toward achieving those goals, both overall and for each race phase. These techniques have helped Australia become probably the most successful sporting nation on the planet."
+        },
+        {
+          "label": "H",
+          "text": "Obviously, nothing is stopping other nations from replicating, and many have tried. The AIS unveiled coolant-lined jackets for endurance athletes several years ago. At the 1996 Olympic Games in Atlanta, these sliced as much as two percent off the timings of cyclists and rowers. Everyone now utilizes them. The same has occurred with AIS's \"altitude tent,\" which was designed to simulate the effects of altitude training at sea level. But Australia's success story is based on more than easily reproducible technological fixes, and no nation has yet imitated its comprehensive system."
         }
       ],
       "groups": [
@@ -221,412 +504,112 @@
           "instruction": "Reading Passage has six paragraphs, A-F.",
           "questions": [
             {
-              "number": 14,
+              "number": 28,
               "prompt": "a reference to the exchange of expertise between different sports",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "answer": "B",
+              "explanation": "Refer to paragraph B in the passage."
             },
             {
-              "number": 15,
+              "number": 29,
               "prompt": "an explanation of how visual imaging is employed in investigations",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "answer": "C",
+              "explanation": "Refer to paragraph C in the passage."
             },
             {
-              "number": 16,
+              "number": 30,
               "prompt": "a reason for narrowing the scope of research activity",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "answer": "B",
+              "explanation": "Refer to paragraph B in the passage."
             },
             {
-              "number": 17,
+              "number": 31,
               "prompt": "how some ais ideas have been reproduced",
               "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "explanation": "Refer to paragraph F in the passage."
             },
             {
-              "number": 18,
+              "number": 32,
               "prompt": "how obstacles to optimum achievement can be investigated",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "answer": "D",
+              "explanation": "Refer to paragraph D in the passage."
             },
             {
-              "number": 19,
+              "number": 33,
               "prompt": "an overview of the funded support of athletes",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "answer": "A",
+              "explanation": "Refer to paragraph A in the passage."
             },
             {
-              "number": 20,
-              "prompt": "on your answer sheet.",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "number": 34,
+              "prompt": "how performance requirements are calculated before an event",
+              "answer": "E",
+              "explanation": "Refer to paragraph E in the passage."
             }
-          ],
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Classify the following techniques according to whether the writer states they",
           "options": [
             {
-              "key": "F",
-              "text": "Which paragraph contains the following information?"
+              "key": "A",
+              "text": "are currently exclusively used by australians"
+            },
+            {
+              "key": "B",
+              "text": "will be used in the future by australians"
+            },
+            {
+              "key": "C",
+              "text": "are currently used by both australians and their rivals"
             }
-          ]
-        },
-        {
-          "type": "multiple_choice",
-          "instruction": "Classify the following techniques according to whether the writer states they",
+          ],
           "questions": [
             {
-              "number": 21,
+              "number": 35,
               "prompt": "Cameras",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "are currently exclusively used by australians"
-                },
-                {
-                  "key": "B",
-                  "text": "will be used in the future by australians"
-                },
-                {
-                  "key": "C",
-                  "text": "are currently used by both australians and their rivals"
-                }
-              ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Refer to item A in the passage."
             },
             {
-              "number": 22,
+              "number": 36,
               "prompt": "Sensors",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "are currently exclusively used by australians"
-                },
-                {
-                  "key": "B",
-                  "text": "will be used in the future by australians"
-                },
-                {
-                  "key": "C",
-                  "text": "are currently used by both australians and their rivals"
-                }
-              ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "Refer to item B in the passage."
             },
             {
-              "number": 23,
+              "number": 37,
               "prompt": "Protein tests",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "are currently exclusively used by australians"
-                },
-                {
-                  "key": "B",
-                  "text": "will be used in the future by australians"
-                },
-                {
-                  "key": "C",
-                  "text": "are currently used by both australians and their rivals"
-                }
-              ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Refer to item A in the passage."
             },
             {
-              "number": 24,
-              "prompt": "on your answer sheet.",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "are currently exclusively used by australians"
-                },
-                {
-                  "key": "B",
-                  "text": "will be used in the future by australians"
-                },
-                {
-                  "key": "C",
-                  "text": "are currently used by both australians and their rivals"
-                }
-              ],
+              "number": 38,
+              "prompt": "Altitude tents",
               "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "explanation": "Refer to item C in the passage."
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "type": "summary_completion",
+          "instruction": "Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the reading passage 1",
+          "content": "Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the reading passage 1 for each answer. Write your answers in boxes {{39}} and {{40}} on your answer sheet.",
           "maxWords": 3,
           "questions": [
             {
-              "number": 25,
-              "prompt": "and 13 on your answer sheet.",
+              "number": 39,
               "answer": [
                 "competition model"
               ],
               "explanation": "Found directly in the reading passage: 'competition model'."
             },
             {
-              "number": 26,
-              "prompt": "on your answer sheet.",
-              "answer": [
-                "tailored"
-              ],
-              "explanation": "Found directly in the reading passage: 'tailored'."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "passageNumber": 3,
-      "title": "Odonata",
-      "paragraphs": [
-        {
-          "label": null,
-          "text": "1. Odonata is the insect order that contains dragonflies and damselflies. Their brilliant colors and delicate-looking wings make them aesthetically pleasing to the human eye. In the wild, though, they are terrifying predators. Dragonflies and damselflies are named for their formidable, serrated jaws, which they employ to rip apart their prey. The word Odonata means \"toothed jaw.\" 2. Dragonflies and damselflies are frequently mistaken for one another due to their similarity. Close observation reveals the differences between them. The most noticeable distinction is how they hold their wings at rest. Damselflies fold their wings back, whereas dragonflies hold their wings out to the side. Due to their proximity, dragonfly eyes appear to encompass the entire face. There is a gap between the tiny eyes of damselflies. Dragonflies are bigger, stronger, and more capable fliers than damselflies. Consequently, they inhabit forests"
-        },
-        {
-          "label": null,
-          "text": "and areas away from water. Since they do not often fly far from the water, damselflies are typically observed along the margins of ponds and streams. 3. The biggest living odonata are the Hawaiian endemic dragonfly and the Central American damselfly, each of which has a 19-centimeter wing span. The smallest is the libellulidae dragonfly, which is endemic to East Asia and has a 20-millimeter wing span. It has been shown via the discovery of fossils that dragonflies have existed for over 300 million years. The biggest dragonfly fossil ever discovered belonged to the extinct meganeura monyi, which had a wingspan of 75 cm and lived 300 million years ago. This enormous predator fed on little amphibians in addition to other insects. 4. In a pond or stream, dragonflies and damselflies both deposit their eggs on or just beneath the"
-        },
-        {
-          "label": null,
-          "text": "surface of the water. Some species deposit their eggs on the stems of aquatic plants. The hatchlings emerge from the eggs as nymphs. They breathe through their gills and feed on aquatic insects, tadpoles, tiny fish, and even other nymphs. They hunt by lurking at the bottom of a pond or stream and waiting for their victim to swim along. When their prey comes close, they may extend a specialized lip to seize it. Depending on the species, they may exist in this state for months or even years. Several times, as the nymph matures, it sheds its skin. It exits the sea and loses its skin for the final time. The adult emerges, prepared to survive on land and in the air for the next several weeks or months. The adults do not survive more than four months, and"
-        },
-        {
-          "label": null,
-          "text": "many species barely live a few weeks as adults. 5. Dragonflies and damselflies are highly proficient hunters due to their remarkable vision and flying ability. Their specialized eyes provide them with a nearly 360-degree range of vision, allowing them to notice even the tiniest movement or flash of light created by other flying insects. They possess two sets of wings that are capable of moving independently of one another. This provides them with excellent aerial maneuverability, which is essential for these animals since they capture their prey while flying. They are able to hover, execute fast turns, and fly in reverse. Some species of dragonfly may fly at speeds exceeding 60 kilometers per hour. Their prey includes mosquitoes, deer flies, tiny dragonflies, butterflies, and moths. One species of dragonfly is known to remove spiders from their webs. 6. As bloodthirsty"
-        },
-        {
-          "label": null,
-          "text": "predators, dragonflies and damselflies are, in turn, prey for other creatures. Fish, frogs, toads, and other water species consume the nymphs. Adults are preyed upon by birds, frogs, as well as bigger dragonflies and damselflies. They might potentially become entangled in a spider's web. What you give you will receive the same."
-        }
-      ],
-      "groups": [
-        {
-          "type": "multiple_choice",
-          "instruction": "Which of the facts below are true of dragonflies, and which are true of damselflies. according to the information in the passage? On lines 1-6 on your answer sheet, write:",
-          "questions": [
-            {
-              "number": 27,
-              "prompt": "They have saw-like jaws.",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "Option A"
-                },
-                {
-                  "key": "B",
-                  "text": "Option B"
-                },
-                {
-                  "key": "C",
-                  "text": "Option C"
-                },
-                {
-                  "key": "D",
-                  "text": "Option D"
-                }
-              ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
-            },
-            {
-              "number": 28,
-              "prompt": "They hold their wings on their backs while resting.",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "Option A"
-                },
-                {
-                  "key": "B",
-                  "text": "Option B"
-                },
-                {
-                  "key": "C",
-                  "text": "Option C"
-                },
-                {
-                  "key": "D",
-                  "text": "Option D"
-                }
-              ],
-              "answer": "B",
-              "explanation": "Option B is correct based on the passage."
-            },
-            {
-              "number": 29,
-              "prompt": "Their eyes have a gap between them.",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "Option A"
-                },
-                {
-                  "key": "B",
-                  "text": "Option B"
-                },
-                {
-                  "key": "C",
-                  "text": "Option C"
-                },
-                {
-                  "key": "D",
-                  "text": "Option D"
-                }
-              ],
-              "answer": "B",
-              "explanation": "Option B is correct based on the passage."
-            },
-            {
-              "number": 30,
-              "prompt": "They can be seen in fields at a distance from ponds and streams.",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "Option A"
-                },
-                {
-                  "key": "B",
-                  "text": "Option B"
-                },
-                {
-                  "key": "C",
-                  "text": "Option C"
-                },
-                {
-                  "key": "D",
-                  "text": "Option D"
-                }
-              ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
-            },
-            {
-              "number": 31,
-              "prompt": "The largest species has a wingspan of 19 centimeters.",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "Option A"
-                },
-                {
-                  "key": "B",
-                  "text": "Option B"
-                },
-                {
-                  "key": "C",
-                  "text": "Option C"
-                },
-                {
-                  "key": "D",
-                  "text": "Option D"
-                }
-              ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
-            },
-            {
-              "number": 32,
-              "prompt": "on your answer sheet, write:",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "Option A"
-                },
-                {
-                  "key": "B",
-                  "text": "Option B"
-                },
-                {
-                  "key": "C",
-                  "text": "Option C"
-                },
-                {
-                  "key": "D",
-                  "text": "Option D"
-                }
-              ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
-            }
-          ]
-        },
-        {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
-          "maxWords": 2,
-          "questions": [
-            {
-              "number": 33,
-              "prompt": "______. The young dragonflies and damselflies,",
-              "answer": [
-                "encompass"
-              ],
-              "explanation": "Found directly in the reading passage: 'encompass'."
-            },
-            {
-              "number": 34,
-              "prompt": "_____, live underwater for a few 9 _______.",
-              "answer": [
-                "inhabit"
-              ],
-              "explanation": "Found directly in the reading passage: 'inhabit'."
-            },
-            {
-              "number": 35,
-              "prompt": "_______.",
-              "answer": [
-                "observed"
-              ],
-              "explanation": "Found directly in the reading passage: 'observed'."
-            },
-            {
-              "number": 36,
-              "prompt": "______. When",
-              "answer": [
-                "Hawaiian"
-              ],
-              "explanation": "Found directly in the reading passage: 'Hawaiian'."
-            },
-            {
-              "number": 37,
-              "prompt": "Question 11",
-              "answer": [
-                "libellulidae"
-              ],
-              "explanation": "Found directly in the reading passage: 'libellulidae'."
-            },
-            {
-              "number": 38,
-              "prompt": "Question 12",
-              "answer": [
-                "existed"
-              ],
-              "explanation": "Found directly in the reading passage: 'existed'."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
-            {
-              "number": 39,
-              "prompt": "The information mentioned in the reading passage regarding topic 13 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
-            },
-            {
               "number": 40,
-              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
-              "answer": "NOT GIVEN",
-              "explanation": "Refer to the discussion in the reading passage."
+              "answer": [
+                "Peter"
+              ],
+              "explanation": "Found directly in the reading passage: 'Peter'."
             }
           ]
         }

@@ -11,15 +11,19 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "can also be used for other situations.",
+      "title": "Astronaut Ice Cream, Anyone",
       "paragraphs": [
+        {
+          "label": null,
+          "text": "To attempt further questions (1-13) you must read the reading passage. Then, verify your answers with the given Astronaut Ice Cream, Anyone reading answers."
+        },
         {
           "label": null,
           "text": "Astronaut Ice Cream, Anyone"
         },
         {
           "label": "A",
-          "text": "technique for astronauts that can help to provide food is known as Breeze-drying. However, it"
+          "text": "technique for astronauts that can help to provide food is known as Breeze-drying. However, it can also be used for other situations."
         },
         {
           "label": "A",
@@ -55,18 +59,18 @@
         },
         {
           "label": "I",
-          "text": "In fact, the notion of freeze-drying as a general concept is not new but has been around for centuries. The mountain peaks along the Andes as natural was used by the ancient Incas of Peru as natural food preservers. The extremely cold temperatures and low pressure at those high elevations prevented food from spoiling in the same general way as the contemporary freeze-drying equipment and a freezer. Astronaut Ice Cream, Anyone reading questions"
+          "text": "In fact, the notion of freeze-drying as a general concept is not new but has been around for centuries. The mountain peaks along the Andes as natural was used by the ancient Incas of Peru as natural food preservers. The extremely cold temperatures and low pressure at those high elevations prevented food from spoiling in the same general way as the contemporary freeze-drying equipment and a freezer."
         }
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "type": "summary_completion",
+          "instruction": "Complete the notes below. Choose NO MORE THAN THREE WORDS from the passage for",
+          "content": "• food preservation• easy ( {{1}} ) __________ of food items• long-term storage of ( {{2}} ) __________ and biological samples• preservation of precious ( {{3}} ) __________ Freeze-drying• is based on the process of ( {{4}} ) __________ is more efficient than ( {{5}} ) __________",
           "maxWords": 3,
           "questions": [
             {
               "number": 1,
-              "prompt": "Question 1",
               "answer": [
                 "Transportation"
               ],
@@ -74,15 +78,13 @@
             },
             {
               "number": 2,
-              "prompt": "Question 2",
               "answer": [
-                "Pharmaceutical"
+                "Pharmaceuticals"
               ],
-              "explanation": "Found directly in the reading passage: 'Pharmaceutical'."
+              "explanation": "Found directly in the reading passage: 'Pharmaceuticals'."
             },
             {
               "number": 3,
-              "prompt": "Question 3",
               "answer": [
                 "Manuscripts"
               ],
@@ -90,7 +92,6 @@
             },
             {
               "number": 4,
-              "prompt": "Question 4",
               "answer": [
                 "Sublimation"
               ],
@@ -98,11 +99,10 @@
             },
             {
               "number": 5,
-              "prompt": "Question 5",
               "answer": [
-                "water"
+                "conserve"
               ],
-              "explanation": "Found directly in the reading passage: 'water'."
+              "explanation": "Found directly in the reading passage: 'conserve'."
             }
           ]
         },
@@ -137,12 +137,12 @@
             },
             {
               "number": 9,
-              "prompt": "on your answer sheet.",
+              "prompt": "Question 9",
               "answer": [
-                "refrigerator compressor",
-                "compressor"
+                "refrigerator Compressor",
+                "Compressor"
               ],
-              "explanation": "Found directly in the reading passage: 'refrigerator compressor'."
+              "explanation": "Found directly in the reading passage: 'refrigerator Compressor'."
             }
           ]
         },
@@ -171,17 +171,29 @@
               "number": 12,
               "prompt": "Question 12",
               "answer": [
-                "pharmaceutical"
+                "Overheating"
               ],
-              "explanation": "Found directly in the reading passage: 'pharmaceutical'."
+              "explanation": "Found directly in the reading passage: 'Overheating'."
             },
             {
               "number": 13,
-              "prompt": "on your answer sheet.",
+              "prompt": "Question 13",
               "answer": [
-                "process"
+                "oxygen"
               ],
-              "explanation": "Found directly in the reading passage: 'process'."
+              "explanation": "Found directly in the reading passage: 'oxygen'."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "To attempt further questions (1-13) you must read the reading passage.",
+              "answer": "TRUE",
+              "explanation": "Confirmed directly in the reading passage: 'To attempt further questions (1-13) you must read the readin...'"
             }
           ]
         }
@@ -213,7 +225,7 @@
         },
         {
           "label": "F",
-          "text": "Sadly, the Earth conserves its history in a chaotic manner.Bones degrade , the land erodes, the climate changes, the mere existence of forests is uncertain , rivers change their course and the history slowly gets disguised. Sadly, the Earth conserves its history in a chaotic manner. The storys constructed from time to time have limited information. Various rock art portrayed Australia's first people. The paintings of Palorchestes, a megafauna marsupial , on rock, in far northern Australia, was examined by Peter Murray, a Paleontologist. In Western Australia another site shows what seems to be a hunter with either a marsupial lion ; in the more recent historical era, the marsupial lion went extinct as they were bigger. \"Every stage of the procedure requires analysis. The information does not speak for itself.\" said Murray . Australia's Lost Giants Reading"
+          "text": "Sadly, the Earth conserves its history in a chaotic manner.Bones degrade , the land erodes, the climate changes, the mere existence of forests is uncertain , rivers change their course and the history slowly gets disguised. Sadly, the Earth conserves its history in a chaotic manner. The storys constructed from time to time have limited information. Various rock art portrayed Australia's first people. The paintings of Palorchestes, a megafauna marsupial , on rock, in far northern Australia, was examined by Peter Murray, a Paleontologist. In Western Australia another site shows what seems to be a hunter with either a marsupial lion ; in the more recent historical era, the marsupial lion went extinct as they were bigger. \"Every stage of the procedure requires analysis. The information does not speak for itself.\" said Murray ."
         }
       ],
       "groups": [
@@ -222,126 +234,85 @@
           "instruction": "The text above has six paragraphs, A-F. Which paragraphs contain the following information?",
           "questions": [
             {
-              "number": 14,
-              "prompt": "examples of the kinds of animals that did not die out as a result of hunting",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
-            },
-            {
               "number": 15,
-              "prompt": "descriptions of naturally occurring events that make the past hard to trace",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "prompt": "examples of the kinds of animals that did not die out as a result of hunting",
+              "answer": "A",
+              "explanation": "Refer to paragraph A in the passage."
             },
             {
               "number": 16,
-              "prompt": "an account of the discovery of a particular animal which had died out",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "prompt": "descriptions of naturally occurring events that make the past hard to trace",
+              "answer": "A",
+              "explanation": "Refer to paragraph A in the passage."
             },
             {
               "number": 17,
-              "prompt": "the suggestion that a procedure to uncover fossilized secrets was inappropriate",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "prompt": "an account of the discovery of a particular animal which had died out",
+              "answer": "A",
+              "explanation": "Refer to paragraph A in the passage."
             },
             {
               "number": 18,
-              "prompt": "the reason why a variety of animals all died in the same small area",
-              "answer": "F",
-              "explanation": "Refer to item F in the passage."
-            }
-          ],
-          "options": [
+              "prompt": "the suggestion that a procedure to uncover fossilized secrets was inappropriate",
+              "answer": "A",
+              "explanation": "Refer to paragraph A in the passage."
+            },
             {
-              "key": "F",
-              "text": "Which paragraphs contain the following information?"
+              "number": 19,
+              "prompt": "the reason why a variety of animals all died in the same small area",
+              "answer": "A",
+              "explanation": "Refer to paragraph A in the passage."
             }
           ]
         },
         {
-          "type": "multiple_choice",
+          "type": "choose_multiple",
           "instruction": "6 Judith Field's opponents claim that",
-          "questions": [
+          "prompt": "6 Judith Field's opponents claim that",
+          "options": [
             {
-              "number": 19,
-              "prompt": "Judith Field's opponents claim that",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "The fossils of some younger animals were found in Cuddie Springs."
-                },
-                {
-                  "key": "B",
-                  "text": "There was a long co-existence of humans and megafauna."
-                },
-                {
-                  "key": "C",
-                  "text": "The layers where fossils were found had been displaced."
-                }
-              ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "key": "A",
+              "text": "The fossils of some younger animals were found in Cuddie Springs."
             },
             {
+              "key": "B",
+              "text": "There was a long co-existence of humans and megafauna."
+            },
+            {
+              "key": "C",
+              "text": "The layers where fossils were found had been displaced."
+            },
+            {
+              "key": "D",
+              "text": "a drop in temperature"
+            },
+            {
+              "key": "E",
+              "text": "the introduction of new animal species"
+            }
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "questions": [
+            {
               "number": 20,
-              "prompt": "Judith Field claims that",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "The fossils of some younger animals were found in Cuddie Springs."
-                },
-                {
-                  "key": "B",
-                  "text": "There was a long co-existence of humans and megafauna."
-                },
-                {
-                  "key": "C",
-                  "text": "The layers where fossils were found had been displaced."
-                }
-              ],
-              "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "Refer to the passage for Question 6."
             },
             {
               "number": 21,
-              "prompt": "Which TWO of these possible reasons for Australian megafauna extinction are mentioned in",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "The fossils of some younger animals were found in Cuddie Springs."
-                },
-                {
-                  "key": "B",
-                  "text": "There was a long co-existence of humans and megafauna."
-                },
-                {
-                  "key": "C",
-                  "text": "The layers where fossils were found had been displaced."
-                }
-              ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Refer to the passage for Question 7."
             },
             {
               "number": 22,
-              "prompt": "The list below shows possible forms of proof for humans having contact with Australian",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "The fossils of some younger animals were found in Cuddie Springs."
-                },
-                {
-                  "key": "B",
-                  "text": "There was a long co-existence of humans and megafauna."
-                },
-                {
-                  "key": "C",
-                  "text": "The layers where fossils were found had been displaced."
-                }
-              ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Refer to the passage for Question 8."
+            },
+            {
+              "number": 23,
+              "explanation": "Refer to the passage for Question 9."
             }
           ]
         },
@@ -350,28 +321,28 @@
           "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
           "questions": [
             {
-              "number": 23,
-              "prompt": "There is sufficient evidence to support Tim Flannery's ideas about megafauna extinction.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
-            },
-            {
               "number": 24,
-              "prompt": "Extinct megafauna should receive more attention than the extinction of the dinosaurs.",
+              "prompt": "There is sufficient evidence to support Tim Flannery's ideas about megafauna extinction.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
               "number": 25,
-              "prompt": "The Aborigines should have found a more effective way to protest about Flannery's book.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "prompt": "Extinct megafauna should receive more attention than the extinction of the dinosaurs.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
             },
             {
               "number": 26,
+              "prompt": "The Aborigines should have found a more effective way to protest about Flannery's book.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 27,
               "prompt": "There are problems with Paul Martin's 'blitzkrieg' hypothesis for the Americas",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
             }
           ]
         }
@@ -408,56 +379,73 @@
       ],
       "groups": [
         {
-          "type": "true_false_not_given",
+          "type": "short_answer",
           "instruction": "Do the following assertions verify the data in the text?",
+          "maxWords": 2,
           "questions": [
             {
-              "number": 27,
-              "prompt": "Statement regarding Question 1.",
-              "answer": "FALSE",
-              "explanation": "."
-            },
-            {
               "number": 28,
-              "prompt": "Statement regarding Question 2.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "answer": [
+                "relaxing"
+              ],
+              "explanation": ".",
+              "prompt": "Complete the statement for question 28."
             },
             {
               "number": 29,
-              "prompt": "Statement regarding Question 3.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "answer": [
+                "might"
+              ],
+              "explanation": "Found directly in the reading passage: 'might'.",
+              "prompt": "Complete the statement for question 29."
             },
             {
               "number": 30,
-              "prompt": "Statement regarding Question 4.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "answer": [
+                "could"
+              ],
+              "explanation": "Found directly in the reading passage: 'could'.",
+              "prompt": "Complete the statement for question 30."
             },
             {
               "number": 31,
-              "prompt": "Statement regarding Question 5.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "answer": [
+                "always"
+              ],
+              "explanation": "Found directly in the reading passage: 'always'.",
+              "prompt": "Complete the statement for question 31."
             },
             {
               "number": 32,
-              "prompt": "Statement regarding Question 6.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "answer": [
+                "Daydreams"
+              ],
+              "explanation": "Found directly in the reading passage: 'Daydreams'.",
+              "prompt": "Complete the statement for question 32."
             },
             {
               "number": 33,
-              "prompt": "Statement regarding Question 7.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "answer": [
+                "daydreams"
+              ],
+              "explanation": "Found directly in the reading passage: 'daydreams'.",
+              "prompt": "Complete the statement for question 33."
             },
             {
               "number": 34,
-              "prompt": "Statement regarding Question 8.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "answer": [
+                "daydreams"
+              ],
+              "explanation": "Found directly in the reading passage: 'daydreams'.",
+              "prompt": "Complete the statement for question 34."
+            },
+            {
+              "number": 35,
+              "answer": [
+                "execute"
+              ],
+              "explanation": "Found directly in the reading passage: 'execute'.",
+              "prompt": "Complete the statement for question 35."
             }
           ]
         },
@@ -467,7 +455,7 @@
           "maxWords": 3,
           "questions": [
             {
-              "number": 35,
+              "number": 36,
               "prompt": "The areas of the brain used in daydreaming are also used for complicated 10.......",
               "answer": [
                 "better"
@@ -475,8 +463,8 @@
               "explanation": "Found directly in the reading passage: 'better'."
             },
             {
-              "number": 36,
-              "prompt": ".",
+              "number": 37,
+              "prompt": "Question 10",
               "answer": [
                 "creative"
               ],
@@ -489,80 +477,76 @@
           "instruction": "Choose the correct letter, A, B, C or D.",
           "questions": [
             {
-              "number": 37,
+              "number": 38,
               "prompt": "Daydreams are",
               "options": [
                 {
-                  "key": "C",
-                  "text": "or D."
-                },
-                {
                   "key": "A",
                   "text": "dreams that we have when we fall asleep in the daytime."
                 },
                 {
                   "key": "B",
                   "text": "about things that happened that make us sad."
-                }
-              ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
-            },
-            {
-              "number": 38,
-              "prompt": "People who daydream a lot",
-              "options": [
+                },
                 {
                   "key": "C",
-                  "text": "or D."
-                },
-                {
-                  "key": "A",
-                  "text": "dreams that we have when we fall asleep in the daytime."
-                },
-                {
-                  "key": "B",
-                  "text": "about things that happened that make us sad."
+                  "text": "often about things that we would like to happen."
                 },
                 {
                   "key": "D",
-                  "text": "Option D"
+                  "text": "activities that only a few people are able to do."
                 }
               ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             },
             {
               "number": 39,
-              "prompt": "In the nineteenth century, many people believed that daydreaming was",
+              "prompt": "People who daydream a lot",
               "options": [
                 {
-                  "key": "C",
-                  "text": "or D."
-                },
-                {
                   "key": "A",
-                  "text": "dreams that we have when we fall asleep in the daytime."
+                  "text": "usually have creative jobs."
                 },
                 {
                   "key": "B",
-                  "text": "about things that happened that make us sad."
+                  "text": "are much happier than other people."
+                },
+                {
+                  "key": "C",
+                  "text": "are less intelligent than other people."
+                },
+                {
+                  "key": "D",
+                  "text": "do not have as many friends as other people."
                 }
               ],
-              "answer": "B",
-              "explanation": "Option B is correct based on the passage."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
             {
               "number": 40,
-              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
+              "prompt": "In the nineteenth century, many people believed that daydreaming was",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "helpful in factory work."
+                },
+                {
+                  "key": "B",
+                  "text": "A way of avoiding work."
+                },
+                {
+                  "key": "C",
+                  "text": "something that few people did."
+                },
+                {
+                  "key": "D",
+                  "text": "a healthy activity."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             }
           ]
         }

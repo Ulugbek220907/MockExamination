@@ -15,54 +15,57 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "BAKELITE - The birth of modern plastics reading passage"
+          "text": "The Bakelite Reading Answers can be solved after reading the given passage carefully."
         },
         {
-          "label": "A",
+          "label": null,
+          "text": "BAKELITE - The birth of modern plastics"
+        },
+        {
+          "label": null,
           "text": "In 1907, a Belgian scientist named Leo Hendrick Baekeland working in New York, discovered and patented a new revolutionary synthetic substance. His invention, which he named 'Bakelite', was of great technological importance, and led to the launch of the modern plastic industry."
         },
         {
-          "label": "B",
+          "label": null,
           "text": "The word 'plastic' originated from the Greek word plassein, which means 'to mould'. Plastics can be derived from natural sources. Some plastics are semi-synthetic which is a result of chemical action on a natural substance. Some types of plastics are entirely synthetic, i.e., chemically engineered from the components of coal or oil. Plastics have 'thermoplastic' behaviour, which means that it melts when heated and can then be reshaped like candle wax. Few others have 'thermosetting' characteristics like eggs. They cannot go back to their original state, and its shape does not change forever. Bakelite became the first totally synthetic thermosetting plastic."
         },
         {
-          "label": "C",
+          "label": null,
           "text": "The history of today's plastics dates back to the mid 19th century with the discovery of a series of semi-synthetic thermoplastic materials. The need for the development of these early plastics was due to many factors like immense technological progress in the domain of chemistry, along with wider cultural changes, and the practical requirements to discover suitable substitutes for decreasing supplies of luxury items like tortoiseshell and ivory."
         },
         {
-          "label": "D",
+          "label": null,
           "text": "Baekeland was interested in plastics from 1885. As a young chemistry student in Belgium, he started his research on phenolic resins - a group of sticky substances produced when phenol (carbolic acid) combines with an aldehyde (a volatile fluid similar to alcohol). He then stopped the subject, however, only returning to it some years later. He became a wealthy New Yorker by 1905, after he made his fortune with the invention of a new photographic paper. While Baekeland had been busy making money, some innovations had been made to develop plastics. The first semi-synthetic thermosetting material was patented during 1899 and 1900 which could be made on an industrial scale. In scientific terms, Baekeland's work in this field does not contribute so much to the actual discovery of the material to which he gave his name, but rather the way in which the reaction between phenol and formaldehyde could be controlled, to make its preparation possible on an industrial level. Baekeland took out his famous patent with the preparation and the essential features on 13 July 1907, which are still in use today."
         },
         {
-          "label": "E",
+          "label": null,
           "text": "The original patent was a process that had 3 stages, where phenol and formaldehyde (from wood or coal) were first mixed inside vacuum in a large round kettle. A resin was formed from it known as Novalak, which becomes soluble and malleable when heated. Then the resin was let to cool in small trays until it became hard, and then was smashed and ground into powder. Other substances (fillers) like wood flour, asbestos or cotton were introduced, which increase strength and moisture resistance, catalysts and hexa (a compound of ammonia and formaldehyde which supplied the additional formaldehyde necessary to form a thermosetting resin). The resin was then given time to cool and harden and is again powered for a second time. This granular powder is the raw Bakelite, which can be made into numerous types of solid objects. In the final stage, the Bakelite is heated and poured into a hollow mould with the required shape and is exposed to extreme heat and pressure; and setting its form forever."
         },
         {
-          "label": "F",
-          "text": " From chairs to TV sets the design of Bakelite objects was governed to a large extent by the technical needs of the moulding process. The object cannot be designed so that it was locked into the mould and was tough to extract. A common rule was that objects should move towards the deepest part of the mould, and if necessary, the piece was moulded as separate pieces. Moulds should be carefully designed so that the molten Bakelite could flow properly and evenly into the shape. Sharp corners were not practical so it had to be removed, giving rise to the smooth, 'streamlined' style which was popular in the 1930s. Thick walls take longer to cool and harden. The thickness of the walls of the mould was very crucial - a factor which had to be taken into consideration by the designer to make the most out of the machines."
+          "label": null,
+          "text": "From chairs to TV sets the design of Bakelite objects was governed to a large extent by the technical needs of the moulding process. The object cannot be designed so that it was locked into the mould and was tough to extract. A common rule was that objects should move towards the deepest part of the mould, and if necessary, the piece was moulded as separate pieces. Moulds should be carefully designed so that the molten Bakelite could flow properly and evenly into the shape. Sharp corners were not practical so it had to be removed, giving rise to the smooth, 'streamlined' style which was popular in the 1930s. Thick walls take longer to cool and harden. The thickness of the walls of the mould was very crucial - a factor which had to be taken into consideration by the designer to make the most out of the machines."
         },
         {
-          "label": "G",
+          "label": null,
           "text": "Baekeland's invention was treated with arrogance by the public in the early years. But it gained unmatched popularity which lasted throughout the first half of the 20th century. It became a spectacular invention for the industrial expansion of the new world. It was described as a material of a thousand uses. Bakelite being non-porous and heat-resistant, was used to manufacture kitchen goods and were advertised as being sterilisable and germ-free. Electrical manufacturers caught on to its electricity insulating properties, and people admired its bright shades of colours, at last, delighted that they are no longer restricted to the wood tones and dark brown colours of the preplastic era. In the 1950s it then became unpopular and was neglected and destroyed in large quantities. Recently, it again gained popularity with more requirements for original Bakelite products in the collectors' marketplace, and museums, societies. People once again appreciated the style and originality of this innovative material."
         }
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "type": "summary_completion",
+          "instruction": "Complete the sentences below. Choose NO MORE THAN THREE WORDS AND/OR A NUMBERS from the passage for each",
+          "content": "{{1}} The history of today's plastics dates back to the mid ________ with the discovery of a series of semi-synthetic thermoplastic materials. {{2}} In 1907, a Belgian scientist named _________ working in New York, discovered and patented a new revolutionary synthetic substance. {{3}} The word 'plastic' originated from the Greek word ________, which means 'to mould'. {{4}} A resin was formed from it known as ________, which becomes soluble and malleable when heated. {{5}} Bakelite being ________ and heat-resistant, was used to manufacture kitchen goods and were advertised as being sterilisable and germ-free.",
           "maxWords": 3,
           "questions": [
             {
               "number": 1,
-              "prompt": "The history of today's plastics dates back to the mid ________ with the discovery of a series",
               "answer": [
-                "scientist"
+                "passage"
               ],
-              "explanation": "Found directly in the reading passage: 'scientist'."
+              "explanation": "Found directly in the reading passage: 'passage'."
             },
             {
               "number": 2,
-              "prompt": "In 1907, a Belgian scientist named _________ working in New York, discovered and patented",
               "answer": [
                 "synthetic"
               ],
@@ -70,7 +73,6 @@
             },
             {
               "number": 3,
-              "prompt": "The word 'plastic' originated from the Greek word ________, which means 'to mould'.",
               "answer": [
                 "chemistry"
               ],
@@ -78,7 +80,6 @@
             },
             {
               "number": 4,
-              "prompt": "A resin was formed from it known as ________, which becomes soluble and malleable when",
               "answer": [
                 "novalak"
               ],
@@ -86,7 +87,6 @@
             },
             {
               "number": 5,
-              "prompt": "Bakelite being ________ and heat-resistant, was used to manufacture kitchen goods and",
               "answer": [
                 "fillers"
               ],
@@ -132,32 +132,40 @@
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS AND/ OR A NUMBER from the passage for each",
           "maxWords": 2,
           "questions": [
             {
               "number": 11,
-              "prompt": "_______ is a compound of ammonia and formaldehyde.",
               "answer": [
-                "domain"
+                "early"
               ],
-              "explanation": "Found directly in the reading passage: 'domain'."
+              "explanation": "Found directly in the reading passage: 'early'.",
+              "prompt": "Complete the statement for question 11."
             },
             {
               "number": 12,
-              "prompt": "Synthetic plastics can be made from ________ or oil.",
               "answer": [
-                "suitable"
+                "along"
               ],
-              "explanation": "Found directly in the reading passage: 'suitable'."
+              "explanation": "Found directly in the reading passage: 'along'.",
+              "prompt": "Complete the statement for question 12."
             },
             {
               "number": 13,
-              "prompt": "Bakelite had electricity ________ properties.",
               "answer": [
-                "Baekeland"
+                "substitutes"
               ],
-              "explanation": "Found directly in the reading passage: 'Baekeland'."
+              "explanation": "Found directly in the reading passage: 'substitutes'.",
+              "prompt": "Complete the statement for question 13."
+            },
+            {
+              "number": 14,
+              "answer": [
+                "interested"
+              ],
+              "explanation": "Found directly in the reading passage: 'interested'.",
+              "prompt": "Complete the statement for question 14."
             }
           ]
         }
@@ -169,61 +177,69 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Cork - the thick bark of the cork oak tree (Quercus suber) - is a remarkable material. It is tough, elastic, buoyant, and fire-resistant, and suitable for a wide range of purposes. It has also been used for millennia: the ancient Egyptians sealed then sarcophagi (stone coffins) with cork, while the ancient Greeks and Romans used it for anything from beehives to sandals. And the cork oak itself is an extraordinary tree. Its bark grows up to 20 cm in thickness, insulating the tree like a coat wrapped around the trunk and branches and keeping the inside at a constant 20°C all year round. Developed most probably as a defence against forest fires, the bark of the cork oak has a particular cellular structure - with about 40 million cells per cubic centimetre - that technology has never succeeded in"
+          "text": "Read the following cork reading passage carefully and answer the questions. And, check your solutions with cork reading answer key."
         },
         {
           "label": null,
-          "text": "replicating. The cells are filled with air, which is why cork is so buoyant. It also has an elasticity that means you can squash it and watch it spring back to its original size and shape when you release the pressure. Cork oaks grow in a number of Mediterranean countries, including Portugal, Spain, Italy, Greece and Morocco. They flourish in warm, sunny climates where there is a minimum of 400 millimetres of rain per year, and no more than 800 millimetres. Like grape vines, the trees thrive in poor soil, putting down deep root in search of moisture and nutrients. Southern Portugal's Alentejo region meets all of these requirements, which explains why, by the early 20th century, this region had become the world's largest producer of cork, and why today it accounts for roughly half of all cork production around"
+          "text": "Cork - the thick bark of the cork oak tree (Quercus suber) - is a remarkable material. It is tough, elastic, buoyant, and fire-resistant, and suitable for a wide range of purposes. It has also been used for millennia: the ancient Egyptians sealed then sarcophagi (stone coffins) with cork, while the ancient Greeks and Romans used it for anything from beehives to sandals."
         },
         {
           "label": null,
-          "text": "the world. Most cork forests are family-owned. Many of these family businesses, and indeed many of the trees themselves, are around 200 years old. Cork production is, above all, an exercise in patience. From the planting of a cork sapling to the first harvest takes 25 years, and a gap of approximately a decade must separate harvests from an individual tree. And for top-quality cork, it's necessary to wait a further 15 or 20 years. You even have to wait for the right kind of summer's day to harvest cork. If the bark is stripped on a day when it's too cold - or when the air is damp - the tree will be damaged. Cork harvesting is a very specialised profession. No mechanical means of stripping cork bark has been invented, so the job is done by teams of"
+          "text": "And the cork oak itself is an extraordinary tree. Its bark grows up to 20 cm in thickness, insulating the tree like a coat wrapped around the trunk and branches and keeping the inside at a constant 20°C all year round. Developed most probably as a defence against forest fires, the bark of the cork oak has a particular cellular structure - with about 40 million cells per cubic centimetre - that technology has never succeeded in replicating. The cells are filled with air, which is why cork is so buoyant. It also has an elasticity that means you can squash it and watch it spring back to its original size and shape when you release the pressure."
         },
         {
           "label": null,
-          "text": "highly skilled workers. First, they make vertical cuts down the bark using small sharp axes, then lever it away in pieces as large as they can manage. The most skilful cork- strippers prise away a semi-circular husk that runs the length of the trunk from just above ground level to the first branches. It is then dried on the ground for about four months, before being taken to factories, where it is boiled to kill any insects that might remain in the cork. Over 60% of cork then goes on to be made into traditional bottle stoppers, with most of the remainder being used in the construction trade, Corkboard and cork tiles are ideal for thermal and acoustic insulation, while granules of cork are used in the manufacture of concrete. Recent years have seen the end of the virtual monopoly"
+          "text": "Cork oaks grow in a number of Mediterranean countries, including Portugal, Spain, Italy, Greece and Morocco. They flourish in warm, sunny climates where there is a minimum of 400 millimetres of rain per year, and no more than 800 millimetres. Like grape vines, the trees thrive in poor soil, putting down deep root in search of moisture and nutrients. Southern Portugal's Alentejo region meets all of these requirements, which explains why, by the early 20th century, this region had become the world's largest producer of cork, and why today it accounts for roughly half of all cork production around the world."
         },
         {
           "label": null,
-          "text": "of cork as the material for bottle stoppers, due to concerns about the effect it may have on the contents of the bottle. This is caused by a chemical compound called 2,4,6-trichloroanisole (TCA), which forms through the interaction of plant phenols, chlorine and mould. The tiniest concentrations - as little as three or four parts to a trillion - can spoil the taste of the product contained in the bottle. The result has been a gradual yet steady move first towards plastic stoppers and, more recently, to aluminium screw caps. These substitutes are cheaper to manufacture and, in the case of screw caps, more convenient for the user. The classic cork stopper does have several advantages, however. Firstly, its traditional image is more in keeping with that of the type of high quality goods with which it has long been"
+          "text": "Most cork forests are family-owned. Many of these family businesses, and indeed many of the trees themselves, are around 200 years old. Cork production is, above all, an exercise in patience. From the planting of a cork sapling to the first harvest takes 25 years, and a gap of approximately a decade must separate harvests from an individual tree. And for top-quality cork, it's necessary to wait a further 15 or 20 years. You even have to wait for the right kind of summer's day to harvest cork. If the bark is stripped on a day when it's too cold - or when the air is damp - the tree will be damaged."
         },
         {
           "label": null,
-          "text": "associated. Secondly - and very importantly - cork is a sustainable product that can be recycled without difficulty. Moreover, cork forests are a resource which support local biodiversity, and prevent desertification in the regions where they are planted. So, given the current concerns about environmental issues, the future of this ancient material once again looks promising."
+          "text": "Cork harvesting is a very specialised profession. No mechanical means of stripping cork bark has been invented, so the job is done by teams of highly skilled workers. First, they make vertical cuts down the bark using small sharp axes, then lever it away in pieces as large as they can manage. The most skilful cork- strippers prise away a semi-circular husk that runs the length of the trunk from just above ground level to the first branches. It is then dried on the ground for about four months, before being taken to factories, where it is boiled to kill any insects that might remain in the cork. Over 60% of cork then goes on to be made into traditional bottle stoppers, with most of the remainder being used in the construction trade, Corkboard and cork tiles are ideal for thermal and acoustic insulation, while granules of cork are used in the manufacture of concrete."
+        },
+        {
+          "label": null,
+          "text": "Recent years have seen the end of the virtual monopoly of cork as the material for bottle stoppers, due to concerns about the effect it may have on the contents of the bottle. This is caused by a chemical compound called 2,4,6-trichloroanisole (TCA), which forms through the interaction of plant phenols, chlorine and mould. The tiniest concentrations - as little as three or four parts to a trillion - can spoil the taste of the product contained in the bottle. The result has been a gradual yet steady move first towards plastic stoppers and, more recently, to aluminium screw caps. These substitutes are cheaper to manufacture and, in the case of screw caps, more convenient for the user."
+        },
+        {
+          "label": null,
+          "text": "The classic cork stopper does have several advantages, however. Firstly, its traditional image is more in keeping with that of the type of high quality goods with which it has long been associated. Secondly - and very importantly - cork is a sustainable product that can be recycled without difficulty. Moreover, cork forests are a resource which support local biodiversity, and prevent desertification in the regions where they are planted. So, given the current concerns about environmental issues, the future of this ancient material once again looks promising."
         }
       ],
       "groups": [
         {
           "type": "true_false_not_given",
-          "instruction": "( True False Not Given ) Do the following statements agree with the information given in Reading Passage?",
+          "instruction": "Do the following statements agree with the information given in Reading Passage? For Questions 15-19 on your answer sheet, write",
           "questions": [
             {
-              "number": 14,
-              "prompt": "Statement regarding Question 1.",
+              "number": 15,
+              "prompt": "The cork oak has the thickest bark of any living tree.",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
-              "number": 15,
-              "prompt": "Statement regarding Question 2.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
-            },
-            {
               "number": 16,
-              "prompt": "Statement regarding Question 3.",
+              "prompt": "Scientists have developed a synthetic cork with the same cellular structure as natural cork.",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
             },
             {
               "number": 17,
-              "prompt": "Statement regarding Question 4.",
+              "prompt": "Individual cork oak trees must be left for 25 years between the first and second harvest.",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            },
+            {
+              "number": 18,
+              "prompt": "Cork bark should be stripped in dry atmospheric conditions.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
-              "number": 18,
-              "prompt": "Statement regarding Question 5.",
+              "number": 19,
+              "prompt": "The only way to remove the bark from cork oak trees is by hand.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             }
@@ -235,15 +251,15 @@
           "maxWords": 1,
           "questions": [
             {
-              "number": 19,
+              "number": 20,
               "prompt": "Question 6",
               "answer": [
-                "filled"
+                "about"
               ],
-              "explanation": "Found directly in the reading passage: 'filled'."
+              "explanation": "Found directly in the reading passage: 'about'."
             },
             {
-              "number": 20,
+              "number": 21,
               "prompt": "Question 7",
               "answer": [
                 "cheaper"
@@ -251,7 +267,7 @@
               "explanation": "Found directly in the reading passage: 'cheaper'."
             },
             {
-              "number": 21,
+              "number": 22,
               "prompt": "Question 8",
               "answer": [
                 "convenient"
@@ -259,7 +275,7 @@
               "explanation": "Found directly in the reading passage: 'convenient'."
             },
             {
-              "number": 22,
+              "number": 23,
               "prompt": "Question 9",
               "answer": [
                 "image"
@@ -267,7 +283,7 @@
               "explanation": "Found directly in the reading passage: 'image'."
             },
             {
-              "number": 23,
+              "number": 24,
               "prompt": "Question 10",
               "answer": [
                 "sustainable"
@@ -275,7 +291,7 @@
               "explanation": "Found directly in the reading passage: 'sustainable'."
             },
             {
-              "number": 24,
+              "number": 25,
               "prompt": "Question 11",
               "answer": [
                 "recycled"
@@ -283,7 +299,7 @@
               "explanation": "Found directly in the reading passage: 'recycled'."
             },
             {
-              "number": 25,
+              "number": 26,
               "prompt": "Question 12",
               "answer": [
                 "biodiversity"
@@ -291,7 +307,7 @@
               "explanation": "s. At the end of the section, you can get the solutions for reading passage 2, collecting as a hobby and reading passage 3, what's the purpose of gaining knowledge."
             },
             {
-              "number": 26,
+              "number": 27,
               "prompt": "Question 13",
               "answer": [
                 "desertification"
@@ -304,62 +320,60 @@
     },
     {
       "passageNumber": 3,
-      "title": "Johnson's dictionary",
+      "title": "Johnson's dictionary reading answers - Cambridge 5 Test 1",
       "paragraphs": [
         {
           "label": null,
-          "text": "The \"Johnson Dictionary\" was published in 1775, the century before. There was consideration about the quality of the English language. There is no typical way to speak or write and there is no deal on the best way to bring some order to the confusion of English spelling. Dr. Johnson provided the solution. In the past, of course, there have been dictionaries, the first of which was a small book of about 120 pages, collected by a particular Robert Cawdray and published in 1604 under the title A Table Alphabet! Hard regular English words. Similar to the different dictionaries that came after it in the seventeenth century, Cowdrey also sought to focus on the words 'scholar', a function of which is to convey to its student a better sense of learning. Beyond the practical need to create order out of"
+          "text": "Johnson's dictionary The \"Johnson Dictionary\" was published in 1775, the century before. There was consideration about the quality of the English language. There is no typical way to speak or write and there is no deal on the best way to bring some order to the confusion of English spelling. Dr. Johnson provided the solution. In the past, of course, there have been dictionaries, the first of which was a small book of about 120 pages, collected by a particular Robert Cawdray and published in 1604 under the title A Table Alphabet! Hard regular English words. Similar to the different dictionaries that came after it in the seventeenth century, Cowdrey also sought to focus on the words 'scholar', a function of which is to convey to its student a better sense of learning. Beyond the practical need to create order"
         },
         {
           "label": null,
-          "text": "confusion, the rise of dictionaries was associated with the rise of the English middle class, who defined different worlds and were eager to capture vocabulary and social and business. It is fitting that Dr. Samuel Johnson, a model of the eighteenth-century literary figure as famous as he was in our time, published his dictionary at the very start of the heyday of the middle class. Johnson was a poet and critic who elevated public knowledge to the pinnacle of genius. His strategy to the problems that plagued writers in the late seventeenth and early eighteenth centuries was an intense practice. Until his time, without the establishment of an academy, the mission of creating such a large-scale dictionary seemed unthinkable, and he wrote that it did not require an academy to settle arguments about the Johnson language to make decisions about"
+          "text": "out of confusion, the rise of dictionaries was associated with the rise of the English middle class, who defined different worlds and were eager to capture vocabulary and social and business. It is fitting that Dr. Samuel Johnson, a model of the eighteenth-century literary figure as famous as he was in our time, published his dictionary at the very start of the heyday of the middle class. Johnson was a poet and critic who elevated public knowledge to the pinnacle of genius. His strategy to the problems that plagued writers in the late seventeenth and early eighteenth centuries was an intense practice. Until his time, without the establishment of an academy, the mission of creating such a large-scale dictionary seemed unthinkable, and he wrote that it did not require an academy to settle arguments about the Johnson language to make"
         },
         {
           "label": null,
-          "text": "right and wrong use. A dictionary itself, he will do it with one hand. On June 18, 1764, Johnson signed a dictionary agreement with Robert Dosley, a bookseller, for breakfast at the Golden Anchor Hotel near Holbom Bar. He was to spend 1.575 in installments, from which he rented 17 Gough Square, in which he arranged his 'dictionary workshop'. James Boswell, his biographer, told the garret on which Johnson worked as 'fitted like a counting house', with a lengthy desk operating in the middle at which the copying clerks would work standing up. Johnson was in a bitter chair at an 'old crazy deal table', surrounded by a mess of borrowed books. He was assisted by six assistants, two of whom died while preparing the dictionary. The task of filling about eighty large notebooks is enormous. Johnson wrote definitions of"
+          "text": "decisions about right and wrong use. A dictionary itself, he will do it with one hand. On June 18, 1764, Johnson signed a dictionary agreement with Robert Dosley, a bookseller, for breakfast at the Golden Anchor Hotel near Holbom Bar. He was to spend 1.575 in installments, from which he rented 17 Gough Square, in which he arranged his 'dictionary workshop'. James Boswell, his biographer, told the garret on which Johnson worked as 'fitted like a counting house', with a lengthy desk operating in the middle at which the copying clerks would work standing up. Johnson was in a bitter chair at an 'old crazy deal table', surrounded by a mess of borrowed books. He was assisted by six assistants, two of whom died while preparing the dictionary. The task of filling about eighty large notebooks is enormous. Johnson wrote"
         },
         {
           "label": null,
-          "text": "more than 40,000 words and explained their various meanings with 14.000 quotations taken from the English alphabet in each subject from Elizabeth to his time. He did not wish to reach full originality. Working within a time frame, he had to draw the best of all previous dictionaries and turn his work into a courageous collection. In fact, it was too much. Unlike his predecessors, Johnson treated English as a very practical, living language, with many various meanings. He accepted his definitions in the policy of English public law by example. After its publication, his dictionary did not compete vigorously for more than a century. After many difficulties, the dictionary was ultimately published on 15 April 1775. It was immediately admitted as a symbol throughout Europe. This is a very classic task. The author of the leading Italian dictionary wrote,"
+          "text": "definitions of more than 40,000 words and explained their various meanings with 14.000 quotations taken from the English alphabet in each subject from Elizabeth to his time. He did not wish to reach full originality. Working within a time frame, he had to draw the best of all previous dictionaries and turn his work into a courageous collection. In fact, it was too much. Unlike his predecessors, Johnson treated English as a very practical, living language, with many various meanings. He accepted his definitions in the policy of English public law by example. After its publication, his dictionary did not compete vigorously for more than a century. After many difficulties, the dictionary was ultimately published on 15 April 1775. It was immediately admitted as a symbol throughout Europe. This is a very classic task. The author of the leading Italian"
         },
         {
           "label": null,
-          "text": "'It will be a lasting memorial to the author, especially a tribute to his own country, and a known advantage to the Republic of Letters throughout Europe.' The fact that Johnson took the academies of Europe and fitted them in (it took forty years for forty French scholars to create the first French national dictionary) was the reason for the English celebration. Johnson worked for nine years. 'With little help from the learned, and without the support of the elders, not in the gentle gloom of retirement or in the shelter of the learned, but in the midst of trouble and distraction, in sickness and sorrow'. For all its flaws and peculiarities, his two-volume work is a masterpiece and a symbol, in his own words, 'setting letters, showing analogy, arranging structures and identifying the identities of English words'. It is"
+          "text": "dictionary wrote, 'It will be a lasting memorial to the author, especially a tribute to his own country, and a known advantage to the Republic of Letters throughout Europe.' The fact that Johnson took the academies of Europe and fitted them in (it took forty years for forty French scholars to create the first French national dictionary) was the reason for the English celebration. Johnson worked for nine years. 'With little help from the learned, and without the support of the elders, not in the gentle gloom of retirement or in the shelter of the learned, but in the midst of trouble and distraction, in sickness and sorrow'. For all its flaws and peculiarities, his two-volume work is a masterpiece and a symbol, in his own words, 'setting letters, showing analogy, arranging structures and identifying the identities of English words'."
         },
         {
           "label": null,
-          "text": "the cornerstone of standard English, an accomplishment that, in the words of James Boswell, 'gave strength to the language of his country'. The dictionary, along with his other writings, made Johnson famous and his friends were able to win over George III to retire him. Since then, he has been a Johnson of folk tales."
+          "text": "It is the cornerstone of standard English, an accomplishment that, in the words of James Boswell, 'gave strength to the language of his country'. The dictionary, along with his other writings, made Johnson famous and his friends were able to win over George III to retire him. Since then, he has been a Johnson of folk tales."
         }
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Write NO MORE THAN THREE WORDS on your answer sheet from the passage for each",
+          "content": "Complete the summary below.\nWrite NO MORE THAN THREE WORDS on your answer sheet from the passage for each\nanswer.\nEarlier dictionaries were small books of about {{28}} pages. And it was published in 1604\nunder the title {{29}} . Different dictionaries that came after it in the {{30}} century,",
           "maxWords": 3,
           "questions": [
             {
-              "number": 27,
-              "prompt": "_________ pages. And it was published in 1604",
-              "answer": [
-                "There"
-              ],
-              "explanation": "Found directly in the reading passage: 'There'."
-            },
-            {
               "number": 28,
-              "prompt": "________________. Different dictionaries that came after it in the 3",
               "answer": [
-                "confusion"
+                "English"
               ],
-              "explanation": "Found directly in the reading passage: 'confusion'."
+              "explanation": "Found directly in the reading passage: 'English'."
             },
             {
               "number": 29,
-              "prompt": "______________ century,",
               "answer": [
-                "small"
+                "order"
               ],
-              "explanation": "Found directly in the reading passage: 'small'."
+              "explanation": "Found directly in the reading passage: 'order'."
+            },
+            {
+              "number": 30,
+              "answer": [
+                "which"
+              ],
+              "explanation": "Found directly in the reading passage: 'which'."
             }
           ]
         },
@@ -368,25 +382,25 @@
           "instruction": "Do the following statements agree with the information given in the reading passage? Write any one of the below option on your answer sheet",
           "questions": [
             {
-              "number": 30,
+              "number": 31,
               "prompt": "Johnson's strategy to the problems that plagued writers in the late sixteenth and early",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
-              "number": 31,
+              "number": 32,
               "prompt": "The mission of creating such a large-scale dictionary seemed impossible, until Johnson's",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
-              "number": 32,
+              "number": 33,
               "prompt": "Johnson thought about completing his dictionary for many years.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
-              "number": 33,
+              "number": 34,
               "prompt": "Johnson was assisted by six assistants, two of whom died while preparing the dictionary.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
@@ -394,56 +408,74 @@
           ]
         },
         {
-          "type": "true_false_not_given",
+          "type": "matching_sentence_endings",
           "instruction": "Complete each sentence with the correct ending, A-G, below. Write the correct letter, A-G, as your answer on your answer sheet to each question.",
-          "questions": [
+          "options": [
             {
-              "number": 34,
-              "prompt": "Johnson was a poet and critic who elevated public knowledge",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "key": "A",
+              "text": "made Johnson famous"
             },
             {
+              "key": "B",
+              "text": "into a courageous collection"
+            },
+            {
+              "key": "C",
+              "text": "arranging structures"
+            },
+            {
+              "key": "D",
+              "text": "reason for the English celebration"
+            },
+            {
+              "key": "E",
+              "text": "make decisions about right and wrong use"
+            },
+            {
+              "key": "F",
+              "text": "with many various meanings"
+            },
+            {
+              "key": "G",
+              "text": "to the pinnacle of genius"
+            }
+          ],
+          "questions": [
+            {
               "number": 35,
-              "prompt": "Johnson wrote that it did not require an academy to settle arguments about the Johnson",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "prompt": "Johnson was a poet and critic who elevated public knowledge",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
             },
             {
               "number": 36,
-              "prompt": "Johnson had to draw the best of all previous dictionaries and turn his work",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "prompt": "Johnson wrote that it did not require an academy to settle arguments about the Johnson",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
             },
             {
               "number": 37,
-              "prompt": "Johnson treated English as a very practical, living language,",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "prompt": "Johnson had to draw the best of all previous dictionaries and turn his work",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
             },
             {
               "number": 38,
-              "prompt": "The fact that Johnson took the academies of Europe and fitted them in, was the",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "prompt": "Johnson treated English as a very practical, living language,",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
             },
             {
               "number": 39,
-              "prompt": "The dictionary, along with his other writings,",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
+              "prompt": "The fact that Johnson took the academies of Europe and fitted them in, was the",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
             {
               "number": 40,
-              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
+              "prompt": "The dictionary, along with his other writings,",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
             }
           ]
         }

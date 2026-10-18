@@ -11,8 +11,12 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Music and the emotions",
+      "title": "Reading Passage 46",
       "paragraphs": [
+        {
+          "label": null,
+          "text": "Music and the emotions"
+        },
         {
           "label": "A",
           "text": "- Why does music make us feel? On the one hand, music is a purely abstract art form, devoid of language or explicit ideas. And yet, even though music says little, it still manages to touch us deeply. When listening to our favorite songs, our body betrays all the symptoms of emotional arousal. The pupils in our eyes dilate, our pulse and blood pressure rise, the electrical conductance of our skin is lowered, and the cerebellum, a brain region associated with bodily movement, becomes strangely active. Blood is even re-directed to the muscles in our legs. In other words, sound stirs us at our biological roots."
@@ -41,48 +45,48 @@
       "groups": [
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 1,
-              "prompt": "- 31) on your answer sheet.",
               "answer": [
                 "dopamine"
               ],
-              "explanation": "s section provided below."
+              "explanation": "s section provided below.",
+              "prompt": "Complete the statement for question 1."
             },
             {
               "number": 2,
-              "prompt": "______________. Researchers also observed that the neurons in the area of the",
               "answer": [
                 "pleasure"
               ],
-              "explanation": "Found directly in the reading passage: 'pleasure'."
+              "explanation": "Found directly in the reading passage: 'pleasure'.",
+              "prompt": "Complete the statement for question 2."
             },
             {
               "number": 3,
-              "prompt": "______________. were particularly active just before the",
               "answer": [
                 "caudate"
               ],
-              "explanation": "Found directly in the reading passage: 'caudate'."
+              "explanation": "Found directly in the reading passage: 'caudate'.",
+              "prompt": "Complete the statement for question 3."
             },
             {
               "number": 4,
-              "prompt": "____________. Activity in this part of the brain is associated with the expectation of",
               "answer": [
                 "anticipatory phase"
               ],
-              "explanation": "Found directly in the reading passage: 'anticipatory phase'."
+              "explanation": "Found directly in the reading passage: 'anticipatory phase'.",
+              "prompt": "Complete the statement for question 4."
             },
             {
               "number": 5,
-              "prompt": "_______________.",
               "answer": [
                 "food"
               ],
-              "explanation": "Found directly in the reading passage: 'food'."
+              "explanation": "Found directly in the reading passage: 'food'.",
+              "prompt": "Complete the statement for question 5."
             }
           ]
         },
@@ -92,12 +96,8 @@
           "questions": [
             {
               "number": 6,
-              "prompt": "- 36) on your answer sheet.",
+              "prompt": "What point does the writer emphasize in the first paragraph?",
               "options": [
-                {
-                  "key": "C",
-                  "text": "or D."
-                },
                 {
                   "key": "A",
                   "text": "how dramatically our reactions to music can vary"
@@ -105,6 +105,14 @@
                 {
                   "key": "B",
                   "text": "how intense our physical responses to music can be"
+                },
+                {
+                  "key": "C",
+                  "text": "how little we know about the way that music affects us"
+                },
+                {
+                  "key": "D",
+                  "text": "how much music can tell us about how our brains operate"
                 }
               ],
               "answer": "B",
@@ -115,16 +123,20 @@
               "prompt": "What view of the Montreal study does the writer express in the second",
               "options": [
                 {
-                  "key": "C",
-                  "text": "or D."
-                },
-                {
                   "key": "A",
-                  "text": "how dramatically our reactions to music can vary"
+                  "text": "Its aims were innovative."
                 },
                 {
                   "key": "B",
-                  "text": "how intense our physical responses to music can be"
+                  "text": "The approach was too simplistic."
+                },
+                {
+                  "key": "C",
+                  "text": "It produced some remarkably precise data."
+                },
+                {
+                  "key": "D",
+                  "text": "The technology used was unnecessarily complex."
                 }
               ],
               "answer": "C",
@@ -135,16 +147,20 @@
               "prompt": "What does the writer find interesting about the results of the Montreal study?",
               "options": [
                 {
-                  "key": "C",
-                  "text": "or D."
-                },
-                {
                   "key": "A",
-                  "text": "how dramatically our reactions to music can vary"
+                  "text": "the timing of participants' neural responses to the music"
                 },
                 {
                   "key": "B",
-                  "text": "how intense our physical responses to music can be"
+                  "text": "the impact of the music on participants' emotional state"
+                },
+                {
+                  "key": "C",
+                  "text": "the section of participants' brains which was activated by the music"
+                },
+                {
+                  "key": "D",
+                  "text": "the type of music which had the strongest effect on participants' brains"
                 }
               ],
               "answer": "A",
@@ -155,16 +171,20 @@
               "prompt": "Why does the writer refer to Meyer's work on music and emotion?",
               "options": [
                 {
-                  "key": "C",
-                  "text": "or D."
-                },
-                {
                   "key": "A",
-                  "text": "how dramatically our reactions to music can vary"
+                  "text": "to propose an original theory about the subject"
                 },
                 {
                   "key": "B",
-                  "text": "how intense our physical responses to music can be"
+                  "text": "to offer support for the findings of the Montreal study"
+                },
+                {
+                  "key": "C",
+                  "text": "to recommend the need for further research into the subject"
+                },
+                {
+                  "key": "D",
+                  "text": "to present a view which opposes that of the Montreal researchers"
                 }
               ],
               "answer": "B",
@@ -175,20 +195,20 @@
               "prompt": "According to Leonard Meyer, what causes the listener's emotional response to",
               "options": [
                 {
-                  "key": "C",
-                  "text": "or D."
-                },
-                {
                   "key": "A",
-                  "text": "how dramatically our reactions to music can vary"
+                  "text": "the way that the music evokes poignant memories in the listener"
                 },
                 {
                   "key": "B",
-                  "text": "how intense our physical responses to music can be"
+                  "text": "the association of certain musical chords with certain feelings"
+                },
+                {
+                  "key": "C",
+                  "text": "the listener's sympathy with the composer's intentions"
                 },
                 {
                   "key": "D",
-                  "text": "Option D"
+                  "text": "the internal structure of the musical composition"
                 }
               ],
               "answer": "D",
@@ -197,33 +217,58 @@
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
-          "maxWords": 2,
+          "type": "matching_sentence_endings",
+          "instruction": "Complete each sentence with the correct ending, A-F, below. Write the correct letter, A-F, for the Questions 11-14 on your answer sheet.",
+          "options": [
+            {
+              "key": "A",
+              "text": "our response to music depends on our initial emotional state."
+            },
+            {
+              "key": "B",
+              "text": "neuron activity decreases if outcomes become predictable."
+            },
+            {
+              "key": "C",
+              "text": "emotive music can bring to mind actual pictures and events."
+            },
+            {
+              "key": "D",
+              "text": "experiences on our past can influence our emotional reaction to music."
+            },
+            {
+              "key": "E",
+              "text": "emotive music delays giving listeners what they expect to hear."
+            },
+            {
+              "key": "F",
+              "text": "neuron activity increases prior to key points in a musical piece."
+            }
+          ],
           "questions": [
             {
               "number": 11,
-              "prompt": "Question 37",
-              "answer": [
-                "preserve"
-              ],
-              "explanation": "Found directly in the reading passage: 'preserve'."
+              "prompt": "The Montreal researchers discovered that",
+              "answer": "F",
+              "explanation": "Refer to item F in the passage."
             },
             {
               "number": 12,
-              "prompt": "Question 38",
-              "answer": [
-                "Beethoven"
-              ],
-              "explanation": "Found directly in the reading passage: 'Beethoven'."
+              "prompt": "Many studies have demonstrated that",
+              "answer": "B",
+              "explanation": "Refer to item B in the passage."
             },
             {
               "number": 13,
-              "prompt": "Question 39",
-              "answer": [
-                "unfulfilled"
-              ],
-              "explanation": "Found directly in the reading passage: 'unfulfilled'."
+              "prompt": "Meyer's analysis of Beethoven's music shows that",
+              "answer": "E",
+              "explanation": "Refer to item E in the passage."
+            },
+            {
+              "number": 14,
+              "prompt": "Earlier theories of music suggested that",
+              "answer": "C",
+              "explanation": "Refer to item C in the passage."
             }
           ]
         }
@@ -231,35 +276,51 @@
     },
     {
       "passageNumber": 2,
-      "title": "could be 'hanging in the air'.",
+      "title": "Pulling Strings To Build Pyramids",
       "paragraphs": [
         {
           "label": null,
-          "text": "Pulling Strings To Build Pyramids No one knows exactly how the pyramids were built. Marcus Chown reckons the answer The pyramids of Egypt were built more than three thousand years ago, and no one knows how. The conventional picture is that tens of thousands of slaves dragged stones on sledges. But there is no evidence to back this up. Now a Californian software consultant called Maureen Clemmons has suggested that kites might have been involved. While perusing a book on the monuments of Egypt, she noticed a hieroglyph that showed a row of men standing in odd postures. They were holding what looked like ropes that led, via some kind of mechanical system, to a giant bird in the sky. She wondered if perhaps the bird was actually a giant kite, and the men were using it to lift a"
+          "text": "Read the following passage and answer the questions. And, also assess your answers with the pulling string to build pyramids reading answers with location."
         },
         {
           "label": null,
-          "text": "heavy object. Intrigued, Clemmons contacted Morteza Gharib, aeronautics professor at the California Institute of Technology. He was fascinated by the idea. 'Coming from Iran, I have a keen interest in Middle Eastern science/ he says. He too was puzzled by the picture that had sparked Clemmons's interest. The object in the sky apparently had wings far too short and wide for a bird. The possibility certainly existed that it was a kite/ he says. And since he needed a summer project for his student Emilio Graff, investigating the possibility of using kites as heavy lifters seemed like a good idea. Gharib and Graff set themselves the task of raising a 4.5-metre stone column from horizontal to vertical, using no source of energy except the wind. Their initial calculations and scale-model wind-tunnel experiments convinced them they wouldn't need a strong wind"
+          "text": "No one knows exactly how the pyramids were built. Marcus Chown reckons the answer could be 'hanging in the air'."
         },
         {
           "label": null,
-          "text": "to lift the 33.5-tonne column. Even a modest force, if sustained over a long time, would do. The key was to use a pulley system that would magnify the applied force. So they rigged up a tent-shaped scaffold directly above the tip of the horizontal column, with pulleys suspended from the scaffold's apex. The idea was that as one end of the column rose, the base would roll across the ground on a trolley. Earlier this year, the team put Clemmons's unlikely theory to the test, using a 40-square-metre rectangular nylon sail. The kite lifted the column clean off the ground. 'We were absolutely stunned,' Gharib says. The instant the sail opened into the wind, a huge force was generated and the column was raised to the vertical in a mere 40 seconds.' The wind was blowing at a gentle"
+          "text": "The pyramids of Egypt were built more than three thousand years ago, and no one knows how. The conventional picture is that tens of thousands of slaves dragged stones on sledges. But there is no evidence to back this up. Now a Californian software consultant called Maureen Clemmons has suggested that kites might have been involved. While perusing a book on the monuments of Egypt, she noticed a hieroglyph that showed a row of men standing in odd postures. They were holding what looked like ropes that led, via some kind of mechanical system, to a giant bird in the sky. She wondered if perhaps the bird was actually a giant kite, and the men were using it to lift a heavy object."
         },
         {
           "label": null,
-          "text": "16 to 20 kilometres an hour, little more than half what they thought would be needed. What they had failed to reckon with was what happened when the kite was opened. There was a huge initial force - five times larger than the steady state force,' Gharib says. This jerk meant that kites could lift huge weights, Gharib realized. Even a 300-ton column could have been lifted to the vertical with 40 or so men and four or five sails. So Clemmons was right: the pyramid builders could have used kites to lift massive stones into place. 'Whether they actually did is another matter,' Gharib says. There are no pictures showing the construction of the pyramids, so there is no way to tell what really happened. The evidence for using kites to move large stones is no better or worse"
+          "text": "Intrigued, Clemmons contacted Morteza Gharib, aeronautics professor at the California Institute of Technology. He was fascinated by the idea. 'Coming from Iran, I have a keen interest in Middle Eastern science/ he says. He too was puzzled by the picture that had sparked Clemmons's interest. The object in the sky apparently had wings far too short and wide for a bird. The possibility certainly existed that it was a kite/ he says. And since he needed a summer project for his student Emilio Graff, investigating the possibility of using kites as heavy lifters seemed like a good idea."
         },
         {
           "label": null,
-          "text": "than the evidence for the brute force method,' Gharib says. Indeed, the experiments have left many specialists unconvinced. The evidence for kite lifting is non-existent,' says Willeke Wendrich, an associate professor of Egyptology at the University of California, Los Angeles. Others feel there is more of a case for the theory. Harnessing the wind would not have been a problem for accomplished sailors like the Egyptians. And they are known to have used wooden pulleys, which could have been made strong enough to bear the weight of massive blocks of stone. In addition, there is some physical evidence that the ancient Egyptians were interested in flight. A wooden artefact found on the step pyramid at Saqqara looks uncannily like a modern glider. Although it dates from several hundred years after the building of the pyramids, its sophistication suggests that the"
+          "text": "Gharib and Graff set themselves the task of raising a 4.5-metre stone column from horizontal to vertical, using no source of energy except the wind. Their initial calculations and scale-model wind-tunnel experiments convinced them they wouldn't need a strong wind to lift the 33.5-tonne column. Even a modest force, if sustained over a long time, would do. The key was to use a pulley system that would magnify the applied force. So they rigged up a tent-shaped scaffold directly above the tip of the horizontal column, with pulleys suspended from the scaffold's apex. The idea was that as one end of the column rose, the base would roll across the ground on a trolley."
         },
         {
           "label": null,
-          "text": "Egyptians might have been developing ideas of flight for a long time. And other ancient civilisations certainly knew about kites; as early as 1250 BC, the Chinese were using them to deliver messages and dump flaming debris on their foes. The experiments might even have practical uses nowadays. There are plenty of places around the globe where people have no access to heavy machinery, but do know how to deal with wind, sailing and basic mechanical principles. Gharib has already been contacted by a civil engineer in Nicaragua, who wants to put up buildings with adobe roofs supported by concrete arches on a site that heavy equipment can't reach. His idea is to build the arches horizontally, then lift them into place using kites. 'We've given him some design hints,' says Gharib. We're just waiting for him to report back.'"
+          "text": "Earlier this year, the team put Clemmons's unlikely theory to the test, using a 40-square-metre rectangular nylon sail. The kite lifted the column clean off the ground. 'We were absolutely stunned,' Gharib says. The instant the sail opened into the wind, a huge force was generated and the column was raised to the vertical in a mere 40 seconds.'"
         },
         {
           "label": null,
-          "text": "So whether they were actually used to build the pyramids or not, it seems that kites may make sensible construction tools in the 21 st century AD."
+          "text": "The wind was blowing at a gentle 16 to 20 kilometres an hour, little more than half what they thought would be needed. What they had failed to reckon with was what happened when the kite was opened. There was a huge initial force - five times larger than the steady state force,' Gharib says. This jerk meant that kites could lift huge weights, Gharib realized. Even a 300-ton column could have been lifted to the vertical with 40 or so men and four or five sails. So Clemmons was right: the pyramid builders could have used kites to lift massive stones into place. 'Whether they actually did is another matter,' Gharib says. There are no pictures showing the construction of the pyramids, so there is no way to tell what really happened. The evidence for using kites to move large stones is no better or worse than the evidence for the brute force method,' Gharib says."
+        },
+        {
+          "label": null,
+          "text": "Indeed, the experiments have left many specialists unconvinced. The evidence for kite lifting is non-existent,' says Willeke Wendrich, an associate professor of Egyptology at the University of California, Los Angeles."
+        },
+        {
+          "label": null,
+          "text": "Others feel there is more of a case for the theory. Harnessing the wind would not have been a problem for accomplished sailors like the Egyptians. And they are known to have used wooden pulleys, which could have been made strong enough to bear the weight of massive blocks of stone. In addition, there is some physical evidence that the ancient Egyptians were interested in flight. A wooden artefact found on the step pyramid at Saqqara looks uncannily like a modern glider. Although it dates from several hundred years after the building of the pyramids, its sophistication suggests that the Egyptians might have been developing ideas of flight for a long time. And other ancient civilisations certainly knew about kites; as early as 1250 BC, the Chinese were using them to deliver messages and dump flaming debris on their foes."
+        },
+        {
+          "label": null,
+          "text": "The experiments might even have practical uses nowadays. There are plenty of places around the globe where people have no access to heavy machinery, but do know how to deal with wind, sailing and basic mechanical principles. Gharib has already been contacted by a civil engineer in Nicaragua, who wants to put up buildings with adobe roofs supported by concrete arches on a site that heavy equipment can't reach. His idea is to build the arches horizontally, then lift them into place using kites. 'We've given him some design hints,' says Gharib. We're just waiting for him to report back.' So whether they were actually used to build the pyramids or not, it seems that kites may make sensible construction tools in the 21 st century AD."
+        },
+        {
+          "label": null,
+          "text": "Read IELTS reading tips to enhance your understanding of the reading test"
         }
       ],
       "groups": [
@@ -268,57 +329,57 @@
           "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 1-7 on your answer sheet, write",
           "questions": [
             {
-              "number": 14,
+              "number": 15,
               "prompt": "It is generally believed that large numbers of people were needed to build the pyramids.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
-              "number": 15,
+              "number": 16,
               "prompt": "Clemmons found a strange hieroglyph on the wall of an Egyptian monument.",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
             },
             {
-              "number": 16,
+              "number": 17,
               "prompt": "Gharib had previously done experiments on bird flight.",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
-              "number": 17,
+              "number": 18,
               "prompt": "Gharib and Graff tested their theory before applying it.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
-              "number": 18,
+              "number": 19,
               "prompt": "The success of the actual experiment was due to the high speed of the wind.",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
             },
             {
-              "number": 19,
+              "number": 20,
               "prompt": "They found that, as the kite flew higher, the wind force got stronger.",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
-              "number": 20,
-              "prompt": "on your answer sheet, write",
+              "number": 21,
+              "prompt": "The team decided that it was possible to use kites to raise very heavy stones.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+          "content": "The Egyptians had {{22}} which could lift large pieces of {{23}} and they knew how to use the energy of the wind from their skill as {{24}} . The discovery on one pyramid of an object which resembled a {{25}} suggests they may have experimented with {{26}} . In addition, over two thousand years ago kites were used in China as weapons, as well as for sending {{27}} .",
           "maxWords": 2,
           "questions": [
             {
-              "number": 21,
-              "prompt": "Question 8",
+              "number": 22,
               "answer": [
                 "wooden pulleys",
                 "pulleys"
@@ -326,16 +387,14 @@
               "explanation": "Found directly in the reading passage: 'wooden pulleys'."
             },
             {
-              "number": 22,
-              "prompt": "Question 9",
+              "number": 23,
               "answer": [
                 "stone"
               ],
               "explanation": "Found directly in the reading passage: 'stone'."
             },
             {
-              "number": 23,
-              "prompt": "Question 10",
+              "number": 24,
               "answer": [
                 "accomplished sailors",
                 "sailors"
@@ -343,8 +402,7 @@
               "explanation": "Found directly in the reading passage: 'accomplished sailors'."
             },
             {
-              "number": 24,
-              "prompt": "Question 11",
+              "number": 25,
               "answer": [
                 "modern glider",
                 "glider"
@@ -352,16 +410,14 @@
               "explanation": "Found directly in the reading passage: 'modern glider'."
             },
             {
-              "number": 25,
-              "prompt": "Question 12",
+              "number": 26,
               "answer": [
                 "flight"
               ],
               "explanation": "Found directly in the reading passage: 'flight'."
             },
             {
-              "number": 26,
-              "prompt": "on your answer sheet.",
+              "number": 27,
               "answer": [
                 "messages"
               ],
@@ -373,30 +429,30 @@
     },
     {
       "passageNumber": 3,
-      "title": "2: Secrets Of The Forest",
+      "title": "Cambridge 3 Test 3 IELTS Academic",
       "paragraphs": [
         {
-          "label": null,
+          "label": "A",
           "text": "Secrets Of The Forest A In 1942 Allan R Holmberg, a doctoral student in anthropology from Yale University, USA, ventured deep into the jungle of Bolivian Amazonia and searched out an isolated band of Siriono Indians. The Siriono, Holmberg later wrote, led a \"strikingly backward\" existence. Their villages were little more than clusters of thatched huts. Life itself was a perpetual and punishing search for food: some families grew manioc and other starchy crops in small garden plots cleared from the forest, while other members of the tribe scoured the country for small game and promising fish holes. When local resources became depleted, the tribe moved on. As for technology, Holmberg noted, the Siriono \"may be classified among the most handicapped peoples of the world\". Other than bows, arrows and crude digging sticks, the only tools the Siriono seemed to"
         },
         {
-          "label": null,
+          "label": "B",
           "text": "possess were \"two machetes worn to the size of pocket- knives\". B Although the lives of the Siriono have changed in the intervening decades, the image of them as Stone Age relics has endured. Indeed, in many respects the Siriono epitomise the popular conception of life in Amazonia. To casual observers, as well as to influential natural scientists and regional planners, the luxuriant forests of Amazonia seem ageless, unconquerable, a habitat totally hostile to human civilization. The apparent simplicity of Indian ways of life has been judged an evolutionary adaptation to forest ecology, living proof that Amazonia could not - and cannot - sustain a more complex society. Archaeological traces of far more elaborate cultures have been dismissed as the ruins of invaders from outside the region, abandoned to decay in the uncompromising tropical environment. C The popular conception of"
         },
         {
-          "label": null,
+          "label": "C",
           "text": "Amazonia and its native residents would be enormously consequential if it were true. But the human history of Amazonia in the past 11,000 years betrays that view as myth. Evidence gathered in recent years from anthropology and archaeology indicates that the region has supported a series of indigenous cultures for eleven thousand years; an extensive network of complex societies - some with populations perhaps as large as 100,000 - thrived there for more than 1,000 years before the arrival of Europeans. (Indeed, some contemporary tribes, including the Siriono, still live among the earthworks of earlier cultures.) Far from being evolutionarily retarded, prehistoric Amazonian people developed technologies and cultures that were advanced for their time. If the lives of Indians today seem \"primitive\", the appearance is not the result of some environmental adaptation or ecological barrier; rather it is a comparatively"
         },
         {
-          "label": null,
+          "label": "D",
           "text": "recent adaptation to centuries of economic and political pressure. Investigators who argue otherwise have unwittingly projected the present onto the past. D The evidence for a revised view of Amazonia will take many people by surprise. Ecologists have assumed that tropical ecosystems were shaped entirely by natural forces and they have focused their research on habitats they believe have escaped human influence. But as the University of Florida ecologist, Peter Feinsinger, has noted, an approach that leaves people out of the equation is no longer tenable. The archaeological evidence shows that the natural history of Amazonia is to a surprising extent tied to the activities of its prehistoric inhabitants. E The realisation comes none too soon. In June 1992 political and environmental leaders from across the world met in Rio de Janeiro to discuss how developing countries can advance their"
         },
         {
-          "label": null,
+          "label": "E",
           "text": "economies without destroying their natural resources. The challenge is especially difficult in Amazonia. Because the tropical forest has been depicted as ecologically unfit for large-scale human occupation, some environmentalists have opposed development of any kind. Ironically, one major casualty of that extreme position has been the environment itself. While policy makers struggle to define and implement appropriate legislation, development of the most destructive kind has continued apace over vast areas. F The other major casualty of the \"naturalism\" of environmental scientists has been the indigenous Amazonians, whose habits of hunting, fishing, and slash-and-burn cultivation often have been represented as harmful to the habitat. In the clash between environmentalists and developers, the Indians, whose presence is in fact crucial to the survival of the forest, have suffered the most. The new understanding of the pre-history of Amazonia, however, points toward a"
         },
         {
-          "label": null,
+          "label": "F",
           "text": "middle ground. Archaeology makes clear that with judicious management selected parts of the region could support more people than anyone thought before. The long- buried past, it seems, offers hope for the future."
         }
       ],
@@ -406,14 +462,6 @@
           "instruction": "Reading Passage 2 has six sections A-F. Choose the most suitable headings for sections A, B and D from the list of headings below.",
           "optionsTitle": "List of Headings",
           "options": [
-            {
-              "key": "d",
-              "text": "from the list of headings below."
-            },
-            {
-              "key": "vii",
-              "text": "in boxes 1-3 on your answer sheet."
-            },
             {
               "key": "i",
               "text": "Amazonia as unable to sustain complex societies"
@@ -437,25 +485,29 @@
             {
               "key": "vi",
               "text": "The influence of prehistoric inhabitants on Amazonian natural history"
+            },
+            {
+              "key": "vii",
+              "text": "The great difficulty of changing local attitudes and practices"
             }
           ],
           "questions": [
             {
-              "number": 27,
-              "prompt": "Paragraph A",
-              "answer": "d",
-              "explanation": "Refer to Paragraph A in the passage."
-            },
-            {
               "number": 28,
-              "prompt": "Paragraph B",
-              "answer": "d",
-              "explanation": "Refer to Paragraph B in the passage."
+              "prompt": "Section A",
+              "answer": "i",
+              "explanation": "Refer to Section A in the passage."
             },
             {
               "number": 29,
-              "prompt": "Paragraph C",
-              "answer": "d",
+              "prompt": "Section B",
+              "answer": "i",
+              "explanation": "Refer to Section B in the passage."
+            },
+            {
+              "number": 30,
+              "prompt": "Section D",
+              "answer": "i",
               "explanation": "s. This helps you to understand how to approach various question types in reading answers in AC module. This passage carries questions in three different question types list of headings, Yes/No/Not given, and multiple choice questions. Attempt this practice test and self-evaluate with the Secrets of Forest reading answers given below."
             }
           ]
@@ -465,91 +517,142 @@
           "instruction": "Do the following statements agree with the views of the writer in Reading Passage 2? In boxes 4-9 on your answer sheet write",
           "questions": [
             {
-              "number": 30,
+              "number": 31,
               "prompt": "The reason for the simplicity of the Indian way of life is that Amazonia has always been",
               "answer": "YES",
               "explanation": "The passage confirms this statement is YES."
             },
             {
-              "number": 31,
+              "number": 32,
               "prompt": "There is a crucial popular misconception about the human history of Amazonia.",
               "answer": "YES",
               "explanation": "The passage confirms this statement is YES."
             },
             {
-              "number": 32,
+              "number": 33,
               "prompt": "There are lessons to be learned from similar ecosystems in other parts of the world.",
               "answer": "YES",
               "explanation": "The passage confirms this statement is YES."
             },
             {
-              "number": 33,
+              "number": 34,
               "prompt": "Most ecologists were aware that the areas of Amazonia they were working in had been",
               "answer": "YES",
               "explanation": "The passage confirms this statement is YES."
             },
             {
-              "number": 34,
+              "number": 35,
               "prompt": "The indigenous Amazonian Indians are necessary to the well-being of the forest.",
               "answer": "YES",
               "explanation": "The passage confirms this statement is YES."
             },
             {
-              "number": 35,
-              "prompt": "on your answer sheet write",
+              "number": 36,
+              "prompt": "It would be possible for certain parts of Amazonia to support a higher population.",
               "answer": "YES",
               "explanation": "The passage confirms this statement is YES."
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
-          "maxWords": 2,
+          "type": "multiple_choice",
+          "instruction": "Choose the appropriate letters A-D and write them in boxes 10-13 on your answer sheet.",
           "questions": [
             {
-              "number": 36,
-              "prompt": "In 1942 the US anthropology student concluded that the Siriono",
-              "answer": [
-                "Siriono"
-              ],
-              "explanation": "Found directly in the reading passage: 'Siriono'."
-            },
-            {
               "number": 37,
-              "prompt": "The author believes recent discoveries of the remains of complex societies in Amazonia",
-              "answer": [
-                "scientists"
+              "prompt": "In 1942 the US anthropology student concluded that the Siriono",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "were unusually aggressive and cruel."
+                },
+                {
+                  "key": "B",
+                  "text": "had had their way of life destroyed by invaders."
+                },
+                {
+                  "key": "C",
+                  "text": "were an extremely primitive society."
+                },
+                {
+                  "key": "D",
+                  "text": "had only recently made permanent settlements."
+                }
               ],
-              "explanation": "Found directly in the reading passage: 'scientists'."
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             },
             {
               "number": 38,
-              "prompt": "The assumption that the tropical ecosystem of Amazonia has been created solely by",
-              "answer": [
-                "hostile"
+              "prompt": "The author believes recent discoveries of the remains of complex societies in Amazonia",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "are evidence of early indigenous communities."
+                },
+                {
+                  "key": "B",
+                  "text": "are the remains of settlements by invaders."
+                },
+                {
+                  "key": "C",
+                  "text": "are the ruins of communities established since the European invasions."
+                },
+                {
+                  "key": "D",
+                  "text": "show the region has only relatively recently been covered by forest."
+                }
               ],
-              "explanation": "Found directly in the reading passage: 'hostile'."
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             },
             {
               "number": 39,
-              "prompt": "on your answer sheet.",
-              "answer": [
-                "adaptation"
+              "prompt": "The assumption that the tropical ecosystem of Amazonia has been created solely by",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "has often been questioned by ecologists in the past."
+                },
+                {
+                  "key": "B",
+                  "text": "has been shown to be incorrect by recent research."
+                },
+                {
+                  "key": "C",
+                  "text": "was made by Peter Feinsinger and other ecologists."
+                },
+                {
+                  "key": "D",
+                  "text": "has led to some fruitful discoveries."
+                }
               ],
-              "explanation": "Found directly in the reading passage: 'adaptation'."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
             {
               "number": 40,
-              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
+              "prompt": "The application of our new insights into the Amazonian past would",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "warn us against allowing any development at all."
+                },
+                {
+                  "key": "B",
+                  "text": "cause further suffering to the Indian communities."
+                },
+                {
+                  "key": "C",
+                  "text": "change present policies on development in the region."
+                },
+                {
+                  "key": "D",
+                  "text": "reduce the amount of hunting, fishing, and 'slash-and-burn'."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             }
           ]
         }

@@ -73,20 +73,20 @@
             },
             {
               "number": 5,
-              "prompt": "on your answer sheet, write",
+              "prompt": "Pollution absorbed by Arctic algae can eventually affect humans.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
-          "maxWords": 3,
+          "type": "summary_completion",
+          "instruction": "Fill in the blanks in the Arctic Haze summary below.",
+          "content": "Fill in the blanks in the Arctic Haze summary below.\nFill in the blanks in boxes 21-26 on your response sheet with your answers from the box below\nthe summary.\nNB There are more words than spaces, so you will not use them at all\nExample\n\nAnswer\n............................. that the origins of spring, arctic haze,\nTheories\nfirst seen over the ice cap...(eg) ______________________ that the origins of spring, arctic\nhaze, first seen over the ice cap in the 1950s, came from far away were at first not ( {{6}} )\n_______________ _______. This haze is a smog formed in the dark, arctic winter by pollution\ndelivered to the Arctic by storms ( {{7}} ) ______________________ in Europe and Asia. It is known\nto be a recent phenomenon as proof from ( {{8}} ) ______________________ shows it only starting\nto occur in the 20th Century. The smog consists of sulfates and carbon, the latter creating the\n( {{9}} ) ______________________ of the haze. Due to lack of research, the final destination of the\npollution is unknown but it probably ends up in the ( {{10}} ) ______________________ and\ntherefore into the food chain. Scientists are presently more worried about the ( {{11}} )\n______________________ effect it has on climate change.\ndensity\nUnknown\ndarkness\ngasses\naccepted\nterrible\noriginating\ndissipating\nair\nbirdlife\nburning\ntheories\ndestroying\ncertain\nvalid\ndecided\nagriculture\nice cores\nsea",
+          "maxWords": 2,
           "questions": [
             {
               "number": 6,
-              "prompt": "Question 6",
               "answer": [
                 "virtually"
               ],
@@ -94,7 +94,6 @@
             },
             {
               "number": 7,
-              "prompt": "Question 7",
               "answer": [
                 "Arctic"
               ],
@@ -102,7 +101,6 @@
             },
             {
               "number": 8,
-              "prompt": "Question 8",
               "answer": [
                 "considered"
               ],
@@ -110,7 +108,6 @@
             },
             {
               "number": 9,
-              "prompt": "Question 9",
               "answer": [
                 "significantly"
               ],
@@ -118,7 +115,6 @@
             },
             {
               "number": 10,
-              "prompt": "Question 10",
               "answer": [
                 "Ice cores"
               ],
@@ -126,7 +122,6 @@
             },
             {
               "number": 11,
-              "prompt": "Question 11",
               "answer": [
                 "Darkness"
               ],
@@ -135,20 +130,24 @@
           ]
         },
         {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
+          "type": "summary_completion",
+          "instruction": "Answer the questions below. Write NO MORE THAN THREE WORDS AND/ OR A NUMBER from the passage for each",
+          "content": "Answer the questions below.\nWrite NO MORE THAN THREE WORDS AND/ OR A NUMBER from the passage for each\nanswer.\n {{12}} . During which era, the term \"Arctic Haze\" was firstly used?\n {{13}} . Initially, what was the primary attribution for Arctic contamination ?",
+          "maxWords": 3,
           "questions": [
             {
               "number": 12,
-              "prompt": "The information mentioned in the reading passage regarding topic 12 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
+              "answer": [
+                "Sea"
+              ],
+              "explanation": "Found directly in the reading passage: 'Sea'."
             },
             {
               "number": 13,
-              "prompt": "The information mentioned in the reading passage regarding topic 13 is confirmed.",
-              "answer": "NOT GIVEN",
-              "explanation": "Refer to the discussion in the reading passage."
+              "answer": [
+                "Unknown"
+              ],
+              "explanation": "Found directly in the reading passage: 'Unknown'."
             }
           ]
         }
@@ -160,64 +159,22 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "1. Almost two months after the European Union's ban on the use of six ecological unsafe materials went into impact, designers have verified that failure to reach the Restriction of Hazardous Substances (RoHS) directive means lost sales. Palm Inc. recently announced that it's Treo 650 smartphone is no longer being shipped to Europe since it doesn't achieve RoHS requirements. And several Apple Computer Inc. products will not be sold in Europe for the same reason. 2. The EU directive, which had taken effect on 1st July, covered lead, mercury, cadmium, hexavalent chromium, polybrominated biphenyls, and polybrominated diphenyl ethers. Electronics vendors worldwide are working to deduct those elements from almost all fresh pieces developed for the European market, while also undertaking their construction procedures to a lead (Pb)-free environment. 3. But that is only the birthplace.However, several other countries too, including"
+          "text": "Read the passage below attentively to answer the various types of questions (1 - 13). Write your responses based on the Designing and Shipping IELTS reading passage and instantly check your answers."
         },
         {
           "label": null,
-          "text": "China, Taiwan, and South Korea, and certain U.S. states are creating their own \"green\" or RoHS-like legislation, which means RoHS compliance must become an integral part of a designer's development process, with RoHS checks at each stair: concept, development, prototype, first constructs, and volume production. 4. Many companies will run the gamut from researching component databases of qualified green components to taking due care to prove compliance and developing processes that allow for the higher-temperature requirements of Pb-free manufacturing. And for designers, those are just the tip of the iceberg. A host of technical and reliability issues remain to be sorted out in Pb-free board processing and soldering. 5. What it comes down to is what Ken Stanvick, senior vice president at Design Chain Associates, calls a lack of 'tribal knowledge' on designing RoHS compliant systems. ``We had great tribal"
+          "text": "Designing and Shipping"
         },
         {
           "label": null,
-          "text": "knowledge when it came to dealing with leaded systems, but we haven't built up that same amount of knowledge for Pb-free,' he said. 'Every problem will be blamed on Pb-free until it's been worked out. We need to figure out experiments that replicate more of the environment and different stresses that we're going to see in this new system.' 6. Manny Marcano, president, and CEO of EMA Design Automation Inc. (Rochester, N.Y.), cited the impact of parts obsolescence, including the need to redesign older products and the resultant emphasis on component engineering at the expense of conceptual design. A key challenge is identifying RoHS design specifications as early as possible in the design process, he said. 7. But even before they get to that point, designers should understand whether they are creating a fully compliant product or one that's subject"
-        },
-        {
-          "label": null,
-          "text": "to some exemptions, said Robert Chinn, director for consultant firm PRTM (Mountain View, Calif.). 'This causes their design parameters,' he said. 'Previously, they looked at components based on size, performance, electrical parameters, features, and functionality. Now they have to add on a new constraint, revolving around environmental compliance: Is it RoHS 6-compliant or is it RoHS 5-compliant?' (RoHS 6 components eliminate all six of the prohibited substances, while RoHS 5 models, because of exemptions, still contain lead.) 8. If designers do not take RoHS seriously, any country that can prove a product does not comply can levy fines against the vendor. That can cost market share, Marcano said, since non-compliant companies become noncompetitive. And then, not being prepared can mean belatedly diverting resources to RoHS compliance, causing missed market opportunities. 9. But many industry observers believe smaller and medium-size companies"
-        },
-        {
-          "label": null,
-          "text": "will continue to be complacent about the RoHS transition until some major company is cited for non-compliance. 'When that happens, there will be an earthquake throughout the industry, and it will wake up every design engineer,' said Steve Schultz, director of strategic planning and communications at Avnet Logistics and program manager for the distributor's compliance efforts for RoHS in the Americas. 10. 'The product developer's RoHS concerns center on the fear of lost revenue - from a product ban, a customer who demands a RoHS-compliant product that the company doesn't have, or competition', said Harvey Stone, managing director for consultancy GoodBye Chain Group (Colorado Springs, Colo.). 'With price, quality, and service being relatively equal, a savvy customer is going to choose a RoHS-compliant product,' he said. 11. Meanwhile, designers are looking over their shoulders at several other - and potentially"
-        },
-        {
-          "label": null,
-          "text": "stricter - environmental regulations in the pipeline. These include the EU's Registration, Evaluation, and Authorization of Chemicals legislation, which could restrict the use of thousands of chemicals, and its Energy-using Products (EuP) directive, which will initially target energy-efficiency requirements."
+          "text": "1. Almost two months after the European Union's ban on the use of six ecological unsafe materials went into impact, designers have verified that failure to reach the Restriction of Hazardous Substances (RoHS) directive means lost sales. Palm Inc. recently announced that it's Treo 650 smartphone is no longer being shipped to Europe since it doesn't achieve RoHS requirements. And several Apple Computer Inc. products will not be sold in Europe for the same reason. 2. The EU directive, which had taken effect on 1st July, covered lead, mercury, cadmium, hexavalent chromium, polybrominated biphenyls, and polybrominated diphenyl ethers. Electronics vendors worldwide are working to deduct those elements from almost all fresh pieces developed for the European market, while also undertaking their construction procedures to a lead (Pb)-free environment. 3. But that is only the birthplace.However, several other countries too, including China, Taiwan, and South Korea, and certain U.S. states are creating their own \"green\" or RoHS-like legislation, which means RoHS compliance must become an integral part of a designer's development process, with RoHS checks at each stair: concept, development, prototype, first constructs, and volume production. 4. Many companies will run the gamut from researching component databases of qualified green components to taking due care to prove compliance and developing processes that allow for the higher-temperature requirements of Pb-free manufacturing. And for designers, those are just the tip of the iceberg. A host of technical and reliability issues remain to be sorted out in Pb-free board processing and soldering. 5. What it comes down to is what Ken Stanvick, senior vice president at Design Chain Associates, calls a lack of 'tribal knowledge' on designing RoHS compliant systems. ``We had great tribal knowledge when it came to dealing with leaded systems, but we haven't built up that same amount of knowledge for Pb-free,' he said. 'Every problem will be blamed on Pb-free until it's been worked out. We need to figure out experiments that replicate more of the environment and different stresses that we're going to see in this new system.' 6. Manny Marcano, president, and CEO of EMA Design Automation Inc. (Rochester, N.Y.), cited the impact of parts obsolescence, including the need to redesign older products and the resultant emphasis on component engineering at the expense of conceptual design. A key challenge is identifying RoHS design specifications as early as possible in the design process, he said. 7. But even before they get to that point, designers should understand whether they are creating a fully compliant product or one that's subject to some exemptions, said Robert Chinn, director for consultant firm PRTM (Mountain View, Calif.). 'This causes their design parameters,' he said. 'Previously, they looked at components based on size, performance, electrical parameters, features, and functionality. Now they have to add on a new constraint, revolving around environmental compliance: Is it RoHS 6-compliant or is it RoHS 5-compliant?' (RoHS 6 components eliminate all six of the prohibited substances, while RoHS 5 models, because of exemptions, still contain lead.) 8. If designers do not take RoHS seriously, any country that can prove a product does not comply can levy fines against the vendor. That can cost market share, Marcano said, since non-compliant companies become noncompetitive. And then, not being prepared can mean belatedly diverting resources to RoHS compliance, causing missed market opportunities. 9. But many industry observers believe smaller and medium-size companies will continue to be complacent about the RoHS transition until some major company is cited for non-compliance. 'When that happens, there will be an earthquake throughout the industry, and it will wake up every design engineer,' said Steve Schultz, director of strategic planning and communications at Avnet Logistics and program manager for the distributor's compliance efforts for RoHS in the Americas. 10. 'The product developer's RoHS concerns center on the fear of lost revenue - from a product ban, a customer who demands a RoHS-compliant product that the company doesn't have, or competition', said Harvey Stone, managing director for consultancy GoodBye Chain Group (Colorado Springs, Colo.). 'With price, quality, and service being relatively equal, a savvy customer is going to choose a RoHS-compliant product,' he said. 11. Meanwhile, designers are looking over their shoulders at several other - and potentially stricter - environmental regulations in the pipeline. These include the EU's Registration, Evaluation, and Authorization of Chemicals legislation, which could restrict the use of thousands of chemicals, and its Energy-using Products (EuP) directive, which will initially target energy-efficiency requirements."
         }
       ],
       "groups": [
         {
           "type": "matching_features",
-          "instruction": ": Look at the following people and the list of statements below. Write the correct letter A-G in",
-          "questions": [
-            {
-              "number": 14,
-              "prompt": "Manny Marcano",
-              "answer": "B",
-              "explanation": "Refer to item B in the passage."
-            },
-            {
-              "number": 15,
-              "prompt": "Harvey Stone",
-              "answer": "C",
-              "explanation": "Refer to item C in the passage."
-            },
-            {
-              "number": 16,
-              "prompt": "Steve Shultz",
-              "answer": "E",
-              "explanation": "Refer to item E in the passage."
-            },
-            {
-              "number": 17,
-              "prompt": "on your answer sheet.",
-              "answer": "G",
-              "explanation": "Refer to item G in the passage."
-            }
-          ],
+          "instruction": "Look at the following people and the list of statements below. Write the correct letter A-G in",
           "options": [
-            {
-              "key": "G",
-              "text": "in"
-            },
             {
               "key": "A",
               "text": "believes that the ED directive requires no action"
@@ -241,6 +198,36 @@
             {
               "key": "F",
               "text": "predicts that design engineers will like RoHS"
+            },
+            {
+              "key": "G",
+              "text": "claims that more knowledge about Pb-free systems is needed"
+            }
+          ],
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "Manny Marcano",
+              "answer": "B",
+              "explanation": "Refer to item B in the passage."
+            },
+            {
+              "number": 15,
+              "prompt": "Harvey Stone",
+              "answer": "C",
+              "explanation": "Refer to item C in the passage."
+            },
+            {
+              "number": 16,
+              "prompt": "Steve Shultz",
+              "answer": "E",
+              "explanation": "Refer to item E in the passage."
+            },
+            {
+              "number": 17,
+              "prompt": "Ken Stanvick",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
             }
           ]
         },
@@ -251,55 +238,55 @@
           "questions": [
             {
               "number": 18,
-              "prompt": "-11 on your answer sheet.",
+              "prompt": "Question 5",
               "answer": [
-                "polybrominated"
+                "recently"
               ],
-              "explanation": "Found directly in the reading passage: 'polybrominated'."
+              "explanation": "Found directly in the reading passage: 'recently'."
             },
             {
               "number": 19,
-              "prompt": "__. Similar legislation is being put together around the world, which indicates that RoHS",
+              "prompt": "______. Similar legislation is being put together around the world, which indicates that RoHS",
               "answer": [
-                "deduct"
+                "since"
               ],
-              "explanation": "Found directly in the reading passage: 'deduct'."
+              "explanation": "Found directly in the reading passage: 'since'."
             },
             {
               "number": 20,
-              "prompt": "__ part of a designer's development process. RoHS checks,",
+              "prompt": "Question 7",
               "answer": [
-                "European"
+                "which"
               ],
-              "explanation": "Found directly in the reading passage: 'European'."
+              "explanation": "Found directly in the reading passage: 'which'."
             },
             {
               "number": 21,
-              "prompt": "__ technical and",
+              "prompt": "Question 8",
               "answer": [
-                "other"
+                "diphenyl"
               ],
-              "explanation": "Found directly in the reading passage: 'other'."
+              "explanation": "Found directly in the reading passage: 'diphenyl'."
             },
             {
               "number": 22,
-              "prompt": "__. Previously, the performance, etc. of components were",
+              "prompt": "Question 9",
               "answer": [
-                "their"
+                "elements"
               ],
-              "explanation": "Found directly in the reading passage: 'their'."
+              "explanation": "Found directly in the reading passage: 'elements'."
             },
             {
               "number": 23,
-              "prompt": "___ but now a new 11.___ needs to be taken into account: environmental compliance.",
+              "prompt": "______ but now a new 11.______ needs to be taken into account: environmental compliance.",
               "answer": [
-                "checks"
+                "undertaking"
               ],
-              "explanation": "Found directly in the reading passage: 'checks'."
+              "explanation": "Found directly in the reading passage: 'undertaking'."
             },
             {
               "number": 24,
-              "prompt": "on your answer sheet.",
+              "prompt": "Question 11",
               "answer": [
                 "A"
               ],
@@ -322,6 +309,12 @@
               "prompt": "Smaller companies are taking the changeover to RoHS seriously.",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
+            },
+            {
+              "number": 27,
+              "prompt": "The energy-using directive will be introduced in the very near future.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
             }
           ]
         }
@@ -332,24 +325,40 @@
       "title": "Eco-Resort Management",
       "paragraphs": [
         {
+          "label": null,
+          "text": "Eco-Resort Management Reading Answers will assist you with your evaluation and these answers will help you in improving your IELTS score. You can read the questions first, then the narrative, and mark your answers along the way."
+        },
+        {
+          "label": null,
+          "text": "Eco-Resort Management"
+        },
+        {
           "label": "A",
           "text": "Ecotourism is a category of nature-based tourism that has gained popularity as a viable alternative source for vacationers. Moreover, in addition to the usual resort-leisure offerings, ecotourism resort management should also focus on best practices like sustainable development, informative and interpretive component, and direct and indirect efforts to preserve the natural and cultural environment. (Ayala, 1996)."
         },
         {
           "label": "B",
-          "text": "Couran Cove Island Resort is a huge integrated ecotourism-based resort just on the Gold Coast, Queensland, Australia, located in the southern part of Brisbane. As the world's population gets more urbanized, the market for ecologically friendly, peaceful tourist places that offer other features has risen dramatically. One such tourist site is Couran Cove Resort, which is based on South Stradbroke Island and covers roughly 150 acres. South Stradbroke Island is separated from the mainland by the Broadwater, a stretch of sea of nearly 1.86 miles. There was just a single Stradbroke Island more than 100 years ago when at least four native groups lived and hunted on the island. Unfortunately, by the end of the nineteenth century, most of the initial archipelago inhabitants had died from diseases such as tuberculosis, smallpox, and influenza. An enormous depression in the high desert of Stradbroke Island was created by the second shipwreck on the island in 1894. As well as the subsequent annihilation of the ship (the Cambus Wallace), since it had explosives, a massive crater was created in the sandhills of Stradbroke Island. The ocean explodes soon through the weaker landform, dividing Stradbroke into two islands. The Couran Cove Island Resort is situated on one of the world's few naturally existing sand lands, which is rich in a diverse range of plant groups, as well as one of the last remaining vestiges of the rare Livistona rainforest on the Gold Coast. In the first part of the twentieth century, many mangrove and rainforest areas, as well as Melaleuca wetlands on South Stradbroke Island (and in Queensland), were swept, emptied, or occupied for housing, commercial, agricultural, or urban development. Graziers and farmers were compelled to abandon South Stradbroke Island in 1939 since the vegetation and soil conditions were unsuitable for farming. COURAN COVE RESORT'S SUSTAINABILITY PRACTICES"
+          "text": "Couran Cove Island Resort is a huge integrated ecotourism-based resort just on the Gold Coast, Queensland, Australia, located in the southern part of Brisbane. As the world's population gets more urbanized, the market for ecologically friendly, peaceful tourist places that offer other features has risen dramatically. One such tourist site is Couran Cove Resort, which is based on South Stradbroke Island and covers roughly 150 acres. South Stradbroke Island is separated from the mainland by the Broadwater, a stretch of sea of nearly 1.86 miles. There was just a single Stradbroke Island more than 100 years ago when at least four native groups lived and hunted on the island. Unfortunately, by the end of the nineteenth century, most of the initial archipelago inhabitants had died from diseases such as tuberculosis, smallpox, and influenza. An enormous depression in the high desert of Stradbroke Island was created by the second shipwreck on the island in 1894. As well as the subsequent annihilation of the ship (the Cambus Wallace), since it had explosives, a massive crater was created in the sandhills of Stradbroke Island. The ocean explodes soon through the weaker landform, dividing Stradbroke into two islands. The Couran Cove Island Resort is situated on one of the world's few naturally existing sand lands, which is rich in a diverse range of plant groups, as well as one of the last remaining vestiges of the rare Livistona rainforest on the Gold Coast. In the first part of the twentieth century, many mangrove and rainforest areas, as well as Melaleuca wetlands on South Stradbroke Island (and in Queensland), were swept, emptied, or occupied for housing, commercial, agricultural, or urban development. Graziers and farmers were compelled to abandon South Stradbroke Island in 1939 since the vegetation and soil conditions were unsuitable for farming."
+        },
+        {
+          "label": null,
+          "text": "COURAN COVE RESORT'S SUSTAINABILITY PRACTICES"
         },
         {
           "label": "C",
-          "text": "The resort is now only accessible by sea owing to its proximity to an outlying island. The resort offers a round-trip ferry service every 60 minutes to the archipelago from the port. Walking routes, cycling paths, and the seaside train are all available within the resort. The welcome area is the shop counter, which hasn't been furnished for a few years. The technology is outdated and, in some situations, it is barely working. For instance, our fans only work at high speeds. There is a TV, a radio, an outdated air conditioner, and a small refrigerator, and the beds are rough but clean. Since these \"bures\" are so close together and dark noises can be overheard, be particularly cautious and do so. The only inconvenience is mosquitoes, but if you accidentally leave mosquito repellent at home, the island supplies it. These resorts mostly plan and develop the attractions and have been concentrating on the need to survive in the fragile natural environment of South Stradbroke Island to achieve sustainable development. Water and energy management."
+          "text": "The resort is now only accessible by sea owing to its proximity to an outlying island. The resort offers a round-trip ferry service every 60 minutes to the archipelago from the port. Walking routes, cycling paths, and the seaside train are all available within the resort. The welcome area is the shop counter, which hasn't been furnished for a few years. The technology is outdated and, in some situations, it is barely working. For instance, our fans only work at high speeds. There is a TV, a radio, an outdated air conditioner, and a small refrigerator, and the beds are rough but clean. Since these \"bures\" are so close together and dark noises can be overheard, be particularly cautious and do so. The only inconvenience is mosquitoes, but if you accidentally leave mosquito repellent at home, the island supplies it. These resorts mostly plan and develop the attractions and have been concentrating on the need to survive in the fragile natural environment of South Stradbroke Island to achieve sustainable development."
+        },
+        {
+          "label": null,
+          "text": "Water and energy management."
         },
         {
           "label": "D",
-          "text": "Groundwater can be found in the center of South Stradbroke Island, which rises to a maximum height of three meters above sea level. Rainwater recharges the water supply, which is referred to as an unrestrained freshwater reservoir. The water supply for Couran Cove Island Resort comes from this aquifer, which is tapped and extracted via a bore system. Pollution, contamination, and overconsumption are just a few of the issues threatening the island's freshwater supply. According to the resort, washers are detrimental to the island's freshwater supply, and detergents contain high levels of phosphates, which are the main source of water contamination. The resort's energy supply is provided by LPG-powered generation, which is complemented by a wind turbine, which reduces carbon emissions by 70% compared to diesel-equivalent generation techniques. The swimming pool is heated with the excess heat collected from the generator. The resort's energy supply is provided by LPG-powered generation, which is complemented by a wind turbine, which reduces carbon emissions by 70% compared to diesel-equivalent generation techniques. The swimming pool is heated with the excess heat collected from the generator. Solar electricity provides boiled water to the environment, including some of the resort's cars. Showers and toilets are also equipped with water-saving fixtures. However, not all of the resort's appliances, such as refrigerators, are energy efficient. Visitors to the hotel are urged to check their energy and water usage via the in-house television system, and if their usage is low, they are awarded rewards (such as a complimentary return trip to the resort). CONCLUDING REMARKS"
+          "text": "Groundwater can be found in the center of South Stradbroke Island, which rises to a maximum height of three meters above sea level. Rainwater recharges the water supply, which is referred to as an unrestrained freshwater reservoir. The water supply for Couran Cove Island Resort comes from this aquifer, which is tapped and extracted via a bore system. Pollution, contamination, and overconsumption are just a few of the issues threatening the island's freshwater supply. According to the resort, washers are detrimental to the island's freshwater supply, and detergents contain high levels of phosphates, which are the main source of water contamination. The resort's energy supply is provided by LPG-powered generation, which is complemented by a wind turbine, which reduces carbon emissions by 70% compared to diesel-equivalent generation techniques. The swimming pool is heated with the excess heat collected from the generator. The resort's energy supply is provided by LPG-powered generation, which is complemented by a wind turbine, which reduces carbon emissions by 70% compared to diesel-equivalent generation techniques. The swimming pool is heated with the excess heat collected from the generator. Solar electricity provides boiled water to the environment, including some of the resort's cars. Showers and toilets are also equipped with water-saving fixtures. However, not all of the resort's appliances, such as refrigerators, are energy efficient. Visitors to the hotel are urged to check their energy and water usage via the in-house television system, and if their usage is low, they are awarded rewards (such as a complimentary return trip to the resort)."
         },
         {
           "label": "E",
-          "text": "We looked at a case study of solid management practice and an eco-proactive resort's approach to sustainable tourism. In all, Couran Cove Island Resort has earned 23 international and national honors in its three years of existence, such as the 2001 Australian Tourism Trophy in the four-star Accommodation category. The resort has accepted and implemented modern environmental management approaches with success. It has been stated that successful adoption of sustainability principles should result in long-term social, economic, and environmental advantages, as well as ensure and improve the tourism industry's long-term viability. The Couran Cove Island Resort doesn't meet the criteria set forth by Prideaux for the Resort Development Spectrum (2000). As per Prideaux, the facility should be at least Phase 3 of the concept (National tourist phase), which specifies an integrated resort with 3-4 star hotel-style lodging. Interstate travelers make up the majority of the tourism sector in Stage three of the model. The resort does, however, attract a modest number of interstate and foreign visitors, with the primary visitor market consisting of locals and people from adjacent cities and the Gold Coast region. The resort's management does not appear to be concerned about Couran Cove's carrying capacity. Because it is a private commercial eco-tourist operation, limiting the visitor numbers to the resort to reduce environmental harm on South Stradbroke Island would not be a legally required requirement. However, the resort's expansion will be limited by its load capacity, so operating should be part of the resort's strategy. Eco-Resort Management IELTS Reading questions"
+          "text": "We looked at a case study of solid management practice and an eco-proactive resort's approach to sustainable tourism. In all, Couran Cove Island Resort has earned 23 international and national honors in its three years of existence, such as the 2001 Australian Tourism Trophy in the four-star Accommodation category. The resort has accepted and implemented modern environmental management approaches with success. It has been stated that successful adoption of sustainability principles should result in long-term social, economic, and environmental advantages, as well as ensure and improve the tourism industry's long-term viability. The Couran Cove Island Resort doesn't meet the criteria set forth by Prideaux for the Resort Development Spectrum (2000). As per Prideaux, the facility should be at least Phase 3 of the concept (National tourist phase), which specifies an integrated resort with 3-4 star hotel-style lodging. Interstate travelers make up the majority of the tourism sector in Stage three of the model. The resort does, however, attract a modest number of interstate and foreign visitors, with the primary visitor market consisting of locals and people from adjacent cities and the Gold Coast region. The resort's management does not appear to be concerned about Couran Cove's carrying capacity. Because it is a private commercial eco-tourist operation, limiting the visitor numbers to the resort to reduce environmental harm on South Stradbroke Island would not be a legally required requirement. However, the resort's expansion will be limited by its load capacity, so operating should be part of the resort's strategy."
         }
       ],
       "groups": [
@@ -358,14 +367,10 @@
           "instruction": "Choose the correct letter, A, B, C, or D. Write your answers in boxes 1-5 on your answer sheet.",
           "questions": [
             {
-              "number": 27,
+              "number": 28,
               "prompt": "the Stradbroke became two islands",
               "options": [
                 {
-                  "key": "D",
-                  "text": "Write your answers in boxes 1-5 on your answer sheet."
-                },
-                {
                   "key": "A",
                   "text": "by intended destruction of the ship of the Cambus Wallace"
                 },
@@ -376,30 +381,10 @@
                 {
                   "key": "C",
                   "text": "by the movement sandhills on Stradbroke Island"
-                }
-              ],
-              "answer": "B",
-              "explanation": "Option B is correct based on the passage."
-            },
-            {
-              "number": 28,
-              "prompt": "Why are laundry activities for the resort carried out on the mainland?",
-              "options": [
+                },
                 {
                   "key": "D",
-                  "text": "Write your answers in boxes 1-5 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "by intended destruction of the ship of the Cambus Wallace"
-                },
-                {
-                  "key": "B",
-                  "text": "by an explosion of dynamite on a ship and following nature erosion"
-                },
-                {
-                  "key": "C",
-                  "text": "by the movement sandhills on Stradbroke Island"
+                  "text": "by the volcanic eruption on the island"
                 }
               ],
               "answer": "B",
@@ -407,23 +392,23 @@
             },
             {
               "number": 29,
-              "prompt": "What is the major water supplier in South Stradbroke Island is by",
+              "prompt": "Why are laundry activities for the resort carried out on the mainland?",
               "options": [
                 {
-                  "key": "D",
-                  "text": "Write your answers in boxes 1-5 on your answer sheet."
-                },
-                {
                   "key": "A",
-                  "text": "by intended destruction of the ship of the Cambus Wallace"
+                  "text": "To obtain its water supply via a bore system"
                 },
                 {
                   "key": "B",
-                  "text": "by an explosion of dynamite on a ship and following nature erosion"
+                  "text": "To preserve the water and anti-pollution"
                 },
                 {
                   "key": "C",
-                  "text": "by the movement sandhills on Stradbroke Island"
+                  "text": "To save the cost of installing onerous washing machines"
+                },
+                {
+                  "key": "D",
+                  "text": "To reduce the level of phosphates in the water around"
                 }
               ],
               "answer": "B",
@@ -431,47 +416,71 @@
             },
             {
               "number": 30,
-              "prompt": "What is applied for heating water on Couran Cove Island Resort",
+              "prompt": "What is the major water supplier in South Stradbroke Island is by",
               "options": [
                 {
-                  "key": "D",
-                  "text": "Write your answers in boxes 1-5 on your answer sheet."
-                },
-                {
                   "key": "A",
-                  "text": "by intended destruction of the ship of the Cambus Wallace"
+                  "text": "desalinating the seawater"
                 },
                 {
                   "key": "B",
-                  "text": "by an explosion of dynamite on a ship and following nature erosion"
+                  "text": "collecting the rainfall"
                 },
                 {
                   "key": "C",
-                  "text": "by the movement sandhills on Stradbroke Island"
+                  "text": "transporting from the mainland"
+                },
+                {
+                  "key": "D",
+                  "text": "boring groundwater"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            },
+            {
+              "number": 31,
+              "prompt": "What is applied for heating water on Couran Cove Island Resort",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the LPG-power"
+                },
+                {
+                  "key": "B",
+                  "text": "a diesel-powered plant"
+                },
+                {
+                  "key": "C",
+                  "text": "the wind power"
+                },
+                {
+                  "key": "D",
+                  "text": "the solar-power"
                 }
               ],
               "answer": "D",
               "explanation": "Option D is correct based on the passage."
             },
             {
-              "number": 31,
-              "prompt": "on your answer sheet.",
+              "number": 32,
+              "prompt": "What does, as the managers of resorts believe, the prospective future focus on",
               "options": [
                 {
-                  "key": "D",
-                  "text": "Write your answers in boxes 1-5 on your answer sheet."
-                },
-                {
                   "key": "A",
-                  "text": "by intended destruction of the ship of the Cambus Wallace"
+                  "text": "More awards for the resort's accommodation"
                 },
                 {
                   "key": "B",
-                  "text": "by an explosion of dynamite on a ship and following nature erosion"
+                  "text": "sustainable administration and development in the long run"
                 },
                 {
                   "key": "C",
-                  "text": "by the movement sandhills on Stradbroke Island"
+                  "text": "Economic and environmental benefits for the tourism enterprise"
+                },
+                {
+                  "key": "D",
+                  "text": "successful implementation of the Resort Development Spectrum"
                 }
               ],
               "answer": "B",
@@ -481,138 +490,94 @@
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
           "maxWords": 2,
           "questions": [
             {
-              "number": 32,
-              "prompt": "Question 6",
+              "number": 33,
               "answer": [
                 "FERRY"
               ],
-              "explanation": "Found directly in the reading passage: 'FERRY'."
-            },
-            {
-              "number": 33,
-              "prompt": "Question 7",
-              "answer": [
-                "covers"
-              ],
-              "explanation": "Found directly in the reading passage: 'covers'."
+              "explanation": "Found directly in the reading passage: 'FERRY'.",
+              "prompt": "Complete the statement for question 33."
             },
             {
               "number": 34,
-              "prompt": "Question 8",
               "answer": [
-                "stretch"
+                "tourist"
               ],
-              "explanation": "Found directly in the reading passage: 'stretch'."
+              "explanation": "Found directly in the reading passage: 'tourist'.",
+              "prompt": "Complete the statement for question 34."
             },
             {
               "number": 35,
-              "prompt": "Question 9",
               "answer": [
-                "AIR CONDITIONER"
+                "Couran"
               ],
-              "explanation": "Found directly in the reading passage: 'AIR CONDITIONER'."
+              "explanation": "Found directly in the reading passage: 'Couran'.",
+              "prompt": "Complete the statement for question 35."
             },
             {
               "number": 36,
-              "prompt": "on your answer sheet.",
+              "answer": [
+                "AIR CONDITIONER"
+              ],
+              "explanation": "Found directly in the reading passage: 'AIR CONDITIONER'.",
+              "prompt": "Complete the statement for question 36."
+            },
+            {
+              "number": 37,
               "answer": [
                 "MOSQUITOES"
               ],
-              "explanation": "Found directly in the reading passage: 'MOSQUITOES'."
+              "explanation": "Found directly in the reading passage: 'MOSQUITOES'.",
+              "prompt": "Complete the statement for question 37."
             }
           ]
         },
         {
-          "type": "multiple_choice",
+          "type": "choose_multiple",
           "instruction": "Choose THREE correct letters among A-E Write your answers in boxes 11-13 on your answer sheet.",
-          "questions": [
+          "prompt": "Choose THREE correct letters among A-E",
+          "options": [
             {
-              "number": 37,
-              "prompt": "Question 11",
-              "options": [
-                {
-                  "key": "E",
-                  "text": "Write your answers in boxes 11-13 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "Couran Cove Island Resort goes for more eco-friendly practices"
-                },
-                {
-                  "key": "B",
-                  "text": "the accommodation standard only conforms to the Resort Development Spectrum of Phase"
-                },
-                {
-                  "key": "C",
-                  "text": "Couran Cove Island Resort should raise the accommodation standard and build more"
-                }
-              ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "key": "A",
+              "text": "Couran Cove Island Resort goes for more eco-friendly practices"
             },
             {
+              "key": "B",
+              "text": "the accommodation standard only conforms to the Resort Development Spectrum of Phase"
+            },
+            {
+              "key": "C",
+              "text": "Couran Cove Island Resort should raise the accommodation standard and build more"
+            },
+            {
+              "key": "D",
+              "text": "the principal group visiting the resort is international tourists"
+            },
+            {
+              "key": "E",
+              "text": "its carrying capacity will restrict the future business expansion"
+            }
+          ],
+          "answer": [
+            "A",
+            "C",
+            "E"
+          ],
+          "questions": [
+            {
               "number": 38,
-              "prompt": "Question 12",
-              "options": [
-                {
-                  "key": "E",
-                  "text": "Write your answers in boxes 11-13 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "Couran Cove Island Resort goes for more eco-friendly practices"
-                },
-                {
-                  "key": "B",
-                  "text": "the accommodation standard only conforms to the Resort Development Spectrum of Phase"
-                },
-                {
-                  "key": "C",
-                  "text": "Couran Cove Island Resort should raise the accommodation standard and build more"
-                }
-              ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "explanation": "Refer to the passage for Question 11."
             },
             {
               "number": 39,
-              "prompt": "on your answer sheet.",
-              "options": [
-                {
-                  "key": "E",
-                  "text": "Write your answers in boxes 11-13 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "Couran Cove Island Resort goes for more eco-friendly practices"
-                },
-                {
-                  "key": "B",
-                  "text": "the accommodation standard only conforms to the Resort Development Spectrum of Phase"
-                },
-                {
-                  "key": "C",
-                  "text": "Couran Cove Island Resort should raise the accommodation standard and build more"
-                }
-              ],
-              "answer": "E",
-              "explanation": "Option E is correct based on the passage."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
+              "explanation": "Refer to the passage for Question 12."
+            },
             {
               "number": 40,
-              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
+              "explanation": "Refer to the passage for Question 13."
             }
           ]
         }

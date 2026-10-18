@@ -11,64 +11,306 @@
   "passages": [
     {
       "passageNumber": 1,
+      "title": "The creation of lasting memories",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "You should spend about 20 minutes on"
+        },
+        {
+          "label": null,
+          "text": "The creation of lasting memories"
+        },
+        {
+          "label": "A",
+          "text": "Multiple studies of the cognitive processes underlying memory consolidation (permanent memories) have required the treatment and retraining of animal and human subjects to complete an early task. These have vastly contributed to our knowledge."
+        },
+        {
+          "label": "B",
+          "text": "Bernard Agranoff showed that administering creatine supplementation inhibitors had a ground-breaking work with goldfish that caused goldfish to unlearn everything they had previously learned. Moreover, before teaching the fish he administered blockers of the synthesis of proteins immediately. Surprisingly, the creation of protein inhibitors hindered declarative memory yet had no effect on short-term memory, the fish learned the task normally but quickly forgot it."
+        },
+        {
+          "label": "C",
+          "text": "Electroconvulsive therapy (ECT), which inhibits declarative memory preserves short-term memory, according to mounting evidence. Ivan Izquierdo discovered that certain pharmacological treatments can impair short-term memory without affecting memory development. On the flip side, a theory was put forth that long-term memory and short-term memory are not dependent on one another. This was suggested by Canadian psychologist Donald Hebb in 1949."
+        },
+        {
+          "label": "D",
+          "text": "These results demonstrate that our experiences generate simultaneous and potentially separate periods of memory, each with its own lifespan. The reason for this is unknown for all of these clinical and experimental trial results strongly show that the brain makes recent and remote memories differently"
+        },
+        {
+          "label": "E",
+          "text": "To adapt to an environment that is always changing, we need a memory that can be generated quickly. The majority of contemporary building codes, for example, stipulate that stair step heights must be the same. After ascending or descending a few steps, we immediately remember their heights and think that the rest will be the same. If they do not correspond, we may trip and fall. This situation is helpful for lawyers but surely not for all of us and insurance companies. It would be of little use if we could only recall the step heights after several hours have passed and the memory has solidified."
+        },
+        {
+          "label": "F",
+          "text": "The majority of this theory's support comes from clinical and experimental data that medications and illnesses affecting brain function can have an effect on long-term memory development. Many other sorts of evidence show that after learning, memories gradually solidify over time. Human participants educated in visual skill showed no improvement until eight hours after the training was complete, and then showed even greater improvement the following day, as reported by Avi Kami and Dov Sagi. Also, the mastery was maintained over a long period of time."
+        },
+        {
+          "label": "G",
+          "text": "In addition, studies employing human brain scans to carefully assess neuronal activity induced by learning have revealed that these changes linger for hours after learning. Reza Shadmehr and Henry Holcomb performed innovative research using functions available of the brain to assess brain activity in various regions of the brain shortly after training human volunteers in a motor learning task including arm and hand movements. Although the subjects' performance remained consistent for several hours following training, their brain function did not; various regions of the brain were extremely active at various times over the several hours of training. The activity changed from the prefrontal cortex to the recognized movement-regulating motor cortex and cerebellar cortex. Integration of the motor ability appeared to include activation of many neural networks, which maintained underlying brain processes."
+        },
+        {
+          "label": "H",
+          "text": "In addition, there is evidence that learning-induced associations in the firing of neurons in the cerebral cortex persist for days following training. In a series of extensive experiments with rats implanted with diodes in the auditory cortex, Norman Weinberger found that after a narrow band tone was recurrently paired with footshock, nerve cells in the auditory cortex reacted more firmly to the particular tone and less strongly to other tones with various frequencies. Inquisitiveness, the uniqueness of the neurons' responses to the particular tone used in learning remained higher for a number of days after training had concluded."
+        },
+        {
+          "label": "I",
+          "text": "Why our long-term memories grow slowly is not easily explicable. It is definitely puzzling why we have a type of memory on which we must rely for many hours, days, or even a lifetime, yet which is so sensitive to disturbance quickly after its formation. The brain circuitry that centralizes long-term memory over time may have been an evolutionary afterthought. In addition, the size and complexity of our mammalian brains may result in slower memory integration. These beliefs are simple to debunk. Every known animal species possesses both short- and long-term memory and is subject to forgetfulness. Birds, bees, mollusks, fish, and rodents have long-term memory, similar to humans. Memory consolidation has existed and been conserved since the beginning of evolution."
+        },
+        {
+          "label": "J",
+          "text": "Even though there appears to be no compelling reason to believe that a biological system such as the brain could not rapidly develop a long-lasting memory, this is not the case. Memory consolidation must therefore fulfill a crucial adaptive purpose or function. There is strong evidence that slow consolidation is adaptive, as it allows neurobiological mechanisms to adjust the memory intensity for experiences immediately after learning. Intriguingly, a substantial body of evidence indicates that therapies taken quickly after training may both improve and damage memory."
+        }
+      ],
+      "groups": [
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the views of the writer in the Reading Passage? For Questions 1-4 in your answer sheet, write",
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "The subjects of kami and sagi were subjected to numerous days of training.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 2,
+              "prompt": "Rats in Weinberger's research learned to associate a particular noise with a particular",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 3,
+              "prompt": "Weinberger's researchers suggested that the strength of rats' learned associations",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 4,
+              "prompt": "It is easy to recognize the evolutionary advantage of the manner in which humans create",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter A, B, C, or D",
+          "questions": [
+            {
+              "number": 5,
+              "prompt": "Reading passage describes Bernard Agranoff' 's entailed",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "injecting goldfish at several experimental stages."
+                },
+                {
+                  "key": "B",
+                  "text": "Training goldfish to perform a variety of activities"
+                },
+                {
+                  "key": "C",
+                  "text": "Utilizing an alternative method to cure Goldfish"
+                },
+                {
+                  "key": "D",
+                  "text": "Comparing the performance of various goldfish to complete specific activities."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
+            {
+              "number": 6,
+              "prompt": "Recent study indicates that",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "pharmacological therapies often do not impact short-term memory."
+                },
+                {
+                  "key": "B",
+                  "text": "Selective memories serve as the basis for long-term memory."
+                },
+                {
+                  "key": "C",
+                  "text": "Different systems produce both short-term and long-term memories"
+                },
+                {
+                  "key": "D",
+                  "text": "The ECT treatment has an effect on both forms of memory."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 7,
+              "prompt": "What is the author aiming to convey in the fifth paragraph using staircases as an illustration?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The completion of daily tasks is contingent upon the fast formation of memories."
+                },
+                {
+                  "key": "B",
+                  "text": "It is possible to execute mundane tasks unconsciously."
+                },
+                {
+                  "key": "C",
+                  "text": "Accidents involving the body might impair memory function."
+                },
+                {
+                  "key": "D",
+                  "text": "Complex information, such as regulations, cannot be stored in memory."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
+            {
+              "number": 8,
+              "prompt": "The research on memory that Kami and Sagi",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "have been conducting raises questions about the commonly held beliefs."
+                },
+                {
+                  "key": "B",
+                  "text": "Having nothing more than an effect on the working memory"
+                },
+                {
+                  "key": "C",
+                  "text": "Activities that required one to make use of their hearing formed the basis of these"
+                },
+                {
+                  "key": "D",
+                  "text": "confirmed by additional testing the findings of the previous ones"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 9,
+              "prompt": "What did the experiment by Shadmehr and Holcomb show?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Activating different parts and subparts of the brain required the completion of a range of different activities."
+                },
+                {
+                  "key": "B",
+                  "text": "As the process progressed, the activity in the brain gradually moved from one region to other regions as it moved through the brain."
+                },
+                {
+                  "key": "C",
+                  "text": "The participants' overall performance in a given task continued to show signs of improvement even after the training program had been completed."
+                },
+                {
+                  "key": "D",
+                  "text": "The medication that was given to the patients resulted in an improvement in the subject's performance on the task that was being tested."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the Summary using the list of words A-I given below",
+          "content": "Researchers from a broad range of disciplines have looked at the processes that underlie the formation of long-term memories. Experiments that are carried out in a laboratory often involve telling people to do something ( {{10}} )_______, and then either delivering medication to them or giving them minor electric shocks after they have completed the task. Other studies either look at a person's behavior after they have been through a learning experience or utilize the advanced technology to observe brain activity in people while they are learning.The findings, which are mostly consistent with one another, indicate that long-term memories are the consequence of a complex biological process that costs ( {{11}} )________.The fact that humans and other species, even animals with ( {{12}} )________brains, share this attribute is proof that it originated ( {{13}} )________during the course of the evolutionary journey of our species.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 10,
+              "answer": [
+                "memory"
+              ],
+              "explanation": "Found directly in the reading passage: 'memory'."
+            },
+            {
+              "number": 11,
+              "answer": [
+                "results"
+              ],
+              "explanation": "Found directly in the reading passage: 'results'."
+            },
+            {
+              "number": 12,
+              "answer": [
+                "periods"
+              ],
+              "explanation": "Found directly in the reading passage: 'periods'."
+            },
+            {
+              "number": 13,
+              "answer": [
+                "A"
+              ],
+              "explanation": "Found directly in the reading passage: 'A'."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "These have vastly contributed to our knowledge.",
+              "answer": "TRUE",
+              "explanation": "Confirmed directly in the reading passage: 'These have vastly contributed to our knowledge....'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
       "title": "Taking us back to the paradise city",
       "paragraphs": [
         {
           "label": null,
-          "text": "Taking us back to the paradise city reading passage The hard rock band Guns and Roses was founded in 1985 by Axl Rose and Tracii Guns and took its name from its two founding members, who served as the group's main guitarists at the time. Few could have anticipated the band's level of popularity at the time. The band, which became a symbol of the hedonistic rebelliousness of the 1980s and 1990s punk-rock era, has, after much rumor, resurrected itself for another assault on the music charts. The band has sold more than 100 million albums worldwide, including 46 million in the United States alone, to date."
+          "text": "You should spend about 20 minutes on"
         },
         {
-          "label": "A",
-          "text": "new world tour has officially started for GNR, as the group is now known. And as it begins a new chapter of its journey, we look back at the band's colorful and frequently contentious past. 1985 - 1986 In the beginning, the band lineup saw a lot of changes. Tracii Gun, a founding member, was replaced as the lead guitarist by Slash since he missed the rehearsals. Slash also added his close friend Steven Adler to the lineup after the band's former drummer Rob Gardner left for personal reasons. Axl Rose (vocals), Izzy Stradlin (rhythm guitar), Duff McKagan (bass), Slash (lead guitar), and Steven Adler (drums) entered their first tour, known as the \"Hell Tour,\" after settling into their positions and completing the line-up. The band found its chemistry while touring, and even though it was only able to put out one four-track EP, Like a Suicide, during this time, the foundation for future success was laid. This was because the group quickly developed a reputation for giving energetic live performances. 1987 - 1989 The group's debut album, Appetite for Destruction, was released on July 21st, 1987. The album remained at the bottom of the charts for over a year before the band's representative was able to persuade MTV execs to play Welcome to the Jungle, the album's lead single, during their afternoon rotations. However, success wasn't by any means instantaneous. Rock and punk fans soon noticed and started clamoring for the video in droves. The album's second US hit, \"Sweet Child of Mine,\" the song and its accompanying music video received regular airplay and quickly rose to the top of the US charts, in large part due to strong grassroots support. After receiving invites to participate at significant international rock festivals, a world tour began. The band was currently well on its way to becoming famous and wealthy. 1990 - 1993 All of the band members led extreme lives, but drummer Adler's lifestyle ultimately got the best of him. He could no longer perform with the band due to the severity of his drug use and was sacked in July 1990. Matt Sorum took his place. The group also gained a sixth member when Dizzy Reed joined as the group's keyboardist. The band then began working on its most ambitious project to date, releasing two albums, Use Your Illusion 1 and Use Your Illusion 2, at the same time. The risk paid off brilliantly as the albums shot to numbers one and two in the charts, the first time a band had ever accomplished such a feat. However, despite being on top of a wave, the band members were constantly dogged by controversy, especially singer Rose, who was among other things charged with assault and accused of inciting a riot that claimed many lives. Nevertheless, the Use Your Illusion Tour ended with a bang, drawing record crowds and lasting an amazing 28 months. 1994-2008 But just when it seemed like the band could not fail, everything started to slowly fall apart. Prior to Slash's official departure in 1996, the band took a break during which time they did not record or tour. Rose and Slash both experienced personal problems. Rose replaced most of the other band members who left after Slash did, but it took a full nine years until a highly anticipated reunion performance was given in Las Vegas. The band's anticipated new album, Chinese Democracy, never appeared, and tour plans were frequently postponed or scrapped entirely. Chinese Democracy wasn't actually released until 2008 when Rose was the last survivor of the original band. 2009-present Following the release of Chinese Democracy, the band embarked on a new global tour, which got generally favorable reviews but was marred by controversy due to Rose's penchant for being late for shows and his stage presence, both of which have drawn much ire. After all is said and done, though, GNR's ongoing appeal cannot be disputed. Just as they did before when the band first became popular, devoted fans continue to queue up in the thousands to get tickets for every new tour stop. The only difference is that they are more anticipating than hoping for a fantastic performance today, but that's rock and roll, baby!"
+          "label": null,
+          "text": "Taking us back to the paradise city"
+        },
+        {
+          "label": null,
+          "text": "The hard rock band Guns and Roses was founded in 1985 by Axl Rose and Tracii Guns and took its name from its two founding members, who served as the group's main guitarists at the time. Few could have anticipated the band's level of popularity at the time. The band, which became a symbol of the hedonistic rebelliousness of the 1980s and 1990s punk-rock era, has, after much rumor, resurrected itself for another assault on the music charts. The band has sold more than 100 million albums worldwide, including 46 million in the United States alone, to date. A new world tour has officially started for GNR, as the group is now known. And as it begins a new chapter of its journey, we look back at the band's colorful and frequently contentious past."
+        },
+        {
+          "label": null,
+          "text": "In the beginning, the band lineup saw a lot of changes. Tracii Gun, a founding member, was replaced as the lead guitarist by Slash since he missed the rehearsals. Slash also added his close friend Steven Adler to the lineup after the band's former drummer Rob Gardner left for personal reasons. Axl Rose (vocals), Izzy Stradlin (rhythm guitar), Duff McKagan (bass), Slash (lead guitar), and Steven Adler (drums) entered their first tour, known as the \"Hell Tour,\" after settling into their positions and completing the line-up. The band found its chemistry while touring, and even though it was only able to put out one four-track EP, Like a Suicide, during this time, the foundation for future success was laid. This was because the group quickly developed a reputation for giving energetic live performances."
+        },
+        {
+          "label": null,
+          "text": "The group's debut album, Appetite for Destruction, was released on July 21st, 1987. The album remained at the bottom of the charts for over a year before the band's representative was able to persuade MTV execs to play Welcome to the Jungle, the album's lead single, during their afternoon rotations. However, success wasn't by any means instantaneous. Rock and punk fans soon noticed and started clamoring for the video in droves. The album's second US hit, \"Sweet Child of Mine,\" the song and its accompanying music video received regular airplay and quickly rose to the top of the US charts, in large part due to strong grassroots support. After receiving invites to participate at significant international rock festivals, a world tour began. The band was currently well on its way to becoming famous and wealthy."
+        },
+        {
+          "label": null,
+          "text": "All of the band members led extreme lives, but drummer Adler's lifestyle ultimately got the best of him. He could no longer perform with the band due to the severity of his drug use and was sacked in July 1990. Matt Sorum took his place. The group also gained a sixth member when Dizzy Reed joined as the group's keyboardist. The band then began working on its most ambitious project to date, releasing two albums, Use Your Illusion 1 and Use Your Illusion 2, at the same time. The risk paid off brilliantly as the albums shot to numbers one and two in the charts, the first time a band had ever accomplished such a feat. However, despite being on top of a wave, the band members were constantly dogged by controversy, especially singer Rose, who was among other things charged with assault and accused of inciting a riot that claimed many lives. Nevertheless, the Use Your Illusion Tour ended with a bang, drawing record crowds and lasting an amazing 28 months."
+        },
+        {
+          "label": null,
+          "text": "But just when it seemed like the band could not fail, everything started to slowly fall apart. Prior to Slash's official departure in 1996, the band took a break during which time they did not record or tour. Rose and Slash both experienced personal problems. Rose replaced most of the other band members who left after Slash did, but it took a full nine years until a highly anticipated reunion performance was given in Las Vegas. The band's anticipated new album, Chinese Democracy, never appeared, and tour plans were frequently postponed or scrapped entirely. Chinese Democracy wasn't actually released until 2008 when Rose was the last survivor of the original band."
+        },
+        {
+          "label": null,
+          "text": "Following the release of Chinese Democracy, the band embarked on a new global tour, which got generally favorable reviews but was marred by controversy due to Rose's penchant for being late for shows and his stage presence, both of which have drawn much ire. After all is said and done, though, GNR's ongoing appeal cannot be disputed. Just as they did before when the band first became popular, devoted fans continue to queue up in the thousands to get tickets for every new tour stop. The only difference is that they are more anticipating than hoping for a fantastic performance today, but that's rock and roll, baby!"
         }
       ],
       "groups": [
         {
           "type": "matching_features",
-          "instruction": "Look at the following statements (Questions 1-6 and the lists of periods of time below.",
-          "questions": [
-            {
-              "number": 1,
-              "prompt": "During the band's lengthy absence, several members opted to quit.",
-              "answer": "D",
-              "explanation": "Refer to item D in the passage."
-            },
-            {
-              "number": 2,
-              "prompt": "Prior to the release of the band's upcoming record, there was a very significant delay.",
-              "answer": "D",
-              "explanation": "Refer to item D in the passage."
-            },
-            {
-              "number": 3,
-              "prompt": "During the band's tour, the friendship between its members improved.",
-              "answer": "A",
-              "explanation": "Refer to item A in the passage."
-            },
-            {
-              "number": 4,
-              "prompt": "One member of the band was fired due to his inability to perform due to a destructive",
-              "answer": "C",
-              "explanation": "Refer to item C in the passage."
-            },
-            {
-              "number": 5,
-              "prompt": "A new member joined the band playing an instrument that none of the previous",
-              "answer": "C",
-              "explanation": "Refer to item C in the passage."
-            },
-            {
-              "number": 6,
-              "prompt": "on your answer sheet.",
-              "answer": "B",
-              "explanation": "Refer to item B in the passage."
-            }
-          ],
+          "instruction": "Look at the following statements (Questions 15-20 and the lists of periods of time below.",
           "options": [
-            {
-              "key": "D",
-              "text": "Write the correct letter, A-D 1-6 on your answer sheet."
-            },
             {
               "key": "A",
               "text": "From 1985 to 1986"
@@ -80,6 +322,48 @@
             {
               "key": "C",
               "text": "From 1990 to 1993"
+            },
+            {
+              "key": "D",
+              "text": "From 1994 to 2008"
+            }
+          ],
+          "questions": [
+            {
+              "number": 15,
+              "prompt": "During the band's lengthy absence, several members opted to quit.",
+              "answer": "D",
+              "explanation": "Refer to item D in the passage."
+            },
+            {
+              "number": 16,
+              "prompt": "Prior to the release of the band's upcoming record, there was a very significant delay.",
+              "answer": "D",
+              "explanation": "Refer to item D in the passage."
+            },
+            {
+              "number": 17,
+              "prompt": "During the band's tour, the friendship between its members improved.",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 18,
+              "prompt": "One member of the band was fired due to his inability to perform due to a destructive",
+              "answer": "C",
+              "explanation": "Refer to item C in the passage."
+            },
+            {
+              "number": 19,
+              "prompt": "A new member joined the band playing an instrument that none of the previous",
+              "answer": "C",
+              "explanation": "Refer to item C in the passage."
+            },
+            {
+              "number": 20,
+              "prompt": "The band achieved their first number-one single.",
+              "answer": "B",
+              "explanation": "Refer to item B in the passage."
             }
           ]
         },
@@ -89,7 +373,7 @@
           "maxWords": 1,
           "questions": [
             {
-              "number": 7,
+              "number": 21,
               "prompt": "Question 7",
               "answer": [
                 "rehearsals"
@@ -97,7 +381,7 @@
               "explanation": "Found directly in the reading passage: 'rehearsals'."
             },
             {
-              "number": 8,
+              "number": 22,
               "prompt": "Question 8",
               "answer": [
                 "chemistry"
@@ -105,7 +389,7 @@
               "explanation": "Found directly in the reading passage: 'chemistry'."
             },
             {
-              "number": 9,
+              "number": 23,
               "prompt": "Question 9",
               "answer": [
                 "airplay"
@@ -113,7 +397,7 @@
               "explanation": "Found directly in the reading passage: 'airplay'."
             },
             {
-              "number": 10,
+              "number": 24,
               "prompt": "Question 10",
               "answer": [
                 "appeal"
@@ -123,136 +407,72 @@
           ]
         },
         {
-          "type": "multiple_choice",
+          "type": "matching_sentence_endings",
           "instruction": "Complete each sentence with the correct ending, A-G, below.",
+          "options": [
+            {
+              "key": "A",
+              "text": "takes its name from two former members."
+            },
+            {
+              "key": "B",
+              "text": "was named after its founding members."
+            },
+            {
+              "key": "C",
+              "text": "success in the States alone."
+            },
+            {
+              "key": "D",
+              "text": "was never a predictable band musically."
+            },
+            {
+              "key": "E",
+              "text": "considerable success in America."
+            },
+            {
+              "key": "F",
+              "text": "a symbol of success in the 1980s."
+            }
+          ],
           "questions": [
             {
-              "number": 11,
+              "number": 25,
               "prompt": "Gun and Roses",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "takes its name from two former members."
-                },
-                {
-                  "key": "B",
-                  "text": "was named after its founding members."
-                },
-                {
-                  "key": "C",
-                  "text": "success in the States alone."
-                },
-                {
-                  "key": "D",
-                  "text": "was never a predictable band musically."
-                }
-              ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "Refer to item B in the passage."
             },
             {
-              "number": 12,
+              "number": 26,
               "prompt": "The band has enjoyed",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "takes its name from two former members."
-                },
-                {
-                  "key": "B",
-                  "text": "was named after its founding members."
-                },
-                {
-                  "key": "C",
-                  "text": "success in the States alone."
-                },
-                {
-                  "key": "D",
-                  "text": "was never a predictable band musically."
-                },
-                {
-                  "key": "E",
-                  "text": "Option E"
-                }
-              ],
               "answer": "E",
-              "explanation": "Option E is correct based on the passage."
+              "explanation": "Refer to item E in the passage."
             },
             {
-              "number": 13,
+              "number": 27,
               "prompt": "The band became",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "takes its name from two former members."
-                },
-                {
-                  "key": "B",
-                  "text": "was named after its founding members."
-                },
-                {
-                  "key": "C",
-                  "text": "success in the States alone."
-                },
-                {
-                  "key": "D",
-                  "text": "was never a predictable band musically."
-                },
-                {
-                  "key": "G",
-                  "text": "Option G"
-                }
-              ],
-              "answer": "G",
-              "explanation": "Option G is correct based on the passage."
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
             }
           ]
         }
       ]
     },
     {
-      "passageNumber": 2,
+      "passageNumber": 3,
       "title": "The Beginning of Football",
       "paragraphs": [
         {
           "label": "A",
-          "text": "- Although the game itself is much older football as we know it now was originated in Britain in the nineteenth century. In fact, the term \"football\" has historically referred to games performed on foot, as opposed to those played on horseback, therefore kicking a ball was not always a component. It has generally been played by men, although at the end of the 17th century, married and unmarried women in a Scottish town played the game. The married women consistently win."
+          "text": "You should spend about 20 minutes on"
         },
         {
           "label": "B",
-          "text": "- Tsu'chu, which was played in China was the earliest form of football which have evidence that may date back 3,000 years. It was performed in front of the Emperor during their birthday celebrations. It entailed kicking a leather ball through a 30-40 cm aperture into a small net attached to long bamboo canes, a feat that required exceptional ability and precision."
+          "text": "The Beginning of Football"
         },
         {
-          "label": "C",
-          "text": "- The Japanese 'kemari', which dates back to roughly the fifth century and is still played today, is a variant of the game that also originated in the Far East. This is a form of circula/r football, a more dignified and ceremonial event requiring specific skills, but not competitive in the same way that the Chinese game was, nor is there any hint of fight for possession of the ball. The players had to transfer the ball to one another in a somewhat confined area without allowing it to hit the ground."
-        },
-        {
-          "label": "D",
-          "text": "- The Romans had a far more exciting game called 'harpastum' Each team member had a distinct tactical assignment and exhibited a loud interest in the game's progress and score. The involvement of the feet was so tiny as to be negligible. The game remained popular for 700 or 800 years, but despite its introduction to England, it is unlikely to be considered a precursor to modern football."
-        },
-        {
-          "label": "E",
-          "text": "- The game that flourished in Britain between the 8th and 19th centuries was significantly different from all previously known versions; it was more disorganised, aggressive, spontaneous, and typically played by an undetermined number of players. Frequently, the games consisted of a fierce competition between entire communities. Kicking opponents was permitted, as was virtually anything else."
-        },
-        {
-          "label": "F",
-          "text": "- Even though the authorities intervened often to limit football as a public nuisance, there was a great deal of passion for the sport. During the 14th and 15th centuries, football was ruled illegal in England, Scotland, and France due to the unrest that sometimes accompanied it or because it prohibited subjects from practising more useful military disciplines. None of these initiatives had an appreciable effect."
-        },
-        {
-          "label": "G",
-          "text": "- The popularity of the somewhat more organised Italian game 'Calcio' had a significant impact on the development of football in England throughout the sixteenth century. Richard Mulcaster, the school's headmaster, was a notable fan of English football, which remained as harsh as ever. He emphasised that it had educational value and fostered health and vitality. Mulcaster stated that all that was required was a little refinement, a cap on the number of players per team, and most crucially, a referee to monitor the game."
-        },
-        {
-          "label": "H",
-          "text": "- Until the early 19th century, when a number of influential English schools created their own modifications, the game existed in a disorganised state. In some schools, particularly Rugby schools, the ball may be carried or touched with the hands, and opponents might be tripped and booted. In educational circles, it was acknowledged that football, as a team sport, helped to foster values such as loyalty, altruism, cooperation, subordination, and respect for team spirit. In schools, a 'games cult' arose, and football became a required part of the curriculum."
-        },
-        {
-          "label": "I",
-          "text": "- In 1863, the culmination of events was reached. At Cambridge University, there was a movement to develop consistent standards and rules that would be accepted by everybody, but there were essentially two camps: Rugby School and others intended to continue with their own version of the game, which included permitting players to carry the ball. Eleven London clubs and schools dispatched delegations in October of the same year to draught a set of fundamental regulations to regulate their matches. This gathering signified the establishment of the Football Association."
-        },
-        {
-          "label": "J",
-          "text": "- The issue over kicking and tripping opponents and carrying the ball was exhaustively examined at this and following sessions until, on December 8, the most ardent proponents of the Rugby style departed, resulting in a definitive split between rugby and football. Within eight years, the Football Association had 50 member clubs and launched the FA Cup, the first football competition in the globe."
+          "label": "A",
+          "text": "- Although the game itself is much older football as we know it now was originated in Britain in the nineteenth century. In fact, the term \"football\" has historically referred to games performed on foot, as opposed to those played on horseback, therefore kicking a ball was not always a component. It has generally been played by men, although at the end of the 17th century, married and unmarried women in a Scottish town played the game. The married women consistently win. B - Tsu'chu, which was played in China was the earliest form of football which have evidence that may date back 3,000 years. It was performed in front of the Emperor during their birthday celebrations. It entailed kicking a leather ball through a 30-40 cm aperture into a small net attached to long bamboo canes, a feat that required exceptional ability and precision. C - The Japanese 'kemari', which dates back to roughly the fifth century and is still played today, is a variant of the game that also originated in the Far East. This is a form of circula/r football, a more dignified and ceremonial event requiring specific skills, but not competitive in the same way that the Chinese game was, nor is there any hint of fight for possession of the ball. The players had to transfer the ball to one another in a somewhat confined area without allowing it to hit the ground. D - The Romans had a far more exciting game called 'harpastum' Each team member had a distinct tactical assignment and exhibited a loud interest in the game's progress and score. The involvement of the feet was so tiny as to be negligible. The game remained popular for 700 or 800 years, but despite its introduction to England, it is unlikely to be considered a precursor to modern football. E - The game that flourished in Britain between the 8th and 19th centuries was significantly different from all previously known versions; it was more disorganised, aggressive, spontaneous, and typically played by an undetermined number of players. Frequently, the games consisted of a fierce competition between entire communities. Kicking opponents was permitted, as was virtually anything else. F - Even though the authorities intervened often to limit football as a public nuisance, there was a great deal of passion for the sport. During the 14th and 15th centuries, football was ruled illegal in England, Scotland, and France due to the unrest that sometimes accompanied it or because it prohibited subjects from practising more useful military disciplines. None of these initiatives had an appreciable effect. G - The popularity of the somewhat more organised Italian game 'Calcio' had a significant impact on the development of football in England throughout the sixteenth century. Richard Mulcaster, the school's headmaster, was a notable fan of English football, which remained as harsh as ever. He emphasised that it had educational value and fostered health and vitality. Mulcaster stated that all that was required was a little refinement, a cap on the number of players per team, and most crucially, a referee to monitor the game. H - Until the early 19th century, when a number of influential English schools created their own modifications, the game existed in a disorganised state. In some schools, particularly Rugby schools, the ball may be carried or touched with the hands, and opponents might be tripped and booted. In educational circles, it was acknowledged that football, as a team sport, helped to foster values such as loyalty, altruism, cooperation, subordination, and respect for team spirit. In schools, a 'games cult' arose, and football became a required part of the curriculum. I - In 1863, the culmination of events was reached. At Cambridge University, there was a movement to develop consistent standards and rules that would be accepted by everybody, but there were essentially two camps: Rugby School and others intended to continue with their own version of the game, which included permitting players to carry the ball. Eleven London clubs and schools dispatched delegations in October of the same year to draught a set of fundamental regulations to regulate their matches. This gathering signified the establishment of the Football Association. J - The issue over kicking and tripping opponents and carrying the ball was exhaustively examined at this and following sessions until, on December 8, the most ardent proponents of the Rugby style departed, resulting in a definitive split between rugby and football. Within eight years, the Football Association had 50 member clubs and launched the FA Cup, the first football competition in the globe."
         }
       ],
       "groups": [
@@ -263,148 +483,151 @@
           "options": [
             {
               "key": "i",
-              "text": "Heading i"
+              "text": "Paragraph D"
             },
             {
               "key": "ii",
-              "text": "Heading ii"
+              "text": "Paragraph E"
             },
             {
               "key": "iii",
-              "text": "Heading iii"
+              "text": "Paragraph F"
             },
             {
               "key": "iv",
-              "text": "Heading iv"
+              "text": "Paragraph G"
             },
             {
               "key": "v",
-              "text": "Heading v"
+              "text": "Paragraph H"
             },
             {
               "key": "vi",
-              "text": "Heading vi"
+              "text": "was played by teams of a fixed size."
             },
             {
               "key": "vii",
-              "text": "Heading vii"
+              "text": "was less popular than it later became."
             },
             {
               "key": "viii",
-              "text": "Heading viii"
+              "text": "was often played by one community against another."
+            },
+            {
+              "key": "ix",
+              "text": "formed part of a celebration."
             }
           ],
           "questions": [
             {
-              "number": 14,
-              "prompt": "Paragraph A",
-              "answer": "i",
+              "number": 28,
+              "prompt": "Paragraph D",
+              "answer": "ix",
               "explanation": "\"The game that flourished in Britain from the 8th to the 19th centuries was substantially different from all the previously known forms - more disorganized, more violent, more spontaneous, and usually played by an indefinite number of players.\" This suggests that the game that developed in Britain from the 8th to the 19th centuries considerably used to be led to chaos and disorganization."
             },
             {
-              "number": 15,
-              "prompt": "Paragraph B",
+              "number": 29,
+              "prompt": "Paragraph E",
               "answer": "i",
               "explanation": "\"In the 14th and 15th centuries, England, Scotland, and France all made football punishable by law, because of the disorder that commonly accompanied it, or because the well-loved recreation prevented subjects from practising more useful military disciplines.\" This suggests that football was banned and prohibited as it used to be considered a distracting activity that took people's interest off more important activities such as military disciplines. Therefore, the answer is option E."
             },
             {
-              "number": 16,
-              "prompt": "Paragraph C",
+              "number": 30,
+              "prompt": "Paragraph F",
               "answer": "i",
-              "explanation": "Refer to Paragraph C in the passage."
+              "explanation": "Refer to Paragraph F in the passage."
             },
             {
-              "number": 17,
-              "prompt": "Paragraph D",
+              "number": 31,
+              "prompt": "Paragraph G",
               "answer": "vii",
               "explanation": "\"Mulcaster claimed that all that was needed was to refine it a little, limit the number of participants in each team, and, more importantly, have a referee to oversee the game.\" This is suggestive of the minute proposals aimed at refining the game for better organization and discipline."
             },
             {
-              "number": 18,
-              "prompt": "Paragraph E",
+              "number": 32,
+              "prompt": "Paragraph H",
               "answer": "iii",
-              "explanation": "Refer to Paragraph E in the passage."
+              "explanation": "Refer to Paragraph H in the passage."
             }
           ]
         },
         {
-          "type": "matching_headings",
-          "instruction": "Complete each sentence with the correct ending A-I.",
-          "optionsTitle": "List of Headings",
+          "type": "matching_sentence_endings",
+          "instruction": "Complete each sentence with the correct ending A-I. Write the correct letter A-I for the Questions 33-38 on your answer sheet.",
           "options": [
             {
-              "key": "i",
-              "text": "Heading i"
+              "key": "A",
+              "text": "was seen as something to be encouraged in the young."
             },
             {
-              "key": "ii",
-              "text": "Heading ii"
+              "key": "B",
+              "text": "involved individual players having different responsibilities."
             },
             {
-              "key": "iii",
-              "text": "Heading iii"
+              "key": "C",
+              "text": "was influenced by a game from another country."
             },
             {
-              "key": "iv",
-              "text": "Heading iv"
+              "key": "D",
+              "text": "was a cooperative effort by all the players."
             },
             {
-              "key": "v",
-              "text": "Heading v"
+              "key": "E",
+              "text": "distracted people from more important activities."
             },
             {
-              "key": "vi",
-              "text": "Heading vi"
+              "key": "F",
+              "text": "was played by teams of a fixed size."
             },
             {
-              "key": "vii",
-              "text": "Heading vii"
+              "key": "G",
+              "text": "was less popular than it later became."
             },
             {
-              "key": "viii",
-              "text": "Heading viii"
+              "key": "H",
+              "text": "was often played by one community against another."
             },
             {
-              "key": "ix",
-              "text": "Heading ix"
+              "key": "I",
+              "text": "formed part of a celebration."
             }
           ],
           "questions": [
             {
-              "number": 19,
-              "prompt": "Paragraph A",
-              "answer": "i",
-              "explanation": "Refer to Paragraph A in the passage."
+              "number": 33,
+              "prompt": "Tsu'chu",
+              "answer": "I",
+              "explanation": "Refer to item I in the passage."
             },
             {
-              "number": 20,
-              "prompt": "Paragraph B",
-              "answer": "i",
-              "explanation": "Refer to Paragraph B in the passage."
+              "number": 34,
+              "prompt": "Kemari",
+              "answer": "D",
+              "explanation": "Refer to item D in the passage."
             },
             {
-              "number": 21,
-              "prompt": "Paragraph C",
-              "answer": "i",
-              "explanation": "Refer to Paragraph C in the passage."
+              "number": 35,
+              "prompt": "Harpastum",
+              "answer": "B",
+              "explanation": "Refer to item B in the passage."
             },
             {
-              "number": 22,
-              "prompt": "Paragraph D",
-              "answer": "i",
-              "explanation": "Refer to Paragraph D in the passage."
+              "number": 36,
+              "prompt": "From the 8th century, football in the British Isles",
+              "answer": "H",
+              "explanation": "Refer to item H in the passage."
             },
             {
-              "number": 23,
-              "prompt": "Paragraph E",
-              "answer": "i",
-              "explanation": "Refer to Paragraph E in the passage."
+              "number": 37,
+              "prompt": "In the past, the authorities legitimately despised football and acted on the belief that football.",
+              "answer": "E",
+              "explanation": "Refer to item E in the passage."
             },
             {
-              "number": 24,
-              "prompt": "Paragraph F",
-              "answer": "i",
-              "explanation": "Refer to Paragraph F in the passage."
+              "number": 38,
+              "prompt": "When it was accepted in academic settings, football.",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
             }
           ]
         },
@@ -413,250 +636,16 @@
           "instruction": "TRUE if the statement agrees with the information",
           "questions": [
             {
-              "number": 25,
-              "prompt": "Statement regarding Question 12.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
-            },
-            {
-              "number": 26,
-              "prompt": "Statement regarding Question 13.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "passageNumber": 3,
-      "title": "Time Travel",
-      "paragraphs": [
-        {
-          "label": null,
-          "text": "When astronomers recently disclosed that sub-atomic particles known as neutrinos-the offspring of the sun's radiological debris-can transcend the lethal velocity, time travel pushed a little step away from speculative fiction and toward the phenomenon. The unassuming piece is on its way to becoming a rock star in the science center. It is electronically apathetic, small but with an \"- anti-mass,\" and capable of insinuating the human form undetected. Experimenters from the European Organisation for Nuclear Research (CERN) in Geneva sent the neutrinos hurtling through an underground corridor toward their colleagues at the Oscillation Project with Emulsion-Tracing Apparatus (OPERA) team 730 kilometers away in Gran Sasso, Italy. The neutrinos arrived expeditiously-so promptly, in fact, that they initiated what scientists are calling the unimaginable-that everything they have comprehended, understood, or taught stemming from the last 100 years in the physics discipline may need to be considered once again."
-        },
-        {
-          "label": "A",
-          "text": "very small period of time - specifically sixty nanoseconds - is at hand (which is sixty billionths of a second). The neutrinos were able to exert force at a constant rate and at a speed that is significantly faster than the speed of light (15,000 neutrinos were sent over three years). This demonstrates that it is conceivable to contend with light and triumph, even with a margin of error of 10 billionths of a second. The experimentation period was also taken into deliberation, and it annihilated any potential moon consequences or tidal bulges in the Earth's crust. Nevertheless, there's an abundance of explanations to remain skeptical about. Harvard University Science historian Peter Galison said that Einstein's relativity theory is really harder than any theory in the history of physical sciences. Yet each prior challenge has come to nothing, and relativity has so far refused to buckle. So, is time travel on the horizon? The notion has obviously moved considerably closer to reality now that a significant physical barrier - the speed of light - has been overcome. Reaching into the past is theoretically conceivable if particles can travel faster than light. However, how anyone uses that to some type of beneficial end is significantly beyond the ability of any current technology and will be left to future generations to investigate. Certainly, any would-be time traveler would have to overcome more physical and philosophical obstacles than simply exceeding the velocity of light.One such problem, posited by René Barjavel in his 1943 text Le Voyageur Imprudent, is the so-called grandfather paradox. Barjavel theorized that, if it were possible to go back in time, a time traveler could potentially kill his own grandfather. If this were to happen, however, the time traveler himself would not be born, which is already known to be true. In other words, there is a paradox in circumventing an already known future; time travel is able to facilitate past actions, which means time travel itself cannot occur. However, several plausible paths have been suggested. Time travel is conceivable within certain limits, according to Igor Novikov, the astrophysicist who developed the self-consistency principle in the 1980s. Novikov contended that every occurrence resulting in a paradox had a 0% probability. However, if travelers avoided all inconsistencies, they might \"influence\" rather than \"alter\" historical events. Averting the Titanic's disaster, for example, would nullify any future obligation to do so - it would be impossible. Saving a few people from the ocean and replacing It is conceivable to replace them with realistic corpses as long as the historical record is not tampered with."
-        },
-        {
-          "label": "A",
-          "text": "further possibility is that of parallel universes. In the 1960s, Bryce Seligman DeWitt popularized the notion of many-worlds interpretation that holds that an alternative pathway for every conceivable occurrence actually exists. We can't expect a person if we send a person back in time because if we do that it will divert him to a new historical trajectory."
-        },
-        {
-          "label": "A",
-          "text": "concluding notion, of unknown origin, scrambles itself fairly effectively around the grandfather paradox. The quasi-idea proposes that if a person changed their ancestry in ways that hampered their own birth, they would simply cease to exist. They would still exist in person if they returned to the present, but any chain reactions caused by their acts would be lost. Their \"chronological personality\" would be obliterated. So, will humankind ever rupture this very same limit that neutrinos do? Stephen Hawking, a universe astronomer, forecasts that once spacecraft can sail more quickly than the speed of light, humankind could potentially go millions of years into the future to inhabit the earth in the case of an imminent collapse. This is because, as the spaceships rev into the future, time would delay around them (Hawking divulges that bygone eras are off limits - this would violate the fundamental rule that cause comes before effect). Hawking is therefore pessimistic yet optimistic. Time travel was once deemed scientific iconoclasm, and I used to avoid talking about it for fear of being labeled a crank. These days I'm not so prudent. \""
-        }
-      ],
-      "groups": [
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in Reading Passage 3? In boxes 28-33 on your answer sheet, write",
-          "questions": [
-            {
-              "number": 27,
-              "prompt": "It is non obvious where neutrinos come from.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
-            },
-            {
-              "number": 28,
-              "prompt": "Neutrinos can pass through a person's body without causing any problems.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 29,
-              "prompt": "To send the neutrinos from Geneva to Italy, it took scientists about 50-70 nanoseconds.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
-            },
-            {
-              "number": 30,
-              "prompt": "Researchers accounted for consequences the moon might have had on the experiment.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 31,
-              "prompt": "The relativity theory has often been called into question unsuccessfully.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 32,
-              "prompt": "on your answer sheet, write",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
-            }
-          ]
-        },
-        {
-          "type": "multiple_choice",
-          "instruction": "Complete the table below. For each answer, choose no more than three words from the passage.",
-          "questions": [
-            {
-              "number": 33,
-              "prompt": "…………… that would",
-              "options": [
-                {
-                  "key": "D",
-                  "text": "Write the correct letter in box 40 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "Human time travel is possible in theoretical terms but is unlikely to ever actually happen."
-                },
-                {
-                  "key": "B",
-                  "text": "Human time travel could be possible, but only moving backward in time."
-                },
-                {
-                  "key": "C",
-                  "text": "There is a possibility of Human time travel, but only moving forward in time."
-                }
-              ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
-            },
-            {
-              "number": 34,
-              "prompt": "Question 35",
-              "options": [
-                {
-                  "key": "D",
-                  "text": "Write the correct letter in box 40 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "Human time travel is possible in theoretical terms but is unlikely to ever actually happen."
-                },
-                {
-                  "key": "B",
-                  "text": "Human time travel could be possible, but only moving backward in time."
-                },
-                {
-                  "key": "C",
-                  "text": "There is a possibility of Human time travel, but only moving forward in time."
-                }
-              ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
-            },
-            {
-              "number": 35,
-              "prompt": "………………",
-              "options": [
-                {
-                  "key": "D",
-                  "text": "Write the correct letter in box 40 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "Human time travel is possible in theoretical terms but is unlikely to ever actually happen."
-                },
-                {
-                  "key": "B",
-                  "text": "Human time travel could be possible, but only moving backward in time."
-                },
-                {
-                  "key": "C",
-                  "text": "There is a possibility of Human time travel, but only moving forward in time."
-                }
-              ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
-            },
-            {
-              "number": 36,
-              "prompt": "Question 37",
-              "options": [
-                {
-                  "key": "D",
-                  "text": "Write the correct letter in box 40 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "Human time travel is possible in theoretical terms but is unlikely to ever actually happen."
-                },
-                {
-                  "key": "B",
-                  "text": "Human time travel could be possible, but only moving backward in time."
-                },
-                {
-                  "key": "C",
-                  "text": "There is a possibility of Human time travel, but only moving forward in time."
-                }
-              ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
-            },
-            {
-              "number": 37,
-              "prompt": "………………",
-              "options": [
-                {
-                  "key": "D",
-                  "text": "Write the correct letter in box 40 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "Human time travel is possible in theoretical terms but is unlikely to ever actually happen."
-                },
-                {
-                  "key": "B",
-                  "text": "Human time travel could be possible, but only moving backward in time."
-                },
-                {
-                  "key": "C",
-                  "text": "There is a possibility of Human time travel, but only moving forward in time."
-                }
-              ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
-            },
-            {
-              "number": 38,
-              "prompt": "on your answer sheet.",
-              "options": [
-                {
-                  "key": "D",
-                  "text": "Write the correct letter in box 40 on your answer sheet."
-                },
-                {
-                  "key": "A",
-                  "text": "Human time travel is possible in theoretical terms but is unlikely to ever actually happen."
-                },
-                {
-                  "key": "B",
-                  "text": "Human time travel could be possible, but only moving backward in time."
-                },
-                {
-                  "key": "C",
-                  "text": "There is a possibility of Human time travel, but only moving forward in time."
-                }
-              ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
-            {
               "number": 39,
-              "prompt": "The information mentioned in the reading passage regarding topic 13 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
+              "prompt": "Football has been played by men though in the 18th century both men and women started to",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
               "number": 40,
-              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
-              "answer": "NOT GIVEN",
-              "explanation": "Refer to the discussion in the reading passage."
+              "prompt": "The earliest form of football involved kicking a leather ball through a 20-45 cm opening into",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
             }
           ]
         }

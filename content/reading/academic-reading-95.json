@@ -11,8 +11,191 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Hydrogen Cars",
+      "title": "Reading Passage 163",
       "paragraphs": [
+        {
+          "label": null,
+          "text": "Read the below-reading passage carefully to answer all the challenging questions (27 - 40). Then, verify your answers with the given Keep taking the tablets reading answers."
+        },
+        {
+          "label": null,
+          "text": "Keep Taking the Tablets"
+        },
+        {
+          "label": "A",
+          "text": "Aspirin, which was first called \"one of the most astonishing medical breakthroughs\" by Diarmuid Jeffreys, \"is incredibly versatile, curing some of the most dangerous human maladies, reducing headaches, and repairing limbs.\" It can ease your pain."
+        },
+        {
+          "label": "B",
+          "text": "There is widespread agreement on its worth due to its long history of recognition. Willow tree extract was a common pain reliever in ancient Egypt. Centuries later, the Greek physician Hippocrates advocated willow bark as a treatment for labour pains and as an antipyretic. However, from the 17th century until the 19th century, salicylates, chemicals found in willow trees, were not the subject of much scientific research. There was a passion for discovering and synthesizing active chemicals. Aspirin, or acetylsalicylic acid, was first discovered and improved in the late 19th century by Friedrich Bayer, a German pharmaceutical business."
+        },
+        {
+          "label": "C",
+          "text": "There were many reasons why the scientific community of the late nineteenth century was open to experimenting. First, they were eager to find answers to some of the biggest questions in their field. Today, even the most fundamental scientific endeavours, like sequencing the human genome, require a team of experts, a network of computers, and many millions of dollars whereas once a lone researcher with a few chemicals and a test tube can discover new knowledge."
+        },
+        {
+          "label": "D",
+          "text": "However, a knowledge of science and academic inquiry alone is insufficient to account for social innovation. The 19th century saw an intensification of both scientific progress and the rise of industry. People back then had resources, energy, and the determination to follow through on their adventures. The discovery of aspirin was a long process with many small milestones leading up to the big announcement. The great scientific, medical, and economic breakthroughs of this century are responsible for all of this."
+        },
+        {
+          "label": "E",
+          "text": "There is an astonishing correlation between enormous wealth and advances in the pharmaceutical industry. Huge sums of money were spent on advertising to ensure its continued viability as a popular pain reliever during its first 70 years of existence. In the 1970s, pharmaceutical companies devoted resources to promoting new pain relievers such as ibuprofen and acetaminophen. As these findings unfold, new information becomes available about aspirin's ability to reduce the risk of cardiovascular disease, stroke, and other problems. may have been lost forever."
+        },
+        {
+          "label": "F",
+          "text": "Against this background, the relationship between huge amounts of money and drugs is puzzling. Continuous access to our products for innovation and scientific research is built on commercial success. In contrast, the commercial market can eliminate products as much as more desirable ones emerge. Aspirin is an example of a potential 'miracle drug' that has existed for over 70 years without any clear knowledge of its mechanism of action, yet is highly profitable. If ibuprofen and paracetamol were on the market ten years before him, aspirin might not exist today. The drug had been lying around for some time, so no one had looked into it. G. The relatively recently discovered benefits of aspirin have been identified by public sector scientists, not by multinational pharmaceutical companies. That's why. The pharmaceutical industry, which \"only invests in profitable research,\" has decided that aspirin is no longer profitable. With low production costs, low-profit margins, and no patent protection, anyone can make one. This could lead to a drop in sales of more expensive products and bankruptcy, so pharmaceutical companies have put a strong brake on promoting the drug."
+        },
+        {
+          "label": "H",
+          "text": "So how can we get more drug companies interested in the medical use of aspirin? Jeffreys argues that more federal funding should be spent on clinical research. If I was in healthcare, I would make a different decision. That said, \"This drug is really affordable. It could potentially be used in a variety of other situations.\" You'd have to spend a lot more money to find out. I. In addition to describing the creation of the \"wonder medication,\" Jeffries's book investigates the necessity of such study by analysing the nature of the innovation and the roles played by major corporations, public funding, and regulation."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_sentence_endings",
+          "instruction": "Complete each sentence with the correct ending A-H from the box below. Write the correct letter A-H in boxes 27-32 on your answer sheet.",
+          "options": [
+            {
+              "key": "A",
+              "text": "the discovery of new medical applications."
+            },
+            {
+              "key": "B",
+              "text": "the negative effects of publicity."
+            },
+            {
+              "key": "C",
+              "text": "the large pharmaceutical companies."
+            },
+            {
+              "key": "D",
+              "text": "the industrial revolution."
+            },
+            {
+              "key": "E",
+              "text": "the medical uses of a particular tree"
+            },
+            {
+              "key": "F",
+              "text": "the limited availability of new drugs."
+            },
+            {
+              "key": "G",
+              "text": "the chemical found in the willow tree."
+            },
+            {
+              "key": "H",
+              "text": "commercial advertising campaigns."
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "Ancient Greeks and Egyptians had practical knowledge",
+              "answer": "E",
+              "explanation": "Refer to item E in the passage."
+            },
+            {
+              "number": 2,
+              "prompt": "Successful replication made Frederick Bayer & Co. possible.",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            },
+            {
+              "number": 3,
+              "prompt": "Aspirin's success can be traced in part to the results of",
+              "answer": "D",
+              "explanation": "Refer to item D in the passage."
+            },
+            {
+              "number": 4,
+              "prompt": "Aspirin achieved market penetration as an analgesic",
+              "answer": "H",
+              "explanation": "Refer to item H in the passage."
+            },
+            {
+              "number": 5,
+              "prompt": "Aspirin availability may have been compromised if.",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 6,
+              "prompt": "No one has studied how aspirin actually works.",
+              "answer": "C",
+              "explanation": "Refer to item C in the passage."
+            }
+          ]
+        },
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the views of the writer in the Reading Passage? In boxes 33-37 on your answer sheet write -",
+          "questions": [
+            {
+              "number": 7,
+              "prompt": "Nineteenth-century scientists were able to make important discoveries through small-scale",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 8,
+              "prompt": "The industrial revolution of the 19th century changed where scientists look for answers.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 9,
+              "prompt": "The discovery and development of aspirin in the 19th century followed a set schedule.",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            },
+            {
+              "number": 10,
+              "prompt": "New pain relievers surpassed aspirin in the 1970s.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 11,
+              "prompt": "The availability of pharmaceuticals may be affected, for better or worse, by the actions of",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 12,
+              "prompt": "Question 38",
+              "answer": [
+                "first"
+              ],
+              "explanation": "Found directly in the reading passage: 'first'."
+            },
+            {
+              "number": 13,
+              "prompt": "Question 39",
+              "answer": [
+                "dangerous"
+              ],
+              "explanation": "Found directly in the reading passage: 'dangerous'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "Answers for Hydrogen Cars",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "Hydrogen Cars"
+        },
         {
           "label": "A",
           "text": "Due to record-high gasoline prices, road trips are more expensive than ever. But what if your car ran on the most abundant element in the universe instead of gasoline? Hydrogen will eventually replace gasoline, diesel, and natural gas as the primary fuel for automobiles, buses, and trucks, according to numerous experts. Global automobile manufacturers have already invested billions of dollars in research and development."
@@ -48,31 +231,56 @@
       ],
       "groups": [
         {
-          "type": "matching_headings",
+          "type": "multiple_choice",
           "instruction": "Choose the appropriate letters A - D that best answer the question.",
-          "optionsTitle": "List of Headings",
-          "options": [
-            {
-              "key": "d",
-              "text": "that best answer the question."
-            },
-            {
-              "key": "c",
-              "text": "A method of producing hydrogen that involves the use of microscopic organisms."
-            }
-          ],
           "questions": [
             {
-              "number": 1,
-              "prompt": "Paragraph A",
-              "answer": "d",
-              "explanation": "Refer to Paragraph A in the passage."
+              "number": 14,
+              "prompt": "Which of the following Hydrogen production methods for Hydrogen-powered cars is viewed in",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A system that generates hydrogen from fossil fuels."
+                },
+                {
+                  "key": "B",
+                  "text": "A technique for generating hydrogen from water vapor."
+                },
+                {
+                  "key": "C",
+                  "text": "A method of producing hydrogen that involves the use of microscopic organisms."
+                },
+                {
+                  "key": "D",
+                  "text": "An electrolysis basis Hydrogen production system."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             },
             {
-              "number": 2,
-              "prompt": "Paragraph B",
-              "answer": "d",
-              "explanation": "Refer to Paragraph B in the passage."
+              "number": 15,
+              "prompt": "Which of the following is NOT a potential problem with the introduction of Hydrogen cars?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The frequency of refueling stops."
+                },
+                {
+                  "key": "B",
+                  "text": "The production of byproducts from the electricity generation process."
+                },
+                {
+                  "key": "C",
+                  "text": "The volatility of Hydrogen."
+                },
+                {
+                  "key": "D",
+                  "text": "Keeping Hydrogen in cars."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             }
           ]
         },
@@ -83,11 +291,7 @@
           "options": [
             {
               "key": "i",
-              "text": "- xi) in boxes 3 - 9 on"
-            },
-            {
-              "key": "iv",
-              "text": "List of Headings"
+              "text": "Storage of Hydrogen"
             },
             {
               "key": "ii",
@@ -96,6 +300,10 @@
             {
               "key": "iii",
               "text": "The Potential Peril of Combustible Hydrogen"
+            },
+            {
+              "key": "iv",
+              "text": "A Wide Range of Options"
             },
             {
               "key": "v",
@@ -124,51 +332,47 @@
             {
               "key": "xi",
               "text": "The Engine Problem"
-            },
-            {
-              "key": "c",
-              "text": "5. Paragraph D"
             }
           ],
           "questions": [
             {
-              "number": 3,
+              "number": 16,
               "prompt": "Paragraph B",
               "answer": "viii",
               "explanation": "Refer to Paragraph B in the passage."
             },
             {
-              "number": 4,
+              "number": 17,
               "prompt": "Paragraph C",
               "answer": "i",
               "explanation": "Refer to Paragraph C in the passage."
             },
             {
-              "number": 5,
+              "number": 18,
               "prompt": "Paragraph D",
               "answer": "ix",
               "explanation": "Refer to Paragraph D in the passage."
             },
             {
-              "number": 6,
+              "number": 19,
               "prompt": "Paragraph E",
               "answer": "iii",
               "explanation": "Refer to Paragraph E in the passage."
             },
             {
-              "number": 7,
+              "number": 20,
               "prompt": "Paragraph F",
               "answer": "v",
               "explanation": "Refer to Paragraph F in the passage."
             },
             {
-              "number": 8,
+              "number": 21,
               "prompt": "Paragraph G",
               "answer": "i",
               "explanation": "Refer to Paragraph G in the passage."
             },
             {
-              "number": 9,
+              "number": 22,
               "prompt": "Paragraph H",
               "answer": "i",
               "explanation": "Refer to Paragraph H in the passage."
@@ -181,143 +385,207 @@
           "maxWords": 3,
           "questions": [
             {
-              "number": 10,
-              "prompt": "There is no reason to believe that we will run out of Hydrogen because it is the _______ that",
+              "number": 23,
+              "prompt": "Question 10",
               "answer": [
-                "engines"
+                "These"
               ],
-              "explanation": "Found directly in the reading passage: 'engines'."
+              "explanation": "Found directly in the reading passage: 'These'."
             },
             {
-              "number": 11,
-              "prompt": "Companies have devoted _______ to the production of Hydrogen cars.",
+              "number": 24,
+              "prompt": "Question 11",
               "answer": [
                 "The Airship's Fabric"
               ],
               "explanation": "Found directly in the reading passage: 'The Airship's Fabric'."
             },
             {
-              "number": 12,
-              "prompt": "Traditional fuels could be used to generate the Hydrogen required to power Hydrogen cars.",
+              "number": 25,
+              "prompt": "Question 12",
               "answer": [
                 "Power and Acceleration"
               ],
               "explanation": "Found directly in the reading passage: 'Power and Acceleration'."
             },
             {
-              "number": 13,
-              "prompt": "The Hindenburg disaster was caused by ________, according to investigations.",
+              "number": 26,
+              "prompt": "Question 13",
               "answer": [
-                "advancements"
+                "technological"
               ],
-              "explanation": "Found directly in the reading passage: 'advancements'."
+              "explanation": "Found directly in the reading passage: 'technological'."
+            },
+            {
+              "number": 27,
+              "prompt": "Question 14",
+              "answer": [
+                "A"
+              ],
+              "explanation": "Found directly in the reading passage: 'A'."
             }
           ]
         }
       ]
     },
     {
-      "passageNumber": 2,
+      "passageNumber": 3,
       "title": "The Art of Healing",
       "paragraphs": [
+        {
+          "label": null,
+          "text": "Examine your The art of healing reading answers can be found after the passage and the question types. Examine your answers to identify and correct any errors."
+        },
         {
           "label": null,
           "text": "As with so many other things, Tang medicine outperformed its European counterpart. It had its own \"national health service\" and left behind the teachings of the legendary Sun Simiao."
         },
         {
           "label": "A",
-          "text": " If no other evidence of Tang-era Chinese sophistication were available, a look at Chinese medicine would suffice. The Roman empire had vanished at the western end of the Eurasian continent, and there was nowhere new to claim the status of the world's cultural and political center. Indeed, for a few centuries, this center was the capital of the Tang empire, and Tang Chinese medicine was far ahead of its European counterpart. The organizational context of health and healing was structured to an extent unprecedented in Chinese history and without precedent elsewhere."
+          "text": "If no other evidence of Tang-era Chinese sophistication were available, a look at Chinese medicine would suffice. The Roman empire had vanished at the western end of the Eurasian continent, and there was nowhere new to claim the status of the world's cultural and political center. Indeed, for a few centuries, this center was the capital of the Tang empire, and Tang Chinese medicine was far ahead of its European counterpart. The organizational context of health and healing was structured to an extent unprecedented in Chinese history and without precedent elsewhere."
         },
         {
           "label": "B",
-          "text": " Previous dynasties had left behind an Imperial Medical Office, which was immediately restructured and staffed with directors and deputy directors, chief and assistant medical directors, pharmacists and curators of medicinal herb gardens, and other personnel. The Tang administration established one central and several provincial medical colleges with professors, lecturers, clinical practitioners, and pharmacists to train students in one or all of the four departments of medicine, acupuncture, physical therapy, and exorcism within the first two decades after consolidating its rule."
+          "text": "Previous dynasties had left behind an Imperial Medical Office, which was immediately restructured and staffed with directors and deputy directors, chief and assistant medical directors, pharmacists and curators of medicinal herb gardens, and other personnel. The Tang administration established one central and several provincial medical colleges with professors, lecturers, clinical practitioners, and pharmacists to train students in one or all of the four departments of medicine, acupuncture, physical therapy, and exorcism within the first two decades after consolidating its rule."
         },
         {
           "label": "C",
-          "text": " Only after passing qualifying examinations were physicians appointed to positions in the government medical service. They were paid based on the number of cures they performed in the previous year."
+          "text": "Only after passing qualifying examinations were physicians appointed to positions in the government medical service. They were paid based on the number of cures they performed in the previous year."
         },
         {
           "label": "D",
-          "text": " In 723, Emperor Xuanzong personally composed and sent to all provincial medical schools a general formulary of prescriptions recommended to him by one of his imperial pharmacists. An Arabic traveler who visited China in 851 was surprised to see prescriptions from the emperor's formulary posted on notice boards at crossroads to improve the population's well-being."
+          "text": "In 723, Emperor Xuanzong personally composed and sent to all provincial medical schools a general formulary of prescriptions recommended to him by one of his imperial pharmacists. An Arabic traveler who visited China in 851 was surprised to see prescriptions from the emperor's formulary posted on notice boards at crossroads to improve the population's well-being."
         },
         {
           "label": "E",
-          "text": " The government took precautions to shield the general public from potentially harmful medical practices. The Tang legal code was the first in China to include laws prohibiting harmful and unconventional medical practices. For example, treating patients for money without following standard procedures was defined as fraud combined with theft and had to be prosecuted in accordance with theft laws. If such therapies resulted in a patient's death, the healer was to be exiled for two and a half years. If a physician purposefully failed to practice in accordance with the standards, he was to be tried under the statutes governing premeditated homicide. Even if no one was harmed, he was sentenced to sixty strokes with a heavy cane."
+          "text": "The government took precautions to shield the general public from potentially harmful medical practices. The Tang legal code was the first in China to include laws prohibiting harmful and unconventional medical practices. For example, treating patients for money without following standard procedures was defined as fraud combined with theft and had to be prosecuted in accordance with theft laws. If such therapies resulted in a patient's death, the healer was to be exiled for two and a half years. If a physician purposefully failed to practice in accordance with the standards, he was to be tried under the statutes governing premeditated homicide. Even if no one was harmed, he was sentenced to sixty strokes with a heavy cane."
         },
         {
           "label": "F",
-          "text": " In fact, Tang-era physicians had access to a wealth of pharmaceutical and medical texts, with contents ranging from purely pragmatic advice to highly sophisticated theoretical considerations. Concise descriptions of the position, morphology, and functions of the human body's organs coexisted in libraries with books that allowed readers to calculate the daily, seasonal, and annual climatic conditions of sixty-year cycles and understand and predict their effects on health."
+          "text": "In fact, Tang-era physicians had access to a wealth of pharmaceutical and medical texts, with contents ranging from purely pragmatic advice to highly sophisticated theoretical considerations. Concise descriptions of the position, morphology, and functions of the human body's organs coexisted in libraries with books that allowed readers to calculate the daily, seasonal, and annual climatic conditions of sixty-year cycles and understand and predict their effects on health."
         },
         {
           "label": "G",
-          "text": " Several Tang authors compiled large collections of prescriptions, carrying on a literary tradition that dates back to the 2nd century BC. Sun Simiao's (581-682?) and Wang Tao's (581-682?) works were the two most notable to be mentioned here (c.670-755). The latter was a librarian who copied over 6,000 formulas from sixty-five older works and published them under the title Wciitai Miyao, which was divided into 1,104 sections. Ophthalmology, for example, received twenty-four sections. They reflect the Indian origins of much Chinese knowledge on eye ailments, particularly cataract surgery."
+          "text": "Several Tang authors compiled large collections of prescriptions, carrying on a literary tradition that dates back to the 2nd century BC. Sun Simiao's (581-682?) and Wang Tao's (581-682?) works were the two most notable to be mentioned here (c.670-755). The latter was a librarian who copied over 6,000 formulas from sixty-five older works and published them under the title Wciitai Miyao, which was divided into 1,104 sections. Ophthalmology, for example, received twenty-four sections. They reflect the Indian origins of much Chinese knowledge on eye ailments, particularly cataract surgery."
         },
         {
           "label": "H",
-          "text": " Sun Simiao was not only the Tang dynasty's most eminent physician and author but also the first millennium AD's most eminent physician and author. He was a well-educated intellectual and physician, and his worldview incorporated ideas from all three major currents competing at the time: Confucianism, Daoism, and Buddhism. Sun Simiao rose to prominence as a clinician (he was summoned to the imperial court at least once) and as the author of Prescriptions Worth Thousands in Gold (Qianjinfang) and its sequel. In contrast to developments in the 12th century, physicians treated their patients' illnesses with prescriptions and single substances. The acupuncture tradition's theories of systematic correspondences had not yet been extended to cover pharmacology."
+          "text": "Sun Simiao was not only the Tang dynasty's most eminent physician and author but also the first millennium AD's most eminent physician and author. He was a well-educated intellectual and physician, and his worldview incorporated ideas from all three major currents competing at the time: Confucianism, Daoism, and Buddhism. Sun Simiao rose to prominence as a clinician (he was summoned to the imperial court at least once) and as the author of Prescriptions Worth Thousands in Gold (Qianjinfang) and its sequel. In contrast to developments in the 12th century, physicians treated their patients' illnesses with prescriptions and single substances. The acupuncture tradition's theories of systematic correspondences had not yet been extended to cover pharmacology."
         },
         {
           "label": "I",
-          "text": " Around the 13th century, Sun Simiao rose to the pantheon of Chinese popular Buddhism. He was regarded as the supreme Medicine God. He achieved this extraordinary position in Chinese collective memory not only as an outstanding clinician and writer but also because of his ethical concerns. Sun Simiao was the first Chinese author to write a detailed medical ethical code. His deontology is comparable to the Hippocratic Oath, despite being based on Buddhist and Confucian values. It sparked a debate about the purpose of medicine, its professional obligations, social standing, and moral justification, which lasted until the arrival of Western medicine in the nineteenth century."
+          "text": "Around the 13th century, Sun Simiao rose to the pantheon of Chinese popular Buddhism. He was regarded as the supreme Medicine God. He achieved this extraordinary position in Chinese collective memory not only as an outstanding clinician and writer but also because of his ethical concerns. Sun Simiao was the first Chinese author to write a detailed medical ethical code. His deontology is comparable to the Hippocratic Oath, despite being based on Buddhist and Confucian values. It sparked a debate about the purpose of medicine, its professional obligations, social standing, and moral justification, which lasted until the arrival of Western medicine in the nineteenth century."
         },
         {
           "label": "J",
-          "text": " Despite, or perhaps because of, its long-lasting affluence and political stability, the Tang dynasty did not contribute any significant new ideas to the interpretation of illness, health, and healing. Human anxieties are reflected in medical thought; changes in medical thought always occur in the context of new existential fears or fundamentally changed social circumstances. Nonetheless, medicine was a fascinating component of the Tang civilization, leaving a rich legacy for subsequent centuries."
+          "text": "Despite, or perhaps because of, its long-lasting affluence and political stability, the Tang dynasty did not contribute any significant new ideas to the interpretation of illness, health, and healing. Human anxieties are reflected in medical thought; changes in medical thought always occur in the context of new existential fears or fundamentally changed social circumstances. Nonetheless, medicine was a fascinating component of the Tang civilization, leaving a rich legacy for subsequent centuries."
         }
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "type": "summary_completion",
+          "instruction": "Complete the sentences below with words taken from the art of healing reading passage",
+          "content": "The first known medical writing in China dates back to the {{28}} .__________During the Tang era, doctors depended most on {{29}} ._________and single substances to treat their patients. {{30}} ._____________ is famous for producing a set of medical rules for Chinese physicians.",
           "maxWords": 3,
           "questions": [
             {
-              "number": 14,
-              "prompt": "__________During the Tang era,",
+              "number": 28,
               "answer": [
-                "C"
+                "2nd Century"
               ],
-              "explanation": "Found directly in the reading passage: 'C'."
+              "explanation": "Found directly in the reading passage: '2nd Century'."
             },
             {
-              "number": 15,
-              "prompt": "_________and single substances to treat their patients.",
+              "number": 29,
               "answer": [
-                "A"
+                "Prescriptions"
               ],
-              "explanation": "Found directly in the reading passage: 'A'."
+              "explanation": "Found directly in the reading passage: 'Prescriptions'."
             },
             {
-              "number": 16,
-              "prompt": "_____________ is famous for producing a set of medical rules for Chinese physicians.",
+              "number": 30,
               "answer": [
-                "nowhere"
+                "Sun Simiao"
               ],
-              "explanation": "Found directly in the reading passage: 'nowhere'."
+              "explanation": "Found directly in the reading passage: 'Sun Simiao'."
             }
           ]
         },
         {
-          "type": "yes_no_not_given",
+          "type": "multiple_choice",
           "instruction": "Choose the appropriate letters A-D. 4. The writer specifically mentions in the first paragraph",
           "questions": [
             {
-              "number": 17,
+              "number": 31,
               "prompt": "The writer specifically mentions in the first paragraph",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Prior to the Tang dynasty, there was a lack of medical knowledge in China."
+                },
+                {
+                  "key": "B",
+                  "text": "the Tang era's Western interest in Chinese medicine"
+                },
+                {
+                  "key": "C",
+                  "text": "the Tang period's systematic approach to medical issues"
+                },
+                {
+                  "key": "D",
+                  "text": "the Tang era rivalry between Chinese and Western cultures"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
             },
             {
-              "number": 18,
+              "number": 32,
               "prompt": "During the Tang dynasty, a government doctor's annual salary was determined by",
-              "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the efficacy of his treatment"
+                },
+                {
+                  "key": "B",
+                  "text": "the breadth of his medical knowledge"
+                },
+                {
+                  "key": "C",
+                  "text": "how many people he had successfully trained"
+                },
+                {
+                  "key": "D",
+                  "text": "the breadth of his medical knowledge"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
             },
             {
-              "number": 19,
+              "number": 33,
               "prompt": "Which of the following broke the law during the Tang dynasty?",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "options": [
+                {
+                  "key": "A",
+                  "text": "refusal to practice by a qualified doctor"
+                },
+                {
+                  "key": "B",
+                  "text": "the use of unconventional medical practices"
+                },
+                {
+                  "key": "C",
+                  "text": "a patient who is dying as a result of medical treatment"
+                },
+                {
+                  "key": "D",
+                  "text": "money received for medical treatment"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
             }
           ]
         },
@@ -326,243 +594,46 @@
           "instruction": "Do the following statements agree with the information given in the art of healing reading",
           "questions": [
             {
-              "number": 20,
+              "number": 34,
               "prompt": "Statement regarding Question 7.",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
             },
             {
-              "number": 21,
+              "number": 35,
               "prompt": "Statement regarding Question 8.",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
-              "number": 22,
+              "number": 36,
               "prompt": "Statement regarding Question 9.",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
-              "number": 23,
+              "number": 37,
               "prompt": "Statement regarding Question 10.",
-              "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
             },
             {
-              "number": 24,
+              "number": 38,
               "prompt": "Statement regarding Question 11.",
               "answer": "YES",
               "explanation": "The passage confirms this statement is YES."
             },
             {
-              "number": 25,
+              "number": 39,
               "prompt": "Statement regarding Question 12.",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
             },
             {
-              "number": 26,
+              "number": 40,
               "prompt": "Statement regarding Question 13.",
               "answer": "YES",
               "explanation": "The passage confirms this statement is YES."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "passageNumber": 3,
-      "title": "Flight of the Honey",
-      "paragraphs": [
-        {
-          "label": "A",
-          "text": "Honeybees are distinguished by their ability to make liquid sugar (honey) and their propensity to build wax nests in colonies, both of which require a high level of social interaction among members. As a result, they maintain strict gender-based divisions of labour, with all males working as drones to fertilize and care for the eggs, and all females, except for the one fertile queen, tasked with gathering nectar for the colony's offspring. In addition, honeybees have developed a complex system of communication to send vital information from one individual to another."
-        },
-        {
-          "label": "B",
-          "text": "Perhaps the most remarkable characteristic of honeybee communication is a set of flight motions only performed by a female worker bee that has returned to the nest with nectar and needs to alert the rest of her colony that she has discovered food supplies and where they can be found. Karl von Frisch, a German zoologist, first interpreted this so-called honeybee dance in the early 1970s. For the purpose of observation, von Frisch and his students built several glass-walled hives and marked a collection of worker bees, or foragers, with paint. When the bees returned, he meticulously recorded their movements, the angle and direction of their flight, and any other visual cues offered by the colony. Von Frisch discovered that each element of the dance revealed specific information about the location of the nectar reserves and enticed others to revisit the site."
-        },
-        {
-          "label": "C",
-          "text": "The distance from the field to the hive is the first piece of information transmitted by dancing bees, which they do in one of three ways. If it is fewer than 50 meters from the colony's nest, the bee will fly in tight circles before abruptly changing direction. She will repeat this routine, which von Frisch's team referred to as the round dance until she has recruited multiple employees to return to the field with her. When the distance exceeds 50 meters but is less than 150 meters, she will do a sickle dance, a flight pattern like a crescent. If the field is more than 150 meters away, the forager will perform a waggle dance consisting of a brief run straight ahead followed by a return to her original position. She will then retrace her steps and return from the opposite side. The length of the forward run corresponds to the distance of the food source; for instance, a 2.5-second forward run implies that the nectar was located approximately 2500 meters away."
-        },
-        {
-          "label": "D",
-          "text": "Recruits must also know the direction in which they must fly to reach the suitable foraging spot; this information is sent to the hive via the bee's orientation. It is not, however, a direct correlation with the position of the hive's food supply, but rather its positioning relative to the sun. Therefore, if the food is located directly opposite the sun, the bee will fly straight down; if it is in the same direction as the sun, it will fly straight up from the colony nest. A position of 60 degrees to the right of the sun will cause the bee to descend at an angle of 60 degrees to the right of the nest. In addition, because the sun is in constant motion throughout the day, the bee's orientation will change depending on when the dance is done. However, sceptics of von Frisch's results argue that visual signals are insufficient to indicate the exact location of a food source. Several scientists, including Adrian Wenner, believe that odour is one of the factors along with dance for honeybee communication. Wenner was unable to attract fresh workers to the foraging activities using robotic bees performing the same dances; but, when he gave nectar to the robot, workers readily followed. Additionally, he determined that the odours must be indicative of the actual flowers that hold the food source; otherwise, the bees will arrive at the place without knowing which blooms will be beneficial."
-        }
-      ],
-      "groups": [
-        {
-          "type": "multiple_choice",
-          "instruction": "Refer to the Reading Passage and choose the option that best completes each sentence.",
-          "questions": [
-            {
-              "number": 27,
-              "prompt": "Question 1",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "were conducted using conventional beehives."
-                },
-                {
-                  "key": "B",
-                  "text": "found that forager bees had distinctive markings."
-                },
-                {
-                  "key": "C",
-                  "text": "The phenomenon of the honeybee's body language has been thoroughly examined."
-                },
-                {
-                  "key": "D",
-                  "text": "The conclusion was that there was no visible pattern to the bees' movement."
-                }
-              ],
-              "answer": "B",
-              "explanation": "Option B is correct based on the passage."
-            },
-            {
-              "number": 28,
-              "prompt": "Question 2",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "were conducted using conventional beehives."
-                },
-                {
-                  "key": "B",
-                  "text": "found that forager bees had distinctive markings."
-                },
-                {
-                  "key": "C",
-                  "text": "The phenomenon of the honeybee's body language has been thoroughly examined."
-                },
-                {
-                  "key": "D",
-                  "text": "The conclusion was that there was no visible pattern to the bees' movement."
-                }
-              ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
-            },
-            {
-              "number": 29,
-              "prompt": "Question 3",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "were conducted using conventional beehives."
-                },
-                {
-                  "key": "B",
-                  "text": "found that forager bees had distinctive markings."
-                },
-                {
-                  "key": "C",
-                  "text": "The phenomenon of the honeybee's body language has been thoroughly examined."
-                },
-                {
-                  "key": "D",
-                  "text": "The conclusion was that there was no visible pattern to the bees' movement."
-                }
-              ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
-            }
-          ]
-        },
-        {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
-          "maxWords": 2,
-          "questions": [
-            {
-              "number": 30,
-              "prompt": "Question 4",
-              "answer": [
-                "Visual"
-              ],
-              "explanation": "Found directly in the reading passage: 'Visual'."
-            },
-            {
-              "number": 31,
-              "prompt": "Question 5",
-              "answer": [
-                "Second"
-              ],
-              "explanation": "Found directly in the reading passage: 'Second'."
-            },
-            {
-              "number": 32,
-              "prompt": "Question 6",
-              "answer": [
-                "The Sun"
-              ],
-              "explanation": "Found directly in the reading passage: 'The Sun'."
-            },
-            {
-              "number": 33,
-              "prompt": "Question 7",
-              "answer": [
-                "Waggle"
-              ],
-              "explanation": "Found directly in the reading passage: 'Waggle'."
-            },
-            {
-              "number": 34,
-              "prompt": "Question 8",
-              "answer": [
-                "Odour"
-              ],
-              "explanation": "Found directly in the reading passage: 'Odour'."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the reading passage? In boxes 9 -13 on your answer sheet write",
-          "questions": [
-            {
-              "number": 35,
-              "prompt": "-13 on your answer sheet write",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
-            },
-            {
-              "number": 36,
-              "prompt": "The honeybee dance is performed until a sufficient number of additional bees join the nectar",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            },
-            {
-              "number": 37,
-              "prompt": "Wenner determined that a similar odour will aid bees in locating the general region of nectar,",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
-            },
-            {
-              "number": 38,
-              "prompt": "Drone bees communicate by a series of complex actions.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
-            },
-            {
-              "number": 39,
-              "prompt": "on your answer sheet write",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
-            {
-              "number": 40,
-              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
             }
           ]
         }

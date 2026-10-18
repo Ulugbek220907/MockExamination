@@ -11,8 +11,12 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "The Mozart Effect",
+      "title": "Reading Passage 109",
       "paragraphs": [
+        {
+          "label": "A",
+          "text": "The Mozart Effect"
+        },
         {
           "label": "A",
           "text": "Musicals have often been used to treat the body for generations. Doctors sang to heal the sick, as per the Ebers (approximately 1550 BC), another of the oldest health records (Castleman, 1994). Singing has been observed as an element of healing procedures in different civilizations. However, until the invention of the radio, the use of music in healing went into decline in modern medicine. After that, researchers began to realize that playing music had substantial bodily consequences. Music has been shown to relieve stress, and researchers have shown that music might lower blood pressure. Music is often used to relieve nausea during cancer chemotherapy, after surgery to minimize stress on the endocrine system, during pregnancy, and during the rehabilitation process (Castleman, 1994; Westley, 1998). It has been demonstrated to reduce pain while also improving the defense system's efficiency. In Japan, music collections are used as a kind of therapy. For example, if you have a migraine or headache, Mendelssohn's \"Spring Song,\" Dvorak's \"Humoresque,\" or a section of George Gershwin's \"An American in Paris\" are all recommended albums (Campbell, 1998). In a concept known as the \"Magnolia Effect,\" music is also employed to aid learning."
@@ -51,68 +55,62 @@
               "number": 1,
               "prompt": "A description of how music affects the brain development of infants",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "Refer to paragraph A in the passage."
             },
             {
               "number": 2,
               "prompt": "Public's first reaction to the discovery of The Mozart Effect",
-              "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "answer": "G",
+              "explanation": "Refer to paragraph G in the passage."
             },
             {
               "number": 3,
               "prompt": "The description of Rauscher's original experiment",
-              "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "answer": "B",
+              "explanation": "Refer to paragraph B in the passage."
             },
             {
               "number": 4,
               "prompt": "The description of using music for healing in other countries",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "Refer to paragraph A in the passage."
             },
             {
               "number": 5,
-              "prompt": "on your answer sheet.",
-              "answer": "A",
-              "explanation": "Refer to item A in the passage."
-            }
-          ],
-          "options": [
-            {
-              "key": "A",
-              "text": "description of how music affects the brain development of infants"
+              "prompt": "Other qualities needed in all learning",
+              "answer": "F",
+              "explanation": "Refer to paragraph F in the passage."
             }
           ]
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 1 WORDS from the passage for each answer.",
+          "instruction": "Complete the summary below. Choose NO MORE THAN ONE WORD from the passage for each answer.",
           "maxWords": 1,
           "questions": [
             {
               "number": 6,
-              "prompt": "Question 6",
               "answer": [
                 "BRIEF"
               ],
-              "explanation": "Found directly in the reading passage: 'BRIEF'."
+              "explanation": "Found directly in the reading passage: 'BRIEF'.",
+              "prompt": "Complete the statement for question 6."
             },
             {
               "number": 7,
-              "prompt": "Question 7",
               "answer": [
                 "COMPLEX"
               ],
-              "explanation": "Found directly in the reading passage: 'COMPLEX'."
+              "explanation": "Found directly in the reading passage: 'COMPLEX'.",
+              "prompt": "Complete the statement for question 7."
             },
             {
               "number": 8,
-              "prompt": "on your answer sheet.",
               "answer": [
                 "RATS"
               ],
-              "explanation": "Found directly in the reading passage: 'RATS'."
+              "explanation": "Found directly in the reading passage: 'RATS'.",
+              "prompt": "Complete the statement for question 8."
             }
           ]
         },
@@ -146,7 +144,7 @@
             },
             {
               "number": 13,
-              "prompt": "on your answer sheet, write",
+              "prompt": "There is not enough evidence in support of The Mozart Effect today.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             }
@@ -160,17 +158,87 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Almost every child in the world enjoys playing. Children are very driven towards playing that they can play in any state of affairs, like when they don't have real toys or when active encouragement is not given by parents. For children, the pastime is running, dissembling and building. Researchers and educators perceive that children's communal, intellectual, physical, and behavioral development all benefit from partaking in these kinds of extracurricular facilities. Undeniably, playtime holds a crucial role in the growth of a healthy child. Playing was recognized as a fundamental right by the United Nations High Commission on Human Rights in 1989. Although experts continue to make a rational argument for the noteworthiness of play in children's lives, there is a decline in the actual time children spend playing. Playing time has decreased by eight hours a week compared to two decades ago (Elkind 2008). Test preparation has displaced play in elementary and middle schools due to an increase in academic demands, and flashcards and educational 'toys' are marketed to parents who really want to give their toddlers forewarning. A deceitful paradox between play and learning is created by our society. This resulted in their early experiences with play, children developing a wide range of abilities, including self-control, social concession, problem-solving, and a wide pasture of scientific and mathematical knowledge that will serve them throughout their lives. Adults also play a vital role in helping children learn via play. Researchers and theorists who study play still can't really agree on a formal definition of what it is. Definitions ambit from specific descriptions of distinct types of play, such as physical, construction, language, or symbolic play (Miller & Almon, 2009), to these broad characteristics that are designed to capture the core of all play behaviour based on analysis and attitudes (e.g. Rubin et al. 1983). Most concepts of play concentrate on some key characteristics. Play is rendered as 'something done only for the thrill of doing it' by Stuart Brown, the founder of the National Institute of play. To be more precise, he says that, it 'appears desultory, generates pressure and joy, [and] reaching the next level of mastery' (as quoted in Tippett 2008). In the same way, in 2009 Miller and Almond said that play incorporates 'Initiatives that are freely selected and directed by children and emerge from intrinsic desire'. Generally, this array of behavioural and dispositional parameters is used to describe play-along perpetuity as being more or less playful (e.g. Rubin et al. 1983). Play is gratifying: Activity must be enjoyed by children or it's not a play. It is substantially motivated: A child's play is prompted only by the pleasure it provides. It has no extrinsically motivated purpose or ambition. Play is process-lucid: When children play, the meaning is more crucial than the ending. It is candidly chosen, impromptu and voluntary. If a child is under pressure, they will not anticipate play as an activity. If a child is under oppression, they will not anticipate play as an activity. Play is actively engrossed: Physical and/or mental engagement is a prerequisite for players in the activity. Play is metaphoric. It consolidates make-believe. Children's playful behaviour can range from 0% to 100% playful, according to this perspective. In determining playfulness Rubin and colleagues did not assign greater weight to any one dimension; however, it had been suggested by other researchers that process orientation and lack of evident functional purpose may be the most crucial features of play (e.g Pellegrini 2009). Play, from the perspective of a continuum, might be combined with less frivolous motives and attitudes, such as work. Work, unlike pleasure, is usually not considered joyful and is extrinsically motivated(i.e. it is goal-oriented). According to Researcher Joan Goodman (1994), hybrid forms of work and play are not detrimental to learning; rather, they can provide optimal learning environments. For example, a child may be actively engaged and intrinsically motivated while participating in a tough, goal-directed exercise set up by their teacher. The child's motivation, together with adult guidance, can generate robust chances for joyful learning at this midpoint between play and work."
+          "text": "You have twenty minutes to read the passage and answer the questions. The Power of Play Reading Answers with explanations are provided below for your reference."
+        },
+        {
+          "label": null,
+          "text": "Almost every child in the world enjoys playing. Children are very driven towards playing that they can play in any state of affairs, like when they don't have real toys or when active encouragement is not given by parents. For children, the pastime is running, dissembling and building. Researchers and educators perceive that children's communal, intellectual, physical, and behavioral development all benefit from partaking in these kinds of extracurricular facilities. Undeniably, playtime holds a crucial role in the growth of a healthy child. Playing was recognized as a fundamental right by the United Nations High Commission on Human Rights in 1989."
+        },
+        {
+          "label": null,
+          "text": "Although experts continue to make a rational argument for the noteworthiness of play in children's lives, there is a decline in the actual time children spend playing. Playing time has decreased by eight hours a week compared to two decades ago (Elkind 2008). Test preparation has displaced play in elementary and middle schools due to an increase in academic demands, and flashcards and educational 'toys' are marketed to parents who really want to give their toddlers forewarning. A deceitful paradox between play and learning is created by our society."
+        },
+        {
+          "label": null,
+          "text": "This resulted in their early experiences with play, children developing a wide range of abilities, including self-control, social concession, problem-solving, and a wide pasture of scientific and mathematical knowledge that will serve them throughout their lives. Adults also play a vital role in helping children learn via play."
+        },
+        {
+          "label": null,
+          "text": "Researchers and theorists who study play still can't really agree on a formal definition of what it is. Definitions ambit from specific descriptions of distinct types of play, such as physical, construction, language, or symbolic play (Miller & Almon, 2009), to these broad characteristics that are designed to capture the core of all play behaviour based on analysis and attitudes (e.g. Rubin et al. 1983)."
+        },
+        {
+          "label": null,
+          "text": "Most concepts of play concentrate on some key characteristics. Play is rendered as 'something done only for the thrill of doing it' by Stuart Brown, the founder of the National Institute of play. To be more precise, he says that, it 'appears desultory, generates pressure and joy, [and] reaching the next level of mastery' (as quoted in Tippett 2008). In the same way, in 2009 Miller and Almond said that play incorporates 'Initiatives that are freely selected and directed by children and emerge from intrinsic desire'. Generally, this array of behavioural and dispositional parameters is used to describe play-along perpetuity as being more or less playful (e.g. Rubin et al. 1983)."
+        },
+        {
+          "label": null,
+          "text": "Play is gratifying: Activity must be enjoyed by children or it's not a play. It is substantially motivated: A child's play is prompted only by the pleasure it provides. It has no extrinsically motivated purpose or ambition. Play is process-lucid: When children play, the meaning is more crucial than the ending. It is candidly chosen, impromptu and voluntary. If a child is under pressure, they will not anticipate play as an activity. If a child is under oppression, they will not anticipate play as an activity. Play is actively engrossed: Physical and/or mental engagement is a prerequisite for players in the activity. Play is metaphoric. It consolidates make-believe."
+        },
+        {
+          "label": null,
+          "text": "Children's playful behaviour can range from 0% to 100% playful, according to this perspective. In determining playfulness Rubin and colleagues did not assign greater weight to any one dimension; however, it had been suggested by other researchers that process orientation and lack of evident functional purpose may be the most crucial features of play (e.g Pellegrini 2009)."
+        },
+        {
+          "label": null,
+          "text": "Play, from the perspective of a continuum, might be combined with less frivolous motives and attitudes, such as work. Work, unlike pleasure, is usually not considered joyful and is extrinsically motivated(i.e. it is goal-oriented). According to Researcher Joan Goodman (1994), hybrid forms of work and play are not detrimental to learning; rather, they can provide optimal learning environments. For example, a child may be actively engaged and intrinsically motivated while participating in a tough, goal-directed exercise set up by their teacher. The child's motivation, together with adult guidance, can generate robust chances for joyful learning at this midpoint between play and work."
         },
         {
           "label": "A",
-          "text": "recent study suggests that adults may help children's learning while keeping a lighthearted approach in interactions known as 'guided play' (Fisher et al. 2011) which is considered to be significant. The adult's role in play varies as a function depending on their educational goals and the developmental level of the child (Hirsch-Pasek et al. 2009). There are two types of guided play. Adults can enrich a child's environment at a very basic level by offering things or experiences that encourage components of a curriculum. Parents or other adults can help children's play by joining in the enjoyment as a co-player, asking insightful questions, commenting on children's discoveries, or promoting further investigation or new facets to the child's activity in the more direct form of directed play. Although regulated play can be somewhat structured, it must also be child-centred (Nicolopoulou et al. 2006). Play should be motivated by the child's own desire. In a child-centred approach to playful learning, both free and guided play are vital components. Free play that is intrinsically motivated provides the child with the true anatomy, whereas guided play which is an avenue allows parents and educators to provide more targeted learning experiences. In any scenario, children should be deeply invested in their own play, which should be primarily led by the children themselves."
+          "text": "recent study suggests that adults may help children's learning while keeping a lighthearted approach in interactions known as 'guided play' (Fisher et al. 2011) which is considered to be significant. The adult's role in play varies as a function depending on their educational goals and the developmental level of the child (Hirsch-Pasek et al. 2009)."
+        },
+        {
+          "label": null,
+          "text": "There are two types of guided play. Adults can enrich a child's environment at a very basic level by offering things or experiences that encourage components of a curriculum. Parents or other adults can help children's play by joining in the enjoyment as a co-player, asking insightful questions, commenting on children's discoveries, or promoting further investigation or new facets to the child's activity in the more direct form of directed play. Although regulated play can be somewhat structured, it must also be child-centred (Nicolopoulou et al. 2006). Play should be motivated by the child's own desire."
+        },
+        {
+          "label": null,
+          "text": "In a child-centred approach to playful learning, both free and guided play are vital components. Free play that is intrinsically motivated provides the child with the true anatomy, whereas guided play which is an avenue allows parents and educators to provide more targeted learning experiences. In any scenario, children should be deeply invested in their own play, which should be primarily led by the children themselves."
         }
       ],
       "groups": [
         {
           "type": "matching_features",
           "instruction": "Look at the following statements (Questions 14-18 and the list of researchers below.",
+          "options": [
+            {
+              "key": "A",
+              "text": "Elkind"
+            },
+            {
+              "key": "B",
+              "text": "Miller and Almon"
+            },
+            {
+              "key": "C",
+              "text": "Rubin et al."
+            },
+            {
+              "key": "D",
+              "text": "Stuart Brown"
+            },
+            {
+              "key": "E",
+              "text": "Pellegrini"
+            },
+            {
+              "key": "F",
+              "text": "Joan Goodman"
+            },
+            {
+              "key": "G",
+              "text": "Girsch-Pasek et al."
+            }
+          ],
           "questions": [
             {
               "number": 14,
@@ -198,39 +266,9 @@
             },
             {
               "number": 18,
-              "prompt": "on your answer sheet.",
+              "prompt": "Activities can be classified on a scale of playfulness.",
               "answer": "C",
               "explanation": "Refer to item C in the passage."
-            }
-          ],
-          "options": [
-            {
-              "key": "G",
-              "text": "Write the correct letter, A-G, in boxes 27-31 on your answer sheet."
-            },
-            {
-              "key": "A",
-              "text": "Elkind"
-            },
-            {
-              "key": "B",
-              "text": "Miller and Almon"
-            },
-            {
-              "key": "C",
-              "text": "Rubin et al."
-            },
-            {
-              "key": "D",
-              "text": "Stuart Brown"
-            },
-            {
-              "key": "E",
-              "text": "Pellegrini"
-            },
-            {
-              "key": "F",
-              "text": "Joan Goodman"
             }
           ]
         },
@@ -264,7 +302,7 @@
             },
             {
               "number": 23,
-              "prompt": "on your answer sheet, write",
+              "prompt": "Work and play differ in terms of whether or not they have a target.",
               "answer": "YES",
               "explanation": "The passage confirms this statement is YES."
             }
@@ -279,25 +317,33 @@
               "number": 24,
               "prompt": "Question 37",
               "answer": [
-                "developmental"
+                "interactions"
               ],
-              "explanation": "Found directly in the reading passage: 'developmental'."
+              "explanation": "Found directly in the reading passage: 'interactions'."
             },
             {
               "number": 25,
               "prompt": "Question 38",
               "answer": [
-                "desire"
+                "Desire"
               ],
-              "explanation": "Found directly in the reading passage: 'desire'."
+              "explanation": "Found directly in the reading passage: 'Desire'."
             },
             {
               "number": 26,
               "prompt": "Question 39",
               "answer": [
-                "encourage"
+                "types"
               ],
-              "explanation": "Found directly in the reading passage: 'encourage'."
+              "explanation": "Found directly in the reading passage: 'types'."
+            },
+            {
+              "number": 27,
+              "prompt": "Question 40",
+              "answer": [
+                "Targeted"
+              ],
+              "explanation": "Found directly in the reading passage: 'Targeted'."
             }
           ]
         }
@@ -307,6 +353,14 @@
       "passageNumber": 3,
       "title": "The Return of the Huarango",
       "paragraphs": [
+        {
+          "label": null,
+          "text": "You should spend about 20 minutes on"
+        },
+        {
+          "label": null,
+          "text": "The Return of the Huarango"
+        },
         {
           "label": null,
           "text": "The arid valleys of southern Peru are welcoming the return of a native plant."
@@ -351,23 +405,23 @@
           "maxWords": 1,
           "questions": [
             {
-              "number": 27,
+              "number": 28,
               "prompt": "Question 1",
               "answer": [
-                "Water"
+                "water"
               ],
-              "explanation": "Found directly in the reading passage: 'Water'."
+              "explanation": "Found directly in the reading passage: 'water'."
             },
             {
-              "number": 28,
-              "prompt": "-",
+              "number": 29,
+              "prompt": "Question 2",
               "answer": [
                 "diet"
               ],
               "explanation": "Found directly in the reading passage: 'diet'."
             },
             {
-              "number": 29,
+              "number": 30,
               "prompt": "Question 3",
               "answer": [
                 "drought"
@@ -375,7 +429,7 @@
               "explanation": "Found directly in the reading passage: 'drought'."
             },
             {
-              "number": 30,
+              "number": 31,
               "prompt": "Question 4",
               "answer": [
                 "erosion"
@@ -383,8 +437,8 @@
               "explanation": "Found directly in the reading passage: 'erosion'."
             },
             {
-              "number": 31,
-              "prompt": "on your answer sheet.",
+              "number": 32,
+              "prompt": "Question 5",
               "answer": [
                 "desert"
               ],
@@ -398,28 +452,28 @@
           "maxWords": 2,
           "questions": [
             {
-              "number": 32,
+              "number": 33,
               "prompt": "Question 6",
               "answer": [
-                "Cambridge"
+                "its branches"
               ],
-              "explanation": "Found directly in the reading passage: 'Cambridge'."
-            },
-            {
-              "number": 33,
-              "prompt": "Question 7",
-              "answer": [
-                "regarded"
-              ],
-              "explanation": "Found directly in the reading passage: 'regarded'."
+              "explanation": "Found directly in the reading passage: 'its branches'."
             },
             {
               "number": 34,
-              "prompt": "on your answer sheet.",
+              "prompt": "Question 7",
               "answer": [
-                "reach"
+                "bark"
               ],
-              "explanation": "Found directly in the reading passage: 'reach'."
+              "explanation": "Found directly in the reading passage: 'bark'."
+            },
+            {
+              "number": 35,
+              "prompt": "Question 8",
+              "answer": [
+                "its trunk"
+              ],
+              "explanation": "Found directly in the reading passage: 'its trunk'."
             }
           ]
         },
@@ -428,46 +482,34 @@
           "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 9-13 on your answer sheet, write",
           "questions": [
             {
-              "number": 35,
+              "number": 36,
               "prompt": "Whaley has discovered some of the traditional applications of huarango products from local",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
-              "number": 36,
+              "number": 37,
               "prompt": "Alberto Benevides, a farmer, is now generating a great income from huarangos.",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
             },
             {
-              "number": 37,
+              "number": 38,
               "prompt": "Farmers' assistance is needed by Whaley to help maintain the area's biodiversity.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
-              "number": 38,
+              "number": 39,
               "prompt": "To be successful, Whaley's idea must be scaled up to a massive scale.",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
             },
             {
-              "number": 39,
-              "prompt": "on your answer sheet, write",
+              "number": 40,
+              "prompt": "Whaley intends to establish a similar initiative in Africa.",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
-            {
-              "number": 40,
-              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
             }
           ]
         }

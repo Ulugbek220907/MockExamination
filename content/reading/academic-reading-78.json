@@ -56,8 +56,8 @@
             {
               "number": 2,
               "prompt": "There are more geoglyphs in the shape of a horse than any other creature.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
               "number": 3,
@@ -73,20 +73,20 @@
             },
             {
               "number": 5,
-              "prompt": "on your answer sheet, write:",
+              "prompt": "Geoglyphs were created by people placing white chalk on the hillside.",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "summary_completion",
+          "instruction": "Answer the following questions.",
+          "content": "Answer the following questions.\n(note:- no more than 2 words)\n {{6}} . How many hill figures were scattered around England?\n {{7}} . The Bronze Age cemetery of Lambourn consists of what?\n {{8}} . Who was worshipped as a protector of horses?",
           "maxWords": 2,
           "questions": [
             {
               "number": 6,
-              "prompt": "How many hill figures were scattered around England?",
               "answer": [
                 "56"
               ],
@@ -94,7 +94,6 @@
             },
             {
               "number": 7,
-              "prompt": "The Bronze Age cemetery of Lambourn consists of what?",
               "answer": [
                 "carved"
               ],
@@ -102,7 +101,6 @@
             },
             {
               "number": 8,
-              "prompt": "Who was worshipped as a protector of horses?",
               "answer": [
                 "Goddess Epona"
               ],
@@ -112,48 +110,60 @@
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 1 WORDS from the passage for each answer.",
+          "instruction": "Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.",
           "maxWords": 1,
           "questions": [
             {
               "number": 9,
-              "prompt": "……………………",
               "answer": [
                 "Ridgeway"
               ],
-              "explanation": "Found directly in the reading passage: 'Ridgeway'."
+              "explanation": "Found directly in the reading passage: 'Ridgeway'.",
+              "prompt": "Complete the statement for question 9."
             },
             {
               "number": 10,
-              "prompt": "…………………… from the 1070s",
               "answer": [
                 "scoured"
               ],
-              "explanation": "Found directly in the reading passage: 'scoured'."
+              "explanation": "Found directly in the reading passage: 'scoured'.",
+              "prompt": "Complete the statement for question 10."
             },
             {
               "number": 11,
-              "prompt": "……………………, the Horse is Late",
               "answer": [
                 "folks"
               ],
-              "explanation": "Found directly in the reading passage: 'folks'."
+              "explanation": "Found directly in the reading passage: 'folks'.",
+              "prompt": "Complete the statement for question 11."
             },
             {
               "number": 12,
-              "prompt": "Question 12",
               "answer": [
                 "Fertility"
               ],
-              "explanation": "Found directly in the reading passage: 'Fertility'."
+              "explanation": "Found directly in the reading passage: 'Fertility'.",
+              "prompt": "Complete the statement for question 12."
             },
             {
               "number": 13,
-              "prompt": "on your answer sheet.",
               "answer": [
                 "Rhiannon"
               ],
-              "explanation": "Found directly in the reading passage: 'Rhiannon'."
+              "explanation": "Found directly in the reading passage: 'Rhiannon'.",
+              "prompt": "Complete the statement for question 13."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "Since more than 3,000 years ago, enormous sculptures, or \"geoglyphs,\" have been carved into the dirt of English hillsides.",
+              "answer": "TRUE",
+              "explanation": "Confirmed directly in the reading passage: 'Since more than 3,000 years ago, enormous sculptures, or \"ge...'"
             }
           ]
         }
@@ -165,81 +175,77 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "From my perspective, many types of animals residing in zoos or wildlife reserves can have a level of well-being that is equal to or better than that found in the jungle. Animals in reputable zoos are fed a diversified, high-quality diet that includes all of the necessary nutrients, and any ailments they may have are treated. Their freedom of mobility may be limited, but they reside in a safe facility free of violence and social exclusion from others of their species. They are not threatened or stressed by predators, nor are they bothered by infections or wounds. About its wild equivalent, the typical trapped animal will also have a longer life expectancy and will not perish from dehydration, famine, or being caught in a predator's jaws. Compared to its wild equivalent, the typical caged animal will live longer and won't perish from malnutrition, drought, or a predator's teeth. I believe it is incorrect to assume that a life that is \"free\" is necessarily \"good\" because a lot of extremely bad things occur to genuinely \"wild\" animals that just don't happen in decent zoos."
+          "text": "Analyze the question and passage first, and later on, by going through Why zoos are good Reading Answers with the location you will grasp the IELTS Reading tricks."
         },
         {
           "label": "B",
-          "text": "For starters, zoos help with conservation. Countless species are going extinct around the planet, and several are becoming increasingly vulnerable, putting them at risk of extinction. Furthermore, several of these accidents were unanticipated, spectacular, and sudden, or were discovered later. A species that has been produced in confinement can be used as a reserved breed in the event of a population decline or extermination in the wilderness. Many species can only be found in cages, with several of them living in zoos. They are only found in forests as they were returned from zoos but also because their wild numbers have been bolstered by captive-bred animals. There would be fewer animals alive now if these efforts had not been made. Even though rehabilitation achievements are few and far between, the figure grew, and the fact that animals have been preserved or re-established as a result of breeding programs underlines the significance of such efforts."
+          "text": "From my perspective, many types of animals residing in zoos or wildlife reserves can have a level of well-being that is equal to or better than that found in the jungle. Animals in reputable zoos are fed a diversified, high-quality diet that includes all of the necessary nutrients, and any ailments they may have are treated. Their freedom of mobility may be limited, but they reside in a safe facility free of violence and social exclusion from others of their species. They are not threatened or stressed by predators, nor are they bothered by infections or wounds. About its wild equivalent, the typical trapped animal will also have a longer life expectancy and will not perish from dehydration, famine, or being caught in a predator's jaws. Compared to its wild equivalent, the typical caged animal will live longer and won't perish from malnutrition, drought, or a predator's teeth. I believe it is incorrect to assume that a life that is \"free\" is necessarily \"good\" because a lot of extremely bad things occur to genuinely \"wild\" animals that just don't happen in decent zoos."
         },
         {
           "label": "C",
-          "text": "In addition to this, there is also the education that can take place in zoos through signs, talks, and presentations that directly communicate information to visitors about the animals they are seeing and their place in the world. Zoos might have been poor in this area, but they are currently becoming more advanced in marketing and grassroots efforts. Many people will gain a better grasp of things and a different point of view as a result, and they will hopefully have a better appreciation for nature, conservation efforts, and how they may help."
+          "text": "For starters, zoos help with conservation. Countless species are going extinct around the planet, and several are becoming increasingly vulnerable, putting them at risk of extinction. Furthermore, several of these accidents were unanticipated, spectacular, and sudden, or were discovered later. A species that has been produced in confinement can be used as a reserved breed in the event of a population decline or extermination in the wilderness. Many species can only be found in cages, with several of them living in zoos. They are only found in forests as they were returned from zoos but also because their wild numbers have been bolstered by captive-bred animals. There would be fewer animals alive now if these efforts had not been made. Even though rehabilitation achievements are few and far between, the figure grew, and the fact that animals have been preserved or re-established as a result of breeding programs underlines the significance of such efforts."
         },
         {
           "label": "D",
-          "text": "Zoos also play an important part in scientific study. We ought to understand how vital species live, act, and react if we are to rescue wildlife and recover and rebuild habitats. Radical progress in wild species can be achieved by conducting studies on mammals and birds because there is less danger and fewer uncertainties. For instance, knowing about an animal's oestrus cycle or breeding rate can assist us in regulating wildlife. Research findings in zoos regarding anesthetic doses, as well as expertise in managing and transferring animals, help with procedures like collecting and relocating at-risk or violent creatures. This could aid in the conservation and the decrease of human-animal conflicts, as well as provide a skill set for addressing the growing concerns of loss of habitat and other issues."
+          "text": "In addition to this, there is also the education that can take place in zoos through signs, talks, and presentations that directly communicate information to visitors about the animals they are seeing and their place in the world. Zoos might have been poor in this area, but they are currently becoming more advanced in marketing and grassroots efforts. Many people will gain a better grasp of things and a different point of view as a result, and they will hopefully have a better appreciation for nature, conservation efforts, and how they may help."
         },
         {
           "label": "E",
+          "text": "Zoos also play an important part in scientific study. We ought to understand how vital species live, act, and react if we are to rescue wildlife and recover and rebuild habitats. Radical progress in wild species can be achieved by conducting studies on mammals and birds because there is less danger and fewer uncertainties. For instance, knowing about an animal's oestrus cycle or breeding rate can assist us in regulating wildlife. Research findings in zoos regarding anesthetic doses, as well as expertise in managing and transferring animals, help with procedures like collecting and relocating at-risk or violent creatures. This could aid in the conservation and the decrease of human-animal conflicts, as well as provide a skill set for addressing the growing concerns of loss of habitat and other issues."
+        },
+        {
+          "label": "F",
           "text": "In conclusion, given the various ongoing worldwide environmental risks, I find it difficult to regard zoos as anything but critical to the ability of thousands of species to survive. Zoos used to be poor in this area, but they are currently becoming more advanced in their marketing and outreach efforts. They are essential for more than just animal protection; they are also essential to learning about animals to help those that are still in the jungle, as well as for educating and notifying the wider populace about these living creatures and their globe so how they can support or at least acknowledge being more eco friendly. A species that has been produced in confinement can be used as a reserve species in the event of a population collapse or extermination in nature. Many species can only be found in confinement, with several of them."
         }
       ],
       "groups": [
         {
           "type": "matching_headings",
-          "instruction": ":",
+          "instruction": "The reading passage has six paragraphs, A-F. Which paragraph contains the following information? Write the correct letter, A-F, in boxes 1-4 on your answer sheet",
           "optionsTitle": "List of Headings",
           "options": [
             {
               "key": "i",
-              "text": "Heading i"
+              "text": "a reference to how quickly animal species can die out"
             },
             {
               "key": "ii",
-              "text": "Heading ii"
+              "text": "reasons why it is preferable to study animals in captivity rather than in the wild"
             },
             {
               "key": "iii",
-              "text": "Heading iii"
+              "text": "mention of two ways of learning about animals other than visiting them in zoos"
             },
             {
               "key": "iv",
-              "text": "Heading iv"
+              "text": "reasons why animals in zoos may be healthier than those in the wild"
             },
             {
               "key": "v",
-              "text": "Heading v"
-            },
-            {
-              "key": "vi",
-              "text": "Heading vi"
-            },
-            {
-              "key": "vii",
-              "text": "Heading vii"
+              "text": "Some specialize in caring for species that are under threat."
             }
           ],
           "questions": [
             {
-              "number": 14,
+              "number": 15,
               "prompt": "Paragraph A",
               "answer": "i",
               "explanation": "Refer to Paragraph A in the passage."
             },
             {
-              "number": 15,
+              "number": 16,
               "prompt": "Paragraph B",
               "answer": "i",
               "explanation": "Refer to Paragraph B in the passage."
             },
             {
-              "number": 16,
+              "number": 17,
               "prompt": "Paragraph C",
               "answer": "i",
               "explanation": "Refer to Paragraph C in the passage."
             },
             {
-              "number": 17,
+              "number": 18,
               "prompt": "Paragraph D",
               "answer": "i",
               "explanation": "Refer to Paragraph D in the passage."
@@ -248,34 +254,34 @@
         },
         {
           "type": "true_false_not_given",
-          "instruction": ": Do the following statements agree with the information given in the reading passage?",
+          "instruction": "Do the following statements agree with the information given in the reading passage? In boxes 5-10 on your answer sheet, write",
           "questions": [
             {
-              "number": 18,
+              "number": 19,
               "prompt": "An animal is likely to live longer in a zoo than in the wild",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
-              "number": 19,
+              "number": 20,
               "prompt": "There are some species in zoos that can no longer be found in the wild.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             },
             {
-              "number": 20,
+              "number": 21,
               "prompt": "Improvements in the quality of TV wildlife documentaries have resulted in increased numbers",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
-              "number": 21,
+              "number": 22,
               "prompt": "Zoos have always excelled at transmitting information about animals to the public.",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
             },
             {
-              "number": 22,
+              "number": 23,
               "prompt": "Studying animals in zoos is less stressful for the animals than studying them in the wild.",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
@@ -283,32 +289,84 @@
           ]
         },
         {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
+          "type": "choose_multiple",
+          "instruction": "Choose TWO letters, A-E. Write the correct letters in boxes 23 and 24 on your answer sheet.",
+          "prompt": "Choose TWO letters, A-E. Write the correct letters in boxes 23 and 24 on your answer sheet.",
+          "options": [
             {
-              "number": 23,
-              "prompt": "The information mentioned in the reading passage regarding topic 10 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
+              "key": "A",
+              "text": "Some take part in television documentaries about animals"
             },
             {
+              "key": "B",
+              "text": "Some travel to overseas locations to join teams in zoos."
+            },
+            {
+              "key": "C",
+              "text": "Some get experience with species in the wild before taking up zoo jobs."
+            },
+            {
+              "key": "D",
+              "text": "Some teach people who are involved with conservation projects."
+            },
+            {
+              "key": "E",
+              "text": "Some specialize in caring for species that are under threat."
+            }
+          ],
+          "answer": [
+            "B",
+            "D"
+          ],
+          "questions": [
+            {
               "number": 24,
-              "prompt": "The information mentioned in the reading passage regarding topic 11 is confirmed.",
-              "answer": "NOT GIVEN",
-              "explanation": "Refer to the discussion in the reading passage."
+              "explanation": "Refer to the passage for Question 10."
             },
             {
               "number": 25,
-              "prompt": "The information mentioned in the reading passage regarding topic 12 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
+              "explanation": "Refer to the passage for Question 11."
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose TWO letters, A-E. Write the correct letters in boxes 25 and 26 on your answer sheet. Which TWO of these beliefs about zoos does the writer mention in the text?",
+          "prompt": "Choose TWO letters, A-E. Write the correct letters in boxes 25 and 26 on your answer sheet.",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can help children overcome their fears of wild animals."
             },
             {
+              "key": "B",
+              "text": "They can increase public awareness of environmental issues."
+            },
+            {
+              "key": "C",
+              "text": "They can employ a range of professional people."
+            },
+            {
+              "key": "D",
+              "text": "They can generate income to support wildlife conservation projects."
+            },
+            {
+              "key": "E",
+              "text": "They can raise animals that can later be released into the wild."
+            }
+          ],
+          "answer": [
+            "B",
+            "E"
+          ],
+          "questions": [
+            {
               "number": 26,
-              "prompt": "The information mentioned in the reading passage regarding topic 13 is confirmed.",
-              "answer": "NOT GIVEN",
-              "explanation": "Refer to the discussion in the reading passage."
+              "explanation": "Refer to the passage for Question 12."
+            },
+            {
+              "number": 27,
+              "explanation": "Refer to the passage for Question 13."
             }
           ]
         }
@@ -316,94 +374,99 @@
     },
     {
       "passageNumber": 3,
-      "title": "Reading Passage 114",
+      "title": "A Disaster of Titanic Proportions",
       "paragraphs": [
+        {
+          "label": null,
+          "text": "You should spend about 20 minutes on"
+        },
         {
           "label": "A",
           "text": "Disaster of Titanic Proportions"
         },
         {
-          "label": "A",
+          "label": null,
           "text": "Lookouts Frederick Fleet and Reginald Lee on the Titanic's front mast spotted an eerie, black mass approaching into view immediately in front of the ship at 11:39 p.m. on Sunday, April 14, 1912. \"Iceberg, right ahead!\" Fleet exclaimed as he picked up the phone at the helm and waited for Sixth Officer Moody to answer. The worst maritime calamity in history was about to set in motion."
         },
         {
-          "label": "B",
+          "label": null,
           "text": "The Titanic struck a piece of submerged ice 37 seconds later, shattering rivets in the ship's hull and filling the first five watertight compartments, despite the attempts of personnel in the bridge and engine room to manoeuvre around the iceberg. Thomas Andrews, the ship's designer, conducted a visual survey of the ship's damage at midnight and warned Captain Smith that the ship would sink in less than two hours. After Smith had given the order for the lifeboats to be opened and swung out 15 minutes earlier, the lifeboats were being loaded with women and children by 12:30 a.m. Only 28 of the 65 seats in the first lifeboat were occupied when it was successfully lowered 15 minutes later. The waterline was beginning to reach the Titanic's name on the ship's bow by 1:15 a.m., and every lifeboat would be released over the next hour as commanders tried to maintain discipline amid the mounting fear on board"
         },
         {
-          "label": "C",
+          "label": null,
           "text": "The dosing moments of the Titanic's sinking occurred shortly after 2:00 a.m., when the last lifeboat was lowered and the ship's propellers were taken out of the water, leaving 1,500 passengers to surge towards the ship's stern. Harold Bride and Jack Philips sent their final wireless message at 2:17 a.m. after being relieved of their duties as the ship's wireless operators, and the ship's band ceased performing. Less than a minute later, lifeboat occupants saw the ship's lights flash once, then go out, and heard a tremendous roar that indicated the Titanic's cargo was diving towards the bow, causing the front half of the ship to break off and sink. The bow of the Titanic briefly rose, and at 2:20 a.m the ship finally sank beneath the frigid waters."
         },
         {
-          "label": "D",
+          "label": null,
           "text": "What or who was responsible for the magnitude of the catastrophic event? There are numerous explanations, some of which focus on minute minutiae. Because of a last-minute change in the ship's officer line-up, iceberg lookouts Frederick Fleet and Reginald Lee were forced to make do without a pair of binoculars that an officer transferred off the ship at Southampton had left in a cupboard onboard,unbeknownst to any of the ship's crew. Fleet, who survived the sinking, claimed at a subsequent investigation that if he had owned the binoculars, he could have discovered the iceberg in time to avert disaster."
         },
         {
-          "label": "E",
+          "label": null,
           "text": "Less than an hour before the Titanic collided with the iceberg, wireless operator Cyril Evans in California, about 20 miles to the north, attempted to reach Titanic operator Jack Phillips to warn him of the approaching pack ice. Phillips responded, \"Shut up, shut up, you're jamming my signal.\" \"I'm occupied.\" Philips was clearing a backlog of personal messages that passengers had requested to be transmitted to family and friends in the United States after the Titanic's wireless system had gone down for several hours earlier that day. Despite several warnings of ice ahead, Captain Smith kept the ship moving at 22 knots. Although it has been alleged that Smith was under pressure to make headlines by landing early in New York maritime historians such as Richard Howell have refuted this notion by pointing out that Smith was just adhering to standard procedure at the time and was not acting irresponsibly"
         },
         {
-          "label": "F",
-          "text": " The Titanic did not have enough lifeboats for everyone on board, which is one of the most compelling explanations for the massive loss of life. Maritime regulations at the time considered that the lifeboat capacity was determined by the size of the ship, not the number of passengers on board. This meant that with space for 1,178 of its 2,222 passengers, the Titanic actually exceeded the Board of Trade's requirement that it carry lifeboats for 1,060 passengers."
+          "label": null,
+          "text": "The Titanic did not have enough lifeboats for everyone on board, which is one of the most compelling explanations for the massive loss of life. Maritime regulations at the time considered that the lifeboat capacity was determined by the size of the ship, not the number of passengers on board. This meant that with space for 1,178 of its 2,222 passengers, the Titanic actually exceeded the Board of Trade's requirement that it carry lifeboats for 1,060 passengers."
         },
         {
-          "label": "G",
-          "text": "Despite the fact that lifeboats were lowered with less than half full in many situations, and only 712 passengers survived despite a two-and-a-half-hour window of chance, more lifeboats would not have ensured more survivors in the absence of improved training and planning. After the order to launch lifeboats was given, many passengers were puzzled about where to go; a lifeboat drill that had been scheduled for earlier on"
+          "label": null,
+          "text": "Despite the fact that lifeboats were lowered with less than half full in many situations, and only 712 passengers survived despite a two-and-a-half-hour window of chance, more lifeboats would not have ensured more survivors in the absence of improved training and planning. After the order to launch lifeboats was given, many passengers were puzzled about where to go; a lifeboat drill that had been scheduled for earlier on the same day the Titanic struck the iceberg was cancelled by Captain Smith to allow passengers to attend church"
         }
       ],
       "groups": [
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "instruction": "Complete the table below. Choose NO MORE THAN TWO WORDS from the text for each answer.",
           "maxWords": 2,
           "questions": [
             {
-              "number": 27,
-              "prompt": "__________",
+              "number": 28,
               "answer": [
                 "fleet"
               ],
-              "explanation": "Found directly in the reading passage: 'fleet'."
-            },
-            {
-              "number": 28,
-              "prompt": "__________",
-              "answer": [
-                "right"
-              ],
-              "explanation": "Found directly in the reading passage: 'right'."
+              "explanation": "Found directly in the reading passage: 'fleet'.",
+              "prompt": "Complete the statement for question 28."
             },
             {
               "number": 29,
-              "prompt": "__________",
               "answer": [
-                "midnight"
+                "approaching"
               ],
-              "explanation": "Found directly in the reading passage: 'midnight'."
+              "explanation": "Found directly in the reading passage: 'approaching'.",
+              "prompt": "Complete the statement for question 29."
             },
             {
               "number": 30,
-              "prompt": "__________ to be",
               "answer": [
-                "lifeboats"
+                "Midnight",
+                "12"
               ],
-              "explanation": "Found directly in the reading passage: 'lifeboats'."
+              "explanation": "Found directly in the reading passage: 'Midnight'.",
+              "prompt": "Complete the statement for question 30."
             },
             {
               "number": 31,
-              "prompt": "__________",
               "answer": [
-                "Wireless operators"
+                "lifeboats"
               ],
-              "explanation": "Found directly in the reading passage: 'Wireless operators'."
+              "explanation": "Found directly in the reading passage: 'lifeboats'.",
+              "prompt": "Complete the statement for question 31."
             },
             {
               "number": 32,
-              "prompt": "on your answer sheet.",
               "answer": [
-                "Wireless"
+                "wireless operators"
               ],
-              "explanation": "Found directly in the reading passage: 'Wireless'."
+              "explanation": "Found directly in the reading passage: 'wireless operators'.",
+              "prompt": "Complete the statement for question 32."
+            },
+            {
+              "number": 33,
+              "answer": [
+                "wireless"
+              ],
+              "explanation": "Found directly in the reading passage: 'wireless'.",
+              "prompt": "Complete the statement for question 33."
             }
           ]
         },
@@ -412,26 +475,26 @@
           "instruction": "Do the following statements agree with the information given in Reading Passage 2? In boxes 7-10 on your answer sheet write",
           "questions": [
             {
-              "number": 33,
+              "number": 34,
               "prompt": "The binoculars for the men on watch had been left in a crew locker in Southampton.",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
             },
             {
-              "number": 34,
+              "number": 35,
               "prompt": "The missing binoculars were the major factor leading to the collision with the iceberg.",
               "answer": "NOT GIVEN",
               "explanation": "The passage confirms this statement is NOT GIVEN."
             },
             {
-              "number": 35,
+              "number": 36,
               "prompt": "Philips missed notification about the ice from Evans because the Titanic's wireless system",
               "answer": "FALSE",
               "explanation": "The passage confirms this statement is FALSE."
             },
             {
-              "number": 36,
-              "prompt": "on your answer sheet write",
+              "number": 37,
+              "prompt": "Captain Smith knew there was ice in the area.",
               "answer": "TRUE",
               "explanation": "The passage confirms this statement is TRUE."
             }
@@ -443,7 +506,7 @@
           "maxWords": 3,
           "questions": [
             {
-              "number": 37,
+              "number": 38,
               "prompt": "What was the ship's speed despite repeated prior warnings about ice?",
               "answer": [
                 "knots"
@@ -451,32 +514,20 @@
               "explanation": "Found directly in the reading passage: 'knots'."
             },
             {
-              "number": 38,
+              "number": 39,
               "prompt": "Instead of the lifeboat drill, Captain Smith allowed passengers to attend what?",
               "answer": [
-                "maintain"
+                "church"
               ],
-              "explanation": "Found directly in the reading passage: 'maintain'."
+              "explanation": "Found directly in the reading passage: 'church'."
             },
             {
-              "number": 39,
+              "number": 40,
               "prompt": "How long did it take the Titanic to collide with a piece of submerged ice?",
               "answer": [
                 "seconds"
               ],
               "explanation": "Found directly in the reading passage: 'seconds'."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
-          "questions": [
-            {
-              "number": 40,
-              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
-              "answer": "TRUE",
-              "explanation": "Refer to the discussion in the reading passage."
             }
           ]
         }
