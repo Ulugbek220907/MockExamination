@@ -19,7 +19,7 @@
         },
         {
           "label": "C",
-          "text": "Today, the river has lost 7 per cent of its original length and runs up to a\nth ứd faster. When it rains hard in the Alps, the peak flows from several\ntributaries coincide in the main river, where once they arrived separately. And\nwith four-fifths of the lower Rhine's flood plain barricaded off, the waters rise\never higher. The result is more frequent flooding that does ever-greater damage\nto the homes, offices and roads that sit on the flood plain. Much the same has\nhappened in the US on the mighty Mississippi, which drains the world's second\nlargest river catchment into the Gulf of Mexico."
+          "text": "Today, the river has lost 7 per cent of its original length and runs up to a\nthird faster. When it rains hard in the Alps, the peak flows from several\ntributaries coincide in the main river, where once they arrived separately. And\nwith four-fifths of the lower Rhine's flood plain barricaded off, the waters rise\never higher. The result is more frequent flooding that does ever-greater damage\nto the homes, offices and roads that sit on the flood plain. Much the same has\nhappened in the US on the mighty Mississippi, which drains the world's second\nlargest river catchment into the Gulf of Mexico."
         },
         {
           "label": "D",
@@ -138,8 +138,8 @@
         },
         {
           "type": "choose_multiple",
-          "instruction": "Choose 2 letters, A–D.\nWrite your answers in boxes 12–13 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "instruction": "Choose TWO letters, A–E.\nWrite your answers in boxes 12–13 on your answer sheet.",
+          "prompt": "What TWO benefits will the new approach in the UK and Austria bring according to this passage?",
           "options": [
             {
               "key": "A",
@@ -150,8 +150,16 @@
               "text": "It may stop the flood involving the whole area"
             },
             {
+              "key": "C",
+              "text": "Decrease strong rainfalls around Alps simply by engineering constructions"
+            },
+            {
               "key": "D",
-              "text": "Reserve water to protect downstream towns E Store tons of water in"
+              "text": "Reserve water to protect downstream towns"
+            },
+            {
+              "key": "E",
+              "text": "Store tons of water in downstream area"
             }
           ],
           "answer": [
@@ -160,12 +168,18 @@
           ],
           "questions": [
             {
-              "number": 12
+              "number": 12,
+              "explanation": "Paragraph D states that forecasting may help cities prepare, but stopping floods requires a new engineering approach to prevent flooding across the whole area.",
+              "reference": "Paragraph D"
             },
             {
-              "number": 13
+              "number": 13,
+              "explanation": "Paragraph E explains that restored flood plains can store up to 10 million cubic metres of water and slow storm surges, protecting and reserving water to safeguard downstream towns.",
+              "reference": "Paragraph E"
             }
-          ]
+          ],
+          "explanation": "Paragraph D notes that while forecasts help cities prepare, a new engineering approach is needed to stop floods from involving the whole area (B). Paragraph E explains that restored flood plains store up to 10 million cubic metres of water and slow storm surges, reserving water to protect downstream towns (D).",
+          "reference": "Paragraph D and Paragraph E"
         }
       ]
     },

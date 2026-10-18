@@ -11,7 +11,7 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "Michel Guyot, owner and restorer of Saint Fargeau castle in France, first had\nthe idea of building a 13th-century style fortress following the discovery that the\n15th-century red bricks of his castle obscured the stone walls of a much older\nstronghold. His dream was to build a castle just as it would have been in the\nMiddle Ages, an ầttp://w«bo.com/iclti9 idea which some found mildly amusing\nand others dismissed as outright folly. However, Maryline Martin - project\ndirector - was inspired by the exciting potential for the venture to regenerate the\nregion. It took several months to bring together and mobilise all the various\ndifferent partners: architects, archaeologists and financial backers. A site in the\nheart of Guédelon forest was found: a site which offered not only all the\nresources required for building a castle - a stone quarry, an oak forest and a\nwater supply - but in sufficient quantities to satisfy the demands of this\ngigantic site. The first team started work and on June 20th 1997 the first stone\nwas laid."
+          "text": "Michel Guyot, owner and restorer of Saint Fargeau castle in France, first had\nthe idea of building a 13th-century style fortress following the discovery that the\n15th-century red bricks of his castle obscured the stone walls of a much older\nstronghold. His dream was to build a castle just as it would have been in the\nMiddle Ages, an idea which some found mildly amusing\nand others dismissed as outright folly. However, Maryline Martin - project\ndirector - was inspired by the exciting potential for the venture to regenerate the\nregion. It took several months to bring together and mobilise all the various\ndifferent partners: architects, archaeologists and financial backers. A site in the\nheart of Guédelon forest was found: a site which offered not only all the\nresources required for building a castle - a stone quarry, an oak forest and a\nwater supply - but in sufficient quantities to satisfy the demands of this\ngigantic site. The first team started work and on June 20th 1997 the first stone\nwas laid."
         },
         {
           "label": "B",
@@ -181,7 +181,7 @@
         {
           "type": "choose_multiple",
           "instruction": "Choose 3 letters, A–G.\nWrite your answers in boxes 11–13 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "Why is the construction of Guedelon Castle taking a long time according to the passage?",
           "options": [
             {
               "key": "A",
@@ -219,15 +219,23 @@
           ],
           "questions": [
             {
-              "number": 11
+              "number": 11,
+              "explanation": "Paragraph C explains that workers bang on chisels for eight hours a day, following modern regulated working hours.",
+              "reference": "Paragraph C"
             },
             {
-              "number": 12
+              "number": 12,
+              "explanation": "Paragraph D states that construction progress has to give way to tourists and visitors.",
+              "reference": "Paragraph D"
             },
             {
-              "number": 13
+              "number": 13,
+              "explanation": "Paragraph C states that building is slow because craftsmen use only medieval tools and techniques.",
+              "reference": "Paragraph C"
             }
-          ]
+          ],
+          "explanation": "Paragraph C states that craftsmen are using only medieval tools and techniques (F) and workers adhere to standard modern work shifts of eight hours a day (C). Paragraph D notes that construction progress often has to give way to accommodate tourists and visitors (E).",
+          "reference": "Paragraph C and Paragraph D"
         }
       ]
     },
@@ -522,7 +530,7 @@
             },
             {
               "number": 29,
-              "prompt": "An demonstrative example of extraordinary person did an unusual recalling\ngame Ị",
+              "prompt": "An demonstrative example of extraordinary person did an unusual recalling game",
               "answer": "C",
               "explanation": "Paragraph C contains this information.",
               "reference": "Paragraph C"
@@ -595,7 +603,7 @@
         {
           "type": "choose_multiple",
           "instruction": "Choose 2 letters, A–E.\nWrite your answers in boxes 37–38 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "Which tasks were used in the World Memory Championships according to the passage?",
           "options": [
             {
               "key": "A",
@@ -624,17 +632,23 @@
           ],
           "questions": [
             {
-              "number": 37
+              "number": 37,
+              "explanation": "Paragraph A states contestants had to memorize rows of 40-digit numbers (order for a large group of each digit).",
+              "reference": "Paragraph A"
             },
             {
-              "number": 38
+              "number": 38,
+              "explanation": "Paragraph A states contestants were challenged to recall the names of 110 people after looking at their photographs (match name with pictures and features).",
+              "reference": "Paragraph A"
             }
-          ]
+          ],
+          "explanation": "Paragraph A states that competitors were challenged to 'memorize rows of 40-digit numbers' (A: order for a large group of digits) and 'recall the names of 110 people after looking at their photographs' (D: match names with pictures and features).",
+          "reference": "Paragraph A"
         },
         {
           "type": "choose_multiple",
           "instruction": "Choose 2 letters, A–E.\nWrite your answers in boxes 39–40 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "What did brain scan studies reveal about the memory champions according to the passage?",
           "options": [
             {
               "key": "A",
@@ -663,12 +677,18 @@
           ],
           "questions": [
             {
-              "number": 39
+              "number": 39,
+              "explanation": "Paragraph B states that brain scans revealed champions activating different brain regions from control subjects during numerical memorization.",
+              "reference": "Paragraph B"
             },
             {
-              "number": 40
+              "number": 40,
+              "explanation": "Paragraph B notes that activated regions in champions included the right posterior hippocampus, known to be involved in visual memory and spatial navigation.",
+              "reference": "Paragraph B"
             }
-          ]
+          ],
+          "explanation": "Paragraph B explains that researchers analyzing brain scans found marked differences between the scan images of champions and control subjects when memorizing numbers (B). These scans revealed that champions activated regions like the right posterior hippocampus, known to be involved in visual and spatial memory (E).",
+          "reference": "Paragraph B"
         }
       ]
     }

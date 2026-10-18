@@ -346,7 +346,7 @@
         {
           "type": "choose_multiple",
           "instruction": "Choose 2 letters, A–E.\nWrite your answers in boxes 23–24 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "Which TWO of the following statements are true about the Paleobiology Database according to the passage?",
           "options": [
             {
               "key": "A",
@@ -375,12 +375,18 @@
           ],
           "questions": [
             {
-              "number": 23
+              "number": 23,
+              "explanation": "Paragraph B notes that while the project attracts harsh criticism from some experts who believe it is flawed, supporters see value in it, intriguing both positive and negative opinions.",
+              "reference": "Paragraph B"
             },
             {
-              "number": 24
+              "number": 24,
+              "explanation": "Paragraph A states that the database 'aspires to be an online repository of information about every fossil ever dug up' (aims to embrace all fossil information globally).",
+              "reference": "Paragraph A"
             }
-          ]
+          ],
+          "explanation": "Paragraph A states that the database 'aspires to be an online repository of information about every fossil ever dug up' (D). Paragraph B notes that while the project attracts harsh criticism from some experts who believe it is flawed, supporters see great value in it, showing it intrigues both positive and negative opinions (B).",
+          "reference": "Paragraph A and Paragraph B"
         },
         {
           "type": "multiple_choice",

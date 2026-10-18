@@ -11,7 +11,7 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "Since the 1980s, the term \"blockbuster\" has become the fashionable word for\nspecial spectacular museum, art gallery or science centre exhibitions. These\nexhibitions have the ability to attract large crowds and often large corporate\nsponsors. Here is one of some existing definitions of blockbuster: Put by Elsen\n(1984), a blockbuster is a \"... large scale loan exhibition that people who\nnormally don't go to museums will stand in line for hours to see ...\"James\nRosenfield, writing in Direct Marketing in 1993, has described a successful\nblockbuster exhibition as a \"... triumph of both curatorial and marketing skills\n...\" My own definition for blockbuster is \"a popular, high profile exhibition on\ndisplay for a limited period, that attracts the general public, who are prepared to\nboth stand in line and pay a fee in order to partake in the exhibition.\" What both\nElsen and Rosenfield omit in the ữ descriptions of blockbusters, is that people\nare prepared to pay a fee to see a blockbuster, and that the term blockbuster can\njust as easily apply to a movie or a museum exhibition."
+          "text": "Since the 1980s, the term \"blockbuster\" has become the fashionable word for\nspecial spectacular museum, art gallery or science centre exhibitions. These\nexhibitions have the ability to attract large crowds and often large corporate\nsponsors. Here is one of some existing definitions of blockbuster: Put by Elsen\n(1984), a blockbuster is a \"... large scale loan exhibition that people who\nnormally don't go to museums will stand in line for hours to see ...\"James\nRosenfield, writing in Direct Marketing in 1993, has described a successful\nblockbuster exhibition as a \"... triumph of both curatorial and marketing skills\n...\" My own definition for blockbuster is \"a popular, high profile exhibition on\ndisplay for a limited period, that attracts the general public, who are prepared to\nboth stand in line and pay a fee in order to partake in the exhibition.\" What both\nElsen and Rosenfield omit in their descriptions of blockbusters, is that people\nare prepared to pay a fee to see a blockbuster, and that the term blockbuster can\njust as easily apply to a movie or a museum exhibition."
         },
         {
           "label": "B",
@@ -31,7 +31,7 @@
         },
         {
           "label": "F",
-          "text": "Blockbusters requ ừe large capital expenditure, and draw on resources across\nall branches of an organisation; however, the costs don't end there. There is a\nHuman Resource Management cost in addition to a measurable 'real' dollar cost.\nReceiving a touring exhibition involves large expenditure as well, and draws\nresources from across functional management structures in project management\nstyle. Everyone from a general labourer to a building servicing unit, the front\nof house, technical, promotion, education and administration staff, are required\nto perform additional tasks. Furthermore, as an increasing number of institutions\nin Australia fry their hand at increasing visitor numbers, memberships (and\ntherefore revenue), by staging blockbuster exhibitions, it may be less likely that\nblockbusters will continue to provide a surplus to subsidise other activities due\nto the competitive nature of the market. There are only so many consumer\ndollars to go around, and visitors will need to choose between blockbuster\nproducts."
+          "text": "Blockbusters require large capital expenditure, and draw on resources across\nall branches of an organisation; however, the costs don't end there. There is a\nHuman Resource Management cost in addition to a measurable 'real' dollar cost.\nReceiving a touring exhibition involves large expenditure as well, and draws\nresources from across functional management structures in project management\nstyle. Everyone from a general labourer to a building servicing unit, the front\nof house, technical, promotion, education and administration staff, are required\nto perform additional tasks. Furthermore, as an increasing number of institutions\nin Australia fry their hand at increasing visitor numbers, memberships (and\ntherefore revenue), by staging blockbuster exhibitions, it may be less likely that\nblockbusters will continue to provide a surplus to subsidise other activities due\nto the competitive nature of the market. There are only so many consumer\ndollars to go around, and visitors will need to choose between blockbuster\nproducts."
         },
         {
           "label": "G",
@@ -121,7 +121,7 @@
         {
           "type": "choose_multiple",
           "instruction": "Choose 2 letters, A–E.\nWrite your answers in boxes 9–10 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "What are two benefits of blockbuster exhibitions mentioned in the passage?",
           "options": [
             {
               "key": "A",
@@ -150,17 +150,23 @@
           ],
           "questions": [
             {
-              "number": 9
+              "number": 9,
+              "explanation": "Paragraph E states that overseas museums use blockbuster earnings to update collections or repair buildings in need of attention.",
+              "reference": "Paragraph E"
             },
             {
-              "number": 10
+              "number": 10,
+              "explanation": "Paragraph G states that blockbuster crowds are good for the local economy, increasing employment for shops, hotels, restaurants, and retailers.",
+              "reference": "Paragraph G"
             }
-          ]
+          ],
+          "explanation": "Paragraph E explains that blockbuster earnings provide museums with money to 'repair buildings that are in need of attention' (A). Paragraph G states that blockbuster crowds are good for the local economy, increasing business for local shops, hotels, restaurants, and transport (D).",
+          "reference": "Paragraph E and Paragraph G"
         },
         {
           "type": "choose_multiple",
           "instruction": "Choose 3 letters, A–F.\nWrite your answers in boxes 11–13 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "What are three negative effects of blockbuster exhibitions mentioned in the passage?",
           "options": [
             {
               "key": "A",
@@ -194,15 +200,23 @@
           ],
           "questions": [
             {
-              "number": 11
+              "number": 11,
+              "explanation": "Paragraph F notes that creating, mounting, or hiring blockbusters is exhausting for staff (tired of workloads).",
+              "reference": "Paragraph F"
             },
             {
-              "number": 12
+              "number": 12,
+              "explanation": "Paragraph H states that museums risk being treated as part of the entertainment and tourism industry rather than as cultural icons.",
+              "reference": "Paragraph H"
             },
             {
-              "number": 13
+              "number": 13,
+              "explanation": "Paragraph F highlights that blockbusters require large capital expenditure and draw on resources across all branches and specialists.",
+              "reference": "Paragraph F"
             }
-          ]
+          ],
+          "explanation": "Paragraph F explains that mounting blockbusters requires large capital expenditure across all branches (E) and is exhausting for museum staff due to heavy workloads (B). Paragraph H concludes that institutions risk being seen as part of the entertainment and tourism industry rather than cultural icons (C).",
+          "reference": "Paragraph F and Paragraph H"
         }
       ]
     },
@@ -526,7 +540,7 @@
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Questions 34-37\nDo the following statements agree with the information given ỉn Reading\nPassage 3? In boxes 34-37 on your answer sheet, write\n\nTRUE if the statement is true\nFALSE if the statement is false\nNOT GIVEN if the information is not given in the passage",
+          "instruction": "Questions 34-37\nDo the following statements agree with the information given in Reading\nPassage 3? In boxes 34-37 on your answer sheet, write\n\nTRUE if the statement is true\nFALSE if the statement is false\nNOT GIVEN if the information is not given in the passage",
           "questions": [
             {
               "number": 34,

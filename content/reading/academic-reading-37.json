@@ -183,7 +183,7 @@
         {
           "type": "choose_multiple",
           "instruction": "Choose 2 letters, A–F.\nWrite your answers in boxes 12–13 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "Which two statements are true about the school at Msekeni according to the passage?",
           "options": [
             {
               "key": "A",
@@ -216,12 +216,18 @@
           ],
           "questions": [
             {
-              "number": 12
+              "number": 12,
+              "explanation": "Paragraph A states that there are not enough classrooms, so half the lessons take place in the shade of acacia trees (taught in the open air).",
+              "reference": "Paragraph A"
             },
             {
-              "number": 13
+              "number": 13,
+              "explanation": "Paragraph E notes that the large influx of pupils was not accompanied by any increase in teachers (no new staff recruited).",
+              "reference": "Paragraph E"
             }
-          ]
+          ],
+          "explanation": "Paragraph A states that due to classroom shortages, half the lessons take place in the shade of acacia trees (A). Paragraph E explains that the influx of new pupils was not accompanied by any increase in the number of teachers (C).",
+          "reference": "Paragraph A and Paragraph E"
         }
       ]
     },
@@ -618,7 +624,7 @@
         {
           "type": "choose_multiple",
           "instruction": "Choose 3 letters, A–E.\nWrite your answers in boxes 38–40 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "What are three limitations of e-training mentioned in the passage?",
           "options": [
             {
               "key": "A",
@@ -648,15 +654,23 @@
           ],
           "questions": [
             {
-              "number": 38
+              "number": 38,
+              "explanation": "Paragraph D states that bandwidth limitations are still an issue in presenting multimedia over the Internet.",
+              "reference": "Paragraph D"
             },
             {
-              "number": 39
+              "number": 39,
+              "explanation": "Paragraph D notes that e-training is rather ineffective for imparting cultural values or conveying unique corporate culture to new employees.",
+              "reference": "Paragraph D"
             },
             {
-              "number": 40
+              "number": 40,
+              "explanation": "Paragraph D highlights that 500 to 1,000 person-hours of preparation time are required to keep online courses current and useful.",
+              "reference": "Paragraph D"
             }
-          ]
+          ],
+          "explanation": "Paragraph D explicitly notes: bandwidth limitations still restrict multimedia presentation (B); e-training is ineffective for imparting corporate cultural values to new employees (C); and substantial person-hours (500 to 1,000 hours) are required to prepare and update online courses (E).",
+          "reference": "Paragraph D"
         }
       ]
     }

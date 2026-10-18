@@ -298,8 +298,8 @@
         },
         {
           "type": "choose_multiple",
-          "instruction": "Choose 2 letters, A–E.\nWrite your answers in boxes 20–21 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "instruction": "Choose TWO letters, A–E.\nWrite your answers in boxes 20–21 on your answer sheet.",
+          "prompt": "Which two statements are true concerning the removal of graffiti according to the passage?",
           "options": [
             {
               "key": "A",
@@ -310,8 +310,12 @@
               "text": "small patch trial before applying large scale of removing"
             },
             {
+              "key": "C",
+              "text": "Chemical treatments are the most expensive way of removing"
+            },
+            {
               "key": "D",
-              "text": "there are risks for both Chemical and medication method"
+              "text": "there are risks for both Chemical and mechanical method"
             },
             {
               "key": "E",
@@ -319,22 +323,28 @@
             }
           ],
           "answer": [
-            "A",
-            "B"
+            "B",
+            "D"
           ],
           "questions": [
             {
-              "number": 20
+              "number": 20,
+              "explanation": "Paragraph D advises that if there is doubt regarding the substrate's ability to withstand treatment, small trial areas should be undertaken first.",
+              "reference": "Paragraph D"
             },
             {
-              "number": 21
+              "number": 21,
+              "explanation": "Paragraph D notes safety and physical risks associated with both chemical and mechanical cleaning treatments.",
+              "reference": "Paragraph D"
             }
-          ]
+          ],
+          "explanation": "Paragraph D explains that both chemical and mechanical cleaning methods carry risks and hazards to health and substrates (D), and advises that small trial areas should be tested first if there is any doubt about surface resistance before applying large-scale treatment (B).",
+          "reference": "Paragraph D"
         },
         {
           "type": "choose_multiple",
-          "instruction": "Choose 2 letters, A–E.\nWrite your answers in boxes 22–23 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "instruction": "Choose TWO letters, A–E.\nWrite your answers in boxes 22–23 on your answer sheet.",
+          "prompt": "Which TWO preventive measures against graffiti are mentioned effective in the passage?",
           "options": [
             {
               "key": "A",
@@ -343,6 +353,10 @@
             {
               "key": "B",
               "text": "increase the police patrols on the street"
+            },
+            {
+              "key": "C",
+              "text": "Build a new building with material repelling to water"
             },
             {
               "key": "D",
@@ -354,17 +368,23 @@
             }
           ],
           "answer": [
-            "A",
-            "B"
+            "B",
+            "D"
           ],
           "questions": [
             {
-              "number": 22
+              "number": 22,
+              "explanation": "Paragraph E notes that security patrols act as a deterrent to prevent recurring graffiti attacks.",
+              "reference": "Paragraph E"
             },
             {
-              "number": 23
+              "number": 23,
+              "explanation": "Paragraph E states that prominently placed closed-circuit television cameras have been shown to reduce anti-social behaviour including graffiti.",
+              "reference": "Paragraph E"
             }
-          ]
+          ],
+          "explanation": "Paragraph E highlights that prominently placed surveillance cameras (closed-circuit television) have been shown to reduce anti-social behavior including graffiti (D), and security patrols also act as an effective deterrent against recurring attacks (B).",
+          "reference": "Paragraph E"
         },
         {
           "type": "summary_completion",

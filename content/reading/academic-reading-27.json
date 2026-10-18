@@ -219,7 +219,7 @@
         {
           "type": "choose_multiple",
           "instruction": "Choose 4 letters, A–G.\nWrite your answers in boxes 10–13 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "Which of the following factors influence the difficulty of interpreting according to the passage?",
           "options": [
             {
               "key": "A",
@@ -251,25 +251,35 @@
             }
           ],
           "answer": [
-            "A",
             "B",
             "C",
-            "D"
+            "E",
+            "F"
           ],
           "questions": [
             {
-              "number": 10
+              "number": 10,
+              "explanation": "Paragraph F notes that successful interpreting is affected by the speed at which the source language is spoken.",
+              "reference": "Paragraph F"
             },
             {
-              "number": 11
+              "number": 11,
+              "explanation": "Paragraph D highlights the presence of background noise as a complicating factor.",
+              "reference": "Paragraph D"
             },
             {
-              "number": 12
+              "number": 12,
+              "explanation": "Paragraph D emphasizes cultural background considerations and differences between source and target language.",
+              "reference": "Paragraph D"
             },
             {
-              "number": 13
+              "number": 13,
+              "explanation": "Paragraph D cites the awareness that major decisions may depend upon the accuracy and precision of the interpreter's work.",
+              "reference": "Paragraph D"
             }
-          ]
+          ],
+          "explanation": "Paragraph D mentions the presence of background noise (C), the awareness that major decisions depend upon precision and accuracy (F), and cultural differences between source and target language (E). Paragraph F notes research into how interpreting is affected by poor listening conditions and the speed at which the source language is spoken (B).",
+          "reference": "Paragraph D and Paragraph F"
         }
       ]
     },

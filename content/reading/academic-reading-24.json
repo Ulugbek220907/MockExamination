@@ -123,7 +123,7 @@
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Questions 9-13\nDo the following statements agree with the information given in Reading\nPassage 1 \nIn boxes 9-13 on your answer sheet, write\nTRUE\nif the statement is true\nFALSE\nif the statement is false\nNOT GIVEN if the information ừ not given in the passage",
+          "instruction": "Questions 9-13\nDo the following statements agree with the information given in Reading\nPassage 1 \nIn boxes 9-13 on your answer sheet, write\nTRUE\nif the statement is true\nFALSE\nif the statement is false\nNOT GIVEN if the information is not given in the passage",
           "questions": [
             {
               "number": 9,
@@ -201,7 +201,7 @@
         {
           "type": "choose_multiple",
           "instruction": "Choose 4 letters, A–G.\nWrite your answers in boxes 14–17 on your answer sheet.",
-          "prompt": "Which statements are correct according to the passage?",
+          "prompt": "Which FOUR of the following statements are true about the London Swaying Footbridge according to the passage?",
           "options": [
             {
               "key": "A",
@@ -240,18 +240,28 @@
           ],
           "questions": [
             {
-              "number": 14
+              "number": 14,
+              "explanation": "Paragraph B describes how the bridge began to sway slightly and then the wobble intensified, showing unexpected sideway movement (D) and increasing frequency/amplitude (A).",
+              "reference": "Paragraph B"
             },
             {
-              "number": 15
+              "number": 15,
+              "explanation": "Paragraph B notes the wobble intensified almost from one moment to the next as large crowds crossed, with significant lateral sway.",
+              "reference": "Paragraph B"
             },
             {
-              "number": 16
+              "number": 16,
+              "explanation": "Paragraph C states that deck movement became sufficiently large for people to stop walking to retain their balance and hold onto handrails (difficulty in walking on the deck).",
+              "reference": "Paragraph C"
             },
             {
-              "number": 17
+              "number": 17,
+              "explanation": "Paragraph C notes that deck movement was noticeable and uncomfortable enough to raise public safety concerns, readily detected as vibration by pedestrians.",
+              "reference": "Paragraph C"
             }
-          ]
+          ],
+          "explanation": "Paragraph B describes how the bridge began to sway slightly, and then the wobble intensified into unexpected sideway movement (D), which increased in frequency and amplitude (A). Paragraph C explains that this movement was sufficiently large for pedestrians to have difficulty walking and to stop to retain their balance (E), and the vibrations were easily detected and felt by pedestrians on the deck (G).",
+          "reference": "Paragraph B and Paragraph C"
         },
         {
           "type": "summary_completion",
