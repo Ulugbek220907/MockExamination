@@ -1,0 +1,710 @@
+{
+  "id": "academic-reading-21",
+  "title": "Academic Reading Practice Test 21",
+  "module": "reading",
+  "license": "Past papers for practice and exam preparation.",
+  "variant": "academic",
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Tea and Industrial Revolution",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "Alan Macfarlane thinks he could rewrite history. The\nprofessor of anthropological science at King's College, Cambridge has, like other\nhistorians, spent decades trying to understand the enigma of the\nIndustrial Revolution. Why did this particular important event - the worldchanging birth of industry - happen in Britain? And why did it happen at the end\nof the 18th century?"
+        },
+        {
+          "label": "B",
+          "text": "Macfarlane compares the question to a puzzle. He claims that there were\nabout 20 different factors and all of them needed to be present before the\nrevolution could happen. The chief conditions are to be found in history\ntextbooks. For industry to 'take off', there needed to be the technology and power\nto drive factories, large urban populations to provide cheap labour easy transport\nto move goods around, an affluent middle-class willing to buy mass-produced\nobjects, a market-driven economy, and a political system that allowed this to\nhappen. While this was the case for England, other nations, such as Japan,\nHolland and France also met some of these criteria. All these factors must have\nbeen necessary but not sufficient to cause the revolution. Holland had everything\nexcept coal, while China also had many of these factors."
+        },
+        {
+          "label": "C",
+          "text": "Most historians, however, are convinced that one or two\nmissing factors are needed to solve the puzzle. The missing factors, he proposes,\nare to be found in every kitchen cupboard. Tea and beer, two of the nation's\nfavorite drinks, drove the revolution. Tannin, the active ingredient in tea, and\nhops, used in making beer, both contain antiseptic properties. This -plus the fact\nthat both are made with boiled water- helped prevent epidemics of waterborne\ndiseases, such as dysentery, in densely populated urban areas. The theory\ninitially sounds eccentric but his explanation of the detective work that went into\nhis deduction and the fact his case has been strengthened by a favorable\nappraisal of his research by Roy Porter (distinguished medical historian) the\nskepticism gives way to wary admiration."
+        },
+        {
+          "label": "D",
+          "text": "Historians had noticed one interesting factor around the mid-18th century that\nrequired explanation. Between about 165D and 1740, the population was static.\nBut then there was a burst in population. The infant mortality rate halved in the\nspace of 20 years, and this happened in both rural areas and cities, and across all\nclasses. Four possible causes have been suggested. There could have been a\nsudden change in the viruses and bacteria present at that time, but this is\nunlikely. Was there a revolution in medical science? But this was a century\nbefore Lister introduced antiseptic surgery. Was there a change in environmental\nconditions? There were improvements in agriculture that wiped out malaria, but\nthese were small gains. Sanitation did not become widespread until the 19th\ncentury. The only option left was food. But the height and weight statistics show\na decline. So the food got worse. Efforts to explain this sudden reduction in child\ndeaths appeared to draw a blank."
+        },
+        {
+          "label": "E",
+          "text": "This population burst seemed to happen at just the right time to provide labor\nfor the Industrial Revolution. But why? When the Industrial Revolution started,\nit was\neconomically efficient to have people crowded together\nforming towns and cities. But with crowded living conditions comes disease,\nparticularly from human waste. Some research in the historical records revealed\nthat there was a change in the incidence of waterborne disease at that time, the\nEnglish were protected by the strong antibacterial agent in hops, which were\nadded to make beer last. But in the late 17th century a tax was introduced on\nmalt. The poor turned to water and gin, and in the 1720s the mortality rate began\nto rise again."
+        },
+        {
+          "label": "F",
+          "text": "Macfarlane looked to Japan, which was also developing large cities about the\nsame time, and also had no sanitation. Waterborne diseases in the Japanese\npopulation were far fewer than those in Britain. Could it be the prevalence of tea\nin their culture? That was when Macfarlane thought about the role of tea in\nBritain. The history of tea in Britain provided an extraordinary coincidence of\ndates. Tea was relatively expensive until Britain started direct hade with China in\nthe early 18th century. By the 1740s, about the time that infant mortality was\nfalling, the drink was common. Macfarlane guesses that the fact that water had\nto be boiled, together with the stomach-purifying properties of tea so eloquently\ndescribed in Buddhist texts, meant that the breast milk provided by mothers was\nhealthier than it had ever been. No other European nation drank tea so often as\nthe British, which, by Macfarlane's logic, pushed the other nations out of the race\nfor the Industrial Revolution."
+        },
+        {
+          "label": "G",
+          "text": "But, if tea is a factor in the puzzle, why didn't this cause an industrial\nrevolution in Japan? Macfarlane notes that in the 17th century, Japan had large\ncities, high literacy rates and even a futures market. However, Japan decided\nagainst a work-based revolution, by giving up labor-saving devices even\nanimals, to avoid putting people out of work. Astonishingly, the nation that we\nnow think of as one of the most technologically advanced, entered the 19th\ncentury having almost abandoned the wheel. While Britain was undergoing the\nIndustrial Revolution, Macfarlane notes wryly, Japan was undergoing an\nindustrious one."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "Choose the correct heading for each paragraph from the list of headings below.",
+          "options": [
+            {
+              "key": "i",
+              "text": "Cases of Japan, Holland and France"
+            },
+            {
+              "key": "ii",
+              "text": "City development in Japan"
+            },
+            {
+              "key": "iii",
+              "text": "Tea drinking in Japan and Britain"
+            },
+            {
+              "key": "iv",
+              "text": "Failed to find a plausible cause for mystery about lower mortality rate"
+            },
+            {
+              "key": "v",
+              "text": "Preconditions necessary for industrial revolution"
+            },
+            {
+              "key": "vi",
+              "text": "Time and place of industrialization"
+            },
+            {
+              "key": "vii",
+              "text": "Conclusion drawn from the comparison with Japan"
+            },
+            {
+              "key": "viii",
+              "text": "Relation between population and changes of drink in Britain"
+            },
+            {
+              "key": "ix",
+              "text": "Two possible solutions to the puzzle"
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "Paragraph A",
+              "answer": "vi",
+              "explanation": "Paragraph A corresponds to heading vi.",
+              "reference": "Paragraph A"
+            },
+            {
+              "number": 2,
+              "prompt": "Paragraph B",
+              "answer": "v",
+              "explanation": "Paragraph B corresponds to heading v.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 3,
+              "prompt": "Paragraph C",
+              "answer": "ix",
+              "explanation": "Paragraph C corresponds to heading ix.",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 4,
+              "prompt": "Paragraph D",
+              "answer": "iv",
+              "explanation": "Paragraph D corresponds to heading iv.",
+              "reference": "Paragraph D"
+            },
+            {
+              "number": 5,
+              "prompt": "Paragraph E",
+              "answer": "viii",
+              "explanation": "Paragraph E corresponds to heading viii.",
+              "reference": "Paragraph E"
+            },
+            {
+              "number": 6,
+              "prompt": "Paragraph F",
+              "answer": "iii",
+              "explanation": "Paragraph F corresponds to heading iii.",
+              "reference": "Paragraph F"
+            },
+            {
+              "number": 7,
+              "prompt": "Paragraph G",
+              "answer": "vii",
+              "explanation": "Paragraph G corresponds to heading vii.",
+              "reference": "Paragraph G"
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Questions 8-13\nDo the following statements agree with the information given in Reading\nPassage 1? In boxes 8-13 on your answer sheet, write\nTRUE\nif the statement is true\nFALSE\nif the statement is false\nNOT GIVEN if the information is not given in the passage",
+          "questions": [
+            {
+              "number": 8,
+              "prompt": "The industrialization did not happen in China because of its inefficient\nrailway transportation.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 1 regarding statement 8.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 9,
+              "prompt": "Tea and beer contributed to protect people from waterborne disease.",
+              "answer": "TRUE",
+              "explanation": "Refer to Passage 1 regarding statement 9.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 10,
+              "prompt": "Roy Porter disagreed with the proposed theory about the missing factors",
+              "answer": "FALSE",
+              "explanation": "Refer to Passage 1 regarding statement 10.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 11,
+              "prompt": "The reason of lower child deaths is fully explained by food.",
+              "answer": "FALSE",
+              "explanation": "Refer to Passage 1 regarding statement 11.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 12,
+              "prompt": "The British made beer by themselves.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 1 regarding statement 12.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 13,
+              "prompt": "Tax on malt indirectly affected the increase of population in late 17th century",
+              "answer": "TRUE",
+              "explanation": "Refer to Passage 1 regarding statement 13.",
+              "reference": "Passage 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "Fossil files: \"The Paleobiology Database\"",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "Are we now living through the sixth extinction as our own activities destroy\necosystems and wipe out diversity? That's the doomsday scenario painted by\nmany ecologists, and they may well be right. The trouble is we don't know for\nsure because we don't have a clear picture of how life changes between\nextinction events or what has happened in previous episodes. We don't even\nknow how many species are alive today, let alone the rate at which they are\nbecoming extinct. A new project aims to fill some of the gaps. The Paleobiology\nDatabase aspires to be an online repository of information about every fossil\never dug up. It is a huge undertaking that has been described as biodiversity's\nequivalent of the Human Genome Project. Its organizers hope that by recording\nthe history of biodiversity they will gain an insight into how environmental\nchanges have shaped life on Earth in the past and how they might do so in the\nfuture. The database may even indicate whether life can rebound no matter what\nwe throw at it, or whether a human induced extinction could be without parallel,\nchanging the rules that have applied throughout the rest of the planet's history."
+        },
+        {
+          "label": "B",
+          "text": "But already the project is attracting harsh criticism. Some\nexperts believe it to be seriously flawed. They point out that a database is only as\ngood as the data fed into it, and that even if all the current fossil finds were\ncatalogued, they would provide an incomplete inventory of life because we are\nfar from discovering every fossilised species. They say that researchers should\nget up from their computers and get back into the dirt to dig up new fossils.\nOthers are more sceptical still, arguing that we can never get the full picture\nbecause the fossil record is riddled with holes and biases."
+        },
+        {
+          "label": "C",
+          "text": "Fans of the Paleobiology Database acknowledge that the fossil record will\nalways be incomplete. But they see value in looking for global patterns that\nshow relative changes in biodiversity. \"The fossil record is the best tool we have\nfor understanding how diversity and extinction work in normal times,\" says\nJohn Alroy from the National Center for Ecological Analysis and Synthesis in\nSanta Barbara. \"Having a background extinction estimate gives US a benchmark\nfor understanding the mass extinction that's currently under way. It allows us to\nsay just how bad it is in relative terms.\""
+        },
+        {
+          "label": "D",
+          "text": "To this end, the Paleobiology Database aims to be the most thorough attempt\nyet to come up with good global diversity curves. Every day between 10 and 15\nscientists around the world add information about fossil finds to the database.\nSince it got up and running in 1998, scientists have entered almost 340,000\nspecimens, ranging from plants to whales to insects to dinosaurs to sea urchins.\nOverall totals are updated hourly at www.paleodb.org. Anyone can\ndownload data from the public part of the site and play with the numbers to their\nheart's content. Already, the database has thrown up some surprising results.\nLooking at the big picture, Alroy and his colleagues believe they have found\nevidence that biodiversity reached a plateau long ago, contrary to the received\nwisdom that species numbers have increased continuously between extinction\nevents. \"The traditional view is that diversity has gone up and up and up,\" he\nsays. \"Our research is showing that diversity limits were approached many tens\nof millions of years before the dinosaurs evolved, much less suffered extinction.\"\nThis suggests that only a certain number of species can live on Earth at a time,\nfilling a prescribed number of niches like spaces in a multi-storey car park. Once\nit's full, no more new species can squeeze in, until extinctions free up new spaces\nor something rare and catastrophic adds a new floor to the car park."
+        },
+        {
+          "label": "E",
+          "text": "Alroy has also used the database to reassess the accuracy of species names.\nHis findings suggest that irregularities in classification inflate the overall number\nof species in the fossil record by between 32 and 44 per cent. Single species\noften end up with several names, he says, due to misidentification or\npoor communication between taxonomists in different countries. Repetition like\nthis can distort diversity curves. \"If you have really bad taxonomy in one short\ninterval, it will look like a diversity spike—a big diversification followed by a\nbig extinction-when all that has happened is a change in the quality of names,\"\nsays Alroy. For example, his statistical analysis indicates that of the 4861 North\nAmerican fossil mammal species catalogued in the database, between 24 and 31\nper cent will eventually prove to be duplicates."
+        },
+        {
+          "label": "F",
+          "text": "Of course, the fossil record is undeniably patchy. Some places and times have\nleft behind more fossil-filled rocks than others. Some have been sampled\nmore thoroughly. And certain kinds of creatures—those with hard parts that\nlived in oceans, for example--are more likely to leave a record behind, while\nothers, like jellyfish, will always remain a mystery. Alroy has also tried to\naccount for this. He estimates, for example, that only 41 per cent of North\nAmerican mammals that have ever lived are known from fossils, and he suspects\nthat a similar proportion of fossils are missing from other groups, such as fungi\nand insects."
+        },
+        {
+          "label": "G",
+          "text": "Not\neveryone\nis\nimpressed\nwith\nsuch\nmathematical wizardry. Jonathan Adrain from the University of Iowa in Iowa\nCity points out that statistical wrangling has been known to create mass\nextinctions where none occurred. It is easy to misinterpret data. For example,\nchanges in sea level or inconsistent sampling methods can mimic major changes\nin biodiversity. Indeed, a recent and thorough examination of the literature on\nmarine bivalve fossils has convinced David Jablonsky from the University of\nChicago and his colleagues that their diversity has increased steadily over the\npast 5 million years."
+        },
+        {
+          "label": "H",
+          "text": "With an inventory of all living species, ecologists could start to put the\ncurrent biodiversity crisis in historical perspective. Although creating such a list\nwould be a task to rival even the Palaeobiology Database, it is exactly what the\nSan Francisco-based ALL Species Foundation hopes to achieve in the next 25\nyears. The effort is essential, says Harvard biologist Edward o. Wilson, who is\nalarmed by current rates of extinction. \"There is a crisis. We've begun to measure\nit, and it's very high,\" Wilson says. \"We need this kind of information in much\nmore detail to protect all of biodiversity, not just the ones we know well.\" Let the\ncounting continue."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "Choose the correct heading for each paragraph from the list of headings below.",
+          "options": [
+            {
+              "key": "i",
+              "text": "Potential error exists in the database"
+            },
+            {
+              "key": "ii",
+              "text": "Supporter of database recleared its value"
+            },
+            {
+              "key": "iii",
+              "text": "The purpose of this paleobiology data"
+            },
+            {
+              "key": "iv",
+              "text": "Reason why some certain species were not included in it"
+            },
+            {
+              "key": "v",
+              "text": "Duplication of breed but with different names"
+            },
+            {
+              "key": "vi",
+              "text": "Achievement of Paleobiology Databasesince"
+            },
+            {
+              "key": "vii",
+              "text": "Criticism on the project which is waste of fund"
+            }
+          ],
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "Paragraph A",
+              "answer": "iii",
+              "explanation": "Paragraph A corresponds to heading iii.",
+              "reference": "Paragraph A"
+            },
+            {
+              "number": 15,
+              "prompt": "Paragraph B",
+              "answer": "i",
+              "explanation": "Paragraph B corresponds to heading i.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 16,
+              "prompt": "Paragraph C",
+              "answer": "ii",
+              "explanation": "Paragraph C corresponds to heading ii.",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 17,
+              "prompt": "Paragraph D",
+              "answer": "vi",
+              "explanation": "Paragraph D corresponds to heading vi.",
+              "reference": "Paragraph D"
+            },
+            {
+              "number": 18,
+              "prompt": "Paragraph E",
+              "answer": "v",
+              "explanation": "Paragraph E corresponds to heading v.",
+              "reference": "Paragraph E"
+            },
+            {
+              "number": 19,
+              "prompt": "Paragraph F",
+              "answer": "iv",
+              "explanation": "Paragraph F corresponds to heading iv.",
+              "reference": "Paragraph F"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Match each statement with the correct option from the box.",
+          "options": [
+            {
+              "key": "A",
+              "text": "Jonathan Adrain"
+            },
+            {
+              "key": "B",
+              "text": "John Alroy"
+            },
+            {
+              "key": "C",
+              "text": "David Jablonsky"
+            },
+            {
+              "key": "D",
+              "text": "Edward o. Wilson"
+            }
+          ],
+          "questions": [
+            {
+              "number": 20,
+              "prompt": "Creating the Database would help scientist to identify connections of all\nspecies.",
+              "answer": "B",
+              "explanation": "Passage 2 associates this with B.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 21,
+              "prompt": "Believed in contribution of detailed statistics should cover beyond the\nknown species.",
+              "answer": "D",
+              "explanation": "Passage 2 associates this with D.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 22,
+              "prompt": "reached a contradictory finding to the tremendous species die-out.",
+              "answer": "C",
+              "explanation": "Passage 2 associates this with C.",
+              "reference": "Passage 2"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose 2 letters, A–E.\nWrite your answers in boxes 23–24 on your answer sheet.",
+          "prompt": "Which statements are correct according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "almost all the experts welcome this project"
+            },
+            {
+              "key": "B",
+              "text": "intrigues both positive and negative opinions from various experts"
+            },
+            {
+              "key": "C",
+              "text": "all different creature in the database have unique name"
+            },
+            {
+              "key": "D",
+              "text": "aims to embrace all fossil information globally"
+            },
+            {
+              "key": "E",
+              "text": "get more information from record rather than the field"
+            }
+          ],
+          "answer": [
+            "B",
+            "D"
+          ],
+          "questions": [
+            {
+              "number": 23
+            },
+            {
+              "number": 24
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Question 25-26\nChoose the correct letter, A, B, c or D.\nWrite your answers in boxes 25-26 on your answer sheet.",
+          "questions": [
+            {
+              "number": 25,
+              "prompt": "According to the passage, jellyfish belongs to which category\nof The Paleobiology Database?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "repetition breed"
+                },
+                {
+                  "key": "B",
+                  "text": "untraceable species"
+                },
+                {
+                  "key": "C",
+                  "text": "specifically detailed species"
+                },
+                {
+                  "key": "D",
+                  "text": "currently living creature"
+                }
+              ],
+              "answer": "B",
+              "explanation": "According to Passage 2, the correct option is B.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 26,
+              "prompt": "What is the author's suggestion according to the end of passage?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "continue to complete counting the number of species in the Paleobiology"
+                },
+                {
+                  "key": "B",
+                  "text": "stop contributing The Paleobiology Database"
+                },
+                {
+                  "key": "C",
+                  "text": "try to create a database of living creature"
+                },
+                {
+                  "key": "D",
+                  "text": "study more in the field rather than in the book"
+                }
+              ],
+              "answer": "C",
+              "explanation": "According to Passage 2, the correct option is C.",
+              "reference": "Passage 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "Communication in science",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "Science plays an increasingly significant role in people's\nlives, making the faithful communication of scientific developments\nmore important than ever. Yet such communication is fraught with challenges\nthat can easily distort discussions, leading to unnecessary confusion and\nmisunderstandings."
+        },
+        {
+          "label": "B",
+          "text": "Some problems stem from the esoteric nature of current research and\nthe associated difficulty of finding sufficiently faithful terminology Abstraction\nand complexity are not signs that a given scientific direction is wrong, as some\ncommentators have suggested, but are instead a tribute to the success of human\ningenuity in meeting the increasingly complex challenges that nature presents.\nThey can, however, make communication more difficult. But many of the\nbiggest challenges for science reporting arise because in areas of evolving\nresearch, scientists themselves often only partly understand the full implications\nof any particular advance or development. Since that dynamic applies to most of\nthe scientific developments that directly affect people's lives global warming,\ncancer research, diet studies — learning how to overcome it is critical to\nspurring a more informed scientific debate among the broader public."
+        },
+        {
+          "label": "C",
+          "text": "Ambiguous word choices are the source of some misunderstandings.\nScientists often employ colloquial terminology, which they then assign a specific\nmeaning that is impossible to fathom without proper training. The term\n\"relativity,\" for example, is intrinsically misleading. Many interpret the theory to\nmean that everything is relative and there are no absolutes. Yet although the\nmeasurements any observer makes depend on his coordinates and reference\nframe, the physical phenomena he measures have an invariant description that\ntranscends that observer's particular coordinates. Einstein's theory of relativity is\nreally about finding an invariant description of physical phenomena.\nTrue, Einstein agreed with the idea that his theory would have been better\nnamed \"Invarianten theorie.\" But the term \"relativity\" was already entrenched at\nthe time for him to change."
+        },
+        {
+          "label": "D",
+          "text": "\"The uncertainty principle\" is another frequently abused term. It is sometimes\ninterpreted as a limitation on observers and their ability to make measurements."
+        },
+        {
+          "label": "E",
+          "text": "But it is not about intrinsic limitations on any one\nparticular measurement; it is about the inability to precisely measure particular\npairs of quantities simultaneously? The first interpretation is perhaps more\nengaging from a philosophical or political perspective. It's just not what the\nscience is about."
+        },
+        {
+          "label": "F",
+          "text": "Even the word \"theory\" can be a problem. Unlike most people, who use the\nword to describe a passing conjecture that they often regard as\nsuspect, physicists have very specific ideas in mind when they talk about\ntheories. For physicists, theories entail a definite physical framework embodied\nin a set of fundamental assumptions about the world that lead to a specific set of\nequations and predictions — ones that are borne out by successful predictions.\nTheories aren't necessarily shown to be correct or complete immediately. Even\nEinstein took the better part of a decade to develop the correct version of his\ntheory of general relativity. But eventually both the ideas and the measurements\nsettle down and theories are either proven correct, abandoned or absorbed\ninto other, more encompassing theories."
+        },
+        {
+          "label": "G",
+          "text": "\"Global warming\" is another example of problematic\nterminology. Climatologists predict more drastic fluctuations in temperature and\nrainfall —not necessarily that every place will be warmer. The name sometimes\nsubverts the debate, since it lets people argue that their winter was worse, so how\ncould there be global warming? Clearly \"global climate change\" would have\nbeen a better name. But not all problems stem solely from poor word choices.\nSome stem from the intrinsically complex nature of much of modem science.\nScience sometimes transcends this limitation: remarkably, chemists were able to\ndetail the precise chemical processes involved in the destruction of the ozone\nlayer, making the evidence that chlorofluorocarbon gases (Freon, for example)\nwere destroying the ozone layer indisputable."
+        },
+        {
+          "label": "H",
+          "text": "A better understanding of the mathematical significance of results and less\ninsistence on a simple story would help to clarify many scientific discussions.\nFor several months, Harvard was tortured months. Harvard was tortured by\nempty debates over the relative intrinsic scientific abilities of men and\nwomen. One of the more amusing aspects of the discussion was that those who\nbelieved in the differences and those who didn't used the same evidence\nabout gender-specific special ability. How could that be? The answer is that the\ndata shows no substantial effects. Social factors might account for these\ntiny differences, which in any case have an unclear connection to scientific\nability. Not much of a headline when phrased that way, is it? Each type of\nscience has its own source of complexity and potential for miscommunication.\nYet there are steps we can take to improve public understanding in all cases. The\nfirst would be to inculcate greater understanding and acceptance of indirect\nscientific evidence. The information from an unmanned space mission is no less\nlegitimate than the information from one in which people are on board."
+        },
+        {
+          "label": "I",
+          "text": "This doesn't mean never questioning an interpretation, but it also doesn't\nmean equating indirect evidence with blind belief, as people sometimes\nsuggest. Second, we might need different standards for evaluating science with\nurgent policy implications than research with purely theoretical value. When\nscientists say they are not certain about their predictions, it doesn't necessarily\nmean they've found nothing substantial. It would be better if scientists were\nmore open about the mathematical significance of their results and if the public\ndidn't treat math as quite so scary; statistics and errors, which tell us the\nuncertainty in a measurement, give us the tools to evaluate new\ndevelopments fairly."
+        },
+        {
+          "label": "J",
+          "text": "But most important, people have to recognize that science can be complex. If\nwe accept only simple stories, the description will necessarily be distorted.\nWhen advances are subtle or complicated, scientists should be willing to go the\nextra distance to give proper explanations and patient about the truth. Even so,\nsome difficulties are unavoidable. Most developments reflect work in progress,\nso the story is complex because no one yet knows the big picture."
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Questions 27-31\nChoose the correct letter, A, B, c or D.\nWrite your answers in boxes 27-31 on your answer sheet.",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "Why the faithful science communication Important?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Science plays an increasingly significant role in people's lives."
+                },
+                {
+                  "key": "B",
+                  "text": "Science is fraught with challenges public are interested in."
+                },
+                {
+                  "key": "C",
+                  "text": "The nature of complexity in science communication leads to confusion."
+                },
+                {
+                  "key": "D",
+                  "text": "Scientific inventions are more important than ever before."
+                }
+              ],
+              "answer": "A",
+              "explanation": "According to Passage 3, the correct option is A.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 28,
+              "prompt": "What is the reason that the author believe for the biggest challenges\nfor science reporting",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "phenomenon such as global warming, cancer research, diet studies are too"
+                },
+                {
+                  "key": "B",
+                  "text": "Scientists themselves often only partly understand the Theory of Evolution"
+                },
+                {
+                  "key": "C",
+                  "text": "Scientists do not totally comprehend the meaning of certain scientific"
+                },
+                {
+                  "key": "D",
+                  "text": "Scientists themselves often partly understand the esoteric communication"
+                }
+              ],
+              "answer": "C",
+              "explanation": "According to Passage 3, the correct option is C.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 29,
+              "prompt": "According to the 3rd paragraph, the reference to the term and example\nof \"theory of relativity\" is to demonstrate",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "theory of relativity is about an invariant physical phenomenon"
+                },
+                {
+                  "key": "B",
+                  "text": "common people may be misled by the inaccurate choice of scientific phrase"
+                },
+                {
+                  "key": "C",
+                  "text": "the term \"relativity,\" is designed to be misleading public"
+                },
+                {
+                  "key": "D",
+                  "text": "everything is relative and there is no absolutes existence"
+                }
+              ],
+              "answer": "B",
+              "explanation": "According to Passage 3, the correct option is B.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 30,
+              "prompt": "Which one Is a good example of appropriate word choice:",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Scientific theory for uncertainty principle"
+                },
+                {
+                  "key": "B",
+                  "text": "phenomenon of Global warming"
+                },
+                {
+                  "key": "C",
+                  "text": "the importance of ozone layer"
+                },
+                {
+                  "key": "D",
+                  "text": "Freon's destructive process on environmental"
+                }
+              ],
+              "answer": "D",
+              "explanation": "According to Passage 3, the correct option is D.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 31,
+              "prompt": "What Is surprising finding of the Harvard debates In the passage?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There are equal intrinsic scientific abilities of men and women."
+                },
+                {
+                  "key": "B",
+                  "text": "The proof applied by both sides seemed to be of no big difference,"
+                },
+                {
+                  "key": "C",
+                  "text": "The scientific data usually shows no substantial figures to support a debated"
+                },
+                {
+                  "key": "D",
+                  "text": "Social factors might have a clear connection to scientific ability."
+                }
+              ],
+              "answer": "B",
+              "explanation": "According to Passage 3, the correct option is B.",
+              "reference": "Passage 3"
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Questions 32-35\nDo the following statements agree with the information given in Reading\nPassage 1?\nIn boxes 32-35 on your answer sheet, write\nTRUE if the statement is true\nFALSE if the statement is false\nNOT GIVEN if the information is not given in the passage",
+          "questions": [
+            {
+              "number": 32,
+              "prompt": "\"Global warming\" scientifically refers to greater fluctuations in temperature\nand rainfall rather than a universal temperature rise.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 3 regarding statement 32.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 33,
+              "prompt": "More media coverage of \"global warming\" would help public to recognize\nthe phenomenon.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 3 regarding statement 33.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 34,
+              "prompt": "Harvard debates should focus more on female scientist and male scientists",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 3 regarding statement 34.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 35,
+              "prompt": "Public understanding and acceptance of indirect scientific evidence in all\ncases would lead to confusion",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 3 regarding statement 35.",
+              "reference": "Passage 3"
+            }
+          ]
+        },
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the text below.\nChoose NO MORE THAN THREE WORDS from the passage for each answer.",
+          "content": "Ambiguous {{36}} are the source of some misunderstandings. Common people without proper training do not understand clearly or deeply a specific scientific meaning via the 37………… scientists often employed. Besides, the measurements any {{38}} makes can not be confined to describe in a(n) constant {{39}} yet the phenomenon can be. What's more, even the word \"theory\" can be a problem. Theories aren't necessarily shown to be correct or complete immediately since scientists often evolved better versions of specific theories, a good example can be the theory of {{40}} Thus, most importantly people have to recognize that science can be complex. Item 37 relates to {{37}}.",
+          "questions": [
+            {
+              "number": 36,
+              "answer": [
+                "word choices"
+              ],
+              "explanation": "The answer 'word choices' is found in Passage 3.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "colloquial terminology",
+                "colloquail terminilogy"
+              ],
+              "explanation": "The answer 'colloquial terminology' is found in Passage 3.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "observer"
+              ],
+              "explanation": "The answer 'observer' is found in Passage 3.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "invariant description"
+              ],
+              "explanation": "The answer 'invariant description' is found in Passage 3.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "general relativity"
+              ],
+              "explanation": "The answer 'general relativity' is found in Passage 3.",
+              "reference": "Passage 3"
+            }
+          ],
+          "maxWords": 3
+        }
+      ]
+    }
+  ],
+  "sortOrder": 21,
+  "shortTitle": "Practice Test 21",
+  "totalQuestions": 40,
+  "durationMinutes": 60
+}

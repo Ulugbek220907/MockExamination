@@ -9,4 +9,9 @@ __pycache__/
 *.log
 .tts-cache/
 data/recordings/
+data/kanan_html/
+data/kanan_pdfs/
+kanan_main_page.html
+kanan_test_1_answers.html
+*.zip
 .impeccable/review/

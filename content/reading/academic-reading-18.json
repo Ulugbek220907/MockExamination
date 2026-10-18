@@ -1,0 +1,645 @@
+{
+  "id": "academic-reading-18",
+  "title": "Academic Reading Practice Test 18",
+  "module": "reading",
+  "license": "Past papers for practice and exam preparation.",
+  "variant": "academic",
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Radio Automation forerunner of the integrated circuit",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "John Sargrove, the visionary engineer who developed the technology, was\nway ahead of his time. For more than a decade, Sargrove had been trying\nto figure out how to make cheaper radios. Automating the manufacturing process\nwould help. But radios didn't lend themselves to such methods: there were too\nmany parts to fit together and too many wires to solder. Even a simple receiver\nmight have 30 separate components and 80 hand-soldered connections. At\nevery stage, things had to be tested and inspected. Making radios required highly\nskilled labour—and lots of it."
+        },
+        {
+          "label": "B",
+          "text": "In 1944, Sargrove came up with the answer. His solution was to dispense with\nmost of the fiddly bits by inventing a primitive chip—a slab of Bakelite with all\nthe receiver's electrical components and connections embedded in it. This was\nsomething that could be made by machines, and he designed those too. At the\nend of the war, Sargrove built an automatic production line, which he called\nECME (electronic circuit-making equipment), in a small factory in Effingham,\nSurrey.\nECME line"
+        },
+        {
+          "label": "C",
+          "text": "An operator sat at one end of each ECME line, feeding in\ndie plates. She didn't need much skill, only quick hands. From now on,\neverything was controlled by electronic switches and relays. First stop was the\nsandblaster, which roughened the surface of the plastic BO that molten metal\nwould stick to it The plates were then cleaned to remove any traces of grit The\nmachine automatically checked that the surface was rough enough before\nsending\nthe\nplate\nto\nthe\nspraying\nsection.\nThere,\neight\nnozzles\nrotated into position and sprayed molten zinc over both sides of the plate. Again,\nthe nozzles only began to spray when a plate was in place. The plate whizzed on.\nThe next stop was the milling machine, which ground away the surface layer of\nmetal to leave the circuit and other components in the grooves and recesses.\nNow the plate was a composite of metal and plastic. It sped on to be lacquered\nand have its circuits tested. By the time it emerged from the end of the line, robot\nhands had fitted it with sockets to attach components such as valves and\nloudspeakers. When ECME was working flat out; the whole process took 20\nseconds."
+        },
+        {
+          "label": "D",
+          "text": "ECME was astonishingly advanced. Electronic eyes, photocells that\ngenerated a small current when a panel arrived, triggered each step in\nthe operation, BO avoiding excessive wear and tear on the machinery. The plates\nwere automatically tested at each stage as they moved along the conveyor. And\nif more than two plates in succession were duds, the machines were\nautomatically adjusted—or if necessary halted In a conventional factory, I\nworkers would test faulty circuits and repair them. But Sargrove's assembly line\nproduced circuits so cheaply they just threw away the faulty ones. Sargrove's\ncircuit board was even more astonishing for the time. It predated the more\nfamiliar printed circuit, with wiring printed on aboard, yet was more\nsophisticated. Its built-in components made it more like a modem chip."
+        },
+        {
+          "label": "E",
+          "text": "When Sargrove unveiled his invention at a meeting of the British Institution\nof Radio Engineers in February 1947, the assembled engineers were impressed.\nSo was the man from The Times. ECME, he reported the following day,\n\"produces almost without human labour, a complete radio receiving set. This\nnew method of production can be equally well applied to television and other\nforms of electronic apparatus."
+        },
+        {
+          "label": "F",
+          "text": "The receivers had many advantages over their predecessors, wit components\nthey were more robust. Robots didn't make the sorts of mistakes human\nassembly workers sometimes did. \"Wiring mistakes just cannot happen,\" wrote\nSargrove. No w ừes also meant the radios were lighter and cheaper to ship\nabroad. And with no soldered wires to come unstuck, the radios were more\nreliable. Sargrove pointed out that the drcuit boards didn't have to be flat. They\ncould be curved, opening up the prospect of building the electronics into the\ncabinet of Bakelite radios."
+        },
+        {
+          "label": "G",
+          "text": "Sargrove was all for introducing this type of automation to other products. It\ncould be used to make more complex electronic equipment than radios,\nhe argued. And even if only part of a manufacturing process were automated, the\nsavings would be substantial. But while his invention was brilliant, his timing\nwas bad. ECME was too advanced for its own good. It was only competitive on\nhuge production runs because each new job meant retooling the machines. But\ndisruption was frequent. Sophisticated as it was, ECME still depended on oldfashioned electromechanical relays and valves—which failed with monotonous\nregularity. The state of Britain's economy added to Sargrove's troubles.\nProduction was dogged by power cuts and post-war shortages of materials.\nSargrove's financial backers began to get cold feet."
+        },
+        {
+          "label": "H",
+          "text": "There was another problem Sargrove hadn't foreseen. One of ECME's biggest\nadvantages—the savings on the cost of labour—also accelerated its downfall.\nSargrove's factory had two ECME production lines to produce the two c ữcuits\nneeded for each radio. Between them these did what a thousand assembly\nworkers would otherwise have done. Human hands were needed only to feed the\nraw material in at one end and plug the valves into then sockets and fit the\nloudspeakers at the other. After that, the only job left was to fit the pair of\nBakelite panels into a radio cabinet and check that it worked."
+        },
+        {
+          "label": "I",
+          "text": "Sargrove saw automation as the way to solve post-war labour shortages. With\nsomewhat Utopian idealism, he imagined his new technology would free people\nfrom boring, repetitive jobs on the production line and allow them to do more\ninteresting work. \"Don't get the idea that we are out to rob people of then jobs,\"\nhe told the Daily Mnror. \"Our task is to liberate men and women from being\nslaves of machines.\""
+        },
+        {
+          "label": "J",
+          "text": "The workers saw things differently. They viewed automation in the same light\nas the everlasting light bulb or the suit that never wears out—as a threat to\npeople's livelihoods. If automation spread, they wouldn't be released to do more\nexciting jobs. They'd be released to join the dole queue. Financial backing for\nECME fizzled out. The money dried up. And Britain lost its lead in a technology\nthat would transform industry just a few years later."
+        }
+      ],
+      "groups": [
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the text below.\nChoose NO MORE THAN THREE WORDS from the passage for each answer.",
+          "content": "Item 1 relates to {{1}}. Item 2 relates to {{2}}. Item 3 relates to {{3}}. Item 4 relates to {{4}}. Item 5 relates to {{5}}. Item 6 relates to {{6}}. Item 7 relates to {{7}}.",
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "chip"
+              ],
+              "explanation": "The answer 'chip' is found in Passage 1.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "grit"
+              ],
+              "explanation": "The answer 'grit' is found in Passage 1.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "molten zinc",
+                "milten zinc"
+              ],
+              "explanation": "The answer 'molten zinc' is found in Passage 1.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "milling machine"
+              ],
+              "explanation": "The answer 'milling machine' is found in Passage 1.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "sockets"
+              ],
+              "explanation": "The answer 'sockets' is found in Passage 1.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "loudspeakers"
+              ],
+              "explanation": "The answer 'loudspeakers' is found in Passage 1.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "valves"
+              ],
+              "explanation": "The answer 'valves' is found in Passage 1.",
+              "reference": "Passage 1"
+            }
+          ],
+          "maxWords": 3
+        },
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the text below.\nChoose NO MORE THAN THREE WORDS from the passage for each answer.",
+          "content": "Sargrove had been dedicated to create a {{8}} radio by automation of manufacture. The old version of radio had a large number of independent {{9}} After this innovation made, wireless-style radios became {{10}} and inexpensive to export oversea. As the Saigrove saw it, the real benefit of ECME's radio was that it reduced {{11}} of manual work; which can be easily copied to other industries of manufacturing electronic devices.",
+          "questions": [
+            {
+              "number": 8,
+              "answer": [
+                "cheaper"
+              ],
+              "explanation": "The answer 'cheaper' is found in Passage 1.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "components"
+              ],
+              "explanation": "The answer 'components' is found in Passage 1.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "lighter"
+              ],
+              "explanation": "The answer 'lighter' is found in Passage 1.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 11,
+              "answer": [
+                "cost"
+              ],
+              "explanation": "The answer 'cost' is found in Passage 1.",
+              "reference": "Passage 1"
+            }
+          ],
+          "maxWords": 3
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Questions 12-13\nChoose the correct letter A, B, c or D.\nWrite your answers inboxes 12-13 on your answer sheet",
+          "questions": [
+            {
+              "number": 12,
+              "prompt": "What were workers attitude towards ECME Model initialy",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "anxious"
+                },
+                {
+                  "key": "B",
+                  "text": "welcoming"
+                },
+                {
+                  "key": "C",
+                  "text": "boring"
+                },
+                {
+                  "key": "D",
+                  "text": "inspiring"
+                }
+              ],
+              "answer": "A",
+              "explanation": "According to Passage 1, the correct option is A.",
+              "reference": "Passage 1"
+            },
+            {
+              "number": 13,
+              "prompt": "What is the main idea of this passage?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "approach to reduce the price of radio"
+                },
+                {
+                  "key": "B",
+                  "text": "a new generation of fully popular products and successful business"
+                },
+                {
+                  "key": "C",
+                  "text": "in application of die automation in the early stage"
+                },
+                {
+                  "key": "D",
+                  "text": "ECME technology can be applied in many product fields"
+                }
+              ],
+              "answer": "A",
+              "explanation": "According to Passage 1, the correct option is A.",
+              "reference": "Passage 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "Bestcom CONSIDERATE COMPUTING",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "\"YOUR\nBATTERY\nIS\nNOW\nFULLY\nCHARGED,\" ANNOUNCED THE LAPTOP COMPUTER to its owner, Donald"
+        },
+        {
+          "label": "A",
+          "text": "Norman, with enthusiasm—perhaps even a hint of pride? in its synthetic\nvoice. To be sure, distractions and multitasking are hardly new to the human\ncondition. \"A complicated life, continually interrupted by competing requests for\nattention, is as old as procreation,\" laughs Ted Selker of the Massachusetts\nInstitute of Technology Media Lab. But increasingly, it is not just our kids\npulling us three ways at once; it is also a relentless barrage of e-mail, alerts,\nalarms, calls, instant messages and automated notifications, none of them\ncoordinated and all of them oblivious to whether we are busy—or even present.\n\"It's ridiculous that my own computer can't figure out whether I'm in front of it,\nbut a public toilet can,\" exclaims Roel Vertegaal of Queen's University in\nOntario."
+        },
+        {
+          "label": "B",
+          "text": "Humanity has connected itself through roughly three billion networked\ntelephones, computers, traffic lights— even refrigerators and picture frames—\nbecause these things make life more convenient and keep US available to those\nwe care about. So although we could simply turn off the phones, close the e-mail\nprogram, and shut the office door when it is time for a meeting or a stretch of\nconcentrated work, we usually don't. We just endure the consequences."
+        },
+        {
+          "label": "C",
+          "text": "Numerous studies have shown that when people are unexpectedly interrupted,\nthey not only work less efficiently but also make more mistakes. \"It seems to\nadd cumulatively to a feeling of frustration,\" Picard reports, and that stress\nresponse makes it hard to regain focus. It isn't merely a matter of productivity\nand the pace of life. For pilots, drivers, soldiers and doctors, errors of inattention\ncan be downright dangerous. \"If we could just give our computers and phones\nsome understanding of the limits of human attention and memory, it would make\nthem seem a lot more thoughtful and courteous,\" says Eric Horvitz of Microsoft\nResearch. Horvitz, Vertegaal, Selker and Picard are among a small but growing\nnumber of researches trying to teach computers, phones, care and other gadgets\nto behave less like egocentric oafs and more likeconsiderate colleagues."
+        },
+        {
+          "label": "D",
+          "text": "\"Attentive\" computing systems have begun appearing in newer Volvos and\nIBM has introduced Websphere communications software with a basic busyness\nsense. Microsoft has beat running extensive in-house tests of a much more\nsophisticated system since 2003. Within a few years, companies may be able to\noffer every office worker a software version of the personal receptionist that only\ncomer-suite executives enjoy today. But if such an offer should land in your\ninbox, be sure to read the print before you sign. An attentive system, by\ndefinition, is one that ỈB always watching. That considerate computer may\ncome to know more about your work habits than you do."
+        },
+        {
+          "label": "E",
+          "text": "Most people aren't as busy as they think they are,\nwhich is why we can usually tolerate interruptions from our inconsiderate\nelectronic paraphernalia. James Fogarty and Scott E. Hudson of Carnegie Mellon\nUniversity recently teamed up with Jennifer Lai of IBM Research to study 10\nmanagers, researchers and interns at work. They videotaped the subjects and\nperiodically had them rate then \"interruptibility.\" The amount of time the\nworkers spent in leave-me-alone mode varied from person to person and day to\nday, ranging from 10 to 51 percent. On average, the subjects wanted to work\nwithout interruption about one third of the time. In studies of Microsoft\nemployees, Horvitz has similarly found that they typically spend more than 65\npercent of theft day in a state of low attention."
+        },
+        {
+          "label": "F",
+          "text": "Today's phones and computers, winch naively assume that die user is never\ntoo busy to take a call, read an email, or click \"OK\" on an alert box, thus are\nprobably correct about two thirds of time. To be useful, then, considerate\nsystems will have to be more than 65 percent accurate in sensing when their\nusers are near theft cognitive limits."
+        },
+        {
+          "label": "G",
+          "text": "Bestcom/Enhanced Telephony, a Microsoft prototype based on Horvitz's\nweak, digs a little deeper into each user's computer to find clues about what they\nare up to. Microsoft launched an internal beta test of the system in mid-2003. By\nlast October, Horvitz says, about 3,800 people were using the system to field\ntheir incoming phone calls."
+        },
+        {
+          "label": "H",
+          "text": "Horvitz himself is one of those testers, and while\nwe talk in his office in Redmond, Wash, Bestcom silently handles one call\nafter another. First it checks whether the caller is listed in his address book, the\ncompany directory, or its log of people he has called recently. Triangulating\nthese sources, it tries to deduce their relationship. Family members, supervisors\nand people he called earlier today ring through Others see a message on their\ncomputer that he is in a meeting and won't be available until 3 RM. The system\nscans Horvitz's and the caller's calendar and offers to reschedule the call at a\ntime that is open for both Some callers choose that option; others leave voice\nmail. E-mail messages get a similar screening. When Horvitz is out of the office,\nBestcom automatically offers to forward selected callers to his cellphone—\nunless his calendar and other evidence suggest that he is in a meeting."
+        },
+        {
+          "label": "I",
+          "text": "Most large companies already use computerized phone systems and standard\ncalendar and contact management software, so tapping into those \"sensors\"\nshould be straightforward. Not all employees will like the idea of having a\nmicrophone on all the time in them office, however, nor will everyone want to\nexpose them datebook to some program they do not ultimately control.\nMoreover, some managers might be tempted to equate a \"state of low attention\"\nwith \"goofing off\" and punish those who seem insufficiently busy."
+        }
+      ],
+      "groups": [
+        {
+          "type": "true_false_not_given",
+          "instruction": "Questions 14-19\nDo the following statements agree with the information given in Reading\nPassage 2? In boxes 14-19 on your answer sheet, write\nTRUE\nif the statement is true\n\nFALSE\nif the statement ừ false\nNOT GIVEN if the information is not given in the passage",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "According to Ted Selker, human productivity has been disturbed by\noffice competitors frequently.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 2 regarding statement 14.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 15,
+              "prompt": "If people are interrupted by calls or E-mails, they usually put up with it\ninstead of taking uncooperative action",
+              "answer": "TRUE",
+              "explanation": "Refer to Passage 2 regarding statement 15.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 16,
+              "prompt": "Microsoft is now investigating a software which is compatible with\nordinary office units",
+              "answer": "TRUE",
+              "explanation": "Refer to Passage 2 regarding statement 16.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 17,
+              "prompt": "People usually have misperception about whether they are busy or not.",
+              "answer": "TRUE",
+              "explanation": "Refer to Passage 2 regarding statement 17.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 18,
+              "prompt": "Researches conducted showed concentration-time span in office takes up\nonly average a bit over than 65%.",
+              "answer": "FALSE",
+              "explanation": "Refer to Passage 2 regarding statement 18.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 19,
+              "prompt": "Advanced phone and computer system will install a shortcut key for\npeople receive information immediately.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 2 regarding statement 19.",
+              "reference": "Passage 2"
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below.\nChoose NO MORE THAN THREE WORDS from the passage for each answer.",
+          "maxWords": 3,
+          "questions": [
+            {
+              "number": 20,
+              "prompt": "Question 20?",
+              "answer": [
+                "clues"
+              ],
+              "explanation": "Evidence for 'clues' is found in Passage 2.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 21,
+              "prompt": "Question 21?",
+              "answer": [
+                "relationship"
+              ],
+              "explanation": "Evidence for 'relationship' is found in Passage 2.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 22,
+              "prompt": "Question 22?",
+              "answer": [
+                "message"
+              ],
+              "explanation": "Evidence for 'message' is found in Passage 2.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 23,
+              "prompt": "Question 23?",
+              "answer": [
+                "reschedule",
+                "rechedule"
+              ],
+              "explanation": "Evidence for 'reschedule' is found in Passage 2.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 24,
+              "prompt": "Question 24?",
+              "answer": [
+                "voice mail"
+              ],
+              "explanation": "Evidence for 'voice mail' is found in Passage 2.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 25,
+              "prompt": "Question 25?",
+              "answer": [
+                "cellphone"
+              ],
+              "explanation": "Evidence for 'cellphone' is found in Passage 2.",
+              "reference": "Passage 2"
+            },
+            {
+              "number": 26,
+              "prompt": "Question 26?",
+              "answer": [
+                "meeting"
+              ],
+              "explanation": "Evidence for 'meeting' is found in Passage 2.",
+              "reference": "Passage 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "Environmentally-friendly Vehicles",
+      "paragraphs": [
+        {
+          "label": "",
+          "text": "Environmentally-friendly! Vihicles\nIn the early 1990s, the California Air Resources Board (CARB), the government\nof California's \"clean air agency\", began a push for more fuel-efficient, loweremissions vehicles, with the ultimate goal being a move to zero-emissions\nvehicles such as electric vehicles. In response, automakers developed electric\nmodels, including the Chrysler TEVan, Ford Ranger EV pickup truck, GM EV1\nand S10 EV pickup, Honda EV Plus hatchback, Nissan lithium-battery Altra EV\nminiwagon and Toyota RAV4 EV. Ford Fusion is manufactured at Ford's\nHermosillo Stamping & Assembly plant, located in Sonora Mexico. I thought\ngoing green was supposed to provide the u.s. with more jobs.\nB. The automakers were accused of pandering to the wishes\nof CARB in order to continue to be allowed to sell cars in the lucrative\nCalifornian market, while failing to adequately promote their electric vehicles in\norder to create the impression that the consumers were not interested in the cars,\nall the while joining oil industry lobbyists in vigorously protesting CARB's\nmandate. GM's program came under particular scrutiny; in an unusual move,\nconsumers were not allowed to purchase EVls, but were instead asked to sign\nclosed-end leases, meaning that the cars had to be returned to GM at the end of\nthe lease period, with no option to purchase, despite lesser interest in continuing\nto own the cars. Chrysler, Toyota, and a group of GM dealers sued CARB in\nFederal court, leading to the eventual neutering of CARB's ZEV Mandate.\nC. After public protests by EV drivers' groups upset by the repossession of then\ncars, Toyota offered the last 328 RAV4-EVS for sale to the general public during\nsix months, up until November 22, 2002. Almost all other production electric\ncars were withdrawn from the market and were in some cases seen to have been\ndestroyed by the manufacturers. Toyota continues to support the several hundred\nToyota RAV4-EV in the hands of the general public and in fleet usage. GM\nfamously de-activated the few EVls that were donated to engineering schools\nand museums.\nD. Throughout the 1990s, appeal of fuel-efficient or\nenvironmentally friendly cars declined among Americans, who instead favored\nsport utility vehicles, which were affordable to operate despite their poor\nfuel efficiency thanks to lower gasoline prices. American automakers chose\nto focus their product lines around the truck-based vehicles, which\nenjoyed larger profit margins than the smaller cars which were preferred in\nplaces like Europe or Japan. In 1999, the Honda Insight hybrid car became\nthe first hybrid to be sold in North America since the little-known Woods hybrid\nof 1917.\nE. In 1995, Toyota debuted a hybrid concept car at the Tokyo Motor Show, with\ntesting following a year later. The first Prius, model NHW10, went on sale on\nDecember 10,1997. It was available only in Japan, though it has been imported\nprivately to at least the United Kingdom, Australia, and New Zealand. The first\ngeneration Prius, at its launch, became the world's first mass-produced gasolineelectric hybrid car. The NHW10 Prius styling originated from California\ndesigners, who were selected over competing designs from other Toyota design\nstudios.\nF. In the United States, the NHW11 was the first Prius to be sold. The Prius was\nmarketed between the smaller Corolla and the larger Camry. The published retail\nprice of the car was US$19,995. The NHWU Prius became more powerful partly\nto satisfy the higher speeds and longer distances that Americans drive. Air\nconditioning and electric power steering were standard equipment. The vehicle\nwas the second mass-produced hybrid on the American market, after the twoseat Honda Insight While the larger Prius could seat five, its battery pack\nrestricted cargo space.\nG. Hybrids, which featured a combined gasoline and electric powertrain, were\nseen as a balance, offering an environmentally friendly image and improved fuel\neconomy, without being hindered by the low range of electric vehicles, albeit at\nan increased price over comparable gasoline cars. Sales were poor, the lack of\ninterest attributed to the car's small size and the lack of necessity for a fuelefficient car at the time. The 2000s energy crisis brought renewed interest in\nhybrid and electric cars. In America, sales of the Toyota Prius jumped, and a\nvariety of automakers followed suit, releasing hybrid models of the ữ own.\nSeveral began to produce new electric car prototypes, as consumers called for\ncars that would free them from the fluctuations of oil prices.\nH. In 2000, Hybrid Technologies, later renamed Li-ion Motors,\nstarted manufacturing electric cars in Mooresville, North Carolina. There has\nbeen increasing controversy with Li-ion Motors though due to the ongoing\n'Lemon issues' regarding their product. And their attempt to cover it up.\nCalifornia electric car maker Tesla Motors began development in 2004 on the\nTesla Roadster, which was first delivered to customers in 2008. The Roadster\nremained the only highway-capable EV in serial production and available for\nsale until 2010. Senior leaders at several large automakers, including Nissan and\nGeneral Motors, have stated that the Roadster was a catalyst which\ndemonstrated that there is pent-up consumer demand for more efficient vehicles.\nGM Vice Chairman Bob Lutz said in 2007 that the Tesla Roadster inspired\nhim to push GM to develop the Chevrolet Volt, a plug-in hybrid sedan prototype\nthat aims to reverse years of dwindling market share and massive financial losses\nfor America's largest automaker. In an August 2009 edition of The New Yorker,\nLutz was quoted as saying, \"All the geniuses here at General Motors kept saying\nlithium-ion technology is 10 years away, and Toyota agreed with US -- and\nboom, along comes Tesla. So I said, 'How come some tiny little California\nstartup, run by guys who know nothing about the car business, can do this, and\nwe can't?' That was the crowbar that helped break up the logjam.\""
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Question 27-30\nChoose the correct letter, A, B, c or D.",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "What does the author think of the factory in Sonora in Mexico where the\nford fusion is manufactured?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the factory should be helpful in the US soil business!"
+                },
+                {
+                  "key": "B",
+                  "text": "Employment of US will be created as consumers change their awareness;"
+                },
+                {
+                  "key": "C",
+                  "text": "More competitive cars will be introduced into the market!"
+                },
+                {
+                  "key": "D",
+                  "text": "this issue is hard to give a predict"
+                }
+              ],
+              "answer": "B",
+              "explanation": "According to Passage 3, the correct option is B.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 28,
+              "prompt": "In 1990s, what dropped in America for the environmentally friendly\nvehicles?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "production"
+                },
+                {
+                  "key": "B",
+                  "text": "Attractiveness"
+                },
+                {
+                  "key": "C",
+                  "text": "Announcement"
+                },
+                {
+                  "key": "D",
+                  "text": "Expectation"
+                }
+              ],
+              "answer": "B",
+              "explanation": "According to Passage 3, the correct option is B.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 29,
+              "prompt": "What did GM notably send to engineering schools and museums?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "EV 1"
+                },
+                {
+                  "key": "B",
+                  "text": "CARB"
+                },
+                {
+                  "key": "C",
+                  "text": "RAV4"
+                },
+                {
+                  "key": "D",
+                  "text": "MINI E"
+                }
+              ],
+              "answer": "A",
+              "explanation": "According to Passage 3, the correct option is A.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 30,
+              "prompt": "Nissan and GM high level leaders declared the real reason for the\npopularity of Roadster is its",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "legendary concept"
+                },
+                {
+                  "key": "B",
+                  "text": "huge population in market"
+                },
+                {
+                  "key": "C",
+                  "text": "bursting demand"
+                },
+                {
+                  "key": "D",
+                  "text": "artistic design"
+                }
+              ],
+              "answer": "C",
+              "explanation": "According to Passage 3, the correct option is C.",
+              "reference": "Passage 3"
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Questions 31-35\nDo the following statements agree with the information given in Reading\nPassage In boxes 31-35 on your answer sheet, write\nYES\nif the Statement is true\nNO\nif the statement is false\nNOT GIVEN if the information is not given in the passage",
+          "questions": [
+            {
+              "number": 31,
+              "prompt": "Some automakers mislead and suppressed the real demand for electric cars\nof keeping profit in certain market by luring the want of CARB.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 3 regarding statement 31.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 32,
+              "prompt": "Toyota started to sell 328 RAV4-EVS for taking up the market share.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 3 regarding statement 32.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 33,
+              "prompt": "In some countries, American auto-makers would like grab opportunity to\nearn money in vehicle of bigger litre engine cars rather than smaller ones",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 3 regarding statement 33.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 34,
+              "prompt": "Hybrids cars are superior vehicles that combine impression of a\nenvironmentally friendly electric power engine and a lower price in unit sale.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 3 regarding statement 34.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 35,
+              "prompt": "an inspiration to make effort to produce hybrid cars is to coping with\neconomic difficulties result from an declining market for General Motors.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to Passage 3 regarding statement 35.",
+              "reference": "Passage 3"
+            }
+          ]
+        },
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the text below.\nChoose the correct option for each answer.",
+          "content": "A {{36}} was firstly introduced by Car maker Toyota in 1995. Then it started for sale in 1997 with a new first generation model. Not only in Japan, but included other countries such as {{37}} and Oceania in which the Prius was imported to. The first generation Prius was the first car in mass production which is powered by {{38}} The model NHW10 was designed by a winning Californian designer The innovated NHW 11 Prius has considerably higher running velocity and {{39}} than American counterparts. Still, the load capacity of current Prius version was limited in its {{40}} A electric car B United Kingdom C Market D concept car E longer distances F Emissions G battery H Consumers I gasoline-electricity J inspiration K cargo space L orientation",
+          "questions": [
+            {
+              "number": 36,
+              "answer": [
+                "D"
+              ],
+              "explanation": "The answer 'D' is found in Passage 3.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "B"
+              ],
+              "explanation": "The answer 'B' is found in Passage 3.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "I"
+              ],
+              "explanation": "The answer 'I' is found in Passage 3.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "E"
+              ],
+              "explanation": "The answer 'E' is found in Passage 3.",
+              "reference": "Passage 3"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "G"
+              ],
+              "explanation": "The answer 'G' is found in Passage 3.",
+              "reference": "Passage 3"
+            }
+          ],
+          "options": [
+            {
+              "key": "A",
+              "text": "electric car"
+            },
+            {
+              "key": "B",
+              "text": "United Kingdom"
+            },
+            {
+              "key": "C",
+              "text": "Market"
+            },
+            {
+              "key": "D",
+              "text": "concept car"
+            },
+            {
+              "key": "E",
+              "text": "longer distances"
+            },
+            {
+              "key": "F",
+              "text": "Emissions"
+            },
+            {
+              "key": "G",
+              "text": "battery"
+            },
+            {
+              "key": "H",
+              "text": "Consumers"
+            },
+            {
+              "key": "I",
+              "text": "gasoline-electricity"
+            },
+            {
+              "key": "J",
+              "text": "inspiration"
+            },
+            {
+              "key": "K",
+              "text": "cargo space"
+            },
+            {
+              "key": "L",
+              "text": "orientation"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sortOrder": 18,
+  "shortTitle": "Practice Test 18",
+  "totalQuestions": 40,
+  "durationMinutes": 60
+}

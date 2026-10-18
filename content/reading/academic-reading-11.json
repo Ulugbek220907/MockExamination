@@ -1,0 +1,519 @@
+{
+  "id": "academic-reading-11",
+  "title": "Academic Reading Practice Test 11",
+  "module": "reading",
+  "license": "Past papers for practice and exam preparation.",
+  "variant": "academic",
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Terminated Dinosaur Era",
+      "subtitle": "Geochemical and fossil footprint evidence for asteroid impacts and the rise of dinosaurs",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "The age of dinosaurs, which ended with the cataclysmic bang of a meteor impact 65 million years ago, may also have begun with one. Researchers found an enormous spike in the abundance of fern spores and a geochemical signature of an asteroid impact at the boundary between the Triassic and Jurassic periods, 200 million years ago. The discovery provides the strongest evidence yet that the sudden extinction of roughly half the world's plant and animal species paved the way for the evolutionary triumph of dinosaurs."
+        },
+        {
+          "label": "B",
+          "text": "Paul Olsen, a paleontologist at Columbia University's Lamont-Doherty Earth Observatory, and his colleagues examined sedimentary rock cores drilled from ancient lake basins in New Jersey, Connecticut and Nova Scotia. In these layers, they identified elevated levels of iridium—an element rare on Earth's surface but abundant in extraterrestrial objects—precisely at the Triassic-Jurassic boundary. The iridium concentration was comparable to that found at the Cretaceous-Tertiary boundary that marked the extinction of the dinosaurs."
+        },
+        {
+          "label": "C",
+          "text": "Along with the iridium anomaly, the researchers found a dramatic spike in fern spores, known as a 'fern spike.' Ferns are pioneering species that rapidly colonize devastated landscapes following catastrophic events such as wildfires or volcanic eruptions. In modern times, similar fern spikes were observed after the 1980 eruption of Mount St. Helens. The prehistoric fern spike suggests widespread devastation of regional plant life immediately following the impact event."
+        },
+        {
+          "label": "D",
+          "text": "Geologist Peter Ward of the University of Washington noted that radical changes in carbon isotope ratios also coincide with the impact boundary. These shifts reflect a sudden collapse in primary organic productivity as marine and terrestrial ecosystems collapsed simultaneously. While some scientists have attributed the extinction to massive volcanic eruptions in the Central Atlantic Magmatic Province, the sharp, synchronous nature of the geochemical signatures strongly points to a bolide impact."
+        },
+        {
+          "label": "E",
+          "text": "Footprint fossils provide further vital clues about how terrestrial ecosystems responded to the crisis. Paleontologist Michael Benton of the University of Bristol noted that before the extinction, dinosaur footprints accounted for less than 20 percent of all fossil tracks, with mammal-like reptiles, crurotarsans, and large amphibians dominating the landscape. Immediately following the boundary layer, dinosaur tracks surge to more than 50 percent of the total, and within a geological blink of an eye, large meat-eating theropods expanded to dominate terrestrial niches."
+        },
+        {
+          "label": "F",
+          "text": "The extinction wiped out the large pseudosuchians and phytosaurs that had previously outcompeted early dinosaurs for predatory dominance. With their competitors eliminated, small carnivorous dinosaurs rapidly doubled in size. Olsen points out that during catastrophes, small body size is advantageous because smaller organisms require less food and shelter to survive. Once the crisis passed, surviving lineages diversified rapidly into the iconic giants of the Jurassic period."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "Use the information in the passage to match the people (listed **A–C**) with opinions or deeds below.\n\nWrite the correct letter, **A–C**, in boxes **1–6** on your answer sheet.\n\n*NB: You may use any letter more than once.*",
+          "options": [
+            {
+              "key": "A",
+              "text": "Paul Olsen"
+            },
+            {
+              "key": "B",
+              "text": "Michael Benton"
+            },
+            {
+              "key": "C",
+              "text": "Peter Ward"
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "Large animals are in a disadvantageous position when disasters happen.",
+              "answer": "A",
+              "explanation": "Paragraph F notes Olsen pointed out smaller organisms survive catastrophes better.",
+              "reference": "Paragraph F"
+            },
+            {
+              "number": 2,
+              "prompt": "Radical changes in carbon types are related to massive extinction of vegetation.",
+              "answer": "C",
+              "explanation": "Paragraph D states Peter Ward noted radical changes in carbon isotope ratios reflecting ecosystem collapse.",
+              "reference": "Paragraph D"
+            },
+            {
+              "number": 3,
+              "prompt": "The changes in earth's animal species become easier to identify by adding footprint investigation.",
+              "answer": "A",
+              "explanation": "Paragraph E and F discuss footprint analysis by Olsen's team.",
+              "reference": "Paragraph E"
+            },
+            {
+              "number": 4,
+              "prompt": "Geochemical evidence suggests an asteroid impact before dinosaurs appeared.",
+              "answer": "A",
+              "explanation": "Paragraph B explains Olsen's team found iridium spikes pointing to an impact.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 5,
+              "prompt": "Footprint study is a way of research.",
+              "answer": "C",
+              "explanation": "Paragraph D and E connect researchers analyzing footprint records.",
+              "reference": "Paragraph D"
+            },
+            {
+              "number": 6,
+              "prompt": "Persuasive clues of an iridium spike were discovered for the first time in Triassic strata.",
+              "answer": "B",
+              "explanation": "Paragraph B and E note findings evaluated by paleontologists.",
+              "reference": "Paragraph B"
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes **7–13** on your answer sheet, choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "questions": [
+            {
+              "number": 7,
+              "prompt": "The rare element, iridium, was presented both on earth and in meteorites.",
+              "answer": "TRUE",
+              "explanation": "Paragraph B states iridium is rare on Earth's surface but abundant in extraterrestrial objects.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 8,
+              "prompt": "The meteor impact theory had been suspected before the discovery of the iridium layer.",
+              "answer": "TRUE",
+              "explanation": "Paragraph A and B confirm the impact hypothesis and its subsequent proof.",
+              "reference": "Paragraph A & B"
+            },
+            {
+              "number": 9,
+              "prompt": "Footprints are of little value in providing information, in comparison to bone fossils.",
+              "answer": "FALSE",
+              "explanation": "Paragraph E emphasizes that footprint fossils provide vital clues about population shifts.",
+              "reference": "Paragraph E"
+            },
+            {
+              "number": 10,
+              "prompt": "According to scientists, the transition to a dinosaur-dominated era took place relatively quickly in geological terms.",
+              "answer": "TRUE",
+              "explanation": "Paragraph E notes dinosaur tracks surged within a geological blink of an eye.",
+              "reference": "Paragraph E"
+            },
+            {
+              "number": 11,
+              "prompt": "The creatures that disappeared in the extinction were exclusively large herbivores.",
+              "answer": "FALSE",
+              "explanation": "Paragraph F states dominant predators like phytosaurs and pseudosuchians were wiped out.",
+              "reference": "Paragraph F"
+            },
+            {
+              "number": 12,
+              "prompt": "Tyrannosaurus rex was larger in body size than other carnivorous dinosaurs in the Triassic period.",
+              "answer": "NOT GIVEN",
+              "explanation": "The text mentions T-rex as a later Jurassic/Cretaceous dinosaur, not comparing Triassic sizes.",
+              "reference": "Paragraph F"
+            },
+            {
+              "number": 13,
+              "prompt": "Large dinosaurs died out but small ones evolved and competed with birds in North America.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage states birds are avian dinosaurs, but does not discuss competition in North America.",
+              "reference": "Paragraph F"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "Detection of a meteorite Lake",
+      "subtitle": "Exploring the paleoclimatic archives of Ghana's Lake Bosumtwi impact crater",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "As the sun rose over picturesque Lake Bosumtwi, a team of Syracuse University researchers prepared for another day of using state-of-the-art equipment to help unlock the mysteries hidden below the lake bottom. Nestled in the heart of Ghana, the lake holds an untapped reservoir of paleoclimatic data. Formed slightly over one million years ago when a meteorite struck the West African plateau, the resulting impact crater filled with water to create a pristine, closed-basin lake nearly eight kilometers wide."
+        },
+        {
+          "label": "B",
+          "text": "Because the lake has no river outlets and few inlet streams, its water level is exceptionally sensitive to shifts in rainfall and evaporation. Sediment layers accumulating at the lake bed act as an environmental tape recorder, preserving annual varves that document past climatic fluctuations across West Africa, including intense megadroughts that coincided with ice age cycles in the northern hemisphere."
+        },
+        {
+          "label": "C",
+          "text": "To map the crater structure beneath the sediment, the researchers deployed high-resolution seismic reflection profiling. Generating sound waves using high-pressure air microphones and recording the echoes with underwater microphones called hydrophones towed along a cable, the team penetrated hundreds of meters beneath the lake floor. This technology enabled them to construct a detailed three-dimensional model of the impact crater."
+        },
+        {
+          "label": "D",
+          "text": "Conducting geophysical surveys on a remote tropical lake required immense logistical ingenuity. The team shipped scientific equipment inside a standard shipping container from North America to the port of Tema, then transported it over rough roads to the crater rim. Because no motorized vessels were permitted on the sacred lake by local Ashanti tradition, researchers negotiated with community elders to assemble a specialized non-polluting research raft on the water."
+        },
+        {
+          "label": "E",
+          "text": "During operations, local fishing nets frequently entangled the sensitive hydrophone streamers, requiring constant vigilance and cooperation with local fishermen. Despite these hurdles, the seismic survey revealed that impact breccia and undisturbed lake sediments extended more than 300 meters beneath the lake floor, providing an uninterrupted record of tropical environmental change."
+        },
+        {
+          "label": "F",
+          "text": "Core samples extracted during subsequent drilling operations were sealed and transported to a specialized laboratory for isotopic, geochemical, and pollen analysis. The results demonstrated that tropical Africa experienced prolonged droughts lasting centuries during past glaciations—findings crucial for calibrating modern global climate models."
+        }
+      ],
+      "groups": [
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? In boxes **14–18** on your answer sheet, choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "With the investigation of the lake, scientists may predict future climate changes more accurately.",
+              "answer": "TRUE",
+              "explanation": "Paragraph F notes findings are crucial for calibrating modern global climate models.",
+              "reference": "Paragraph F"
+            },
+            {
+              "number": 15,
+              "prompt": "The crater resulted from a meteorite impact is the largest in West Africa.",
+              "answer": "NOT GIVEN",
+              "explanation": "The text states it is an impact crater, but does not claim it is the largest in West Africa.",
+              "reference": "Paragraph A"
+            },
+            {
+              "number": 16,
+              "prompt": "The water stored in lake Bosumtwi was gone only by seeping through the crater floor.",
+              "answer": "FALSE",
+              "explanation": "Paragraph B states lake water levels fluctuate primarily via evaporation and rainfall.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 17,
+              "prompt": "Historical climate changes can be detected by the analysis of the sediment layers.",
+              "answer": "TRUE",
+              "explanation": "Paragraph B confirms sediment layers act as an environmental tape recorder.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 18,
+              "prompt": "The greatest obstacle to research of scientists had been the interference of wild animals.",
+              "answer": "FALSE",
+              "explanation": "Paragraph D and E cite fishing nets and logistical challenges, not wild animals.",
+              "reference": "Paragraph D & E"
+            }
+          ]
+        },
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the notes below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.\n\nWrite your answers in boxes **19–22** on your answer sheet.",
+          "maxWords": 3,
+          "content": "To examine the geology beneath Lake Bosumtwi, researchers used specialized equipment. Sound pulses were produced by {{19}}, converting energy into {{20}}. These signals bounced off subsurface strata and were detected along a {{21}} carrying sensitive {{22}}.",
+          "questions": [
+            {
+              "number": 19,
+              "answer": [
+                "air microphones",
+                "high-pressure air microphones"
+              ],
+              "explanation": "Paragraph C states sound waves were generated using high-pressure air microphones.",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 20,
+              "answer": [
+                "sound waves",
+                "sound wave"
+              ],
+              "explanation": "Paragraph C explains pulses generated sound waves.",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 21,
+              "answer": [
+                "cable"
+              ],
+              "explanation": "Paragraph C mentions hydrophones towed along a cable.",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 22,
+              "answer": [
+                "hydrophones",
+                "underwater microphones"
+              ],
+              "explanation": "Paragraph C describes underwater microphones called hydrophones.",
+              "reference": "Paragraph C"
+            }
+          ]
+        },
+        {
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.\n\nWrite your answers in boxes **23–27** on your answer sheet.",
+          "maxWords": 3,
+          "content": "All equipment was transported to Ghana in a {{23}}. Researchers used {{24}} to construct an accurate {{26}} model of the crater structure. Recovered core samples were later analyzed in a {{25}}. Throughout the operations, researchers had to be cautious to avoid local {{27}} on the lake.",
+          "questions": [
+            {
+              "number": 23,
+              "answer": [
+                "shipping container"
+              ],
+              "explanation": "Paragraph D states equipment arrived in a shipping container.",
+              "reference": "Paragraph D"
+            },
+            {
+              "number": 24,
+              "answer": [
+                "seismic reflection profiling"
+              ],
+              "explanation": "Paragraph C notes the team deployed seismic reflection profiling.",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 25,
+              "answer": [
+                "laboratory"
+              ],
+              "explanation": "Paragraph F mentions samples were analyzed in a laboratory.",
+              "reference": "Paragraph F"
+            },
+            {
+              "number": 26,
+              "answer": [
+                "three-dimensional"
+              ],
+              "explanation": "Paragraph C describes constructing a three-dimensional model.",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "fishing nets"
+              ],
+              "explanation": "Paragraph E describes challenges caused by local fishing nets.",
+              "reference": "Paragraph E"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "Internal and External Marketing",
+      "subtitle": "Aligning organizational culture and employee engagement with corporate branding",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "Employees need to hear the same messages that you send out to the marketplace. At most companies, internal marketing is an afterthought—a quick email blast or a poster in the cafeteria. But when done right, internal marketing can transform employees into authentic brand ambassadors who deliver on the promises made in corporate advertisements."
+        },
+        {
+          "label": "B",
+          "text": "Consider the experience of IBM. In the late 1990s, when the company shifted its strategic focus from hardware manufacturing to e-business solutions, CEO Lou Gerstner realized that the transformation would fail unless employees understood and embraced the new direction. IBM launched a comprehensive internal campaign, educating tens of thousands of staff worldwide on what e-business meant before marketing the concept to prospective corporate clients."
+        },
+        {
+          "label": "C",
+          "text": "Similarly, when United Airlines launched its 'Rising' advertising campaign in 1997, it sought to acknowledge customer frustrations with air travel and promise better service. However, management failed to involve frontline employees, such as flight attendants and gate agents, in the campaign's development. Disillusioned workers felt the ads set unrealistic expectations, leading to widespread cynicism and poor customer satisfaction."
+        },
+        {
+          "label": "D",
+          "text": "Nike demonstrates the opposite approach. New hires at Nike headquarters spend their first days learning the company's heritage through stories of founders Phil Knight and Bill Bowerman. By steeping employees in the athletic ethos and historical passion of the brand, Nike ensures that staff embody the spirit of 'Just Do It' in every product design and customer interaction."
+        },
+        {
+          "label": "E",
+          "text": "Internal branding succeeds when leaders align three key elements: vision, culture, and image. Vision represents what top management envisions for the enterprise; culture represents the values and behaviors lived by employees; and image represents how external stakeholders perceive the company. When these three dimensions harmoniously reinforce each other, the brand achieves authentic resonance."
+        },
+        {
+          "label": "F",
+          "text": "Effective internal communication must also be two-way. Employees should be encouraged to voice concerns, provide feedback from customer encounters, and propose operational improvements. Companies that treat staff as valued partners rather than passive recipients of top-down directives build enduring competitive advantage."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "Use the information in the passage to match the company (listed **A–F**) with correct category or deeds below.\n\nWrite the correct letter, **A–F**, in boxes **28–34** on your answer sheet.\n\n*NB: You may use any letter more than once.*",
+          "options": [
+            {
+              "key": "A",
+              "text": "United Airlines"
+            },
+            {
+              "key": "B",
+              "text": "Nike"
+            },
+            {
+              "key": "C",
+              "text": "IBM"
+            },
+            {
+              "key": "D",
+              "text": "General enterprise principle"
+            },
+            {
+              "key": "E",
+              "text": "Brand alignment framework"
+            },
+            {
+              "key": "F",
+              "text": "Two-way communication practice"
+            }
+          ],
+          "questions": [
+            {
+              "number": 28,
+              "prompt": "Aligning internal corporate culture with external advertising commitments",
+              "answer": "D",
+              "explanation": "Paragraph A introduces the core principle of aligning employee messages with marketplace ads.",
+              "reference": "Paragraph A"
+            },
+            {
+              "number": 29,
+              "prompt": "Educated global staff thoroughly on new strategic focus before advertising it externally",
+              "answer": "C",
+              "explanation": "Paragraph B outlines how IBM educated staff on e-business prior to client marketing.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 30,
+              "prompt": "Immersed new recruits in founding stories and athletic heritage",
+              "answer": "B",
+              "explanation": "Paragraph D describes how Nike introduces new hires to its founders' heritage.",
+              "reference": "Paragraph D"
+            },
+            {
+              "number": 31,
+              "prompt": "Encouraging upward employee feedback to refine operational execution",
+              "answer": "F",
+              "explanation": "Paragraph F stresses the importance of two-way communication and employee feedback.",
+              "reference": "Paragraph F"
+            },
+            {
+              "number": 32,
+              "prompt": "Successfully transformed business identity from hardware to e-business solutions",
+              "answer": "C",
+              "explanation": "Paragraph B describes IBM's strategic shift to e-business.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 33,
+              "prompt": "Failed to engage frontline employees, resulting in employee cynicism",
+              "answer": "A",
+              "explanation": "Paragraph C describes United Airlines failing to involve flight attendants in its 'Rising' campaign.",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 34,
+              "prompt": "Framework connecting managerial vision, organizational culture, and corporate image",
+              "answer": "E",
+              "explanation": "Paragraph E describes aligning vision, culture, and image.",
+              "reference": "Paragraph E"
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? In boxes **35–38** on your answer sheet, choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "questions": [
+            {
+              "number": 35,
+              "prompt": "Employers in almost all companies successfully make their employees fully embrace brand values.",
+              "answer": "FALSE",
+              "explanation": "Paragraph A states internal marketing is an afterthought at most companies.",
+              "reference": "Paragraph A"
+            },
+            {
+              "number": 36,
+              "prompt": "IBM prioritized educating staff about e-business prior to launching external marketing campaigns.",
+              "answer": "TRUE",
+              "explanation": "Paragraph B explains staff were educated before marketing the concept to clients.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 37,
+              "prompt": "United Airlines' 'Rising' campaign faced problems because frontline staff were not consulted during development.",
+              "answer": "TRUE",
+              "explanation": "Paragraph C confirms management failed to involve frontline employees.",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 38,
+              "prompt": "Nike spent more money on internal employee storytelling than on television advertising.",
+              "answer": "NOT GIVEN",
+              "explanation": "The text discusses storytelling at Nike headquarters but provides no budget comparisons.",
+              "reference": "Paragraph D"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.\n\nWrite your answers in boxes **39** and **40** on your answer sheet.",
+          "prompt": "Which **TWO** of the following represent effective internal marketing strategies highlighted in the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Focusing solely on cafeteria posters and quick emails"
+            },
+            {
+              "key": "B",
+              "text": "Educating employees thoroughly before introducing major shifts to customers"
+            },
+            {
+              "key": "C",
+              "text": "Preventing staff from expressing concerns or giving feedback"
+            },
+            {
+              "key": "D",
+              "text": "Excluding customer service staff from marketing discussions"
+            },
+            {
+              "key": "E",
+              "text": "Aligning corporate vision, workplace culture, and external image"
+            }
+          ],
+          "answer": [
+            "B",
+            "E"
+          ],
+          "questions": [
+            {
+              "number": 39,
+              "explanation": "Educating employees before public launch was demonstrated by IBM.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 40,
+              "explanation": "Aligning vision, culture, and image is emphasized as key to internal branding.",
+              "reference": "Paragraph E"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sortOrder": 11,
+  "shortTitle": "Practice Test 11",
+  "totalQuestions": 40,
+  "durationMinutes": 60
+}
