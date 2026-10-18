@@ -80,6 +80,14 @@ DEFAULT_CONTACT_EMAIL = "ulugbekisoqov22@gmail.com"
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "").strip() or DEFAULT_CONTACT_EMAIL
 # The public address of the site, for links that must be absolute: canonical, share image, sitemap.
 PUBLIC_URL = (os.environ.get("SITE_URL") or "https://testday.uz").strip().rstrip("/")
+# Social links in the footer, in this order. Each shows only when its env var holds an https:// address.
+SOCIAL_NETWORKS = (("telegram", "Telegram"), ("instagram", "Instagram"), ("youtube", "YouTube"), ("tiktok", "TikTok"))
+SOCIAL_LINKS = [
+    {"key": key, "name": name, "url": url}
+    for key, name in SOCIAL_NETWORKS
+    for url in [os.environ.get(f"SOCIAL_{key.upper()}", "").strip()]
+    if url.startswith("https://")
+]
 
 AI_PER_IP_PER_HOUR = int(os.environ.get("AI_PER_IP_PER_HOUR", 6))
 AI_DAILY_LIMIT = int(os.environ.get("AI_DAILY_LIMIT", 300))
@@ -363,6 +371,7 @@ class ConfigHandler(BaseHandler):
             "siteName": SITE_NAME,
             "aiMarking": writing.ai_configured(),
             "contactEmail": CONTACT_EMAIL,
+            "social": SOCIAL_LINKS,
             "storage": STORE.name,
             "auth": {"email": True, "google": await in_thread(AUTH.google_enabled), "dev": AUTH.name == "dev"},
             "speakingKeepDays": speaking.KEEP_DAYS,

@@ -171,6 +171,7 @@ on **Admin** (payments to confirm) and **Examiner** (checks to mark) either way.
 - [x] Deleted the withdrawn Cambridge files (`data/tests.json`, `data/attempts.db`, `scripts/build_tests_data.py`).
 - [ ] Set `SITE_NAME=TestDay` on every Render service (the code defaults to TestDay, but an existing service that still has `SITE_NAME=MockExam` will show that name). Avoid putting "IELTS" in the domain name or logo, because the IELTS partners protect the trademark. Descriptive use in text ("IELTS-style practice") with the disclaimer is what the site does now.
 - [ ] Set `CONTACT_EMAIL` so users can ask for their data to be deleted (shown on the About & legal page).
+- [ ] Set `SOCIAL_TELEGRAM`, `SOCIAL_INSTAGRAM`, `SOCIAL_YOUTUBE` and `SOCIAL_TIKTOK` to your full https:// profile addresses. Each one appears in the footer only when it is set.
 - [ ] If you target users in the EU/UK, get a proper privacy policy and cookie review. The site uses one sign-in cookie and no trackers, plus local storage for autosave and preferences. Speaking recordings are personal data (a voice): the About page explains who can hear them and when they are deleted.
 - [ ] Run `python scripts/test_app.py` and take one test of each module on the live URL (Speaking on a phone too).
 - [ ] Sign in with your admin email, buy the plan once by card transfer and confirm it in Admin, then order and mark a Writing check and a Speaking check with a test examiner account.

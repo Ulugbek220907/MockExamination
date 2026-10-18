@@ -742,6 +742,7 @@ class ApiTests(AsyncHTTPTestCase):
         self.assertEqual((code, data["status"]), (200, "healthy"))
         code, data = self.get_json("/api/config")
         self.assertFalse(data["aiMarking"])
+        self.assertEqual(data["social"], [])  # no SOCIAL_* env vars in tests: the footer shows no social links
 
     def test_tests_list(self):
         code, data = self.get_json("/api/tests")
