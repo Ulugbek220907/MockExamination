@@ -1,0 +1,506 @@
+{
+  "id": "academic-reading-57",
+  "title": "Academic Reading Practice Test 57",
+  "shortTitle": "Practice Test 57",
+  "module": "reading",
+  "variant": "academic",
+  "license": "Past papers for practice and exam preparation.",
+  "sortOrder": 57,
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Tea times",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "The chances are that you have already drunk a cup or glass of tea today, Perhaps, you are sipping one as you read this. Tea, now an everyday beverage in many parts of the world, has over the centuries been an important part of rituals of hospitality both in the home and in wider society."
+        },
+        {
+          "label": "B",
+          "text": "Tea originated in China, and in Eastern Asia, tea making and drinking ceremonies have been popular for centuries. Tea was first shipped to North-Western Europe by English and Dutch maritime traders in the sixteenth century. At about the same time, a land route from the Far East, via Moscow, to Europe was opened up. Tea also figured in America's bid for independence from British rule - the Boston Tea Party."
+        },
+        {
+          "label": "C",
+          "text": "As, over the last four hundred years, tea leaves became available throughout much of Asia and Europe, the ways in which tea was drunk changed. The Chinese considered the quality of the leaves and the ways in which they were cured all important. People in other cultures added new ingredients besides tea leaves and hot water. They drank tea with milk, sugar, spices like cinnamon and cardamom, and herbs such as mint or sage. The variations are endless. For example, in Western Sudan on the edge of the Sahara Desert, sesame oil is added to milky tea on cold mornings. In England tea, unlike coffee, acquired a reputation as a therapeutic drink that promoted health. Indeed, in European and Arab countries as well as In Persia and Russia, tea was praised for its restorative and health-giving properties. One Dutch physician, Cornelius Blankaart, advised that to maintain health a minimum of eight to ten cups a day should be drunk and that up to 50 to 100 daily cups could be consumed safely."
+        },
+        {
+          "label": "D",
+          "text": "While European coffee houses were frequented by men discussing politics and closing business deals, respectable middle-class women stayed at home and held tea parties. When the price of tea fell in the nineteenth century poor people took up the drink with enthusiasm. Different grades and blends of tea were sold to suit every pocket."
+        },
+        {
+          "label": "E",
+          "text": "Throughout the world today, few religious groups object to tea drinking. In Islamic cultures, where drinking alcohol is forbidden, tea and coffee consumption is an important part of social life. However, Seventh-Day Adventists, recognizing the beverage as a drug containing the stimulant caffeine, frown upon the drinking of tea."
+        },
+        {
+          "label": "F",
+          "text": "Nomadic Bedouin are well known for the traditions of hospitality in the desert. According to Middle Eastern tradition, guests are served both tea and coffee from pots kept ready on the fires of guest tents where men of the family and male visitors gather. Cups of \"bitter\" cardamom coffee and glasses of sugared tea should be constantly refilled by the host."
+        },
+        {
+          "label": "G",
+          "text": "For over a thousand years, Arab traders have been bringing Islamic culture, including tea drinking, to northern and western Africa. Techniques of tea preparation have been adapted. In West African countries, such as Senegal and The Gambia, it is fashionable for young men to gather in small groups to brew Chinese \"gun-powder\" tea. The tea is boiled with large amounts of sugar for a long time."
+        },
+        {
+          "label": "H",
+          "text": "Tea drinking in India remains an important part of daily life. There, tea made entirely with milk is popular. \"Chai\" is made by boiling milk and adding tea, sugar, and some spices. This form of tea making has crossed the Indian Ocean and is also popular in East Africa, where tea is considered best when it is either very milky or made with water only. Curiously, this \"milk or water\" formula has been carried over to the preparation of instant coffee, which is served in cafes as either black or sprinkled on a cup of hot milk."
+        },
+        {
+          "label": "I",
+          "text": " In Britain, coffee drinking, particularly in the informal atmosphere of coffee shops, is currently in vogue. Yet, the convention of afternoon tea lingers. At conferences, it remains common practice to serve coffee in the morning and tea in the afternoon. Contemporary China, too, remains true to its long tradition. Delegates at conferences and seminars are served tea in cups with lids to keep the infusion hot. The cups are topped up throughout the proceedings. There are as yet no signs of coffee on such occasions."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "The above reading passage has nine paragraphs (A-I). Choose the most suitable heading for each paragraph from the list of headings",
+          "optionsTitle": "List of Headings",
+          "options": [
+            {
+              "key": "c",
+              "text": "4. Paragraph D"
+            },
+            {
+              "key": "i",
+              "text": "List of Headings"
+            },
+            {
+              "key": "ii",
+              "text": "Limited objections to drinking tea"
+            },
+            {
+              "key": "iii",
+              "text": "Today's continuing tradition - In Britain and China"
+            },
+            {
+              "key": "iv",
+              "text": "Tea - a beverage of hospitality"
+            },
+            {
+              "key": "v",
+              "text": "An important addition - tea with milk"
+            },
+            {
+              "key": "vi",
+              "text": "Tea and alcohol"
+            },
+            {
+              "key": "vii",
+              "text": "The everyday beverage in all parts of the world"
+            },
+            {
+              "key": "viii",
+              "text": "Tea on the move"
+            },
+            {
+              "key": "ix",
+              "text": "African tea"
+            },
+            {
+              "key": "x",
+              "text": "The fall in the cost of tea"
+            },
+            {
+              "key": "xi",
+              "text": "The value of tea"
+            },
+            {
+              "key": "xii",
+              "text": "Tea-drinking in Africa"
+            },
+            {
+              "key": "xiii",
+              "text": "Hospitality among the Bedouin"
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "Paragraph A",
+              "answer": "iv",
+              "explanation": "Refer to Paragraph A in the passage."
+            },
+            {
+              "number": 2,
+              "prompt": "Paragraph B",
+              "answer": "viii",
+              "explanation": "Refer to Paragraph B in the passage."
+            },
+            {
+              "number": 3,
+              "prompt": "Paragraph C",
+              "answer": "i",
+              "explanation": "Refer to Paragraph C in the passage."
+            },
+            {
+              "number": 4,
+              "prompt": "Paragraph D",
+              "answer": "x",
+              "explanation": "Refer to Paragraph D in the passage."
+            },
+            {
+              "number": 5,
+              "prompt": "Paragraph E",
+              "answer": "ii",
+              "explanation": "Refer to Paragraph E in the passage."
+            },
+            {
+              "number": 6,
+              "prompt": "Paragraph F",
+              "answer": "xiii",
+              "explanation": "Refer to Paragraph F in the passage."
+            },
+            {
+              "number": 7,
+              "prompt": "Paragraph G",
+              "answer": "xii",
+              "explanation": "Refer to Paragraph G in the passage."
+            },
+            {
+              "number": 8,
+              "prompt": "Paragraph H",
+              "answer": "v",
+              "explanation": "Refer to Paragraph H in the passage."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 4 WORDS from the passage for each answer.",
+          "maxWords": 4,
+          "questions": [
+            {
+              "number": 9,
+              "prompt": "Question 9",
+              "answer": [
+                "sesame"
+              ],
+              "explanation": "Found directly in the reading passage: 'sesame'."
+            },
+            {
+              "number": 10,
+              "prompt": "For centuries, both at home and In society, tea has had an important role",
+              "answer": [
+                "rituals of hospitality",
+                "hospitality"
+              ],
+              "explanation": "Found directly in the reading passage: 'rituals of hospitality'."
+            },
+            {
+              "number": 11,
+              "prompt": "Falling tea prices in the nineteenth century meant that people could choose",
+              "answer": [
+                "Different grades and blends"
+              ],
+              "explanation": "Found directly in the reading passage: 'Different grades and blends'."
+            },
+            {
+              "number": 12,
+              "prompt": "Because it contains ______ Seventh-Day Adventists do not approve of the",
+              "answer": [
+                "caffeine"
+              ],
+              "explanation": "Found directly in the reading passage: 'caffeine'."
+            },
+            {
+              "number": 13,
+              "prompt": "In the desert, one group that is well known for Its traditions of hospitality is",
+              "answer": [
+                "nomadic Bedouin"
+              ],
+              "explanation": "Found directly in the reading passage: 'nomadic Bedouin'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "3 - The Concept Of Role Theory",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "The Concept Of Role Theory Any individual in any situation occupies a role in relation to other people. The particular individual with whom one is concerned in the analysis of any situation is usually given the name of focal person. He has the focal role and can be regarded as sitting in the middle of a group of people, with whom he interacts in some way in that situation. This group of people is called his role set. For instance, in the family situation, an individual's role set might be shown as in Figure 6. Figure 6 The role set should include all those with whom the individual has more than trivial interactions. Role definition The definition of any individual's role in any situation will be a combination of the role expectations that the members of the role set have"
+        },
+        {
+          "label": null,
+          "text": "of the focal role. These expectations are often occupationally denned, sometimes even legally so. The role definitions of lawyers and doctors are fairly clearly defined both in legal and in cultural terms. The role definitions of, say, a film star or bank manager, are also fairly clearly defined in cultural terms, too clearly perhaps. Individuals often find it hard to escape from the role that cultural traditions have defined for them. Not only with doctors or lawyers is the required role behaviour so constrained that if you are in that role for long it eventually becomes part of you, part of your personality. Hence, there is some likelihood that all accountants will be alike or that all blondes are similar - they are forced that way by the expectations of their role. It is often important that you make it"
+        },
+        {
+          "label": null,
+          "text": "clear what your particular role is at a given time. The means of doing this are called, rather obviously, role signs. The simplest of role signs is a uniform. The number of stripes on your arm or pips on your shoulder is a very precise role definition which allows you to do certain very prescribed things in certain situations. Imagine yourself questioning a stranger on a dark street at midnight without wearing the role signs of a policeman! In social circumstances, dress has often been used as a role sign to indicate the nature and degree of formality of any gathering and occasionally the social status of people present. The current trend towards blurring these role signs in dress is probably democratic, but it also makes some people very insecure. Without role signs, who is to know who has what"
+        },
+        {
+          "label": null,
+          "text": "role? Place is another role sign. Managers often behave very differently outside the office and in it, even to the same person. They use a change of location to indicate a change in role from, say, boss to friend. Indeed, if you wish to change your roles you must find some outward sign that you are doing so or you won't be permitted to change - the subordinate will continue to hear you as his boss no matter how hard you try to be his friend. In very significant cases of role change, e.g. from a soldier in the ranks to officer, from bachelor to married man, the change of role has to have a very obvious sign, hence rituals. It is interesting to observe, for instance, some decline in the emphasis given to marriage rituals. This could be taken"
+        },
+        {
+          "label": null,
+          "text": "as an indication that there is no longer such a big change in role from single to married person, and therefore no need for a public change in sign. In organisations, office signs and furniture are often used as role signs. These and other perquisites of status are often frowned upon, but they may serve a purpose as a kind of uniform in a democratic society; roles without signs often lead to confused or differing expectations of the role of the focal person. Role ambiguity Role ambiguity results when there is some uncertainty in the minds, either of the focal person or of the members of his role set, as to precisely what his role is at any given time. One of the crucial expectations that shape the role definition is that of the individual, the focal person himself. If"
+        },
+        {
+          "label": null,
+          "text": "his occupation of the role is unclear, or if it differs from that of the others in the role set, there will be a degree of role ambiguity. Is this bad? Not necessarily, for the ability to shape one's own role is one of the freedoms that many people desire, but the ambiguity may lead to role stress which will be discussed later on. The virtue of j ob descriptions is that they lessen this role ambiguity. Unfortunately, job descriptions are seldom complete role definitions, except at the lower end of the scale. At middle and higher management levels, they are often a list of formal jobs and duties that say little about the more subtle and informal expectations of the role. The result is therefore to give the individual an uncomfortable feeling that there are things left unsaid, i."
+        },
+        {
+          "label": null,
+          "text": "e. to heighten the sense of role ambiguity. Looking at role ambiguity from the other side, from the point of view of the members of the role set, lack of clarity in the role of the focal person can cause insecurity, lack of confidence, irritation and even anger among members of his role set. One list of the roles of a manager identified the following: executive, planner, policy maker, expert, controller of rewards and punishments, counsellor, friend, teacher. If it is not clear, through role signs of one sort or another, which role is currently the operational one, the other party may not react in the appropriate way - we may, in fact, hear quite another message if the focal person speaks to us, for example, as a teacher and we hear her as an executive."
+        }
+      ],
+      "groups": [
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements reflect the views of the writer in Reading Passage 3? In boxes 1-7 on your answer sheet write",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "It would be a good idea to specify the role definitions of soldiers more clearly.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 15,
+              "prompt": "Accountants may be similar to one another because they have the same type of job.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 16,
+              "prompt": "It is probably a good idea to keep dress as a role sign even nowadays.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 17,
+              "prompt": "The decline in emphasis on marriage rituals should be reversed.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 18,
+              "prompt": "Today furniture operates as a role sign in the same way as dress has always done.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 19,
+              "prompt": "It is a good idea to remove role ambiguity.",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            },
+            {
+              "number": 20,
+              "prompt": "on your answer sheet write",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "A new headmaster of a school who enlarges his office and puts in expensive carpeting is",
+              "answer": [
+                "Role Sign"
+              ],
+              "explanation": "Found directly in the reading passage: 'Role Sign'."
+            },
+            {
+              "number": 22,
+              "prompt": "The graduation ceremony in many universities is an important _______.",
+              "answer": [
+                "escape"
+              ],
+              "explanation": "Found directly in the reading passage: 'escape'."
+            },
+            {
+              "number": 23,
+              "prompt": "The wig which judges wear in UK courts is a _______.",
+              "answer": [
+                "Role Sign"
+              ],
+              "explanation": "Found directly in the reading passage: 'Role Sign'."
+            },
+            {
+              "number": 24,
+              "prompt": "on your answer sheet.",
+              "answer": [
+                "Role Set"
+              ],
+              "explanation": "Found directly in the reading passage: 'Role Set'."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
+          "questions": [
+            {
+              "number": 25,
+              "prompt": "The information mentioned in the reading passage regarding topic 12 is confirmed.",
+              "answer": "TRUE",
+              "explanation": "Refer to the discussion in the reading passage."
+            },
+            {
+              "number": 26,
+              "prompt": "The information mentioned in the reading passage regarding topic 13 is confirmed.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to the discussion in the reading passage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "The Department of Ethnography",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "The Department of Ethnography was created as a separate department within the British Museum in 1946, offering 140 years of gradual development from the original Department of Antiquities. It is concerned with the people of Africa, the Americas, Asia, the Pacific, and parts of Europe. While this includes complex kingdoms, as in Africa, and ancient empires, such as those of the Americas, the primary focus of attention in the twentieth century has been on small-scale societies. Through its collections, the Department's specific interest is to document how objects are created and used and to understand their importance and significance to those who produce them. Such objects can include both the extraordinary and the mundane, the beautiful and the banal. The collections of the Department of Ethnography include approximately 300,000 artefacts, of which about half are the product of the present"
+        },
+        {
+          "label": null,
+          "text": "century. The Department has a vital role to play in providing information on non-Western cultures to visitors and scholars. To this end, the collecting emphasis has often been less on individual objects than on groups of material which allow the display of a broad range of a society's cultural expressions. Much of the more recent collecting was carried out in the field, sometimes by Museum staff working on general anthropological projects in collaboration with a wide variety of national governments and other institutions. The material collected includes great technical series - for instance, textiles from Bolivia, Guatemala, Indonesia, and areas of West Africa - or artefact types such as boats. The latter includes working examples of coracles from India, reed boars from Lake Titicaca in the Andes, kayaks from the Arctic, and dug-out canoes from several countries. The field assemblages,"
+        },
+        {
+          "label": null,
+          "text": "such as those from Sudan, Madagascar, and Yemen, include a whole range of material cultures representative of one person. This might cover the necessities of life of an African herdsman or an Arabian farmer, ritual objects, or even on occasion airport art. Again, a series of acquisitions might represent a decade's fieldwork documenting the social experience as expressed in the varieties of clothing and jewellery styles, tents, and camel trappings from various Middle Eastern countries, or in the developing preferences in personal adornment and dress from Papua New Guinea. Particularly interesting is a series of collections that continue to document the evolution of ceremony and of material forms for which the Department already possesses early (if not the earliest) collections formed after the first contact with Europeans. The importance of these acquisitions extends beyond the objects themselves. They come to"
+        },
+        {
+          "label": null,
+          "text": "the Museum with documentation of the social context, ideally including photographic records. Such acquisitions have multiple purposes. Most significantly they document for future change. Most people think of the cultures represented in the collection in terms of the absence of advanced technology. In fact, traditional practices draw on a continuing wealth of technological ingenuity. Limited resources and ecological constraints are often overcome by personal skills that would be regarded as exceptional in the West. Of growing interest is the way in which much of what we might see as disposable is, elsewhere, recycled and reused. With the Independence of much of Asia and Africa after 1945, it was assumed that economic progress would rapidly lead to the disappearance or assimilation of many small-scale societies. Therefore, it was felt that the Museum should acquire materials representing people whose art or material"
+        },
+        {
+          "label": null,
+          "text": "culture, ritual, or political structures were on the point of irrevocable change. This attitude altered with the realization that marginal communities can survive and adapt In spire of partial integration into a notoriously fickle world economy. Since the seventeenth century, with the advent of trading companies exporting manufactured textiles to North America and Asia, the importation of cheap goods has often contributed to the destruction of local skills and indigenous markets. On the one hand, modern imported goods may be used in an everyday setting, while on the other hand other traditional objects may still be required for ritually significant events. Within this context trade and exchange, attitudes are inverted. What are utilitarian objects to a Westerner may be prized objects in other cultures - when transformed by local ingenuity - principally for aesthetic value. In some way, the West"
+        },
+        {
+          "label": null,
+          "text": "imports goods from other peoples and in certain circumstances categorizes them as 'art'. Collections act as an ever-expanding database, nor merely for scholars and anthropologists, but for people involved in a whole range of educational and artistic purposes. These include schools and universities as well as colleges of art and design. The provision of information about non-Western aesthetics and techniques, not just for designers and artists but for all visitors, is a growing responsibility for a Department whose own context is an increasingly multicultural European society."
+        }
+      ],
+      "groups": [
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "Statement regarding Question 1.",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            },
+            {
+              "number": 28,
+              "prompt": "Statement regarding Question 2.",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            },
+            {
+              "number": 29,
+              "prompt": "Statement regarding Question 3.",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            },
+            {
+              "number": 30,
+              "prompt": "Statement regarding Question 4.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 31,
+              "prompt": "Statement regarding Question 5.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 32,
+              "prompt": "Statement regarding Question 6.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 33,
+              "prompt": "Question 7",
+              "answer": [
+                "about"
+              ],
+              "explanation": "Found directly in the reading passage: 'about'."
+            },
+            {
+              "number": 34,
+              "prompt": "Question 8",
+              "answer": [
+                "cultures"
+              ],
+              "explanation": "Found directly in the reading passage: 'cultures'."
+            },
+            {
+              "number": 35,
+              "prompt": "Question 9",
+              "answer": [
+                "groups"
+              ],
+              "explanation": "Found directly in the reading passage: 'groups'."
+            },
+            {
+              "number": 36,
+              "prompt": "Question 10",
+              "answer": [
+                "cultural"
+              ],
+              "explanation": "Found directly in the reading passage: 'cultural'."
+            },
+            {
+              "number": 37,
+              "prompt": "Question 11",
+              "answer": [
+                "working"
+              ],
+              "explanation": "Found directly in the reading passage: 'working'."
+            },
+            {
+              "number": 38,
+              "prompt": "Question 12",
+              "answer": [
+                "governments"
+              ],
+              "explanation": "Found directly in the reading passage: 'governments'."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
+          "questions": [
+            {
+              "number": 39,
+              "prompt": "The information mentioned in the reading passage regarding topic 13 is confirmed.",
+              "answer": "TRUE",
+              "explanation": "Refer to the discussion in the reading passage."
+            },
+            {
+              "number": 40,
+              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to the discussion in the reading passage."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

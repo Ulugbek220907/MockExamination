@@ -1,0 +1,639 @@
+{
+  "id": "academic-reading-52",
+  "title": "Academic Reading Practice Test 52",
+  "shortTitle": "Practice Test 52",
+  "module": "reading",
+  "variant": "academic",
+  "license": "Past papers for practice and exam preparation.",
+  "sortOrder": 52,
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "A",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "Saving the soil More than a third of the Earth's top layer is at risk. Is there hope for our planet's most precious resource? More than a third of the world's soil is endangered, according to a recent UN report. If we don't slow the decline, all farmable soil could be gone in 60 years. Since soil grows 95% of our food and sustains human life in other more surprising ways, that is a huge problem. B Peter Groffman, from the Cary Institute of Ecosystem Studies in New York, points out that soil scientists have been warning about the degradation of the world's soil for decades. At the same time, our understanding of its importance to humans has grown. A single gram of healthy soil might contain 100 million bacteria, as well as other microorganisms such as viruses and fungi,"
+        },
+        {
+          "label": null,
+          "text": "living amid decomposing plants and various minerals. That means soils do not just grow our food, but are the source of nearly all our existing antibiotics, and could be our best hope in the fight against antibiotic-resistant bacteria. Soil is also an ally against climate change: as microorganisms within soil digest dead animals and plants, they lock in their carbon content, holding three times the amount of carbon as does the entire atmosphere. Soils also store water, preventing flood damage: in the UK, damage to buildings, roads, and bridges from floods caused by soil degradation costs £233 million every year. C If the soil loses its ability to perform these functions, the human race could be in big trouble. The danger is not that the soil will disappear completely, but that the microorganisms that give it its special properties will"
+        },
+        {
+          "label": null,
+          "text": "be lost. And once this has happened, it may take the soil thousands of years to recover. Agriculture is by far the biggest problem. In the wild, when plants grow they remove nutrients from the soil, but then when the plants die and decay these nutrients are returned directly to the soil. Humans tend not to return unused parts of harvested crops directly to the soil to enrich it, meaning that the soil gradually becomes less fertile. In the past, we developed strategies to get around the problem, such as regularly varying the types of crops grown, or leaving fields uncultivated for a season. D But these practices became inconvenient as populations grew and agriculture had to be run on more commercial lines. A solution came in the early 20th century with the Haber-Bosch process for manufacturing ammonium nitrate. Farmers"
+        },
+        {
+          "label": null,
+          "text": "have been putting this synthetic fertiliser on their fields ever since. But over the past few decades, it has become clear this wasn't such a bright idea. Chemical fertilisers can release polluting nitrous oxide into the atmosphere and excess is often washed away with the rain, releasing nitrogen into rivers. More recently, we have found that indiscriminate use of fertilisers hurts the soil itself, turning it acidic and salty, and degrading the soil they are supposed to nourish. E One of the people looking for a solution to his problem is Pius Floris, who started out running a tree-care business in the Netherlands, and now advises some of the world's topsoil scientists. He came to realise that the best way to ensure his trees flourished was to take care of the soil, and has developed a cocktail of beneficial bacteria,"
+        },
+        {
+          "label": null,
+          "text": "fungi, and humus to do this. Researchers at the University of Valladolid in Spain recently used this cocktail on soils destroyed by years of fertiliser overuse. When they applied Floris's mix to the desert-like test plots, a good crop of plants emerged that were not just healthy at the surface, but had roots strong enough to pierce dirt as hard as a rock. The few plants that grew in the control plots, fed with traditional fertilisers, we're small and weak F However, measures like this are not enough to solve the global soil degradation problem. To assess our options on a global scale we first need an accurate picture of what types of soil are out there, and the problems they face. That's not easy. For one thing, there is no agreed international system for classifying soil. In an attempt"
+        },
+        {
+          "label": null,
+          "text": "to unify the different approaches, the UN has created the Global Soil Map project. Researchers from nine countries are working together to create a map linked to a database that can be fed measurements from field surveys, drone surveys, satellite imagery, lad analyses, and so on to provide real-time data on the state of the soil. Within the next four years, they aim to have mapped soils worldwide to a depth of 100 meters, with the results freely accessible to all. G But this is only a first step. We need ways of presenting the problem that brings it home to governments and the wider public, says Pamela Chasek at the International Institute for Sustainable Development, in Winnipeg, Canada. 'Most scientists don't speak the language that policy-makers can understand, and vice versa.' Chasek and her colleagues have proposed a goal"
+        },
+        {
+          "label": null,
+          "text": "of 'zero net land degradation'. Like the idea of carbon neutrality, it is an easily understood target that can help shape expectations and encourage action. For soils on the brink, that may be too late. Several researchers are agitating for the immediate creation of protected zones for endangered soils. One difficulty here is defining what these areas should conserve: areas where the greatest soil diversity is present? Or areas of unspoiled soils that could act as a future benchmark of quality? Whatever we do, if we want our soils to survive, we need to take action now."
+        }
+      ],
+      "groups": [
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 1 WORDS from the passage for each answer.",
+          "maxWords": 1,
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "__________________ It provides us with food and also with antibiotics, and",
+              "answer": [
+                "minerals"
+              ],
+              "explanation": "Found directly in the reading passage: 'minerals'."
+            },
+            {
+              "number": 2,
+              "prompt": "________________ has a significant effect on the climate. In",
+              "answer": [
+                "carbon"
+              ],
+              "explanation": "Found directly in the reading passage: 'carbon'."
+            },
+            {
+              "number": 3,
+              "prompt": "____________",
+              "answer": [
+                "water"
+              ],
+              "explanation": "Found directly in the reading passage: 'water'."
+            },
+            {
+              "number": 4,
+              "prompt": "on your answer sheet.",
+              "answer": [
+                "agriculture"
+              ],
+              "explanation": "Found directly in the reading passage: 'agriculture'."
+            }
+          ]
+        },
+        {
+          "type": "matching_sentence_endings",
+          "instruction": "Matching sentence endings",
+          "questions": [
+            {
+              "number": 5,
+              "prompt": "Nutrients contained in the unused parts of harvested crops",
+              "answer": "C",
+              "explanation": "Refer to item C in the passage."
+            },
+            {
+              "number": 6,
+              "prompt": "Synthetic fertilizers produced with Haber-Bosch process",
+              "answer": "E",
+              "explanation": "Refer to item E in the passage."
+            },
+            {
+              "number": 7,
+              "prompt": "Addition of a mixture developed by Pius Floris to the soil",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 8,
+              "prompt": "on your answer sheet.",
+              "answer": "D",
+              "explanation": "Refer to item D in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "A",
+              "text": "may improve the number and quality of plants growing there."
+            },
+            {
+              "key": "B",
+              "text": "may contain data from up to nine countries."
+            },
+            {
+              "key": "C",
+              "text": "may not be put back into the soil."
+            },
+            {
+              "key": "D",
+              "text": "may help governments to be more aware of soil-related issues."
+            },
+            {
+              "key": "E",
+              "text": "may cause damage to different aspects of the environment."
+            },
+            {
+              "key": "F",
+              "text": "may be better for use at a global level"
+            }
+          ]
+        },
+        {
+          "type": "matching_information",
+          "instruction": "Locating information",
+          "questions": [
+            {
+              "number": 9,
+              "prompt": "A reference to one person's motivation for a soil-improvement project",
+              "answer": "G",
+              "explanation": "of how soil stayed healthy before the development of farming 24. Examples of different ways of collecting information on soil degradation 25. A suggestion for a way of keeping some types of soil safe in the near future 26. A reason why it is difficult to provide an overview of soil degradation"
+            },
+            {
+              "number": 10,
+              "prompt": "An explanation of how soil stayed healthy before the development of farming",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            },
+            {
+              "number": 11,
+              "prompt": "Examples of different ways of collecting information on soil degradation",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            },
+            {
+              "number": 12,
+              "prompt": "A suggestion for a way of keeping some types of soil safe in the near future",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            },
+            {
+              "number": 13,
+              "prompt": "on your answer sheet.",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "G",
+              "text": "Which section contains the following information?"
+            },
+            {
+              "key": "A",
+              "text": "reference to one person's motivation for a soil-improvement project"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "The Meaning And Power Of Smell",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "The Meaning And Power Of Smell Passage The sense of smell, or olfaction, is powerful. Odours affect us on a physical, psychological, and social level. For the most part, however, we breathe in the aromas which surround us without being consciously aware of their importance to us. It is only when the faculty of smell is impaired for some reason that we begin to realize the essential role the sense of smell plays in our sense of well-being"
+        },
+        {
+          "label": "A",
+          "text": "A survey conducted by Anthony Synott at Montreal's Concordia University asked participants to comment on how important smell was to them in their lives. It became apparent that smell can evoke strong emotional responses. A scent associated with a good experience can bring a rush of joy, while a foul odour or one associated with a bad memory may make us grimace with disgust. Respondents to the survey noted that many of their olfactory likes and dislikes were based on emotional associations. Such associations can be powerful enough so that odours that we would generally label unpleasant become agreeable, and those that we would generally consider fragrant become disagreeable for particular individuals. The perception of smell, therefore, consists not only of the sensation of the odours themselves but of the experiences and emotions associated with them."
+        },
+        {
+          "label": "B",
+          "text": "Odours are also essential cues in social bonding. One respondent to the survey believed that there is no true emotional bonding without touching and smelling a loved one. In fact, infants recognize the odours of their mothers soon after birth and adults can often identify their children or spouses by scent. In one well-known test, women and men were able to distinguish by smell-alone clothing worn by their marriage partners from similar clothing worn by other people. Most of the subjects would probably never have given much thought to odour as a cue for identifying family members before being involved in the test, but as the experiment revealed, even when not consciously considered, smells register."
+        },
+        {
+          "label": "C",
+          "text": "In spite of its importance to our emotional and sensory lives, smell is probably the most undervalued sense in many cultures. The reason often given for the low regard in which smell is held is that, in comparison with its importance among animals, the human sense of smell is feeble and undeveloped. While it is true that the olfactory powers of humans are nothing like as fine as those possessed by certain animals, they are still remarkably acute. Our noses are able to recognize thousands of smells and to perceive odours that are present only in extremely small quantities."
+        },
+        {
+          "label": "D",
+          "text": "Smell, however, is a highly elusive phenomenon. Odours, unlike colours, for instance, cannot be named in many languages because the specific vocabulary simply doesn't exist. 'It smells like . . . ,' we have to say when describing an odour, struggling to express our olfactory experience. Nor can odours be recorded: there is no effective way to either capture or store them over time. In the realm of olfaction, we must make do with descriptions and recollections. This has implications for olfactory research."
+        },
+        {
+          "label": "E",
+          "text": "Most of the research on smell undertaken to date has been of a physical scientific nature. Significant advances have been made in the understanding of the biological and chemical nature of olfaction, but many fundamental questions have yet to be answered. Researchers have still to decide whether the smell is one sense or two - one responding to odours properly and the other registering odourless chemicals in the air. Other unanswered questions are whether the nose is the only part of the body affected by odours, and how smells can be measured objectively given the nonphysical components. Questions like these mean that interest in the psychology of smell is inevitably set to play an increasingly important role for researchers."
+        },
+        {
+          "label": "F",
+          "text": " However, the smell is not simply a biological and psychological phenomenon. The smell is cultural, hence it is a social and historical phenomenon. Odours are invested with cultural values: smells that are considered to be offensive in some cultures may be perfectly acceptable in others. Therefore, our sense of smell is a means of, and model for, interacting with the world. Different smells can provide us with intimate and emotionally charged experiences and the value that we attach to these experiences is interiorised by the members of society in a deeply personal way. Importantly, our commonly held feelings about smells can help distinguish us from other cultures. The study of the cultural history of smell is, therefore, in a very real sense, an investigation into the essence of human culture."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "The reading passage has three paragraphs, A-F. Choose the correct heading for each paragraph from the list of headings below.",
+          "optionsTitle": "List of Headings",
+          "options": [
+            {
+              "key": "i",
+              "text": "The difficulties of talking about smells"
+            },
+            {
+              "key": "ii",
+              "text": "The role of smell in personal relationships"
+            },
+            {
+              "key": "iii",
+              "text": "Future studies into smell"
+            },
+            {
+              "key": "iv",
+              "text": "The relationship between the brain and the nose"
+            },
+            {
+              "key": "v",
+              "text": "The interpretation of smells as a factor in defining groups"
+            },
+            {
+              "key": "vi",
+              "text": "Why our sense of smell is not appreciated"
+            },
+            {
+              "key": "vii",
+              "text": "Smell is our superior sense"
+            },
+            {
+              "key": "viii",
+              "text": "The relationship between smell and feelings"
+            },
+            {
+              "key": "c",
+              "text": "30. Paragraph D"
+            }
+          ],
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "Paragraph A",
+              "answer": "i",
+              "explanation": "Refer to Paragraph A in the passage."
+            },
+            {
+              "number": 15,
+              "prompt": "Paragraph B",
+              "answer": "i",
+              "explanation": "Refer to Paragraph B in the passage."
+            },
+            {
+              "number": 16,
+              "prompt": "Paragraph C",
+              "answer": "i",
+              "explanation": "Refer to Paragraph C in the passage."
+            },
+            {
+              "number": 17,
+              "prompt": "Paragraph D",
+              "answer": "i",
+              "explanation": "Refer to Paragraph D in the passage."
+            },
+            {
+              "number": 18,
+              "prompt": "Paragraph E",
+              "answer": "i",
+              "explanation": "Refer to Paragraph E in the passage."
+            },
+            {
+              "number": 19,
+              "prompt": "Paragraph F",
+              "answer": "i",
+              "explanation": "Refer to Paragraph F in the passage."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, A, B, C or D",
+          "questions": [
+            {
+              "number": 20,
+              "prompt": "According to the introduction, we become aware of the importance of smell when",
+              "options": [
+                {
+                  "key": "C",
+                  "text": "or D"
+                },
+                {
+                  "key": "A",
+                  "text": "we discover a new smell."
+                },
+                {
+                  "key": "B",
+                  "text": "we experience a powerful smell."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 21,
+              "prompt": "The experiment described in paragraph B",
+              "options": [
+                {
+                  "key": "C",
+                  "text": "or D"
+                },
+                {
+                  "key": "A",
+                  "text": "we discover a new smell."
+                },
+                {
+                  "key": "B",
+                  "text": "we experience a powerful smell."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 22,
+              "prompt": "What is the writer doing in paragraph C?",
+              "options": [
+                {
+                  "key": "C",
+                  "text": "or D"
+                },
+                {
+                  "key": "A",
+                  "text": "we discover a new smell."
+                },
+                {
+                  "key": "B",
+                  "text": "we experience a powerful smell."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 23,
+              "prompt": "What does the writer suggest about the study of smell in the atmosphere in",
+              "options": [
+                {
+                  "key": "C",
+                  "text": "or D"
+                },
+                {
+                  "key": "A",
+                  "text": "we discover a new smell."
+                },
+                {
+                  "key": "B",
+                  "text": "we experience a powerful smell."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 1 WORDS from the passage for each answer.",
+          "maxWords": 1,
+          "questions": [
+            {
+              "number": 24,
+              "prompt": "Tests have shown that odours can help people recognise the ___________",
+              "answer": [
+                "invested"
+              ],
+              "explanation": "Found directly in the reading passage: 'invested'."
+            },
+            {
+              "number": 25,
+              "prompt": "Certain linguistic groups may have difficulty describing smell because they lack the",
+              "answer": [
+                "acceptable"
+              ],
+              "explanation": "Found directly in the reading passage: 'acceptable'."
+            },
+            {
+              "number": 26,
+              "prompt": "The sense of smell may involve response to _________ which do not smell, in",
+              "answer": [
+                "smells"
+              ],
+              "explanation": "Found directly in the reading passage: 'smells'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "The truth about the environment",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "IELTS reading passage - The truth about the environment For many environmentalists, the world seems to be getting worse. They have developed a hit-list of our main fears: that natural resources are running out; that the population is ever growing, leaving less and less to eat; that species are becoming extinct in vast numbers, and that the planet's air and water are becoming ever more polluted. But a quick look at the facts shows a different picture. First, energy and other natural resources have become more abundant, not less so, since the book 'The Limits to Growth' was published in 1972 by a group of scientists. Second, more food is now produced per head of the world's population than at any time in history. Fewer people are starving. Third, although species are indeed becoming extinct, only about 0.7% of them are expected to disappear in the next 50 years, not 25-50%, as has so often been predicted. And finally, most forms of environmental pollution either appear to have been exaggerated, or are transient - associated with the early phases of industrialisation and therefore best cured not by restricting economic growth, but by accelerating it. One form of pollution - the release of greenhouse gases that causes global warming - does appear to be a phenomenon that is going to extend well into our future, but its total impact is unlikely to pose a devastating problem. A bigger problem may well turn out to be an inappropriate response to it. Yet opinion polls suggest that many people nurture the belief that environmental standards are declining and four factors seem to cause this disjunction between perception and reality. One is the lopsidedness built into scientific research. Scientific funding goes mainly to areas with many problems. That may be wise policy, but it will also create an impression that many more potential problems exist than is the case. Secondly, environmental groups need to be noticed by the mass media. They also need to keep the money rolling in. Understandably, perhaps,they sometimes overstate their arguments. In 1997, for example, the World Wide Fund for Nature issued a press release entitled: 'Two thirds of the world's forests lost forever'. The truth turns out to be nearer 20%. Though these groups are run overwhelmingly by selfless folk, they nevertheless share many of the characteristics of other lobby groups. That would matter less if people applied the same degree of scepticism to environmental lobbying as they do to lobby groups In other fields. A trade organisation arguing for, say, weaker pollution controls is instantly seen as self-interested. Yet a green organisation opposing such a weakening is seen as altruistic, even if an impartial view of the controls in question might suggest they are doing more harm than good."
+        },
+        {
+          "label": "A",
+          "text": "third source of confusion is the attitude of the media. People are clearly more curious about bad news than good. Newspapers and broadcasters are there to provide what the public wants. That, however, can lead to significant distortions of perception. An example was America's encounter with El Nino in 1997 and 1998. This climatic phenomenon was accused of wrecking tourism, causing allergies, melting the ski-slopes and causing 22 deaths. However, according to an article in the Bulletin of the American Meteorological Society, the damage it did was estimated at US$4 billion but the benefits amounted to some US$19 billion. These came from higher winter temperatures (which saved an estimated 850 lives, reduced heating costs and diminished spring floods caused by meltwaters). The fourth factor is poor individual perception. People worry that the endless rise in the amount of stuff everyone throws away will cause the world to run out of places to dispose of waste. Yet, even if America's trash output continues to rise as it has done in the past, and even if the American population doubles by 2100, all the rubbish America produces through the entire 21st century will still take up only one-12.000th of the area of the entire United States. So what of global warming? As we know, carbon dioxide emissions are causing the planet to warm. The best estimates are that the temperatures will rise by 2-3°C in this century, causing considerable problems, at a total cost of US$5,000 billion. Despite the intuition that something drastic needs to be done about such a costly problem, economic analyses clearly show it will be far more expensive to cut carbon dioxide emissions radically than to pay the costs of adaptation to the increased temperatures. A model by one of the main authors of the United Nations Climate Change Panel shows how an expected temperature increase of 2.1 degrees in 2100 would only be diminished to an increase of 1.9 degrees. Or to put it another way, the temperature increase that the planet would have experienced in 2094 would be postponed to 2100. So this does not prevent global warming, but merely buys the world six years. Yet the cost of reducing carbon dioxide emissions, for the United States alone, will be higher than the cost of solving the world's single, most pressing health problem: providing universal access to clean drinking water and sanitation. Such measures would avoid 2 million deaths every year, and prevent half a billion people from becoming seriously ill. It is crucial that we look at the facts if we want to make the best possible decisions for the future. It may be costly to be overly optimistic - but more costly still to be too pessimistic."
+        }
+      ],
+      "groups": [
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage? In boxes 27-32 on your answer sheet, write",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "Environmentalists take a pessimistic view of the world for a number of reasons.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 28,
+              "prompt": "Data on the Earth's natural resources has only been collected since 1972.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 29,
+              "prompt": "The number of starving people in the world has increased in recent years.",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            },
+            {
+              "number": 30,
+              "prompt": "Extinct species are being replaced by new species. Some pollution",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 31,
+              "prompt": "problems have been correctly linked to industrialisation.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 32,
+              "prompt": "on your answer sheet, write",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, A, B, Cor D. Write your answers in boxes 33-37 on your answer sheet.",
+          "questions": [
+            {
+              "number": 33,
+              "prompt": "What aspect of scientific research does the writer express concern about in",
+              "options": [
+                {
+                  "key": "D",
+                  "text": "Write your answers in boxes 33-37 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "the need to produce results"
+                },
+                {
+                  "key": "B",
+                  "text": "the lack of financial support"
+                },
+                {
+                  "key": "C",
+                  "text": "the selection of areas to research A"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 34,
+              "prompt": "The writer quotes from the Worldwide Fund for Nature to illustrate how",
+              "options": [
+                {
+                  "key": "D",
+                  "text": "Write your answers in boxes 33-37 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "the need to produce results"
+                },
+                {
+                  "key": "B",
+                  "text": "the lack of financial support"
+                },
+                {
+                  "key": "C",
+                  "text": "the selection of areas to research A"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 35,
+              "prompt": "What is the writer's main point about lobby groups in paragraph 6?",
+              "options": [
+                {
+                  "key": "D",
+                  "text": "Write your answers in boxes 33-37 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "the need to produce results"
+                },
+                {
+                  "key": "B",
+                  "text": "the lack of financial support"
+                },
+                {
+                  "key": "C",
+                  "text": "the selection of areas to research A"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 36,
+              "prompt": "The writer suggests that newspapers print items that are intended to",
+              "options": [
+                {
+                  "key": "D",
+                  "text": "Write your answers in boxes 33-37 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "the need to produce results"
+                },
+                {
+                  "key": "B",
+                  "text": "the lack of financial support"
+                },
+                {
+                  "key": "C",
+                  "text": "the selection of areas to research A"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            },
+            {
+              "number": 37,
+              "prompt": "on your answer sheet.",
+              "options": [
+                {
+                  "key": "D",
+                  "text": "Write your answers in boxes 33-37 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "the need to produce results"
+                },
+                {
+                  "key": "B",
+                  "text": "the lack of financial support"
+                },
+                {
+                  "key": "C",
+                  "text": "the selection of areas to research A"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 38,
+              "prompt": "Question 38",
+              "answer": [
+                "model"
+              ],
+              "explanation": "Found directly in the reading passage: 'model'."
+            },
+            {
+              "number": 39,
+              "prompt": "Question 39",
+              "answer": [
+                "shows"
+              ],
+              "explanation": "Found directly in the reading passage: 'shows'."
+            },
+            {
+              "number": 40,
+              "prompt": "on your answer sheet.",
+              "answer": [
+                "increase"
+              ],
+              "explanation": "Found directly in the reading passage: 'increase'."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,716 @@
+{
+  "id": "academic-reading-83",
+  "title": "Academic Reading Practice Test 83",
+  "shortTitle": "Practice Test 83",
+  "module": "reading",
+  "variant": "academic",
+  "license": "Past papers for practice and exam preparation.",
+  "sortOrder": 83,
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Man or Machine reading answers with explanation.",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "Man or Machine You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 2 below. After you've attempted all of the questions, review your answers using the provided"
+        },
+        {
+          "label": "A",
+          "text": " Honda's ASIMO, called \"the world's most advanced human-looking robot,\" was on display at the Museum of Science in Cambridge, Massachusetts, in July 2003. (the Advanced Step in Innovative Mobility). Honda's creation is now touring North America, entertaining crowds everywhere it goes. After 17 years of development, ASIMO measures four feet in height, weighs around 115 pounds, and resembles a youngster in an astronaut's outfit. Though it is difficult to recognize ASIMO's face from a distance, it features a grin and two huge 'eyes' that hide cameras. The robot cannot function independently; its activities are \"remotely directed\" by scientists through the computer in its bag. However, witnessing AIMIO play at a performance in Massachusetts, it appeared preternaturally human. As ASIMO moved forward and backward, side to side, and up and down, the crowd applauded. Following the event, several individuals expressed their desire for robots to play a larger part in everyday life, with one even describing the robot as \"another human.\""
+        },
+        {
+          "label": "B",
+          "text": " While the Japanese have made significant progress in handling some of the technical issues associated with human dynamics and bipedal motions, scientists at MIT's previous Artificial Intelligence (AI) lab (recently renamed the Computer Science and Artificial Intelligence Laboratory, CSAIL) have been developing robots that can behave and communicate with humans for the last ten years. Kismet, one of MIT's robots, includes an anthropomorphic head with two eyes (complete with eyelids), ears, a mouth, and brows. It demonstrates numerous facial emotions, including pleased, sad, afraid, and disgusted. Human interlocutors can interpret some of the robot's facial emotions and often adjust their conduct towards the machine as a consequence-for example, by playing with it when it appears sad. Kismet is currently at the MIT Art Gallery, but the concepts discovered here are being explored in future robots."
+        },
+        {
+          "label": "C",
+          "text": " Another ground-breaking endeavor from MIT's previous AI lab is called \"Cog\" (short for \"cognition\"). Cog features a head, eyes, two arms, hands, and a torso, and its dimensions were derived from a researcher's body in the lab. Cog's work has been used to test notions of embodiment and developmental robotics, namely getting a robot to gain intelligence by reacting to its surroundings via sensors and learning through these sorts of interactions."
+        },
+        {
+          "label": "D",
+          "text": " MIT has made significant progress in developing engaging, human-like robots. Some scholars assert that despite ASIMO's impressive technical accomplishments, it is not an intelligent machine since it cannot engage meaningfully and independently with the unpredictable elements of its environment and learn from its mistakes. Robots like Cog and Kismet, as well as new robots at MIT's CSAIL and media lab, are starting to achieve this."
+        },
+        {
+          "label": "E",
+          "text": " These innovations are intriguing. It is an incredible accomplishment to create a machine that can walk, make gestures, and learn from its surroundings. And keep an eye on this space: these accomplishments are sure to be quickly surpassed. Autonomous robots might have a wide range of applications in society, freeing humans from routine duties. In Japan, for instance, the goal is to develop robots that can do jobs comparable to those of a typical person, as well as function in more complex scenarios such as firemen, astronauts, or medical assistance to the elderly in the workplace and at home-in part to counteract the impacts of an aging population."
+        },
+        {
+          "label": "F",
+          "text": " Such robots reveal a lot about how we see mankind, and they bring out the best and worst in us. On the one hand, these advancements demonstrate human creativity-our capacity to create, explore, and increase our influence over the environment. On the other hand, the desire to construct a humanoid robot is motivated by inhuman notions, such as the belief that human friendship can be replaced by machines, that people lose their humanity when interacting with technology, or that we are nothing more than surface and ceremonial behaviors, which can be mimicked with metal and electrical circuits."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_information",
+          "instruction": "Reading passage 1 has six paragraphs, A-F.",
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "has six paragraphs, A-F.",
+              "answer": "F",
+              "explanation": "Refer to item F in the passage."
+            },
+            {
+              "number": 2,
+              "prompt": "A robot with proportions that are identical to those of an adult.",
+              "answer": "F",
+              "explanation": "Refer to item F in the passage."
+            },
+            {
+              "number": 3,
+              "prompt": "The capacity of robots to replicate humans and take their positions.",
+              "answer": "F",
+              "explanation": "Refer to item F in the passage."
+            },
+            {
+              "number": 4,
+              "prompt": "A comparison of ASIMO for Honda and other robots.",
+              "answer": "F",
+              "explanation": "Refer to item F in the passage."
+            },
+            {
+              "number": 5,
+              "prompt": "Advantages and disadvantages of robotics.",
+              "answer": "F",
+              "explanation": "Refer to item F in the passage."
+            },
+            {
+              "number": 6,
+              "prompt": "on your answer sheet.",
+              "answer": "F",
+              "explanation": "Refer to item F in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "F",
+              "text": "Which paragraph contains the following information?"
+            },
+            {
+              "key": "A",
+              "text": "robot with proportions that are identical to those of an adult."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 7,
+              "prompt": "Question 7",
+              "answer": [
+                "years"
+              ],
+              "explanation": "Found directly in the reading passage: 'years'."
+            },
+            {
+              "number": 8,
+              "prompt": "Question 8",
+              "answer": [
+                "crowd"
+              ],
+              "explanation": "Found directly in the reading passage: 'crowd'."
+            },
+            {
+              "number": 9,
+              "prompt": "………………………. Humans. What is special about Kismet is that it has different",
+              "answer": [
+                "robots"
+              ],
+              "explanation": "Found directly in the reading passage: 'robots'."
+            },
+            {
+              "number": 10,
+              "prompt": "on your answer sheet.",
+              "answer": [
+                "significant"
+              ],
+              "explanation": "Found directly in the reading passage: 'significant'."
+            },
+            {
+              "number": 11,
+              "prompt": "Question 11",
+              "answer": [
+                "Cog",
+                "cognition"
+              ],
+              "explanation": "Found directly in the reading passage: 'Cog'."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 12-13 on your answer sheet, write",
+          "questions": [
+            {
+              "number": 12,
+              "prompt": "In Japan, the main aim of developing robots was to make them function in complex",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 13,
+              "prompt": "on your answer sheet, write",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "Grey Workers",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "Companies recognize shockingly a little of how efficient their employees are, given how quickly workers are ageing. The prevailing belief is that older workers receive more compensation despite, instead of as a result of, their increased output. That may help clarify why firms try to convince 55-year-old workers to retire early when they are under financial hardship. The insurance provider Sun Life of Canada said earlier this year that it will be laying off all of its Staff over the age of 50 to \"recruit young energy.\""
+        },
+        {
+          "label": "B",
+          "text": "The majority of corporations in Japan are lowering the pension age from the customary 57 to 50 may be around, and in certain cases, like Nissan, to 45, according to corporate psychologist Mariko Fujiwara, who heads a think-tank for Hakuhodo, the second-largest advertising agency in Japan. Salary in Tokyo is correlated with experience much more than possibly anywhere else. It is not unexpected that membership workers' wages have evolved into the most difficult component of corporate financial gains statements given the increase in the proportion of employees who've already worked for the same company for more than 32 years-from 11% in 1980 to 42% by 1994."
+        },
+        {
+          "label": "C",
+          "text": "Hoechst's spokesperson in Germany, Patrick Pohl, articulates a commonly held opinion: \"The corporation is attempting to reduce the overall age of the staff. The ease with which the business culture can be \"defrosted\" is possibly the biggest benefit of removing older employees. Experienced employees are less receptive to experimenting with novel ideas. New workers are much more adaptable and less expensive. Many German businesses find it difficult to let go of ageing employees as soon as they want. The typical age of employees has risen rather than fallen at graphite manufacturer SGL Carbon. Ivo Lingnau, a representative of the corporation, claims that it's not because SGL valued elderly employees more. The union agreement places stringent restrictions on the number of workers who may retire early because it is the result of the combined negotiations."
+        },
+        {
+          "label": "D",
+          "text": "Ageing can impact a person's efficiency when they perform demanding hard manual labour. However, other abilities, like the skills to control people politely, lead a conference, or identify problems until it becomes a major issue, may get better with age. These abilities include those that are essential for product management. Numerous studies indicate that elderly people get paid higher since they are valued more, according to Peter Hicks, who oversees OECD research just on the political ramifications of ageing."
+        },
+        {
+          "label": "E",
+          "text": "Furthermore, youth may overstate their merits. Mr. Peterson states that the very few organisations who have retained older personnel discover an addition to smart and output of them was good. Additionally, compared to today's recent high school grads, their education levels are substantially higher. Businesses may claim that elderly persons aren't worth building since they are towards the latter of their professional careers, but in reality, younger folks have the worst training ROI due to their propensity to change professions so frequently. According to Mr. Hicks, the average age for training that is driven by employers is between the late forties and early fifties. It primarily belongs to executives."
+        },
+        {
+          "label": "F",
+          "text": " If hierarchy pay rates were eliminated, elderly workers might become a more desirable candidate for hire. Even though employees on remuneration frequently make less money with tenure, most businesses (and many employees) are uneasy with the thought of cutting anyone else's salary in older age. Consequently, finding new ways to use older personnel to retain their skills."
+        },
+        {
+          "label": "G",
+          "text": "IBM Belgium came up with one of the innovations mentioned in Mr. Walker's research on overcoming age barriers. IBM made a unique firm named Skill Team to rehire any small employers who wished to continue to work up to the age of 60 after deciding to focus staff cost reduction efforts on those between the ages of 55 and 60. A 55-year-old worker who signed a five-year contract with SkillTeam would put in 58 percent of his hours and earn 88 percent of his previous IBM income over that time. IBM was given services by the company, preserving a few of the property rights it'd have been lost."
+        },
+        {
+          "label": "H",
+          "text": "Building on these \"bridge\" jobs-part-time or contract jobs that facilitate a much slower change from high employment to retirement-might be the greatest approach to persuade the elderly to continue working. In the U.S, over 50% of all men and women who held filled careers in midlife went into such \"bridging\" occupations just after their working career, according to Mr. Quinn, who has researched the issue. The finest and worst paid are typically the ones who remain employed: \"There are 2 distinct categories of bridge employment who keep working because they must as well as those who remain employed because they just want to, despite the fact that they could retire,\" he adds."
+        },
+        {
+          "label": "I",
+          "text": " The elderly may discover more occupations that suit them if the labour market becomes more flexible. They may frequently work for themselves. Occasionally, they also might launch their companies; according to a Warwick University research, 70% of enterprises launched in England by persons over 55 thrived, with around just 19%. Employment would not just need to pay to lure the elderly back into the labour force. It must be more enjoyable than travelling the nation in an Airstream trailer, spending time with the grandkids, or golfing. Then there would be a lot more Joe Clarks. IELTS Reading Questions - Grey Workers Reading Passage"
+        }
+      ],
+      "groups": [
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the reading passage? In boxes 1-4 on your answer sheet, write",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "In order to recruit new staff, the insurance industry Sun Life of Canada opted to hire",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 15,
+              "prompt": "In Japan, unlike in some other countries, salaries are based on the number of years of",
+              "answer": "TRUE",
+              "explanation": "The author of these lines says that the companies are trying to replace older workers with younger ones so as to create a refreshing atmosphere. Younger workers are cheap and more open to ideas."
+            },
+            {
+              "number": 16,
+              "prompt": "Some German businesses that are reinvigorating workplace culture are laying off older",
+              "answer": "TRUE",
+              "explanation": "According to the above lines, pay in Japan is linked to the seniority of the employee which is a unique law of Japan."
+            },
+            {
+              "number": 17,
+              "prompt": "on your answer sheet, write",
+              "answer": "FALSE",
+              "explanation": "Peter Hicks clearly said that older people are paid more because they are worth more owing to their wide experience."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, A, B, C, D, E. Write your answers in boxes 5-6 on your answer sheet.",
+          "questions": [
+            {
+              "number": 18,
+              "prompt": "Question 5",
+              "options": [
+                {
+                  "key": "E",
+                  "text": "Write your answers in boxes 5-6 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "Compared to young people, they produce more."
+                },
+                {
+                  "key": "B",
+                  "text": "paid much less young employees."
+                },
+                {
+                  "key": "C",
+                  "text": "Whenever there is a conference"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 19,
+              "prompt": "on your answer sheet.",
+              "options": [
+                {
+                  "key": "E",
+                  "text": "Write your answers in boxes 5-6 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "Compared to young people, they produce more."
+                },
+                {
+                  "key": "B",
+                  "text": "paid much less young employees."
+                },
+                {
+                  "key": "C",
+                  "text": "Whenever there is a conference"
+                }
+              ],
+              "answer": "E",
+              "explanation": "According to the research of Mr. Quinn, it is clear that some old people work for their motives rather than an economic incentive."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, A, B, C, D, E. Write your answers in boxes 7-8 on your answer sheet.",
+          "questions": [
+            {
+              "number": 20,
+              "prompt": "Question 7",
+              "options": [
+                {
+                  "key": "E",
+                  "text": "Write your answers in boxes 7-8 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "Training them is not worthwhile."
+                },
+                {
+                  "key": "B",
+                  "text": "productive."
+                },
+                {
+                  "key": "C",
+                  "text": "They switch jobs more frequently"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 21,
+              "prompt": "on your answer sheet.",
+              "options": [
+                {
+                  "key": "E",
+                  "text": "Write your answers in boxes 7-8 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "Training them is not worthwhile."
+                },
+                {
+                  "key": "B",
+                  "text": "productive."
+                },
+                {
+                  "key": "C",
+                  "text": "They switch jobs more frequently"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, A, B, C, or D. Write your answers in boxes 9-13 on your answer sheet.",
+          "questions": [
+            {
+              "number": 22,
+              "prompt": "Question 9",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            },
+            {
+              "number": 23,
+              "prompt": "Question 10",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 24,
+              "prompt": "Question 11",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 25,
+              "prompt": "Question 12",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 26,
+              "prompt": "on your answer sheet.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "Section A",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "The Nature And Aims of Archaeology reading passage The Nature And Aims of Archaeology Archaeology consists in part of unearthing the relics of the past, in part through meticulous labor of a scientific analyst, and in part through exercise of creative imagination. It is laboring in the sun on an excavation in the Middle East, collaborating with the Inuit in the snows of Alaska, and examining Roman Britain's sewers. But there is also the laborious process of interpretation so that we may comprehend what these things entail for the human narrative. And it is the protection of the world's cultural heritage against theft and reckless destruction. Therefore, archaeology involves both physical exertion in the field and intellectual inquiry in a study or laboratory. That contributes to its strong allure. The appropriate platform for fiction writers and filmmakers, from Agatha Christie"
+        },
+        {
+          "label": null,
+          "text": "with Murder in Mesopotamia to Steven Spielberg with Indiana Jones, is its fascinating blend of danger and detective work. Even if these representations are far from the truth, they effectively convey the idea that archaeology is a fascinating journey for understanding our history and ourselves. Section B But what is the relationship between archaeology and disciplines like anthropology and history, which are likewise concerned with the human story? Is archaeology a science by itself? And what are the contemporary tasks of the archaeologist? In its broadest sense, anthropology is the study of people-their physical traits as animals and their distinctive non-biological traits, which we refer to as their cultures. The anthropologist Edward Tylor defined culture in this sense as \"knowledge, belief, art, morals, tradition and any other abilities and habits acquired by man as a member of society\" in 1871."
+        },
+        {
+          "label": null,
+          "text": "When referring to the culture of a particular society, anthropologists also use the term \"culture\" in a more narrow sense to refer to the non-biological traits that set that society apart from other cultures. Thus, anthropology is a large field of study. Because of this, it is typically divided into three subfields: physical anthropology, cultural anthropology, and archaeology. Section C The study of human biology or physical features and how they arose is the subject of physical anthropology, often known as biological anthropology. Social and cultural anthropology, often known as cultural anthropology, studies human culture. Two of its subfields are ethnography (which involves studying certain living cultures firsthand) and ethnology (which sets out to compare cultures using ethnographic evidence to derive general principles about human society). The \"past tense of cultural anthropology\" is archaeology. Archaeologists study past societies primarily through"
+        },
+        {
+          "label": null,
+          "text": "their material remains - the buildings, tools, and other artifacts that make up what is known as the material culture left over from former societies. Cultural anthropologists frequently base their conclusions on the experience of living within contemporary communities. Section D However, understanding how to interpret material culture in terms of humans is one of the most crucial issues facing archaeologists today. What did the pots do? Why are some homes square while others are round? Here, archaeology and ethnography use similar techniques. Recent years have seen the emergence of \"ethnoarchaeology,\" in which archaeologists, like ethnographers, live among modern tribes with the aim of understanding how these civilizations employ material culture-how they create their tools and weapons, why they build their towns where they do, etc. In addition, archaeology has a crucial part to play in the conservation movement. Legacy"
+        },
+        {
+          "label": null,
+          "text": "studies are a growing discipline where it is understood that the world's cultural heritage is a finite resource with varying meanings for various individuals. Section E So how does archaeology differ from history if it deals with the past? In the broadest sense, archaeology is a component of both anthropology and history, which we define as the entire history of humanity going back over three million years. Archaeology, the study of ancient material culture, is the only reliable source of information for more than 99% of that enormous time period. In western Asia, where written records first appeared approximately 3,000 BC, and much later in the majority of other parts of the world, conventional historical sources only date back to that time. Prehistory, or the era before written records, is frequently distinguished from history in the strict sense, or the"
+        },
+        {
+          "label": null,
+          "text": "study of the past using written evidence. The divide between history and prehistory is a useful dividing line for archaeology, which investigates all cultures and periods, whether they had writing or not. However, it does not diminish the significance of the relevant information found in oral histories. Section F Archaeology is a humanistic study that deals with the past of humanity, making it a historical field. Its goal is to understand humankind. However, it fundamentally varies from the study of written history. The archaeologist's findings do not provide us with clear instructions on how to think. Historical documents make assertions, express viewpoints, and render conclusions. On the other hand, the archaeologists' finds don't directly reveal anything to us. The practice of an archaeologist is similar to that of a scientist in this regard, who gathers data, conducts experiments, formulates a"
+        },
+        {
+          "label": null,
+          "text": "hypothesis, evaluates the theory against additional evidence, and, finally, develops a model that appears to best summarise the pattern seen in the data. Just as a scientist must provide a logical understanding of the natural world, an archaeologist must create a picture of the past."
+        }
+      ],
+      "groups": [
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage? In boxes 1-6 on your answer sheet write",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "Imagination and hard effort go hand in hand with archaeology.",
+              "answer": "YES",
+              "explanation": "The section starts off with an overview of archaeology. Along those lines, Archaeology was mentioned as the act of discovering the treasures of the past, partly the careful work of the scientific analyst and the exercise of creative imagination. This work needs a careful investigation and a transparent plan of the fossils and their placement. Hence the statement describes Archaeology's introduction statement. So the answer is Yes."
+            },
+            {
+              "number": 28,
+              "prompt": "Archaeologists need to be able to decipher texts written in languages from the distant",
+              "answer": "NOT GIVEN",
+              "explanation": "Archaeology is part of the smaller discipline under Anthropology which is itself a vast and broad discipline and includes physical anthropology and cultural anthropology among others. However, no evidence is provided to support the claim that archaeology is a more difficult topic of study than anthropology."
+            },
+            {
+              "number": 29,
+              "prompt": "Archaeologists' work is well-represented in movies.",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            },
+            {
+              "number": 30,
+              "prompt": "More than one definition of culture is used by anthropologists.",
+              "answer": "YES",
+              "explanation": "Archaeology is portrayed in many films as being simple and fascinating in that they conceal the fundamental truth and present a completely other meaning. Knowing about the past and analyzing them at the micro-level is a hectic task for anyone. Rather of dealing with living organisms, they work with the physical remains of dead animals or their distinctive non-biological traits. Consequently, the claim that movies convey a real meaning is erroneous."
+            },
+            {
+              "number": 31,
+              "prompt": "If you want to learn about the past, archaeology is the better option.",
+              "answer": "NOT GIVEN",
+              "explanation": "It was described individually by anthropologists like Edward Tylor as Knowledge, Belief, Art, Morals, Custom, and Any Other Capabilities and Habits Acquired by the Men who are the Members of the Society. In general, anthropology itself is a broad study of humanity. According to the sentence above, this means that culture is a collection of many behaviors engendered by various emotions and formed into human habits. Consequently, the paragraph supports the proposition as being true."
+            },
+            {
+              "number": 32,
+              "prompt": "on your answer sheet write",
+              "answer": "NO",
+              "explanation": "s: the history of Europe has been introduced as the written record around 3,000 BC in western Asia. Later, this fashion became popular all over the world. However, in the aforementioned remark, it was stated that the history of Europe was already recorded since 3,000 BC, which is incorrect and implies a reverse meaning of European culture. Conventional historical sources typically start at a young age."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose TWO letters A-E. Write your answers in boxes 7-8 on your answer sheet.",
+          "questions": [
+            {
+              "number": 33,
+              "prompt": "Question 7",
+              "options": [
+                {
+                  "key": "E",
+                  "text": "Write your answers in boxes 7-8 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "It's essential for government planners to know this."
+                },
+                {
+                  "key": "B",
+                  "text": "It's a field that's always expanding."
+                },
+                {
+                  "key": "C",
+                  "text": "Long stretches of time in the field are not uncommon."
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 34,
+              "prompt": "on your answer sheet.",
+              "options": [
+                {
+                  "key": "E",
+                  "text": "Write your answers in boxes 7-8 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "It's essential for government planners to know this."
+                },
+                {
+                  "key": "B",
+                  "text": "It's a field that's always expanding."
+                },
+                {
+                  "key": "C",
+                  "text": "Long stretches of time in the field are not uncommon."
+                }
+              ],
+              "answer": "E",
+              "explanation": "Option E is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose TWO letters A-E. Write your answers in boxes 9-10 on your answer sheet.",
+          "questions": [
+            {
+              "number": 35,
+              "prompt": "Question 9",
+              "options": [
+                {
+                  "key": "E",
+                  "text": "Write your answers in boxes 9-10 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "exploring the food of ancient peoples by studying their excrement."
+                },
+                {
+                  "key": "B",
+                  "text": "investigating the meaning of cave art"
+                },
+                {
+                  "key": "C",
+                  "text": "deciphering the causes behind the formation of home buildings"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 36,
+              "prompt": "on your answer sheet.",
+              "options": [
+                {
+                  "key": "E",
+                  "text": "Write your answers in boxes 9-10 on your answer sheet."
+                },
+                {
+                  "key": "A",
+                  "text": "exploring the food of ancient peoples by studying their excrement."
+                },
+                {
+                  "key": "B",
+                  "text": "investigating the meaning of cave art"
+                },
+                {
+                  "key": "C",
+                  "text": "deciphering the causes behind the formation of home buildings"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 37,
+              "prompt": "………… equally important. The author describes archaeology as a 12. ………… and a 13.",
+              "answer": [
+                "archaeology"
+              ],
+              "explanation": "Found directly in the reading passage: 'archaeology'."
+            },
+            {
+              "number": 38,
+              "prompt": "………… and a 13.",
+              "answer": [
+                "humanistic study"
+              ],
+              "explanation": "Found directly in the reading passage: 'humanistic study'."
+            },
+            {
+              "number": 39,
+              "prompt": "…………. However, because archaeologists don't aim to change people's behaviour, the author",
+              "answer": [
+                "physical"
+              ],
+              "explanation": "Found directly in the reading passage: 'physical'."
+            },
+            {
+              "number": 40,
+              "prompt": "on your answer sheet.",
+              "answer": [
+                "scientist"
+              ],
+              "explanation": "Found directly in the reading passage: 'scientist'."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

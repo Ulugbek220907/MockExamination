@@ -1,0 +1,537 @@
+{
+  "id": "academic-reading-54",
+  "title": "Academic Reading Practice Test 54",
+  "shortTitle": "Practice Test 54",
+  "module": "reading",
+  "variant": "academic",
+  "license": "Past papers for practice and exam preparation.",
+  "sortOrder": 54,
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Bioluminescence",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "In the pitch-black waters of the ocean's aphotic zone - depths from 1,000m to the seafloor - Rood eyesight does not count for very much on its own. Caves, in addition, frequently present a similar problem: the complete absence of natural light at any time of the day. This has not stopped some organisms from turning these inhospitable environments into their homes, and in the process, many have created their own forms of light by developing one of the stunning visual marvels of the biological universe -bioluminescence."
+        },
+        {
+          "label": "B",
+          "text": "Many people will encounter bioluminescence at some point in their life, typically in some form of glowworm, which is found on most continents. North and South America are home to the \"firefly\", a glowing beetle which is known as a glow-worm during its larvae stage. Flightless glowing beetles and worms are also found in Europe, Asia, Australia, and New Zealand. Less common flies, centipedes, molluscs, and snails have bioluminescent qualities as well, as do some mushrooms. The most dramatic examples of bioluminescence. However, are found deep below the ocean's surface, where no sunlight can penetrate at all. Here, anglerfish, cookie-cutter sharks, flashlight fish, lantern fish, gulper eels, viperfish, and many other species have developed bioluminescence in unique and creative ways to facilitate their lives."
+        },
+        {
+          "label": "C",
+          "text": "The natural uses of bioluminescence vary widely, and organisms have learnt to be very creative with its use. Fireflies employ bioluminescence primarily for reproductive means - their flashing patterns advertise a firefly's readiness to breed. Some fish use it as a handy spotlight to help them locate prey. Others use it as a lure; the anglerfish, for example, dangles a luminescent flare that draws in gullible, smaller fishes which get snapped up by the anglerfish in an automated reflex. Sometimes, bioluminescence is used to resist predators. Vampire squids eject a thick cloud of glowing liquid from the tip of its arms when threatened, which can be disorientating. Other species use a single, bright flash to temporarily blind their attacker, with an effect similar to that of an oncoming car which has not dipped its headlights."
+        },
+        {
+          "label": "D",
+          "text": "Humans have captured and utilized bioluminescence by developing, over the last decade, a technology known as Bioluminescence Imaging (BLI). BLI involves the extraction of a DNA protein from a bioluminescent organism, and then the integration of this protein into a laboratory animal through trans-geneticism. Researchers have been able to use luminized pathogens and cancer cell lines to track the respective spread of infections and cancers. Through BLI, cancers and infections can be observed without intervening in a way that affects their independent development. In other words, while an ultra-sensitive camera and bioluminescent proteins add a visual element, they do not disrupt or mutate the natural processes. As a result, when testing drugs and treatments, researchers are permitted a single perspective of a therapy's progression."
+        },
+        {
+          "label": "E",
+          "text": "Once scientists learn how to engineer bioluminescence and keep it stable in large quantities; a number of other human uses for it will become available. Glowing trees have been proposed as replacements for electric lighting along busy roads, for example, which would reduce our dependence on non-renewable energy sources. The same technology used in Christmas trees for the family home would also eliminate the fire danger from electrical fairy lights. It may also be possible for crops and plants to luminesce when they require watering, and for meat and dairy products to \"tell us\" when they have become contaminated by bacteria. In a similar way, Forensic investigators could detect bacterial species on corpses through bioluminescence. Finally, there is the element of pure novelty. Children's toys and stickers are often made with glow-in-the-dark qualities, and a biological form would allow rabbits, mice, fish, and other pets to glow as well."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "Matching headings",
+          "optionsTitle": "List of Headings",
+          "options": [
+            {
+              "key": "i",
+              "text": "Mushrooms that glow in the dark"
+            },
+            {
+              "key": "ii",
+              "text": "Bright creatures on land and in the sea"
+            },
+            {
+              "key": "iii",
+              "text": "Evolution's solution"
+            },
+            {
+              "key": "iv",
+              "text": "Cave-dwelling organisms"
+            },
+            {
+              "key": "v",
+              "text": "Future opportunities in biological engineering"
+            },
+            {
+              "key": "vi",
+              "text": "Nature's gift to medicine"
+            },
+            {
+              "key": "vii",
+              "text": "Bioluminescence in humans"
+            },
+            {
+              "key": "viii",
+              "text": "Purposes of bioluminescence in the wild"
+            },
+            {
+              "key": "ix",
+              "text": "Luminescent pets"
+            },
+            {
+              "key": "c",
+              "text": "4. Section D"
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "Paragraph A",
+              "answer": "iii",
+              "explanation": "organisms from turning these inhospitable environments into their homes, and in the process many have created their own forms of light by developing one of the stunning visual marvels of the biological universe - bioluminescence"
+            },
+            {
+              "number": 2,
+              "prompt": "Paragraph B",
+              "answer": "ii",
+              "explanation": "Many people will encounter bioluminescence at some point in their life, typically in some form of the glow-worm. which is found on most continents. North and South America are home to the \"firefly\", a glowing have bioluminescent qualities as well, as do some mushrooms. The most dramatic examples of bioluminescence, however, are found deep below the ocean's surface, where no sunlight can penetrate"
+            },
+            {
+              "number": 3,
+              "prompt": "Paragraph C",
+              "answer": "viii",
+              "explanation": "The natural uses of bioluminescence vary widely, and organisms have learnt to be very creative with its use. Fireflies employ bioluminescence primarily for reproductive means - their flashing patterns"
+            },
+            {
+              "number": 4,
+              "prompt": "Paragraph D",
+              "answer": "vi",
+              "explanation": "Humans have captured and utilised bioluminescence by developing, over the last decade, a technology known as Bioluminescence Imaging (BLI). BLI involves the extraction of a DNA protein from a respective spread of infections and cancers. Through BLI. cancers and infections can be observed"
+            }
+          ]
+        },
+        {
+          "type": "matching_information",
+          "instruction": "Locating information Choose FOUR letters A-G",
+          "questions": [
+            {
+              "number": 5,
+              "prompt": "Statement 5",
+              "answer": "G",
+              "explanation": "Once scientists claim how to engineer bioluminescence and keep it stable in large quantities."
+            },
+            {
+              "number": 6,
+              "prompt": "Statement 6",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 7,
+              "prompt": "Statement 7",
+              "answer": "C",
+              "explanation": "Refer to item C in the passage."
+            },
+            {
+              "number": 8,
+              "prompt": "Statement 8",
+              "answer": "F",
+              "explanation": "Refer to item F in the passage."
+            },
+            {
+              "number": 9,
+              "prompt": "on your answer sheet.",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "G",
+              "text": "Write the correct letters 6-9 on your answer sheet."
+            },
+            {
+              "key": "A",
+              "text": "ways of attracting food"
+            },
+            {
+              "key": "B",
+              "text": "tracing the spread of diseases"
+            },
+            {
+              "key": "C",
+              "text": "mating signals"
+            },
+            {
+              "key": "D",
+              "text": "growing trees for street lighting"
+            },
+            {
+              "key": "E",
+              "text": "drug trials"
+            },
+            {
+              "key": "F",
+              "text": "defensive tactics"
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 10,
+              "prompt": "The luminescent fluid that a vampire squid emits has a …………………… effect on its",
+              "answer": [
+                "Disorientating"
+              ],
+              "explanation": "Found directly in the reading passage: 'Disorientating'."
+            },
+            {
+              "number": 11,
+              "prompt": "In order to use bioluminescence in a trans-genetic environment, …………………….",
+              "answer": [
+                "DNA protein"
+              ],
+              "explanation": "Found directly in the reading passage: 'DNA protein'."
+            },
+            {
+              "number": 12,
+              "prompt": "One advantage of BLI is that it could allow researchers to see how a treatment is working",
+              "answer": [
+                "Natural processes"
+              ],
+              "explanation": "Found directly in the reading passage: 'Natural processes'."
+            },
+            {
+              "number": 13,
+              "prompt": "on your answer sheet",
+              "answer": [
+                "Forensic investigators"
+              ],
+              "explanation": "Found directly in the reading passage: 'Forensic investigators'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "Collecting Specimens",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "Collecting Ant Specimens Passage Collecting ants can be as simple as picking up stray ones and placing them in a glass jar, or as complicated as completing an exhaustive survey of all species present in an area and estimating their relative abundances. The exact method used will depend on the final purpose of the collections. For taxonomy, or classification, long series, from a single nest, which contain all castes (workers, including majors and minors, and, if present, queens and males) are desirable, to allow the determination of variation within species. For ecological studies, the most important factor is collecting identifiable samples of as many of the different species present as possible. Unfortunately, these methods are not always compatible. The taxonomist sometimes overlooks whole species in favour of those groups currently under study, while the ecologist often collects only a limited"
+        },
+        {
+          "label": null,
+          "text": "number of specimens of each species, thus reducing their value for taxonomic investigations. To collect as wide a range of species as possible, several methods must be used. These include hand collecting, using baits to attract the ants, ground litter sampling, and the use of pitfall traps. Hand collecting consists of searching for ants everywhere they are likely to occur. This includes on the ground, under rocks, logs or other objects on the ground, in rotten wood on the ground or on trees, in vegetation, on tree trunks and under bark. When possible, collections should be made from nests or foraging columns and at least 20 to 25 individuals collected. This will ensure that all individuals are of the same species, and so increase their value for detailed studies. Since some species are largely nocturnal, collecting should not be confined"
+        },
+        {
+          "label": null,
+          "text": "to daytime. Specimens are collected using an aspirator (often called a pooter), forceps, a fine, moistened paint brush, or fingers, if the ants are known not to sting. Individual insects are placed in plastic or glass tubes (1.5-3-0 ml capacity for small ants, 5-8 ml for larger ants) containing 75% to 95% ethanol. Plastic tubes with secure tops are better than glass because they are lighter, and do not break as easily if mishandled. Baits can be used to attract and concentrate foragers. This often increases the number of individuals collected and attracts species that are otherwise elusive. Sugars and meats or oils will attract different species and a range should be utilised. These baits can be placed either on the ground or on the trunks of trees or large shrubs. When placed on the ground, baits should be situated"
+        },
+        {
+          "label": null,
+          "text": "on small paper cards or other flat, light-coloured surfaces, or in test­ tubes or vials. This makes it easier to spot ants and to capture them before they can escape into the surrounding leaf litter. Many ants are small and forage primarily in the layer of leaves and other debris on the ground. Collecting these species by hand can be difficult. One of the most successful ways to collect them is to gather the leaf litter in which they are foraging and extract the ants from it. This is most commonly done by placing leaf litter on a screen over a large funnel, often under some heat. As the leaf litter dries from above, ants (and other animals) move downward and eventually fall out the bottom and are collected in alcohol placed below the funnel. This method works especially well"
+        },
+        {
+          "label": null,
+          "text": "in rain forests and marshy areas. A method of improving the catch when using a funnel is to sift the leaf litter through a coarse screen before placing it above the funnel. This will concentrate the litter and remove larger leaves and twigs. It will also allow more litter to be sampled when using a limited number of funnels. The pitfall trap is another commonly used tool for collecting ants. A pitfall trap can be any small container placed in the ground with the top level with the surrounding surface and filled with a preservative. Ants are collected when they fall into the trap while foraging. The diameter of the traps can vary from about 18 mm to 10 cm and the number used can vary from a few to several hundred. The size of the traps used is influenced"
+        },
+        {
+          "label": null,
+          "text": "largely by personal preference (although larger sizes are generally better), while the number will be determined by the study being undertaken. The preservative used is usually ethylene glycol or propylene glycol, as alcohol will evaporate quickly and the traps will dry out. One advantage of pitfall traps is that they can be used to collect over a period of time with minimal maintenance and intervention. One disadvantage is that some species are not collected as they either avoid the traps or do not commonly encounter them while foraging."
+        }
+      ],
+      "groups": [
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the reading passage? Write",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "Taxonomic research involves comparing members of one group of ants.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 15,
+              "prompt": "New species of ant are frequently identified by taxonomists.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 16,
+              "prompt": "Range is the key criterion for ecological collections.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 17,
+              "prompt": "A single collection of ants can generally be used for both taxonomic and ecological",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Look at the following statements (Questions 18-23 and the list of items below.",
+          "questions": [
+            {
+              "number": 18,
+              "prompt": "- 36) and the list of items below.",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 19,
+              "prompt": "It is particularly effective for wet habitats.",
+              "answer": "C",
+              "explanation": "Refer to item C in the passage."
+            },
+            {
+              "number": 20,
+              "prompt": "It is a good method for species which are hard to find.",
+              "answer": "B",
+              "explanation": "Refer to item B in the passage."
+            },
+            {
+              "number": 21,
+              "prompt": "Little time and effort is required.",
+              "answer": "D",
+              "explanation": "Refer to item D in the passage."
+            },
+            {
+              "number": 22,
+              "prompt": "Separate containers are used for individual specimens.",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 23,
+              "prompt": "Non-alcoholic preservatives should be used.",
+              "answer": "D",
+              "explanation": "Refer to item D in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "D",
+              "text": "Write the correct letter, A-D on your answer sheet."
+            },
+            {
+              "key": "A",
+              "text": "hand collecting"
+            },
+            {
+              "key": "B",
+              "text": "using bait"
+            },
+            {
+              "key": "C",
+              "text": "sampling ground litter"
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 24,
+              "prompt": "Question 37",
+              "answer": [
+                "Heat"
+              ],
+              "explanation": "Found directly in the reading passage: 'Heat'."
+            },
+            {
+              "number": 25,
+              "prompt": "Question 38",
+              "answer": [
+                "Leaf litter"
+              ],
+              "explanation": "Found directly in the reading passage: 'Leaf litter'."
+            },
+            {
+              "number": 26,
+              "prompt": "Question 39",
+              "answer": [
+                "Screen"
+              ],
+              "explanation": "Found directly in the reading passage: 'Screen'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "The Innovation of Grocery Stores",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "IELTS Reading Passage - The Innovation of Grocery Stores"
+        },
+        {
+          "label": "A",
+          "text": "Right from the 20th century, the United States had grocery stores in full swing. A person walks into the store and gets specific items from the cashier standing behind the desk. The cashier might pack the things which consist of dry food only. If they think of saving this time and go to the next shop, they need to request a delivery guy or themselves to give the slip of list of items they need to buy to the grocery store, then make the payment for the goods purchased. Such grocery stores generally keep only one brand for each and every good. When we go back to the past, many chain stores like the A & P Stores were fully functioning all day and consumed a lot of time. It was considered old-fashioned."
+        },
+        {
+          "label": "B",
+          "text": "During the year 1885, a boy from Virginia state by name Clarence Saunders started working as a part-time employee as a clerk in a grocery store in his close vicinity. When he turned 14, he quit his school and studies to accept the shopkeeper's offer - a Ml time work with facilities like room and board. Over the years, he got a new job and worked in an Alabama coke plant, followed by a Tennessee sawmill company before he came from the work at the grocery store. In 1900, when he attained nineteen years of age, he got nearly $35 per month for a salesman job in a wholesale grocery store. Throughout his years working in many grocery stores taking many roles, he realised that it was not comfortable and found it very inefficient for potential customers to purchase goods and items. Why because for more than several decades, we had computer systems like a big machine called CPU, a desktop, etc., and it made shopping experiences quite varied compared to today. When someone enters a store, they might ask the counter (or looking for a clerk to answer their query) and give the list of items to buy, either verbally or in a notepad. When the customer was waiting, the clerk would immediately go back to the counter and the entire store, pick the products as given on the list. In a typical grocery store, some shelves seem to be so high that a mechanical or an electrical device has to be utilised-and take those back to the counter to check whether it is tallying or not, and finally packed, bagged or boxed. The process might be done a little faster by the customer calling or giving the list of items prior, or by the order placed were taken care of by a delivery guy on a motorcycle. On the other hand, it did not vary that much. Saunders, an attractive and innovative man, realised that this process of working would result in wasted time and money expense, so he had an out-of-the-box idea that created a revolution among the grocery industry that paved the way for a better shopping experience to the customers."
+        },
+        {
+          "label": "C",
+          "text": "In the year 1902, he migrated to Memphis place where he created his idea to develop a grocery cooperative at a wholesale level and a normal grocery store functioning full-time. For his new concept of \"cafeteria grocery\" Saunders split his grocery store into three different parts: 1) A front \"lobby\" like space for entrance and exit door and checkout areas. 2) A department exclusively for sales was designed in such a way to make customers stroll the aisles and choose the groceries they were looking for. Clearing unwanted employees, making way for an elaborate aisle display. Reorganising the entire store to make customers somehow see all of the products and above the shelving and separate compartments located in the sales department were \"photo galleries\" where managers or supervisors were allowed to look after the people without disturbing them. 3) And a separate section of his grocery store is the place allocated only for the clerks and other employees called the \"stockroom\" or \"storage room\" where you can find the big-size refrigerators that were situated to keep all items fresh from being perishable. The newly designed format made different people do shopping simultaneously and led to the earlier hidden part of extreme shopping. Though this type of shopping of the grocery market was completely different from other grocery store owners, the style set a new standard for the modern form of the grocery store, and later became a supermarket as we are witnessing today."
+        },
+        {
+          "label": "D",
+          "text": "On 6th of September, 1916, Saunders initiated a revolution of self-servicing in the USA by launching the first self-service process called Piggly Wiggly store. The address of the store is 79 Jefferson Street in Memphis, Tennessee has the luxury of its unique turnstile at the entrance. People make payments by cash and choose their required products from the different shelves available. It was totally unique at that time. When you enter a Piggly Wiggly store, customers do not need to wait for the clerks or shopkeepers. They were on their own. They were allowed to roam the store without any restrictions, look for the desired products and take what they needed. The price stamps on products at Piggly Wiggly were not available. On top of all, no one tried to convince people to purchase milk or biscuits. Moreover, the biggest advantage of the Piggly Wiggly was that customers could save money in the end. Thus, self-service was welcomed on a positive trend. \"It's beneficial for both the customer and shop owner because it reduces unnecessary costs,\" observed George T. Haley, a senior professor at the University of New Haven and director of the Center for International Industry Competitiveness. There are a huge number of working men and women involved and most of the contribution is from their expenses before the grocery stores run to Piggly Wiggly and Alpha Beta. Piggly Wiggly cut the excessive fat."
+        },
+        {
+          "label": "E",
+          "text": "Piggly Wiggly and the self-service idea paid off very well. Saunders after a short time started nine more stores in the Memphis place before completing the 1st anniversary. Almost all people welcomed the efficiency, simplicity, and above all cheap prices of food. Saunders immediately got patent rights for his idea of self-service and started to lend franchising Piggly Wiggly grocery stores across the place. It made a huge business growth and success, because of the advantages involved in self-service and franchising Piggly Wiggly, which eventually increased to nearly 1,300 stores by the year 1925. The Piggly Wiggly store sold $110 million-worth $1.5 billion today-in the groceries market alone, claiming it to be the third-biggest grocery retailer in the United States. Their company's stock was also shown on the New York Stock Exchange, nearly doubling from mid-1922 to March 1923. Saunders was finally occupied with Piggly Wiggly. He tremendously worked in the overall design and planning of his stores, thus, invented the turnstile."
+        },
+        {
+          "label": "F",
+          "text": " Later, down the line, Saunders was forced into bankruptcy in 1923 after an unexpected turn in the New York Stock Exchange, and he had to create the \"Clarence Saunders sole-owner-of-my-name\" network, which led to bankruptcy."
+        },
+        {
+          "label": "G",
+          "text": "When he died in October 1953, he was in the process of developing plans for yet another fully-automatic store called the Foodelectric. However the store was initially planned to place it in two blocks from the first Piggly Wiggly store, but that was never opened at all. But his name was well-established when we came across the name of Piggly Wiggly."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_information",
+          "instruction": "This reading passage has seven paragraphs, A - G.",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "Saunders' first setback",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 28,
+              "prompt": "Saunders' first revolution",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 29,
+              "prompt": "Saunders' triggering point",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 30,
+              "prompt": "Expansion of Piggly Wiggly store",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 31,
+              "prompt": "How grocery stores functioned back in the days",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 32,
+              "prompt": "Saunders' next invention",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "A",
+              "text": "- G."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 33,
+              "prompt": "No one tried to _____________ people to purchase milk or biscuits.",
+              "answer": [
+                "CUSTOMERS"
+              ],
+              "explanation": "Found directly in the reading passage: 'CUSTOMERS'."
+            },
+            {
+              "number": 34,
+              "prompt": "He _____________ in the overall design and planning of his stores, thus, invented",
+              "answer": [
+                "LOBBY"
+              ],
+              "explanation": "Found directly in the reading passage: 'LOBBY'."
+            },
+            {
+              "number": 35,
+              "prompt": "Saunders ____________ a revolution of self-servicing in the USA.",
+              "answer": [
+                "STOCKROOM"
+              ],
+              "explanation": "Found directly in the reading passage: 'STOCKROOM'."
+            },
+            {
+              "number": 36,
+              "prompt": "Grocery industry paved the way for a better ____________ for the customers.",
+              "answer": [
+                "GALLERIES"
+              ],
+              "explanation": "Found directly in the reading passage: 'GALLERIES'."
+            },
+            {
+              "number": 37,
+              "prompt": "The new concept of \"__________\" Saunders split his grocery store into three",
+              "answer": [
+                "wholesale"
+              ],
+              "explanation": "Found directly in the reading passage: 'wholesale'."
+            }
+          ]
+        },
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the information given in the reading passage? Write",
+          "questions": [
+            {
+              "number": 38,
+              "prompt": "Massachusetts has the luxury of its unique turnstile at the entrance",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 39,
+              "prompt": "Piggly Wiggly store made customers to save money",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
+          "questions": [
+            {
+              "number": 40,
+              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
+              "answer": "TRUE",
+              "explanation": "Refer to the discussion in the reading passage."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,572 @@
+{
+  "id": "academic-reading-95",
+  "title": "Academic Reading Practice Test 95",
+  "shortTitle": "Practice Test 95",
+  "module": "reading",
+  "variant": "academic",
+  "license": "Past papers for practice and exam preparation.",
+  "sortOrder": 95,
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Hydrogen Cars",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "Due to record-high gasoline prices, road trips are more expensive than ever. But what if your car ran on the most abundant element in the universe instead of gasoline? Hydrogen will eventually replace gasoline, diesel, and natural gas as the primary fuel for automobiles, buses, and trucks, according to numerous experts. Global automobile manufacturers have already invested billions of dollars in research and development."
+        },
+        {
+          "label": "B",
+          "text": "The benefits of hydrogen are enormous: no smog-forming exhaust gases, no carbon dioxide emissions that contribute to global warming, and no concerns regarding diminishing oil supplies and rising prices. Before mass-produced hydrogen vehicles can hit the road, however, a number of challenging questions must be answered. Where will the hydrogen supply originate? How will motorists fuel up? How will automobiles store fuel? There is also the question of how to optimally utilise the energy in the fuel for optimal performance on the road"
+        },
+        {
+          "label": "C",
+          "text": "Hydrogen can be used as a fuel in two types of engines: those with a converted internal combustion engine and those with a stack of fuel cells. Automobiles have been powered by internal combustion engines for more than a century, when they replaced horse-drawn carriages. These engines are compatible with a variety of fuels, including hydrogen. However, the majority of automakers consider fuel cells powered by an electric motor to be the superior option. In contrast to heavy batteries that must be recharged frequently, fuel cells generate electricity as they move. Recent technological advancements have substantially increased a cell stack's power output. This has paved the way for electric vehicles with low emissions."
+        },
+        {
+          "label": "D",
+          "text": "Fuel cell technology seems straightforward. This is the opposite of the well-known electrolysis process, which releases oxygen and hydrogen from water. Obviously, it is somewhat more difficult in practise. Efficiency is the primary advantage of a hydrogen-powered internal combustion engine over a fuel cell engine. Using the same quantity of hydrogen, a fuel cell vehicle can travel at least twice as far as an internal combustion engine vehicle."
+        },
+        {
+          "label": "E",
+          "text": "Although hydrogen has numerous advantages as a vehicle fuel, it is difficult to store. This is due to the fact that hydrogen is a gas at normal temperatures. The obvious solution is to compress or liquidity the hydrogen. On the other hand, tanks designed to store hydrogen at extremely high pressures or temperatures close to absolute zero are cumbersome and expensive. Consequently, the primary disadvantages of refueling with liquid hydrogen are likely to be the high cost and the substantial amount of energy required to liquefy the fuel. Although compressed hydrogen gas refueling may reduce the distance between fill-ups, it is more practical. Hydrogen could be stored in automobiles in high-pressure tanks comparable to those used for compressed natural gas, or in carbon that has been specially treated."
+        },
+        {
+          "label": "F",
+          "text": "Although there is no risk of Hydrogen depletion, it occurs naturally on Earth only as chemical compounds and not as Hydrogen gas. At central plants or filling stations, hydrogen gas for automobiles can be produced by steam reforming, a relatively simple technology. Alternatively, gasoline or methanol could be used in the tanks, with reformers onboard producing Hydrogen for the fuel cells. While research into hydrogen storage issues continues, this interim solution appears promising. Hydrogen's only potentially pollution-free source is water. Utilizing algae, bacteria, or photovoltaic cells to absorb sunlight and split water into Hydrogen and oxygen are a few of the new methods being investigated to produce Hydrogen from water. However, electrolysis, which uses an electric current to separate water into oxygen and hydrogen, is most likely to be adopted on a large scale."
+        },
+        {
+          "label": "G",
+          "text": "'Remember the Hindenburg.' - This is a common phrase when referring to Hydrogen. In May 1937, this German hydrogen-powered passenger airship crashed as it approached Lakehurst, New Jersey, United States. There were 35 fatalities. Helium, a noncombustible gas, is the fuel of choice for lighter-than-air aircraft at present. Despite the fact that hydrogen is extremely flammable, recent research suggests that the Hindenburg disaster was caused by the airship's fabric, not hydrogen. There is no reason to believe that hydrogen is a more hazardous fuel than gasoline, the explosive liquid currently stored safely in the tanks of countless millions of automobiles."
+        },
+        {
+          "label": "H",
+          "text": "Recent technological advancements, particularly in fuel cell design, have made hydrogen-powered automobiles a viable option, with automakers expecting mass production to commence within the next decade or so. Their power and acceleration should be comparable to conventionally-powered automobiles of today, but they may require more frequent refuelling. The optimal strategies for producing, distributing, and storing hydrogen are still under investigation. Short-term, fossil fuels may continue to be a popular source of hydrogen. However, it is no longer a pipe dream that in the not-too-distant future, the majority of us will be driving non-polluting cars powered by Hydrogen from a clean, renewable source."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "Choose the appropriate letters A - D that best answer the question.",
+          "optionsTitle": "List of Headings",
+          "options": [
+            {
+              "key": "d",
+              "text": "that best answer the question."
+            },
+            {
+              "key": "c",
+              "text": "A method of producing hydrogen that involves the use of microscopic organisms."
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "Paragraph A",
+              "answer": "d",
+              "explanation": "Refer to Paragraph A in the passage."
+            },
+            {
+              "number": 2,
+              "prompt": "Paragraph B",
+              "answer": "d",
+              "explanation": "Refer to Paragraph B in the passage."
+            }
+          ]
+        },
+        {
+          "type": "matching_headings",
+          "instruction": "Reading Passage 1 has 8 paragraphs (AH). From the list of headings below choose the most suitable headings for paragraphs B - H. Write the appropriate number (i - xi) in boxes 3 - 9 on",
+          "optionsTitle": "List of Headings",
+          "options": [
+            {
+              "key": "i",
+              "text": "- xi) in boxes 3 - 9 on"
+            },
+            {
+              "key": "iv",
+              "text": "List of Headings"
+            },
+            {
+              "key": "ii",
+              "text": "Traditional Production Methods"
+            },
+            {
+              "key": "iii",
+              "text": "The Potential Peril of Combustible Hydrogen"
+            },
+            {
+              "key": "v",
+              "text": "Looking Ahead"
+            },
+            {
+              "key": "vi",
+              "text": "Good idea, but..."
+            },
+            {
+              "key": "vii",
+              "text": "Hydrogen Production Today"
+            },
+            {
+              "key": "viii",
+              "text": "How Does the Procedure Work?"
+            },
+            {
+              "key": "ix",
+              "text": "Hydrogen Production and Sources"
+            },
+            {
+              "key": "x",
+              "text": "The Internal Combustion Engine's Operation"
+            },
+            {
+              "key": "xi",
+              "text": "The Engine Problem"
+            },
+            {
+              "key": "c",
+              "text": "5. Paragraph D"
+            }
+          ],
+          "questions": [
+            {
+              "number": 3,
+              "prompt": "Paragraph B",
+              "answer": "viii",
+              "explanation": "Refer to Paragraph B in the passage."
+            },
+            {
+              "number": 4,
+              "prompt": "Paragraph C",
+              "answer": "i",
+              "explanation": "Refer to Paragraph C in the passage."
+            },
+            {
+              "number": 5,
+              "prompt": "Paragraph D",
+              "answer": "ix",
+              "explanation": "Refer to Paragraph D in the passage."
+            },
+            {
+              "number": 6,
+              "prompt": "Paragraph E",
+              "answer": "iii",
+              "explanation": "Refer to Paragraph E in the passage."
+            },
+            {
+              "number": 7,
+              "prompt": "Paragraph F",
+              "answer": "v",
+              "explanation": "Refer to Paragraph F in the passage."
+            },
+            {
+              "number": 8,
+              "prompt": "Paragraph G",
+              "answer": "i",
+              "explanation": "Refer to Paragraph G in the passage."
+            },
+            {
+              "number": 9,
+              "prompt": "Paragraph H",
+              "answer": "i",
+              "explanation": "Refer to Paragraph H in the passage."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "maxWords": 3,
+          "questions": [
+            {
+              "number": 10,
+              "prompt": "There is no reason to believe that we will run out of Hydrogen because it is the _______ that",
+              "answer": [
+                "engines"
+              ],
+              "explanation": "Found directly in the reading passage: 'engines'."
+            },
+            {
+              "number": 11,
+              "prompt": "Companies have devoted _______ to the production of Hydrogen cars.",
+              "answer": [
+                "The Airship's Fabric"
+              ],
+              "explanation": "Found directly in the reading passage: 'The Airship's Fabric'."
+            },
+            {
+              "number": 12,
+              "prompt": "Traditional fuels could be used to generate the Hydrogen required to power Hydrogen cars.",
+              "answer": [
+                "Power and Acceleration"
+              ],
+              "explanation": "Found directly in the reading passage: 'Power and Acceleration'."
+            },
+            {
+              "number": 13,
+              "prompt": "The Hindenburg disaster was caused by ________, according to investigations.",
+              "answer": [
+                "advancements"
+              ],
+              "explanation": "Found directly in the reading passage: 'advancements'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "The Art of Healing",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "As with so many other things, Tang medicine outperformed its European counterpart. It had its own \"national health service\" and left behind the teachings of the legendary Sun Simiao."
+        },
+        {
+          "label": "A",
+          "text": " If no other evidence of Tang-era Chinese sophistication were available, a look at Chinese medicine would suffice. The Roman empire had vanished at the western end of the Eurasian continent, and there was nowhere new to claim the status of the world's cultural and political center. Indeed, for a few centuries, this center was the capital of the Tang empire, and Tang Chinese medicine was far ahead of its European counterpart. The organizational context of health and healing was structured to an extent unprecedented in Chinese history and without precedent elsewhere."
+        },
+        {
+          "label": "B",
+          "text": " Previous dynasties had left behind an Imperial Medical Office, which was immediately restructured and staffed with directors and deputy directors, chief and assistant medical directors, pharmacists and curators of medicinal herb gardens, and other personnel. The Tang administration established one central and several provincial medical colleges with professors, lecturers, clinical practitioners, and pharmacists to train students in one or all of the four departments of medicine, acupuncture, physical therapy, and exorcism within the first two decades after consolidating its rule."
+        },
+        {
+          "label": "C",
+          "text": " Only after passing qualifying examinations were physicians appointed to positions in the government medical service. They were paid based on the number of cures they performed in the previous year."
+        },
+        {
+          "label": "D",
+          "text": " In 723, Emperor Xuanzong personally composed and sent to all provincial medical schools a general formulary of prescriptions recommended to him by one of his imperial pharmacists. An Arabic traveler who visited China in 851 was surprised to see prescriptions from the emperor's formulary posted on notice boards at crossroads to improve the population's well-being."
+        },
+        {
+          "label": "E",
+          "text": " The government took precautions to shield the general public from potentially harmful medical practices. The Tang legal code was the first in China to include laws prohibiting harmful and unconventional medical practices. For example, treating patients for money without following standard procedures was defined as fraud combined with theft and had to be prosecuted in accordance with theft laws. If such therapies resulted in a patient's death, the healer was to be exiled for two and a half years. If a physician purposefully failed to practice in accordance with the standards, he was to be tried under the statutes governing premeditated homicide. Even if no one was harmed, he was sentenced to sixty strokes with a heavy cane."
+        },
+        {
+          "label": "F",
+          "text": " In fact, Tang-era physicians had access to a wealth of pharmaceutical and medical texts, with contents ranging from purely pragmatic advice to highly sophisticated theoretical considerations. Concise descriptions of the position, morphology, and functions of the human body's organs coexisted in libraries with books that allowed readers to calculate the daily, seasonal, and annual climatic conditions of sixty-year cycles and understand and predict their effects on health."
+        },
+        {
+          "label": "G",
+          "text": " Several Tang authors compiled large collections of prescriptions, carrying on a literary tradition that dates back to the 2nd century BC. Sun Simiao's (581-682?) and Wang Tao's (581-682?) works were the two most notable to be mentioned here (c.670-755). The latter was a librarian who copied over 6,000 formulas from sixty-five older works and published them under the title Wciitai Miyao, which was divided into 1,104 sections. Ophthalmology, for example, received twenty-four sections. They reflect the Indian origins of much Chinese knowledge on eye ailments, particularly cataract surgery."
+        },
+        {
+          "label": "H",
+          "text": " Sun Simiao was not only the Tang dynasty's most eminent physician and author but also the first millennium AD's most eminent physician and author. He was a well-educated intellectual and physician, and his worldview incorporated ideas from all three major currents competing at the time: Confucianism, Daoism, and Buddhism. Sun Simiao rose to prominence as a clinician (he was summoned to the imperial court at least once) and as the author of Prescriptions Worth Thousands in Gold (Qianjinfang) and its sequel. In contrast to developments in the 12th century, physicians treated their patients' illnesses with prescriptions and single substances. The acupuncture tradition's theories of systematic correspondences had not yet been extended to cover pharmacology."
+        },
+        {
+          "label": "I",
+          "text": " Around the 13th century, Sun Simiao rose to the pantheon of Chinese popular Buddhism. He was regarded as the supreme Medicine God. He achieved this extraordinary position in Chinese collective memory not only as an outstanding clinician and writer but also because of his ethical concerns. Sun Simiao was the first Chinese author to write a detailed medical ethical code. His deontology is comparable to the Hippocratic Oath, despite being based on Buddhist and Confucian values. It sparked a debate about the purpose of medicine, its professional obligations, social standing, and moral justification, which lasted until the arrival of Western medicine in the nineteenth century."
+        },
+        {
+          "label": "J",
+          "text": " Despite, or perhaps because of, its long-lasting affluence and political stability, the Tang dynasty did not contribute any significant new ideas to the interpretation of illness, health, and healing. Human anxieties are reflected in medical thought; changes in medical thought always occur in the context of new existential fears or fundamentally changed social circumstances. Nonetheless, medicine was a fascinating component of the Tang civilization, leaving a rich legacy for subsequent centuries."
+        }
+      ],
+      "groups": [
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "maxWords": 3,
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "__________During the Tang era,",
+              "answer": [
+                "C"
+              ],
+              "explanation": "Found directly in the reading passage: 'C'."
+            },
+            {
+              "number": 15,
+              "prompt": "_________and single substances to treat their patients.",
+              "answer": [
+                "A"
+              ],
+              "explanation": "Found directly in the reading passage: 'A'."
+            },
+            {
+              "number": 16,
+              "prompt": "_____________ is famous for producing a set of medical rules for Chinese physicians.",
+              "answer": [
+                "nowhere"
+              ],
+              "explanation": "Found directly in the reading passage: 'nowhere'."
+            }
+          ]
+        },
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Choose the appropriate letters A-D. 4. The writer specifically mentions in the first paragraph",
+          "questions": [
+            {
+              "number": 17,
+              "prompt": "The writer specifically mentions in the first paragraph",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 18,
+              "prompt": "During the Tang dynasty, a government doctor's annual salary was determined by",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            },
+            {
+              "number": 19,
+              "prompt": "Which of the following broke the law during the Tang dynasty?",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            }
+          ]
+        },
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the information given in the art of healing reading",
+          "questions": [
+            {
+              "number": 20,
+              "prompt": "Statement regarding Question 7.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 21,
+              "prompt": "Statement regarding Question 8.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 22,
+              "prompt": "Statement regarding Question 9.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 23,
+              "prompt": "Statement regarding Question 10.",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            },
+            {
+              "number": 24,
+              "prompt": "Statement regarding Question 11.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 25,
+              "prompt": "Statement regarding Question 12.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 26,
+              "prompt": "Statement regarding Question 13.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "Flight of the Honey",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "Honeybees are distinguished by their ability to make liquid sugar (honey) and their propensity to build wax nests in colonies, both of which require a high level of social interaction among members. As a result, they maintain strict gender-based divisions of labour, with all males working as drones to fertilize and care for the eggs, and all females, except for the one fertile queen, tasked with gathering nectar for the colony's offspring. In addition, honeybees have developed a complex system of communication to send vital information from one individual to another."
+        },
+        {
+          "label": "B",
+          "text": "Perhaps the most remarkable characteristic of honeybee communication is a set of flight motions only performed by a female worker bee that has returned to the nest with nectar and needs to alert the rest of her colony that she has discovered food supplies and where they can be found. Karl von Frisch, a German zoologist, first interpreted this so-called honeybee dance in the early 1970s. For the purpose of observation, von Frisch and his students built several glass-walled hives and marked a collection of worker bees, or foragers, with paint. When the bees returned, he meticulously recorded their movements, the angle and direction of their flight, and any other visual cues offered by the colony. Von Frisch discovered that each element of the dance revealed specific information about the location of the nectar reserves and enticed others to revisit the site."
+        },
+        {
+          "label": "C",
+          "text": "The distance from the field to the hive is the first piece of information transmitted by dancing bees, which they do in one of three ways. If it is fewer than 50 meters from the colony's nest, the bee will fly in tight circles before abruptly changing direction. She will repeat this routine, which von Frisch's team referred to as the round dance until she has recruited multiple employees to return to the field with her. When the distance exceeds 50 meters but is less than 150 meters, she will do a sickle dance, a flight pattern like a crescent. If the field is more than 150 meters away, the forager will perform a waggle dance consisting of a brief run straight ahead followed by a return to her original position. She will then retrace her steps and return from the opposite side. The length of the forward run corresponds to the distance of the food source; for instance, a 2.5-second forward run implies that the nectar was located approximately 2500 meters away."
+        },
+        {
+          "label": "D",
+          "text": "Recruits must also know the direction in which they must fly to reach the suitable foraging spot; this information is sent to the hive via the bee's orientation. It is not, however, a direct correlation with the position of the hive's food supply, but rather its positioning relative to the sun. Therefore, if the food is located directly opposite the sun, the bee will fly straight down; if it is in the same direction as the sun, it will fly straight up from the colony nest. A position of 60 degrees to the right of the sun will cause the bee to descend at an angle of 60 degrees to the right of the nest. In addition, because the sun is in constant motion throughout the day, the bee's orientation will change depending on when the dance is done. However, sceptics of von Frisch's results argue that visual signals are insufficient to indicate the exact location of a food source. Several scientists, including Adrian Wenner, believe that odour is one of the factors along with dance for honeybee communication. Wenner was unable to attract fresh workers to the foraging activities using robotic bees performing the same dances; but, when he gave nectar to the robot, workers readily followed. Additionally, he determined that the odours must be indicative of the actual flowers that hold the food source; otherwise, the bees will arrive at the place without knowing which blooms will be beneficial."
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Refer to the Reading Passage and choose the option that best completes each sentence.",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "Question 1",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "were conducted using conventional beehives."
+                },
+                {
+                  "key": "B",
+                  "text": "found that forager bees had distinctive markings."
+                },
+                {
+                  "key": "C",
+                  "text": "The phenomenon of the honeybee's body language has been thoroughly examined."
+                },
+                {
+                  "key": "D",
+                  "text": "The conclusion was that there was no visible pattern to the bees' movement."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            },
+            {
+              "number": 28,
+              "prompt": "Question 2",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "were conducted using conventional beehives."
+                },
+                {
+                  "key": "B",
+                  "text": "found that forager bees had distinctive markings."
+                },
+                {
+                  "key": "C",
+                  "text": "The phenomenon of the honeybee's body language has been thoroughly examined."
+                },
+                {
+                  "key": "D",
+                  "text": "The conclusion was that there was no visible pattern to the bees' movement."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 29,
+              "prompt": "Question 3",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "were conducted using conventional beehives."
+                },
+                {
+                  "key": "B",
+                  "text": "found that forager bees had distinctive markings."
+                },
+                {
+                  "key": "C",
+                  "text": "The phenomenon of the honeybee's body language has been thoroughly examined."
+                },
+                {
+                  "key": "D",
+                  "text": "The conclusion was that there was no visible pattern to the bees' movement."
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 30,
+              "prompt": "Question 4",
+              "answer": [
+                "Visual"
+              ],
+              "explanation": "Found directly in the reading passage: 'Visual'."
+            },
+            {
+              "number": 31,
+              "prompt": "Question 5",
+              "answer": [
+                "Second"
+              ],
+              "explanation": "Found directly in the reading passage: 'Second'."
+            },
+            {
+              "number": 32,
+              "prompt": "Question 6",
+              "answer": [
+                "The Sun"
+              ],
+              "explanation": "Found directly in the reading passage: 'The Sun'."
+            },
+            {
+              "number": 33,
+              "prompt": "Question 7",
+              "answer": [
+                "Waggle"
+              ],
+              "explanation": "Found directly in the reading passage: 'Waggle'."
+            },
+            {
+              "number": 34,
+              "prompt": "Question 8",
+              "answer": [
+                "Odour"
+              ],
+              "explanation": "Found directly in the reading passage: 'Odour'."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the reading passage? In boxes 9 -13 on your answer sheet write",
+          "questions": [
+            {
+              "number": 35,
+              "prompt": "-13 on your answer sheet write",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            },
+            {
+              "number": 36,
+              "prompt": "The honeybee dance is performed until a sufficient number of additional bees join the nectar",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 37,
+              "prompt": "Wenner determined that a similar odour will aid bees in locating the general region of nectar,",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 38,
+              "prompt": "Drone bees communicate by a series of complex actions.",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            },
+            {
+              "number": 39,
+              "prompt": "on your answer sheet write",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
+          "questions": [
+            {
+              "number": 40,
+              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
+              "answer": "TRUE",
+              "explanation": "Refer to the discussion in the reading passage."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

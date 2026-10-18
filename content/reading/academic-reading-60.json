@@ -1,0 +1,499 @@
+{
+  "id": "academic-reading-60",
+  "title": "Academic Reading Practice Test 60",
+  "shortTitle": "Practice Test 60",
+  "module": "reading",
+  "variant": "academic",
+  "license": "Past papers for practice and exam preparation.",
+  "sortOrder": 60,
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Computer Security",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "Since the businesses are more and more relying on information and associated information systems (IS) as well as using information technology (IT) a lot changes the problem of computer security over a period of time. Still, there are only small changes occured in the security or safeguards implemented in the information systems. Even identifying the required securities and policies is not able to be done by most of the executives."
+        },
+        {
+          "label": "A",
+          "text": "In the span of July 1991 - July 1996, the internet users from the commercial sector had increased from 33% to 50%. It shows how the internet becomes an important factor for business growth. Generally, the size of the internet approximately doubles each year and the related security incidents have been running in parity. Though the malicious users' percentage is less, the number of failed security incidents is significantly larger since the size of the internet is increased."
+        },
+        {
+          "label": "B",
+          "text": "In network, the morris worm was entered into the Internet which invaded, attacked and replicated itself, in 1998. To fix this problem, Both Email and connectivity has been shut down. But, still, the fixes were to be distributed through Email and so the solution doesn't serve the purpose. Consequently, In 1992, CERT (Computer Emergency Response Team) with the Australian version (AUSCERT) was formed to tackle the worm virus."
+        },
+        {
+          "label": "C",
+          "text": "The problem with Internet security is that malicious incidents are increasing in complexity. The increasing availability of toolkits has become one of the reasons for it. Actually, the toolkits are made for the computer systems designers to guard and develop their sites. But, it turns out to be helpful for those ignorant intruders to execute the intended complex incidents by using many routers and disguises. A US Department of Defence report says that the incidents which have happened are less than 1% but 65% of those are successful. One thing that we should keep in mind is that hackers and intruders don't fit into the geographical, administrative boundaries or time zones. The reason might be they have been geographically dislocated during the attack. Therefore, they must be operating 'off-duty hours'."
+        },
+        {
+          "label": "D",
+          "text": "The key thing to understand here is that system administrators should get it right all the time but the intruder should get it right just once. Evidence will be easier to find for this. In 1997, a Bell Atlantic Network was hacked by the teenager. As a result of his hacking, the computer crashed and 600 homes, a regional airport and emergency services became without telephone communication for six hours. Punishment for this offence is as follows, Two years probation, community service and a fine of US$5,000."
+        },
+        {
+          "label": "E",
+          "text": "From the wake of September 11, Governments started to take sincere action against cyber crimes. It is found that crimes are being connected to national security, which becomes a prime concern for both government officials and the public. The government took action faster. The US Patriot Act was introduced in late 2001. This Act increased the maximum punishment of five to ten years for those who break into computers. Then in July 2002, the House of Representatives sanctioned the Cyber Security Enhancement Act. If the act of the cyber crime by an offender causes the death of an individual, he will be condemned to life sentence. After the September 11 attacks, the FBI and other government agencies elevated their monitoring of the internet. This becomes the reason for the disappearance of hackers as their act no longer considered as a play or challenge, but terrorism."
+        },
+        {
+          "label": "F",
+          "text": "On the other side, September 11 events caused some ex-hackers to use their broad knowledge, skills and experience to coordinate with the security forces to help the fight against terrorism."
+        },
+        {
+          "label": "G",
+          "text": "Computer viruses and hacking incidents continue even after the punishment threats are increased. Long-time security measures which have been implemented by companies and individuals are not fail-safe. Firewalls are one of the prime IS security measures. It filters the entering data and leaves the corporate IS. Though the firewalls have a number of advantages, it will not be a total cure for all 18 security woes, just an enhancement. It will only offer a false sense of security and just provide a minimal amount of protection against internal attackers. In a nutshell, the corporate world needs to realise that computer security will be an on-going problem and expense."
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_headings",
+          "instruction": "The reading passage has six paragraphs, A-G. Choose the correct heading for each paragraph from the list of headings below.",
+          "optionsTitle": "List of Headings",
+          "options": [
+            {
+              "key": "i",
+              "text": "Activities of hackers and intruders"
+            },
+            {
+              "key": "ii",
+              "text": "Importance of Internet"
+            },
+            {
+              "key": "iii",
+              "text": "Computer security and its features"
+            },
+            {
+              "key": "iv",
+              "text": "The Process of Hacking"
+            },
+            {
+              "key": "v",
+              "text": "How Government fight against cyber crimes"
+            },
+            {
+              "key": "vi",
+              "text": "The Morris Worm"
+            },
+            {
+              "key": "vii",
+              "text": "Intruders can easily hack"
+            },
+            {
+              "key": "viii",
+              "text": "How firewall performs"
+            },
+            {
+              "key": "ix",
+              "text": "Ex-hackers and fight against terrorism"
+            },
+            {
+              "key": "x",
+              "text": "Secret of Effective computer security"
+            },
+            {
+              "key": "c",
+              "text": "4."
+            },
+            {
+              "key": "d",
+              "text": "5."
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "Paragraph A",
+              "answer": "i",
+              "explanation": "Refer to Paragraph A in the passage."
+            },
+            {
+              "number": 2,
+              "prompt": "Paragraph B",
+              "answer": "i",
+              "explanation": "Refer to Paragraph B in the passage."
+            },
+            {
+              "number": 3,
+              "prompt": "Paragraph C",
+              "answer": "i",
+              "explanation": "Refer to Paragraph C in the passage."
+            },
+            {
+              "number": 4,
+              "prompt": "Paragraph D",
+              "answer": "iii",
+              "explanation": "Refer to Paragraph D in the passage."
+            },
+            {
+              "number": 5,
+              "prompt": "Paragraph E",
+              "answer": "vii",
+              "explanation": "Refer to Paragraph E in the passage."
+            },
+            {
+              "number": 6,
+              "prompt": "Paragraph F",
+              "answer": "vi",
+              "explanation": "Refer to Paragraph F in the passage."
+            },
+            {
+              "number": 7,
+              "prompt": "Paragraph G",
+              "answer": "ii",
+              "explanation": "Refer to Paragraph G in the passage."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the reading passage? Write",
+          "questions": [
+            {
+              "number": 8,
+              "prompt": "The internet size is roughly doubles every year.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 9,
+              "prompt": "The toolkits made for the computer programmers to protect their programming.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 10,
+              "prompt": "The US patriot act was introduced in early 2001.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 11,
+              "prompt": "Polymorphic virus challenges the antivirus to detect the viruses.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "maxWords": 3,
+          "questions": [
+            {
+              "number": 12,
+              "prompt": "When was the morris worm introduced into the internet?",
+              "answer": [
+                "toolkits"
+              ],
+              "explanation": "Found directly in the reading passage: 'toolkits'."
+            },
+            {
+              "number": 13,
+              "prompt": "Which act was introduced in late 2001?",
+              "answer": [
+                "firewalls"
+              ],
+              "explanation": "Found directly in the reading passage: 'firewalls'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "Sleeping On The Job",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "North Americans are a group who do not take naps. Generally, Afternoon naps denote inefficiency and laziness. Latin American and some European cultures have a similar perspective. Taking naps during noon and 4:00 p.m. is common in nearby companies of Mexico and Greece. Recent research suggests that 15 - 30 minutes rest at work in the evening will serve employees to be more conscious, energetic and happier in what they are doing. They also become optimistic and carry the task more confidently. Still, napping on the work has not become normalised. In the academic world, there is a serious debate happening on the topic of \"power napping\" benefits. Some data reports that by estimating the standard of eight hours of sleep per night, the average American has 500 hours of sleep debt or sleep deficit. The National Sleep Foundation in"
+        },
+        {
+          "label": null,
+          "text": "America conducted a survey in which it is found that two out of every three Americans have less than 7 hours of sleep per night during the business week. 40 percent of people claim that fatigue disturbs their everyday lives. Exhaustion is considered as a major issue in contemporary culture by William Anthony, a professor of psychiatry at Boston University. He claims that after drunkenness, sleeping is the leading cause of car crashes. Professor Anthony says that \"We have a clear message\".Citizens should be allowed to sleep after their breaks. It is reasoned based on productivity. They will not be efficient if they are tired and asleep on the job. Majorly for safety reasons, most employers motivate employees to sleep at work. The Metropolitan Transportation Authority, which runs both the New York subway system and the two commuter railroads, is"
+        },
+        {
+          "label": null,
+          "text": "permitting its bus and train technicians to take power sleep. One more railway starts to allow its train drivers to sleep about 45 minutes, during which trains are delayed when specified off-main-line locations and when emergency responders have been alerted. Some international airlines permit airline pilots to sleep in the cockpit, when they are not on service. United States' airline companies still have not agreed to this procedure. According to the Encyclopedia of Sleep and Dreaming, taking naps in mid afternoon is regarded as a biologically-based inclination and so the habit of sleeping at night is formed. If the required sleep limit is disrupted or disturbed for some reason, a nap acts as an adjustment. Additionally, it could reduce sleepiness and boost metabolism. Many experiments suggest that the nap zone occurs between midday and 3:00 p.m. To solve this problem,"
+        },
+        {
+          "label": null,
+          "text": "several people use caffeine or sugar. But, the employer's mood and efficiency will improve, if they are permitted to take naps. Workers could have the ability to focus better and complete assignments without taking a single day out. Still, Workers take naps without authorization, though some businesses started to implement the naps for employees to increase productivity. One of the US companies is constructing a 2,000 square foot building for nap which can be filled upto 20 of its employees at any given time. Even a Japanese firm in their corporate offices, sets up tents and gives eyeshades and earplugs and permits workers to take naps during the workday. According to Professor Anthony, napping will not be one of the operational activities. It will have a great influence on productivity. Smart managers identified that workers need rest in order to"
+        },
+        {
+          "label": null,
+          "text": "perform well in their work. There is also a belief that company naptime is just a way to keep employees to work for longer periods of time. On the other side, nap days come so frequently as work hours become more flexible for certain employees. Office hours are being there till employees awake. About 11 million Americans are teleworking and forty million spending bonus full or part time. Production hours are also increasing which takes their toll. As a consequence, Americans sleep little and work more hours. By understanding this, companies arrange quick naps for employees in the middle of the day for the benefit of the companies."
+        }
+      ],
+      "groups": [
+        {
+          "type": "yes_no_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "Recent research says that power napping does not have any impact on employees.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 15,
+              "prompt": "Americans have a sleep debt of 500 hours.",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            },
+            {
+              "number": 16,
+              "prompt": "Employers motivate employees to take naps for safety reasons.",
+              "answer": "NO",
+              "explanation": "The passage confirms this statement is NO."
+            },
+            {
+              "number": 17,
+              "prompt": "One US company builts 2,000 square foot building for play.",
+              "answer": "YES",
+              "explanation": "The passage confirms this statement is YES."
+            },
+            {
+              "number": 18,
+              "prompt": "Power nap will increase the age.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 19,
+              "prompt": "Question 6",
+              "answer": [
+                "sleep"
+              ],
+              "explanation": "Found directly in the reading passage: 'sleep'."
+            },
+            {
+              "number": 20,
+              "prompt": "Question 7",
+              "answer": [
+                "Sleep"
+              ],
+              "explanation": "Found directly in the reading passage: 'Sleep'."
+            },
+            {
+              "number": 21,
+              "prompt": "Question 8",
+              "answer": [
+                "every"
+              ],
+              "explanation": "Found directly in the reading passage: 'every'."
+            },
+            {
+              "number": 22,
+              "prompt": "Question 9",
+              "answer": [
+                "business"
+              ],
+              "explanation": "Found directly in the reading passage: 'business'."
+            },
+            {
+              "number": 23,
+              "prompt": "Question 10",
+              "answer": [
+                "safety"
+              ],
+              "explanation": "Found directly in the reading passage: 'safety'."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 24,
+              "prompt": "Question 11",
+              "answer": [
+                "William"
+              ],
+              "explanation": "Found directly in the reading passage: 'William'."
+            },
+            {
+              "number": 25,
+              "prompt": "Question 12",
+              "answer": [
+                "leading"
+              ],
+              "explanation": "Found directly in the reading passage: 'leading'."
+            },
+            {
+              "number": 26,
+              "prompt": "Question 13",
+              "answer": [
+                "sleep"
+              ],
+              "explanation": "Found directly in the reading passage: 'sleep'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "The CT Scanner",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "The computed tomography scanner or the CT scanner, was initially designed to provide cross-sectional images of the brain. The word tomog­raphy is coined from 2 Greek words - tomos, meaning \"section,\" and graphia, meaning \"picture.\" Godfrey Hounsfield developed this technique in 1972 and was later recognised and awarded the Nobel Peace Prize for his work in the medical field. Within 4 years of this development, CT scans, also called CAT scans (computed axial tomography), were reconstructed, allowing them to scan the entire body for evidence of tumours, injuries, and other abnormalities. Unlike an X-ray, which takes a single picture, a CT scanner sends multiple beams into an area and takes photographs from many different angles."
+        },
+        {
+          "label": "B",
+          "text": "While the original CT scans took Hounsfield several hours to reconstruct into a useful image, today's CT scanners can construct an in-depth image in a split second. Creating a scanner that could produce images at a faster rate was important in the development of tomography, as it reduced the degree of distortion in an image due to movement of patients while breathing or moving. The new scanners provided images with better resolution, and also more comfort for the patients."
+        },
+        {
+          "label": "C",
+          "text": "During a CT scan, a patient must lie on a special table without moving while the radiology technician identifies the specific area that needs to be photographed. The table slides into a round tunnel (gantry), where it can be rotated or moved forward and backwards to obtain the necessary view. Inside the doughnut-shaped machine, a number of X-ray images are taken, each creating a small slice of the image that doctors require. When passing through dense tissues like bones, the X-ray beams become weak and develop a white colour in the CT images. Tissues seen in the brains are less dense and the images come out as grey. Images that become black denote organs such as lungs and other parts that fill with air."
+        },
+        {
+          "label": "D",
+          "text": "The CT scanner consists of several computer systems, with a host computer, which controls the entire process. One of the computers converts the raw data from scanning into an image, while another computer allows the technician to control the rotation of the gantry. After the data is processed, it is shown on a screen for radiologists and physicians to analyse. The data can be saved and printed to keep in the doctor's records and to share and discuss with patients and their family members."
+        },
+        {
+          "label": "E",
+          "text": "Physicians order CT scans for many reasons, including searching for tumours and assessing them. They can also check for cysts, kidney stones, and bone injuries. Without CT scanners, surgeons would have to perform many needless and costly opera­tions. Brain, chest, and abdominal CT scans are done commonly, though physicians also rely on the CT scanner to guide their needles while draining an abscess or performing a biopsy. Most emergency or shock-treatment centres con­tain a CT scanner for assessing trauma victims. CT scans can find out inter­nal bleeding both in the brain and throughout the body."
+        },
+        {
+          "label": "F",
+          "text": "In most cases, a patient should be given a contrast material before undergoing a CT scan. During \"dynamic CT scanning,\" iodine dye is either injected into the blood or added to a drink that the patient must consume approximately 45 minutes before entering the scanner. The liquid X-ray dye makes it easier for the scanner to see the organs and blood vessels when the pictures are produced. This contrast mate­rial is used mostly for chest or pelvic scans, whereas oral-contrast material is used for abdominal scans. In some cases, physicians need the pictures to be taken both before and after the contrast material enters the patient's body. Patients who take the contrast material in their arm often report a warm sensation, and in rare cases, an allergic reaction occurs. Patients can suffer water loss when contrast material is injected. So it is avoided when scanning patients who suffer from kidney failure."
+        },
+        {
+          "label": "G",
+          "text": "The hazards of radiation exposure caused by X-ray beams are generally considered minute compared to the benefits that a CT scan can provide. For example in cases of finding tumours and internal bleeding, CT scans provide information that can save a person's life. Full-body scanning, which is saved for serious conditions such as coronary artery disease, remains a questionable procedure as prolonged exposure to these radiations is linked to cancer. CT scans are not done on pregnant women as the X rays can be harmful to the foetus. When pregnant women require an evaluation, most physicians choose to use other procedures like ultrasound scanning or MRI."
+        }
+      ],
+      "groups": [
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the reading passage? Write",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "Godfrey Hounsfield won the Nobel Prize for inventing the computed tomography scanner",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 28,
+              "prompt": "The new CT scanner takes many minutes to develop images of the body parts.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 29,
+              "prompt": "The images of bones in CT images come in white colour.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 30,
+              "prompt": "CT scans can be done on pregnant women",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            }
+          ]
+        },
+        {
+          "type": "matching_headings",
+          "instruction": "Questions 31-37",
+          "optionsTitle": "List of Headings",
+          "options": [
+            {
+              "key": "c",
+              "text": "8. Paragraph D"
+            }
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "prompt": "Paragraph A",
+              "answer": "c",
+              "explanation": "Refer to Paragraph A in the passage."
+            },
+            {
+              "number": 32,
+              "prompt": "Paragraph B",
+              "answer": "c",
+              "explanation": "Refer to Paragraph B in the passage."
+            },
+            {
+              "number": 33,
+              "prompt": "Paragraph C",
+              "answer": "c",
+              "explanation": "Refer to Paragraph C in the passage."
+            },
+            {
+              "number": 34,
+              "prompt": "Paragraph D",
+              "answer": "c",
+              "explanation": "Refer to Paragraph D in the passage."
+            },
+            {
+              "number": 35,
+              "prompt": "Paragraph E",
+              "answer": "c",
+              "explanation": "Refer to Paragraph E in the passage."
+            },
+            {
+              "number": 36,
+              "prompt": "Paragraph F",
+              "answer": "c",
+              "explanation": "Refer to Paragraph F in the passage."
+            },
+            {
+              "number": 37,
+              "prompt": "Paragraph G",
+              "answer": "c",
+              "explanation": "Refer to Paragraph G in the passage."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 38,
+              "prompt": "Question 12",
+              "answer": [
+                "technician"
+              ],
+              "explanation": "Found directly in the reading passage: 'technician'."
+            },
+            {
+              "number": 39,
+              "prompt": "Question 13",
+              "answer": [
+                "tunnel"
+              ],
+              "explanation": "Found directly in the reading passage: 'tunnel'."
+            },
+            {
+              "number": 40,
+              "prompt": "Question 14",
+              "answer": [
+                "oral-contrast material"
+              ],
+              "explanation": "Found directly in the reading passage: 'oral-contrast material'."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

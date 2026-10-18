@@ -1,0 +1,783 @@
+{
+  "id": "academic-reading-93",
+  "title": "Academic Reading Practice Test 93",
+  "shortTitle": "Practice Test 93",
+  "module": "reading",
+  "variant": "academic",
+  "license": "Past papers for practice and exam preparation.",
+  "sortOrder": 93,
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "eBay?",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "Bridging the Digital Divide"
+        },
+        {
+          "label": "A",
+          "text": "In what concrete ways can information and communication technologies (ICTs) benefit the two -thirds of humanity who are more concerned about their next meal than about email or"
+        },
+        {
+          "label": "B",
+          "text": "First, there are the economic advantages of these technologies. Besides providing businesses with the opportunity to access real-time market information and complete business transactions electronically, ICTs can reduce costs and provide а channel to market goods and services. One small company from Tanzania replaced $20 faxes with 10 cent emails and saw its telecommunications bill go from over $500 per month to $45 per month. In the business-to- consumer segment you will find examples like EthioGift.com which sells gifts, including sheep and goats, over the Internet. And in India, which is fast becoming а global center for telemarketing, customer support and other call center services, ICTs are transforming the economy. With the legalization of Internet telephony, India has captured an even bigger chunk of the global outsourcing market, with calls from the US accounting for 80 percent of call center business. Schools are even training young men and women to speak in an American accent in order to handle the calls."
+        },
+        {
+          "label": "C",
+          "text": "Health services also benefit from ICTs. Using the Internet, doctors in poor countries can keep up to speed with the latest developments in their field as well as seek help from their peers. This technology can also facilitate the control of diseases. Throughout Africa, for instance, individual cases of meningitis are tracked over the Internet so that epidemics can be stopped early. In addition, ICTs can assist in allowing healthcare professionals to extend their reach through telemedicine into the remotest and most underserved areas."
+        },
+        {
+          "label": "D",
+          "text": "ICTs can make it easier to reach а broad segment of the population in education too. The African Virtual University is а distance learning project which іѕ partly financed by the World Bank, and which serves the countries of sub-Saharan Africa. The Virtual University uses satellites to broadcast televised courses to students who communicate with teachers by e-mail and telephone."
+        },
+        {
+          "label": "E",
+          "text": "Finally, we come to what has been dubbed 'e-government'. E-government initiatives focus on making government transparent and accountable by providing citizens wіth direct access to information. Critics might argue that when you're bеіng stalked by war, hunger and disease, this may be а priority. But the e-government is about more than just the ability to pay your taxes online or apply for а driving license over the Internet. It is about giving citizens access to information which allows them to make informed decisions on subjects that affect their lives."
+        },
+        {
+          "label": "F",
+          "text": "But how can those people who need ICT capabilities most be best helped to bridge the Digital Divide? Throwing computers and modems at people (as someone colorfully puts it) will not in itself help much. Other important issues that need to be addressed include improving computer and keyboarding skills and increasing people's confidence in their ability to use the new technology."
+        },
+        {
+          "label": "G",
+          "text": "A good example of how this can be done is the Information Village Project, a computer intra net linking ten villages near Pondicherry, India. The project, started with a $120,000 grant from the International Development Research Centre, Canada, provides locally relevant information on product prices, healthcare, weather and fishing conditions. A team of volunteers from each village gathers up the information and feeds it into the computer in the local language (Tamil). It is then available to all users of the intranet. There is also а multimedia component to make the information accessible to illiterate users. Most of the operators and volunteers providing the primary information are women, and their role in the project raises their status in the community. Since most of the villages experience erratic power supply, the project can run on solar power as well as mains electricity."
+        },
+        {
+          "label": "H",
+          "text": "Another Indian creation, the Simputer (short for Simple, Inexpensive, Multilingual computer) was conceived by a team of computer scientists at the Indian Institute of Science in Bangalore. It is a small, hand-held, battery-powered computer about 12 cm by 7 cm that has a touch-sensitive screen. You use a stylus to tap on icons and to input information. Because each display page shows only а few possible commands, illiterate users should be able to learn by trial and error the purpose of the icons and buttons on each page. The Simputer also has software that can turn text into speech. This works for various Indian languages and allows the Simputer to read the text aloud on its tiny built-in speakers. It also has а slot for 'smart' cards, а feature that its makers see аѕ crucial. Because the device lacks а hard drive, smart cards act as the device's portable storage units. In this way, many people can use one Simputer without having to share their private information with one another. The Simputer costs $200 - а sizable chunk of the yearly per capita income for many of its users. But one Simputer can enable an entire village to access the Internet, perform transactions, keep track of agricultural prices and educate its children."
+        },
+        {
+          "label": "I",
+          "text": "So bridging the Digital Divide is not something that happens after addressing the 'core' development challenges; it is a key component of addressing those challenges in the 21st century. Failure to address the Digital Divide will only exacerbate the existing social and economic inequalities between countries and communities."
+        }
+      ],
+      "groups": [
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "maxWords": 3,
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "The example of the Tanzanian company's telecommunications bill demonstrates how",
+              "answer": [
+                "costs"
+              ],
+              "explanation": "Found directly in the reading passage: 'costs'."
+            },
+            {
+              "number": 2,
+              "prompt": "In Africa, use of the Internet enables ………………..of diseases such аѕ meningitis to be",
+              "answer": [
+                "Epidemics"
+              ],
+              "explanation": "Found directly in the reading passage: 'Epidemics'."
+            },
+            {
+              "number": 3,
+              "prompt": "An international organization has subsidized а …………………….scheme in Africa which",
+              "answer": [
+                "distance learning"
+              ],
+              "explanation": "Found directly in the reading passage: 'distance learning'."
+            },
+            {
+              "number": 4,
+              "prompt": "E-government provides people with а source of …………………so they can make their own",
+              "answer": [
+                "information"
+              ],
+              "explanation": "Found directly in the reading passage: 'information'."
+            },
+            {
+              "number": 5,
+              "prompt": "In order to allow global use of ICTs, people need to have the skill and …………….. to uѕе this",
+              "answer": [
+                "company"
+              ],
+              "explanation": "Found directly in the reading passage: 'company'."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Classify the following features according to whether they apply to",
+          "questions": [
+            {
+              "number": 6,
+              "prompt": "use of the technology is not limited to individuals",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the Information Village Project only"
+                },
+                {
+                  "key": "B",
+                  "text": "the Simputer only"
+                },
+                {
+                  "key": "C",
+                  "text": "both the Information Village Project and the Simputer"
+                },
+                {
+                  "key": "D",
+                  "text": "neither the Information Village Project nor the Simputer"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 7,
+              "prompt": "information can be kept secure and private by individual users",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the Information Village Project only"
+                },
+                {
+                  "key": "B",
+                  "text": "the Simputer only"
+                },
+                {
+                  "key": "C",
+                  "text": "both the Information Village Project and the Simputer"
+                },
+                {
+                  "key": "D",
+                  "text": "neither the Information Village Project nor the Simputer"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            },
+            {
+              "number": 8,
+              "prompt": "must have а mains electricity supply",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the Information Village Project only"
+                },
+                {
+                  "key": "B",
+                  "text": "the Simputer only"
+                },
+                {
+                  "key": "C",
+                  "text": "both the Information Village Project and the Simputer"
+                },
+                {
+                  "key": "D",
+                  "text": "neither the Information Village Project nor the Simputer"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 9,
+              "prompt": "initially supported by an overseas agency",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the Information Village Project only"
+                },
+                {
+                  "key": "B",
+                  "text": "the Simputer only"
+                },
+                {
+                  "key": "C",
+                  "text": "both the Information Village Project and the Simputer"
+                },
+                {
+                  "key": "D",
+                  "text": "neither the Information Village Project nor the Simputer"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
+            {
+              "number": 10,
+              "prompt": "can only be used by people who can read and write",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the Information Village Project only"
+                },
+                {
+                  "key": "B",
+                  "text": "the Simputer only"
+                },
+                {
+                  "key": "C",
+                  "text": "both the Information Village Project and the Simputer"
+                },
+                {
+                  "key": "D",
+                  "text": "neither the Information Village Project nor the Simputer"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 11,
+              "prompt": "knowledge of English not required",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the Information Village Project only"
+                },
+                {
+                  "key": "B",
+                  "text": "the Simputer only"
+                },
+                {
+                  "key": "C",
+                  "text": "both the Information Village Project and the Simputer"
+                },
+                {
+                  "key": "D",
+                  "text": "neither the Information Village Project nor the Simputer"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the best answer, A, B, C or D.",
+          "questions": [
+            {
+              "number": 12,
+              "prompt": "What reason is given for the increasing importance of call centers to the Indian economy?",
+              "options": [
+                {
+                  "key": "C",
+                  "text": "or D."
+                },
+                {
+                  "key": "A",
+                  "text": "the availability of workers with the right accent"
+                },
+                {
+                  "key": "B",
+                  "text": "a change in the legal system"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            },
+            {
+              "number": 13,
+              "prompt": "The writer says that in both health and education",
+              "options": [
+                {
+                  "key": "C",
+                  "text": "or D."
+                },
+                {
+                  "key": "A",
+                  "text": "the availability of workers with the right accent"
+                },
+                {
+                  "key": "B",
+                  "text": "a change in the legal system"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "Rainforest",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "Adults and children are constantly exposed to claims regarding the alarming rate of tropical rainforest extinction. For instance, an estimate that rainforests are being destroyed at a rate comparable to one thousand football fields every forty minutes - around the length of a typical school time - is a graphic picture to which youngsters may quickly relate. In light of the regular and vivid media coverage, it is conceivable that youngsters will have formed opinions about rainforests - what they are, where they are, why they are essential, and what threatens them - without formal education. There is also the possibility that some of these notions are incorrect. Numerous studies have demonstrated that youngsters develop misconceptions regarding \"pure\" curriculum science. These fallacies are interwoven into a diverse yet organised conceptual framework, making it and its component ideas, some of which"
+        },
+        {
+          "label": null,
+          "text": "are incorrect, and more resilient but also modifiable. Children who receive information from the media may develop these ideas. Occasionally, this information may be inaccurate. It appears that schools do not provide students with the opportunity to re-express their thoughts and have them evaluated and refined by teachers and peers. Despite the widespread media attention to the destruction of rainforests, there is little formal information on children's perspectives on this subject. The purpose of the present study is to begin providing such information in order to assist instructors in designing their educational techniques to build on the right concepts and dispel misconceptions, as well as in developing environmental studies programs for their schools. The study investigates children's scientific understanding and attitudes toward rainforests. Students in secondary education were asked to complete a questionnaire with five free-form questions. The majority of"
+        },
+        {
+          "label": null,
+          "text": "solutions to the first question were self-evident from the word \"rainforest.\" Some children reported them as moist, humid, or warm. The second topic involved the location of tropical rainforests. The most frequent answers were continents or countries: Africa (43%), South America (30%), and Brazil (25%). Some children also provided more generalised answers, such as being close to the Equator. The responses to the third question questioned the significance of rainforests. 64% of the students expressed the notion that rainforests provide animals with habitats. Fewer students stated that rainforests provide habitats for plants, and even fewer acknowledged rainforests' indigenous populations. More girls (70%) than boys (60%) mentioned the rainforest as a habitat for animals. Similarly, albeit to a lesser extent, females (13%) were more likely than boys (5%) to agree that rainforests support human habitats. These findings are largely consistent with"
+        },
+        {
+          "label": null,
+          "text": "our past research of students' perspectives on the use and protection of rainforests, in which females were found to be more empathetic to animals and to hold beliefs that appear to accord non-human animals an intrinsic value. The fourth question discussed the reasons for rainforest loss. Perhaps encouragingly, more than half of the students (59%) recognized human actions as the cause of the destruction of rainforests, with some students personalising the guilt by using phrases such as \"we are.\" 18% of the students specifically mentioned logging activity. 10% of the students erroneously believed that acid rain is responsible for the destruction of rainforests, and a comparable proportion believed that pollution is destroying rainforests. Here, youngsters are conflating the loss of rainforests with the devastation of forests in Western Europe caused by these factors. Two-fifths of the students offered the information"
+        },
+        {
+          "label": null,
+          "text": "that the rainforests give oxygen, but in some cases they also embraced the misperception that the loss of the rainforests will deplete atmospheric oxygen, rendering the environment inhospitable to human life on Earth. The majority of youngsters responded to the final question regarding the significance of rainforest conservation by stating that we require rainforests to survive. A few students (6%) mentioned that the destruction of the rainforest may contribute to global warming. This is unexpected given the extensive media attention on this subject. Several youngsters opined that the preservation of rainforests is not essential. The findings of this study indicate that children's perceptions of rainforests are dominated by specific notions. Students' replies reveal misunderstandings in their fundamental scientific understanding of rainforest ecosystems, such as their views of rainforests as habitats for animals, plants, and humans, and the relationship between climate"
+        },
+        {
+          "label": null,
+          "text": "change and rainforest degradation. Students did not volunteer ideas indicating an appreciation for the complexity of the causes of rainforest deforestation. In other words, they did not demonstrate an awareness of the variety of ways in which rainforests are significant, nor of the complex social, economic, and political forces that drive the activities that are destroying the rainforests. The results of similar studies on other environmental issues indicate that older children appear to gain the capacity to comprehend, respect, and assess divergent perspectives. Environmental education provides a venue for the development of these skills, which are vital for young children as future decision-makers."
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "The box below gives a list of responses A-P to the questionnaire discussed in the Reading",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "to 5)",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There is a complex combination of causes driving the disappearance of rainforests."
+                },
+                {
+                  "key": "B",
+                  "text": "The same factors are destroying the rainforests as they are destroying the forests of Western"
+                },
+                {
+                  "key": "C",
+                  "text": "Rainforests are found close to the Equator."
+                },
+                {
+                  "key": "D",
+                  "text": "Brazil possesses rainforests."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
+            {
+              "number": 15,
+              "prompt": "What was the most frequent response to the significance of rainforests?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There is a complex combination of causes driving the disappearance of rainforests."
+                },
+                {
+                  "key": "B",
+                  "text": "The same factors are destroying the rainforests as they are destroying the forests of Western"
+                },
+                {
+                  "key": "C",
+                  "text": "Rainforests are found close to the Equator."
+                },
+                {
+                  "key": "D",
+                  "text": "Brazil possesses rainforests."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
+            {
+              "number": 16,
+              "prompt": "What did most children attribute to the disappearance of the rainforests?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There is a complex combination of causes driving the disappearance of rainforests."
+                },
+                {
+                  "key": "B",
+                  "text": "The same factors are destroying the rainforests as they are destroying the forests of Western"
+                },
+                {
+                  "key": "C",
+                  "text": "Rainforests are found close to the Equator."
+                },
+                {
+                  "key": "D",
+                  "text": "Brazil possesses rainforests."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
+            {
+              "number": 17,
+              "prompt": "Why did the majority of children believe that protecting the rainforests was essential?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There is a complex combination of causes driving the disappearance of rainforests."
+                },
+                {
+                  "key": "B",
+                  "text": "The same factors are destroying the rainforests as they are destroying the forests of Western"
+                },
+                {
+                  "key": "C",
+                  "text": "Rainforests are found close to the Equator."
+                },
+                {
+                  "key": "D",
+                  "text": "Brazil possesses rainforests."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            },
+            {
+              "number": 18,
+              "prompt": "on your answer sheet.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There is a complex combination of causes driving the disappearance of rainforests."
+                },
+                {
+                  "key": "B",
+                  "text": "The same factors are destroying the rainforests as they are destroying the forests of Western"
+                },
+                {
+                  "key": "C",
+                  "text": "Rainforests are found close to the Equator."
+                },
+                {
+                  "key": "D",
+                  "text": "Brazil possesses rainforests."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 7-14 on your answer sheet, write",
+          "questions": [
+            {
+              "number": 19,
+              "prompt": "Media outlets have mostly disregarded the crisis of the rainforests.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 20,
+              "prompt": "Children only accept rainforest-related viewpoints they encounter in the classroom.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            },
+            {
+              "number": 21,
+              "prompt": "It has been proposed that youngsters have erroneous perceptions of the \"pure\" science they",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 22,
+              "prompt": "Because children's views about science are part of a larger conceptual framework, it is",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 23,
+              "prompt": "Children were asked a series of yes/no questions, such as \"Are there any rainforests in",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 24,
+              "prompt": "Girls are more likely than males to hold erroneous opinions regarding the destruction of",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 25,
+              "prompt": "This paper is the latest in a series of studies that have examined children's knowledge of",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 26,
+              "prompt": "on your answer sheet, write",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "Flight from reality?",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "The use of mobile devices is restricted. However, passengers are free to use their computers to their hearts' content. Is one more secure than the other? In the US, a congressional panel grilled airline representatives and regulators regarding the issue in question throughout the month of the test. However, the committee heard that using mobile phones on airplanes may cause a little danger. This seems to support the penalty of Manchester oil worker Neil Whitehouse, who was condemned to a year in the penitentiary by a British court last summer for refusing to switch off his cell phone on a journey to Madrid. Although he was simply composing a message to be supplied upon landing and not making a phone call, the court decided that he was risking the aircraft."
+        },
+        {
+          "label": "A",
+          "text": "The possibility of issues undoubtedly exists. Modern airliners are sealed with electronic devices that control the aircraft and regulate navigation and communications. Each appliance must meet stringent security standards to confirm that it does not emit radiation that would interrupt other devices on the plane; standards that passengers' personal electronic devices may not necessarily meet. Emissions from within the aircraft may potentially interfere with sensitive external antennas."
+        },
+        {
+          "label": "B",
+          "text": "However, after conducting several studies, Boeing, Airbus, and different government organizations have been unable to provide conclusive evidence of difficulties caused by personal electronic devices, such as cell phones, We've done our own studies. Bays Maryazme Greczyn, a spokesperson for Airbus Industries of North America in Herndon, Virginia, stated, \"We've discovered that smartphones have no effect on the guidance system.\" She also expressed that they do not influence other critical systems. The only effect marked by Airbus was that \"When a passenger begins or ends phone contact, the pilot occasionally hears a very faint beep in the earpiece,\" she explains."
+        },
+        {
+          "label": "C",
+          "text": "The greatest proof to date of concern comes from a study published by the British Civil Aviation Authority this year. In two Boeing airplanes, its researchers developed a system that mimicked cell phone broadcasts. They found that the broadcasts may produce signals with strength and frequency that would not impact the newest technology, but would be above the 1984 safety level and consequently potentially affect some of the older equipment onboard. Exceptions include the navigation system and flying controls. However, malfunctioning systems, including smoke alarms and fuel level indicators, might still cause significant issues for the flight crew."
+        },
+        {
+          "label": "D",
+          "text": "According to Dan Hawkes, head of the CAA's Safety Regulation Group's avionics division, many aircraft still utilize equipment approved to the earlier requirements. When mobile phone signals genuinely cause electronics to fail, the CAA research does not establish the equipment would truly fail."
+        },
+        {
+          "label": "E",
+          "text": "In 1996, RTCA, a consultant hired by the Federal Aviation Administration of the United States to perform testing, advised that the likelihood of problems arising from the use of personal electronic devices was \"minimal.\" However, it suggested a prohibition on their usage during \"critical\" flying phases such as takeoff and landing. RTCA did not really test smartphones but nonetheless advised banning them on all flights. But if \"better safe than sorry\" is the present approach, it is inconsistently enforced, according to Marshall Cross, the chairman of Boylston, Massachusetts-based MegaWave Corporation. Why are mobile phones prohibited but computers are not? It is similar to most things in life. Cross explains that the explanation is somewhat technological, partly economic, and partly political."
+        },
+        {
+          "label": "F",
+          "text": "In 1998, the business prepared a study for the FAA stating that it is conceivable to construct an onboard system that can identify potentially hazardous electronic signals. Cross's own judgment, though, is that mobile phones are not the greatest danger. He adds, \"It would be difficult to imagine how a cell phone might interfere with an airplane's systems.\" Cell phones broadcast in the 400, 800, or 1800 megahertz bands. Since no essential airplane equipment runs at those frequencies, interference is extremely unlikely. Cross claims. According to him, the use of computers and electronic game systems is far more concerning. They can create extremely powerful signals at frequencies that might interfere with aircraft electronics, particularly if a mouse is attached (the wire functions as an antenna) or if their built-in shielding has been compromised in some way. Some airlines even want to install laptop power outlets in the seatbacks."
+        },
+        {
+          "label": "G",
+          "text": "There is credible evidence that some personal electronic gadgets have caused system disruptions. On one flight, aircrew discovered that the autopilot was being unplugged and traced the issue to a passenger's portable computer. They could observe the autopilot disconnecting when the computer was turned on. Boeing purchased the computer, brought it to the airline's labs, and even tested it on a flight with no passengers. As with every other interference case recorded, however, specialists were unable to reproduce the issue."
+        },
+        {
+          "label": "H",
+          "text": "However, other engineers, such as Boeing's Bruce Donham, believe smartphones pose a greater risk than computers. \"A gadget that is capable of creating a significant emission is less safe than one that has no deliberate emission,\" he explains. However, many experts believe that it is unreasonable to outlaw telephones but not computers. In addition, the issue is more involved than a simple examination of power and frequency. The aircraft functions in a soup of electronic emissions made by its own electronics and ground-based radiation while in flight. Electronic equipment in the cabin, particularly those sending a powerful signal, might react unpredictably by, for example, amplifying other signals or generating harmonics that destabilize systems."
+        },
+        {
+          "label": "I",
+          "text": "Despite the hearings held by a congressional panel last month, no one appears to be working on a technical solution that would allow passengers to use their phones. This is mostly due to the fact that cellphone users are the only ones who stand to gain significantly by allowing them in the air. Even cell phone corporations are opposed to it. They are afraid that airborne broadcasts might cause issues by simultaneously flooding many network base stations with the same signal. This phenomenon, known as \"large footing,\" occurs because airborne mobile phone signals tend to simultaneously reach several base stations, as opposed to land calls, which typically reach just one or two stations. Even if FAA laws did not prohibit cell phones in the air in the United States, the Federal Communications Commission would."
+        },
+        {
+          "label": "J",
+          "text": "Possible solutions include enhancing the electrical insulation of aircraft or installing detectors that alert flight deputies when passenger gadgets cause hazardous signals. Cross laments, however, that neither the FAA, the airlines, nor the manufacturers are very interested in developing these technologies. The industry's \"better safe than sorry\" path to mobile phones is established to remain, despite congressional mistrust and the odd frustrated (or incarcerated) mobile user. In the absence of solid evidence that the international airline industry is entangled in a major collaboration to overcharge customers, a hindered phone call appears to be a tiny price to pay for even a small reduction in the likelihood of an aircraft accident. However, you will still be permitted to use your own computer on flights. And as long as this continues to be true, airlines cannot say that rationality has triumphed. Flight from Reality? IELTS reading questions"
+        }
+      ],
+      "groups": [
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "maxWords": 3,
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "Question 14",
+              "answer": [
+                "Navigation and communications"
+              ],
+              "explanation": "Found directly in the reading passage: 'Navigation and communications'."
+            },
+            {
+              "number": 28,
+              "prompt": "Question 15",
+              "answer": [
+                "discovered"
+              ],
+              "explanation": "Found directly in the reading passage: 'discovered'."
+            },
+            {
+              "number": 29,
+              "prompt": "Question 16",
+              "answer": [
+                "critical"
+              ],
+              "explanation": "Found directly in the reading passage: 'critical'."
+            },
+            {
+              "number": 30,
+              "prompt": "on your answer sheet with appropriate responses.",
+              "answer": [
+                "Smoke"
+              ],
+              "explanation": "Found directly in the reading passage: 'Smoke'."
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Align the organizations (listed A-E) to the corresponding ideas or deeds below using the facts",
+          "questions": [
+            {
+              "number": 31,
+              "prompt": "Question 18",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 32,
+              "prompt": "Question 19",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 33,
+              "prompt": "Question 20",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            },
+            {
+              "number": 34,
+              "prompt": "Question 21",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                },
+                {
+                  "key": "E",
+                  "text": "Option E"
+                }
+              ],
+              "answer": "E",
+              "explanation": "Option E is correct based on the passage."
+            },
+            {
+              "number": 35,
+              "prompt": "Question 22",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Option A"
+                },
+                {
+                  "key": "B",
+                  "text": "Option B"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Option A is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Which of the following statements is true in relation to the topics covered in Reading Passage",
+          "questions": [
+            {
+              "number": 36,
+              "prompt": "Scientists are nearly unanimous that mobile phones generate more radiation than desktop",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            },
+            {
+              "number": 37,
+              "prompt": "Some fear that radio broadcasts will cause equipment failure on the aircraft.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 38,
+              "prompt": "The signal interference-detection device has not yet been created since it is neither a",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 39,
+              "prompt": "on your response sheet with the following:",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage confirms this statement is NOT GIVEN."
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
+          "questions": [
+            {
+              "number": 40,
+              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
+              "answer": "TRUE",
+              "explanation": "Refer to the discussion in the reading passage."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,597 @@
+{
+  "id": "academic-reading-88",
+  "title": "Academic Reading Practice Test 88",
+  "shortTitle": "Practice Test 88",
+  "module": "reading",
+  "variant": "academic",
+  "license": "Past papers for practice and exam preparation.",
+  "sortOrder": 88,
+  "durationMinutes": 60,
+  "totalQuestions": 40,
+  "passages": [
+    {
+      "passageNumber": 1,
+      "title": "Source Of Knowledge",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": " What is considered knowledge? What do we mean when we claim to be knowledgeable? What is the condition of various types of knowledge? In order to investigate those problems, we will concentrate on one specific area of knowledge: medicine."
+        },
+        {
+          "label": "B",
+          "text": " How do you recognize illness? This may seem like an absurd question.You are ill because you feel ill; your body informs you of your illness. You may be aware of your pain or suffering, but understanding that you are ill is more complicated. Occasionally, people exhibit signs of disease when, in fact, they are simply exhausted, overworked, or suffering from a hangover. Occasionally, people suffering from a disease are unaware of their condition until it has reached a late stage of development. How can we determine if we are ill, and what constitutes knowledge?"
+        },
+        {
+          "label": "C",
+          "text": " Consider the following instance. You feel ill. You have a severe cough and always seem exhausted. Perhaps it's work-related stress, or perhaps you should quit smoking. You feel worse. The physician examines your chest and heart, measures your temperature and blood pressure, and then recommends antibiotics for your bad cough."
+        },
+        {
+          "label": "D",
+          "text": " The situation does not improve, but you persist in the belief that you should pull yourself together since perhaps things will calm down at work soon. Your return to the doctor astonishes you. This time, the doctor diagnoses pneumonia based on your training and experience. This necessitates bed rest and a considerable absence from work. The scenario has transformed. Although you continue to experience the same symptoms, you no longer attribute them to workplace stress. You now have evidence of your illness. This is the outcome of combining your own subjective experience with the diagnosis of a person with medical expert expertise. You have a medically verified diagnosis and it looks like you are seriously ill; you are aware that you are ill and have evidence to support this belief."
+        },
+        {
+          "label": "E",
+          "text": " This scenario illustrates a variety of knowledge sources. For instance, if you decide to visit the doctor because you feel poorly, this is personal information about your own body. However, the doctor's professional diagnosis is based on experience and training, using varied knowledge sources including other experts, laboratory data, medical textbooks, and your own personal experience."
+        },
+        {
+          "label": "F",
+          "text": " The experience of our own bodies is a source of information; we have personal knowledge of changes that may be significant, as well as the subjective experience of pain and physical anguish. These experiences are mediated by other forms of knowledge, such as the words we have available to describe them, the common sense of our relatives and friends, and popular culture. Over the past decade, for instance, the media in Western culture have placed a large emphasis on stress-related illness. The phrase \"stressed out\" has become a regular response in the workplace and has entered the realm of common sense. Therefore, it is not strange that humans might seek such an explanation for bodily discomfort."
+        },
+        {
+          "label": "G",
+          "text": " We may also rely on the observations of those who are familiar with us. Comments from relatives and friends, such as \"you do look poorly\" or \"that's a horrible cough,\" may also be a source of information. Complementary health approaches, such as holistic medicine, generate their own bodies of knowledge, from which we can also draw when determining the type and severity of our illness and the appropriate therapy. H Perhaps the most influential and authoritative source of information is the general practitioner's medical knowledge. We anticipate that the physician will have access to expert knowledge. This is permitted by society. It would not be appropriate to inform our employer unit that we were too ill to report to work or that our religious healer, astrologer, therapist, or priest thought it was a bad idea. To obtain the requisite certificate to be out of work for longer than the statutory self-certification period, we need an expert medical diagnosis. In this regard, medical scientific knowledge is privileged in contemporary Western culture. Medical professionals are viewed as possessing the specialist knowledge necessary to legally prescribe medications and treatments to which patients would not otherwise have access. However, we draw on a variety of different types of knowledge while making decisions regarding our own health. I In addition to current knowledge, this short story also contains the construction of new knowledge. Given the doctor's medical education and experience, she may speculate, \"Is this now pneumonia?\" thereafter searching for evidence of it. She will utilise observations and tools to evaluate the data and interpret it critically in light of her education and fresh experience, both for you and the doctor. This information will then be added to the doctor's medical expertise and may aid in future pneumonia diagnosis."
+        }
+      ],
+      "groups": [
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
+          "questions": [
+            {
+              "number": 1,
+              "prompt": "We do not need an expert medical diagnosis in order to obtain the necessary certificate",
+              "answer": "FALSE",
+              "explanation": "The passage confirms this statement is FALSE."
+            },
+            {
+              "number": 2,
+              "prompt": "The proof of illness is the combination of subjective experience and a diagnosis of a",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            },
+            {
+              "number": 3,
+              "prompt": "General practitioner's medicinal knowledge is dominant and trustworthy.",
+              "answer": "TRUE",
+              "explanation": "The passage confirms this statement is TRUE."
+            }
+          ]
+        },
+        {
+          "type": "matching_information",
+          "instruction": "Reading Passage has nine paragraphs A-I.",
+          "questions": [
+            {
+              "number": 4,
+              "prompt": "Statement 4",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 5,
+              "prompt": "Statement 5",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 6,
+              "prompt": "Statement 6",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 7,
+              "prompt": "Statement 7",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 8,
+              "prompt": "Statement 8",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 9,
+              "prompt": "Statement 9",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 10,
+              "prompt": "Statement 10",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 11,
+              "prompt": "Statement 11",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "A",
+              "text": "description of knowledge derived from sources other than"
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "maxWords": 3,
+          "questions": [
+            {
+              "number": 12,
+              "prompt": "Question 12",
+              "answer": [
+                "Bad Cough"
+              ],
+              "explanation": "Found directly in the reading passage: 'Bad Cough'."
+            },
+            {
+              "number": 13,
+              "prompt": "Question 13",
+              "answer": [
+                "Blood Pressure"
+              ],
+              "explanation": "Found directly in the reading passage: 'Blood Pressure'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 2,
+      "title": "A",
+      "paragraphs": [
+        {
+          "label": null,
+          "text": "Sticking Power Keilar Autumn, an expert in biomechanics at Clark College in Portland, Oregon, asserts that the first footsteps on Mars are not human. They are gecko limbs. The toes of gecko possess legendary sticky properties. Scientists at Clark University want the next generation of Mars robots to have legs similar to those of geckos. A gecko can run up the smoothest walls and hang a foot from ceilings without fear of falling. B Autumn is one of many experts that have pondered the gecko's defying-gravity gait. This year, he and his coworkers discovered that gecko toes not only adhere to one another, but also to the surface beneath them. Engineers are already attempting to replicate gecko technology, but reptile feet are not their main focus. C Insects are among the most tenacious \"hanging\" organisms. In addition to defying gravity,"
+        },
+        {
+          "label": null,
+          "text": "they can also withstand wind gusts, rainfall, and attempts by predators to pry them open. This could lead to the creation of quick-acting adhesives and minuscule graspers that are suitable for manipulating minute parts or holding small tissue fragments together during surgery. Stas Gove, a scientist in Tübingen, Germany, who is studying the issue, states, \"There are many techniques to link two surfaces, but very few that allow exact and reversible bonding.\" D Both geckos and insects have perfected this method, and engineers and biologists are curious as to how. If an animal sprints on an incline, climbs vertically or moves inverted, it needs a stronger adhesive than friction. The identity of this adhesive has been the subject of heated controversy for decades. Several sources claim that they have microsuckers. Some have suggested that electrostatic forces are involved. Others believed"
+        },
+        {
+          "label": null,
+          "text": "intermolecular forces between the pad and the blade might offer a secure grip. E The majority of data implies that insects utilise a \"wet grip\" by adhering to the pad with the aid of a tiny layer of moisture on its underside. Leaves a little footprint track. Some individuals have visible fluid excretion on the soles of their feet. Additionally, they frequently lose their feet while cleaning or drying their feet. F This year, Walter Federle, an entomologist at the University of Würzburg, demonstrated experimentally that the stickiness of insects depends on a thin film of liquid beneath their feet. He placed the ants on the rotor's polished turntable and activated the centrifuge. The ant continued travelling slowly and without hesitation. However, when the scientist gradually accelerated, the pulling force rose, the ant stopped, spread its legs, and planted all"
+        },
+        {
+          "label": null,
+          "text": "six legs firmly on the earth. Ali's feet began to slip at increased velocity. Federle states, \"This can only be explained by the presence of liquids.\" \"If the pull is too powerful, the ant's paws will suddenly detach from the surface if it relies on a dry hold.\" G However, liquids are not everything. What fascinates engineers most about insect legs is the near-perfect contact they create with the surface below. Gove states that adhering to a completely flat surface is simple. However, even the smoothest surfaces in nature have minute bumps and lumps. For optimal contact, the footpads must follow the curves of the land below. Flies, beetles, and earwigs have developed bristles that bend like toothbrush bristles and pick up the dimples underneath hairy paws. H Using this type of pad, Gorb has evaluated dozens of species to"
+        },
+        {
+          "label": null,
+          "text": "determine which ones have the best sticks. A fly can withstand forces three to four times its own weight. This is sufficient to surpass the ceiling. But bugs work better. Champions are little blue insects with elongated yellow legs that are native to the southeastern United States. I This insect has captivated Tom Eisner, a chemical ecologist at Cornell University in New York, for years. Prior to roughly thirty years ago, he proposed that beetles should cling to surfaces to prevent being ripped off by predators, particularly ants. Earlier this year, both researchers evaluated the beetle's adhesive strength and determined that it could endure a draw equivalent to approximately 80 times its own weight for approximately two minutes, and an astounding 200 times its own weight for an astounding duration. Rice paddies. \"Ants surrender because beetles outlive them,\" he explains."
+        },
+        {
+          "label": null,
+          "text": "J Geckos appear capable of surviving without the same necessities as liquid insects. No one is certain why geckos require so much stickiness. Autumn states, \"It appears overbuilt for the job.\" Regardless of the gecko's requirements, expertise is in demand among humans. Autumn and his Oregon colleagues have previously developed a gecko-like walking robot. The Massachusetts-based iRobot created the Mecho-Gecko robot, which walks like a lizard. To stick, however, you will have to settle for a bead of glue for the time being. To develop a robot with all of the gecko's abilities, the next stage is to reproduce the gecko's toe hairs. Thus, it is possible to create a robot whose legs adhere without glue, clean themselves, and function just as effectively underwater as they do in the vacuum of space or when traversing the dusty terrain of Mars."
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Complete each sentence with the correct ending A-G below. Write the correct Letters, A-G in boxes 14-17 on your answer sheet.",
+          "questions": [
+            {
+              "number": 14,
+              "prompt": "Insect feet lose their sticking power when they",
+              "options": [
+                {
+                  "key": "G",
+                  "text": "below."
+                },
+                {
+                  "key": "A",
+                  "text": "Stick to surfaces in and out of water"
+                },
+                {
+                  "key": "B",
+                  "text": "Curl up and down"
+                },
+                {
+                  "key": "C",
+                  "text": "Option C"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 15,
+              "prompt": "If you put ants on a rapidly rotating object, their feet",
+              "options": [
+                {
+                  "key": "G",
+                  "text": "below."
+                },
+                {
+                  "key": "A",
+                  "text": "Stick to surfaces in and out of water"
+                },
+                {
+                  "key": "B",
+                  "text": "Curl up and down"
+                },
+                {
+                  "key": "E",
+                  "text": "Option E"
+                }
+              ],
+              "answer": "E",
+              "explanation": "Option E is correct based on the passage."
+            },
+            {
+              "number": 16,
+              "prompt": "Beetles can stick to uneven surfaces because they",
+              "options": [
+                {
+                  "key": "G",
+                  "text": "below."
+                },
+                {
+                  "key": "A",
+                  "text": "Stick to surfaces in and out of water"
+                },
+                {
+                  "key": "B",
+                  "text": "Curl up and down"
+                }
+              ],
+              "answer": "G",
+              "explanation": "Option G is correct based on the passage."
+            },
+            {
+              "number": 17,
+              "prompt": "on your answer sheet.",
+              "options": [
+                {
+                  "key": "G",
+                  "text": "below."
+                },
+                {
+                  "key": "A",
+                  "text": "Stick to surfaces in and out of water"
+                },
+                {
+                  "key": "B",
+                  "text": "Curl up and down"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Option B is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "matching_information",
+          "instruction": "Reading Passage 2 has ten paragraphs A-J.",
+          "questions": [
+            {
+              "number": 18,
+              "prompt": "Experts have proposed three distinct explanations for why insect feet stick.",
+              "answer": "A",
+              "explanation": "s for why insect feet stick. 19. A description of an experiment with a moving bug 20. Some of the practical applications for a gecko-style glue 21. notable examples of gecko movements"
+            },
+            {
+              "number": 19,
+              "prompt": "A description of an experiment with a moving bug",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 20,
+              "prompt": "Some of the practical applications for a gecko-style glue",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 21,
+              "prompt": "on your answer sheet.",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "A",
+              "text": "description of an experiment with a moving bug"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Look at the following statements (Questions 22-26 and the list of scientists below.",
+          "questions": [
+            {
+              "number": 22,
+              "prompt": "A robot with gecko-like feet might be suitable for planetary exploration.",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 23,
+              "prompt": "What distinguishes the feet of sticky insects is their ability to effortlessly separate from",
+              "answer": "B",
+              "explanation": "Refer to item B in the passage."
+            },
+            {
+              "number": 24,
+              "prompt": "Gecko feet appear to be stickier than necessary.",
+              "answer": "A",
+              "explanation": "Refer to item A in the passage."
+            },
+            {
+              "number": 25,
+              "prompt": "Some insects employ their ability to adhere to surfaces as a defensive mechanism.",
+              "answer": "D",
+              "explanation": "Refer to item D in the passage."
+            },
+            {
+              "number": 26,
+              "prompt": "on your answer sheet.",
+              "answer": "C",
+              "explanation": "Refer to item C in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "C",
+              "text": "or D."
+            },
+            {
+              "key": "A",
+              "text": "Keilar Autumn"
+            },
+            {
+              "key": "B",
+              "text": "Stas Gorb"
+            },
+            {
+              "key": "D",
+              "text": "Tom Eisner"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "passageNumber": 3,
+      "title": "The Beautiful Game",
+      "paragraphs": [
+        {
+          "label": "A",
+          "text": "Every country has a national sport to promote. In the U.S., there is baseball; in New Zealand, there is rugby. In the UK, football is a federal addiction. While many UK crews have achieved global acclaim, Manchester United is among those most well-known in international rankings. Yet while most people, nevertheless of their sporting selection or race, have some passing familiarity with Manchester United, fewer can claim knowledge of the heads of the team. Manchester United came into being in 1902 as an outcome of the insolvency of the team previously known as Newton Heath. Newton Heath began life as Newton Heath LYR (Lancashire and Yorkshire Railway) club, and as the title signifies, the original team was comprised of railway workers. Despite turning professional in 1885 and becoming a founding member of the Football Lions in 1889, Newton Heath - nicknamed the \"Heathens\" - was frequently bothered by monetary hardships."
+        },
+        {
+          "label": "B",
+          "text": "Salvation came in the form of a provincial brewer, John Henry Davis, who acquiesced to investing in the team on the condition of being given some interest in running it. After reflection of the alternative titles of Manchester Central and Manchester Celtic, the club was christened Manchester United in April 1902. United's first chief, though officially titled Secretary, was Ernest Mangnall, who was nominated in September 1903, but it was not until the season of 1905/1906 that United underwent its first taste of success. His side went to the quarterfinals of the F.A Cup and were runners up in the second section."
+        },
+        {
+          "label": "C",
+          "text": "In 1907, United proclaimed the championship for the first time and won the first-ever Charity Shield trophy in 1908. In the subsequent year, United claimed the F.A. Cup trophy after defeating Bristol City. Manchester United advanced to its new stadium, Old Trafford, in early 1910. The move to the stadium, held by the John Henry Davis brewery (a Manchester beer-making company), was proven to be profitable as on the 17th of February, 1910, two days before the team's first anticipated game, the prior stadium, Banks Street, was decimated in a fire. The new arena had a capacity for a crowd of 80,000. Despite failing to their first visiting crew, Liverpool, Manchester United were once again league champions at the end of the first full season playing at Old Trafford."
+        },
+        {
+          "label": "D",
+          "text": "The ensuing years were to be less of a success. From 1912 to the onset of the First World War, no noteworthy achievements were earned. During the war, the football club was discontinued, and only provincial matches took place. In 1919, Manchester United was replaced by league football with only two of the original members on the team."
+        },
+        {
+          "label": "E",
+          "text": "Despite the long and strong tradition of football fandom in Britain, modern football fans have gained a negative reputation for violent outbursts at opposing fans, accumulating the appellation \"football hooligan.\" Numerous academics and therapists have analyzed the wonders of football hooliganism and have offered hypotheses exemplifying its origins. It is generally acknowledged that a mixture of factors can lead to this kind of antagonistic behavior, and it is preposterous to claim that all of it is caused by a certain psychological cosmetic or is exclusive to a particular age group or social standing. However, experts think that raging hooligan activity can give members who feel like they can intensely identify with their group a feeling of belonging and \"family,\" even though the group's manners are negative."
+        },
+        {
+          "label": "F",
+          "text": "Commentators think that the causes of violent outbursts that arise in a global context are vastly more subtle. They argue that while xenophobia and drunkenness undoubtedly play a role, the level of disruption that is likely to happen is mostly determined by police methods. The idea that confrontational guarding is significantly more likely to worsen problems than to settle them is subsidized by evidence. The press's activities have also drawn criticism since some people think that media reporting articles might make the issue of football hooliganism worse."
+        },
+        {
+          "label": "G",
+          "text": "Some trashy tabloid articles, according to opponents, may celebrate violent crimes, or at least the myriad news reports that are publicized in the UK. Because of this problem, offenders get exorbitant attention and accolades for what they did. Few would deny that football hooliganism is a deep societal issue, but many experts believe that sensationalized media coverage may be contributing to the problem by making it appear worse than it actually is. Although it may take some time for the bad image British people have acquired to fade, it is also true that a huge majority of fans merely share an enthusiasm for the sport and do not engage in violent behavior. Severe incidences of hooliganism by British fans have decreased dramatically in recent years."
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose three letters from the list A-G. Write your answers in boxes 1-3 on your answer sheet. (NB Your answers may be given in any",
+          "questions": [
+            {
+              "number": 27,
+              "prompt": "Question 1",
+              "options": [
+                {
+                  "key": "G",
+                  "text": "Write your answers in boxes 1-3 on your answer sheet. (NB Your answers may be given in any"
+                },
+                {
+                  "key": "A",
+                  "text": "In 1902, the Newton Heath Football Club was founded."
+                },
+                {
+                  "key": "B",
+                  "text": "At the time, it was the only club located in Lancashire."
+                },
+                {
+                  "key": "C",
+                  "text": "It evolved from a group with the same name."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Option C is correct based on the passage."
+            },
+            {
+              "number": 28,
+              "prompt": "Question 2",
+              "options": [
+                {
+                  "key": "G",
+                  "text": "Write your answers in boxes 1-3 on your answer sheet. (NB Your answers may be given in any"
+                },
+                {
+                  "key": "A",
+                  "text": "In 1902, the Newton Heath Football Club was founded."
+                },
+                {
+                  "key": "B",
+                  "text": "At the time, it was the only club located in Lancashire."
+                },
+                {
+                  "key": "C",
+                  "text": "It evolved from a group with the same name."
+                },
+                {
+                  "key": "D",
+                  "text": "Option D"
+                }
+              ],
+              "answer": "D",
+              "explanation": "Option D is correct based on the passage."
+            },
+            {
+              "number": 29,
+              "prompt": "on your answer sheet. (NB Your answers may be given in any",
+              "options": [
+                {
+                  "key": "G",
+                  "text": "Write your answers in boxes 1-3 on your answer sheet. (NB Your answers may be given in any"
+                },
+                {
+                  "key": "A",
+                  "text": "In 1902, the Newton Heath Football Club was founded."
+                },
+                {
+                  "key": "B",
+                  "text": "At the time, it was the only club located in Lancashire."
+                },
+                {
+                  "key": "C",
+                  "text": "It evolved from a group with the same name."
+                },
+                {
+                  "key": "F",
+                  "text": "Option F"
+                }
+              ],
+              "answer": "F",
+              "explanation": "Option F is correct based on the passage."
+            }
+          ]
+        },
+        {
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "maxWords": 2,
+          "questions": [
+            {
+              "number": 30,
+              "prompt": "Question 4",
+              "answer": [
+                "heads"
+              ],
+              "explanation": "Found directly in the reading passage: 'heads'."
+            },
+            {
+              "number": 31,
+              "prompt": "Question 5",
+              "answer": [
+                "known"
+              ],
+              "explanation": "Found directly in the reading passage: 'known'."
+            },
+            {
+              "number": 32,
+              "prompt": "Question 6",
+              "answer": [
+                "Yorkshire"
+              ],
+              "explanation": "Found directly in the reading passage: 'Yorkshire'."
+            },
+            {
+              "number": 33,
+              "prompt": "on your answer sheet.",
+              "answer": [
+                "professional"
+              ],
+              "explanation": "Found directly in the reading passage: 'professional'."
+            }
+          ]
+        },
+        {
+          "type": "matching_information",
+          "instruction": "The Reading Passage has 7 paragraphs A-G",
+          "questions": [
+            {
+              "number": 34,
+              "prompt": "News on the conditions set forth in order to provide the club with monetary aid.",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            },
+            {
+              "number": 35,
+              "prompt": "Causes of federal competition disturbances.",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            },
+            {
+              "number": 36,
+              "prompt": "Information on the causes of why the public may inaccurately believe that the issue of",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            },
+            {
+              "number": 37,
+              "prompt": "Discussions regarding the name Manchester United",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            },
+            {
+              "number": 38,
+              "prompt": "on your answer sheet.",
+              "answer": "G",
+              "explanation": "Refer to item G in the passage."
+            }
+          ],
+          "options": [
+            {
+              "key": "G",
+              "text": "Which paragraph contains the following information?"
+            },
+            {
+              "key": "A",
+              "text": "mention of the new contest"
+            }
+          ]
+        },
+        {
+          "type": "true_false_not_given",
+          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees, FALSE if it contradicts, or NOT GIVEN if there is no information.",
+          "questions": [
+            {
+              "number": 39,
+              "prompt": "The information mentioned in the reading passage regarding topic 13 is confirmed.",
+              "answer": "TRUE",
+              "explanation": "Refer to the discussion in the reading passage."
+            },
+            {
+              "number": 40,
+              "prompt": "The information mentioned in the reading passage regarding topic 14 is confirmed.",
+              "answer": "NOT GIVEN",
+              "explanation": "Refer to the discussion in the reading passage."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
