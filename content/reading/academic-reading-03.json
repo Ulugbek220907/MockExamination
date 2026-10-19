@@ -78,7 +78,7 @@
         },
         {
           "type": "classification",
-          "instruction": "Classify the following events as occurring in the period described below. Choose the correct letter, **A, B or C**. **NB** You may use any letter more than once.",
+          "instruction": "Classify the following events according to the period in which they took place. Choose the correct letter, **A, B or C**. **NB** You may use any letter more than once.",
           "optionsTitle": "Periods",
           "options": [
             { "key": "A", "text": "before 1800" },
@@ -89,7 +89,7 @@
             { "number": 18, "prompt": "the use of volcanic ash to make concrete", "answer": "A", "explanation": "Roman builders ‘combined lime with volcanic ash’ (ancient Rome).", "reference": "Paragraph C" },
             { "number": 19, "prompt": "the invention of reinforced concrete", "answer": "B", "explanation": "Monier ‘patented the idea in 1867’.", "reference": "Paragraph F" },
             { "number": 20, "prompt": "the discovery that minerals had grown inside ancient marine concrete", "answer": "C", "explanation": "‘In 2017, a team led by the geologist Marie Jackson found …’", "reference": "Paragraph D" },
-            { "number": 21, "prompt": "the patenting of a cement made from limestone and clay", "answer": "B", "explanation": "Aspdin’s patent dates from 1824.", "reference": "Paragraph E" },
+            { "number": 21, "prompt": "the patenting of a cement made from limestone and clay", "answer": "B", "explanation": "‘The modern era of concrete began in 1824, when Joseph Aspdin … patented a type of cement’ made from limestone and clay.", "reference": "Paragraph E" },
             { "number": 22, "prompt": "an explanation of how Roman concrete sealed its own cracks", "answer": "C", "explanation": "MIT researchers reported this ‘in 2023’.", "reference": "Paragraph D" }
           ]
         },
@@ -181,7 +181,7 @@
                 { "key": "D", "text": "Most shoppers did not notice that the display had changed." }
               ],
               "answer": "A",
-              "explanation": "Only 3% bought after the 24-jam display compared with 30% after the six-jam display. B is wrong: 60% stopped at the larger display.",
+              "explanation": "‘Only 3 per cent of those who had stopped at the large display went on to purchase a jar, compared with 30 per cent at the small display.’ B is wrong: more shoppers stopped at the larger display.",
               "reference": "Paragraph 2"
             },
             {

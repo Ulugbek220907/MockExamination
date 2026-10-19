@@ -241,7 +241,7 @@
               "number": 15,
               "prompt": "Paragraph B",
               "reference": "Paragraph B",
-              "explanation": "Douglass, an astronomer interested in sunspots, turned to trees to find old weather records."
+              "explanation": "Douglass ‘was working as an astronomer’ and wanted to know whether sunspots ‘affected the weather on Earth’; with no old weather records, he turned to trees."
             },
             {
               "answer": "i",
@@ -533,7 +533,7 @@
                 }
               ],
               "reference": "Paragraph 2",
-              "explanation": "Employees keep 100 per cent of pay, work 80 per cent of hours and maintain 100 per cent of output."
+              "explanation": "Employees ‘keep 100 per cent of their pay and work 80 per cent of their previous hours’ while maintaining ‘100 per cent of their output’."
             },
             {
               "answer": "A",

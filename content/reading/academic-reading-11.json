@@ -7,7 +7,7 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Terminated Dinosaur Era",
+      "title": "How the Age of Dinosaurs Began",
       "subtitle": "Geochemical and fossil footprint evidence for asteroid impacts and the rise of dinosaurs",
       "paragraphs": [
         {
@@ -38,7 +38,8 @@
       "groups": [
         {
           "type": "matching_features",
-          "instruction": "Use the information in the passage to match the people (listed **A–C**) with opinions or deeds below.\n\nWrite the correct letter, **A–C**, in boxes **1–6** on your answer sheet.\n\n*NB: You may use any letter more than once.*",
+          "instruction": "Look at the following statements (Questions 1–6) and the list of researchers below. Match each statement with the correct researcher, **A–C**. **NB** You may use any letter more than once.",
+          "optionsTitle": "List of Researchers",
           "options": [
             {
               "key": "A",
@@ -56,100 +57,97 @@
           "questions": [
             {
               "number": 1,
-              "prompt": "Large animals are in a disadvantageous position when disasters happen.",
+              "prompt": "Large animals are at a disadvantage when disasters happen.",
               "answer": "A",
-              "explanation": "Paragraph F notes Olsen pointed out smaller organisms survive catastrophes better.",
+              "explanation": "Olsen ‘points out that during catastrophes, small body size is advantageous because smaller organisms require less food and shelter’.",
               "reference": "Paragraph F"
             },
             {
               "number": 2,
-              "prompt": "Radical changes in carbon types are related to massive extinction of vegetation.",
+              "prompt": "Changes in the types of carbon present occurred at the same time as the impact.",
               "answer": "C",
-              "explanation": "Paragraph D states Peter Ward noted radical changes in carbon isotope ratios reflecting ecosystem collapse.",
+              "explanation": "Peter Ward ‘noted that radical changes in carbon isotope ratios also coincide with the impact boundary’.",
               "reference": "Paragraph D"
             },
             {
               "number": 3,
-              "prompt": "The changes in earth's animal species become easier to identify by adding footprint investigation.",
-              "answer": "A",
-              "explanation": "Paragraph E and F discuss footprint analysis by Olsen's team.",
+              "prompt": "The proportion of fossil tracks made by dinosaurs rose sharply after the extinction.",
+              "answer": "B",
+              "explanation": "Benton noted that dinosaur footprints were ‘less than 20 percent of all fossil tracks’ before the extinction but ‘more than 50 percent’ immediately after.",
               "reference": "Paragraph E"
             },
             {
               "number": 4,
-              "prompt": "Geochemical evidence suggests an asteroid impact before dinosaurs appeared.",
+              "prompt": "Rock samples from the beds of ancient lakes contain signs of an object from space.",
               "answer": "A",
-              "explanation": "Paragraph B explains Olsen's team found iridium spikes pointing to an impact.",
+              "explanation": "Olsen’s team ‘examined sedimentary rock cores drilled from ancient lake basins’ and found iridium, an element ‘abundant in extraterrestrial objects’.",
               "reference": "Paragraph B"
             },
             {
               "number": 5,
-              "prompt": "Footprint study is a way of research.",
+              "prompt": "Ecosystems in the sea and on land collapsed at the same time.",
               "answer": "C",
-              "explanation": "Paragraph D and E connect researchers analyzing footprint records.",
+              "explanation": "Ward says the shifts reflect a collapse in productivity ‘as marine and terrestrial ecosystems collapsed simultaneously’.",
               "reference": "Paragraph D"
             },
             {
               "number": 6,
-              "prompt": "Persuasive clues of an iridium spike were discovered for the first time in Triassic strata.",
-              "answer": "B",
-              "explanation": "Paragraph B and E note findings evaluated by paleontologists.",
+              "prompt": "The amount of iridium at the Triassic–Jurassic boundary is similar to that found where the dinosaurs died out.",
+              "answer": "A",
+              "explanation": "Olsen’s team found that ‘the iridium concentration was comparable to that found at the Cretaceous-Tertiary boundary that marked the extinction of the dinosaurs’.",
               "reference": "Paragraph B"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes **7–13** on your answer sheet, choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 7,
-              "prompt": "The rare element, iridium, was presented both on earth and in meteorites.",
+              "prompt": "Iridium is found both on the Earth’s surface and in objects from space.",
               "answer": "TRUE",
-              "explanation": "Paragraph B states iridium is rare on Earth's surface but abundant in extraterrestrial objects.",
+              "explanation": "Iridium is ‘an element rare on Earth’s surface but abundant in extraterrestrial objects’, so it occurs in both.",
               "reference": "Paragraph B"
             },
             {
               "number": 8,
               "prompt": "The meteor impact theory had been suspected before the discovery of the iridium layer.",
-              "answer": "TRUE",
-              "explanation": "Paragraph A and B confirm the impact hypothesis and its subsequent proof.",
-              "reference": "Paragraph A & B"
+              "answer": "NOT GIVEN",
+              "explanation": "The passage reports the iridium and fern-spore findings but never says whether an impact had been suspected before they were made."
             },
             {
               "number": 9,
-              "prompt": "Footprints are of little value in providing information, in comparison to bone fossils.",
+              "prompt": "Fossil footprints provide little useful information about the period of the extinction.",
               "answer": "FALSE",
-              "explanation": "Paragraph E emphasizes that footprint fossils provide vital clues about population shifts.",
+              "explanation": "The passage says the opposite: ‘Footprint fossils provide further vital clues about how terrestrial ecosystems responded to the crisis.’",
               "reference": "Paragraph E"
             },
             {
               "number": 10,
               "prompt": "According to scientists, the transition to a dinosaur-dominated era took place relatively quickly in geological terms.",
               "answer": "TRUE",
-              "explanation": "Paragraph E notes dinosaur tracks surged within a geological blink of an eye.",
+              "explanation": "Dinosaur tracks rose above 50 percent ‘immediately following the boundary layer’, and theropods spread ‘within a geological blink of an eye’.",
               "reference": "Paragraph E"
             },
             {
               "number": 11,
               "prompt": "The creatures that disappeared in the extinction were exclusively large herbivores.",
               "answer": "FALSE",
-              "explanation": "Paragraph F states dominant predators like phytosaurs and pseudosuchians were wiped out.",
+              "explanation": "The extinction ‘wiped out the large pseudosuchians and phytosaurs’, which were predators competing ‘for predatory dominance’, not just herbivores.",
               "reference": "Paragraph F"
             },
             {
               "number": 12,
               "prompt": "Tyrannosaurus rex was larger in body size than other carnivorous dinosaurs in the Triassic period.",
               "answer": "NOT GIVEN",
-              "explanation": "The text mentions T-rex as a later Jurassic/Cretaceous dinosaur, not comparing Triassic sizes.",
-              "reference": "Paragraph F"
+              "explanation": "Tyrannosaurus rex is not mentioned anywhere in the passage, so no size comparison can be made."
             },
             {
               "number": 13,
-              "prompt": "Large dinosaurs died out but small ones evolved and competed with birds in North America.",
+              "prompt": "Large dinosaurs died out, but small ones survived and competed with birds in North America.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage states birds are avian dinosaurs, but does not discuss competition in North America.",
-              "reference": "Paragraph F"
+              "explanation": "The passage says small carnivorous dinosaurs ‘doubled in size’, but it never mentions birds or North America."
             }
           ]
         }
@@ -157,7 +155,7 @@
     },
     {
       "passageNumber": 2,
-      "title": "Detection of a meteorite Lake",
+      "title": "Detection of a Meteorite Lake",
       "subtitle": "Exploring the paleoclimatic archives of Ghana's Lake Bosumtwi impact crater",
       "paragraphs": [
         {
@@ -188,50 +186,49 @@
       "groups": [
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in Reading Passage 2? In boxes **14–18** on your answer sheet, choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 14,
               "prompt": "With the investigation of the lake, scientists may predict future climate changes more accurately.",
               "answer": "TRUE",
-              "explanation": "Paragraph F notes findings are crucial for calibrating modern global climate models.",
+              "explanation": "The findings are ‘crucial for calibrating modern global climate models’, which should make climate predictions more accurate.",
               "reference": "Paragraph F"
             },
             {
               "number": 15,
-              "prompt": "The crater resulted from a meteorite impact is the largest in West Africa.",
+              "prompt": "The crater formed by the meteorite impact is the largest in West Africa.",
               "answer": "NOT GIVEN",
-              "explanation": "The text states it is an impact crater, but does not claim it is the largest in West Africa.",
-              "reference": "Paragraph A"
+              "explanation": "The crater is ‘nearly eight kilometers wide’, but the passage does not compare it with other craters in West Africa."
             },
             {
               "number": 16,
-              "prompt": "The water stored in lake Bosumtwi was gone only by seeping through the crater floor.",
+              "prompt": "Water leaves Lake Bosumtwi only by seeping through the crater floor.",
               "answer": "FALSE",
-              "explanation": "Paragraph B states lake water levels fluctuate primarily via evaporation and rainfall.",
+              "explanation": "The lake ‘has no river outlets’ and its level ‘is exceptionally sensitive to shifts in rainfall and evaporation’, so water is also lost by evaporation.",
               "reference": "Paragraph B"
             },
             {
               "number": 17,
               "prompt": "Historical climate changes can be detected by the analysis of the sediment layers.",
               "answer": "TRUE",
-              "explanation": "Paragraph B confirms sediment layers act as an environmental tape recorder.",
+              "explanation": "Sediment layers ‘act as an environmental tape recorder, preserving annual varves that document past climatic fluctuations’.",
               "reference": "Paragraph B"
             },
             {
               "number": 18,
-              "prompt": "The greatest obstacle to research of scientists had been the interference of wild animals.",
-              "answer": "FALSE",
-              "explanation": "Paragraph D and E cite fishing nets and logistical challenges, not wild animals.",
-              "reference": "Paragraph D & E"
+              "prompt": "The greatest obstacle the scientists faced was interference from wild animals.",
+              "answer": "NOT GIVEN",
+              "explanation": "The difficulties described are logistics and ‘local fishing nets’; wild animals are never mentioned and no obstacle is called the greatest."
             }
           ]
         },
         {
           "type": "summary_completion",
-          "instruction": "Complete the notes below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.\n\nWrite your answers in boxes **19–22** on your answer sheet.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
-          "content": "To examine the geology beneath Lake Bosumtwi, researchers used specialized equipment. Sound pulses were produced by {{19}}, converting energy into {{20}}. These signals bounced off subsurface strata and were detected along a {{21}} carrying sensitive {{22}}.",
+          "title": "Mapping the crater",
+          "content": "To examine the geology beneath Lake Bosumtwi, researchers used specialised equipment. Devices described as {{19}} were used to generate {{20}}. These signals bounced off the layers below the lake floor and were detected along a {{21}} carrying sensitive {{22}}.",
           "questions": [
             {
               "number": 19,
@@ -239,16 +236,15 @@
                 "air microphones",
                 "high-pressure air microphones"
               ],
-              "explanation": "Paragraph C states sound waves were generated using high-pressure air microphones.",
+              "explanation": "The team generated sound waves ‘using high-pressure air microphones’.",
               "reference": "Paragraph C"
             },
             {
               "number": 20,
               "answer": [
-                "sound waves",
-                "sound wave"
+                "sound waves"
               ],
-              "explanation": "Paragraph C explains pulses generated sound waves.",
+              "explanation": "‘Generating sound waves using high-pressure air microphones’.",
               "reference": "Paragraph C"
             },
             {
@@ -256,7 +252,7 @@
               "answer": [
                 "cable"
               ],
-              "explanation": "Paragraph C mentions hydrophones towed along a cable.",
+              "explanation": "The hydrophones were ‘towed along a cable’.",
               "reference": "Paragraph C"
             },
             {
@@ -265,23 +261,25 @@
                 "hydrophones",
                 "underwater microphones"
               ],
-              "explanation": "Paragraph C describes underwater microphones called hydrophones.",
+              "explanation": "The echoes were recorded ‘with underwater microphones called hydrophones towed along a cable’.",
               "reference": "Paragraph C"
             }
           ]
         },
         {
           "type": "summary_completion",
-          "instruction": "Complete the summary below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.\n\nWrite your answers in boxes **23–27** on your answer sheet.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
-          "content": "All equipment was transported to Ghana in a {{23}}. Researchers used {{24}} to construct an accurate {{26}} model of the crater structure. Recovered core samples were later analyzed in a {{25}}. Throughout the operations, researchers had to be cautious to avoid local {{27}} on the lake.",
+          "title": "The research expedition",
+          "content": "All the equipment was transported to Ghana in a {{23}}. Researchers used {{24}} to construct an accurate {{25}} model of the crater structure. Core samples were later analysed in a {{26}}. Throughout the operations, researchers had to be careful to avoid local {{27}} on the lake.",
           "questions": [
             {
               "number": 23,
               "answer": [
-                "shipping container"
+                "shipping container",
+                "standard shipping container"
               ],
-              "explanation": "Paragraph D states equipment arrived in a shipping container.",
+              "explanation": "‘The team shipped scientific equipment inside a standard shipping container from North America to the port of Tema.’",
               "reference": "Paragraph D"
             },
             {
@@ -289,31 +287,32 @@
               "answer": [
                 "seismic reflection profiling"
               ],
-              "explanation": "Paragraph C notes the team deployed seismic reflection profiling.",
+              "explanation": "‘The researchers deployed high-resolution seismic reflection profiling.’",
               "reference": "Paragraph C"
             },
             {
               "number": 25,
               "answer": [
-                "laboratory"
+                "three-dimensional"
               ],
-              "explanation": "Paragraph F mentions samples were analyzed in a laboratory.",
-              "reference": "Paragraph F"
+              "explanation": "‘This technology enabled them to construct a detailed three-dimensional model of the impact crater.’",
+              "reference": "Paragraph C"
             },
             {
               "number": 26,
               "answer": [
-                "three-dimensional"
+                "laboratory",
+                "specialized laboratory"
               ],
-              "explanation": "Paragraph C describes constructing a three-dimensional model.",
-              "reference": "Paragraph C"
+              "explanation": "Core samples ‘were sealed and transported to a specialized laboratory’ for analysis.",
+              "reference": "Paragraph F"
             },
             {
               "number": 27,
               "answer": [
                 "fishing nets"
               ],
-              "explanation": "Paragraph E describes challenges caused by local fishing nets.",
+              "explanation": "‘Local fishing nets frequently entangled the sensitive hydrophone streamers.’",
               "reference": "Paragraph E"
             }
           ]
@@ -353,7 +352,8 @@
       "groups": [
         {
           "type": "matching_features",
-          "instruction": "Use the information in the passage to match the company (listed **A–F**) with correct category or deeds below.\n\nWrite the correct letter, **A–F**, in boxes **28–34** on your answer sheet.\n\n*NB: You may use any letter more than once.*",
+          "instruction": "Look at the following statements (Questions 28–34) and the list of companies below. Match each statement with the correct company, **A–C**. **NB** You may use any letter more than once.",
+          "optionsTitle": "List of Companies",
           "options": [
             {
               "key": "A",
@@ -366,110 +366,96 @@
             {
               "key": "C",
               "text": "IBM"
-            },
-            {
-              "key": "D",
-              "text": "General enterprise principle"
-            },
-            {
-              "key": "E",
-              "text": "Brand alignment framework"
-            },
-            {
-              "key": "F",
-              "text": "Two-way communication practice"
             }
           ],
           "questions": [
             {
               "number": 28,
-              "prompt": "Aligning internal corporate culture with external advertising commitments",
-              "answer": "D",
-              "explanation": "Paragraph A introduces the core principle of aligning employee messages with marketplace ads.",
-              "reference": "Paragraph A"
+              "prompt": "Its advertising admitted that customers were unhappy with the service they received.",
+              "answer": "A",
+              "explanation": "United’s ‘Rising’ campaign ‘sought to acknowledge customer frustrations with air travel and promise better service’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 29,
-              "prompt": "Educated global staff thoroughly on new strategic focus before advertising it externally",
+              "prompt": "It explained a new business direction to its staff before promoting it to clients.",
               "answer": "C",
-              "explanation": "Paragraph B outlines how IBM educated staff on e-business prior to client marketing.",
+              "explanation": "IBM ran an internal campaign ‘educating tens of thousands of staff worldwide on what e-business meant before marketing the concept’ to clients.",
               "reference": "Paragraph B"
             },
             {
               "number": 30,
-              "prompt": "Immersed new recruits in founding stories and athletic heritage",
+              "prompt": "It teaches new employees about the people who started the company.",
               "answer": "B",
-              "explanation": "Paragraph D describes how Nike introduces new hires to its founders' heritage.",
+              "explanation": "Nike’s new hires learn ‘the company’s heritage through stories of founders Phil Knight and Bill Bowerman’.",
               "reference": "Paragraph D"
             },
             {
               "number": 31,
-              "prompt": "Encouraging upward employee feedback to refine operational execution",
-              "answer": "F",
-              "explanation": "Paragraph F stresses the importance of two-way communication and employee feedback.",
-              "reference": "Paragraph F"
+              "prompt": "Its workers felt that its advertisements promised more than could be delivered.",
+              "answer": "A",
+              "explanation": "United’s ‘disillusioned workers felt the ads set unrealistic expectations’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 32,
-              "prompt": "Successfully transformed business identity from hardware to e-business solutions",
+              "prompt": "It moved its main focus away from manufacturing hardware.",
               "answer": "C",
-              "explanation": "Paragraph B describes IBM's strategic shift to e-business.",
+              "explanation": "IBM ‘shifted its strategic focus from hardware manufacturing to e-business solutions’.",
               "reference": "Paragraph B"
             },
             {
               "number": 33,
-              "prompt": "Failed to engage frontline employees, resulting in employee cynicism",
+              "prompt": "It did not consult front-line employees when developing a campaign.",
               "answer": "A",
-              "explanation": "Paragraph C describes United Airlines failing to involve flight attendants in its 'Rising' campaign.",
+              "explanation": "At United, ‘management failed to involve frontline employees, such as flight attendants and gate agents’.",
               "reference": "Paragraph C"
             },
             {
               "number": 34,
-              "prompt": "Framework connecting managerial vision, organizational culture, and corporate image",
-              "answer": "E",
-              "explanation": "Paragraph E describes aligning vision, culture, and image.",
-              "reference": "Paragraph E"
+              "prompt": "It wants its slogan to be reflected in how staff design products and deal with customers.",
+              "answer": "B",
+              "explanation": "Nike ‘ensures that staff embody the spirit of “Just Do It” in every product design and customer interaction’.",
+              "reference": "Paragraph D"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in Reading Passage 3? In boxes **35–38** on your answer sheet, choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 35,
-              "prompt": "Employers in almost all companies successfully make their employees fully embrace brand values.",
+              "prompt": "Most companies make a serious effort to market themselves to their own employees.",
               "answer": "FALSE",
-              "explanation": "Paragraph A states internal marketing is an afterthought at most companies.",
+              "explanation": "‘At most companies, internal marketing is an afterthought—a quick email blast or a poster in the cafeteria.’",
               "reference": "Paragraph A"
             },
             {
               "number": 36,
-              "prompt": "IBM prioritized educating staff about e-business prior to launching external marketing campaigns.",
+              "prompt": "IBM’s chief executive believed that the success of the company’s change of direction depended on its employees.",
               "answer": "TRUE",
-              "explanation": "Paragraph B explains staff were educated before marketing the concept to clients.",
+              "explanation": "Gerstner ‘realized that the transformation would fail unless employees understood and embraced the new direction’.",
               "reference": "Paragraph B"
             },
             {
               "number": 37,
-              "prompt": "United Airlines' 'Rising' campaign faced problems because frontline staff were not consulted during development.",
+              "prompt": "In the framework described, ‘image’ refers to the way people outside the company see it.",
               "answer": "TRUE",
-              "explanation": "Paragraph C confirms management failed to involve frontline employees.",
-              "reference": "Paragraph C"
+              "explanation": "‘Image represents how external stakeholders perceive the company.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 38,
               "prompt": "Nike spent more money on internal employee storytelling than on television advertising.",
               "answer": "NOT GIVEN",
-              "explanation": "The text discusses storytelling at Nike headquarters but provides no budget comparisons.",
-              "reference": "Paragraph D"
+              "explanation": "Nike’s storytelling for new staff is described, but no spending figures or comparison with television advertising are given."
             }
           ]
         },
         {
           "type": "choose_multiple",
-          "instruction": "Choose **TWO** letters, **A–E**.\n\nWrite your answers in boxes **39** and **40** on your answer sheet.",
-          "prompt": "Which **TWO** of the following represent effective internal marketing strategies highlighted in the passage?",
+          "instruction": "Choose **TWO** letters, **A–E**.",
           "options": [
             {
               "key": "A",
@@ -492,20 +478,19 @@
               "text": "Aligning corporate vision, workplace culture, and external image"
             }
           ],
+          "prompt": "Which TWO of the following are presented in the passage as features of effective internal marketing?",
           "answer": [
             "B",
             "E"
           ],
+          "explanation": "B: IBM was ‘educating tens of thousands of staff worldwide … before marketing the concept’ (Paragraph B). E: internal branding ‘succeeds when leaders align three key elements: vision, culture, and image’ (Paragraph E). A is called ‘an afterthought’; C and D are the opposite of what the passage recommends.",
+          "reference": "Paragraphs B and E",
           "questions": [
             {
-              "number": 39,
-              "explanation": "Educating employees before public launch was demonstrated by IBM.",
-              "reference": "Paragraph B"
+              "number": 39
             },
             {
-              "number": 40,
-              "explanation": "Aligning vision, culture, and image is emphasized as key to internal branding.",
-              "reference": "Paragraph E"
+              "number": 40
             }
           ]
         }

@@ -15,205 +15,210 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Skim and scan the below reading passage to answer all the given questions (1 - 13). Also, find the Population viability analysis reading answers below the questions."
+          "text": "To make political decisions about the size and kind of forestry in a region, it is essential to comprehend the implications of those decisions. Population viability analysis (PVA) is a tool for estimating the effect of forestry on the ecosystem. It is a tool that predicts the possibility of extinction of a species in a certain area over a period of time. It has been used successfully in the United States to provide input on resource exploitation decisions and to help wildlife managers. There is now a huge possibility for using population viability to aid wildlife management in Australia's forests."
         },
         {
           "label": null,
-          "text": "Population Viability Analysis"
+          "text": "A species vanishes when the last individual dies. This observation is a helpful starting point for any talk of extinction, as it highlights the part of luck and chance in the process of extinction. To make a prediction about extinction, we need to comprehend the methods that contribute to it, and these fall into the four broad types discussed below."
         },
         {
           "label": null,
-          "text": "To make political decisions about the size and kind of forest in a region, it is essential to comprehend the implications of those decisions. Population viability analysis (PVA) is a tool for estimating the effect of forests on the ecosystem. It is a tool that predicts the possibility of extinction of a species in a certain area over a period of time. It has been used successfully in the United States to provide input on resource exploitation decisions and to help wildlife managers. There is now a huge possibility for using population viability to aid wildlife management in Australia's forests."
-        },
-        {
-          "label": "A",
-          "text": "species vanishes when the last person dies. This observation is a helpful starting point for any talk of destruction, as it highlights the part of luck and chance in the process of destruction. To make a prediction about destruction, we need to comprehend the methods that contribute to it, these are the four wide types discussed below."
+          "text": "Early attempts to assume population viability were based on population uncertainty: whether an individual will survive from one year to the next is frequently a matter of chance. Some pairs can produce multiple young in the same year, while others will not produce anything in the same year. Small populations will fluctuate greatly due to the inconsistency of birth and death, and these likely fluctuations will, on average, cause species extinction even as the population size increases. Considering only this uncertainty of reproductive ability, extinction is not possible if the number of individuals in a population is over 50 and the population is expanding."
         },
         {
           "label": null,
-          "text": "Early attempts to assume population viability was based on population uncertainty whether a person will survive from one year to the next is frequently a prospect. Some couples can produce multiple pups in the same year, while others will not produce anything in the same year. Small populations will fluctuate greatly due to the inconsistency of birth and death, and these likely fluctuations will, on average, cause species extinction even as the population size increases. Considering only this uncertainty of reproductive ability, extinction is not possible if the number of people in a population is over 50 and the population is expanding."
-        },
-        {
-          "label": "A",
-          "text": "small amount of breeding cannot be avoided by small populations. This is especially true if you have a very little number of genders. For illustration, if there are only 20 persons in a race and only one man, then all future persons in that species must be descended from that one man. For most animal species, such individuals are probably not able to survive and reproduce. Increases the chance of breeding extinction."
+          "text": "A small amount of inbreeding cannot be avoided by small populations. This is especially true if there is a very small number of one sex. For illustration, if there are only 20 individuals in a population and only one male, then all future individuals in that population must be descended from that one male. For most animal species, such inbred individuals are probably less able to survive and reproduce. Inbreeding increases the chance of extinction."
         },
         {
           "label": null,
-          "text": "Variation in a species is the raw material from which natural choice operates. Without genetic variation, a species does not have the ability to grow and adapt to changes in its environment or to new predators and new illnesses. Loss of genetic variation associated with population decline may contribute to the possibility of extinction."
-        },
-        {
-          "label": "A",
-          "text": "recent study shows that other aspects need to be considered. Australia's environment is highly volatile from year to year. These changes add another degree of uncertainty to the survival of many organisms. Disasters such as fire, flood, drought, or epidemics can reduce the population to a small part of their average level. When these two additional uncertainties are paid for, the population needed to sustain a few hundred years can increase by thousands."
+          "text": "Variation in a species is the raw material from which natural selection operates. Without genetic variation, a species does not have the ability to grow and adapt to changes in its environment or to new predators and new illnesses. Loss of genetic variation associated with population decline may contribute to the possibility of extinction."
         },
         {
           "label": null,
-          "text": "Apart from these processes, we need to keep in mind the population distribution. A species that happens in five isolated areas do not have the possibility of extinction of a race of 100 persons in the same place with 20 persons each."
+          "text": "A recent study shows that other aspects need to be considered. Australia's environment is highly volatile from year to year. These changes add another degree of uncertainty to the survival of many organisms. Disasters such as fire, flood, drought, or epidemics can reduce the population to a small part of their average level. When these two additional uncertainties are accounted for, the population needed to sustain a few hundred years can increase by thousands."
         },
         {
           "label": null,
-          "text": "Where trees are cut down, forest-dwelling creatures are forced to flee. Ground-dwelling plants can return within a decade. Nevertheless, arboreal marsupials (i.e., tree-dwelling animals) have not been able to regain pre-recorded density for more than a century. As more forests are destroyed, the number of animals will further decrease. Regardless of the theory or model we prefer, reducing the size of the population reduces the genetic variation of the population and raises the probability of extinction due to any or all of the methods listed above. So it is a scientific truth that expanding the loaded area in any region will boost the chances of extinction of forest-dependent animals."
+          "text": "Apart from these processes, we need to keep in mind the population distribution. A species that occurs in five isolated areas with 20 individuals each does not have the same possibility of extinction as a population of 100 individuals in the same place."
+        },
+        {
+          "label": null,
+          "text": "Where trees are cut down, forest-dwelling creatures are forced to flee. Ground-dwelling plants can return within a decade. Nevertheless, arboreal marsupials (i.e., tree-dwelling animals) have not been able to regain pre-logging density for more than a century. As more forests are destroyed, the number of animals will further decrease. Regardless of the theory or model we prefer, reducing the size of the population reduces the genetic variation of the population and raises the probability of extinction due to any or all of the methods listed above. So it is a scientific truth that expanding the logged area in any region will boost the chances of extinction of forest-dependent animals."
         }
       ],
       "groups": [
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 1? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 1,
-              "prompt": "Population viability analysis (PVA) is a tool for assessing the impact of forests on",
+              "prompt": "Population viability analysis is a tool for assessing the impact of forestry on the ecosystem.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘Population viability analysis (PVA) is a tool for estimating the effect of forestry on the ecosystem.’",
+              "reference": "Paragraph 1"
             },
             {
               "number": 2,
-              "prompt": "There is now less possibility for using population viability to aid wildlife",
+              "prompt": "There is now little possibility of using population viability analysis to aid wildlife management in Australia’s forests.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "The writer says ‘There is now a huge possibility for using population viability to aid wildlife management in Australia's forests.’",
+              "reference": "Paragraph 1"
             },
             {
               "number": 3,
-              "prompt": "Early tries to assume population viability was based on population uncertainty",
-              "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "prompt": "Early attempts to predict population viability were based on population uncertainty.",
+              "answer": "YES",
+              "explanation": "‘Early attempts to assume population viability were based on population uncertainty’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 4,
-              "prompt": "Destruction of the species in a particular area is a natural thing.",
+              "prompt": "The extinction of a species in a particular area is a natural process.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The writer stresses ‘the part of luck and chance’ in extinction but never says whether it is natural."
             },
             {
               "number": 5,
-              "prompt": "All pairs can produce multiple babies in the same year.",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "prompt": "All pairs can produce multiple young in the same year.",
+              "answer": "NO",
+              "explanation": "‘Some pairs can produce multiple young in the same year, while others will not produce anything’, so not all pairs do.",
+              "reference": "Paragraph 3"
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 6,
-              "prompt": "Extinction is not possible if the number of people in a population is over",
+              "prompt": "Considering only population uncertainty, extinction is not possible if a population is expanding and has over {{6}} individuals.",
               "answer": [
-                "decisions"
+                "50",
+                "fifty"
               ],
-              "explanation": "Found directly in the reading passage: 'decisions'."
+              "explanation": "‘Extinction is not possible if the number of individuals in a population is over 50 and the population is expanding.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 7,
-              "prompt": "If there are only 20 persons in a race and only one man, then all future persons in",
+              "prompt": "If a population of 20 has only one male, all future individuals must be descended from that {{7}}.",
               "answer": [
-                "I"
+                "one male",
+                "male"
               ],
-              "explanation": "Found directly in the reading passage: 'I'."
+              "explanation": "‘All future individuals in that population must be descended from that one male.’",
+              "reference": "Paragraph 4"
             },
             {
               "number": 8,
-              "prompt": "Variation in a ______ is the raw material from which natural choice operates.",
+              "prompt": "Variation in a {{8}} is the raw material on which natural selection operates.",
               "answer": [
-                "starting"
+                "species"
               ],
-              "explanation": "Found directly in the reading passage: 'starting'."
+              "explanation": "‘Variation in a species is the raw material from which natural selection operates.’",
+              "reference": "Paragraph 5"
             },
             {
               "number": 9,
-              "prompt": "Loss of genetic variation associated with population reduction may contribute to",
+              "prompt": "Loss of genetic variation linked to population decline may increase the possibility of {{9}}.",
               "answer": [
-                "will",
-                "may"
+                "extinction"
               ],
-              "explanation": "Found directly in the reading passage: 'will'."
+              "explanation": "Loss of genetic variation ‘may contribute to the possibility of extinction’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 10,
-              "prompt": "Australia's environment is highly ______ from year to year.",
+              "prompt": "Australia’s environment is highly {{10}} from year to year.",
               "answer": [
-                "distribution"
+                "volatile"
               ],
-              "explanation": "Found directly in the reading passage: 'distribution'."
+              "explanation": "‘Australia's environment is highly volatile from year to year.’",
+              "reference": "Paragraph 6"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, A, B, C, or D",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 11,
-              "prompt": "Disasters such as fire, flood, drought, or epidemics can reduce the population to",
+              "prompt": "Disasters such as fire, flood, drought or epidemics can reduce a population to",
               "options": [
                 {
                   "key": "A",
-                  "text": "A. small part of their low level"
+                  "text": "a small part of its lowest level."
                 },
                 {
                   "key": "B",
-                  "text": "small part of their high level"
+                  "text": "a small part of its highest level."
                 },
                 {
                   "key": "C",
-                  "text": "small part of their average level"
+                  "text": "a small part of its average level."
                 },
                 {
                   "key": "D",
-                  "text": "huge part of their average level"
+                  "text": "a large part of its average level."
                 }
               ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "answer": "C",
+              "explanation": "Disasters ‘can reduce the population to a small part of their average level’; nothing is said of its lowest or highest level.",
+              "reference": "Paragraph 6"
             },
             {
               "number": 12,
-              "prompt": "Ground-dwelling plants can return within",
+              "prompt": "According to the passage, ground-dwelling plants can return within",
               "options": [
                 {
                   "key": "A",
-                  "text": "a century"
+                  "text": "a century."
                 },
                 {
                   "key": "B",
-                  "text": "10 years"
+                  "text": "10 years."
                 },
                 {
                   "key": "C",
-                  "text": "20 years"
+                  "text": "20 years."
                 },
                 {
                   "key": "D",
-                  "text": "a decade"
+                  "text": "five years."
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "Plants ‘can return within a decade’, i.e. 10 years; it is arboreal marsupials that take ‘more than a century’.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 13,
-              "prompt": "Reducing the size of the population reduces the genetic variation of the",
+              "prompt": "Reducing the size of a population reduces the genetic variation of the",
               "options": [
                 {
                   "key": "A",
-                  "text": "species"
+                  "text": "species."
                 },
                 {
                   "key": "B",
-                  "text": "population"
+                  "text": "population."
                 },
                 {
                   "key": "C",
-                  "text": "plants"
+                  "text": "plants."
                 },
                 {
                   "key": "D",
-                  "text": "trees"
+                  "text": "trees."
                 }
               ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "answer": "B",
+              "explanation": "‘Reducing the size of the population reduces the genetic variation of the population’; plants, trees and the species as a whole are not mentioned here.",
+              "reference": "Paragraph 8"
             }
           ]
         }
@@ -225,10 +230,6 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Read the IELTS passage given below carefully before writing the Second Nature Reading Answers . You can go through the questions first and then mark the answers as you read through the passage."
-        },
-        {
-          "label": null,
           "text": "Psychologists for a long time have said that a person cannot undergo transformation in their character in any meaningful way and that the key traits of personality are determined at a very young age. Researchers however began looking more closely on how we can change. Positive psychologists have found 24 qualities we appreciate, such as kindness and loyalty, and are studying them to find out why they are found naturally in few people. What they discovered is that many of these qualities come from habitual behaviour that decide the way we react to the world. And the good news is that such qualities can be learned by anyone."
         },
         {
@@ -237,7 +238,7 @@
         },
         {
           "label": null,
-          "text": "'The evidence says that most personality traits can be changed,' says, psychology professor Christopher Peterson of the University of Michigan, who cites himself as an example. Inherently introverted, he realised early on that as an academic, his reserved character was disastrous in the lecture hall. So he learned to entertain his classes and be more outgoing. He says 'his extroverted behaviour is now spontaneous'."
+          "text": "'The evidence says that most personality traits can be changed,' says psychology professor Christopher Peterson of the University of Michigan, who cites himself as an example. Inherently introverted, he realised early on that as an academic, his reserved character was disastrous in the lecture hall. So he learned to entertain his classes and be more outgoing. He says 'his extroverted behaviour is now spontaneous'."
         },
         {
           "label": null,
@@ -249,7 +250,7 @@
         },
         {
           "label": null,
-          "text": "By a person's involvement you can recognise a person who is passionate about a pursuit. Tanya Streeter is passionate about freediving - the sport of jumping into the water without any tanks or other breathing equipment. From 1998, she set 9 world records and can hold her breath for 6 minutes. The physical stamina required and the psychological demands for this sport is intense and overwhelming. Streeter learned to fight her fears from her judgement of what her body and mind could do. 'There was a limit to what I could do in my career as a competitive freediver, - but it wasn't anywhere near what I thought it was - she says."
+          "text": "By a person's involvement you can recognise a person who is passionate about a pursuit. Tanya Streeter is passionate about freediving - the sport of jumping into the water without any tanks or other breathing equipment. From 1998, she set 9 world records and can hold her breath for 6 minutes. The physical stamina required and the psychological demands for this sport is intense and overwhelming. Streeter learned to fight her fears from her judgement of what her body and mind could do. 'There was a limit to what I could do in my career as a competitive freediver, but it wasn't anywhere near what I thought it was,' she says."
         },
         {
           "label": null,
@@ -257,11 +258,11 @@
         },
         {
           "label": null,
-          "text": "Physician and scientist Mauro Zappaterra in 2004 began his PhD research at Harvard Medical School. Unfortunately, he was desperate as his research wasn't compatible with his curiosity about healing. He then took a break and during 8 months in Santa Fe, Zappaterra learned about alternative healing techniques not taught at Harvard. He switched labs to study how cerebrospinal fluid nourished the developing nervous system, when he returned. Including in his failure, he vowed to look for the joy in everything, as this could help him learn about his research and himself."
+          "text": "Physician and scientist Mauro Zappaterra in 2004 began his PhD research at Harvard Medical School. Unfortunately, he was desperate as his research wasn't compatible with his curiosity about healing. He then took a break and during 8 months in Santa Fe, Zappaterra learned about alternative healing techniques not taught at Harvard. When he returned, he switched labs to study how cerebrospinal fluid nourished the developing nervous system. He vowed to look for the joy in everything, including failure, as this could help him learn about his research and himself."
         },
         {
-          "label": "A",
-          "text": "person's concentration on avoiding failure rather than their looking forward to doing something well can hold his joy back. 'Focusing on being safe always might not help you reach your goals,' explains Kashdan. For example, will you be worried about getting through a business lunch without embarrassing yourself, or will you think about how interesting the conversation would be?"
+          "label": null,
+          "text": "A person's concentration on avoiding failure rather than their looking forward to doing something well can hold his joy back. 'Focusing on being safe always might not help you reach your goals,' explains Kashdan. For example, will you be worried about getting through a business lunch without embarrassing yourself, or will you think about how interesting the conversation would be?"
         },
         {
           "label": null,
@@ -275,7 +276,8 @@
       "groups": [
         {
           "type": "matching_features",
-          "instruction": "Look at the following Questions 14-18 and the list of the statements below.",
+          "instruction": "Look at the following statements (Questions 14–18) and the list of people below. Match each statement with the correct person, **A–F**.",
+          "optionsTitle": "List of People",
           "options": [
             {
               "key": "A",
@@ -305,110 +307,124 @@
           "questions": [
             {
               "number": 14,
-              "prompt": "The evidence says that most personality traits can be changed",
+              "prompt": "claims there is evidence that most personality traits can be changed",
               "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "explanation": "Peterson: ‘The evidence says that most personality traits can be changed’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 15,
-              "prompt": "He had an accident while preparing for university which ended his sports career.",
+              "prompt": "responded to an accident that ended a sports career by helping other students",
               "answer": "D",
-              "explanation": "Refer to item D in the passage."
+              "explanation": "Fajgenbaum ‘had an accident which ended his sports career’ and ‘to help others in similar situations he launched a support group’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 16,
-              "prompt": "Rather than positive thinking the key to increasing optimism is through developing",
+              "prompt": "believes optimism is increased by optimistic behaviour rather than positive thinking",
               "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "explanation": "Segerstrom ‘believes that rather than positive thinking the key to increasing optimism is through developing optimistic behaviour’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 17,
-              "prompt": "Passionate about freediving",
+              "prompt": "discovered that the limits of what could be achieved were further away than expected",
               "answer": "C",
-              "explanation": "Refer to item C in the passage."
+              "explanation": "Streeter: ‘There was a limit to what I could do … but it wasn't anywhere near what I thought it was’.",
+              "reference": "Paragraph 6"
             },
             {
               "number": 18,
-              "prompt": "Passion requires discipline, hard work and ability, which is why they are so rewarding.",
+              "prompt": "says that passions are rewarding because they require discipline, hard work and ability",
               "answer": "E",
-              "explanation": "Refer to item E in the passage."
+              "explanation": "Silvia says passions ‘require discipline, hard work and ability, which is why they are so rewarding’.",
+              "reference": "Paragraph 7"
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
           "questions": [
             {
               "number": 19,
-              "prompt": "Physician and scientist Mauro Zappaterra in 2004 began his PhD research at ______",
+              "prompt": "In 2004, Mauro Zappaterra began his PhD research at {{19}}.",
               "answer": [
-                "Harvard Medical"
+                "Harvard Medical School",
+                "Harvard"
               ],
-              "explanation": "Found directly in the reading passage: 'Harvard Medical'."
+              "explanation": "‘Mauro Zappaterra in 2004 began his PhD research at Harvard Medical School.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 20,
-              "prompt": "Focusing on being ______ always might not help you reach your goals.",
+              "prompt": "Kashdan says that always focusing on being {{20}} might not help you reach your goals.",
               "answer": [
                 "safe"
               ],
-              "explanation": "Found directly in the reading passage: 'safe'."
+              "explanation": "‘Focusing on being safe always might not help you reach your goals,’ explains Kashdan.",
+              "reference": "Paragraph 9"
             },
             {
               "number": 21,
-              "prompt": "______ demands something else even though we think of courage in physical terms.",
+              "prompt": "Although we think of courage in physical terms, {{21}} demands something else.",
               "answer": [
-                "Ordinary life"
+                "ordinary life"
               ],
-              "explanation": "Found directly in the reading passage: 'Ordinary life'."
+              "explanation": "‘Ordinary life demands something else even though we think of courage in physical terms.’",
+              "reference": "Paragraph 10"
             },
             {
               "number": 22,
-              "prompt": "Picking up a new ______ over the long term may help you move toward being the",
+              "prompt": "Picking up a new {{22}} may, over the long term, help you become the person you want to be.",
               "answer": [
                 "character trait"
               ],
-              "explanation": "Found directly in the reading passage: 'character trait'."
+              "explanation": "‘Picking up a new character trait over the long term may help you move toward being the person you want to be.’",
+              "reference": "Paragraph 11"
             },
             {
               "number": 23,
-              "prompt": "Pury also believes that people can develop ______.",
+              "prompt": "Cynthia Pury believes that people are able to develop {{23}}.",
               "answer": [
-                "Courage"
+                "courage"
               ],
-              "explanation": "Found directly in the reading passage: 'Courage'."
+              "explanation": "‘Pury also believes that people can develop courage.’",
+              "reference": "Paragraph 10"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 2? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 24,
-              "prompt": "A person cannot undergo transformation in their character in any meaningful way and",
+              "prompt": "Psychologists have long claimed that a person’s character cannot change in any meaningful way.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘Psychologists for a long time have said that a person cannot undergo transformation in their character in any meaningful way’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 25,
-              "prompt": "Some qualities like optimism are more challenging to develop than others.",
+              "prompt": "Some qualities, such as optimism, are more difficult to develop than others.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "The writer says the opposite: ‘Some qualities like optimism are less challenging to develop than others.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 26,
-              "prompt": "Training yourself to write down 3 positive things that come about each day is good to pay",
+              "prompt": "Writing down three positive things every day can help you notice good fortune.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "Segerstrom recommends you ‘write down 3 positive things that come about each day to pay attention to good fortune’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 27,
               "prompt": "Meditation can help you change your character.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "Meditation is not mentioned anywhere in the passage."
             }
           ]
         }
@@ -420,31 +436,27 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Our newly developed Research using twins reading passage and its answers are given here."
+          "text": "Researchers in the biomedical field across the globe consider twins as a golden opportunity to unearth the interconnection between genes and the environment - of nature and nurture. However, since identical twins come from a single fertilised egg that splits into two separate parts, they will have the exact same code of genetics. Any variations between them, like one of the twins having younger-looking skin, must therefore be because of environmental aspects like absorbing fewer sun rays."
         },
         {
           "label": null,
-          "text": "Researchers in the biomedical field across the globe consider twins as a golden opportunity to unearth the interconnection between genes and the environment - of nature and nurture. It may be the genetic cause or differences between the young skin. However, since identical twins happen from a single fertilised egg that diverts it into two separate parts, they will have the exact same code of genetics. They might have any variations, like one of the twins having younger-looking skin. For instance, it must have been because of environmental aspects like absorbing fewer sun rays."
+          "text": "On the other hand, when we compare the experiences of identical twins with those of fraternal twins, who are from different eggs and have almost half of their DNA, it is quantifiable by researchers to what extent our genes impact our entire lives. When identical twins are more similar to each other than fraternal twins are in terms of an ailment, vulnerability to that disease must be partly a matter of heredity."
         },
         {
           "label": null,
-          "text": "On the other hand, when we compare the experiences of identical twins with those of fraternal twins, who are from different eggs and have almost half of their DNA, it is quantifiable by researchers to what extent our genes impact our entire lives. When the identical twins are more similar compared to fraternal twins in terms of an ailment, they become more vulnerable to any disease as it becomes a part of their heredity."
+          "text": "These two different lines of research - understanding the differences between identical twins to highlight the impact of environment, and making comparison of identical twins and fraternal ones to determine the influence of inheritance - are critical to knowing the inter-relation between nature and nurture in order to find out our personalities, illness, behaviour, and amount of vulnerability to any infection or disease."
         },
         {
           "label": null,
-          "text": "These two different research - understanding the differences between identical twins to highlight the impact of environment, and making comparison of identical twins and fraternal ones to determine the influence of inheritance - being critical to know the inter-relation between nature and nurture in order to find out our personalities, illness, behaviour, and amount of vulnerability to any infection or disease."
+          "text": "The concept behind using twins to determine the impact of heredity goes back to 1875 when the English scientist Francis Galton first recommended that idea (and invented the phrase 'nature and nurture'). However, studies on twins took an astonishing twist during the 1980s, after introducing various studies into identical twins who were living separately after birth and reunited when they reached adulthood. For more than two decades, 137 pairs of twins, found through newspaper advertisements, visited Thomas Bouchard's research centre, which later became known as the Minnesota Study of Twins Reared Apart. Besides that, many experiments were conducted on the twins, and each of them was asked more than 15,000 questions."
         },
         {
           "label": null,
-          "text": "The concept behind using twins to determine the impact of heredity goes back to 1875 when the English scientist Francis Galton first recommended that idea (and invented a term or the phrase 'nature and nurture') and considered a greater risk. However studies on twins lead to an astonishing twist during the 1980s, after introducing various studies into identical twins who were living separately after birth and reunited when they reached adulthood. For more than two decades, almost 137 twin people visited Thomas Bouchard's research place that is advertised in newspapers. which later became known as the Minnesota Study of Twins Reared Apart. Besides that, many experiments were conducted on the twins, and each of them were asked more than 15,000 questions."
+          "text": "Bouchard and his associates made use of these tons of information to examine how far twins were impacted due to their genetic conditions. They used a statistical concept known as heritability for their approach. Generally, the heritability trait calculates the differences between the population members and differences in their genetic background and illustrates it accordingly. At last, Bouchard and his coworkers found the unseen side of genetic influence that is useful for us to shape our lives genetically."
         },
         {
           "label": null,
-          "text": "Bouchard and his associates made use of these tons of information to examine how far twins were impacted due to their genetic conditions. They handled a statistical concept known as heritability for their approach. Generally, the heritability trait calculates the differences between the population members and differences in their genetic background and illustrates it accordingly. At last, Bouchard and his coworkers found the unseen side of genetic influence that is useful for us to shape our lives genetically."
-        },
-        {
-          "label": null,
-          "text": "Twin studies have been a fortune for famous scientists to a radical new concept: that nature and nurture are not the only sources during the work. Recently, a research study called epigenetics found that there's another factor that comes into play. Previously, one found that in some cases it serves as a connecting bridge between our genes and the environment. The second is that it performs on its own to be who we are."
+          "text": "Twin studies have led scientists to a radical new concept: that nature and nurture are not the only forces at work. Recently, a research study called epigenetics found that there's another factor that comes into play. First, it was found that in some cases it serves as a connecting bridge between our genes and the environment. Second, it can act on its own to shape who we are."
         },
         {
           "label": null,
@@ -456,15 +468,15 @@
         },
         {
           "label": null,
-          "text": "On one hand, the research on epigenetics has newly evolved our basic understanding of science, especially Biology by exhibiting a system through which the environment has a direct consequence on genes. Similarly, further study on animals, for instance, revealed that when a rat feels stressed at the time of pregnancy, it can lead to epigenetic changes in a foetus that causes behavioural issues since the mice develop. Interestingly, twins who had lived apart had similar traits. There are also other epigenetic processes that come at any time, whereas others have been normal, like those that guide embryonic cells as they later develop into different parts like a heart, brain, liver cells, etc."
+          "text": "On one hand, the research on epigenetics has newly evolved our basic understanding of science, especially Biology by exhibiting a system through which the environment has a direct consequence on genes. Similarly, further study on animals, for instance, revealed that when a rat feels stressed at the time of pregnancy, it can lead to epigenetic changes in a foetus that causes behavioural issues as the rat grows up. Interestingly, twins who had lived apart had similar traits. There are also some epigenetic processes that occur at random, whereas others are normal, like those that guide embryonic cells as they later develop into different parts like a heart, brain, liver cells, etc."
         },
         {
           "label": null,
-          "text": "There was a famous geneticist, Danielle Reed who conducted research with more twin people to understand the epigenetic process, the genes activity, the internal influence and analysed deeply based on the inferences. However, it's crystal clear when you learn what twins have shared with us until now. It was observed that numerous things are similar in nature and cannot be changed. Moreover, it's clear that when you understand deeper, certain things are different between them. Epigenetics is pioneered for a lot of these contradictions, according to the researcher."
+          "text": "The geneticist Danielle Reed has conducted research with many twins to understand the epigenetic process, the genes activity, the internal influence and analysed deeply based on the inferences. However, it's crystal clear when you learn what twins have shared with us until now. It was observed that numerous things are similar in nature and cannot be changed. Moreover, it's clear that when you understand deeper, certain things are different between them. Epigenetics is responsible for a lot of these contradictions, according to the researcher."
         },
         {
           "label": null,
-          "text": "Another distinguished researcher Reed with certain characteristics gives credit to Thomas Bouchard's contribution to the present rise in studies related to twins. 'He was the trailblazer', she said. We did not remember 50 years ago components like various diseases were caused by poor lifestyle for measuring genetic influences. Likewise, Schizophrenia was due to poor mothering and lack of knowledge about nurturing. Twin studies opened new horizons mathematically that are more reflective of what people have inherently and what is developed based on experience."
+          "text": "Reed gives credit to Thomas Bouchard for the present rise in studies related to twins. 'He was the trailblazer', she said. Fifty years ago, people believed that various diseases were caused by poor lifestyle. Likewise, schizophrenia was thought to be due to poor mothering and lack of knowledge about nurturing. Twin studies opened new horizons mathematically that are more reflective of what people have inherently and what is developed based on experience."
         },
         {
           "label": null,
@@ -474,54 +486,63 @@
       "groups": [
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 28,
-              "prompt": "Identical twins come from?",
+              "prompt": "What do identical twins develop from?",
               "answer": [
-                "answers"
+                "fertilised egg",
+                "fertilized egg"
               ],
-              "explanation": "Found directly in the reading passage: 'answers'."
+              "explanation": "‘Identical twins come from a single fertilised egg that splits into two separate parts’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 29,
-              "prompt": "Who was the famous geneticist conducting research with many twins?",
+              "prompt": "Which geneticist has conducted research with many twins on the epigenetic process?",
               "answer": [
-                "consider"
+                "Danielle Reed",
+                "Reed"
               ],
-              "explanation": "Found directly in the reading passage: 'consider'."
+              "explanation": "‘The geneticist Danielle Reed has conducted research with many twins to understand the epigenetic process’.",
+              "reference": "Paragraph 10"
             },
             {
               "number": 30,
-              "prompt": "What Reed said about Thomas Bouchard?",
+              "prompt": "What word does Reed use to describe Thomas Bouchard?",
               "answer": [
-                "genes"
+                "trailblazer"
               ],
-              "explanation": "Found directly in the reading passage: 'genes'."
+              "explanation": "Reed said of Bouchard: ‘He was the trailblazer’.",
+              "reference": "Paragraph 11"
             },
             {
               "number": 31,
-              "prompt": "With twins, many things were similar and whether it is changeable or not?",
+              "prompt": "In Reed’s comparison, what is the part of our genetic make-up that is written in pen?",
               "answer": [
-                "young"
+                "DNA",
+                "our DNA"
               ],
-              "explanation": "Found directly in the reading passage: 'young'."
+              "explanation": "‘Whatever is written in pen can't be changed. And that's our DNA.’",
+              "reference": "Paragraph 12"
             },
             {
               "number": 32,
-              "prompt": "Schizophrenia is due to?",
+              "prompt": "Fifty years ago, what was schizophrenia thought to be caused by?",
               "answer": [
-                "A"
+                "poor mothering"
               ],
-              "explanation": "Found directly in the reading passage: 'A'."
+              "explanation": "‘Schizophrenia was thought to be due to poor mothering and lack of knowledge about nurturing.’",
+              "reference": "Paragraph 11"
             }
           ]
         },
         {
           "type": "matching_sentence_endings",
-          "instruction": "Complete each sentence with the correct ending Write the correct letter A - E in boxes",
+          "instruction": "Complete each sentence with the correct ending, **A–F**, below.",
+          "optionsTitle": "List of Endings",
           "options": [
             {
               "key": "A",
@@ -529,7 +550,7 @@
             },
             {
               "key": "B",
-              "text": "Chemical reactions lead to neither nature nor nurture."
+              "text": "chemical reactions lead to neither nature nor nurture."
             },
             {
               "key": "C",
@@ -537,74 +558,87 @@
             },
             {
               "key": "D",
-              "text": "More reflective of what people have inherently."
+              "text": "more reflective of what people have inherently."
             },
             {
               "key": "E",
-              "text": "Useful for us to shape our lives genetically."
+              "text": "useful for us to shape our lives genetically."
+            },
+            {
+              "key": "F",
+              "text": "caused mainly by a poor lifestyle."
             }
           ],
           "questions": [
             {
               "number": 33,
-              "prompt": "Twin studies opened new horizons that are",
-              "answer": "C",
-              "explanation": "Refer to item C in the passage."
+              "prompt": "Twin studies opened new horizons, producing mathematical results that are",
+              "answer": "D",
+              "explanation": "‘Twin studies opened new horizons mathematically that are more reflective of what people have inherently’.",
+              "reference": "Paragraph 11"
             },
             {
               "number": 34,
-              "prompt": "Bouchard and his coworkers found the unseen side of genetic",
-              "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "prompt": "Bouchard and his co-workers found the unseen side of genetic influence, which is",
+              "answer": "E",
+              "explanation": "They ‘found the unseen side of genetic influence that is useful for us to shape our lives genetically’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 35,
-              "prompt": "137 twins visited Thomas Bouchard's place",
-              "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "prompt": "The research centre that was visited by 137 pairs of twins later became",
+              "answer": "A",
+              "explanation": "Bouchard's research centre ‘later became known as the Minnesota Study of Twins Reared Apart’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 36,
-              "prompt": "In this epigenetic process",
+              "prompt": "In the epigenetic process,",
               "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "explanation": "‘In this epigenetic process, chemical reactions lead to neither nature nor nurture’.",
+              "reference": "Paragraph 7"
             },
             {
               "number": 37,
-              "prompt": "If you imagine our DNA system as a piano keyboard",
-              "answer": "D",
-              "explanation": "Refer to item D in the passage."
+              "prompt": "If our DNA is imagined as a piano keyboard, the",
+              "answer": "C",
+              "explanation": "‘If you imagine our DNA system as a piano keyboard, while the genes are keys’.",
+              "reference": "Paragraph 8"
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
-          "maxWords": 3,
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
+          "title": "Two lines of twin research",
+          "content": "Studying the differences between identical twins highlights the impact of the {{38}}, while comparing identical twins with {{39}} twins helps researchers to determine the influence of {{40}}.",
           "questions": [
             {
               "number": 38,
-              "prompt": "Question 11",
               "answer": [
-                "understanding"
+                "environment"
               ],
-              "explanation": "Found directly in the reading passage: 'understanding'."
+              "explanation": "‘Understanding the differences between identical twins to highlight the impact of environment’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 39,
-              "prompt": "Question 12",
               "answer": [
-                "making"
+                "fraternal"
               ],
-              "explanation": "Found directly in the reading passage: 'making'."
+              "explanation": "‘Making comparison of identical twins and fraternal ones to determine the influence of inheritance’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 40,
-              "prompt": "Question 13",
               "answer": [
-                "inheritance"
+                "inheritance",
+                "heredity",
+                "genes"
               ],
-              "explanation": "Found directly in the reading passage: 'inheritance'."
+              "explanation": "Comparing identical and fraternal twins is done ‘to determine the influence of inheritance’.",
+              "reference": "Paragraph 3"
             }
           ]
         }
