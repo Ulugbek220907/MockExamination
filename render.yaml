@@ -35,6 +35,15 @@ services:
         sync: false
       - key: CONTACT_EMAIL
         sync: false
+      # Footer social links (full https:// addresses); an empty one is hidden.
+      - key: SOCIAL_TELEGRAM
+        sync: false
+      - key: SOCIAL_INSTAGRAM
+        sync: false
+      - key: SOCIAL_YOUTUBE
+        sync: false
+      - key: SOCIAL_TIKTOK
+        sync: false
       - key: SITE_URL
         sync: false
       # Copy it from the old service if it has one, so people stay signed in after the move.

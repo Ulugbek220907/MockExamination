@@ -1,9 +1,8 @@
 /**
- * Application controller: routing, the home page (the line network),
- * pre-test instructions, launching exams, results, and the resources /
- * about pages.
+ * Application controller: routing, the home page, the test lists,
+ * pre-test instructions, launching exams, results, and the about and legal pages.
  *
- * Routes: #/ (tests), #/tests/<module> (every test of one line), #/resources, #/about, #/start (instructions),
+ * Routes: #/ (home), #/tests/<module> (every test of one module), #/about, #/start (instructions),
  *         #/exam (active test), #/results (last result), #/speaking/<id>
  *         (a recorded Speaking test), and the account
  *         pages from account.js: #/pricing, #/account, #/examiners,
@@ -14,84 +13,17 @@
 
   const esc = (v) => U.escapeHtml(v);
 
-  // Free official preparation material. We link to it; we never copy it.
-  const OFFICIAL_RESOURCES = [
-    {
-      group: "res.familiar.group",
-      note: "res.familiar.note",
-      links: [
-        { title: "IELTS on computer familiarisation test", org: "British Council", url: "https://takeielts.britishcouncil.org/take-ielts/prepare/free-ielts-english-practice-tests/ielts-on-computer/familiarisation-test" },
-        { title: "IELTS familiarisation tests", org: "IDP IELTS", url: "https://ielts.idp.com/about/ielts-familiarisation-tests" },
-      ],
-    },
-    {
-      group: "res.samples.group",
-      note: "res.samples.note",
-      links: [
-        { title: "Official sample test questions", org: "IELTS.org", url: "https://ielts.org/take-a-test/preparation-resources/sample-test-questions" },
-        { title: "IELTS trial test", org: "IELTS.org", url: "https://ielts.org/take-a-test/preparation-resources/ielts-trial-test" },
-        { title: "Free IELTS practice tests", org: "British Council", url: "https://takeielts.britishcouncil.org/take-ielts/prepare/free-ielts-english-practice-tests" },
-        { title: "IELTS preparation materials", org: "IDP IELTS", url: "https://ielts.idp.com/prepare" },
-        { title: "IELTS preparation", org: "Cambridge English", url: "https://www.cambridgeenglish.org/exams-and-tests/ielts/preparation/" },
-      ],
-    },
-    {
-      group: "res.format.group",
-      note: "res.format.note",
-      links: [
-        { title: "Listening test format", org: "IELTS.org", url: "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-listening" },
-        { title: "Academic Reading test format", org: "IELTS.org", url: "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-reading" },
-        { title: "Academic Writing test format", org: "IELTS.org", url: "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-writing" },
-        { title: "Writing test preparation resources", org: "IELTS.org", url: "https://ielts.org/take-a-test/preparation-resources/writing-test-resources" },
-        { title: "IELTS scoring in detail (band descriptors)", org: "IELTS.org", url: "https://ielts.org/organisations/ielts-for-organisations/ielts-scoring-in-detail" },
-      ],
-    },
-    {
-      group: "res.reading.group",
-      note: "res.reading.note",
-      links: [
-        { title: "Featured articles", org: "Wikipedia (CC BY-SA)", url: "https://en.wikipedia.org/wiki/Wikipedia:Featured_articles" },
-        { title: "Science and research news", org: "NASA (public domain)", url: "https://www.nasa.gov/news/" },
-        { title: "Climate and ocean explainers", org: "NOAA (public domain)", url: "https://www.noaa.gov/education" },
-        { title: "Free e-books of classic non-fiction", org: "Project Gutenberg", url: "https://www.gutenberg.org/" },
-      ],
-    },
-    {
-      group: "res.listening.group",
-      note: "res.listening.note",
-      links: [
-        { title: "6 Minute English", org: "BBC Learning English", url: "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" },
-        { title: "Talks with interactive transcripts", org: "TED", url: "https://www.ted.com/talks" },
-        { title: "Science podcasts", org: "NASA", url: "https://www.nasa.gov/podcasts/" },
-      ],
-    },
-  ];
-
   // Shown on the legal pages when the server has no CONTACT_EMAIL (never a blank).
   const SUPPORT_EMAIL = "ulugbekisoqov22@gmail.com";
   const MODULE_LABELS = { reading: "Reading", listening: "Listening", writing: "Writing", speaking: "Speaking" };
-  // A line shows this many stations; the rest are on the line's own page (#/tests/<module>).
-  const MAX_STATIONS = 6;
   const CATALOG_PAGE = 24;
   // The test list and settings from the last visit (see init); bump the version when their shape changes.
   const BOOT_KEY = "testday:boot";
-  const BOOT_VERSION = 1;
+  const BOOT_VERSION = 2;
 
-  // The four lines, in the order of the real test day.
-  const LINES = [
-    { module: "listening", letter: "L", cls: "line-l" },
-    { module: "reading", letter: "R", cls: "line-r" },
-    { module: "writing", letter: "W", cls: "line-w" },
-    { module: "speaking", letter: "S", cls: "line-s" },
-  ];
-  const lineOf = (module) => LINES.find((l) => l.module === module) || LINES[1];
-  /** "Test 7" with the word in its own span, so a crowded line can show just "7". */
-  const stationLabel = (name) => {
-    const m = /^(\D+?)\s*(\d+)$/.exec(name);
-    return m ? `<span class="station-word">${esc(m[1])} </span>${esc(m[2])}` : esc(name);
-  };
+  // The four modules, in the order of the real test day.
+  const MODULES = ["listening", "reading", "writing", "speaking"];
 
-  const ICON_ARROW = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const ICON_BACK = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H4M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const ICON_LOCK = `<svg width="10" height="11" viewBox="0 0 10 11" aria-hidden="true"><path fill="currentColor" d="M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z"/></svg>`;
 
@@ -122,17 +54,17 @@
         if (el) U.track("cta_click", { detail: el.dataset.track });
       });
       document.getElementById("feedback-open").addEventListener("click", () => this.openFeedback());
+      this.renderFooter();
       this.main.addEventListener("click", (e) => this.onMainClick(e));
       document.getElementById("account-slot").addEventListener("click", (e) => Account.onClick(e));
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape") this.closeSigns(); });
 
-      // Warm bundle and test data as soon as the user hovers or focuses on a station or button
+      // Warm bundle and test data as soon as the user hovers or focuses on a start button
       const onIntent = (e) => {
-        const target = e.target.closest("[data-station], [data-test], [data-action='start']");
+        const target = e.target.closest("[data-test], [data-action='start']");
         if (!target) return;
         U.prefetch("exam");
         // Only tests this visitor can open: a locked one would just be refused (401/402).
-        const testId = target.dataset.station || target.dataset.test;
+        const testId = target.dataset.test;
         const test = testId && this.tests.find((x) => x.id === testId);
         if (test && this.canOpen(test)) U.api(`/api/tests/${encodeURIComponent(testId)}`).catch(() => {});
       };
@@ -165,7 +97,7 @@
       }
       if (!firstDraw) firstDraw = this.firstRoute();
       await me;
-      // The account decides which stations are open: redraw the home page if it changed.
+      // The account decides which tests are open: redraw the home page if it changed.
       if (JSON.stringify(Account.state.me) !== seenMe) {
         await firstDraw;
         this.renderIfHome();
@@ -179,6 +111,20 @@
       this.loadError = false;
       Account.setConfig(this.config);
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
+      this.renderFooter();
+    }
+
+    /** The footer is the end of every page: the contact email, the social links the owner has set, and the year. */
+    renderFooter() {
+      const contact = document.getElementById("footer-contact");
+      if (contact) contact.innerHTML = this.contactHTML();
+      const social = document.getElementById("footer-social");
+      if (social) {
+        social.innerHTML = (this.config.social || [])
+          .map((x) => `<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.name)}</a>`).join("");
+      }
+      const year = document.getElementById("footer-year");
+      if (year) year.textContent = String(new Date().getFullYear());
     }
 
     firstRoute() {
@@ -189,6 +135,7 @@
           U.prefetch("exam");
           U.prefetch("results");
         };
+        if (U.lowData()) return; // a data-saver connection downloads the test code only when a test starts
         if ("requestIdleCallback" in window) {
           requestIdleCallback(warmIdle, { timeout: 3000 });
         } else {
@@ -236,7 +183,6 @@
       window.scrollTo(0, 0);
       const catalog = path.match(/^\/tests\/(listening|reading|writing|speaking)$/);
       if (catalog) this.renderCatalog(catalog[1]);
-      else if (path === "/resources") this.renderResources();
       else if (path === "/about") this.renderAbout();
       else if (path === "/terms") this.renderLegal("terms");
       else if (path === "/privacy") this.renderLegal("privacy");
@@ -254,8 +200,8 @@
 
     setNav(hash) {
       const path = hash.slice(1).split("?")[0];
-      const key = { "/resources": "resources", "/about": "about", "/terms": "about", "/privacy": "about", "/refunds": "about", "/pricing": "pricing", "/examiners": "examiners",
-        "/account": "account", "/examiner": "examiner", "/admin": "admin" }[path] || (path.startsWith("/check") ? "account" : "home");
+      const key = { "/about": "about", "/pricing": "pricing", "/account": "account", "/examiner": "examiner", "/admin": "admin" }[path]
+        || (path.startsWith("/check") ? "account" : "");
       document.querySelectorAll("[data-nav]").forEach((a) => {
         if (a.dataset.nav === key) a.setAttribute("aria-current", "page");
         else a.removeAttribute("aria-current");
@@ -270,13 +216,6 @@
 
     onMainClick(e) {
       if (Account.onClick(e)) return;
-      const station = e.target.closest("[data-station]");
-      if (station) return this.toggleSign(station);
-      const nextStation = e.target.closest("[data-next-station]");
-      if (nextStation) {
-        const target = document.querySelector(`.station-btn[data-station="${CSS.escape(nextStation.dataset.nextStation)}"]`);
-        if (target) return this.toggleSign(target);
-      }
       const chip = e.target.closest("[data-catalog-filter]");
       if (chip && this.catalogModule) {
         const st = this.catalogStateOf(this.catalogModule);
@@ -293,77 +232,89 @@
       if (!el) return;
       if (el.dataset.action === "start") this.prepare(el.dataset.test, el.dataset.mode, el);
       if (el.dataset.action === "retake" && this.lastResult) this.prepare(this.lastResult.testId, this.lastResult.mode || "exam");
-      if (el.dataset.action === "scroll") {
-        const target = document.getElementById(el.dataset.target);
-        if (target) target.scrollIntoView({ block: "start" });
-      }
     }
 
-    /* Home: the network ------------------------------------------------ */
+    /* Home: what TestDay is, the four modules, three numbers ------------------------ */
     renderHome() {
       document.title = `${this.config.siteName} – ${t("title.home")}`;
       this.main.innerHTML = `
-        <section aria-labelledby="home-title">
-          <div class="network-head">
-            <h1 id="home-title">${t("Every line ends at test day.")}</h1>
-            <p>${t("home.lead")}</p>
-          </div>
-          ${this.loadError ? `<div class="notice notice-warn"><strong>${t("Could not load the tests. Please refresh the page.")}</strong></div>` : ""}
-          <div class="network" id="network">
-            <svg class="network-svg" id="network-svg" aria-hidden="true"></svg>
-            <ol class="lines-list" id="lines-list"></ol>
-            <button type="button" class="hub" data-action="scroll" data-target="ride">
-              <span class="hub-capsule" aria-hidden="true"></span>
-              <span class="hub-text"><span class="hub-name">${t("Test day")}</span><span class="hub-sub">${t("All lines meet here")}</span></span>
-            </button>
-          </div>
-          <div class="network-key">
-            <span><i class="key-ring is-free" aria-hidden="true"></i>${t("Free test")}</span>
-            <span><i class="key-ring" aria-hidden="true">${ICON_LOCK}</i>${t("Opens with the pass")}</span>
-            <span><i class="key-ring is-done" aria-hidden="true"></i>${t("Taken, with your band")}</span>
-          </div>
-        </section>
-
-        <section class="home-section" id="ride" aria-labelledby="ride-title">
-          <h2 id="ride-title">${t("How a test works")}</h2>
-          <p class="muted-text">${t("ride.sub")}</p>
-          <ol class="ride">
-            <li><span class="ride-stop" aria-hidden="true"></span><div><h3>${t("ride.1.title")}</h3><p>${t("ride.1.text")}</p></div></li>
-            <li><span class="ride-stop" aria-hidden="true"></span><div><h3>${t("ride.2.title")}</h3><p>${t("ride.2.text")}</p></div></li>
-            <li><span class="ride-stop" aria-hidden="true"></span><div><h3>${t("ride.3.title")}</h3><p>${t("ride.3.text")}</p></div></li>
-            <li><span class="ride-stop" aria-hidden="true"></span><div><h3>${t("ride.4.title")}</h3><p>${t("ride.4.text")}</p></div></li>
-          </ol>
-        </section>
-
-        <section id="history-section" class="home-section" hidden></section>
-
-        <section class="home-section pass-wrap" id="pass" aria-labelledby="pass-title">
-          ${Account.passCardHTML(this.prices && this.prices.plan)}
-          <div class="pass-copy">
-            <h2 id="pass-title">${t("One pass opens every station")}</h2>
-            <p class="muted-text">${t("pass.text")}</p>
-            <ul class="plan-points">
-              <li>${t("All Listening, Reading, Writing and Speaking tests")}</li>
-              <li>${t("Your first payment gives you two months")}</li>
-              <li>${t("No automatic charges: renew when you want")}</li>
-            </ul>
-            <div class="btn-row">
-              <button type="button" class="btn-primary btn-lg" data-action="buy-plan">${Account.planActive() ? t("Add another month") : t("Get the pass")}</button>
-              <a class="btn-secondary btn-lg" href="#/pricing">${t("See prices")}</a>
-            </div>
-            <p class="checks-line" data-checks>${this.checksLine()}</p>
-          </div>
-        </section>`;
-      this.renderNetwork();
+        <div class="home">
+          <h1 class="home-title">${t("home.title")}</h1>
+          <p class="hero-lead">${this.leadText()}</p>
+          ${this.loadError ? `<div class="notice notice-warn home-notice"><strong>${t("Could not load the tests. Please refresh the page.")}</strong></div>` : ""}
+          <h2 class="sr-only">${t("Tests")}</h2>
+          <ul class="ledger" id="ledger"></ul>
+          <section id="history-section" aria-label="${esc(t("Your recent tests"))}" hidden></section>
+          <section class="facts" id="facts" aria-label="${esc(t("Price and marking"))}"></section>
+        </div>`;
+      this.renderLedger();
+      this.renderFacts();
       this.loadHistory();
       this.loadPrices();
     }
 
-    checksLine() {
-      const p = this.prices;
-      const w = p ? esc(U.money(p.writing_check)) : "…";
-      const s = p ? esc(U.money(p.speaking_check)) : "…";
-      return `${t("checks.line", { writing: w, speaking: s })} <a href="#/examiners">${t("Meet the examiners")}</a>`;
+    /** "167 timed tests for Listening, Reading, Writing and Speaking. 18 are free." Counted from the tests, never typed. */
+    leadText() {
+      if (!this.tests.length) return t("home.lead.empty");
+      const free = this.tests.filter((x) => x.access === "free").length;
+      return t("home.lead", { total: esc(U.number(this.tests.length)), free: esc(U.number(free)) });
+    }
+
+    formatOf(module) {
+      return t(`format.${module}`);
+    }
+
+    /** The test a visitor can start from the home page: the first one they can open and have not taken. */
+    nextToStart(module) {
+      return this.testsOf(module).find((x) => this.canOpen(x) && !this.ridden[x.id]) || null;
+    }
+
+    renderLedger() {
+      const list = document.getElementById("ledger");
+      if (!list) return;
+      const everything = Account.planActive() || ["admin", "examiner"].includes(Account.role());
+      list.innerHTML = MODULES.map((module) => {
+        const tests = this.testsOf(module);
+        if (!tests.length) return "";
+        const free = tests.filter((x) => x.access === "free").length;
+        const label = MODULE_LABELS[module];
+        const start = this.nextToStart(module);
+        const taken = tests.some((x) => this.ridden[x.id]);
+        const action = start
+          ? `<button type="button" class="btn-primary" data-action="start" data-test="${esc(start.id)}" data-mode="exam"
+              aria-label="${esc(t("Start {name}", { name: `${label}, ${this.testName(start)}` }))}">${taken ? t("Next test") : start.access === "free" ? t("Start free") : t("Start")}</button>`
+          : `<a class="btn-secondary" href="#/tests/${module}" aria-label="${esc(t("All {n} {module} tests", { n: tests.length, module: label }))}">${t("All tests")}</a>`;
+        return `
+          <li class="ledger-row">
+            <h3 class="ledger-name">${label}</h3>
+            <p class="ledger-facts"><a href="#/tests/${module}" aria-label="${esc(t("All {n} {module} tests", { n: tests.length, module: label }))}">${plural(tests.length, "{n} test", "{n} tests")}</a>, ${everything ? t("all open") : t("{n} free", { n: free })}<span class="fmt">${esc(this.formatOf(module))}</span></p>
+            <div class="ledger-act">${action}</div>
+          </li>`;
+      }).join("");
+    }
+
+    /** Three facts, each with the figure first: how long a test is, what the pass costs, how long marking takes. */
+    renderFacts() {
+      const box = document.getElementById("facts");
+      if (!box) return;
+      const reading = this.testsOf("reading")[0];
+      const questions = reading ? reading.totalQuestions : 40;
+      const minutes = reading ? reading.durationMinutes : 60;
+      box.innerHTML = `
+        <div class="fact"><p class="fact-fig">${t("{q} questions in {min} minutes", { q: questions, min: minutes })}</p>
+          <p class="fact-cap">${t("The length of a Reading test, as in the exam.")}</p></div>
+        <div class="fact" data-fact="price"><p class="fact-fig" data-price="plan">${this.priceText()}</p>
+          <p class="fact-cap">${t("facts.pass", { n: esc(U.number(this.tests.length)) })}</p></div>
+        <div class="fact"><p class="fact-fig">${t("About 48 hours")}</p>
+          <p class="fact-cap">${t("For an examiner to mark your Writing or Speaking test.")}</p></div>
+        <div class="facts-act">
+          <button type="button" class="btn-primary btn-lg" data-action="buy-plan" data-track="home_pass">${Account.planActive() ? t("Add another month") : t("Get the pass")}</button>
+          <a href="#/pricing">${t("Price")}</a>
+        </div>`;
+    }
+
+    priceText() {
+      return this.prices && this.prices.plan ? t("{price} a month", { price: esc(U.money(this.prices.plan)) }) : "&nbsp;";
     }
 
     async loadPrices() {
@@ -373,9 +324,7 @@
         this.prices = b.prices || null;
       } catch (e) { return; }
       const price = this.main.querySelector('[data-price="plan"]');
-      if (price && this.prices) price.innerHTML = Account.passPriceHTML(this.prices.plan);
-      const checks = this.main.querySelector("[data-checks]");
-      if (checks) checks.innerHTML = this.checksLine();
+      if (price && this.prices) price.innerHTML = this.priceText();
     }
 
     hasProgress(testId) {
@@ -395,258 +344,7 @@
       return t("Test {n}", { n: n || test.sortOrder || 1 });
     }
 
-    lineMeta(module) {
-      return {
-        listening: t("line.listening"),
-        reading: t("line.reading"),
-        writing: t("line.writing"),
-        speaking: t("line.speaking"),
-      }[module];
-    }
-
-    renderNetwork() {
-      const list = document.getElementById("lines-list");
-      if (!list) return;
-      const plan = LINES.map((line) => {
-        const tests = this.testsOf(line.module);
-        const done = tests.filter((x) => this.ridden[x.id]);
-        const next = done.length ? tests.find((x) => !this.ridden[x.id]) : null;
-        const shown = this.visibleStations(tests, next);
-        return { line, tests, next, shown, more: tests.length - shown.length };
-      });
-      const longest = Math.max(1, ...plan.map((p) => p.shown.length + (p.more ? 1 : 0)));
-      list.style.setProperty("--rest", String(Math.max(1, longest - 1)));
-      list.innerHTML = plan.map(({ line, tests, next, shown, more }) => {
-        const free = tests.find((x) => x.access === "free" && !this.ridden[x.id]);
-        // On phones the station labels are too narrow for a "Next" tag, so the line's row names the next station.
-        const nextButton = !free && next ? `<button type="button" class="next-mobile" data-next-station="${esc(next.id)}"
-                  aria-controls="sign-${line.module}">${esc(t("Next: {name}", { name: this.testName(next) }))} ${ICON_ARROW}</button>` : "";
-        return `
-          <li class="line-row ${line.cls}" data-line="${line.module}">
-            <div class="line-main">
-              <div class="line-label">
-                <span class="bullet">${line.letter}</span>
-                <div><div class="line-name">${MODULE_LABELS[line.module]}</div><span class="line-meta">${esc(this.lineMeta(line.module))}</span>
-                  <a class="line-all" href="#/tests/${line.module}">${esc(t("All {n} tests", { n: tests.length }))}</a></div>
-                ${free ? `<button type="button" class="start-free start-free-mobile" data-action="start" data-test="${esc(free.id)}" data-mode="exam"
-                  aria-label="${esc(t("Start {name}, free", { name: `${MODULE_LABELS[line.module]}, ${this.testName(free)}` }))}">${t("start.short")} ${ICON_ARROW}</button>` : nextButton}
-              </div>
-              <div class="track">
-                <ol class="stations">${shown.map((x) => this.stationHTML(x, line, x === next)).join("")}${more ? this.moreStationHTML(line, tests.length, more) : ""}</ol>
-              </div>
-            </div>
-            <div class="station-sign" id="sign-${line.module}" role="region" aria-live="polite" hidden></div>
-          </li>`;
-      }).join("");
-      this.drawNetwork();
-    }
-
-    /** The stations a line shows: the first few, with the next test to take always among them. */
-    visibleStations(tests, next) {
-      if (tests.length <= MAX_STATIONS + 1) return tests; // one more fits in place of the "more" stop
-      const shown = tests.slice(0, MAX_STATIONS);
-      if (next && !shown.includes(next)) shown[MAX_STATIONS - 1] = next;
-      return shown;
-    }
-
-    moreStationHTML(line, total, more) {
-      const label = t("All {n} {module} tests", { n: total, module: MODULE_LABELS[line.module] });
-      return `
-        <li class="station station-more">
-          <a class="station-btn more-btn" href="#/tests/${line.module}" aria-label="${esc(label)}">
-            <span class="more-pill">+${more}</span><span class="station-name">${esc(t("All tests"))}</span></a>
-        </li>`;
-    }
-
-    stationHTML(test, line, isNext) {
-      const ride = this.ridden[test.id];
-      const name = this.testName(test);
-      // What a screen reader says for the station: the line, the test, and its state.
-      const state = ride
-        ? (ride.band !== null && ride.band !== undefined ? t("taken, band {band}", { band: IeltsScoring.formatBand(ride.band) }) : t("taken"))
-        : this.canOpen(test) ? "" : t("opens with the pass");
-      const label = [MODULE_LABELS[test.module], name, state, isNext ? t("Next") : ""].filter(Boolean).join(", ");
-      const btn = (inner, extra = "") => `
-        <button type="button" class="station-btn" data-station="${esc(test.id)}" aria-expanded="false"
-          aria-controls="sign-${line.module}" aria-label="${esc(label)}: ${esc(t("details"))}" ${extra}>
-          ${inner}<span class="station-name">${stationLabel(name)}</span></button>`;
-      if (test.access === "free" && !ride) {
-        return `
-          <li class="station is-free">
-            <div class="station-start">
-              ${btn(`<span class="station-ring" aria-hidden="true"></span>`)}
-              <button type="button" class="start-free" data-action="start" data-test="${esc(test.id)}" data-mode="exam"
-                aria-label="${esc(t("Start {name}, free", { name: label }))}">${t("Start free")} ${ICON_ARROW}</button>
-            </div>
-          </li>`;
-      }
-      const band = ride && ride.band !== null && ride.band !== undefined ? IeltsScoring.formatBand(ride.band) : "";
-      const ring = ride
-        ? `<span class="station-ring">${esc(band)}</span>`
-        : this.canOpen(test) ? `<span class="station-ring" aria-hidden="true"></span>`
-          : `<span class="station-ring is-locked" aria-hidden="true">${ICON_LOCK}</span>`;
-      return `<li class="station ${ride ? "is-done" : ""} ${isNext ? "is-next" : ""}">${btn(ring, isNext ? `data-next="${esc(t("Next"))}"` : "")}</li>`;
-    }
-
-    /** Curves that carry every line into the Test day interchange. */
-    drawNetwork() {
-      const net = document.getElementById("network");
-      if (!net) return;
-      let lastCellWidth = 0;
-      let lastHubNarrow = null;
-
-      const draw = () => {
-        const svg = net.querySelector("#network-svg");
-        const hub = net.querySelector(".hub-capsule");
-        const list = net.querySelector("#lines-list");
-        if (!svg || !hub || !list) return;
-
-        // The first column fits the widest first station: the whole Start free pill (ring and button) plus the
-        // station's own right padding. Its content is measured, not the column, so nothing is reset (no reflow loop).
-        const firsts = [...net.querySelectorAll(".station:first-child")];
-        if (firsts.length) {
-          const maxW = Math.ceil(Math.max(...firsts.map((li) => {
-            const body = li.firstElementChild;
-            return (body ? body.getBoundingClientRect().width : 0) + (parseFloat(getComputedStyle(li).paddingRight) || 0);
-          })));
-          if (maxW > 0 && maxW !== lastCellWidth) {
-            lastCellWidth = maxW;
-            list.style.setProperty("--first-cell", `${maxW}px`);
-          }
-        }
-
-        // Many tests on a narrow screen: rings shrink to fit their column and labels drop "Test".
-        const cell = list.querySelector(".station:nth-child(2)");
-        if (cell) {
-          const pitch = cell.getBoundingClientRect().width;
-          list.style.setProperty("--ring", `${Math.max(18, Math.min(30, Math.floor(pitch - 6)))}px`);
-          list.style.setProperty("--ring-done", `${Math.max(26, Math.min(44, Math.floor(pitch - 2)))}px`);
-          net.classList.toggle("is-tight", pitch < 56);
-        }
-
-        const box = net.getBoundingClientRect();
-        const tracks = [...net.querySelectorAll(".track")];
-        if (!tracks.length || !box.width) return;
-        this.netPaths = {};
-        const step = 12;
-        const n = tracks.length;
-        const narrow = window.matchMedia("(max-width: 860px)").matches;
-
-        if (narrow !== lastHubNarrow) {
-          lastHubNarrow = narrow;
-          hub.style.height = narrow ? "" : `${n * step + 14}px`;
-          hub.style.width = narrow ? `${n * step + 14}px` : "";
-        }
-
-        const hb = hub.getBoundingClientRect();
-        const hx = hb.left - box.left + hb.width / 2;
-        const hy = hb.top - box.top + hb.height / 2;
-        const f = (v) => v.toFixed(1);
-
-        const lineColors = {
-          listening: "var(--line-l)",
-          reading: "var(--line-r)",
-          writing: "var(--line-w)",
-          speaking: "var(--line-s)",
-        };
-
-        const paths = tracks.map((tr, i) => {
-          const lineKey = tr.closest(".line-row")?.dataset.line;
-          const r = tr.getBoundingClientRect();
-          const x0 = r.right - box.left - 1;
-          const y0 = r.top - box.top + r.height / 2;
-          const color = lineColors[lineKey] || getComputedStyle(tr).getPropertyValue("--line").trim();
-          let d;
-          if (narrow) {
-            const lane = hx + ((n - 1) / 2 - i) * step;
-            const rad = 14;
-            d = `M${f(x0)},${f(y0)} H${f(lane - rad)} Q${f(lane)},${f(y0)} ${f(lane)},${f(y0 + rad)} V${f(hy)}`;
-          } else {
-            const y1 = hy + (i - (n - 1) / 2) * step;
-            const mid = x0 + (hx - x0) * 0.5;
-            d = `M${f(x0)},${f(y0)} C${f(mid)},${f(y0)} ${f(mid)},${f(y1)} ${f(hx)},${f(y1)}`;
-          }
-          if (lineKey) this.netPaths[lineKey] = { x0, y0, d, box };
-          return `<path d="${d}" fill="none" stroke="${color}" stroke-width="10" stroke-linecap="butt"/>`;
-        });
-        svg.setAttribute("viewBox", `0 0 ${box.width.toFixed(1)} ${box.height.toFixed(1)}`);
-        svg.innerHTML = paths.join("");
-      };
-
-      draw();
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
-      if (this.netObserver) this.netObserver.disconnect();
-      if (window.ResizeObserver) {
-        let rafId = null;
-        let lastW = 0;
-        let lastH = 0;
-        this.netObserver = new ResizeObserver((entries) => {
-          const rect = entries[0]?.contentRect;
-          if (rect && Math.abs(rect.width - lastW) < 1 && Math.abs(rect.height - lastH) < 1) return;
-          if (rect) { lastW = rect.width; lastH = rect.height; }
-          if (rafId) cancelAnimationFrame(rafId);
-          rafId = requestAnimationFrame(draw);
-        });
-        this.netObserver.observe(net);
-      }
-    }
-
-    closeSigns() {
-      document.querySelectorAll(".station-sign").forEach((s) => { s.hidden = true; s.innerHTML = ""; });
-      document.querySelectorAll(".station-btn[aria-expanded='true']").forEach((b) => b.setAttribute("aria-expanded", "false"));
-    }
-
-    toggleSign(btn) {
-      const open = btn.getAttribute("aria-expanded") === "true";
-      this.closeSigns();
-      if (open) return;
-      const test = this.tests.find((x) => x.id === btn.dataset.station);
-      if (!test) return;
-      const line = lineOf(test.module);
-      const sign = document.getElementById(`sign-${test.module}`);
-      btn.setAttribute("aria-expanded", "true");
-      sign.innerHTML = this.signHTML(test, line);
-      sign.hidden = false;
-      // Point the sign at its station.
-      const ring = btn.querySelector(".station-ring");
-      const at = ring.getBoundingClientRect();
-      sign.style.setProperty("--notch-x", `${Math.round(at.left + at.width / 2 - sign.getBoundingClientRect().left)}px`);
-      this.drawNetwork();
-      this.runTrain(test.module, btn);
-      const primary = sign.querySelector(".btn-line, .btn-primary");
-      if (primary) primary.focus({ preventScroll: true });
-      sign.scrollIntoView({ block: "nearest" });
-    }
-
-    /** A train leaves the opened station and runs along its line to Test day: this line leads there. */
-    runTrain(module, btn) {
-      const path = this.netPaths && this.netPaths[module];
-      const svg = document.getElementById("network-svg");
-      if (!path || !svg || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      const ring = btn.querySelector(".station-ring").getBoundingClientRect();
-      const box = document.getElementById("network").getBoundingClientRect();
-      const sx = ring.left + ring.width / 2 - box.left;
-      const sy = ring.top + ring.height / 2 - box.top;
-      const route = `M${sx.toFixed(1)},${sy.toFixed(1)} L${path.x0.toFixed(1)},${path.y0.toFixed(1)} ${path.d.slice(path.d.indexOf(" ") + 1)}`;
-      svg.querySelectorAll(".network-train").forEach((el) => el.remove());
-      const ns = "http://www.w3.org/2000/svg";
-      const train = document.createElementNS(ns, "circle");
-      train.setAttribute("r", "6");
-      train.setAttribute("class", "network-train");
-      const move = document.createElementNS(ns, "animateMotion");
-      move.setAttribute("dur", "1.3s");
-      move.setAttribute("fill", "freeze");
-      move.setAttribute("calcMode", "spline");
-      move.setAttribute("keyTimes", "0;1");
-      move.setAttribute("keySplines", "0.45 0 0.2 1");
-      move.setAttribute("path", route);
-      train.appendChild(move);
-      svg.appendChild(train);
-      if (move.beginElement) move.beginElement();
-      setTimeout(() => train.remove(), 1500);
-    }
-
-    /** What a station sign and a catalog card say about a test. */
+    /** What a test row says about a test. */
     testFacts(test) {
       const ride = this.ridden[test.id];
       const items = test.module === "reading" ? (test.passages || []).map((p) => [`P${p.number}`, p.title])
@@ -659,9 +357,9 @@
             : t("{min} minutes · {q} questions", { min: test.durationMinutes, q: test.totalQuestions });
       const locked = !this.canOpen(test);
       const band = ride && ride.band !== null && ride.band !== undefined ? IeltsScoring.formatBand(ride.band) : "";
-      const tag = test.access === "free" ? `<span class="sign-tag is-free">${t("Free")}</span>`
-        : !locked ? `<span class="sign-tag">${t("In your pass")}</span>`
-          : `<span class="sign-tag is-locked">${t("Opens with the pass")}</span>`;
+      const tag = test.access === "free" ? `<span class="test-tag is-free">${t("Free")}</span>`
+        : !locked ? `<span class="test-tag">${t("In your pass")}</span>`
+          : `<span class="test-tag is-locked">${ICON_LOCK} ${t("Pass")}</span>`;
       const extra = [
         this.hasProgress(test.id) ? t("Unfinished attempt saved") : "",
         band ? t("Your last band: {band}", { band }) : "",
@@ -669,37 +367,21 @@
       return { ride, items, meta, locked, band, tag, extra };
     }
 
-    /** The two buttons of a sign or card; compact cards use short labels (their full meaning is in aria-label). */
-    testActionsHTML(test, facts, compact = false) {
+    /** The buttons of a test row. A locked test has one quiet action: the pass. */
+    testActionsHTML(test, facts) {
       const name = `${MODULE_LABELS[test.module]}, ${this.testName(test)}`;
       if (facts.locked) {
-        return `
-          <a class="btn-secondary" href="#/pricing">${compact ? t("Prices") : t("See prices")}</a>
-          <button type="button" class="btn-line" data-action="buy-plan">${t("Get the pass")} ${ICON_ARROW}</button>`;
+        return `<button type="button" class="btn-link" data-action="buy-plan" aria-label="${esc(t("Get the pass to open {name}", { name }))}">${t("Get the pass")}</button>`;
       }
-      const start = facts.ride ? t("Take it again") : test.access === "free" ? t("Start free") : compact ? t("Start test") : t("Start timed test");
+      const start = facts.ride ? t("Take it again") : test.access === "free" ? t("Start free") : t("Start");
       return `
-          <button type="button" class="btn-secondary" data-action="start" data-test="${esc(test.id)}" data-mode="practice"
-            ${compact ? `aria-label="${esc(t("Practice {name} without a timer", { name }))}"` : ""}>${compact ? t("Practice") : t("Practice, no timer")}</button>
-          <button type="button" class="btn-line" data-action="start" data-test="${esc(test.id)}" data-mode="exam"
-            ${compact ? `aria-label="${esc(t("Start {name}, timed", { name }))}"` : ""}>${start} ${ICON_ARROW}</button>`;
+          <button type="button" class="btn-secondary btn-sm" data-action="start" data-test="${esc(test.id)}" data-mode="practice"
+            aria-label="${esc(t("Practice {name} without a timer", { name }))}">${t("Practice")}</button>
+          <button type="button" class="btn-primary btn-sm" data-action="start" data-test="${esc(test.id)}" data-mode="exam"
+            aria-label="${esc(t("Start {name}, timed", { name }))}">${start}</button>`;
     }
 
-    signHTML(test, line) {
-      const f = this.testFacts(test);
-      return `
-        <div>
-          <div class="sign-title"><span class="bullet sm">${line.letter}</span><h3>${esc(MODULE_LABELS[test.module])} · ${esc(this.testName(test))}</h3>${f.tag}</div>
-          <ul class="sign-items">${f.items.map(([k, v]) => `<li><b>${esc(k)}</b>${esc(v)}</li>`).join("")}</ul>
-          <p class="sign-meta">${esc(f.meta)}${f.extra ? ` · ${esc(f.extra)}` : ""}</p>
-          ${f.locked ? `<p class="sign-pass">${this.prices
-            ? t("This station opens with the monthly pass: {price} a month, and your first payment gives two months.", { price: `<strong>${esc(U.money(this.prices.plan))}</strong>` })
-            : t("This station opens with the monthly pass.")}</p>` : ""}
-        </div>
-        <div class="sign-actions">${this.testActionsHTML(test, f)}</div>`;
-    }
-
-    /* A line's own page: every test, searchable --------------------------- */
+    /* A module's own page: every test, searchable ------------------------ */
     catalogStateOf(module) {
       if (!this.catalogState) this.catalogState = {};
       if (!this.catalogState[module]) this.catalogState[module] = { filter: "all", q: "", shown: CATALOG_PAGE };
@@ -707,23 +389,20 @@
     }
 
     renderCatalog(module) {
-      const line = lineOf(module);
       const tests = this.testsOf(module);
       const st = this.catalogStateOf(module);
       this.catalogModule = module;
       const title = t("{module} tests", { module: MODULE_LABELS[module] });
       document.title = `${title} – ${this.config.siteName}`;
       const done = tests.filter((x) => this.ridden[x.id]).length;
-      const filters = [["all", t("All"), tests.length], ["open", t("Not taken yet"), tests.length - done], ["done", t("Taken"), done]];
+      const free = tests.filter((x) => x.access === "free").length;
+      const filters = [["all", t("All"), tests.length], ["free", t("Free"), free], ["open", t("Not taken yet"), tests.length - done], ["done", t("Taken"), done]];
       this.main.innerHTML = `
-        <section class="catalog ${line.cls}" aria-labelledby="catalog-title">
-          <a class="back-link" href="#/">${ICON_BACK} ${t("All lines")}</a>
+        <section class="page catalog" aria-labelledby="catalog-title">
+          <a class="back-link" href="#/">${ICON_BACK} ${t("Home")}</a>
           <div class="catalog-head">
-            <span class="bullet lg" aria-hidden="true">${line.letter}</span>
-            <div>
-              <h1 id="catalog-title">${esc(title)}</h1>
-              <p class="muted-text">${esc(this.lineMeta(module))} · ${esc(t("{n} tests", { n: tests.length }))} · ${esc(t("Test 1 is free"))}</p>
-            </div>
+            <h1 id="catalog-title">${esc(title)}</h1>
+            <p>${esc(t("catalog.sub", { format: this.formatOf(module), n: tests.length, free }))}</p>
           </div>
           <div class="catalog-tools">
             <div class="chip-row" role="group" aria-label="${esc(t("Show"))}">
@@ -733,7 +412,7 @@
               placeholder="${esc(t("Search by topic"))}" aria-label="${esc(t("Search these tests by topic"))}">
           </div>
           <p class="catalog-count muted-text" id="catalog-count" aria-live="polite"></p>
-          <ol class="catalog-grid" id="catalog-grid"></ol>
+          <ol class="test-list" id="catalog-grid"></ol>
           <div class="catalog-more" id="catalog-more"></div>
         </section>`;
       let timer = null;
@@ -757,13 +436,12 @@
       const words = st.q.toLowerCase().split(/\s+/).filter(Boolean);
       const list = this.testsOf(module).filter((test) => {
         const taken = Boolean(this.ridden[test.id]);
-        if ((st.filter === "open" && taken) || (st.filter === "done" && !taken)) return false;
+        if ((st.filter === "open" && taken) || (st.filter === "done" && !taken) || (st.filter === "free" && test.access !== "free")) return false;
         if (!words.length) return true;
         const hay = [this.testName(test), ...this.testFacts(test).items.map(([, v]) => v)].join(" ").toLowerCase();
         return words.every((w) => hay.includes(w));
       });
-      const line = lineOf(module);
-      grid.innerHTML = list.slice(0, st.shown).map((test) => this.catalogCardHTML(test, line)).join("")
+      grid.innerHTML = list.slice(0, st.shown).map((test) => this.catalogRowHTML(test)).join("")
         || `<li class="empty-note">${esc(t("No tests match. Try another word or show all tests."))}</li>`;
       document.getElementById("catalog-count").textContent = words.length || st.filter !== "all"
         ? t("{n} of {total} tests", { n: list.length, total: this.testsOf(module).length }) : "";
@@ -772,17 +450,16 @@
         ? `<button type="button" class="btn-secondary" data-catalog-more>${esc(t("Show {n} more", { n: Math.min(rest, CATALOG_PAGE) }))}</button>` : "";
     }
 
-    catalogCardHTML(test, line) {
+    catalogRowHTML(test) {
       const f = this.testFacts(test);
-      const ring = f.ride ? `<span class="station-ring is-done-ring">${esc(f.band)}</span>`
-        : f.locked ? `<span class="station-ring is-locked" aria-hidden="true">${ICON_LOCK}</span>`
-          : `<span class="station-ring" aria-hidden="true"></span>`;
+      const topics = f.items.map(([, v]) => v).filter(Boolean).join(" / ");
+      const notes = [f.band ? t("Band {band}", { band: f.band }) : "", this.hasProgress(test.id) ? t("In progress") : ""].filter(Boolean);
       return `
-        <li class="test-card ${f.ride ? "is-done" : ""}">
-          <div class="test-card-head">${ring}<h2>${esc(this.testName(test))}</h2>${f.tag}</div>
-          <ul class="test-card-items">${f.items.map(([k, v]) => `<li><b>${esc(k)}</b><span>${esc(v)}</span></li>`).join("")}</ul>
-          <p class="test-card-meta">${esc(f.meta)}${f.extra ? ` · ${esc(f.extra)}` : ""}</p>
-          <div class="test-card-actions">${this.testActionsHTML(test, f, true)}</div>
+        <li class="test-row">
+          <h2 class="test-row-name">${esc(this.testName(test))}${notes.map((n) => `<span class="test-row-band">${esc(n)}</span>`).join("")}</h2>
+          <p class="test-row-topics">${esc(topics)}</p>
+          <div class="test-row-tag">${f.tag}</div>
+          <div class="test-row-act">${this.testActionsHTML(test, f)}</div>
         </li>`;
     }
 
@@ -792,13 +469,13 @@
         items = (await U.api(`/api/history?clientId=${encodeURIComponent(U.clientId())}`)).items || [];
       } catch (e) { return; }
       this.history = items;
-      // The latest attempt at each test marks its station as ridden.
+      // The latest attempt at each test marks it as taken.
       const ridden = {};
       [...items].reverse().forEach((i) => { ridden[i.testId] = { band: i.bandScore, module: i.module }; });
       const changed = JSON.stringify(ridden) !== JSON.stringify(this.ridden);
       this.ridden = ridden;
       U.store.set("testday:ridden", ridden);
-      if (changed && document.getElementById("lines-list")) this.renderNetwork();
+      if (changed && document.getElementById("ledger")) this.renderLedger();
       if (changed && document.getElementById("catalog-grid")) this.renderCatalogGrid();
       this.renderHistory(items);
     }
@@ -815,12 +492,11 @@
           <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Test")}</th><th scope="col">${t("Result")}</th><th scope="col">${t("Time used")}</th></tr></thead>
           <tbody>${items.slice(0, 10).map((i) => {
             const test = testOf(i.testId);
-            const line = lineOf(i.module);
-            const name = test ? `${MODULE_LABELS[test.module]} · ${this.testName(test)}` : i.testId;
+            const name = test ? `${MODULE_LABELS[test.module]}, ${this.testName(test)}` : i.testId;
             return `
             <tr>
               <td>${esc(U.formatDate(i.createdAt))}</td>
-              <td><span class="bullet sm ${line.cls}" aria-hidden="true">${line.letter}</span>${esc(name)}${i.mode === "practice" ? ` <span class="muted-text">(${t("practice")})</span>` : ""}</td>
+              <td>${esc(name)}${i.mode === "practice" ? ` <span class="muted-text">(${t("practice")})</span>` : ""}</td>
               <td>${i.module === "speaking" ? this.speakingHistoryCell(i)
                 : i.module !== "writing"
                 ? `<strong>${t("Band {band}", { band: IeltsScoring.formatBand(i.bandScore) })}</strong> <span class="muted-text">(${i.rawScore}/${i.totalQuestions})</span>`
@@ -901,7 +577,6 @@
       const progress = U.store.get(`mockexam:progress:${test.id}`);
       const canResume = progress && progress.mode === mode;
       const checkMinutes = test.checkMinutes || 2;
-      const line = lineOf(module);
 
       // Preload first audio file while candidate reads instructions and checks sound
       if (module === "listening" && test.parts && test.parts[0] && test.parts[0].audio && test.parts[0].audio.src) {
@@ -957,10 +632,10 @@
         ];
 
       const card = document.getElementById("verification-card");
-      card.className = `verification-card ${line.cls}`;
+      card.className = "verification-card";
       card.innerHTML = `
         <div class="verification-header">
-          <div class="vh-title"><span class="bullet sm">${line.letter}</span> ${["listening", "speaking"].includes(module) ? MODULE_LABELS[module] : `Academic ${MODULE_LABELS[module]}`}</div>
+          <div class="vh-title">${["listening", "speaking"].includes(module) ? MODULE_LABELS[module] : `Academic ${MODULE_LABELS[module]}`}</div>
           <span class="vh-mode">${timed ? "Timed test" : "Practice mode"}</span>
         </div>
         <form class="verification-body" id="verify-form">
@@ -996,7 +671,7 @@
           </div>
           <div class="verification-footer">
             <button type="button" class="btn-secondary" id="verify-cancel">Back to tests</button>
-            <button type="submit" class="btn-line btn-lg">Start test</button>
+            <button type="submit" class="btn-primary btn-lg">Start test</button>
           </div>
         </form>`;
       this.showView("verification");
@@ -1103,13 +778,7 @@
       else Results.renderReading(r, this.main, extra);
     }
 
-    /**
-     * "Your next stop" on a results page: the question type to practise (Reading and Listening)
-     * and the next test on the same line. Without the pass, a locked test says it opens with the
-     * pass and what that costs; with the pass (or as staff) there is only a Start button.
-     */
     nextStopHTML(module, testId, typeBreakdown) {
-      const line = lineOf(module);
       const weak = Object.entries(typeBreakdown || {})
         .filter(([, v]) => v.total > 0 && v.correct < v.total)
         .sort(([, a], [, b]) => (a.correct / a.total - b.correct / b.total) || (b.total - a.total))[0];
@@ -1125,22 +794,21 @@
         </div>` : "";
       const name = next ? this.testName(next) : "";
       const price = this.prices && this.prices.plan ? U.money(this.prices.plan) : "";
-      const ride = next ? `
+      const card = next ? `
         <div class="next-card">
-          <div class="next-ride"><span class="bullet" aria-hidden="true">${line.letter}</span>
-            <h3>${esc(MODULE_LABELS[module])} · ${esc(name)}</h3></div>
+          <h3>${esc(MODULE_LABELS[module])}, ${esc(name)}</h3>
           ${this.canOpen(next)
-            ? `<p>${t("next.open")}</p>
-              <div class="next-actions"><button type="button" class="btn-line" data-action="start" data-test="${esc(next.id)}" data-mode="exam"
-                data-track="next_test">${t("Start {name}", { name: esc(name) })} ${ICON_ARROW}</button></div>`
+            ? `<p>${t("next.open", { module: esc(MODULE_LABELS[module]) })}</p>
+              <div class="next-actions"><button type="button" class="btn-primary" data-action="start" data-test="${esc(next.id)}" data-mode="exam"
+                data-track="next_test">${t("Start {name}", { name: esc(name) })}</button></div>`
             : `<p>${price ? t("next.locked", { price: `<strong>${esc(price)}</strong>` }) : t("next.locked.noprice")}</p>
-              <div class="next-actions"><button type="button" class="btn-line" data-action="buy-plan" data-track="next_test_pass">${t("Get the pass")}</button>
-                <a class="btn-secondary" href="#/pricing">${t("See prices")}</a></div>`}
+              <div class="next-actions"><button type="button" class="btn-primary" data-action="buy-plan" data-track="next_test_pass">${t("Get the pass")}</button>
+                <a class="btn-secondary" href="#/pricing">${t("Price")}</a></div>`}
         </div>` : "";
       return `
-        <section class="next-stop ${line.cls}" aria-labelledby="next-stop-title">
-          <h2 class="section-title" id="next-stop-title">${t("Your next stop")}</h2>
-          <div class="next-grid">${focus}${ride}</div>
+        <section class="next-stop" aria-labelledby="next-stop-title">
+          <h2 class="section-title" id="next-stop-title">${t("What next")}</h2>
+          <div class="next-grid">${focus}${card}</div>
         </section>`;
     }
 
@@ -1204,25 +872,6 @@
     }
 
     /* Static pages ----------------------------------------------------- */
-    renderResources() {
-      document.title = `${t("Free official resources")} – ${this.config.siteName}`;
-      this.main.innerHTML = `
-        <section class="page">
-          <h1>${t("Free official IELTS resources")}</h1>
-          <p class="lead-text">${t("res.lead")}</p>
-          ${OFFICIAL_RESOURCES.map((g) => `
-            <div class="resource-group">
-              <h2 class="section-title">${t(g.group)}</h2>
-              <p class="muted-text">${t(g.note)}</p>
-              <ul class="resource-list">
-                ${g.links.map((l) => `
-                  <li><a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer" lang="en">${esc(l.title)}</a>
-                    <span class="resource-org">${esc(l.org)}</span></li>`).join("")}
-              </ul>
-            </div>`).join("")}
-          <div class="notice notice-info"><strong>${t("Tip")}</strong><span>${t("res.tip")}</span></div>
-        </section>`;
-    }
 
     /** The site's email for support and requests: CONTACT_EMAIL, or the owner's address. */
     contactHTML() {
@@ -1295,23 +944,18 @@
     }
 
     renderAbout() {
-      document.title = `${t("About, privacy and legal")} – ${this.config.siteName}`;
+      document.title = `${t("About")} – ${this.config.siteName}`;
       const name = esc(this.config.siteName);
-      const days = Number(this.config.speakingKeepDays) || 60;
       this.main.innerHTML = `
         <section class="page prose">
           <h1>${t("About {name}", { name })}</h1>
           <p class="lead-text">${t("about.lead", { name })}</p>
 
-          <h2>${t("Independent website")}</h2>
-          <p>${t("about.independent", { name })}</p>
-
-          <h2>${t("Our content")}</h2>
+          <h2>${t("What is inside")}</h2>
           <ul>
             <li>${t("about.content.1")}</li>
             <li>${t("about.content.2")}</li>
             <li>${t("about.content.3")}</li>
-            <li>${t("about.content.4")}</li>
           </ul>
 
           <h2>${t("About your scores")}</h2>
@@ -1321,6 +965,9 @@
             <li>${t("about.scores.speaking")}</li>
           </ul>
 
+          <h2>${t("Independent website")}</h2>
+          <p>${t("about.independent", { name })}</p>
+
           <h2>${t("Privacy, terms and refunds")}</h2>
           <p>${t("about.legal", { name })}</p>
           <ul class="legal-links">
@@ -1328,6 +975,8 @@
             <li><a href="#/terms">${t("Terms of use")}</a></li>
             <li><a href="#/refunds">${t("Refund policy")}</a></li>
           </ul>
+          <h2>${t("Contact")}</h2>
+          <p>${this.contactHTML()}</p>
         </section>`;
     }
   }

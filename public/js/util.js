@@ -368,6 +368,12 @@
     return loadPromise;
   }
 
+  /** True on a data-saver or 2G connection: there, nothing should be downloaded before it is asked for. */
+  function lowData() {
+    const c = navigator.connection;
+    return Boolean(c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || "")));
+  }
+
   /** Warm bundle assets into browser cache during idle time. */
   function prefetch(name) {
     const paths = BUNDLES[name];
@@ -377,6 +383,6 @@
 
   window.U = {
     escapeHtml, richText, paragraphs, api, store, clientId, formatDuration, formatClock,
-    formatDate, number, money, LOCALE, countWords, track, assetUrl, loadScript, loadStyle, modal, loadingOverlay, toast, need, prefetch, clearApiCache: () => apiCache.clear(),
+    formatDate, number, money, LOCALE, countWords, track, assetUrl, loadScript, loadStyle, modal, loadingOverlay, toast, need, prefetch, lowData, clearApiCache: () => apiCache.clear(),
   };
 })();

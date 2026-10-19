@@ -92,9 +92,9 @@
     const lines = present.map(([key, , color]) => {
       const pts = points.filter((p) => p.module === key).map((p) => [X(new Date(p.date).getTime()), Y(p.band)]);
       const d = pts.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join("");
-      // Drawn like the home page's lines: a thick line with a station ring at every test.
-      return `<path d="${d}" fill="none" stroke="${color}" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
-        ${pts.map(([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="var(--pv-surface)" stroke="${color}" stroke-width="3"/>`).join("")}`;
+      // A thin line with a dot at every test.
+      return `<path d="${d}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        ${pts.map(([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4" fill="${color}" stroke="var(--pv-surface)" stroke-width="2"/>`).join("")}`;
     }).join("");
 
     // Direct labels at each line's end – only when none of them collide (the legend and table always remain).

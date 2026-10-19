@@ -983,10 +983,9 @@
           </div>
         </div>`;
     main.innerHTML = `
-      <section class="results-page speaking-results line-s">
+      <section class="results-page speaking-results">
         <div class="results-head">
           <div class="results-title">
-            <span class="bullet lg" aria-hidden="true">S</span>
             <div>
               <h1>${esc(sub.title)}</h1>
               <p class="muted-text">${esc(U.formatDate(sub.completedAt || sub.createdAt))} · ${esc(tr("{n} of {total} questions answered", { n: sub.answered, total: sub.totalQuestions }))}

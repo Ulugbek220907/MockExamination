@@ -15,54 +15,50 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "Adam's Wine reading answers are given below in the passage form. You can read the questions first and then proceed to read the passage so you can mark the answers as you read."
-        },
-        {
-          "label": "B",
           "text": "Water is a life-giver as well as a life-taker. It spans the majority of our planet's surface and has had a significant role in human evolution. According to current projections, it is a factor that will become even more important."
         },
         {
-          "label": "C",
-          "text": "Water has played a vital role in our lives throughout history. Water has always had a thorny relationship with humanity, on the one hand providing immense benefits not only as a supply of drinking water, but also as a source of food, a means of transportation, and a means of trade. However, because people have been obliged to live near water in order to survive and thrive, the relationship has not always been pleasant or productive. Contrary to popular belief, it has been the exact opposite. What started out as a survival necessity has turned out to have a highly destructive and life-threatening side in many cases."
+          "label": "B",
+          "text": "Water has played a vital role in our lives throughout history. Water has always had a thorny relationship with humanity, on the one hand providing immense benefits not only as a supply of drinking water, but also as a source of food, a means of transportation, and a means of trade. However, because people have been obliged to live near water in order to survive and thrive, the relationship has not always been pleasant or productive. In fact, it has been quite the opposite. What started out as a survival necessity has turned out to have a highly destructive and life-threatening side in many cases."
         },
         {
-          "label": "D",
+          "label": "C",
           "text": "People and their environment have been hit by big floods and long droughts throughout history, making it harder for them to fight for their lives. The dramatic changes in the environment that we hear about in the news every day are not new. Fields that used to be green and full of life are now empty. Lakes and rivers that used to be full of life are now empty. Savannas have become deserts. What might be new is our childlike amazement at the forces of nature."
         },
         {
-          "label": "E",
+          "label": "D",
           "text": "Today, we know more about how climates change around the world. Floods in faraway places have an immediate effect on the whole world. Maybe these things make us feel better when floods and other natural disasters are destroying our own property."
         },
         {
+          "label": "E",
+          "text": "In 2002, floods in several parts of Europe caused a lot of damage that cost billions of euros to fix. Properties all over the continent fell into the sea as waves thumped the coast and destroyed sea defences. But it was not just the sea. Rivers that were swollen by heavy rains and the loss of trees carried large amounts of water that ruined many communities."
+        },
+        {
           "label": "F",
-          "text": "In 2002, floods in several parts of Europe caused a lot of damage that cost billions of euros to fix. Properties all over the continent fell into the sea as waves thumped the coast and destroyed sea defenses. But it was not just the sea. Rivers that were deformed by heavy rains and the loss of trees carried large amounts of water that ruined many communities."
+          "text": "The costly short-term solution is to build better and more sophisticated flood defences along rivers. There are less complicated options. Tree planting in highland areas, not just in Europe, but also in locations like the Himalayas, to safeguard people living in low-lying areas like the Ganges Delta, is a less expensive and more appealing alternative. Countries are already being persuaded that the release of carbon dioxide and other greenhouse gases is causing significant environmental damage. In this area, however, further work is needed."
         },
         {
           "label": "G",
-          "text": "The costly short-term solution is to build better and more sophisticated flood defences along rivers. There are less complicated options. Tree planting in highland areas, not just in Europe, but also in locations like the Himalayas, to safeguard people living in low-lying areas like the Ganges Delta, is a less expensive and more appealing alternative. Countries are already being persuaded that the release of carbon dioxide and other greenhouse gases is affecting significant environmental damage. In this area, however, further work is needed."
+          "text": "What about the future? According to projections, two-thirds of the world's population would be without fresh water by 2025. However, the future has arrived in a rising number of parts of the planet. While floods have wreaked havoc in certain areas, water scarcity is generating strife in others. The Rio Grande failed to reach the Gulf of Mexico for the first time in 50 years in the spring of 2002, pitting region against region as they compete for water supplies. Due to drought and growing water usage in many regions of the world, there is currently discussion of water becoming the new oil."
         },
         {
           "label": "H",
-          "text": "What about the future? According to projections, two-thirds of the world's population would be without fresh water by 2025. However, the future has arrived in a rising number of parts of the planet. While floods have wreaked havoc in certain areas, water scarcity is generating strife in others. The Rio Grande failed to reach the Gulf of Mexico for the first time in 50 years in the spring of 2002, pitting the region against the region as they compete for water supplies. Due to drought and growing water usage in many regions of the world, there is currently discussion of water becoming the new oil."
-        },
-        {
-          "label": "I",
           "text": "Other doom-laden predictions claim that, as the polar ice caps melt, coastal regions and some low-lying islands will almost certainly be drowned by the water. Popular exotic sites, which are today frequented by tens of thousands of tourists, will become no-go zones. Today's vacation attractions in southern Europe and others will literally become hotspots, making them too hot to live in or visit. It's impossible not to despair in light of the current weather's irregular behavior."
         },
         {
-          "label": "J",
-          "text": "Some may argue that this pessimism is unfounded, but there has been plenty of evidence that something is wrong with the climate. Flooding has been destructive in many regions of the globe. The catastrophe shifts from one continent to the next as the seasons change. The cost of living is sad, and the environmental impact is worrying. We'll have to get used to it."
+          "label": "I",
+          "text": "Some may argue that this pessimism is unfounded, but there has been plenty of evidence that something is wrong with the climate. Flooding has been destructive in many regions of the globe. The catastrophe shifts from one continent to the next as the seasons change. The cost in human life is sad, and the environmental impact is worrying. We'll have to get used to it."
         }
       ],
       "groups": [
         {
           "type": "matching_headings",
-          "instruction": "This reading passage has eight paragraphs labeled A-I. Choose the most suitable headings for paragraphs B-I from the list of headings below.",
+          "instruction": "Reading Passage 1 has nine paragraphs, **A–I**. Choose the correct heading for paragraphs **B–I** from the list of headings below.",
           "optionsTitle": "List of Headings",
           "options": [
             {
               "key": "i",
-              "text": "Change in the environment has always been a part of our lives."
+              "text": "Change in the environment has always been a part of our lives"
             },
             {
               "key": "ii",
@@ -70,15 +66,15 @@
             },
             {
               "key": "iii",
-              "text": "Rivers and waves wreak havoc."
+              "text": "Rivers and waves wreak havoc"
             },
             {
               "key": "iv",
-              "text": "Is it reasonable to be pessimistic? Or is it more realistic?"
+              "text": "Is it reasonable to be pessimistic, or is it realistic?"
             },
             {
               "key": "v",
-              "text": "Climate disasters make us feel better."
+              "text": "Climate disasters make us feel better"
             },
             {
               "key": "vi",
@@ -113,80 +109,89 @@
             {
               "number": 1,
               "prompt": "Paragraph B",
-              "answer": "x",
-              "explanation": "Refer to Paragraph B in the passage."
+              "answer": "ix",
+              "explanation": "Water has a ‘thorny relationship with humanity’: it brings ‘immense benefits’ but also has a ‘highly destructive and life-threatening side’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 2,
               "prompt": "Paragraph C",
               "answer": "i",
-              "explanation": "Refer to Paragraph C in the passage."
+              "explanation": "Floods and droughts have hit people ‘throughout history’, and the environmental changes in the news ‘are not new’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 3,
               "prompt": "Paragraph D",
               "answer": "v",
-              "explanation": "Refer to Paragraph D in the passage."
+              "explanation": "News of floods in faraway places may ‘make us feel better when floods and other natural disasters are destroying our own property’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 4,
               "prompt": "Paragraph E",
               "answer": "iii",
-              "explanation": "Refer to Paragraph E in the passage."
+              "explanation": "In 2002 ‘waves thumped the coast’ and swollen rivers ‘ruined many communities’, so both the sea and rivers caused damage.",
+              "reference": "Paragraph E"
             },
             {
               "number": 5,
               "prompt": "Paragraph F",
-              "answer": "viii",
-              "explanation": "Refer to Paragraph F in the passage."
+              "answer": "vii",
+              "explanation": "The paragraph compares ways of dealing with floods: ‘flood defences along rivers’ or the cheaper option of ‘tree planting in highland areas’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 6,
               "prompt": "Paragraph G",
               "answer": "ii",
-              "explanation": "Refer to Paragraph G in the passage."
+              "explanation": "Two-thirds of the world ‘would be without fresh water by 2025’, and ‘water scarcity is generating strife’ in some regions.",
+              "reference": "Paragraph G"
             },
             {
               "number": 7,
               "prompt": "Paragraph H",
-              "answer": "i",
-              "explanation": "Refer to Paragraph H in the passage."
+              "answer": "xii",
+              "explanation": "The paragraph lists ‘doom-laden predictions’: drowned coasts and holiday resorts ‘too hot to live in or visit’.",
+              "reference": "Paragraph H"
             },
             {
               "number": 8,
               "prompt": "Paragraph I",
               "answer": "iv",
-              "explanation": "Refer to Paragraph I in the passage."
+              "explanation": "The writer asks whether ‘this pessimism is unfounded’ and concludes there is ‘plenty of evidence that something is wrong’.",
+              "reference": "Paragraph I"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the appropriate letters A-D",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 9,
-              "prompt": "The author contends that",
+              "prompt": "The writer argues that",
               "options": [
                 {
                   "key": "A",
-                  "text": "every day, the news we read and watch on TV amazes us."
+                  "text": "the news we read and watch on TV every day amazes us."
                 },
                 {
                   "key": "B",
-                  "text": "We're petrified in the face of environmental changes."
+                  "text": "we are petrified in the face of environmental changes."
                 },
                 {
                   "key": "C",
-                  "text": "every day, the news we read and watch on TV should not amaze us."
+                  "text": "the news we read and watch on TV every day should not amaze us."
                 },
                 {
                   "key": "D",
-                  "text": "Nature has surprised us with its ability to alter the surroundings."
+                  "text": "nature has surprised us with its ability to alter our surroundings."
                 }
               ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "answer": "C",
+              "explanation": "The changes we hear about in the news ‘are not new’, and the writer calls our amazement ‘childlike’, so it is not justified. D describes our reaction, not his view.",
+              "reference": "Paragraph C"
             },
             {
               "number": 10,
@@ -194,41 +199,44 @@
               "options": [
                 {
                   "key": "A",
-                  "text": "People do not need to become habituated to environmental destruction."
+                  "text": "people do not need to get used to environmental destruction."
                 },
                 {
                   "key": "B",
-                  "text": "People will have to adapt to climate changes than harm the environment."
+                  "text": "people will have to adapt to climate changes that harm the environment."
                 },
                 {
                   "key": "C",
-                  "text": "People are currently more accustomed to environmental devastation than in the past."
+                  "text": "people are more accustomed to environmental devastation now than in the past."
                 },
                 {
                   "key": "D",
-                  "text": "The widespread pessimism over environmental transformations is unjustified."
+                  "text": "the widespread pessimism about environmental change is unjustified."
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "After describing destructive flooding, the writer concludes ‘We'll have to get used to it.’ D is wrong: there is ‘plenty of evidence that something is wrong’.",
+              "reference": "Paragraph I"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the reading passage? Write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 11,
               "prompt": "Half of the world's population will lack access to clean water in the year 2025.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "Projections say ‘two-thirds of the world's population would be without fresh water by 2025’, not half.",
+              "reference": "Paragraph G"
             },
             {
               "number": 12,
               "prompt": "As the seasons change, the disaster moves from one continent to another.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "‘The catastrophe shifts from one continent to the next as the seasons change.’",
+              "reference": "Paragraph I"
             }
           ]
         }
@@ -240,241 +248,254 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Bring back the big cats"
+          "text": "John Vesty says that the time has come to bring back to Britain the native animals that have vanished. A poem from around 598 AD describes the hunting of a mystery animal called llewyn. What was it? Nothing fitted until 2006, when an animal bone was found in the Kinsey Cave in northern England, dating from around the same period. Until this discovery, the lynx, a large spotted cat with tasselled ears, was assumed to have died out in Britain at least 6,000 years ago, before the inhabitants of these islands took up farming. But the 2006 find, together with others in Yorkshire and Scotland, makes it evident that the lynx and the mysterious llewyn were the same. If so, the estimated extinction date of the tassel-eared cat moves forward by roughly 5,000 years."
         },
         {
           "label": null,
-          "text": "John Vesty says that the time for returning vanished native animals to Britain has arrived. Around 598 AD, there is a poem that describes the hunting of a mystery animal called llewyn. What is it? Nothing got fitted until 2006, an animal bone was found in the Kinsey Cave in northern England, dating from around the same period. Until this discovery, the lynx which is a large spotted cat with tassel led ears was assumed to have died in Britain at least 6000 years ago. It happens before the inhabitants of these islands do farming. But in 2006, in Yorkshire and Scotland it is evident that the lynx and mysterious llewyn both are the same. If so, the estimated extinction date of tassel-eared cats is 5000 years."
+          "text": "However, this is not the last glimpse of the animal in British culture. A 9th-century stone cross from the Isle of Eigg shows, alongside the deer, boar and aurochs pursued by a mounted hunter, a speckled cat with tasselled ears. We cannot be completely sure, because the animal's backside has been damaged over time and the lynx's stubby tail is unmistakable. But even without this feature, it is difficult to see what else the creature could be. Now the lynx has become the totemic animal of a movement that is transforming British environmentalism: rewilding."
         },
         {
           "label": null,
-          "text": "However, in British culture this is not the last glimpse of the animal. A 9th century stone cross from the Isle of Eigg shows along the deer, pig, aurochs, a speckled cat with tasselled ears is pursued by a mounted hunter. We are sure that the animal's backside hasn't been damaged over time as the lynx's stubby tail is unmistakable. It's difficult to know about the creature even without this feature. Now, lynx has become the totemic animal of a movement that transforms British environmentalism - rewilding."
+          "text": "Rewilding means the mass restoration of damaged ecosystems. It involves letting trees return to areas that have been stripped of them, allowing parts of the seabed to recover from trawling and dredging, and permitting rivers to flow freely again. Above all, it means bringing back missing species. One of the most important findings of modern ecology is that ecosystems without large predators behave differently from those that retain them. Some of these predators drive dynamic processes that resonate through the whole food chain, creating niches for hundreds of species that might otherwise struggle to survive. The killers turn out to be bringers of life."
         },
         {
           "label": null,
-          "text": "Rewilding is the huge restoration of damaged ecosystems. It involves replacing the trees to areas that have been stripped, making seabed parts to recover from trawling and dredging and making rivers to freely flow. These things are to bring back the missing species. In modern ecology, one of the top findings is ecosystems without large predators which behave differently than those that retain them. Some drive dynamic processes that resonate the complete food chain and provide niches for hundreds of species that might struggle to survive. The killers will turn as life bringers."
+          "text": "These findings present a great challenge to British conservation, which has often selected arbitrary assemblages of plants and animals and sought, at great effort and expense, to prevent them from changing. It has tried to preserve the living world as if it were a jar of pickles, letting nothing in and nothing out, and keeping nature in an arrested state. But ecosystems are not merely collections of species; they also depend on the dynamic and changing relationships between them. And this dynamism often depends on large predators."
         },
         {
           "label": null,
-          "text": "For British conservation, these findings give a great challenge, which is often selected as arbitrary assemblages of plants and animals by putting huge effort and investment to prevent them from changing. As the jar of pickles, it has preserved the living world by not letting anything in and out and keeping nature in an arrested state. But ecosystems are not only based on the collection of species, it also depends on the dynamic and changing relationship between them. The dynamism often varies based on the large predators."
+          "text": "At sea, the potential is even greater. If large areas are protected from commercial fishing, we could once again see what 18th-century literature describes: vast shoals of fish chased by fin and sperm whales within sight of the English shore. This policy would also greatly increase catches in the surrounding seas; the fishing industry's insistence on scouring every part of the seabed, leaving no breeding reserves, could not be more damaging to its own interests."
         },
         {
           "label": null,
-          "text": "When it comes to sea, it is even greater, the larger areas of commercial fishing need to be protected. 18th century literature describes that the vast shoals of fish are chased by fin and sperm whales within sight of the English shore. This method will greatly increase catches in the surrounding seas; the fishing industry's insistence on clearing every seabed without leaving any breeding reserves couldn't be damaging to its own interests."
+          "text": "Rewilding is a rare example of an environmental movement in which campaigners articulate what they are for rather than only what they are against. One of the reasons why enthusiasm for rewilding is spreading so quickly in Britain is that it creates a more inspiring vision than the green movement's usual promise of ‘Follow us and the world will be less awful than it would otherwise be.’"
         },
         {
           "label": null,
-          "text": "Rewilding is one of the rare examples of environmental movement where campaigners communicate what they are for rather than what they are against. The reason for enthusiasm for rewilding is spreading fastly in Britain, is to create a more inspiring vision than the green movements' promise of Follow us and the world will be less awful than it would be."
+          "text": "The lynx presents no threat to human beings: there is no known instance of a lynx preying on people. It is a specialist predator of roe deer, a species that has exploded in Britain in recent decades, holding back, through intensive browsing, attempts to re-establish forests. It will also winkle out sika deer, an exotic species that is almost impossible for human beings to control, as it hides in impenetrable plantations of young trees. The attempt to reintroduce this predator marries well with the aim of bringing forests back to parts of our bare and barren uplands. The lynx requires deep cover, and so presents little risk to sheep and other livestock, which, as a condition of farm subsidies, are supposed to be kept out of the woods."
         },
         {
           "label": null,
-          "text": "There will be no threat to human beings by the lynx: there is no instance of a lynx preying on people. It is a specialist predator of roe deer that has exploded in Britain in recent decades which holds back the intensive browsing and planning to re-establish forests. It will also winkle out sika deer, an exotic species that is impossible for human beings to control as it hides in impenetrable plantations of young trees. Reintroducing this predator comes with the aim of bringing back the forests to the parts of our bare and barren uplands. The lynx needs deep cover thus giving little risk to sheep and other livestock which need to be in a condition of farm subsidies that are kept out of the woods."
+          "text": "On a recent trip to the Cairngorm Mountains, several conservationists suggested that the lynx could be reintroduced there within 20 years. If trees return to the bare hills elsewhere in Britain, the big cats could follow. Seen from the perspective of anywhere else in Europe, there is nothing extraordinary about these proposals. The lynx has now been reintroduced to mountains in the Alps, in eastern France and in Germany, and has re-established itself in many other places. Since 1970, the European population has tripled to nearly 10,000. Like wolves, bears, boar, bison, moose and other species, the lynx has been able to spread as farming has left the hills and people have discovered that it is more profitable to protect wildlife than to hunt it, as tourists will pay to see it. Large-scale rewilding is happening almost everywhere except Britain."
         },
         {
           "label": null,
-          "text": "Several conservationists suggested that the lynx can be reintroduced within 20 years in the recent trip of the Cairngorm Mountains. If trees return to the bare hills anywhere in Britain, the big cats will follow. If it is seen from the perspective of anywhere else in Europe, there will be nothing extraordinary about the proposals. Now, the lynx has been reintroduced to the Mountains, Alps in eastern France and mountains in Germany and re-established in many places. Since 1970, the European population has tripled to nearly 10, 000. Like wolves, bears, pigs, bison, moose and other species, the lynx will spread as farming, left the hills and then people discover that it is much needed to protect wildlife than to hunt it as tourists will pay to see it. Large scale rewilding will happen everywhere except Britain."
-        },
-        {
-          "label": null,
-          "text": "Here, there are many changes in attitudes. Conservationists started to accept the jar model is failing even on its own terms. Projects like Trees for life in the Highlands give hints of what is expected to come. There is an organisation set up that seeks to catalyse the rewilding of land and sea across Britain, its aim is to reintroduce the rarest species to British ecosystems: hope."
+          "text": "Here, attitudes are beginning to change. Conservationists are starting to accept that the jar-of-pickles model is failing, even on its own terms. Projects such as Trees for Life in the Highlands give a hint of what might be coming. An organisation has been set up that seeks to catalyse the rewilding of land and sea across Britain, and its aim is to reintroduce that rarest of species to British ecosystems: hope."
         }
       ],
       "groups": [
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, A, B, C or D.",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 13,
-              "prompt": "What did the discovery of animal bone say about the lynx?",
+              "prompt": "What did the discovery of the animal bone in 2006 reveal about the lynx?",
               "options": [
                 {
                   "key": "A",
-                  "text": "It has distinctive physical appearance"
+                  "text": "Its physical appearance was very distinctive."
                 },
                 {
                   "key": "B",
-                  "text": "The spread of farming is linked to its extinction"
+                  "text": "Its extinction was linked to the spread of farming."
                 },
                 {
                   "key": "C",
-                  "text": "It survived in Britain longer than the prediction"
+                  "text": "It survived in Britain longer than was previously thought."
                 },
                 {
                   "key": "D",
-                  "text": "Thousand years ago it disappeared from Britain"
+                  "text": "It disappeared from Britain several thousand years ago."
                 }
               ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "answer": "C",
+              "explanation": "The lynx ‘was assumed to have died out in Britain at least 6,000 years ago’, but the bone moves its extinction date ‘forward by roughly 5,000 years’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 14,
-              "prompt": "What does the writer point out about the large predators?",
+              "prompt": "What point does the writer make about large predators in the third paragraph?",
               "options": [
                 {
                   "key": "A",
-                  "text": "Biodiversity will increase by its presence"
+                  "text": "Their presence can increase biodiversity."
                 },
                 {
                   "key": "B",
-                  "text": "It will create damage to the ecosystems"
+                  "text": "They may cause damage to ecosystems."
                 },
                 {
                   "key": "C",
-                  "text": "Based on the environment, their behaviour might change"
+                  "text": "Their behaviour can change according to the environment."
                 },
                 {
                   "key": "D",
-                  "text": "Only in their native places they should be reintroduced."
+                  "text": "They should only be reintroduced in their native areas."
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Large predators create ‘niches for hundreds of species that might otherwise struggle to survive’, so they increase biodiversity.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 15,
-              "prompt": "What is suggested by the writer about British conservation?",
+              "prompt": "What does the writer suggest about British conservation in the fourth paragraph?",
               "options": [
                 {
                   "key": "A",
-                  "text": "The target was missed to achieve"
+                  "text": "It has failed to achieve its aims."
                 },
                 {
                   "key": "B",
-                  "text": "The path has begin to change"
+                  "text": "It has begun to change direction."
                 },
                 {
                   "key": "C",
-                  "text": "The misguided approach was held"
+                  "text": "It has taken a misguided approach."
                 },
                 {
                   "key": "D",
-                  "text": "It targeted only the most widespread species."
+                  "text": "It has focused only on the most widespread species."
                 }
               ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "answer": "C",
+              "explanation": "It has tried to preserve nature ‘as if it were a jar of pickles’, but ‘ecosystems are not merely collections of species’, so the approach is wrong. Failure is only mentioned later.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 16,
-              "prompt": "Protecting the large are of sea from commercial fishing will end up in",
+              "prompt": "Protecting large areas of the sea from commercial fishing would result in",
               "options": [
                 {
                   "key": "A",
-                  "text": "Loss for the fishing industry"
+                  "text": "losses for the fishing industry."
                 },
                 {
                   "key": "B",
-                  "text": "Benefits for the fishing industry"
+                  "text": "benefits for the fishing industry."
                 },
                 {
                   "key": "C",
-                  "text": "Opposition from the fishing industry"
+                  "text": "opposition from the fishing industry."
                 },
                 {
                   "key": "D",
-                  "text": "Changes in techniques in fishing industry"
+                  "text": "changes in fishing techniques."
                 }
               ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "answer": "B",
+              "explanation": "This policy ‘would also greatly increase catches in the surrounding seas’, which benefits the fishing industry.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 17,
-              "prompt": "What is the difference between rewilding from other campaigns according to the writer?",
+              "prompt": "According to the writer, what distinguishes rewilding from other environmental campaigns?",
               "options": [
                 {
                   "key": "A",
-                  "text": "The message is appealing and positive."
+                  "text": "Its message is positive and appealing."
                 },
                 {
                   "key": "B",
-                  "text": "The objective is achievable"
+                  "text": "Its objectives are achievable."
                 },
                 {
                   "key": "C",
-                  "text": "Supporters are more involved"
+                  "text": "Its supporters are more involved."
                 },
                 {
                   "key": "D",
-                  "text": "It is based on the scientific principles"
+                  "text": "It is based on scientific principles."
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Campaigners ‘articulate what they are for rather than only what they are against’, creating ‘a more inspiring vision’.",
+              "reference": "Paragraph 6"
             }
           ]
         },
         {
           "type": "summary_completion",
-          "instruction": "Complete the summary below Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for",
-          "content": "The advantages of reintroducing the lynx to Britain are many. There is no such evidence that lynx put {{18}} in danger which would reduce the population of {{19}} which increased rapidly in the recent decades. It gives only minimum threat to {{20}} , if it were kept away from the lynx habitats. Further, the reintroduction concept has been linked with initiatives to return native {{21}} to certain places of the country.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
+          "content": "There are many advantages to reintroducing the lynx to Britain. There is no evidence that lynx have ever put {{18}} in danger, and they would reduce the population of {{19}}, which has increased rapidly in recent decades. They would pose only a minimal threat to {{20}}, provided these were kept away from lynx habitats. Furthermore, the reintroduction fits well with initiatives to return native {{21}} to certain parts of the country.",
           "maxWords": 2,
           "questions": [
             {
               "number": 18,
               "answer": [
-                "People"
+                "people",
+                "human beings"
               ],
-              "explanation": "Found directly in the reading passage: 'People'."
+              "explanation": "‘There is no known instance of a lynx preying on people’; it ‘presents no threat to human beings’.",
+              "reference": "Paragraph 7"
             },
             {
               "number": 19,
               "answer": [
-                "cross"
+                "roe deer",
+                "deer"
               ],
-              "explanation": "Found directly in the reading passage: 'cross'."
+              "explanation": "The lynx is ‘a specialist predator of roe deer, a species that has exploded in Britain in recent decades’.",
+              "reference": "Paragraph 7"
             },
             {
               "number": 20,
               "answer": [
-                "backside"
+                "sheep",
+                "livestock"
               ],
-              "explanation": "Found directly in the reading passage: 'backside'."
+              "explanation": "The lynx ‘presents little risk to sheep and other livestock’, which are ‘supposed to be kept out of the woods’.",
+              "reference": "Paragraph 7"
             },
             {
               "number": 21,
               "answer": [
-                "Trees"
+                "forests",
+                "trees"
               ],
-              "explanation": "Found directly in the reading passage: 'Trees'."
+              "explanation": "Reintroduction ‘marries well with the aim of bringing forests back to parts of our bare and barren uplands’.",
+              "reference": "Paragraph 7"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements match the information with the passage? Write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 22,
-              "prompt": "Reintroducing the lynx is done by the Britain which is the first European country",
+              "prompt": "Britain would be the first European country to reintroduce the lynx.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "The lynx ‘has now been reintroduced to mountains in the Alps, in eastern France and in Germany’, so Britain would not be the first.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 23,
-              "prompt": "The conservationists' expectations have increased due to the huge population growth of",
+              "prompt": "The growth in the European lynx population since 1970 has exceeded conservationists’ expectations.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The population ‘has tripled to nearly 10,000’, but nothing is said about what conservationists expected."
             },
             {
               "number": 24,
-              "prompt": "The habitat of lynx in Europe extended based on the changes in agricultural practices.",
+              "prompt": "Changes in agricultural practices have extended the lynx’s habitat in Europe.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "The lynx ‘has been able to spread as farming has left the hills’.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 25,
-              "prompt": "Reintroduction of species has commercial advantage",
+              "prompt": "It has become clear that reintroducing species can bring commercial advantages.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "People have found ‘it is more profitable to protect wildlife than to hunt it, as tourists will pay to see it’.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 26,
-              "prompt": "The jar of pickle models has come into acceptance by the conservationists.",
+              "prompt": "The ‘jar of pickles’ model of conservation has gained acceptance among British conservationists.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "Conservationists ‘are starting to accept that the jar-of-pickles model is failing’, so they are turning away from it.",
+              "reference": "Paragraph 9"
             }
           ]
         }
@@ -486,125 +507,156 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "Read the following passage for writing the William Gilbert and Magnetism Reading Answers."
+          "text": "The sixteenth and seventeenth centuries saw two great pioneers of modern science: Gilbert and Galileo. Their eminent findings made a big impact. Gilbert was the accredited father of the science of electricity and magnetism, the first modern scientist, a physician at the court of Elizabeth and an Englishman of learning. Before him, all that was known about electricity and magnetism was what the ancients knew, and nothing more than that: lodestone had magnetic properties, and amber and jet, when rubbed, would attract bits of paper or other substances of small specific gravity. However, he has not been given the recognition he deserves."
         },
         {
           "label": "B",
-          "text": "William Gilbert and Magnetism"
+          "text": "Gilbert was born before Galileo. He was born on 24 May 1544 into an esteemed family in the UK's Colchester county. After going to grammar school, he went to study medicine at St John's College, Cambridge. He graduated in 1573, then travelled on the continent and later settled down in London."
         },
         {
           "label": "C",
-          "text": "The sixteenth and seventeenth centuries saw 2 great pioneers of modern science: Gilbert and Galileo. Their eminent findings made a big impact. Gilbert was the accredited father of the science of electricity and magnetism, the first modern scientist, a physician at the court of Elizabeth and an Englishman of learning. Before him, the things known about electricity and magnetism was what the ancients knew, and nothing more than that. Lodestone had magnetic properties and when amber and jet were rubbed, it would attract bits of paper or other substances of small specific gravity. However, he wasn't given the recognition he deserves."
+          "text": "He was a very eminent and successful doctor and was elected president of the Royal Science Society. He was appointed personal physician to the Queen (Elizabeth I) and was later knighted by her. He served her faithfully until her death. However, he did not outlive the Queen for long: he died on 10 December 1603, only a few months after his appointment as personal physician to King James."
         },
         {
           "label": "D",
-          "text": "Gilbert was born before Galileo. He was born on 24 May 1544 in an esteemed family in UK's Colchester county. After going to grammar school, he went to study medicine at St. John's College, Cambridge. He graduated in 1573 and then travelled to the continent and later settled down in London."
+          "text": "Although Gilbert was first interested in chemistry, he later changed his focus because of the large amount of mysticism involved in alchemy (such as the transmutation of metal). He gradually became interested in physics through the great minds of the ancient world, particularly the knowledge the ancient Greeks had about lodestones, strange minerals with the power to attract iron. Meanwhile, in 1588, when the Spanish Armada was defeated, Britain became a major seafaring nation, paving the way for the British settlement of America. British ships relied on the magnetic compass, yet no one knew why it worked. Was there a magnetic mountain at the pole, as described in the Odyssey, which ships would never approach? Or, as Columbus said, did the Pole Star attract it? From 1580, William Gilbert conducted ingenious experiments to understand magnetism for almost 20 years."
         },
         {
           "label": "E",
-          "text": "He was a very eminent and successful doctor and was elected as the president of the Royal Science Society. He was appointed to serve the Queen (Elizabeth I) as her personal physician, and was later knighted by the Queen. He served her faithfully until her death. But soon after the Queen's death he died on 10th December, 1603. It was only a few months after his appointment as a personal physician to King James."
+          "text": "Gilbert's discoveries were very important to modern physics. He investigated the nature of electricity and magnetism, and he was the one who coined the word ‘electric’. Early beliefs about magnetism were mixed with superstitions, such as the idea that rubbing garlic on lodestone can remove its magnetism. Sailors even believed that the smell of garlic would interfere with the action of the compass, which is why helmsmen were forbidden to eat it near a ship's compass. Gilbert also found that metals can be magnetised by rubbing materials such as fur or plastic on them. He named the ends of a magnet the ‘north pole’ and the ‘south pole’. Depending on their polarity, magnets can attract or repel each other; in addition, however, a magnet always attracts ordinary iron. Though he started to study the relationship between electricity and magnetism, he did not finish it. His research on static electricity using jet and amber only showed that objects with electrical charges can work like magnets, attracting small pieces of paper and similar materials. It was a Frenchman, du Fay, who discovered that there are actually two electrical charges, negative and positive."
         },
         {
           "label": "F",
-          "text": "Although Gilbert was interested in chemistry first he later changed his work because of a large portion of the mysticism of alchemy involved (such as the transmutation of metal). Slowly he became interested in physics after the great minds of the ancient, particularly about the knowledge the ancient Greeks had about lodestones, strange minerals with the power to attract iron. Meanwhile, in 1588 when the Spanish Armada was defeated, Britain had become a major seafaring nation, paving the way to the British settlement of America. British ships relied on the magnetic compass, yet no one knew why it worked. Was there a magnetic mountain at the pole, as described in Odyssey' which ships would never approach or as Columbus said, did the pole star attract it? William Gilbert conducted ingenious experiments from 1580 to understand magnetism for almost 20 years."
+          "text": "He also questioned traditional astronomical beliefs. Though he was a Copernican, he did not express in his quintessential beliefs whether the earth is at the centre of the universe or in orbit around the sun. He believed that stars are not equidistant from the earth and that they have their own earth-like planets orbiting around them. Compasses always point north because the earth is like a giant magnet: the earth's polarity and the axis it spins on are aligned. He likened the polarity of the earth to that of a magnet and built an entire magnetic philosophy on this analogy. He explained that magnetism was the soul of the earth, and that a perfectly spherical lodestone, when aligned with the earth's poles, would keep moving by itself in 24 hours. He further believed that suns and other stars wobble just like the earth does around a crystal core, and theorised that the moon might also be a magnet that orbits because of its attraction towards the earth. This was perhaps the first proposal that a force might cause a heavenly orbit."
         },
         {
           "label": "G",
-          "text": "Gilbert's discoveries were so important to modern physics. He investigated the nature of electricity and magnetism. He was the one who coined the word \"electric\". Ultimately the beliefs of magnetism were also twisted with superstitions like rubbing garlic on lodestone can remove its magnetism. Even Sailors believed the smell of garlic would even interfere with the action of the compass, which is why the steerers were forbidden to eat it near a ship's compass. Gilbert also found that metals can be magnetised by rubbing materials such as plastic, fur, etc. on them. He named the magnets \"north and south pole\". Depending on its polarity magnets can attract or repel. In addition, however, a magnet always attracts an ordinary iron. Though he started to study the relationship between electricity and magnetism, he did not finish it. His research of static electricity using jet and amber only showed that objects with electrical charges can work like magnets that attract small pieces of paper and stuff. du Fay, a French guy discovered that there are actually two electrical charges, negative and positive."
-        },
-        {
-          "label": "H",
-          "text": "He also questioned the traditional astronomical beliefs. He didn't express in his quintessential beliefs whether the earth is at the centre of the universe or in orbit around the sun though he was a Copernican. He believed that stars have their own earth-like planets orbiting around them and are not equidistant from the earth. Compasses always point north because the earth is like a giant magnet. The earth's polarity and the axis they spin on is aligned. He built an entire magnetic philosophy on this analogy. He even equated the polarity of the earth to that of magnets. He explained that magnetism was the soul of the earth and a perfectly spherical lodestone, when aligned with the earth's poles, would keep moving by itself in 24 hours. He further believed that suns and other stars wobble just like the earth does around a crystal core, and theorised that the moon might also be a magnet that orbits due to its attraction towards earth. Maybe this was the first proposal saying that a force might cause a heavenly orbit."
-        },
-        {
-          "label": "I",
-          "text": "In his revolutionary research methods he used experiments instead of reasoning and pure logic like the ancient Greek philosophers did. It was new in the scientific investigation. Scientific experiments were not in fashion till then. Because of this scientific attitude and his contribution to the field of magnetism, the unit of magnetomotive force, also known as magnetic potential, was named Gilbert in his honour. He carefully approached it, observed and experimented it rather than the authoritative or deductive philosophy of others that had laid the very foundation for modern science."
+          "text": "His research methods were revolutionary in that he used experiments instead of the reasoning and pure logic of the ancient Greek philosophers. This was new in scientific investigation, as scientific experiments had not been in fashion until then. Because of this scientific attitude and his contribution to the field of magnetism, the unit of magnetomotive force, also known as magnetic potential, was named Gilbert in his honour. His approach of careful observation and experimentation, rather than reliance on the authoritative opinion or deductive philosophy of others, laid the very foundation for modern science."
         }
       ],
       "groups": [
         {
-          "type": "summary_completion",
-          "instruction": "Complete the table below. Choose NO MORE THAN THREE WORDS from the reading passage for each answer.",
-          "content": "Year\nEvent {{27}} \nGilbert was born {{28}} \nQueen Elizabeth died {{29}} \nSpanish Armada was defeated {{30}} \nGilbert graduated from St. John's College\n\n\n1580\nWilliam Gilbert conducted {{31}} . ingenious experiments",
-          "maxWords": 3,
+          "type": "table_completion",
+          "instruction": "Complete the table below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
+          "maxWords": 2,
+          "title": "Key dates in William Gilbert's life",
+          "content": {
+            "headers": [
+              "Year",
+              "Event"
+            ],
+            "rows": [
+              [
+                "{{27}}",
+                "Gilbert is born"
+              ],
+              [
+                "{{28}}",
+                "Gilbert dies"
+              ],
+              [
+                "{{29}}",
+                "the Spanish Armada is defeated"
+              ],
+              [
+                "{{30}}",
+                "Gilbert graduates from St John's College, Cambridge"
+              ],
+              [
+                "1580",
+                "Gilbert begins conducting {{31}} to understand magnetism"
+              ]
+            ]
+          },
           "questions": [
             {
               "number": 27,
               "answer": [
                 "1544"
               ],
-              "explanation": "Found directly in the reading passage: '1544'."
+              "explanation": "Gilbert ‘was born on 24 May 1544’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 28,
               "answer": [
                 "1603"
               ],
-              "explanation": "Found directly in the reading passage: '1603'."
+              "explanation": "He ‘died on 10 December 1603, only a few months after his appointment as personal physician to King James’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 29,
               "answer": [
                 "1588"
               ],
-              "explanation": "Found directly in the reading passage: '1588'."
+              "explanation": "‘In 1588, when the Spanish Armada was defeated, Britain became a major seafaring nation.’",
+              "reference": "Paragraph D"
             },
             {
               "number": 30,
               "answer": [
                 "1573"
               ],
-              "explanation": "Found directly in the reading passage: '1573'."
+              "explanation": "He studied medicine at St John's College, Cambridge, and ‘graduated in 1573’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 31,
               "answer": [
-                "ingenious experiments"
+                "ingenious experiments",
+                "experiments"
               ],
-              "explanation": "Found directly in the reading passage: 'ingenious experiments'."
+              "explanation": "‘From 1580, William Gilbert conducted ingenious experiments to understand magnetism.’",
+              "reference": "Paragraph D"
             }
           ]
         },
         {
           "type": "matching_information",
-          "instruction": "This reading passage has eight paragraphs, A-G.",
+          "instruction": "Reading Passage 3 has seven paragraphs, **A–G**. Which paragraph contains the following information? **NB** You may use any letter more than once.",
           "questions": [
             {
               "number": 32,
-              "prompt": "Gilbert was the accredited father of the science of electricity and magnetism.",
+              "prompt": "a reference to Gilbert's status as the founder of a branch of science",
               "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "explanation": "Gilbert ‘was the accredited father of the science of electricity and magnetism’.",
+              "reference": "Paragraph A"
             },
             {
               "number": 33,
-              "prompt": "He used experiments instead of reasoning and pure logic.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "a comparison between Gilbert's research methods and those of earlier thinkers",
+              "answer": "G",
+              "explanation": "He ‘used experiments instead of the reasoning and pure logic of the ancient Greek philosophers’.",
+              "reference": "Paragraph G"
             },
             {
               "number": 34,
-              "prompt": "Gilbert coined the word \"electric\".",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "a word that Gilbert was the first to use",
+              "answer": "E",
+              "explanation": "He ‘was the one who coined the word’ electric.",
+              "reference": "Paragraph E"
             },
             {
               "number": 35,
-              "prompt": "He believed that stars have their own earth-like planets.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "Gilbert's view that other stars have planets of their own",
+              "answer": "F",
+              "explanation": "He believed that stars ‘have their own earth-like planets orbiting around them’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 36,
-              "prompt": "Gilbert was interested in chemistry first.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "the subject that first interested Gilbert",
+              "answer": "D",
+              "explanation": "‘Gilbert was first interested in chemistry’ but turned away from it because of the ‘mysticism involved in alchemy’.",
+              "reference": "Paragraph D"
             }
           ]
         },
         {
           "type": "summary_completion",
-          "instruction": "Complete the summary below. Write NO MORE THAN TWO WORDS from the passage for each answer.",
-          "content": "The eminent findings of Gilbert made a big impact. He was born on 24 May 1544 in an esteemed family in UK's {{37}} county. He investigated the nature of electricity and {{38}} . Because of his scientific attitude and contribution to the field of magnetism, the unit of magnetomotive force, also known as {{39}} , was named Gilbert in his honour. He died on 10th December, 1603 after a few months of his appointment as a personal physician to {{40}} .",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
+          "content": "Gilbert was born into an esteemed family in the UK's {{37}} county. He investigated the nature of electricity and {{38}}, and because of his scientific attitude, the unit of magnetomotive force, also known as {{39}}, was named after him. He died only a few months after being appointed personal physician to {{40}}.",
           "maxWords": 2,
           "questions": [
             {
@@ -612,28 +664,32 @@
               "answer": [
                 "Colchester"
               ],
-              "explanation": "Found directly in the reading passage: 'Colchester'."
+              "explanation": "He was born ‘into an esteemed family in the UK's Colchester county’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 38,
               "answer": [
-                "Magnetism"
+                "magnetism"
               ],
-              "explanation": "Found directly in the reading passage: 'Magnetism'."
+              "explanation": "‘He investigated the nature of electricity and magnetism.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 39,
               "answer": [
-                "magnetomotive force"
+                "magnetic potential"
               ],
-              "explanation": "Found directly in the reading passage: 'magnetomotive force'."
+              "explanation": "‘The unit of magnetomotive force, also known as magnetic potential, was named Gilbert in his honour.’",
+              "reference": "Paragraph G"
             },
             {
               "number": 40,
               "answer": [
                 "King James"
               ],
-              "explanation": "Found directly in the reading passage: 'King James'."
+              "explanation": "He died ‘only a few months after his appointment as personal physician to King James’.",
+              "reference": "Paragraph C"
             }
           ]
         }

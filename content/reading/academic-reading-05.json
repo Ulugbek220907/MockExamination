@@ -16,7 +16,7 @@
             "Fresnel’s observation: the light is bent only by the curved {{2}} of a lens",
             "Design: the lens is divided into concentric {{3}}, each a thin slice of a larger lens",
             "Result: rays from the lamp are bent into a single horizontal {{4}}",
-            "Improvement: prisms above and below the centre {{5}} escaping light back into the beam"
+            "Improvement: later designs added prisms above and below the centre, which {{5}} escaping light into the beam"
           ],
           "maxWords": 1,
           "questions": [
@@ -191,7 +191,7 @@
               "number": 17,
               "prompt": "a list of problems associated with not getting enough sleep",
               "reference": "Paragraph E",
-              "explanation": "Lack of sleep is linked to poor concentration and memory, low mood and depression, and road accidents."
+              "explanation": "‘Lack of sleep has been linked to poor concentration and memory, to low mood and depression, and to a higher risk of road accidents’."
             },
             {
               "answer": "A",

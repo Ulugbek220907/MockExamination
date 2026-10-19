@@ -32,7 +32,7 @@
             { "number": 2, "prompt": "Farmers near Borrowdale used graphite to mark their {{2}}.", "answer": ["sheep"], "explanation": "It ‘was soon being used by farmers to mark their sheep’.", "reference": "Paragraph 2" },
             { "number": 3, "prompt": "Industry used graphite to line the moulds for making {{3}}.", "answer": ["cannonballs"], "explanation": "It ‘could be used to line the moulds in which cannonballs were cast’.", "reference": "Paragraph 3" },
             { "number": 4, "prompt": "The first pencils were made by wrapping graphite in string or {{4}}.", "answer": ["sheepskin"], "explanation": "Sticks of graphite ‘were cut from solid lumps and wrapped in string or sheepskin’.", "reference": "Paragraph 4" },
-            { "number": 5, "prompt": "Conté baked his rods of graphite and clay in a {{5}}.", "answer": ["kiln"], "explanation": "He shaped the mixture into rods ‘and baking them in a kiln’.", "reference": "Paragraph 5" },
+            { "number": 5, "prompt": "Conté baked his rods of graphite and clay in a {{5}}.", "answer": ["kiln"], "explanation": "Conté’s method involved ‘shaping the mixture into thin rods and baking them in a kiln’.", "reference": "Paragraph 5" },
             { "number": 6, "prompt": "Before rubber was used, people rubbed out pencil marks with {{6}}.", "answer": ["bread"], "explanation": "‘Before rubber was available, people removed pencil marks with pieces of bread.’", "reference": "Paragraph 6" }
           ]
         },
@@ -87,8 +87,8 @@
             { "number": 16, "prompt": "Paragraph C", "answer": "iv", "explanation": "Plants and moist soil release water vapour, which ‘cools the surrounding air’.", "reference": "Paragraph C" },
             { "number": 17, "prompt": "Paragraph D", "answer": "vi", "explanation": "‘Urban canyons’ trap heat, and vehicles, industry and air conditioning add heat of their own.", "reference": "Paragraph D" },
             { "number": 18, "prompt": "Paragraph E", "answer": "vii", "explanation": "Heat raises ‘the risk of illness and death’ and worsens pollution and pressure on water supplies.", "reference": "Paragraph E" },
-            { "number": 19, "prompt": "Paragraph F", "answer": "viii", "explanation": "Reflective roofs, green roofs and street trees are described as cooling measures.", "reference": "Paragraph F" },
-            { "number": 20, "prompt": "Paragraph G", "answer": "x", "explanation": "Medellín and Paris are examples, followed by researchers’ cautions about what works where.", "reference": "Paragraph G" }
+            { "number": 19, "prompt": "Paragraph F", "answer": "viii", "explanation": "The paragraph describes cooling measures: roofs ‘painted white or covered with special reflective coatings’, ‘green roofs’ and ‘planting trees’ along streets.", "reference": "Paragraph F" },
+            { "number": 20, "prompt": "Paragraph G", "answer": "x", "explanation": "‘A number of cities have put these ideas into practice’: Medellín and Paris are described, followed by researchers’ cautions about what works where.", "reference": "Paragraph G" }
           ]
         },
         {
@@ -128,7 +128,7 @@
           "questions": [
             { "number": 27, "prompt": "Galton expected ordinary people to make poor judgements.", "answer": "YES", "explanation": "‘Galton had little faith in the judgement of ordinary people and expected the results to confirm his view.’", "reference": "Paragraph 1" },
             { "number": 28, "prompt": "Galton was the first person to study the accuracy of group estimates.", "answer": "NOT GIVEN", "explanation": "The writer does not say whether anyone had studied group estimates before Galton.", "reference": "Paragraph 1" },
-            { "number": 29, "prompt": "Combining many estimates can reduce the effect of random errors.", "answer": "YES", "explanation": "‘If the errors are random, those that are too high tend to be cancelled out by those that are too low.’", "reference": "Paragraph 2" },
+            { "number": 29, "prompt": "In some circumstances, a group can judge more accurately than its most able member.", "answer": "YES", "explanation": "‘Under the right conditions, groups can make better judgements than even their most capable members’, and the writer goes on to explain why.", "reference": "Paragraph 2" },
             { "number": 30, "prompt": "Surowiecki’s book was based mainly on experiments he carried out himself.", "answer": "NOT GIVEN", "explanation": "The book and its argument are described, but not how Surowiecki gathered his evidence.", "reference": "Paragraph 2" },
             { "number": 31, "prompt": "In the Swiss study, social influence made the groups’ estimates more accurate.", "answer": "NO", "explanation": "Seeing others’ estimates ‘did not make them more accurate’.", "reference": "Paragraph 4" },
             { "number": 32, "prompt": "The opinions of experts should generally be ignored in favour of crowds.", "answer": "NO", "explanation": "‘The lesson … is not that crowds are always wise, nor that experts should be ignored.’", "reference": "Paragraph 7" }
@@ -187,7 +187,7 @@
                 { "key": "D", "text": "to give examples of collective judgement being used successfully" }
               ],
               "answer": "D",
-              "explanation": "The paragraph describes prediction markets, the Iowa Electronic Markets and company markets as uses of collective judgement.",
+              "explanation": "The paragraph shows how ‘organisations have found many ways to put collective judgement to use’, e.g. Iowa prices predicting ‘at least as accurately as opinion polls’. It does not criticise, explain polls or compare costs.",
               "reference": "Paragraph 6"
             }
           ]
@@ -208,7 +208,7 @@
             { "number": 37, "prompt": "When individual errors are random,", "answer": "E", "explanation": "Errors that are too high ‘tend to be cancelled out by those that are too low’.", "reference": "Paragraph 2" },
             { "number": 38, "prompt": "Diversity is valuable in a group because", "answer": "C", "explanation": "Members need diverse information ‘so that their errors point in different directions’.", "reference": "Paragraph 3" },
             { "number": 39, "prompt": "In the Swiss study, seeing other people’s estimates", "answer": "A", "explanation": "Participants ‘became more confident’ although their answers ‘were no better than before’.", "reference": "Paragraph 4" },
-            { "number": 40, "prompt": "Prediction markets run inside companies have sometimes", "answer": "B", "explanation": "They have been ‘sometimes revealing problems that managers had not been told about’.", "reference": "Paragraph 6" }
+            { "number": 40, "prompt": "Prediction markets run inside companies have sometimes", "answer": "B", "explanation": "Employees trading in internal markets were ‘sometimes revealing problems that managers had not been told about’.", "reference": "Paragraph 6" }
           ]
         }
       ]

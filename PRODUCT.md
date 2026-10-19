@@ -19,9 +19,9 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 ## Positioning
 
 - The exam screens reproduce the computer-delivered IELTS: split screen, timer, question navigator, Review flags, highlighting and notes, contrast and text-size options, a sound check, and listening that plays once in timed mode.
-- All passages, recordings, questions and tasks are original and written for the site, so they are new to candidates and legal to use.
+- Listening, Writing and Speaking tests and Reading tests 1–6 are written for the site. See Content status below for the rest of the Reading bank.
 - Human examiners (rated by students) mark Writing and Speaking checks for a small fee, paid locally with Payme or Click.
-- Priced for Uzbekistan: the first test of every module is free; the monthly plan is 39,000 so'm (first payment gives two months, no automatic renewal).
+- Priced for Uzbekistan: 15 Reading tests and one test of each other module are free; the monthly plan is 39,000 so'm (first payment gives two months, no automatic renewal).
 
 ## Operating Context
 
@@ -33,7 +33,8 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 
 ## Capabilities and Constraints
 
-- Modules and content today: Listening 3 tests, Academic Reading 4, Academic Writing 5, Speaking 3. Test 1 of each module is free; the rest need the plan.
+- Modules and content today: Listening 3 tests, Academic Reading 96, Academic Writing 35, Speaking 33. Reading has 15 free tests (the best 15); Listening, Writing and Speaking have 1 free each; the rest need the plan.
+- Content status: Reading tests 1–6 are original. Most of the remaining Reading tests are practice material of mixed origin, repaired and checked but not original; they are to be replaced by original tests over time, and until then the site must not call its content original. Listening has only 3 tests and is the next thing to grow.
 - Results: estimated band, per-section and per-question-type breakdown, explanation for every answer, listening transcript with answers highlighted and "listen again".
 - Progress page with latest band per module and band over time; history of attempts.
 - Examiner checks: Writing 10,000 so'm, Speaking 20,000 so'm; examiners mark the four official criteria and are rated once per check.

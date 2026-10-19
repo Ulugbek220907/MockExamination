@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>TestDay – IELTS-style Listening, Reading, Writing &amp; Speaking practice</title>
-  <meta name="description" content="Practise for the computer-delivered IELTS on original Listening, Academic Reading, Writing and Speaking tests. The first test of every module is free. Instant band estimates, explanations, transcripts and marking by real examiners. Independent practice site, not affiliated with the IELTS partners." />
-  <meta name="theme-color" content="#142038" />
+  <title>TestDay – IELTS practice tests for Listening, Reading, Writing and Speaking</title>
+  <meta name="description" content="Timed IELTS practice tests on a screen like the computer-delivered exam: Listening, Academic Reading, Writing and Speaking. Free tests in every module, instant band estimates, explained answers and marking by real examiners. Independent practice site, not affiliated with the IELTS partners." />
+  <meta name="theme-color" content="#e9e8e2" />
   <!-- Google Search Console ownership check for https://www.testday.uz/ (keep it: removing it un-verifies the site). -->
   <meta name="google-site-verification" content="Prm-tWClyByMpQqNwmQhTiq2pMa4gYLGruGIfOelJ1I" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TestDay" />
-  <meta property="og:title" content="TestDay – practise for the computer-delivered IELTS" />
-  <meta property="og:description" content="Original Listening, Reading, Writing and Speaking tests on a screen like test day. The first test of every module is free." />
+  <meta property="og:title" content="TestDay – IELTS practice like test day" />
+  <meta property="og:description" content="Timed Listening, Reading, Writing and Speaking tests on a screen like test day. Free tests in every module." />
   <meta property="og:url" content="%SITE_URL%/" />
   <meta property="og:locale" content="en_GB" />
   <meta property="og:image" content="%SITE_URL%/img/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="TestDay: four coloured lines, Listening, Reading, Writing and Speaking, meeting at the Test day interchange." />
+  <meta property="og:image:alt" content="TestDay: IELTS practice like test day." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="%SITE_URL%/img/og.png" />
   <link rel="canonical" href="%SITE_URL%/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="fonts/jost-latin.woff2?v=5.3" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/schibsted-grotesk-core.woff2?v=1" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/portal.css" />
   <!-- The data the home page needs is requested now, while the scripts download, instead of after they have run. -->
   <link rel="preload" href="/api/tests" as="fetch" crossorigin />
@@ -30,7 +30,7 @@
   <link rel="preload" href="/api/me" as="fetch" crossorigin />
   <script type="application/json" id="asset-versions">{}</script>
   <!-- For search engines: the site, its owner, and the questions on the Prices page (keep them in step with strings.js). -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TestDay","url":"%SITE_URL%/","inLanguage":"en","description":"Computer-delivered IELTS practice: Listening, Academic Reading, Writing and Speaking tests. The first test of every module is free."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TestDay","url":"%SITE_URL%/","inLanguage":"en","description":"Computer-delivered IELTS practice: Listening, Academic Reading, Writing and Speaking tests. Free tests in every module."}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TestDay","url":"%SITE_URL%/","logo":"%SITE_URL%/img/logo-512.png"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does the pass renew automatically?","acceptedAnswer":{"@type":"Answer","text":"No. Nothing is charged automatically. When your month ends, you can pay for another month. Your very first payment gives you two months."}},{"@type":"Question","name":"How does an examiner check work?","acceptedAnswer":{"@type":"Answer","text":"Finish a Writing or Speaking test while signed in. On your results page, choose an examiner and pay. The examiner reads your essays or listens to your recorded answers, usually within 48 hours, and you see the bands and feedback in your account. You can rate the examiner once for each check."}},{"@type":"Question","name":"Do I need the pass to order an examiner check?","acceptedAnswer":{"@type":"Answer","text":"No. You can order a check for any test you have taken, including the free tests."}},{"@type":"Question","name":"Can I get a refund?","acceptedAnswer":{"@type":"Answer","text":"Yes. The monthly pass can be refunded within 3 days of payment if you have not started a test that needs the pass, and an examiner check until the examiner starts marking it. Write to us with your order number; the money goes back the way you paid. See the <a href=\"#/refunds\">refund policy</a>."}}]}</script>
   <script src="js/strings.js" defer></script>
@@ -41,33 +41,15 @@
 </head>
 <body class="theme-default text-regular">
 
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <defs>
-      <!-- The TestDay mark: four lines meeting at one interchange -->
-      <symbol id="mark" viewBox="0 0 34 34">
-        <g fill="none" stroke-width="6" transform="rotate(-90 17 17)">
-          <circle cx="17" cy="17" r="12" stroke="#1f5fbf" stroke-dasharray="16.6 58.8" stroke-dashoffset="-1" />
-          <circle cx="17" cy="17" r="12" stroke="#cf3a2c" stroke-dasharray="16.6 58.8" stroke-dashoffset="-19.85" />
-          <circle cx="17" cy="17" r="12" stroke="#1e7c42" stroke-dasharray="16.6 58.8" stroke-dashoffset="-38.7" />
-          <circle cx="17" cy="17" r="12" stroke="#e3a21a" stroke-dasharray="16.6 58.8" stroke-dashoffset="-57.55" />
-        </g>
-      </symbol>
-    </defs>
-  </svg>
-
   <!-- =====================================================================
        SITE SHELL: home, prices, examiners, account, results, static pages
        ===================================================================== -->
   <div id="site-view" class="view-container active">
     <header class="site-nav">
-      <a class="site-brand" href="#/" aria-label="TestDay home">
-        <svg class="site-mark" aria-hidden="true"><use href="#mark" /></svg>
-        <span class="site-name" data-site-name>TestDay</span>
-      </a>
+      <a class="site-brand" href="#/" aria-label="TestDay home"><span data-site-name>TestDay</span></a>
       <nav class="site-links" aria-label="Main">
-        <a href="#/" data-nav="home">Tests</a>
-        <a href="#/pricing" data-nav="pricing">Prices</a>
-        <a href="#/examiners" data-nav="examiners">Examiners</a>
+        <a href="#/pricing" data-nav="pricing">Price</a>
+        <a href="#/about" data-nav="about">About</a>
       </nav>
       <div class="site-tools">
         <div class="account-slot" id="account-slot"></div>
@@ -75,43 +57,39 @@
     </header>
 
     <main id="site-main" class="site-main" tabindex="-1" aria-busy="true">
+      <!-- The page's shape before the tests arrive: no text, and the same height as the real page. -->
       <div class="boot" aria-hidden="true">
-        <div class="boot-title skeleton"></div>
-        <div class="boot-lead skeleton"></div>
-        <div class="boot-board">
-          <div class="boot-row"><i class="skeleton"></i><b class="skeleton"></b><u class="skeleton"></u></div>
-          <div class="boot-row"><i class="skeleton"></i><b class="skeleton"></b><u class="skeleton"></u></div>
-          <div class="boot-row"><i class="skeleton"></i><b class="skeleton"></b><u class="skeleton"></u></div>
-          <div class="boot-row"><i class="skeleton"></i><b class="skeleton"></b><u class="skeleton"></u></div>
+        <div class="boot-hero"><i class="skeleton"></i><i class="skeleton"></i><span class="boot-lead skeleton"></span></div>
+        <div class="boot-ledger">
+          <div class="boot-row"><b class="skeleton"></b><u class="skeleton"></u></div>
+          <div class="boot-row"><b class="skeleton"></b><u class="skeleton"></u></div>
+          <div class="boot-row"><b class="skeleton"></b><u class="skeleton"></u></div>
+          <div class="boot-row"><b class="skeleton"></b><u class="skeleton"></u></div>
         </div>
       </div>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-lines" aria-hidden="true">
-        <span style="background:var(--line-l)"></span><span style="background:var(--line-r)"></span>
-        <span style="background:var(--line-w)"></span><span style="background:var(--line-s)"></span>
-      </div>
-      <div class="footer-inner">
-        <div>
-          <div class="footer-brand">
-            <svg class="site-mark" aria-hidden="true"><use href="#mark" /></svg>
-            <span class="site-name" data-site-name>TestDay</span>
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="col-a footer-links" id="footer-contact"></div>
+          <div class="col-b">
+            <div class="footer-links" id="footer-social"></div>
+            <nav class="footer-nav" aria-label="More">
+              <a href="#/pricing">Price</a>
+              <a href="#/about">About</a>
+              <a href="#/examiners">Examiners</a>
+              <a href="#/terms">Terms</a>
+              <a href="#/privacy">Privacy</a>
+              <a href="#/refunds">Refunds</a>
+              <button type="button" id="feedback-open">Feedback</button>
+            </nav>
+            <p class="footer-small">TestDay is independent and not affiliated with the IELTS partners. <span class="sys">©</span> <span id="footer-year">2026</span></p>
           </div>
-          <p>TestDay is an independent practice website. It is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press &amp; Assessment. IELTS is a registered trademark of its owners and is used here only to describe the exam this site helps you prepare for.</p>
-          <p>All passages, recordings, questions, tasks and model answers on this site are original. Band scores are practice estimates, not official results.</p>
         </div>
-        <nav class="footer-nav" aria-label="More">
-          <a href="#/pricing">Prices</a>
-          <a href="#/examiners">Examiners</a>
-          <a href="#/terms">Terms</a>
-          <a href="#/privacy">Privacy</a>
-          <a href="#/refunds">Refunds</a>
-        </nav>
+        <div class="footer-word" aria-hidden="true" data-site-name>TestDay</div>
       </div>
     </footer>
-    <!-- After the page in the Tab order; it floats in the corner. -->
-    <button type="button" class="feedback-fab" id="feedback-open">Feedback</button>
   </div>
 
   <!-- =====================================================================
