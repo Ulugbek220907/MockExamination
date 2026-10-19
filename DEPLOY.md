@@ -79,7 +79,7 @@ The app answers in a few milliseconds. Test content is cached in memory and refr
 
 ## 4. Accounts, the plan, payments and examiners
 
-Test 1 of each module is free for everyone. Every other test (and its audio) needs the monthly plan, and students can pay per check for an examiner to mark their Writing. All of this is already built; these steps switch it on.
+Tests marked free (15 Reading tests and one of each other module) are open to everyone. Every other test (and its audio) needs the monthly plan, and students can pay per check for an examiner to mark their Writing. All of this is already built; these steps switch it on.
 
 ### 4.1 Sign-in (Supabase Auth)
 
