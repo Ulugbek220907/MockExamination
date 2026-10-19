@@ -12,11 +12,11 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "Onion growers in eastern Oregon are adopting a system that saves water and keeps topsoil in place, while producing the highest quality 'super colossal' onions. County agents and researchers with Oregon State University (OSU) Extension Service have been working with growers to explore ways to reduce water use and improve irrigation efficiency. In the Malheur River Basin of eastern Oregon, growers have worked with researchers to develop a drip irrigation system for onions that reduces water use by up to 50 percent, reduces erosion and minimizes the runoff of pesticides and fertilizers into streams and groundwater."
+          "text": "Onion growers in eastern Oregon are adopting a system that saves water and keeps topsoil in place, while producing the highest quality ‘super colossal’ onions. County agents and researchers with Oregon State University (OSU) Extension Service have been working with growers to explore ways to reduce water use and improve irrigation efficiency. In the Malheur River Basin of eastern Oregon, growers have worked with researchers to develop a drip irrigation system for onions that reduces water use by up to 50 percent, reduces erosion and minimizes the runoff of pesticides and fertilizers into streams and groundwater."
         },
         {
           "label": "B",
-          "text": "The project is a model for how researchers and farmers can work together to address environmental concerns while maintaining agricultural productivity. The Malheur River Basin produces about a third of the nation's storage onions, but traditional furrow irrigation was washing valuable topsoil and chemicals into waterways. Researchers at OSU's Malheur Experiment Station in Ontario, Oregon, began experimenting with buried drip irrigation tape in the early 1990s. In furrow-irrigated fields, water flows down trenches between rows of crops. In drip-irrigated fields, perforated plastic tubes buried beneath the crop rows deliver water and nutrients directly to plant roots in precise amounts."
+          "text": "The project is a model for how researchers and farmers can work together to address environmental concerns while maintaining agricultural productivity. The Malheur River Basin produces about a third of the nation’s storage onions, but traditional furrow irrigation was washing valuable topsoil and chemicals into waterways. Researchers at OSU’s Malheur Experiment Station in Ontario, Oregon, began experimenting with buried drip irrigation tape in the early 1990s. In furrow-irrigated fields, water flows down trenches between rows of crops. In drip-irrigated fields, perforated plastic tubes buried beneath the crop rows deliver water and nutrients directly to plant roots in precise amounts."
         },
         {
           "label": "C",
@@ -36,13 +36,13 @@
         },
         {
           "label": "G",
-          "text": "The Malheur Basin project illustrates how sustainable agricultural practices can emerge through collaborative research, economic incentives, and grower leadership. By demonstrating that environmental stewardship and economic viability can go hand in hand, eastern Oregon's onion growers are charting a course for the future of irrigated agriculture in the arid American West."
+          "text": "The Malheur Basin project illustrates how sustainable agricultural practices can emerge through collaborative research, economic incentives, and grower leadership. By demonstrating that environmental stewardship and economic viability can go hand in hand, eastern Oregon’s onion growers are charting a course for the future of irrigated agriculture in the arid American West."
         }
       ],
       "groups": [
         {
           "type": "matching_features",
-          "instruction": "Use the information in the passage to match the people (listed **A–G**) with opinions or deeds below.\n\nWrite the correct letter, **A–G**, in boxes **1–8** on your answer sheet.\n\n*NB: You may use any letter more than once.*",
+          "instruction": "Look at the following statements (Questions 1–8) and the list of people and organisations below. Match each statement with the correct person or organisation, **A–G**. **NB** You may use any letter more than once.",
           "options": [
             {
               "key": "A",
@@ -76,100 +76,100 @@
           "questions": [
             {
               "number": 1,
-              "prompt": "Financial assistance that helped offset the initial investment for growers",
+              "prompt": "provided financial help that offset growers’ initial installation costs",
               "answer": "E",
-              "explanation": "Paragraph D mentions that state and federal cost-share programs helped offset initial capital expenditure.",
+              "explanation": "The help came from ‘state and federal cost-share programs’, which ‘have helped offset the initial capital expenditure’.",
               "reference": "Paragraph D"
             },
             {
               "number": 2,
-              "prompt": "Found that the new system pays for itself within three to five years",
+              "prompt": "found that the new system pays for itself within three to five years",
               "answer": "D",
-              "explanation": "Paragraph D states that many growers found the system pays for itself within three to five years.",
+              "explanation": "Growers found that the system ‘pays for itself within three to five years’ through water savings, lower chemical costs and higher yields.",
               "reference": "Paragraph D"
             },
             {
               "number": 3,
-              "prompt": "Began experimenting with buried drip irrigation tape in the early 1990s",
+              "prompt": "began experimenting with buried drip irrigation tape in the early 1990s",
               "answer": "C",
-              "explanation": "Paragraph B states researchers at OSU's Malheur Experiment Station began experiments in the early 1990s.",
+              "explanation": "‘Researchers at OSU’s Malheur Experiment Station in Ontario, Oregon, began experimenting with buried drip irrigation tape in the early 1990s’.",
               "reference": "Paragraph B"
             },
             {
               "number": 4,
-              "prompt": "Continued refining automated sensors and computer controls for irrigation",
+              "prompt": "a researcher who is continuing to develop automated sensors and computer controls for irrigation",
               "answer": "A",
-              "explanation": "Paragraph E highlights Clint Shock and his colleagues developing automated sensors and computer controls.",
+              "explanation": "Research horticulturist Clint Shock and his colleagues ‘continue to refine the technology, developing automated sensors and computer controls’.",
               "reference": "Paragraph E"
             },
             {
               "number": 5,
-              "prompt": "Serves as a model for collaborative sustainable farming in arid regions",
+              "prompt": "is presented as a model of how researchers and farmers can work together",
               "answer": "F",
-              "explanation": "Paragraph B and G describe the Malheur Basin project as a collaborative model.",
-              "reference": "Paragraph B & G"
+              "explanation": "The project is described as ‘a model for how researchers and farmers can work together to address environmental concerns while maintaining agricultural productivity’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 6,
-              "prompt": "Adopted drip systems that reduce water use while producing super colossal onions",
+              "prompt": "has adopted a drip system that saves water while producing the highest quality ‘super colossal’ onions",
               "answer": "D",
-              "explanation": "Paragraph A states onion growers adopted the system for high quality onions.",
+              "explanation": "Eastern Oregon growers are ‘adopting a system that saves water and keeps topsoil in place’ while producing top-quality onions.",
               "reference": "Paragraph A"
             },
             {
               "number": 7,
-              "prompt": "Worked with growers to explore ways to reduce water use and improve efficiency",
+              "prompt": "has been working with growers to find ways of reducing water use and improving irrigation efficiency",
               "answer": "B",
-              "explanation": "Paragraph A notes OSU Extension Service researchers worked with growers.",
+              "explanation": "County agents and researchers with the OSU Extension Service ‘have been working with growers to explore ways to reduce water use and improve irrigation efficiency’.",
               "reference": "Paragraph A"
             },
             {
               "number": 8,
-              "prompt": "Showed interest in applying eastern Oregon's techniques to other water-short areas",
+              "prompt": "has shown interest in the new technology because of similar water shortages elsewhere",
               "answer": "G",
-              "explanation": "Paragraph E notes interest from agricultural researchers worldwide facing water shortages.",
+              "explanation": "Their work ‘has attracted interest from agricultural researchers and farmers worldwide who face similar water shortages’.",
               "reference": "Paragraph E"
             }
-          ]
+          ],
+          "optionsTitle": "List of People and Organisations"
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes **9–13** on your answer sheet, choose **YES** if the statement agrees with the information, **NO** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 1? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 9,
               "prompt": "Traditional furrow irrigation required less water than buried drip irrigation.",
               "answer": "NO",
-              "explanation": "Paragraph A and B state drip irrigation reduces water use by up to 50 percent compared to furrow irrigation.",
-              "reference": "Paragraph A & B"
+              "explanation": "Drip irrigation ‘reduces water use by up to 50 percent’, so furrow irrigation used more water, not less.",
+              "reference": "Paragraph A"
             },
             {
               "number": 10,
               "prompt": "Drip irrigation helps prevent soil-borne diseases by keeping plant foliage dry.",
               "answer": "YES",
-              "explanation": "Paragraph C confirms drip irrigation prevents soil-borne diseases by keeping foliage dry.",
+              "explanation": "Drip irrigation ‘prevents the spread of soil-borne diseases by keeping the onion foliage dry’.",
               "reference": "Paragraph C"
             },
             {
               "number": 11,
               "prompt": "The upfront installation costs of drip tape were completely covered by private charities.",
               "answer": "NO",
-              "explanation": "Paragraph D explains costs were $1,000 to $1,500 per acre, offset by state and federal cost-share programs, not private charities.",
+              "explanation": "Growers faced high costs, which ‘state and federal cost-share programs’ only helped to offset; private charities are not mentioned.",
               "reference": "Paragraph D"
             },
             {
               "number": 12,
               "prompt": "Drip irrigation has been tested on crops other than onions in the Malheur Basin.",
               "answer": "YES",
-              "explanation": "Paragraph E mentions tests on sugar beets, potatoes and alfalfa.",
+              "explanation": "Success with onions has led researchers and farmers ‘to test the system on other crops in the region, including sugar beets, potatoes and alfalfa’.",
               "reference": "Paragraph E"
             },
             {
               "number": 13,
               "prompt": "Most growers in California have also installed identical computer-controlled drip systems.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage discusses Oregon and international interest, but says nothing specific about California growers.",
-              "reference": "Passage 1"
+              "explanation": "The passage mentions Oregon and ‘farmers worldwide’ facing similar water shortages, but says nothing about growers in California or their systems."
             }
           ]
         }
@@ -186,7 +186,7 @@
         },
         {
           "label": "B",
-          "text": "Binet's test was quickly translated, revised, and widely embraced in the United States. Lewis Terman of Stanford University adapted the test into the Stanford-Binet Intelligence Scale and popularized the concept of the Intelligence Quotient (IQ), calculated by dividing mental age by chronological age and multiplying by 100. During World War I, the US Army developed group intelligence tests—the Army Alpha and Beta tests—to classify more than a million recruits, cementing standardized testing in American society."
+          "text": "Binet’s test was quickly translated, revised, and widely embraced in the United States. Lewis Terman of Stanford University adapted the test into the Stanford-Binet Intelligence Scale and popularized the concept of the Intelligence Quotient (IQ), calculated by dividing mental age by chronological age and multiplying by 100. During World War I, the US Army developed group intelligence tests—the Army Alpha and Beta tests—to classify more than a million recruits, cementing standardized testing in American society."
         },
         {
           "label": "C",
@@ -194,7 +194,7 @@
         },
         {
           "label": "D",
-          "text": "Psychologists have long debated what intelligence actually consists of. Charles Spearman proposed the concept of a general intelligence factor, or 'g', which underlies all cognitive abilities. In contrast, researchers like Howard Gardner have argued for multiple intelligences, proposing that humans possess distinct forms of intellect ranging from linguistic and logical-mathematical to musical, spatial, bodily-kinesthetic, and interpersonal abilities."
+          "text": "Psychologists have long debated what intelligence actually consists of. Charles Spearman proposed the concept of a general intelligence factor, or ‘g’, which underlies all cognitive abilities. In contrast, researchers like Howard Gardner have argued for multiple intelligences, proposing that humans possess distinct forms of intellect ranging from linguistic and logical-mathematical to musical, spatial, bodily-kinesthetic, and interpersonal abilities."
         },
         {
           "label": "E",
@@ -212,41 +212,41 @@
       "groups": [
         {
           "type": "matching_information",
-          "instruction": "Reading Passage 2 has seven paragraphs, **A–G**.\n\nWhich paragraph contains the following information? Write the correct letter, **A–G**, in boxes **14–17** on your answer sheet.",
+          "instruction": "Reading Passage 2 has seven paragraphs, **A–G**. Which paragraph contains the following information? **NB** You may use any letter more than once.",
           "questions": [
             {
               "number": 14,
               "prompt": "a warning that intelligence tests measure only limited aspects of cognitive capacity",
               "answer": "G",
-              "explanation": "Paragraph G states tests measure only a slice of human cognitive capacity.",
+              "explanation": "Psychologists stress that intelligence tests ‘measure only a slice of human cognitive capacity, and must be interpreted with caution’.",
               "reference": "Paragraph G"
             },
             {
               "number": 15,
-              "prompt": "Binet's original view that intelligence is flexible and diagnostic rather than fixed",
+              "prompt": "Binet’s original view that intelligence is flexible and diagnostic rather than fixed",
               "answer": "C",
-              "explanation": "Paragraph C explains Binet never intended IQ to measure fixed intelligence and saw it as modifiable.",
+              "explanation": "Binet ‘never intended IQ to measure fixed, innate intelligence’ and ‘believed intelligence was multifaceted and modifiable’.",
               "reference": "Paragraph C"
             },
             {
               "number": 16,
               "prompt": "the development and mass application of military tests during World War I",
               "answer": "B",
-              "explanation": "Paragraph B discusses the Army Alpha and Beta tests used during World War I.",
+              "explanation": "‘During World War I, the US Army developed group intelligence tests—the Army Alpha and Beta tests—to classify more than a million recruits’.",
               "reference": "Paragraph B"
             },
             {
               "number": 17,
               "prompt": "contrasting theories regarding whether intelligence is unified or multiple",
               "answer": "D",
-              "explanation": "Paragraph D contrasts Spearman's general 'g' factor with Gardner's multiple intelligences.",
+              "explanation": "Spearman proposed ‘a general intelligence factor’, whereas ‘researchers like Howard Gardner have argued for multiple intelligences’.",
               "reference": "Paragraph D"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, **A**, **B**, **C** or **D**.\n\nWrite your answers in boxes **18–21** on your answer sheet.",
+          "instruction": "Choose the correct letter, **A**, **B**, **C** or **D**.",
           "questions": [
             {
               "number": 18,
@@ -270,12 +270,12 @@
                 }
               ],
               "answer": "B",
-              "explanation": "Paragraph A states Binet was tasked with identifying children who needed special educational assistance.",
+              "explanation": "The minister wanted ‘to separate the unable from the merely lazy’, and Binet and Simon created the scale ‘to identify children who needed special educational assistance’.",
               "reference": "Paragraph A"
             },
             {
               "number": 19,
-              "prompt": "Lewis Terman's primary contribution to intelligence testing was:",
+              "prompt": "Lewis Terman’s primary contribution to intelligence testing was:",
               "options": [
                 {
                   "key": "A",
@@ -283,7 +283,7 @@
                 },
                 {
                   "key": "B",
-                  "text": "Adapting Binet's test and popularizing the concept of IQ"
+                  "text": "Adapting Binet’s test and popularizing the concept of IQ"
                 },
                 {
                   "key": "C",
@@ -295,7 +295,7 @@
                 }
               ],
               "answer": "B",
-              "explanation": "Paragraph B explains Terman adapted the test into the Stanford-Binet scale and popularized IQ.",
+              "explanation": "Terman ‘adapted the test into the Stanford-Binet Intelligence Scale and popularized the concept of the Intelligence Quotient (IQ)’.",
               "reference": "Paragraph B"
             },
             {
@@ -320,7 +320,7 @@
                 }
               ],
               "answer": "A",
-              "explanation": "Paragraph E states giftedness now encompasses creative thinking, task commitment, and diverse talents.",
+              "explanation": "‘Today, giftedness is recognized as encompassing creative thinking, task commitment, leadership, and artistic talent’, whereas early researchers defined it ‘solely in terms of high IQ scores’.",
               "reference": "Paragraph E"
             },
             {
@@ -345,48 +345,48 @@
                 }
               ],
               "answer": "C",
-              "explanation": "Paragraph F notes that high ability without nurture often languishes while rich environmental support enables accomplishment.",
+              "explanation": "Research shows that ‘high ability without nurture often languishes’, while environmental support can turn average ability into extraordinary accomplishment.",
               "reference": "Paragraph F"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in Reading Passage 2? In boxes **22–26** on your answer sheet, choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 22,
               "prompt": "Binet collaborated with Théodore Simon to create the first practical intelligence scale.",
               "answer": "TRUE",
-              "explanation": "Paragraph A states: 'Together with Théodore Simon, Binet created the first practical intelligence scale'.",
+              "explanation": "‘Together with Théodore Simon, Binet created the first practical intelligence scale’.",
               "reference": "Paragraph A"
             },
             {
               "number": 23,
-              "prompt": "Binet believed that an individual's intelligence level could never be modified by education.",
+              "prompt": "Binet believed that an individual’s intelligence level could never be modified by education.",
               "answer": "FALSE",
-              "explanation": "Paragraph C notes that Binet believed intelligence was multifaceted and modifiable.",
+              "explanation": "Binet ‘believed intelligence was multifaceted and modifiable’, so he did not think education could never change it.",
               "reference": "Paragraph C"
             },
             {
               "number": 24,
               "prompt": "The US Army Alpha test was conducted in several European languages.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage mentions the Army Alpha and Beta tests for recruits, but does not specify languages.",
+              "explanation": "The Army Alpha and Beta tests are mentioned, but the passage does not say which languages they were given in.",
               "reference": "Paragraph B"
             },
             {
               "number": 25,
               "prompt": "Spearman and Gardner held contrasting views regarding the nature of intelligence.",
               "answer": "TRUE",
-              "explanation": "Paragraph D contrasts Spearman's single 'g' factor with Gardner's multiple intelligences.",
+              "explanation": "‘In contrast, researchers like Howard Gardner have argued for multiple intelligences’, whereas Spearman proposed a single general factor.",
               "reference": "Paragraph D"
             },
             {
               "number": 26,
-              "prompt": "Standardized intelligence tests are no longer permitted in corporate hiring.",
+              "prompt": "Employers rely on intelligence tests more than schools do.",
               "answer": "NOT GIVEN",
-              "explanation": "Paragraph G mentions tests are still used in diagnostics, education, and employment selection without mentioning prohibitions.",
+              "explanation": "Tests remain ‘widely used in clinical diagnostics, education, and employment selection’, but the passage does not compare how often employers and schools use them.",
               "reference": "Paragraph G"
             }
           ]
@@ -400,11 +400,11 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "Computer technology was supposed to replace paper. But that hasn't happened. Every country in the Western world uses more paper today, on a per-capita basis, than it did ten years ago. The consumption of uncoated free-sheet paper, for instance—the most common kind of office paper—rose almost fifteen percent in the United States between 1995 and 2000. This is not just a stubborn attachment to obsolete habits; cognitive psychologists and ergonomics experts argue that paper persists for very good reasons."
+          "text": "Computer technology was supposed to replace paper. But that hasn’t happened. Every country in the Western world uses more paper today, on a per-capita basis, than it did ten years ago. The consumption of uncoated free-sheet paper, for instance—the most common kind of office paper—rose almost fifteen percent in the United States between 1995 and 2000. This is not just a stubborn attachment to obsolete habits; cognitive psychologists and ergonomics experts argue that paper persists for very good reasons."
         },
         {
           "label": "B",
-          "text": "When it comes to reading and thinking, paper has unique physical properties, or 'affordances', that digital screens struggle to match. Paper is tangible: we can hold it, feel its weight, flip through pages rapidly, and spread multiple documents across a desk. Paper enables spatial navigation that gives readers a continuous sense of where they are in a text, supporting comprehension and long-term memory in ways that scrolling across a screen often disrupts."
+          "text": "When it comes to reading and thinking, paper has unique physical properties, or ‘affordances’, that digital screens struggle to match. Paper is tangible: we can hold it, feel its weight, flip through pages rapidly, and spread multiple documents across a desk. Paper enables spatial navigation that gives readers a continuous sense of where they are in a text, supporting comprehension and long-term memory in ways that scrolling across a screen often disrupts."
         },
         {
           "label": "C",
@@ -426,7 +426,7 @@
       "groups": [
         {
           "type": "matching_headings",
-          "instruction": "Reading Passage 3 has six paragraphs, **A–F**.\n\nChoose the correct heading for paragraphs **A–F** from the list of headings below.\n\nWrite the correct number, **i–ix**, in boxes **27–32** on your answer sheet.",
+          "instruction": "Reading Passage 3 has six paragraphs, **A–F**. Choose the correct heading for each paragraph from the list of headings below.",
           "options": [
             {
               "key": "i",
@@ -470,58 +470,59 @@
               "number": 27,
               "prompt": "Paragraph A",
               "answer": "iv",
-              "explanation": "Paragraph A discusses how paper consumption continues to grow despite computer technology.",
+              "explanation": "Paper use keeps growing: consumption of office paper ‘rose almost fifteen percent in the United States between 1995 and 2000’.",
               "reference": "Paragraph A"
             },
             {
               "number": 28,
               "prompt": "Paragraph B",
               "answer": "iii",
-              "explanation": "Paragraph B outlines the tangible affordances and spatial navigation benefits of paper.",
+              "explanation": "The paragraph describes paper’s physical properties: ‘Paper enables spatial navigation that gives readers a continuous sense of where they are in a text’.",
               "reference": "Paragraph B"
             },
             {
               "number": 29,
               "prompt": "Paragraph C",
               "answer": "viii",
-              "explanation": "Paragraph C discusses how easily paper can be annotated and used collaboratively.",
+              "explanation": "Paper is ‘exceptionally tailorable’ because it is easy to annotate, and printed documents provide ‘a shared physical artifact’ for groups.",
               "reference": "Paragraph C"
             },
             {
               "number": 30,
               "prompt": "Paragraph D",
               "answer": "ii",
-              "explanation": "Paragraph D examines how piles on desks act as functional cognitive reminders.",
+              "explanation": "Kidd found that desk piles ‘serve as physical reminders and contextual cues’ that help workers keep track of their projects.",
               "reference": "Paragraph D"
             },
             {
               "number": 31,
               "prompt": "Paragraph E",
               "answer": "ix",
-              "explanation": "Paragraph E highlights the advantages of digital documents such as searching and remote storage.",
+              "explanation": "Digital documents ‘can be searched instantly, stored without taking up physical space, edited effortlessly, and transmitted across the globe in seconds’.",
               "reference": "Paragraph E"
             },
             {
               "number": 32,
               "prompt": "Paragraph F",
               "answer": "i",
-              "explanation": "Paragraph F advocates for the harmonious integration of both media.",
+              "explanation": "The writer concludes that ‘the modern office flourishes when both technologies work together harmoniously’.",
               "reference": "Paragraph F"
             }
-          ]
+          ],
+          "optionsTitle": "List of Headings"
         },
         {
           "type": "summary_completion",
-          "instruction": "Complete the summary below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.\n\nWrite your answers in boxes **33–36** on your answer sheet.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
-          "content": "Paper possesses unique qualities that support human cognition during reading. It is {{33}} and provides a spatial sense that aids comprehension. Moreover, paper is {{34}} because readers can easily scribble notes or highlight sections. In group settings, printed documents offer a practical medium for {{35}}. Studies also demonstrate that piles kept on desks by a {{36}} function as valuable cognitive cues rather than mere clutter.",
+          "content": "Paper possesses unique qualities that support human cognition during reading. It is {{33}} and provides a spatial sense that aids comprehension. Moreover, paper is {{34}} because readers can easily scribble notes or highlight sections. Paper is also said to excel at deep reading, reflection, drafting and {{35}}. Studies also demonstrate that piles kept on desks by {{36}} function as valuable cognitive cues rather than mere clutter.",
           "questions": [
             {
               "number": 33,
               "answer": [
                 "tangible"
               ],
-              "explanation": "Paragraph B states paper is tangible.",
+              "explanation": "‘Paper is tangible: we can hold it, feel its weight, flip through pages rapidly’, and this supports a spatial sense of the text.",
               "reference": "Paragraph B"
             },
             {
@@ -529,7 +530,7 @@
               "answer": [
                 "tailorable"
               ],
-              "explanation": "Paragraph C states paper is exceptionally tailorable.",
+              "explanation": "‘Paper is also exceptionally tailorable. We can easily annotate it, highlight passages, and scribble margin notes’.",
               "reference": "Paragraph C"
             },
             {
@@ -538,8 +539,8 @@
                 "interpersonal collaboration",
                 "collaboration"
               ],
-              "explanation": "Paragraph F and C mention interpersonal collaboration.",
-              "reference": "Paragraph C & F"
+              "explanation": "Paper ‘excels for deep reading, reflection, drafting, and interpersonal collaboration’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 36,
@@ -547,14 +548,14 @@
                 "knowledge workers",
                 "office workers"
               ],
-              "explanation": "Paragraph D references office workers and knowledge workers keeping piles on desks.",
+              "explanation": "Kidd observed that ‘knowledge workers frequently keep documents in active piles’, which act as reminders and cues.",
               "reference": "Paragraph D"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, **A**, **B**, **C** or **D**.\n\nWrite your answers in boxes **37–40** on your answer sheet.",
+          "instruction": "Choose the correct letter, **A**, **B**, **C** or **D**.",
           "questions": [
             {
               "number": 37,
@@ -578,7 +579,7 @@
                 }
               ],
               "answer": "C",
-              "explanation": "Paragraph A states consumption rose almost fifteen percent.",
+              "explanation": "Consumption of office paper ‘rose almost fifteen percent in the United States between 1995 and 2000’.",
               "reference": "Paragraph A"
             },
             {
@@ -603,12 +604,12 @@
                 }
               ],
               "answer": "A",
-              "explanation": "Paragraph B explains spatial navigation and tangible orientation support comprehension.",
+              "explanation": "Paper ‘enables spatial navigation that gives readers a continuous sense of where they are in a text, supporting comprehension’; the other options are not mentioned.",
               "reference": "Paragraph B"
             },
             {
               "number": 39,
-              "prompt": "Alison Kidd's research on desk piles indicated that:",
+              "prompt": "Alison Kidd’s research on desk piles indicated that:",
               "options": [
                 {
                   "key": "A",
@@ -628,7 +629,7 @@
                 }
               ],
               "answer": "A",
-              "explanation": "Paragraph D states piles serve as physical reminders and contextual cues.",
+              "explanation": "Kidd found that the piles ‘serve as physical reminders and contextual cues, allowing workers to track multiple ongoing projects’.",
               "reference": "Paragraph D"
             },
             {
@@ -653,7 +654,7 @@
                 }
               ],
               "answer": "D",
-              "explanation": "Paragraph F concludes that modern offices flourish when both technologies work together harmoniously.",
+              "explanation": "Organisations recognise that ‘each medium has strengths suited to different cognitive tasks’, so they should combine paper and digital media.",
               "reference": "Paragraph F"
             }
           ]

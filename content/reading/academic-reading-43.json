@@ -15,23 +15,15 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "The newly developed passage of making time for science reading answers and its answer key come one by one."
+          "text": "Chronobiology is something out-of-the-box thinking inspired by a science fiction novel; moreover, it’s a scope of study regarding one of the ancient processes of life on this planet: short-term time scale and their impact on the existing plants and animals."
         },
         {
           "label": null,
-          "text": "Making Time For Science"
+          "text": "It includes many aspects. Sea life, for instance, is based on tidal wave patterns. Animals, on the other hand, seem to be active or inactive mainly due to the placement of the Sun or Moon. Millions of species, including humans, are mostly diurnal - that is, they do most of the activities in the morning. Whereas nocturnal animals like bats and possums do their activities in the night time. Apart from these two, a third group known as crepuscular, that are active in the low light of dawn and always not active during other hours."
         },
         {
           "label": null,
-          "text": "Chronobiology is something out-of-the-box thinking inspired by a science fiction novel; moreover - it's a scope of study regarding one of the ancient processes of life on this planet: short-term time scale and their impact on the existing plants and animals."
-        },
-        {
-          "label": null,
-          "text": "It includes many aspects. Sea life, for instance, is based on tidal wave patterns. Animals, on the other hand, seem to be active or inactive mainly due to the placement of the Sun or Moon. Millions of species, including humans, are mostly diurnal - that is, they do most of the activities in the morning. Whereas, nocturnal animals like bats and possums do their activities in the night time. Apart from these two, a third group known as crepuscular, that are active in the lowlight of dawn and always not active during other hours."
-        },
-        {
-          "label": null,
-          "text": "For human beings, chronobiologists have more interest in what is called the circadian rhythm. It is a whole cycle of our bodies made to experience within the passage of a full twenty-four hour day. Besides going to sleep at night and wake up in the morning, each cycle includes so many aspects like differences in blood pressure and overall temperature of the body. It is a fact that not all people have the same circadian rhythm. 'Night people' for instance, mostly illustrate how they feel it is very difficult to perform in the morning, however, the same people will be alert and active by evening. There is a new type within circadian rhythms called a chronotype."
+          "text": "For human beings, chronobiologists have more interest in what is called the circadian rhythm. It is a whole cycle of our bodies made to experience within the passage of a full twenty-four hour day. Besides going to sleep at night and waking up in the morning, each cycle includes so many aspects like differences in blood pressure and overall temperature of the body. It is a fact that not all people have the same circadian rhythm. ‘Night people’ for instance, mostly illustrate how they feel it is very difficult to perform in the morning, however, the same people will be alert and active by evening. There is a new type within circadian rhythms called a chronotype."
         },
         {
           "label": null,
@@ -47,15 +39,15 @@
         },
         {
           "label": null,
-          "text": "Once you are up before the alarm rings what's there to stop then? If you want to lose weight, some dieticians won't compromise easily, as they mandate breakfast every day. It leads to misorientation of your circadian rhythm and makes your body starve. The suggested step to do is to perform an intense routine workout along with a carbohydrate-filled breakfast; while the other way and weight reduction ended up as not expected."
+          "text": "Once you are up before the alarm rings what’s there to stop then? If you want to lose weight, some dieticians won’t compromise easily, as they mandate breakfast every day. It leads to misorientation of your circadian rhythm and makes your body starve. The suggested step to do is to perform an intense routine workout along with a carbohydrate-filled breakfast; while the other way and weight reduction ended up as not expected."
         },
         {
           "label": null,
-          "text": "Every morning workout is equally important for breaking out the vitamins stored. In addition to that, adding more supplements to the body is not temporal-dependent, however, the famous naturopath Pam Stone highlights that more amount during breakfast could assist in getting energy to do tasks on that day. To absorb more to the body, Stone recommends additional supplements with a portion of food (mixed and soluble). It must not be with caffeinated beverages. Beyond this, Stones alerts us about taking storage; when you reach the high potency, it's good for absorption, whereas, warmth and humidity will lead to destroying the potency of a supplement."
+          "text": "Every morning workout is equally important for breaking out the vitamins stored. In addition to that, adding more supplements to the body is not temporal-dependent, however, the famous naturopath Pam Stone highlights that more amount during breakfast could assist in getting energy to do tasks on that day. To absorb more to the body, Stone recommends additional supplements with a portion of food (mixed and soluble). It must not be with caffeinated beverages. Beyond this, Stone alerts us about taking storage; when you reach the high potency, it’s good for absorption, whereas, warmth and humidity will lead to destroying the potency of a supplement."
         },
         {
           "label": null,
-          "text": "Post-dinner espressos became like a form of tradition. We must thank the Italian people for bringing it to us. To have a good night's sleep, we need to stop consuming caffeine as early as 3 p.m. After crossing a seven-hour half-life, a cup of coffee having 90 mg of caffeine consumed during this time might still have 45 mg of caffeine in your body's nervous system at ten o'clock on the same day evening. It is necessary to remove all traces when you go to bed."
+          "text": "Post-dinner espressos became like a form of tradition. We must thank the Italian people for bringing it to us. To have a good night’s sleep, we need to stop consuming caffeine as early as 3 p.m. After crossing a seven-hour half-life, a cup of coffee having 90 mg of caffeine consumed during this time might still have 45 mg of caffeine in your body’s nervous system at ten o’clock on the same day evening. It is necessary to remove all traces when you go to bed."
         },
         {
           "label": null,
@@ -64,143 +56,146 @@
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS AND/OR NUMBER from the passage for each",
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
+          "title": "Supplements and caffeine",
+          "content": "The naturopath Pam {{1}} suggests that additional supplements should be taken with a portion of food and never with {{2}}. She adds that a supplement with high potency is good for {{3}}, while warmth and humidity destroy its potency. Post-dinner {{4}} have become a tradition, and we must thank the {{5}} for bringing them to us. To sleep well, we should stop drinking caffeine by 3 p.m., because a cup of coffee drunk then may still leave caffeine in the body’s {{6}} at ten o’clock in the evening. All {{7}} of caffeine need to be removed before we go to bed.",
           "questions": [
             {
               "number": 1,
               "answer": [
                 "Stone"
               ],
-              "explanation": "Found directly in the reading passage: 'Stone'.",
-              "prompt": "Complete the statement for question 1."
+              "explanation": "The naturopath is named in ‘the famous naturopath Pam Stone highlights’; she recommends supplements ‘with a portion of food’.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 2,
               "answer": [
-                "Caffeinated beverages"
+                "caffeinated beverages"
               ],
-              "explanation": "Found directly in the reading passage: 'Caffeinated beverages'.",
-              "prompt": "Complete the statement for question 2."
+              "explanation": "Stone says supplements ‘must not be with caffeinated beverages’.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 3,
               "answer": [
-                "Absorption"
+                "absorption"
               ],
-              "explanation": "Found directly in the reading passage: 'Absorption'.",
-              "prompt": "Complete the statement for question 3."
+              "explanation": "‘When you reach the high potency, it’s good for absorption, whereas, warmth and humidity will lead to destroying the potency’.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 4,
               "answer": [
-                "Espressos"
+                "espressos"
               ],
-              "explanation": "Found directly in the reading passage: 'Espressos'.",
-              "prompt": "Complete the statement for question 4."
+              "explanation": "‘Post-dinner espressos became like a form of tradition.’",
+              "reference": "Paragraph 9"
             },
             {
               "number": 5,
               "answer": [
                 "Italian people"
               ],
-              "explanation": "Found directly in the reading passage: 'Italian people'.",
-              "prompt": "Complete the statement for question 5."
+              "explanation": "‘We must thank the Italian people for bringing it to us.’",
+              "reference": "Paragraph 9"
             },
             {
               "number": 6,
               "answer": [
-                "Nervous system"
+                "nervous system"
               ],
-              "explanation": "Found directly in the reading passage: 'Nervous system'.",
-              "prompt": "Complete the statement for question 6."
+              "explanation": "A cup of coffee drunk at 3 p.m. ‘might still have 45 mg of caffeine in your body’s nervous system at ten o’clock’.",
+              "reference": "Paragraph 9"
             },
             {
               "number": 7,
               "answer": [
-                "Traces"
+                "traces"
               ],
-              "explanation": "Found directly in the reading passage: 'Traces'.",
-              "prompt": "Complete the statement for question 7."
+              "explanation": "‘It is necessary to remove all traces when you go to bed.’",
+              "reference": "Paragraph 9"
             }
           ]
         },
         {
-          "type": "matching_features",
-          "instruction": "Match the correct statement with the letter",
+          "type": "matching_sentence_endings",
+          "instruction": "Complete each sentence with the correct ending, **A–D**, below.",
+          "optionsTitle": "List of Endings",
           "options": [
             {
               "key": "A",
-              "text": "Carbohydrate-fasting is a myth"
+              "text": "carbohydrate fasting after five o’clock is a myth."
             },
             {
               "key": "B",
-              "text": "Do most of the activities in the morning"
+              "text": "do most of their activities in the morning."
             },
             {
               "key": "C",
-              "text": "Indigestion happens when you consume more"
+              "text": "indigestion can result from eating more than you need."
             },
             {
               "key": "D",
-              "text": "breaking out the vitamins"
+              "text": "breaking out the vitamins stored in the body."
             }
           ],
           "questions": [
             {
               "number": 8,
-              "prompt": "Every day morning exercise is vital for",
+              "prompt": "Every morning workout is equally important for",
               "answer": "D",
-              "explanation": "Refer to item D in the passage."
+              "explanation": "The passage says ‘Every morning workout is equally important for breaking out the vitamins stored’.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 9,
-              "prompt": "Geraldine Georgeou warns us that",
+              "prompt": "The dietician Geraldine Georgeou warns us that",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "Georgeou says ‘post-five carbohydrate fasting is merely a myth’. C is also mentioned, but it does not complete this sentence.",
+              "reference": "Paragraph 10"
             },
             {
               "number": 10,
-              "prompt": "Diurnal means",
+              "prompt": "Animals that are diurnal",
               "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "explanation": "Diurnal species ‘do most of the activities in the morning’, in contrast to nocturnal animals that are active at night.",
+              "reference": "Paragraph 2"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the reading passage? Write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 11,
-              "prompt": "Chronobiologists have more interest in what is called the circadian rhythm",
+              "prompt": "Chronobiologists have more interest in what is called the circadian rhythm.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "The passage says ‘chronobiologists have more interest in what is called the circadian rhythm’ when it comes to human beings.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 12,
-              "prompt": "Plants will become more malleable",
+              "prompt": "Plants become more malleable under artificial conditions.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "The passage says ‘plants do not become more malleable’ and that vegetables ripened on the tree have more nutrients than those from greenhouses.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 13,
-              "prompt": "The best time to sleep at night is around 7.20 p.m.",
+              "prompt": "The best time to go to sleep at night is around 7.20 p.m.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
-          "questions": [
+              "explanation": "The passage gives 7.22 a.m. as the best time to wake up, but never says when the best time to go to sleep is."
+            },
             {
               "number": 14,
-              "prompt": "The newly developed passage of making time for science reading answers and its answer key come one by one.",
-              "answer": "TRUE",
-              "explanation": "Confirmed directly in the reading passage: 'The newly developed passage of making time for science readi...'"
+              "prompt": "Some dieticians consider breakfast to be unnecessary for people who want to lose weight.",
+              "answer": "FALSE",
+              "explanation": "Some dieticians ‘mandate breakfast every day’ for people who want to lose weight, which contradicts the statement.",
+              "reference": "Paragraph 7"
             }
           ]
         }
@@ -212,31 +207,23 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Making every drop count reading answers with newly-created passage are as follows."
+          "text": "The history of human civilization, right from the golden age, evolved parallel to the history of the ways we learnt to handle water and its resources across the globe. As urban areas expanded slowly and steadily, water resources were taken rapidly from remote sources, amounting to luxury engineering impacts like aqueducts, dams, and so on. During the Roman Empire’s era, nine major systems had a drastic change with the help of a sophisticated idea of sewers, pipelines, etc. Such engineering advancements by the Roman occupants provided as much water per individual person as it has been in many industrial areas today."
         },
         {
           "label": null,
-          "text": "Making Every Drop Count"
+          "text": "It was evident that the water resources demand rose exponentially due to the industrial revolution and population growth in the 19th and 20th centuries. Moreover, enormous monuments and other tens and thousands of engineering projects were built, incorporating flood control systems, clean water supply, irrigation and hydropower projects that brought happiness to millions of human lives. There was also a food supply growing to compensate for the soaring population due to the spread of artificial irrigation systems that ensure a potential growth of 40% of the world’s food. Almost one-fifth of the current electricity produced across the world is generated using big turbines spun by the power of falling water."
         },
         {
           "label": null,
-          "text": "The history of human civilization, right from the golden age, evolved parallel to the history of the ways we learnt to handle water and its resources across the globe. As urban areas expanded slowly and steadily, water resources were taken rapidly from remote sources, amounting to luxury engineering impacts like aqueducts, dams, and so on. During the Roman Empire's era, nine major systems had a drastic change with the help of a sophisticated idea of sewers, pipelines, etc. Such engineering advancements by the Roman occupants provided as much water per individual person as it has been in many industrial areas today."
+          "text": "However, there is a negative face to this picture. Besides our reach, nearly 50 percent of the world’s human population still faces hurdles, with water resources lesser than those had by the ancient Greeks and Romans. According to the United Nations (UN) report on access to water reemphasized in the month of November 2001, above one billion people are deprived of clean drinking water, and almost two and a half billion people do not have access to necessary sanitation facilities. Avoidable diseases pertaining to water kill an estimated 11,000 to 22,000 children every day, and recent proof reveals that we need to speed up the process of solving problems before it is too late."
         },
         {
           "label": null,
-          "text": "It was evident that the water resources demand rose exponentially due to the industrial revolution and population growth in the 19th and 20th centuries. Moreover, enormous monuments and other tens and thousands of engineering projects were built, incorporating flood control systems, clean water supply, irrigation and hydropower projects that brought happiness to millions of human lives. There was also a food supply growing to compensate for the soaring population due to the spread of artificial irrigation systems that ensure a potential growth of 40% of the world's food. Almost one-fifth of the current electricity produced across the world is generated using big turbines spun by the power of a tsunami."
+          "text": "The repercussions of our water policy framework extend not just jeopardising human health but also the mere existence. Millions of people coerced to shift from their homes permanently—with some warning or temporary relief—to give space for the reservoirs behind water dams. 20 percent and above of all freshwater fish species are now under serious threat or endangered mainly due to dams and water reservoirs withdrawals have stopped the natural flow of river water where they live and survive. It eventually destroyed the entire ecosystem. There are some poor irrigation methods that lead to soil degradation and deteriorated production of agriculture. Apart from that, groundwater aquifers (underground water stored) are used faster than they are naturally refilled in different parts of China, India, the US and elsewhere. And problems related to shared water resources have caused unnecessary troubles and persist to cause local, national, and international disturbances."
         },
         {
           "label": null,
-          "text": "However, there is a negative face to this picture. Besides our reach, nearly 50 percent of the world's human population still faces hurdles, with water resources lesser than those had by the ancient Greeks and Romans. According to the United Nations (UN) report on access to water reemphasized in the month of November 2001, above one billion people are deprived of clean drinking water, and almost two and a half billion people do not have access to necessary sanitation facilities. Avoidable diseases pertaining to water kill an estimated 11,000 to 22,000 children every day, and recent proof reveals that we need to speed up the process of solving problems before it is too late."
-        },
-        {
-          "label": null,
-          "text": "The repercussions of our water policy framework extend not just jeopardising human health but also the mere existence. Millions of people coerced to shift from their homes permanently- with some warning or temporary relief - to give space for the reservoirs behind water dams. 20 percent and above of all freshwater fish species are now under serious threat or endangered mainly due to dams and water reservoirs withdrawals have stopped the natural-flow of river water where they live and survive. It eventually destroyed the entire ecosystem. There are some best irrigation methods that lead to soil degradation and deteriorated production of agriculture. Apart from that, groundwater aquifers (underground water stored) are used faster than they are naturally refilled in different parts of China, India, the US and elsewhere. And problems related to shared water resources have caused unnecessary troubles and persist to cause local, national, and international disturbances."
-        },
-        {
-          "label": null,
-          "text": "In the beginning of the new millennium, the way policy makers plan for water resources is beginning to take a twist. Their aim is to gradually move towards the basic human and environmental needs as the highest priority. It is to ensure 'some for all', rather than 'more for some'. A few environmentalists and water experts suggest that existing infrastructure facilities could be utilised in an efficient way instead of constructing new buildings. However, it has been taken into consideration. This philosophical change is not universal yet, as it's strongly opposed by certain organisations, who closely work for water security. In spite of that, it could be the ideal way to correctly tackle the overwhelming problem of serving everyone with clean water. It is to drink, grow food and a society free from water-borne diseases."
+          "text": "In the beginning of the new millennium, the way policy makers plan for water resources is beginning to take a twist. Their aim is to gradually move towards the basic human and environmental needs as the highest priority. It is to ensure ‘some for all’, rather than ‘more for some’. A few environmentalists and water experts suggest that existing infrastructure facilities could be utilised in an efficient way instead of constructing new buildings. However, it has been taken into consideration. This philosophical change is not universal yet, as it’s strongly opposed by certain organisations, who closely work for water security. In spite of that, it could be the ideal way to correctly tackle the overwhelming problem of serving everyone with clean water. It is to drink, grow food and a society free from water-borne diseases."
         },
         {
           "label": null,
@@ -244,7 +231,7 @@
         },
         {
           "label": null,
-          "text": "How do these remarkable events take place? Well! There are two major factors involved: people have noticed how efficiently water can be used, similarly communities at large started thinking about their priorities on usage of water. Right from the 20th century, on an average, the amount of freshwater consumption per individual has doubled; in the US, the withdrawal of water increased ten times higher, while the population increased four times higher. However, if we look from 1980, the amount of water consumption has decreased per individual, it's all because of new inventions and technologies that support the preservation of water at homes and industries. For example, in 1965, Japan consumed exactly 13 million gallons (1 gallon equals to 4.546 litres) of water for the purpose of $1 million of commercial output; by 1989, this amount of consumption had decreased drastically to 3.5 million gallons (even taking inflation into account) - almost four times higher of water productivity. Meanwhile, in the USA, water withdrawals were at its peak in 1980, but it has fallen by more than 20 percent."
+          "text": "How do these remarkable events take place? Well, there are two major factors involved: people have noticed how efficiently water can be used, similarly communities at large started thinking about their priorities on usage of water. Right from the 20th century, on an average, the amount of freshwater consumption per individual has doubled; in the US, the withdrawal of water increased ten times higher, while the population increased four times higher. However, if we look from 1980, the amount of water consumption has decreased per individual, it’s all because of new inventions and technologies that support the preservation of water at homes and industries. For example, in 1965, Japan consumed exactly 13 million gallons (1 gallon equals to 4.546 litres) of water for the purpose of $1 million of commercial output; by 1989, this amount of consumption had decreased drastically to 3.5 million gallons (even taking inflation into account) - almost four times higher of water productivity. Meanwhile, in the USA, water withdrawals were at its peak in 1980, but it has fallen by more than 20 percent."
         },
         {
           "label": null,
@@ -254,11 +241,61 @@
       "groups": [
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, a, b, c, or d.",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 15,
-              "prompt": "1 gallon is equal to",
+              "prompt": "According to the passage, what brought a drastic change to nine major systems during the Roman Empire?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The idea of sewers and pipelines"
+                },
+                {
+                  "key": "B",
+                  "text": "A water management system"
+                },
+                {
+                  "key": "C",
+                  "text": "Sophisticated infrastructure facilities"
+                },
+                {
+                  "key": "D",
+                  "text": "Dams and reservoirs"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Nine major systems ‘had a drastic change with the help of a sophisticated idea of sewers, pipelines’. Dams and reservoirs are not linked to the Romans here.",
+              "reference": "Paragraph 1"
+            },
+            {
+              "number": 16,
+              "prompt": "According to the passage, which of the following is caused by some irrigation methods?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Water pollution"
+                },
+                {
+                  "key": "B",
+                  "text": "Soil degradation"
+                },
+                {
+                  "key": "C",
+                  "text": "Flooding of towns"
+                },
+                {
+                  "key": "D",
+                  "text": "A rise in food prices"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Poor irrigation methods ‘lead to soil degradation and deteriorated production of agriculture’; the other options are not mentioned in this connection.",
+              "reference": "Paragraph 4"
+            },
+            {
+              "number": 17,
+              "prompt": "According to the passage, one gallon is equal to",
               "options": [
                 {
                   "key": "A",
@@ -278,35 +315,12 @@
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "The passage states ‘1 gallon equals to 4.546 litres’.",
+              "reference": "Paragraph 7"
             },
             {
-              "number": 16,
-              "prompt": "During the Roman empire, nine major systems had a big change due to?",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "Idea of sewers, pipelines"
-                },
-                {
-                  "key": "B",
-                  "text": "Water management system"
-                },
-                {
-                  "key": "C",
-                  "text": "Sophisticated infrastructure facilities"
-                },
-                {
-                  "key": "D",
-                  "text": "Dams, reservoirs"
-                }
-              ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
-            },
-            {
-              "number": 17,
-              "prompt": "In the USA, water withdrawals had fallen by more than?",
+              "number": 18,
+              "prompt": "Water withdrawals in the USA were at their peak in 1980 but have since fallen by more than",
               "options": [
                 {
                   "key": "A",
@@ -326,129 +340,117 @@
                 }
               ],
               "answer": "C",
-              "explanation": "Option C is correct based on the passage."
-            },
-            {
-              "number": 18,
-              "prompt": "In emerging countries, what forms of infrastructure need to be built?",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "Water dams"
-                },
-                {
-                  "key": "B",
-                  "text": "Aqueducts"
-                },
-                {
-                  "key": "C",
-                  "text": "Both a and b"
-                },
-                {
-                  "key": "D",
-                  "text": "None of the above"
-                }
-              ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "explanation": "In the USA ‘water withdrawals were at its peak in 1980, but it has fallen by more than 20 percent’. The other figures are not given.",
+              "reference": "Paragraph 7"
             },
             {
               "number": 19,
-              "prompt": "The irrigation system leads to",
+              "prompt": "In emerging countries, which forms of infrastructure does the writer say still need to be built?",
               "options": [
                 {
                   "key": "A",
-                  "text": "Water pollution"
+                  "text": "Water dams only"
                 },
                 {
                   "key": "B",
-                  "text": "Soil degradation"
+                  "text": "Aqueducts only"
                 },
                 {
                   "key": "C",
-                  "text": "Tsunami"
+                  "text": "Both aqueducts and water dams"
                 },
                 {
                   "key": "D",
-                  "text": "All of the above"
+                  "text": "Neither aqueducts nor water dams"
                 }
               ],
-              "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "answer": "C",
+              "explanation": "‘Aqueducts, water dams and other forms of infrastructure need to be built, especially in emerging countries’, so both are needed.",
+              "reference": "Paragraph 8"
             }
           ]
         },
         {
           "type": "summary_completion",
-          "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for each",
-          "content": "{{20}} . ___________ and above of all freshwater fish species are now under serious threat or {{21}} . _____________ mainly due to dams and water reservoirs withdrawals have stopped the natural-flow of river water where they live and survive. It eventually destroyed the {{22}} . ____________. There are some best irrigation methods that lead to soil degradation and deteriorated production of {{23}} . __________. Apart from that, groundwater aquifers (underground water stored) are used faster than they are naturally refilled in different parts of China, India, {{24}} . __________ and elsewhere.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
           "maxWords": 2,
+          "title": "The costs of our water policy",
+          "content": "Our water policies have harmed more than human health. Millions of people have been forced to leave their homes permanently to make room for the reservoirs behind dams. At least {{20}} of all freshwater fish species are now under serious threat or {{21}}, mainly because dams and reservoirs have stopped the natural flow of the rivers where the fish live, which eventually destroyed the {{22}}. Some irrigation methods lead to soil degradation and lower production of {{23}}. In addition, groundwater aquifers are being used faster than they are refilled in China, India, {{24}} and elsewhere.",
           "questions": [
             {
               "number": 20,
               "answer": [
-                "percent"
+                "20 percent"
               ],
-              "explanation": "Found directly in the reading passage: 'percent'."
+              "explanation": "‘20 percent and above of all freshwater fish species are now under serious threat or endangered’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 21,
               "answer": [
                 "endangered"
               ],
-              "explanation": "Found directly in the reading passage: 'endangered'."
+              "explanation": "Freshwater fish species ‘are now under serious threat or endangered’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 22,
               "answer": [
-                "Entire ecosystem"
+                "entire ecosystem"
               ],
-              "explanation": "Found directly in the reading passage: 'Entire ecosystem'."
+              "explanation": "Stopping the natural flow of rivers ‘eventually destroyed the entire ecosystem’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 23,
               "answer": [
-                "Agriculture"
+                "agriculture"
               ],
-              "explanation": "Found directly in the reading passage: 'Agriculture'."
+              "explanation": "Poor irrigation methods lead to ‘soil degradation and deteriorated production of agriculture’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 24,
               "answer": [
-                "The US"
+                "the US",
+                "US"
               ],
-              "explanation": "Found directly in the reading passage: 'The US'."
+              "explanation": "Aquifers ‘are used faster than they are naturally refilled in different parts of China, India, the US and elsewhere’.",
+              "reference": "Paragraph 4"
             }
           ]
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
-          "maxWords": 2,
+          "instruction": "Answer the questions below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
+          "maxWords": 3,
           "questions": [
             {
               "number": 25,
-              "prompt": "For how many years has the intense pressure to build water infrastructure been",
+              "prompt": "In which two centuries did the demand for water resources rise exponentially?",
               "answer": [
-                "two decades"
+                "19th and 20th"
               ],
-              "explanation": "Found directly in the reading passage: 'two decades'."
+              "explanation": "Demand rose exponentially ‘due to the industrial revolution and population growth in the 19th and 20th centuries’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 26,
-              "prompt": "Millions of people were forced to move from their homes permanently with what?",
+              "prompt": "Millions of people were forced to leave their homes permanently with some warning or what?",
               "answer": [
                 "temporary relief"
               ],
-              "explanation": "Found directly in the reading passage: 'temporary relief'."
+              "explanation": "People were made to move ‘with some warning or temporary relief’ to give space for the reservoirs behind dams.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 27,
-              "prompt": "During which centuries did the water resources demand rise exponentially due to the",
+              "prompt": "For how long has the intense pressure to build water infrastructure been reduced?",
               "answer": [
-                "19th"
+                "two decades"
               ],
-              "explanation": "Found directly in the reading passage: '19th'."
+              "explanation": "The pressure to build infrastructure has been reduced ‘for more than two decades’ because demand is not rising as fast as estimated.",
+              "reference": "Paragraph 6"
             }
           ]
         }
@@ -460,114 +462,144 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Russian explorers and fur hunters arrived on the Aleutian Islands more than two hundred years ago, it is a volcanic archipelago in the North Pacific, and found a landmass that was farther to the north. This land mass Alyeska is referred to as the 'Great Land' by the native inhabitants of the island. In 1959, Alaska joined the United States of America as a forty-ninth state, which is one-fifth the size of the mainland 48 states combined. It shared both the longest river system in North America and half the coastline of the United States with Canada. The rivers that exist in the Gulf of Alaska and North America are cold and nutrient rich. It supports millions of birds and about 400 species of fish, shellfish, molluscs and crustaceans. These advantages elevated Alaska's commercial fisheries into some of the largest in the world. Based on the report of Alaska Department of Fish and Game, In 2000 Alaska's commercial fisheries landed thousands of tonnes of herring and shellfish, and about million tonnes of groundfish. Salmon is considered to be the true cultural heart and soul of Alaska. The salmano enabled the native culture to flourish and helped to feed bears, eagles and other animals and the soil itself. Five species of Pacific salmon - chinook ; chum ; coho ; sockeye ; and pink, - spawn** in Alaskan waters and 90% Pacific salmon has commercial benefits in North America. If Alaska was an independent nation, then it would have become the largest producer of wild salmon in the world. Catching salmon has not always been healthy. In 1953, Alaska was declared a federal disaster area because overfishing of salmon became severe between 1940 and 1949. When it achieved the status of statehood, the State of Alaska managed their own fisheries with the guidance of the state constitution. During that time, the harvest rate was about 25 million salmon. After a few decades, average catches have steadily increased as a consequence of sustainable management policy. During the 1990's, annual harvests were about more than 100 million, and on some occasions it had raised over 200 million fish. 'In-Season Abundance-Based Management' is the fundamental reason for such an increase. There are biologists throughout the state consistently watching over the adult fish as they are spawning. They sit in streamside counting towers, studying sonar, watching from aeroplanes and talking to fishermen. The salmon season is not pre-set in Alaska. The fishermen know the approximate time of year when they will be permitted to fish, but one or more field biologists can put a halt to fishing in a particular area on any given day. Sport fishing can even be put to Halt. This management mechanism enabled Alaska salmon as well as Alaska salmon fisheries for better improvement. In the rest of the United States, salmon populations are increasingly threatened."
+          "text": "Russian explorers and fur hunters arrived on the Aleutian Islands, a volcanic archipelago in the North Pacific, more than two hundred years ago and found a landmass that was farther to the north. This land mass Alyeska is referred to as the ‘Great Land’ by the native inhabitants of the island. In 1959, Alaska joined the United States of America as the forty-ninth state, which is one-fifth the size of the mainland 48 states combined. It shared both the longest river system in North America and half the coastline of the United States with Canada."
         },
         {
-          "label": "A",
-          "text": "review of the Alaska salmon fishery was commissioned by the Marine Stewardship Council (MSC) in 1999. In 1996, the Council was established to certify fisheries that meet high environmental standards, which allows them to use a label that recognises their environmental duty. Commercial fisheries can be judged with the criteria of MSC. After finding the potential benefits of being identified as environmentally responsible, fisheries requested the council to undergo the certification process. Then MSC sets up a certification committee, consisting of a panel of fisheries experts, gathers opinions and information from biologists, fishermen, government officials, fishermen, industry representatives, non-governmental organizations and others. Some people who watch over the Alaska fisheries thought it would not have the chance to get certification. Salmon throughout western Alaska completely collapsed, when MSC led up to the final decision. Likely, the Yukon and Kuskokwim rivers, chinook and chum rivers are the poorest since statehood. Subsistence communities throughout the region who mostly relied on commercial fishing were shattered. It was a completely unexpected crisis, but still researchers believe it is not caused by the fisheries. Instead, they asserted it happened as a result of climatic shifts, which occurred by the cumulative effects of the el niño/La Niña phenomenon on Pacific Ocean temperatures. Large numbers of salmon eggs were frozen because of the harsh winter. It will be the end, if we take the certification process into account. Nevertheless, the state took action quickly, shutting down all fisheries, even though it is for subsistence purposes. In September 2000, MSC declared that the Alaska salmon fisheries qualified for certification. Seven companies producing Alaska salmon got permission from MSC to put their logo on their products. Certification is given in the format of initial periods of five years, and annual review which ensures that the fisheries are consistent in following the required standards."
+          "label": null,
+          "text": "The rivers that exist in the Gulf of Alaska and North America are cold and nutrient rich. It supports millions of birds and about 400 species of fish, shellfish, molluscs and crustaceans. These advantages elevated Alaska’s commercial fisheries into some of the largest in the world. Based on the report of Alaska Department of Fish and Game, in 2000 Alaska’s commercial fisheries landed thousands of tonnes of herring and shellfish, and about a million tonnes of groundfish."
+        },
+        {
+          "label": null,
+          "text": "Salmon is considered to be the true cultural heart and soul of Alaska. The salmon enabled the native culture to flourish and helped to feed bears, eagles and other animals and the soil itself. Five species of Pacific salmon—chinook, chum, coho, sockeye and pink—spawn in Alaskan waters and 90% of Pacific salmon has commercial benefits in North America. If Alaska was an independent nation, then it would have become the largest producer of wild salmon in the world."
+        },
+        {
+          "label": null,
+          "text": "Catching salmon has not always been healthy. In 1953, Alaska was declared a federal disaster area because overfishing of salmon became severe between 1940 and 1949. When it achieved the status of statehood, the State of Alaska managed their own fisheries with the guidance of the state constitution. During that time, the harvest rate was about 25 million salmon. After a few decades, average catches have steadily increased as a consequence of sustainable management policy. During the 1990s, annual harvests were about more than 100 million, and on some occasions it had raised over 200 million fish."
+        },
+        {
+          "label": null,
+          "text": "‘In-Season Abundance-Based Management’ is the fundamental reason for such an increase. There are biologists throughout the state consistently watching over the adult fish as they are spawning. They sit in streamside counting towers, studying sonar, watching from aeroplanes and talking to fishermen. The salmon season is not pre-set in Alaska. The fishermen know the approximate time of year when they will be permitted to fish, but one or more field biologists can put a halt to fishing in a particular area on any given day. Sport fishing can even be put on hold. This management mechanism enabled Alaska salmon as well as Alaska salmon fisheries for better improvement. In the rest of the United States, salmon populations are increasingly threatened."
+        },
+        {
+          "label": null,
+          "text": "A review of the Alaska salmon fishery was commissioned by the Marine Stewardship Council (MSC) in 1999. In 1996, the Council was established to certify fisheries that meet high environmental standards, which allows them to use a label that recognises their environmental duty. Commercial fisheries can be judged with the criteria of MSC. After finding the potential benefits of being identified as environmentally responsible, fisheries requested the council to undergo the certification process. Then MSC sets up a certification committee, consisting of a panel of fisheries experts, gathers opinions and information from biologists, fishermen, government officials, fishermen, industry representatives, non-governmental organizations and others. Some people who watch over the Alaska fisheries thought it would not have the chance to get certification. Salmon throughout western Alaska completely collapsed, when MSC led up to the final decision. Likewise, the Yukon and Kuskokwim rivers, chinook and chum rivers are the poorest since statehood. Subsistence communities throughout the region who mostly relied on commercial fishing were shattered. It was a completely unexpected crisis, but still researchers believe it is not caused by the fisheries. Instead, they asserted it happened as a result of climatic shifts, which occurred by the cumulative effects of the El Niño/La Niña phenomenon on Pacific Ocean temperatures. Large numbers of salmon eggs were frozen because of the harsh winter. It will be the end, if we take the certification process into account. Nevertheless, the state took action quickly, shutting down all fisheries, even though it is for subsistence purposes. In September 2000, MSC declared that the Alaska salmon fisheries qualified for certification. Seven companies producing Alaska salmon got permission from MSC to put their logo on their products. Certification is given in the format of initial periods of five years, and annual review which ensures that the fisheries are consistent in following the required standards."
         }
       ],
       "groups": [
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the reading passage? Write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 28,
               "prompt": "Russian explorers arrived on the Aleutian Islands less than two hundred years ago.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "The explorers and fur hunters arrived ‘more than two hundred years ago’, not less.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 29,
               "prompt": "The rivers in the Gulf of Alaska and North America are cold and nutrient rich.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "The passage states: ‘The rivers that exist in the Gulf of Alaska and North America are cold and nutrient rich.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 30,
               "prompt": "Salmon is regarded as the true cultural heart and soul of the United States.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "Salmon is ‘the true cultural heart and soul of Alaska’, not of the whole United States.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 31,
               "prompt": "Salmon has the ability to cure digestive problems.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage says nothing about salmon and digestive health."
             },
             {
               "number": 32,
-              "prompt": "With the sustainable management policy, the average catching of salmon has",
+              "prompt": "Since sustainable management was introduced, the average catch of salmon has increased.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "‘Average catches have steadily increased as a consequence of sustainable management policy.’",
+              "reference": "Paragraph 4"
             },
             {
               "number": 33,
               "prompt": "The Marine Stewardship Council (MSC) was established in 1996.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "answer": "TRUE",
+              "explanation": "The passage says: ‘In 1996, the Council was established to certify fisheries that meet high environmental standards.’",
+              "reference": "Paragraph 6"
             },
             {
               "number": 34,
-              "prompt": "Being identified as environmentally responsible is not fruitful for fisheries.",
+              "prompt": "Being identified as environmentally responsible is of no benefit to fisheries.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "Fisheries asked to be certified ‘after finding the potential benefits of being identified as environmentally responsible’, so there are benefits.",
+              "reference": "Paragraph 6"
             }
           ]
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
           "questions": [
             {
               "number": 35,
-              "prompt": "Question 8",
+              "prompt": "How long ago did Russian explorers and fur hunters arrive on the Aleutian Islands?",
               "answer": [
-                "Two hundred years"
+                "two hundred years"
               ],
-              "explanation": "Found directly in the reading passage: 'Two hundred years'."
+              "explanation": "They arrived ‘more than two hundred years ago’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 36,
-              "prompt": "Question 9",
+              "prompt": "What name is given to the landmass that the explorers found?",
               "answer": [
                 "Alyeska"
               ],
-              "explanation": "Found directly in the reading passage: 'Alyeska'."
+              "explanation": "The landmass is named ‘Alyeska’ in the passage, and the native inhabitants refer to it as the Great Land.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 37,
-              "prompt": "Question 10",
+              "prompt": "How do the native inhabitants refer to this landmass?",
               "answer": [
-                "Great Land"
+                "Great Land",
+                "the Great Land"
               ],
-              "explanation": "Found directly in the reading passage: 'Great Land'."
+              "explanation": "The native inhabitants refer to Alyeska as the ‘Great Land’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 38,
-              "prompt": "Question 11",
+              "prompt": "Which numbered state of the USA did Alaska become in 1959?",
               "answer": [
-                "Forty-ninth"
+                "forty-ninth",
+                "49th"
               ],
-              "explanation": "Found directly in the reading passage: 'Forty-ninth'."
+              "explanation": "‘In 1959, Alaska joined the United States of America as the forty-ninth state.’",
+              "reference": "Paragraph 1"
             },
             {
               "number": 39,
-              "prompt": "Question 12",
+              "prompt": "What is the longest in North America that Alaska shares with Canada?",
               "answer": [
-                "River system"
+                "river system"
               ],
-              "explanation": "Found directly in the reading passage: 'River system'."
+              "explanation": "Alaska ‘shared both the longest river system in North America and half the coastline of the United States with Canada’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 40,
-              "prompt": "Question 13",
+              "prompt": "Besides herring and shellfish, which kind of fish did Alaska’s commercial fisheries land in 2000?",
               "answer": [
-                "Groundfish"
+                "groundfish"
               ],
-              "explanation": "Found directly in the reading passage: 'Groundfish'."
+              "explanation": "They landed ‘thousands of tonnes of herring and shellfish, and about a million tonnes of groundfish’.",
+              "reference": "Paragraph 2"
             }
           ]
         }
