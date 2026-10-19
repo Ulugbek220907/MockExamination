@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Validate every reading, listening and writing test in content/.
+Validate every reading, listening, writing and speaking test in content/.
 
 Checks question numbering, answer keys against options, completion answers
 against the passage text or listening transcript and word limits, gap
@@ -68,6 +68,11 @@ def main():
             model_words = content.count_words(t.get("modelAnswer", ""))
             vis = (t.get("visual") or {}).get("type", "-")
             print(f"  Task {t['taskNumber']}: visual={vis}, model answer {model_words} words (min {t.get('minWords')})")
+
+    for test in content.load_json_dir(os.path.join(CONTENT_DIR, "speaking")):
+        problems += content.validate_speaking_test(test, public_dir=os.path.join(BASE_DIR, "public"))
+        questions = sum(len(part.get("questions") or []) for part in test.get("parts") or [])
+        print(f"\n{test['id']}  —  {test['title']}: {questions} recorded questions")
 
     print()
     if problems:
