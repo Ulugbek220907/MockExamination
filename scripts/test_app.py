@@ -851,7 +851,18 @@ class ApiTests(AsyncHTTPTestCase):
         footer = footer[:footer.index("</nav>")]
         self.assertIn('href="#/pricing"', footer)
         self.assertNotIn("#/resources", footer)
-        self.assertNotIn("#/about", footer)
+        # The top of the page names only what matters: Price and About (and the account).
+        header = page[page.index('<nav class="site-links"'):]
+        header = header[:header.index("</nav>")]
+        self.assertIn('href="#/pricing"', header)
+        self.assertIn('href="#/about"', header)
+        self.assertEqual(header.count("<a "), 2)
+        # Social links, contact and the feedback button are at the very end, in the footer.
+        for marker in ('id="footer-social"', 'id="footer-contact"', 'id="feedback-open"'):
+            self.assertGreater(page.index(marker), page.index('<footer class="site-footer"'), marker)
+        # No trace of the old map design in the shell.
+        for marker in ("footer-lines", "site-mark", "#mark", "feedback-fab"):
+            self.assertNotIn(marker, page)
 
     def test_share_tags_canonical_and_structured_data(self):
         import re

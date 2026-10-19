@@ -365,79 +365,43 @@
   }
 
   /* ================================================================ pricing */
-  const LINE_BULLETS = [["line-l", "L"], ["line-r", "R"], ["line-w", "W"], ["line-s", "S"]];
-  const bullets = (which = LINE_BULLETS) => which.map(([cls, letter]) => `<span class="bullet sm ${cls}" aria-hidden="true">${letter}</span>`).join("");
-  const stripes = `<div class="pass-stripes" aria-hidden="true"><span style="background:var(--line-l)"></span><span style="background:var(--line-r)"></span><span style="background:var(--line-w)"></span><span style="background:var(--line-s)"></span></div>`;
-
-  function passPriceHTML(amount) {
-    return `${esc(U.number(amount))}<small>${t("so'm / month")}</small>`;
-  }
-
-  /** The monthly pass as a transit card; the home page and the prices page share it. */
-  function passCardHTML(amount) {
-    return `
-      <div class="pass-card" role="img" aria-label="${esc(t("Monthly pass"))}${amount ? `: ${esc(U.money(amount))}` : ""}">
-        ${stripes}
-        <div class="pass-top"><span class="site-name">${esc(siteName())}</span><span class="pass-kind">${t("Monthly pass")}</span></div>
-        <div class="pass-price" data-price="plan">${amount ? passPriceHTML(amount) : "&nbsp;"}</div>
-        <div class="pass-bottom">
-          <span class="pass-bullets">${bullets()}</span>
-          <span class="pass-note">${t("First payment: 2 months")}</span>
-        </div>
-      </div>`;
-  }
-
   async function renderPricing(main) {
-    document.title = `${t("Prices")} – ${siteName()}`;
+    document.title = `${t("Price")} – ${siteName()}`;
     main.innerHTML = loading();
     const b = await billing().catch(() => ({ prices: {}, providers: [] }));
     const plan = state.me.plan;
     const methods = [["payme", "Payme"], ["click", "Click"], ["manual", t("a bank card transfer")]]
       .filter(([k]) => b.providers.includes(k)).map(([, v]) => v);
+    const tests = (window.app && window.app.tests) || [];
+    const free = tests.filter((x) => x.access === "free").length;
+    const price = (n) => (n ? esc(money(n)) : "…");
     main.innerHTML = `
       <section class="page pricing-page">
         <div class="pricing-head">
-          <h1>${t("Simple prices")}</h1>
+          <h1>${t("Price")}</h1>
           <p>${t("pricing.lead")}</p>
         </div>
 
-        <div class="pass-wrap">
-          ${passCardHTML(b.prices.plan)}
-          <div class="pass-copy">
-            <h2>${t("One pass opens every station")}</h2>
-            <p class="muted-text">${t("pass.text")}</p>
-            <ul class="plan-points">
-              <li>${t("All Listening, Reading, Writing and Speaking tests")}</li>
-              <li>${t("New tests added regularly")}</li>
-              <li>${t("Your results and progress on every device")}</li>
-              <li>${t("No automatic charges: renew when you want")}</li>
-            </ul>
-            ${plan && plan.active
-              ? `<p class="plan-active">${t("Your pass is active until {date}.", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>
-                 <div class="btn-row"><button type="button" class="btn-secondary btn-lg" data-action="buy-plan">${t("Add another month")}</button></div>`
-              : `<div class="btn-row"><button type="button" class="btn-primary btn-lg" data-action="buy-plan">${t("Get the pass")}</button>
-                 <a class="btn-secondary btn-lg" href="#/">${t("Start a free test")}</a></div>`}
-          </div>
-        </div>
+        <ul class="price-ledger">
+          <li class="price-row"><h2 class="price-name">${t("Free tests")}</h2><p class="price-fig">${t("Free")}</p>
+            <p class="price-note">${t("price.free.note", { n: esc(U.number(free)) })}</p></li>
+          <li class="price-row"><h2 class="price-name">${t("Monthly pass")}</h2><p class="price-fig">${price(b.prices.plan)}<small>/ ${t("month")}</small></p>
+            <p class="price-note">${t("price.pass.note", { n: esc(U.number(tests.length)) })}</p></li>
+          <li class="price-row"><h2 class="price-name">${t("Writing check")}</h2><p class="price-fig">${price(b.prices.writing_check)}</p>
+            <p class="price-note">${t("An examiner marks both tasks on the four official criteria")}</p></li>
+          <li class="price-row"><h2 class="price-name">${t("Speaking check")}</h2><p class="price-fig">${price(b.prices.speaking_check)}</p>
+            <p class="price-note">${t("An examiner listens to your answers and marks the four criteria")}</p></li>
+        </ul>
 
-        <section class="fare-board" aria-labelledby="fares-title">
-          <div class="fare-head"><h2 id="fares-title">${t("Fares")}</h2><a href="#/examiners">${t("Meet the examiners")}</a></div>
-          <ul class="fare-rows">
-            <li class="fare-row"><span class="fare-bullets">${bullets()}</span>
-              <span class="fare-name">${t("The first test on every line")}<small>${t("Listening, Reading and Writing need no sign-up")}</small></span>
-              <span class="fare-leader" aria-hidden="true"></span><span class="fare-price">${t("Free")}</span></li>
-            <li class="fare-row"><span class="fare-bullets">${bullets()}</span>
-              <span class="fare-name">${t("Monthly pass")}<small>${t("Every test on every line; your first payment gives two months")}</small></span>
-              <span class="fare-leader" aria-hidden="true"></span><span class="fare-price">${esc(money(b.prices.plan))}<small class="muted-text"> / ${t("month")}</small></span></li>
-            <li class="fare-row"><span class="fare-bullets">${bullets([LINE_BULLETS[2]])}</span>
-              <span class="fare-name">${t("Writing check")}<small>${t("An examiner marks both tasks on the four official criteria")}</small></span>
-              <span class="fare-leader" aria-hidden="true"></span><span class="fare-price">${esc(money(b.prices.writing_check))}</span></li>
-            <li class="fare-row"><span class="fare-bullets">${bullets([LINE_BULLETS[3]])}</span>
-              <span class="fare-name">${t("Speaking check")}<small>${t("An examiner listens to your answers and marks the four criteria")}</small></span>
-              <span class="fare-leader" aria-hidden="true"></span><span class="fare-price">${esc(money(b.prices.speaking_check))}</span></li>
-          </ul>
-          <p class="fare-foot">${t("Pay with {methods}. Prices include all fees.", { methods: esc(methods.join(", ") || "Payme, Click") })}</p>
-        </section>
+        <div class="pricing-act">
+          ${plan && plan.active
+            ? `<p class="plan-active">${t("Your pass is active until {date}.", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>
+               <div class="btn-row"><button type="button" class="btn-secondary btn-lg" data-action="buy-plan">${t("Add another month")}</button></div>`
+            : `<div class="btn-row"><button type="button" class="btn-primary btn-lg" data-action="buy-plan">${t("Get the pass")}</button>
+               <a class="btn-secondary btn-lg" href="#/">${t("Start a free test")}</a></div>`}
+          ${methods.length ? `<p class="price-foot">${t("Pay with {methods}. Prices include all fees.", { methods: esc(methods.join(", ")) })}</p>` : ""}
+          <p class="price-foot"><a href="#/examiners">${t("Meet the examiners")}</a></p>
+        </div>
 
         <div class="faq">
           <h2 class="section-title">${t("Questions")}</h2>
@@ -558,7 +522,7 @@
           </div>
         </div>
         <div class="examiner-tags">
-          ${e.doesWriting ? `<span class="tag line-w">Writing</span>` : ""}${e.doesSpeaking ? `<span class="tag line-s">Speaking</span>` : ""}
+          ${e.doesWriting ? `<span class="tag">Writing</span>` : ""}${e.doesSpeaking ? `<span class="tag">Speaking</span>` : ""}
           <span class="tag tag-muted">${esc(plural(e.checksDone, "{n} check done", "{n} checks done"))}</span>
           ${e.queue ? `<span class="tag tag-muted">${esc(t("{n} in queue", { n: e.queue }))}</span>` : ""}
         </div>
@@ -593,18 +557,16 @@
       </section>`;
   }
 
-  /** No examiners on this line yet: say so, and offer the free test in the meantime. */
+  /** No examiners for this module yet: say so, and offer the free test in the meantime. */
   function openingSoon(kind, skill) {
     const free = ((window.app && window.app.tests) || []).find((x) => x.module === kind && x.access === "free");
-    const line = kind === "speaking" ? ["line-s", "S"] : ["line-w", "W"];
     return `
-      <div class="empty-plaque ${line[0]}">
-        <span class="bullet lg" aria-hidden="true">${line[1]}</span>
+      <div class="empty-plaque">
         <div>
           <h2>${t("{skill} examiners: opening soon", { skill })}</h2>
           <p>${t("examiners.soon", { skill })}</p>
         </div>
-        ${free ? `<button type="button" class="btn-line btn-lg" data-action="start" data-test="${esc(free.id)}" data-mode="exam">${t("Start the free {skill} test", { skill })}</button>` : ""}
+        ${free ? `<button type="button" class="btn-primary btn-lg" data-action="start" data-test="${esc(free.id)}" data-mode="exam">${t("Start the free {skill} test", { skill })}</button>` : ""}
       </div>`;
   }
 
@@ -722,11 +684,9 @@
     }
     const sub = check.submission || {};
     const student = check.viewerRole === "student";
-    const line = check.kind === "writing" ? ["line-w", "W"] : ["line-s", "S"];
     const head = `
       <div class="results-head">
         <div class="results-title">
-          <span class="bullet lg ${line[0]}" aria-hidden="true">${line[1]}</span>
           <div>
             <h1>${esc(sub.title || "")}</h1>
             <p class="muted-text">${student
@@ -753,7 +713,7 @@
     }
 
     if (check.status !== "completed") {
-      main.innerHTML = `<section class="results-page check-page ${line[0]}">${head}
+      main.innerHTML = `<section class="results-page check-page">${head}
         <div class="notice notice-info"><strong>${check.status === "cancelled" ? t("This check was cancelled.") : t("Your examiner is working on it.")}</strong>
           <span>${check.status === "cancelled" ? t("If you paid, the money has been or will be refunded.") : t("check.wait")}</span></div>
         <h2 class="section-title">${work}</h2>${submissionHTML(sub, false)}</section>`;
@@ -763,7 +723,7 @@
     const r = check.result;
     const canRate = check.viewerRole === "student" && !check.rating;
     main.innerHTML = `
-      <section class="results-page check-page ${line[0]}">${head}
+      <section class="results-page check-page">${head}
         <div class="score-banner-card">
           ${Results.parts.bandCircle(r.overallBand, t("Examiner band"))}
           <div class="score-details-grid">
@@ -1211,8 +1171,7 @@
   }
 
   window.Account = {
-    state, refreshMe, primeMe, user, planActive, role, login, logout, paywall, buy, billing, money, onClick, passCardHTML, passPriceHTML,
-    renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
+    state, refreshMe, primeMe, user, planActive, role, login, logout, paywall, buy, billing, money, onClick, renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
     setConfig(config) { state.config = config || {}; },
   };
 })();

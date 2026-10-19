@@ -9,7 +9,6 @@
   const esc = (v) => U.escapeHtml(v);
   const S = window.IeltsScoring;
   const tr = window.t; // `t` is a common local name in this file
-  const LINE = { Listening: ["line-l", "L"], Reading: ["line-r", "R"], Writing: ["line-w", "W"], Speaking: ["line-s", "S"] };
 
   /** Smooth scrolling, unless the student has asked their device for less motion. */
   const scrollMotion = () => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
@@ -19,11 +18,9 @@
   }
 
   function header(kind, data, extra) {
-    const line = LINE[kind] || LINE.Reading;
     return `
       <div class="results-head">
         <div class="results-title">
-          <span class="bullet lg ${line[0]}" aria-hidden="true">${line[1]}</span>
           <div>
             <h1>${esc(data.title)}</h1>
             <p class="muted-text results-sub"><span>${esc(data.candidateName)}</span> · <span>${esc(extra)}</span> · <span>${esc(tr("Time used: {time}", { time: U.formatDuration(data.timeSpentSeconds) }))}</span></p>
@@ -145,7 +142,7 @@
 
   function renderReading(data, root, extra = {}) {
     root.innerHTML = `
-      <section class="results-page line-r">
+      <section class="results-page">
         ${header("Reading", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"))}
         ${scoreBanner(data)}
         <p class="score-note">${tr("results.note.reading")}</p>
@@ -184,7 +181,7 @@
     const partIndex = (partNumber) => transcript.findIndex((p) => p.partNumber === partNumber);
 
     root.innerHTML = `
-      <section class="results-page listening-results line-l">
+      <section class="results-page listening-results">
         ${header("Listening", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"))}
         ${scoreBanner(data)}
         <p class="score-note">${tr("results.note.listening")}</p>
@@ -421,7 +418,7 @@
     const t1 = a && a.tasks["1"];
     const t2 = a && a.tasks["2"];
     root.innerHTML = `
-      <section class="results-page line-w">
+      <section class="results-page">
         ${header("Writing", data, "Academic Writing")}
         ${a ? `
           <div class="score-banner-card">
