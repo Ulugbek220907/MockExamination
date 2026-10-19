@@ -135,6 +135,7 @@
           U.prefetch("exam");
           U.prefetch("results");
         };
+        if (U.lowData()) return; // a data-saver connection downloads the test code only when a test starts
         if ("requestIdleCallback" in window) {
           requestIdleCallback(warmIdle, { timeout: 3000 });
         } else {
