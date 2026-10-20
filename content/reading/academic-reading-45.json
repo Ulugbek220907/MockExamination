@@ -11,23 +11,15 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Population Movements And Genetics",
+      "title": "Population Movements and Genetics",
       "paragraphs": [
         {
           "label": null,
-          "text": "Read the following passage carefully in order to solve the two question types. And, evaluate your answers with the help of population movements and genetics reading answers."
+          "text": "Origins and distribution of human populations is studied based on archaeological and fossil evidence. From the 1950s, numerous techniques have been used which are more objective. Information about early population movements now obtained by ‘archaeology of the living body’, the clues are taken from the genetic material."
         },
         {
           "label": null,
-          "text": "Population Movements And Genetics"
-        },
-        {
-          "label": null,
-          "text": "Origins and distribution of human populations is studied based on archaeological and fossil evidence. From the 1950s, numerous techniques have been used which are more objective. Information about early population movements now obtained by 'archaeology of the living body', the clues are taken from the genetic material."
-        },
-        {
-          "label": null,
-          "text": "These values of the techniques are ensured by the work on the problems which deal with when people entered America. The launching ground of human colonisers of the New World is North-east Asia and Siberia. It was found that major migration happened across the Bering Strait into the Americans. New clues have derived from the research into genetics which includes the genetic markers in modern Native Americans."
+          "text": "These values of the techniques are ensured by the work on the problems which deal with when people entered America. The launching ground of human colonisers of the New World is North-east Asia and Siberia. It was found that major migration happened across the Bering Strait into the Americas. New clues have derived from the research into genetics which includes the genetic markers in modern Native Americans."
         },
         {
           "label": null,
@@ -35,124 +27,144 @@
         },
         {
           "label": null,
-          "text": "In the span of a twenty year period, Williams and his colleagues collected the sample of over 5,000 American Indians in Western North America. . Gm allotypes can be divided into two groups, one of them corresponds to the genetic typing of Central And South American Indians. Apart from this, other tests showed that Aleut3 and Inuit formed a third group. It was found from the evidence that there have been three migration waves that happened across the Bering Strait. da about 600 or 700 years ago). The third wave, perhaps 10,000 or 9,000 years ago, saw the migration from North-east Asia of groups ancestral to the modern Eskimo and Aleut."
+          "text": "In the span of a twenty year period, Williams and his colleagues collected the sample of over 5,000 American Indians in Western North America. Gm allotypes can be divided into two groups, one of them corresponds to the genetic typing of Central And South American Indians. Apart from this, other tests showed that Aleut and Inuit formed a third group. It was found from the evidence that there have been three migration waves that happened across the Bering Strait. The third wave, perhaps 10,000 or 9,000 years ago, saw the migration from North-east Asia of groups ancestral to the modern Eskimo and Aleut."
         },
         {
           "label": null,
-          "text": "To what extent does other research support these conclusions ? Douglas Wallace, a geneticist, studied mitochondrial DNA4 in the blood samples from three distinct Native American Groups: Arizona's Pima-Papago Indians, Maya Indians on the Yucatan Peninsula, Mexico, and Ticuna Indians in Brazil's Upper region. According to the prediction of Robert Williams's work, all three groups seem to be descended from the same ancestor - the Paleo-indian population. There are two other sorts of research which throws some light on the Native American Population origination. It involves the study of teeth and of languages. The biological anthropologist Christy Turner, having an expertise in analysing the changing physical characteristics in human teeth. According to him, tooth crowns and roots possess a high genetic component, affected by environmental and other factors in a minimal fashion. Turner studied many thousands of New and Old World Specimens, both ancient and modern and finds that most of the prehistoric Americans are connected to Northern Asian Populations by root and crown traits such as incisor shovelling ( a scooping out on one or both surfaces of the tooth ), triple-rooted lower first molars and single-rooted upper first premolars. As stated by Turner, this ties in with the idea of a single Paleo-Indian migration out of North Asia, which he fixes before 14,000 years ago by calibrating rates of dental micro-evaluation. Analysing the tooth suggests that there were two later migrations of Eskimo-Aleut and Na-Denes. Since the 1950s, the linguist Joseph Greenberg has argued that all Native American languages belong to a single 'Amerind' family, Na-Dene and Eskimo-Aleut is an exception - a view that supports the idea of three main migrations. Among fellow linguists, Greenberg is a minority, who favour the idea of many waves of migration to account for the fact that American Indians speak more than 1000 languages at one time. Greenberg's view is supported by the new genetic and dental evidence. However, dates given for the migrations should be treated cautiously, excluded where supported by hard archaeological evidence."
+          "text": "To what extent does other research support these conclusions? Douglas Wallace, a geneticist, studied mitochondrial DNA in the blood samples from three distinct Native American Groups: Arizona’s Pima-Papago Indians, Maya Indians on the Yucatan Peninsula, Mexico, and Ticuna Indians in Brazil’s Upper region. According to the prediction of Robert Williams’s work, all three groups seem to be descended from the same ancestor, the Paleo-Indian population. There are two other sorts of research which throws some light on the Native American Population origination. It involves the study of teeth and of languages. The biological anthropologist Christy Turner, having an expertise in analysing the changing physical characteristics in human teeth. According to him, tooth crowns and roots possess a high genetic component, affected by environmental and other factors in a minimal fashion. Turner studied many thousands of New and Old World Specimens, both ancient and modern and finds that most of the prehistoric Americans are connected to Northern Asian Populations by root and crown traits such as incisor shovelling (a scooping out on one or both surfaces of the tooth), triple-rooted lower first molars and single-rooted upper first premolars. As stated by Turner, this ties in with the idea of a single Paleo-Indian migration out of North Asia, which he fixes before 14,000 years ago by calibrating rates of dental micro-evolution. Analysing the tooth suggests that there were two later migrations of Eskimo-Aleut and Na-Denes. Since the 1950s, the linguist Joseph Greenberg has argued that all Native American languages belong to a single ‘Amerind’ family, Na-Dene and Eskimo-Aleut is an exception, a view that supports the idea of three main migrations. Among fellow linguists, Greenberg is a minority, who favour the idea of many waves of migration to account for the fact that American Indians speak more than 1000 languages at one time. Greenberg’s view is supported by the new genetic and dental evidence. However, dates given for the migrations should be treated cautiously, except where supported by hard archaeological evidence."
         }
       ],
       "groups": [
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
           "questions": [
             {
               "number": 1,
-              "prompt": "Where from the clues on early population movements was taken by ?",
+              "prompt": "According to the first paragraph, where are the clues about early population movements taken from?",
               "answer": [
-                "Genetic material"
+                "genetic material"
               ],
-              "explanation": "Found directly in the reading passage: 'Genetic material'."
+              "explanation": "Information about early population movements is obtained from the ‘archaeology of the living body’: ‘the clues are taken from the genetic material’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 2,
-              "prompt": "What protein Robert Williams found in the form of fluid in the blood ?",
+              "prompt": "Which protein did Robert Williams find in the blood?",
               "answer": [
-                "Immunoglobulin G"
+                "immunoglobulin G"
               ],
-              "explanation": "Found directly in the reading passage: 'Immunoglobulin G'."
+              "explanation": "Williams ‘found one particular protein (immunoglobulin G) in the form of fluid in the blood’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 3,
-              "prompt": "What could be determined by comparing the Gm allotypes of two different",
+              "prompt": "What can be determined by comparing the Gm allotypes of two different populations?",
               "answer": [
-                "Genetic distance"
+                "genetic distance"
               ],
-              "explanation": "Found directly in the reading passage: 'Genetic distance'."
+              "explanation": "‘One can determine their genetic distance by comparing the Gm allotypes of two different populations.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 4,
-              "prompt": "How many groups are there in Gm allotypes ?",
+              "prompt": "Into how many groups can Gm allotypes be divided?",
               "answer": [
-                "Two groups"
+                "two",
+                "two groups",
+                "2"
               ],
-              "explanation": "Found directly in the reading passage: 'Two groups'."
+              "explanation": "‘Gm allotypes can be divided into two groups.’",
+              "reference": "Paragraph 4"
             },
             {
               "number": 5,
-              "prompt": "Who studied mitochondrial DNA4 from three different Native American Groups' blood",
+              "prompt": "Who studied mitochondrial DNA in blood samples from three Native American groups?",
               "answer": [
-                "Douglas Wallace"
+                "Douglas Wallace",
+                "Wallace"
               ],
-              "explanation": "Found directly in the reading passage: 'Douglas Wallace'."
+              "explanation": "‘Douglas Wallace, a geneticist, studied mitochondrial DNA in the blood samples from three distinct Native American Groups.’",
+              "reference": "Paragraph 5"
             },
             {
               "number": 6,
-              "prompt": "Which study throws a light on origins of the Native American Population other than",
+              "prompt": "Apart from the study of languages, which other kind of research throws light on the origin of the Native American population?",
               "answer": [
-                "Study of teeth"
+                "study of teeth",
+                "teeth"
               ],
-              "explanation": "Found directly in the reading passage: 'Study of teeth'."
+              "explanation": "Two other sorts of research throw light on the question: ‘the study of teeth and of languages’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 7,
-              "prompt": "Who is an expert in analysing changing physical characteristics of human teeth ?",
+              "prompt": "Who is an expert in analysing the changing physical characteristics of human teeth?",
               "answer": [
-                "Christy Turner"
+                "Christy Turner",
+                "Turner"
               ],
-              "explanation": "Found directly in the reading passage: 'Christy Turner'."
+              "explanation": "‘The biological anthropologist Christy Turner’ has expertise in analysing the changing physical characteristics of human teeth.",
+              "reference": "Paragraph 5"
             }
           ]
         },
         {
           "type": "summary_completion",
-          "instruction": "Complete the summary below. Write NO MORE THAN TWO WORDS from the passage for each answer.",
-          "content": "From the {{8}} , numerous techniques have been used which are more objective to study the fossil evidence. Information about early population movements now obtained by ' {{9}} of the living body', the clues are taken from the genetic material. Modern {{10}} , new clues have been derived from the research into genetics which includes the genetic {{11}} . Biological Anthropologist {{12}} found one particular protein (immunoglobulin G) in the form of fluid in the blood. One can determine their genetic distance by comparing the {{13}} of two different populations.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
           "maxWords": 2,
+          "title": "Techniques for studying population movements",
+          "content": "From the {{8}}, numerous techniques that are more objective have been used to study the origins of human populations. Information about early population movements is now obtained from the ‘{{9}} of the living body’. New clues have come from research into genetics, which includes studies of modern {{10}} and their genetic {{11}}. The biological anthropologist {{12}} and his colleagues collected samples from over 5,000 American Indians and compared the {{13}} of different populations.",
           "questions": [
             {
               "number": 8,
               "answer": [
                 "1950s"
               ],
-              "explanation": "Found directly in the reading passage: '1950s'."
+              "explanation": "‘From the 1950s, numerous techniques have been used which are more objective.’",
+              "reference": "Paragraph 1"
             },
             {
               "number": 9,
               "answer": [
-                "Archaeology"
+                "archaeology"
               ],
-              "explanation": "Found directly in the reading passage: 'Archaeology'."
+              "explanation": "Information is now obtained by ‘archaeology of the living body’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 10,
               "answer": [
                 "Native Americans"
               ],
-              "explanation": "Found directly in the reading passage: 'Native Americans'."
+              "explanation": "The passage refers to ‘the genetic markers in modern Native Americans’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 11,
               "answer": [
                 "markers"
               ],
-              "explanation": "Found directly in the reading passage: 'markers'."
+              "explanation": "New clues come from genetics, ‘which includes the genetic markers in modern Native Americans’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 12,
               "answer": [
-                "Robert Williams"
+                "Robert Williams",
+                "Williams"
               ],
-              "explanation": "Found directly in the reading passage: 'Robert Williams'."
+              "explanation": "‘Biological Anthropologist Robert Williams’ and his colleagues collected the samples.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 13,
               "answer": [
                 "Gm allotypes"
               ],
-              "explanation": "Found directly in the reading passage: 'Gm allotypes'."
+              "explanation": "Genetic distance is found ‘by comparing the Gm allotypes of two different populations’.",
+              "reference": "Paragraph 3"
             }
           ]
         }
@@ -161,60 +173,53 @@
     {
       "passageNumber": 2,
       "title": "Flying Tortoises",
+      "subtitle": "An airborne reintroduction program has supported conservationists to take important measures to save the endangered Galapagos tortoise.",
       "paragraphs": [
         {
           "label": null,
-          "text": "Read the complete reading passage and try to answer all the questions (1 - 13) given here. Then, check your answers with the Flying Tortoises IELTS reading answers."
+          "text": "Spiny cacti forests cover the most uneven volcanic plains that divide the interior of Isabella’s Galapagos Island from the Pacific Ocean. With its five different volcanoes, the island and lunar landscape are similar. Only the dense vegetation in the skirt of the peak-covered peak of the Sierra Negra rests from the barren landscape below."
         },
         {
           "label": null,
-          "text": "An airborne reintroduction program has supported conservationists to take important measures to save the endangered Galapagos tortoise."
+          "text": "This unfriendly environment is home to the huge Galapagos tortoise. About five million years after the birth of the Galapagos, the islands were occupied by one or more tortoises off the mainland of South America. As these ancestral tortoises settled on separate islands, distinct populations developed at least 14 different subspecies to suit their unique environments. Island life agreed with them. In the absence of important predators, they grew into the biggest and longest tortoises on the planet, weighing more than 400 kilograms, sometimes 1.8 meters long, and living for more than a century."
         },
         {
           "label": null,
-          "text": "Spiny cacti forests cover the most uneven volcanic plains that divide the interior of Isabella's Galapagos Island from the Pacific Ocean. With its five different volcanoes, the island and lunar landscape are similar. Only the dense vegetation in the skirt of the peak-covered peak of the Sierra Negra rests from the barren landscape below."
+          "text": "Before humans arrived, the archipelago had millions of tortoises. From the 17th century, pirates took some for food, but with the arrival of whale ships in the 1790s, this exploitation increased exponentially. The tortoises, which are relatively unmoving and capable of surviving for months without food or water, were transported on these ships to serve as food items during lengthy sea journeys. Sometimes, their bodies were processed into top-quality oil."
         },
         {
           "label": null,
-          "text": "This unfriendly environment is house to the huge Galapagos tortoise. About five million years after the birth of the Galapagos, the islands were occupied by one or more turtles off the mainland of South America. As these ancestral turtles settled on separate islands, distinct peoples developed at least 14 different subspecies to suit their unique environments. Island life agreed with them. In the absence of important predators, they grew into the biggest and longest turtles on the planet, weighing more than 400 kilograms, sometimes 1.8 meters long, and living for more than a century."
+          "text": "In total, 200,000 animals were taken from the archipelago before the 20th century. This recorded exploitation then intensified when immigrants arrived on the islands. They hunted tortoises and killed their habitat to empty the land for agriculture. They also introduced alien species that could hunt or lay eggs and hurt or kill their habitat, ranging from livestock, pigs, goats, rats, and dogs to plants and ants."
         },
         {
           "label": null,
-          "text": "Before humans arrived, the archipelago had millions of turtles. From the 17th century, pirates took some for food, but with the arrival of whale ships in the 1790s, this exploitation increased exponentially. The turtles, which are relatively unmoving and capable of surviving for months without food or water, were transported on these ships to serve as food items during lengthy sea journeys. Sometimes, their bodies were processed into top-quality oil."
+          "text": "Today, only 11 of the actual subspecies survive, many of which are highly endangered. In 1989, work started on a tortoise breeding center outside the city of Puerto Villamil in Isabela, dedicated to saving the island’s tortoise population. The center’s captive breeding program proved to be very successful, and it finally had to deal with a large population issue."
         },
         {
           "label": null,
-          "text": "In total, 200,000 animals were taken from the archipelago before the 20th century. This recorded exploitation then intensified when immigrants arrived on the islands. They hunted turtles and killed their habitat to empty the land for agriculture. They also introduced alien species that could hunt or lay eggs and hurt or kill their habitat, ranging from livestock, pigs, goats, rats, and dogs to plants and ants."
+          "text": "The issue was also stressful. Captive tortoises cannot be reintroduced into the wild until they are at least five years old and weigh at least 4.5 kilograms, at which time their size and weight and the toughened shells are capable of saving them from predators. But if people wait too long after that, the tortoises will ultimately become too big to carry."
         },
         {
           "label": null,
-          "text": "Today, only 11 of the actual subspecies survive, many of which are highly endangered. In 1989, work started on a turtle breeding center outside the city of Puerto Villamil in Isabela, dedicated to saving the island's turtle population. The center's captive breeding program proved to be very successful, and it finally had to deal with a large population issue."
+          "text": "For many years, on long, treacherous walks on narrow paths, tortoises were carried in small numbers, carried on the backs of males. But in November 2010, Godfrey Merlin, an environmentalist and liaison officer for Galapagos National Park, and the visiting private motorboat captain and helicopter pilot assembled around a table in a small cafe on the island of Santa Cruz in Puerto Ayora to perform a more ambitious reintroduction. The purpose was to transport the 300 tortoises from the breeding center to different places near the Sierra Negra by helicopter."
         },
         {
           "label": null,
-          "text": "The issue was also stressful. Captive turtles cannot be reintroduced into the wild until they are at least five years old and weigh at least 4.5 kilograms, at which time their size and weight and the toughened shells are capable of saving them from predators. But if people wait too long after that, the turtles will ultimately become too big to carry."
+          "text": "This remarkable action was made by the owners of the 67-meter White Cloud boat, who used the helicopter and its professional pilot and boat, as well as the logistics help of its captain and crew, for free to Galapagos National Park. First, an air ambulance, the boat’s helicopter has a rear dual door and a big interior space very appropriate for cargo, so a custom crate is created to hold 33 tortoises with a total weight of 150 kilograms. With this weight, fuel, pilot, and four crew, the helicopter’s full payload was approaching, and there were times when it was undoubtedly on the border of the helicopter’s capacities. For three days, a team of volunteers from the breeding center worked 24 hours a day to prepare young tortoises for transport. At the same time, park keepers landed prematurely in remote locations and removed landing sites with dense brush, cacti, and volcanic rocks."
         },
         {
           "label": null,
-          "text": "For many years, on long, treacherous walks on narrow paths, turtles were carried in small numbers, carried on the backs of males. But in November 2010, Godfrey Merlin, an environmentalist and liaison officer for Galapagos National Park, and the visiting private motorboat captain and helicopter pilot assembled around a table in a small cafe on the island of Santa Cruz in Puerto Ayora to perform a more ambitious reintroduction. The purpose was to transport the 300 turtles from the breeding center to different places near the Sierra Negra by helicopter."
-        },
-        {
-          "label": null,
-          "text": "This remarkable action was made by the owners of the 67-meter White Cloud boat, who used the helicopter and its professional pilot and boat, as well as the logistics help of its captain and crew, for free to Galapagos National Park. First, an air ambulance, the boat's helicopter has a rear dual door and a big interior space very appropriate for cargo, so a custom crate is created to hold 33 turtles with a total weight of 150 kilograms. With this weight, fuel, pilot, and four crew, the helicopter's full payload was approaching, and there were times when it was undoubtedly on the border of the helicopter's capacities. For three days, a team of volunteers from the breeding center worked 24 hours a day to prepare young turtles for transport. At the same time, park keepers landed prematurely in remote locations and removed landing sites with dense brush, cacti, and volcanic rocks."
-        },
-        {
-          "label": null,
-          "text": "Once they are released, the young turtles quickly spread to their ancestral territory, exploring their new environment and eating the plants. Finally, a small tortoise saw a full-grown giant who had been cutting down a tree for a hundred years around the island. The two stood side by side, a strong sign of the regeneration of an ancient race."
+          "text": "Once they are released, the young tortoises quickly spread to their ancestral territory, exploring their new environment and eating the plants. Finally, a small tortoise saw a full-grown giant who had been cutting down a tree for a hundred years around the island. The two stood side by side, a strong sign of the regeneration of an ancient race."
         }
       ],
       "groups": [
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, A - D.",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 14,
-              "prompt": "Most uneven volcanic plains that separate the interior of Isabella's Galapagos",
+              "prompt": "According to the first paragraph, the uneven volcanic plains divide the interior of Isabella Island from the",
               "options": [
                 {
                   "key": "A",
@@ -234,59 +239,62 @@
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "The plains ‘divide the interior of Isabella’s Galapagos Island from the Pacific Ocean’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 15,
-              "prompt": "To suit their unique environments. distinct peoples developed at least",
+              "prompt": "How many different subspecies of giant tortoise developed to suit their environments?",
               "options": [
                 {
                   "key": "A",
-                  "text": "12 different subspecies"
+                  "text": "At least 11"
                 },
                 {
                   "key": "B",
-                  "text": "14 different subspecies"
+                  "text": "At least 14"
                 },
                 {
                   "key": "C",
-                  "text": "12 similar subspecies"
+                  "text": "At least 12"
                 },
                 {
                   "key": "D",
-                  "text": "14 similar subspecies"
+                  "text": "At least 200"
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "The tortoises developed ‘at least 14 different subspecies’; 11 is the number that survive today.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 16,
-              "prompt": "The archipelago had millions of turtles, before",
+              "prompt": "Why were tortoises taken on board whale ships in the 1790s?",
               "options": [
                 {
                   "key": "A",
-                  "text": "humans arrived"
+                  "text": "To serve as food on long sea journeys"
                 },
                 {
                   "key": "B",
-                  "text": "turtles came"
+                  "text": "To be sold as pets in Europe"
                 },
                 {
                   "key": "C",
-                  "text": "the arrival of species"
+                  "text": "To be bred in captivity"
                 },
                 {
                   "key": "D",
-                  "text": "subspecies arrived"
+                  "text": "To remove alien species from the islands"
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "They ‘were transported on these ships to serve as food items during lengthy sea journeys’; the other purposes are not mentioned.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 17,
-              "prompt": "The bodies of turtles were sometimes processed into",
+              "prompt": "The bodies of tortoises were sometimes processed into",
               "options": [
                 {
                   "key": "A",
@@ -294,101 +302,120 @@
                 },
                 {
                   "key": "B",
-                  "text": "alcohol"
+                  "text": "leather"
                 },
                 {
                   "key": "C",
-                  "text": "high quality oil"
+                  "text": "top-quality oil"
                 },
                 {
                   "key": "D",
-                  "text": "caffeine"
+                  "text": "animal feed"
                 }
               ],
               "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "explanation": "Sometimes ‘their bodies were processed into top-quality oil’; the other products are not mentioned.",
+              "reference": "Paragraph 3"
             }
           ]
         },
         {
-          "type": "summary_completion",
-          "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS from the passage for each answer.",
-          "content": "Before the {{18}} century, 200,000 animals were taken from the {{19}} \nImmigrants hunted turtles and killed their habitat to empty the land for {{20}} \nIn {{21}} , work started on a turtle breeding center.\nUltimately, the turtle breeding center had to deal with a {{22}} issue.",
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
           "maxWords": 2,
+          "title": "Decline and recovery of the Galapagos tortoise",
+          "content": [
+            "## Hunting and habitat loss",
+            "• Before the {{18}} century, 200,000 animals were taken from the {{19}}.",
+            "• Immigrants hunted the tortoises and killed their habitat to empty the land for {{20}}.",
+            "## The breeding center",
+            "• In {{21}}, work started on a tortoise breeding center near Puerto Villamil.",
+            "• The center’s success meant that it eventually had to deal with a {{22}} issue."
+          ],
           "questions": [
             {
               "number": 18,
               "answer": [
                 "20th"
               ],
-              "explanation": "Found directly in the reading passage: '20th'."
+              "explanation": "‘200,000 animals were taken from the archipelago before the 20th century.’",
+              "reference": "Paragraph 4"
             },
             {
               "number": 19,
               "answer": [
                 "archipelago"
               ],
-              "explanation": "Found directly in the reading passage: 'archipelago'."
+              "explanation": "The same sentence gives the place the animals were taken from: ‘the archipelago’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 20,
               "answer": [
                 "agriculture"
               ],
-              "explanation": "Found directly in the reading passage: 'agriculture'."
+              "explanation": "Immigrants killed the tortoises’ habitat ‘to empty the land for agriculture’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 21,
               "answer": [
                 "1989"
               ],
-              "explanation": "Found directly in the reading passage: '1989'."
+              "explanation": "‘In 1989, work started on a tortoise breeding center’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 22,
               "answer": [
                 "large population"
               ],
-              "explanation": "Found directly in the reading passage: 'large population'."
+              "explanation": "The breeding programme ‘finally had to deal with a large population issue’.",
+              "reference": "Paragraph 5"
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 23,
-              "prompt": "Captive turtles above ______ and at least five years old only can be",
+              "prompt": "Captive tortoises can be reintroduced into the wild only when they are at least five years old and weigh at least {{23}}.",
               "answer": [
-                "4"
+                "4.5 kilograms",
+                "4.5 kg"
               ],
-              "explanation": "Found directly in the reading passage: '4'."
+              "explanation": "Captive tortoises cannot be reintroduced ‘until they are at least five years old and weigh at least 4.5 kilograms’.",
+              "reference": "Paragraph 6"
             },
             {
               "number": 24,
-              "prompt": "A custom box is made to hold ______ with a total weight of 150 kilograms.",
+              "prompt": "A custom crate was created to hold {{24}} tortoises with a total weight of 150 kilograms.",
               "answer": [
-                "turtles"
+                "33"
               ],
-              "explanation": "Found directly in the reading passage: 'turtles'."
+              "explanation": "‘A custom crate is created to hold 33 tortoises with a total weight of 150 kilograms.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 25,
-              "prompt": "A team of volunteers from the breeding center worked ______ a day to",
+              "prompt": "A team of volunteers from the breeding center worked {{25}} a day to prepare young tortoises for transport.",
               "answer": [
-                "hours"
+                "24 hours"
               ],
-              "explanation": "Found directly in the reading passage: 'hours'."
+              "explanation": "‘For three days, a team of volunteers from the breeding center worked 24 hours a day.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 26,
-              "prompt": "A small tortoise saw a full-grown giant who had been cutting down a tree for a",
+              "prompt": "The small tortoise saw a full-grown giant who had been cutting down a tree for a {{26}} around the island.",
               "answer": [
                 "hundred years"
               ],
-              "explanation": "Found directly in the reading passage: 'hundred years'."
+              "explanation": "The final paragraph describes a giant ‘who had been cutting down a tree for a hundred years around the island’.",
+              "reference": "Paragraph 9"
             }
           ]
         }
@@ -400,153 +427,162 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "The passage for The Coconut Palm Reading Answers have been given below. Carefully scan through the passage and pick the right answers."
+          "text": "For thousands of years, the coconut has been integral to the lives of Polynesian and Asian peoples. On the other hand, in the west, coconuts have always been exotic and unusual, sometimes rare. In the late 13th century the Italian merchant traveller Marco Polo apparently saw coconuts in South Asia. During the mid-14th-century, in the travel writings of Sir John Mandeville, there is mention of ‘great Notes of India’ (great Nuts of India). Images of tropical beaches with palm trees are clichés in the west today, to sell holidays, chocolate bars, fizzy drinks, and even romance."
         },
         {
           "label": "B",
-          "text": "For thousands of years, the coconut has been integral to the lives of Polynesian and Asian peoples. On the other hand In the west, coconuts have always been exotic and unusual, sometimes rare. In the late 13th century the Italian merchant traveller Marco Polo apparently saw coconuts in South Asia. During the mid-14th-century, in the travel writings of Sir John Mandeville, there is mention of 'great Notes of India' (great Nuts of India). Images of tropical beaches with palm trees are clichés in the west today, to sell holidays, chocolate bars, fizzy drinks, and even romance."
+          "text": "We conceive coconuts as brown cannonballs that, when opened, provide sweet white flesh. But we see none of the plants from which they come and only part of the fruit. The coconut palm has a slender, smooth, grey trunk that grows up to 30 metres tall. The trunk is an important source of timber for constructing houses and is mostly used to replace endangered trees from the furniture construction industry. The trunk is surmounted by a rosette of leaves, each of which may be up to 6 metres long. They have hard veins in their centres which are used as brushes in many parts of the world after the green part of the leaf has been stripped away. At the top of the trunk immature coconut flowers are tightly clustered together among the leaves. The stems of the flowers are tapped to produce a drink from their sap, and it can also be reduced by boiling to make a type of sugar that can be used for cooking."
         },
         {
           "label": "C",
-          "text": "We conceive coconuts as brown cannonballs that, when opened, provide sweet white flesh. But we see none of the plants from which they come and only part of the fruit. The coconut palm has a slender, smooth, grey trunk that grows up to 30 metres tall. The trunk is an important source of timber for constructing houses and is mostly used to replace endangered trees from the furniture construction industry. The trunk, each of which may be up to 6 metres long, is surmounted by a rosette of leaves. They have hard veins in their centres which are used as brushes in many parts of the world after the green part of the leaf has been stripped away. At the top of the trunk immature coconut flowers are tightly clustered together among the leaves. The stems of the flowers are tapped to produce a drink from their sap, and it can also be reduced by boiling to make a type of sugar that can be used for cooking."
+          "text": "Coconut palms produce as many as 70 fruits per year, almost a kilogram each. The wall of the fruit has 3 layers - an outer waterproof layer, a fibrous middle layer, and an inner hard layer. The middle layer produces coconut fibre, ‘coir’, which has many uses and is particularly important in making ropes. The woody shell, which is the innermost layer with its 3 prominent ‘eyes’, surrounds the seed. Charcoal is an important product obtained from the shell, which is used in many industries and also as cooking fuel in the houses. The shells are broken in half and are used as bowls in many parts of Asia."
         },
         {
           "label": "D",
-          "text": "Coconut palms produce as many as 70 fruits per year, almost a kilogram each. The wall of the fruit has 3 layers - an outer waterproof layer, a fibrous middle layer, and an inner hard layer. The middle layer produces coconut fibre, 'coir', which has many uses and is particularly important in making ropes. The woody shell, which is the innermost layer with its 3 prominent 'eyes', surrounds the seed. Charcoal is an important product obtained from the shell, which is used in many industries and also as cooking fuel in the houses. The shells are broken in half and are used as bowls in many parts of Asia."
+          "text": "There are nutrients (endosperm) inside the shell that are needed by the developing seed. The endosperm is a sweetish liquid, coconut water, that provides the hormones which encourage other plants to grow more rapidly and produce higher yields and is also enjoyed as a drink. The coconut water gradually solidifies to form the brilliant white, fat-rich, edible flesh or meat as the fruit matures. Dried coconut flesh, ‘copra’, is made into coconut milk and coconut oil, which are widely used in cooking in different parts of the world. It is also used in cosmetics. As Alfred Nobel introduced the world to his nitroglycerine-based invention: dynamite, Glycerine, a derivative of coconut fat, gained strategic importance in a quite different sphere."
         },
         {
           "label": "E",
-          "text": "There are nutrients (endosperm) inside the shell that are needed by the developing seed. The endosperm is a sweetish liquid, coconut water, that provides the hormones which encourage other plants to grow more rapidly and produce higher yields and is also enjoyed as a drink. The coconut water gradually solidifies to form the brilliant white, fat-rich, edible flesh or meat as the fruit matures. Dried coconut flesh, 'copra', is made into coconut milk and coconut oil, which are widely used in cooking in different parts of the world. It is also used in cosmetics. As Alfred Nobel introduced the world to his nitroglycerine-based invention: dynamite, Glycerine, a derivative of coconut fat, gained strategic importance in a quite different sphere."
+          "text": "Their structure makes coconuts a great maritime voyager and coastal colonisers of the plant world. These large and energy-rich fruits are able to float in water and tolerate salt, but cannot remain viable indefinitely. After about 110 days at sea studies say that they are no longer able to germinate. With little more than sand to grow on desert island shores, coconut seeds are able to germinate being exposed to the tropical sun. The embryo is protected by the air pocket inside the seed that is created when the endosperm solidifies. The fibrous fruit wall that helped it to float during the voyage stores moisture and as it starts to grow it can be taken up by the roots of the coconut seedling."
         },
         {
           "label": "F",
-          "text": "Their structure makes coconuts a great maritime voyager and coastal colonisers of the plant world. These large and energy-rich fruits are able to float in water and tolerate salt, but cannot remain feasible indefinitely. After about 110 days at sea studies say that they are no longer able to germinate. With little more than sand to grow on desert island shores, coconut seeds are able to germinate being exposed to the tropical sun. The embryo is protected by the air pocket inside the seed that is created when the endosperm solidifies. The fibrous fruit wall that helped it to float during the voyage stores moisture and as it starts to grow it can be taken up by the roots of the coconut seedling."
-        },
-        {
-          "label": "G",
-          "text": "Regarding the origins of the coconut there have been centuries of academic debate. Before the voyages of the European explorers Vasco da Gama and Columbus there were no coconut palms in West Africa, the Caribbean or the east coast of the Americans in the late 15th and early 16th centuries. 16th-century trade and human migration patterns reveal that Arab traders and European sailors might be the people who have been the reason why coconuts were found in Africa and then to the east coast of America across the Atlantic. Discussions went on for centuries about the origin of coconuts discovered along the west coast of America by 16th-century sailors. 2 diametrically opposed origins have been proposed. One that they came from Asia, and second that they were native to America. Both have problems. There is a large degree of coconut diversity in Asia and evidence of human use for thousands of years. There are close coconut relatives in America, but no evidence that coconuts are native. These have led to the intriguing suggestion that coconuts originated on coral islands in the Pacific and were dispersed from there."
+          "text": "Regarding the origins of the coconut there have been centuries of academic debate. Before the voyages of the European explorers Vasco da Gama and Columbus there were no coconut palms in West Africa, the Caribbean or the east coast of the Americas in the late 15th and early 16th centuries. 16th-century trade and human migration patterns reveal that Arab traders and European sailors might be the people who have been the reason why coconuts were found in Africa and then to the east coast of America across the Atlantic. Discussions went on for centuries about the origin of coconuts discovered along the west coast of America by 16th-century sailors. Two diametrically opposed origins have been proposed. One that they came from Asia, and second that they were native to America. Both have problems. There is a large degree of coconut diversity in Asia and evidence of human use for thousands of years. There are close coconut relatives in America, but no evidence that coconuts are native. These have led to the intriguing suggestion that coconuts originated on coral islands in the Pacific and were dispersed from there."
         }
       ],
       "groups": [
         {
           "type": "matching_information",
-          "instruction": "This reading passage has six paragraphs, A-F.",
+          "instruction": "Reading Passage 3 has six paragraphs, **A–F**. Which paragraph contains the following information? **NB** You may use any letter more than once.",
           "questions": [
             {
               "number": 27,
-              "prompt": "The coconut was an important part of the lives of Polynesian and Asian peoples.",
+              "prompt": "a reference to how long coconuts have been important to certain peoples",
               "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "explanation": "‘For thousands of years, the coconut has been integral to the lives of Polynesian and Asian peoples.’",
+              "reference": "Paragraph A"
             },
             {
               "number": 28,
-              "prompt": "Coconut palms produce as many as 70 fruits per year.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "the number of fruits that a coconut palm can produce in a year",
+              "answer": "C",
+              "explanation": "‘Coconut palms produce as many as 70 fruits per year, almost a kilogram each.’",
+              "reference": "Paragraph C"
             },
             {
               "number": 29,
-              "prompt": "Coconuts cannot germinate after 110 days at sea.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "how long coconuts can float at sea before they lose the ability to germinate",
+              "answer": "E",
+              "explanation": "After ‘about 110 days at sea’ studies say that coconuts ‘are no longer able to germinate’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 30,
-              "prompt": "The coconut palm can grow up to 30 metres in length.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "the height that a coconut palm can reach",
+              "answer": "B",
+              "explanation": "‘The coconut palm has a slender, smooth, grey trunk that grows up to 30 metres tall.’",
+              "reference": "Paragraph B"
             },
             {
               "number": 31,
-              "prompt": "Coconuts are not native to America.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "a reason for doubting that coconuts originated in America",
+              "answer": "F",
+              "explanation": "‘There are close coconut relatives in America, but no evidence that coconuts are native.’",
+              "reference": "Paragraph F"
             }
           ]
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
-          "maxWords": 2,
-          "questions": [
-            {
-              "number": 32,
-              "prompt": "Question 6",
-              "answer": [
-                "13th century"
-              ],
-              "explanation": "Found directly in the reading passage: '13th century'."
-            },
-            {
-              "number": 33,
-              "prompt": "Question 7",
-              "answer": [
-                "white flesh"
-              ],
-              "explanation": "Found directly in the reading passage: 'white flesh'."
-            },
-            {
-              "number": 34,
-              "prompt": "Question 8",
-              "answer": [
-                "waterproof layer"
-              ],
-              "explanation": "Found directly in the reading passage: 'waterproof layer'."
-            },
-            {
-              "number": 35,
-              "prompt": "Question 9",
-              "answer": [
-                "Columbus"
-              ],
-              "explanation": "Found directly in the reading passage: 'Columbus'."
-            }
-          ]
-        },
-        {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN THREE WORDS AND/OR A NUMBER** from the passage for each answer.",
           "maxWords": 3,
           "questions": [
             {
-              "number": 36,
-              "prompt": "Who mentioned 'great Notes of India' in his book?",
+              "number": 32,
+              "prompt": "In which century did Marco Polo apparently see coconuts in South Asia?",
               "answer": [
-                "Sir John Mandeville"
+                "13th century",
+                "13th"
               ],
-              "explanation": "Found directly in the reading passage: 'Sir John Mandeville'."
+              "explanation": "‘In the late 13th century the Italian merchant traveller Marco Polo apparently saw coconuts in South Asia.’",
+              "reference": "Paragraph A"
+            },
+            {
+              "number": 33,
+              "prompt": "Who mentioned ‘great Notes of India’ in his travel writings?",
+              "answer": [
+                "Sir John Mandeville",
+                "John Mandeville",
+                "Mandeville"
+              ],
+              "explanation": "The mention is in ‘the travel writings of Sir John Mandeville’.",
+              "reference": "Paragraph A"
+            },
+            {
+              "number": 34,
+              "prompt": "What does the inside of a coconut provide when it is opened?",
+              "answer": [
+                "sweet white flesh",
+                "white flesh"
+              ],
+              "explanation": "Coconuts are brown cannonballs that ‘when opened, provide sweet white flesh’.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 35,
+              "prompt": "How tall can the trunk of a coconut palm grow?",
+              "answer": [
+                "30 metres",
+                "30 meters"
+              ],
+              "explanation": "The trunk ‘grows up to 30 metres tall’.",
+              "reference": "Paragraph B"
+            },
+            {
+              "number": 36,
+              "prompt": "What is the outer layer of the wall of a coconut fruit?",
+              "answer": [
+                "waterproof layer"
+              ],
+              "explanation": "The wall of the fruit has 3 layers, beginning with ‘an outer waterproof layer’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 37,
-              "prompt": "How long will the trunk grow?",
-              "answer": [
-                "metres"
-              ],
-              "explanation": "Found directly in the reading passage: 'metres'."
-            },
-            {
-              "number": 38,
-              "prompt": "What is the charcoal obtained from the shell used as?",
+              "prompt": "What is charcoal obtained from the coconut shell used as in houses?",
               "answer": [
                 "cooking fuel"
               ],
-              "explanation": "Found directly in the reading passage: 'cooking fuel'."
+              "explanation": "Charcoal from the shell is used ‘also as cooking fuel in the houses’.",
+              "reference": "Paragraph C"
             },
             {
-              "number": 39,
-              "prompt": "Where does the developing seed get its nutrients from?",
-              "answer": [
-                "Endosperm"
-              ],
-              "explanation": "Found directly in the reading passage: 'Endosperm'."
-            },
-            {
-              "number": 40,
+              "number": 38,
               "prompt": "Which part of the world uses coconut shells as bowls?",
               "answer": [
                 "Asia"
               ],
-              "explanation": "Found directly in the reading passage: 'Asia'."
+              "explanation": "‘The shells are broken in half and are used as bowls in many parts of Asia.’",
+              "reference": "Paragraph C"
+            },
+            {
+              "number": 39,
+              "prompt": "What inside the shell provides the nutrients that the developing seed needs?",
+              "answer": [
+                "endosperm",
+                "the endosperm"
+              ],
+              "explanation": "‘There are nutrients (endosperm) inside the shell that are needed by the developing seed.’",
+              "reference": "Paragraph D"
+            },
+            {
+              "number": 40,
+              "prompt": "Before the voyages of Vasco da Gama and which other explorer were there no coconut palms in West Africa or the Caribbean?",
+              "answer": [
+                "Columbus"
+              ],
+              "explanation": "‘Before the voyages of the European explorers Vasco da Gama and Columbus there were no coconut palms in West Africa, the Caribbean’.",
+              "reference": "Paragraph F"
             }
           ]
         }

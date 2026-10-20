@@ -15,10 +15,6 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Given below is the passage you have to read for which you have to find the Autumn Leaves Reading Answers."
-        },
-        {
-          "label": null,
           "text": "One of the most alluring natural events of the year in many areas throughout North America is the leaves falling during autumn. They come in beautiful colours. But the question is why some trees turn yellow or orange, and others red or purple. This is something that has confused scientists for a long time."
         },
         {
@@ -27,11 +23,11 @@
         },
         {
           "label": null,
-          "text": "The red colour is created by anthocyanins which are water-soluble plant pigments reflecting the spectrum from red to blue. They are a part of a class of sugar-based chemical compounds known as flavonoids. What's puzzling is that anthocyanins are newly made in the leaves at the time when the tree is preparing to drop them. But the production of anthocyanins does not make sense. Why should a tree try to make new chemicals in its leaves when it's trying to shed and save the old ones?"
+          "text": "The red colour is created by anthocyanins which are water-soluble plant pigments reflecting the spectrum from red to blue. They are a part of a class of sugar-based chemical compounds known as flavonoids. What’s puzzling is that anthocyanins are newly made in the leaves at the time when the tree is preparing to drop them. But the production of anthocyanins does not make sense. Why should a tree try to make new chemicals in its leaves when it’s trying to shed and save the old ones?"
         },
         {
           "label": null,
-          "text": "Scientists have argued that anthocyanins might act as a chemical defence against attacks by insects or fungi, or that they might attract fruit-eating birds and that it might increase a leaf's tolerance to freezing. But some problems with these theories include the fact that leaves are red for a very short period of time and that the energy needed to manufacture the anthocyanins is more than any anti-fungal or anti-herbivore activity achieved."
+          "text": "Scientists have argued that anthocyanins might act as a chemical defence against attacks by insects or fungi, or that they might attract fruit-eating birds and that it might increase a leaf’s tolerance to freezing. But some problems with these theories include the fact that leaves are red for a very short period of time and that the energy needed to manufacture the anthocyanins is more than any anti-fungal or anti-herbivore activity achieved."
         },
         {
           "label": null,
@@ -39,7 +35,7 @@
         },
         {
           "label": null,
-          "text": "The reason behind why leaves take the trouble of making anthocyanins before the winter is the theory known as the 'light screen' hypothesis. It sounds contradictory because the idea behind this hypothesis is that the red pigment is produced in autumn leaves to protect chlorophyll in leaves from too much light. But why does it need protection when chlorophyll is the world's best light absorber? Why does the tree protect the chlorophyll when it is breaking it down to save as much of it as possible?"
+          "text": "The reason behind why leaves take the trouble of making anthocyanins before the winter is the theory known as the ‘light screen’ hypothesis. It sounds contradictory because the idea behind this hypothesis is that the red pigment is produced in autumn leaves to protect chlorophyll in leaves from too much light. But why does it need protection when chlorophyll is the world’s best light absorber? Why does the tree protect the chlorophyll when it is breaking it down to save as much of it as possible?"
         },
         {
           "label": null,
@@ -47,130 +43,147 @@
         },
         {
           "label": null,
-          "text": "There are hints everywhere, even if you had no idea what was going on as the leaves turned crimson. On many trees, the leaves on the side of the tree are the reddest and get the most sun. Not only that, the crimson on the upper side of the leaf is brighter. For many years, it has been said that the best conditions for bright red colours are dry, sunny days and cool nights, which are similar to the conditions that make leaves vulnerable to excessive light. Finally, as you travel to the north in the northern hemisphere, trees such as maples become considerably redder. It's cooler there, they're more stressed, their chlorophyll is more sensitive, and more sunscreen is required."
+          "text": "There are hints everywhere, even if you had no idea what was going on as the leaves turned crimson. On many trees, the leaves on the side of the tree are the reddest and get the most sun. Not only that, the crimson on the upper side of the leaf is brighter. For many years, it has been said that the best conditions for bright red colours are dry, sunny days and cool nights, which are similar to the conditions that make leaves vulnerable to excessive light. Finally, as you travel to the north in the northern hemisphere, trees such as maples become considerably redder. It’s cooler there, they’re more stressed, their chlorophyll is more sensitive, and more sunscreen is required."
         },
         {
           "label": null,
-          "text": "The reason why some trees start to produce red pigments while others don't bother and simply reveal their orange or yellow hues is still unknown. It is not known whether these trees have other ways to dispose to stop being exposed to more light in autumn. This will remain a subtle and complex thing."
+          "text": "The reason why some trees start to produce red pigments while others don’t bother and simply reveal their orange or yellow hues is still unknown. It is not known whether these trees have other ways to dispose to stop being exposed to more light in autumn. This will remain a subtle and complex thing."
         }
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 1,
-              "prompt": "During summers, leaves are green because they are filled with ______.",
+              "prompt": "During summer, leaves are green because they are filled with {{1}}.",
               "answer": [
-                "alluring"
+                "chlorophyll"
               ],
-              "explanation": "Found directly in the reading passage: 'alluring'."
+              "explanation": "‘Leaves are green because they are filled with chlorophyll.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 2,
-              "prompt": "During fall in the northern hemisphere, the solar energy reaching the surface ______.",
+              "prompt": "When fall starts in the northern hemisphere, the solar energy reaching the surface {{2}}.",
               "answer": [
-                "leaves"
+                "reduces considerably",
+                "reduces"
               ],
-              "explanation": "Found directly in the reading passage: 'leaves'."
+              "explanation": "‘The solar energy reaching the surface reduces considerably’ when fall starts in the northern hemisphere.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 3,
-              "prompt": "The red colour in leaves is created by ______ which are water-soluble plant pigments",
+              "prompt": "The red colour in leaves is created by {{3}}, which are water-soluble plant pigments.",
               "answer": [
-                "others"
+                "anthocyanins"
               ],
-              "explanation": "Found directly in the reading passage: 'others'."
+              "explanation": "‘The red colour is created by anthocyanins which are water-soluble plant pigments.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 4,
-              "prompt": "Anthocyanins might act as a chemical defence against attacks by insects or fungi, or that they",
+              "prompt": "Anthocyanins might act as a chemical defence against attacks by insects or fungi, or they might attract {{4}}.",
               "answer": [
-                "because"
+                "fruit-eating birds"
               ],
-              "explanation": "Found directly in the reading passage: 'because'."
+              "explanation": "Scientists suggested anthocyanins ‘might attract fruit-eating birds’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 5,
-              "prompt": "In ______ , the energy collected by the chlorophyll molecules of the fragile fall leaf is not",
+              "prompt": "In {{5}}, the energy collected by the chlorophyll molecules of the fragile fall leaf is not instantly channelled into useful products and processes.",
               "answer": [
-                "materials"
+                "summer"
               ],
-              "explanation": "Found directly in the reading passage: 'materials'."
+              "explanation": "‘In summer, the energy collected by the chlorophyll molecules of the fragile fall leaf is not instantly channelled into useful products and processes.’",
+              "reference": "Paragraph 7"
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 6,
-              "prompt": "Question 6",
               "answer": [
-                "sunlight",
-                "sun"
+                "sun",
+                "sunlight"
               ],
-              "explanation": "Found directly in the reading passage: 'sunlight'."
+              "explanation": "‘The leaves on the side of the tree are the reddest and get the most sun.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 7,
-              "prompt": "Question 7",
               "answer": [
                 "upper"
               ],
-              "explanation": "Found directly in the reading passage: 'upper'."
+              "explanation": "‘The crimson on the upper side of the leaf is brighter.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 8,
-              "prompt": "Question 8",
               "answer": [
                 "dry"
               ],
-              "explanation": "Found directly in the reading passage: 'dry'."
+              "explanation": "‘The best conditions for bright red colours are dry, sunny days and cool nights.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 9,
-              "prompt": "Question 9",
               "answer": [
                 "north"
               ],
-              "explanation": "Found directly in the reading passage: 'north'."
+              "explanation": "‘As you travel to the north in the northern hemisphere, trees such as maples become considerably redder.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 10,
-              "prompt": "Question 10",
               "answer": [
-                "phenomenon"
+                "red pigments"
               ],
-              "explanation": "Found directly in the reading passage: 'phenomenon'."
+              "explanation": "The reason why some trees ‘produce red pigments while others don’t bother’ is ‘still unknown’.",
+              "reference": "Paragraph 9"
             }
+          ],
+          "title": "Evidence for the ‘light screen’ hypothesis",
+          "content": [
+            "• On many trees, the reddest leaves are on the side of the tree that gets the most {{6}}.",
+            "• On each leaf, the crimson on the {{7}} side is brighter.",
+            "• The best conditions for bright red colours are {{8}}, sunny days and cool nights.",
+            "• Trees such as maples become considerably redder as you travel {{9}} in the northern hemisphere.",
+            "• It is still unknown why some trees produce {{10}} while others simply show orange or yellow."
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "YES if the statement agrees with the claims of the writer NO, if the statement contradicts the claims of the writer",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 1? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 11,
               "prompt": "When fall starts in the northern hemisphere, the sunlight reaching the surface increases.",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "answer": "NO",
+              "explanation": "When fall starts, ‘the solar energy reaching the surface reduces considerably’, so sunlight does not increase.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 12,
-              "prompt": "The energy needed to manufacture the anthocyanins is more than any antifungal or",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "prompt": "The energy needed to manufacture anthocyanins is greater than any anti-fungal or anti-herbivore benefit they achieve.",
+              "answer": "YES",
+              "explanation": "A problem with the theories is that ‘the energy needed to manufacture the anthocyanins is more than any anti-fungal or anti-herbivore activity achieved’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 13,
-              "prompt": "The leaves on the side of the tree are the reddest and get the most sun.",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "prompt": "It has been proved that more robust trees produce the brightest leaves.",
+              "answer": "NO",
+              "explanation": "The writer says ‘no one has as yet discovered whether more robust trees sport the brightest leaves’.",
+              "reference": "Paragraph 5"
             }
           ]
         }
@@ -178,193 +191,198 @@
     },
     {
       "passageNumber": 2,
-      "title": "Doctoring Sales IELTS",
+      "title": "Doctoring Sales",
       "paragraphs": [
         {
           "label": "A",
-          "text": "Before starting to practise the question types and check the doctoring sales reading answers with explanation you need to understand the doctoring sales meaning. Doctoring sales is a way that salespeople do to make the doctors prescribe their products rather than the required drug by offering promotional gifts, free meals, etc."
+          "text": "Kim Schaefer is one of the sales representatives of a major global pharmaceutical company. Few months ago she went into a medical centre in New York to get some information about her company’s latest products and free samples. That day luckily there was a doctor available for her. He asked ‘The last rep offered me a trip to Florida. What do you have?’ in a half-joking manner."
         },
         {
           "label": "B",
-          "text": "Check out the doctoring sales reading passage below to know more about it."
+          "text": "That day’s offer was a pair of tickets for a New York musical. But, as today’s typical drug rep, on any day Schaefer offers promotional gifts and gadgets in a car trunk full, budget for small country lunches and dinners, 100’s of free drug samples, and freedom to offer $200 for a physician to offer her new product to the next six patients that suits the drug profile. And she also has a few $1,000 honoraria in exchange for doctor’s attendance for her company’s next educational lecture."
         },
         {
           "label": "C",
-          "text": "Kim Schaefer is one of the sales representatives of a major global pharmaceutical company. Few months ago she went into a medical centre in New York to get some information about her company's latest products and free samples. That day luckily there was a doctor available for her. He asked 'The last rep offered me a trip to Florida. What do you have?' in a half-joking manner."
+          "text": "In ethical judgement selling pharmaceuticals is a daily exercise. Buying a prospect’s time for a free meal and prescribing their drugs by bribing the doctors is a common practice for every salesperson like Schaefer. They get highly criticised for their sales and marketing in the industry they work in. But, they stuck in between as the age old chicken or egg question that businesses won’t use strategies that don’t work. Is it right to blame the doctors for the escalating extravagance of pharmaceutical marketing? Or Industry need to take the responsibility to set the boundaries?"
         },
         {
           "label": "D",
-          "text": "That day's offer was a pair of tickets for a New York musical. But, as today's typical drug rep, on any day Schaefer offers promotional gifts and gadgets in a car trunk full, budget for small country lunches and dinners, 100's of free drug samples, and freedom to offer $200 for a physician to offer her new product to the next six patients that suits the drug profile. And she also has a few $1,000 honoraria in exchange for doctor's attendance for her company's next educational lecture."
+          "text": "The close examination of the pressures, influences, and relationships between drug reps and doctors takes place, due to the explosion of the number of salespeople in the field and the amount of funding used to promote their causes. For physicians, salespeople provide much-needed information and education. The primary sources of drug education are the brochures, article reprints and prescriptions they deliver for healthcare givers. The industry has done a huge investment in face to face selling, salespeople have become specialists in one or group of drugs and they have a tremendous advantage in getting the attention of busy doctors if they need any information."
         },
         {
           "label": "E",
-          "text": "In ethical judgement selling pharmaceuticals is a daily exercise. Buying a prospect's time for a free meal and prescribing their drugs by bribing the doctors is a common practice for every salesperson like Schaefer. They get highly criticised for their sales and marketing in the industry they work in. But, they stuck in between as the age old chicken or egg question that businesses won't use strategies that don't work. Is it right to blame the doctors for the escalating extravagance of pharmaceutical marketing? Or Industry need to take the responsibility to set the boundaries?"
+          "text": "In the office sales push rarely stops but it often followed up with the expensive restaurant meals, meetings at warm and sunny places, and promotional gadgets inundation for the left brochures and pamphlets. Patients rarely see a doctor have a pen that isn’t emblazoned with a drug’s name, or see a nurse using a tablet without a pharmaceutical company’s logo. Pharmaceutical companies spent millions on promotional products like coffee mugs, shirts, umbrellas, and golf balls. Is the money spent well? That’s hard to tell. One doctor said, “I’ve been the recipient of golf balls from one company and I use them, but it doesn’t make me prescribe their medicine. I think that what they gave me will not influence me.”"
         },
         {
           "label": "F",
-          "text": "The close examination of the pressures, influences, and relationships between drug reps and doctors takes place, due to the explosion of the number of salespeople in the Reid and the amount of funding used to promote their causes. For physicians, salespeople provide much-needed information and education. The primary sources of drug education are the brochures, article reprints and prescriptions they deliver for healthcare givers. The industry has done a huge investment in face to face selling, salespeople have become specialists in one or group of drugs and they have a tremendous advantage in getting the attention of busy doctors if they need any information."
+          "text": "To make doctors and patients loyal to a product, offering free samples of new and expensive drugs might be the most effective way. Each week, salespeople hand out hundreds of dollars’ worth of samples, nearly $7.2 billion worth of them in one year. University of Washington investigated how drug sample availability affected the physicians prescription, though few comprehensive studies have been conducted. A total of 131 doctors self-reported that the availability of samples led them to dispense and prescribe drugs that differed from their preferred drug choice."
         },
         {
           "label": "G",
-          "text": "In the office sales push rarely stops but it often followed up with the expensive restaurant meals, meetings at warm and sunny places, and promotional gadgets inundation for the left brochures and pamphlets. Patients rarely see a doctor have a pen that isn't emblazoned with a drug's name, or see a nurse using a tablet without a pharmaceutical company's logo. Pharmaceutical companies spent millions on promotional products like coffee mugs, shirts, umbrellas, and golf balls. Is the money spent well? That's hard to tell. One doctor said that I've been the recipient of golf balls from one company and I use them, but it doesn't make me prescribe their medicine. I think that what they gave me will not influence me."
-        },
-        {
-          "label": "H",
-          "text": "To make doctors and patients loyal to a product, offering free samples of new and expensive drugs might be the most effective way. Each week, salespeople hand out hundreds of dollars' worth of samples, nearly $7.2 billion worth of them in one year. University of Washington investigated how drug sample availability affected the physicians prescription, though few comprehensive studies have been conducted. A total of 131 doctors self-reported that the availability of samples led them to dispense and prescribe drugs that differed from their preferred drug choice."
-        },
-        {
-          "label": "I",
-          "text": "As the bottom line, other than investing in research and development, pharmaceutical companies do more in marketing. For every pen that's handed out, every free theatre ticket, and every steak dinner eaten, patients are the ones who pay the sky-rocketing prescription prices. In the end, the fact remains that pharmaceutical companies have the right to make a profit and continue to find ways to increase sales. Companies will continue to be heavily scrutinised for their sales and marketing strategies as the medical world continues to grapple with what's acceptable and not."
+          "text": "As the bottom line, other than investing in research and development, pharmaceutical companies do more in marketing. For every pen that’s handed out, every free theatre ticket, and every steak dinner eaten, patients are the ones who pay the sky-rocketing prescription prices. In the end, the fact remains that pharmaceutical companies have the right to make a profit and continue to find ways to increase sales. Companies will continue to be heavily scrutinised for their sales and marketing strategies as the medical world continues to grapple with what’s acceptable and not."
         }
       ],
       "groups": [
         {
           "type": "matching_headings",
-          "instruction": "The reading passage has seven paragraphs, A-G. Choose the correct heading for each paragraphs from the list of headings below",
+          "instruction": "Reading Passage 2 has seven paragraphs, **A–G**. Choose the correct heading for each paragraph from the list of headings below.",
           "optionsTitle": "List of Headings",
           "options": [
             {
               "key": "i",
-              "text": "i Not every doctors get influenced"
+              "text": "Not every doctor gets influenced"
             },
             {
               "key": "ii",
-              "text": "ii Picking the best offers"
+              "text": "Picking the best offers"
             },
             {
               "key": "iii",
-              "text": "iii Who takes the responsibility for the raise in promotion?"
+              "text": "Who takes the responsibility for the rise in promotion?"
             },
             {
               "key": "iv",
-              "text": "iv The drug companies clash"
+              "text": "The drug companies clash"
             },
             {
               "key": "v",
-              "text": "v Expectations of doctors from drug companies example"
+              "text": "An example of what doctors expect from drug companies"
             },
             {
               "key": "vi",
-              "text": "vi Financial incentives are provided as gifts"
+              "text": "Financial incentives provided as gifts"
             },
             {
               "key": "vii",
-              "text": "vii Research shows the impacts of promotion"
+              "text": "Research shows the impact of promotion"
             },
             {
               "key": "viii",
-              "text": "viii High research costs"
+              "text": "High research costs"
             },
             {
               "key": "ix",
-              "text": "ix Drug promotion and its advantage"
+              "text": "Drug promotion and its advantage"
             },
             {
               "key": "x",
-              "text": "x Who pays for the free gifts of doctors?"
+              "text": "Who pays for the free gifts for doctors?"
             }
           ],
           "questions": [
             {
               "number": 14,
               "prompt": "Paragraph A",
-              "answer": "i",
-              "explanation": "Refer to Paragraph A in the passage."
+              "answer": "v",
+              "explanation": "The doctor’s joke, ‘The last rep offered me a trip to Florida. What do you have?’, shows what doctors expect from drug companies.",
+              "reference": "Paragraph A"
             },
             {
               "number": 15,
               "prompt": "Paragraph B",
-              "answer": "i",
-              "explanation": "Refer to Paragraph B in the passage."
+              "answer": "vi",
+              "explanation": "Reps offer ‘promotional gifts and gadgets’, free samples and $200 payments, plus ‘$1,000 honoraria’ for attending lectures.",
+              "reference": "Paragraph B"
             },
             {
               "number": 16,
               "prompt": "Paragraph C",
-              "answer": "i",
-              "explanation": "Refer to Paragraph C in the passage."
+              "answer": "iii",
+              "explanation": "The paragraph asks ‘Is it right to blame the doctors for the escalating extravagance of pharmaceutical marketing?’ or should the industry take responsibility.",
+              "reference": "Paragraph C"
             },
             {
               "number": 17,
               "prompt": "Paragraph D",
-              "answer": "i",
-              "explanation": "Refer to Paragraph D in the passage."
+              "answer": "ix",
+              "explanation": "Salespeople ‘provide much-needed information and education’ and have ‘a tremendous advantage in getting the attention of busy doctors’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 18,
               "prompt": "Paragraph E",
               "answer": "i",
-              "explanation": "Refer to Paragraph E in the passage."
+              "explanation": "One doctor says the gifts do not ‘make me prescribe their medicine’ and that what he was given ‘will not influence me’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 19,
               "prompt": "Paragraph F",
-              "answer": "i",
-              "explanation": "Refer to Paragraph F in the passage."
+              "answer": "vii",
+              "explanation": "A University of Washington study found that samples ‘led them to dispense and prescribe drugs that differed from their preferred drug choice’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 20,
               "prompt": "Paragraph G",
-              "answer": "i",
-              "explanation": "Refer to Paragraph G in the passage."
+              "answer": "x",
+              "explanation": "The conclusion is that ‘patients are the ones who pay the sky-rocketing prescription prices’.",
+              "reference": "Paragraph G"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements match the information with the passage? Write",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 2? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 21,
-              "prompt": "Kim Schaefer and other salespeople work within a limited budget",
+              "prompt": "Kim Schaefer and other salespeople work within a limited budget.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "Schaefer carries ‘promotional gifts and gadgets in a car trunk full’ and ‘100’s of free drug samples’, so her budget is far from limited.",
+              "reference": "Paragraph B"
             },
             {
               "number": 22,
-              "prompt": "The marketing technique used by Kim Schaefer was open to criticism in the moral ground",
+              "prompt": "The marketing techniques used by Kim Schaefer are open to criticism on moral grounds.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘In ethical judgement selling pharmaceuticals is a daily exercise’, and reps ‘get highly criticised for their sales and marketing’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 23,
-              "prompt": "The information provided to the doctors by drug companies are not that useful",
+              "prompt": "The information that drug companies provide to doctors is not very useful.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "‘For physicians, salespeople provide much-needed information and education’, so the information is useful.",
+              "reference": "Paragraph D"
             },
             {
               "number": 24,
-              "prompt": "The healthcare environment is clearly impacted by the drug promotion",
+              "prompt": "The healthcare environment is clearly affected by drug promotion.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "Doctors reported that samples ‘led them to dispense and prescribe drugs that differed from their preferred drug choice’, so promotion does affect healthcare.",
+              "reference": "Paragraph F"
             },
             {
               "number": 25,
-              "prompt": "The free drug samples may given to the patients without the prescription of doctors by drug",
+              "prompt": "Drug companies may give free samples directly to patients without a doctor’s prescription.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "Salespeople hand out samples to doctors, but giving samples to patients without a prescription is never discussed."
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
           "questions": [
             {
               "number": 26,
-              "prompt": "The salespeople's regular practice was ______",
+              "prompt": "Salespeople buy a doctor’s time with a free meal and get their drugs prescribed by {{26}}, which is a common practice.",
               "answer": [
-                "Bribing the doctors"
+                "bribing the doctors"
               ],
-              "explanation": "Found directly in the reading passage: 'Bribing the doctors'."
+              "explanation": "Buying a prospect’s time for a free meal and prescribing their drugs ‘by bribing the doctors is a common practice’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 27,
-              "prompt": "The huge investments was done by the industry in ______ selling",
+              "prompt": "The industry has made a huge investment in {{27}} selling.",
               "answer": [
-                "Face to face"
+                "face to face"
               ],
-              "explanation": "Found directly in the reading passage: 'Face to face'."
+              "explanation": "‘The industry has done a huge investment in face to face selling.’",
+              "reference": "Paragraph D"
             }
           ]
         }
@@ -372,23 +390,15 @@
     },
     {
       "passageNumber": 3,
-      "title": "Crop Growing Skyscrapers",
+      "title": "Crop-Growing Skyscrapers",
       "paragraphs": [
         {
           "label": null,
-          "text": "Read the academic reading passage (given below) carefully to answer all the questions (1 - 13), followed by the crop growing skyscrapers IELTS reading answers."
+          "text": "By the end of 2050, almost 80% of the Earth’s population will migrate to urban centres. By making use of the conservative estimates in the present demographic trends, the human population density will increase exponentially up to three billion. Around 120 hectares of new land (about 20% larger than Australia) will be estimated to cultivate enough food to feed them if traditional farming practices continue as they are evolved today. Now, across the world, nearly 80% of the landscape suitable for raising crops is in use. When we go back to the past, some 15% of that has been laid waste due to poor management skills. How to ensure enough food security for the world’s population to live on?"
         },
         {
           "label": null,
-          "text": "Crop Growing Skyscrapers"
-        },
-        {
-          "label": null,
-          "text": "By the end of 2050, almost 80% of the Earth's population will migrate to urban centres. By making use of the conservative estimates in the present demographic trends, the human population density will increase exponentially up to three billion. Around 120 hectares of new land (about 20% larger than Australia) will be estimated to cultivate enough food to feed them if traditional farming practices continue as they are evolved today. Now, across the world, nearly 80% of the landscape suitable for raising crops is in use. When we go back to the past, some 15% of that has been laid waste due to poor management skills. How to ensure enough food security for the world's population to live on?"
-        },
-        {
-          "label": null,
-          "text": "The technique of indoor farming is not new since many hothouse production of tomatoes, onions and other vegetables has been in fashion for a certain time. However, there is an urgent need to increase this technology to feed another three billion human population. Experts believe a whole new concept of indoor farming is required with super-efficient technologies. 'Vertical Farm' is one amongst them. The idea is to have multi-storey buildings where food crops are grown in eco-friendly conditions. If they deploy it in the heart of urban centres, they would substantially decrease the transportation cost paid to bring food to the end consumers. This vertical farm has to be effective, accessible to the consumers to operate. Let's assume it is successfully implemented, proponents claim, vertical farms will guarantee urban renewal, sustainable development production of a safe and varied food chain (round the year production of all crops), and the obvious reconstruction of ecosystems that got deteriorated due to horizontal farming."
+          "text": "The technique of indoor farming is not new since many hothouse production of tomatoes, onions and other vegetables has been in fashion for a certain time. However, there is an urgent need to increase this technology to feed another three billion human population. Experts believe a whole new concept of indoor farming is required with super-efficient technologies. ‘Vertical Farm’ is one amongst them. The idea is to have multi-storey buildings where food crops are grown in eco-friendly conditions. If they deploy it in the heart of urban centres, they would substantially decrease the transportation cost paid to bring food to the end consumers. This vertical farm has to be effective, accessible to the consumers to operate. Let’s assume it is successfully implemented, proponents claim, vertical farms will guarantee urban renewal, sustainable development production of a safe and varied food chain (round the year production of all crops), and the obvious reconstruction of ecosystems that got deteriorated due to horizontal farming."
         },
         {
           "label": null,
@@ -399,8 +409,8 @@
           "text": "Besides the advantages, a major setback of vertical farming is that the plants need artificial light unlike the traditional farming. However, when those plants are kept near the window, they will be exposed to more sunlight and grow more quickly, reducing the efficiency. Whereas the single-storey greenhouse has the benefit of natural light on the top. Nevertheless, many plants still need artificial lighting other than the natural sunlight."
         },
         {
-          "label": "A",
-          "text": "multi-storey facility without any natural light at the top might need far more. Producing sufficient light might be expensive, unless cheap, renewable energy is there to support, and this seems to be rather a long-term goal than a tangible result for the near future."
+          "label": null,
+          "text": "A multi-storey facility without any natural light at the top might need far more. Producing sufficient light might be expensive, unless cheap, renewable energy is there to support, and this seems to be rather a long-term goal than a tangible result for the near future."
         },
         {
           "label": null,
@@ -413,109 +423,120 @@
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 28,
-              "prompt": "There are certain vegetables, including tomatoes ______ that are produced indoors.",
+              "prompt": "About 120 hectares of new land, roughly 20% larger than {{28}}, would be needed to feed the extra population if traditional farming continued.",
               "answer": [
-                "Tomatoes"
+                "Australia"
               ],
-              "explanation": "Found directly in the reading passage: 'Tomatoes'."
+              "explanation": "‘Around 120 hectares of new land (about 20% larger than Australia)’ would be needed to feed the extra population.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 29,
-              "prompt": "Vertical farms have a major setback, that is ______ .",
+              "prompt": "Tomatoes and {{29}} are among the vegetables already grown in hothouses.",
               "answer": [
-                "Urban centres",
-                "centres"
+                "onions"
               ],
-              "explanation": "Found directly in the reading passage: 'Urban centres'."
+              "explanation": "Hothouses already produce ‘tomatoes, onions and other vegetables’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 30,
-              "prompt": "There is an urgent need for vertical farming to feed ______ human population.",
+              "prompt": "Indoor farming technology urgently needs to be increased to feed another {{30}} human population.",
               "answer": [
-                "Energy"
+                "three billion"
               ],
-              "explanation": "Found directly in the reading passage: 'Energy'."
+              "explanation": "There is ‘an urgent need to increase this technology to feed another three billion human population’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 31,
-              "prompt": "Nearly 120 hectares of land (20% larger than ______) is required for food production",
+              "prompt": "If {{31}} buildings were set up in the heart of urban centres, the cost of transporting food to consumers would fall substantially.",
               "answer": [
-                "Fossil Fuel"
+                "multi-storey"
               ],
-              "explanation": "Found directly in the reading passage: 'Fossil Fuel'."
+              "explanation": "‘The idea is to have multi-storey buildings where food crops are grown’, which in urban centres would ‘substantially decrease the transportation cost’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 32,
-              "prompt": "The system consumes energy and returns it back through ______ generation.",
+              "prompt": "Vertical farms could rebuild ecosystems that have deteriorated because of {{32}}.",
               "answer": [
-                "farming"
+                "horizontal farming"
               ],
-              "explanation": "Found directly in the reading passage: 'farming'."
+              "explanation": "Vertical farms would bring ‘the obvious reconstruction of ecosystems that got deteriorated due to horizontal farming’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 33,
-              "prompt": "______ deteriorated the ecosystem and more consumption of fossil fuels.",
+              "prompt": "Although the system uses energy, it would give some back to the grid through {{33}} generation from composting the inedible parts of plants.",
               "answer": [
-                "stacked trays",
-                "trays"
+                "methane gas"
               ],
-              "explanation": "Found directly in the reading passage: 'stacked trays'."
+              "explanation": "The system would give energy back to the grid ‘via methane gas generation from composting non-edible parts of plants’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 34,
-              "prompt": "If ______ buildings are deployed in the heart of urban centres, the food",
+              "prompt": "A major setback of vertical farming is that the plants need {{34}}.",
               "answer": [
-                "rooftops"
+                "artificial light"
               ],
-              "explanation": "Found directly in the reading passage: 'rooftops'."
+              "explanation": "‘A major setback of vertical farming is that the plants need artificial light.’",
+              "reference": "Paragraph 4"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the reading passage? In boxes 8 - 13 on your answer sheet, write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 35,
-              "prompt": "The concept of indoor farming is not new to humans.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "prompt": "By 2050, nearly 80% of the human population will live in urban centres.",
+              "answer": "TRUE",
+              "explanation": "‘By the end of 2050, almost 80% of the Earth’s population will migrate to urban centres.’",
+              "reference": "Paragraph 1"
             },
             {
               "number": 36,
-              "prompt": "By 2050, nearly 80% of the human population will live in urban centres.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "prompt": "Conservative estimates of present demographic trends suggest that human population density will increase by only one billion.",
+              "answer": "FALSE",
+              "explanation": "Conservative estimates say population density ‘will increase exponentially up to three billion’, not by only one billion.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 37,
-              "prompt": "Vertical farming cannot be preserved by humans due to the usage of tractors, ploughs, etc.",
-              "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "prompt": "The concept of indoor farming is not new to humans.",
+              "answer": "TRUE",
+              "explanation": "‘The technique of indoor farming is not new.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 38,
-              "prompt": "Vertical farming won't be affected by droughts, floods or pests.",
+              "prompt": "Vertical farming would not be affected by droughts, floods or pests.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "‘No climate-related crop failures occur due to droughts, floods or pests.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 39,
-              "prompt": "By making use of the conservative estimates in the current demographic trends, the human",
+              "prompt": "Vertical farming would need more tractors, ploughs and shipping than traditional farming.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "Vertical farming ‘will help in reducing the need for tractors, ploughs and shipping’, not increase it.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 40,
-              "prompt": "The major setback for vertical farming is it spreads non-communicable diseases.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "prompt": "The major setback of vertical farming is that it spreads non-communicable diseases.",
+              "answer": "FALSE",
+              "explanation": "The system ‘would significantly decrease the occurrence of many non-communicable diseases’; the major setback is the need for artificial light.",
+              "reference": "Paragraph 3"
             }
           ]
         }

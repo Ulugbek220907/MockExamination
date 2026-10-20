@@ -11,16 +11,8 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "The history of the tortoise",
+      "title": "The History of the Tortoise",
       "paragraphs": [
-        {
-          "label": null,
-          "text": "Read the complete passage thoroughly to get the correct answers for all the questions (1 - 12). Once finished answering, verify your answers with the history of the tortoise reading answers instantly."
-        },
-        {
-          "label": null,
-          "text": "The History of the Tortoise"
-        },
         {
           "label": null,
           "text": "If you go far back, everything lives in the ocean. At different topics in evolutionary history, interested individuals from different animal groups traveled to land, sometimes taking their own seawater in blood and cellular fluids, even to the aridest deserts. In addition to the reptiles, birds, mammals, and insects that surround us, other groups that have conquered the water contain scorpions, snails, and crustaceans such as woodlice, land crabs, millipedes and centipedes, spiders, and different worms. We must not forget the vegetation, without whose pre-invaded land, no other migrations could have taken place."
@@ -31,15 +23,15 @@
         },
         {
           "label": null,
-          "text": "There is proof that all modern turtles are descended from a terrestrial ancestor who lived before most dinosaurs. From the earliest dinosaur times, there are two major fossils known as Proganochelys quenstedti and Palaeochersis talampayensis, all of which are closely related to the ancestry of modern turtles and tortoises. You may be wondering how we can tell if fossil animals lived on land or in water, particularly when only fragments are discovered. Sometimes it's clear. Ichthyosaurs are reptile contemporaries of dinosaurs, with paddles and streamlined bodies. The fossils look like dolphins and they certainly lived in the water like dolphins. With turtles, it manifests a little less. One method is to measure the bones of their forearms."
+          "text": "There is proof that all modern turtles are descended from a terrestrial ancestor who lived before most dinosaurs. From the earliest dinosaur times, there are two major fossils known as Proganochelys quenstedti and Palaeochersis talampayensis, all of which are closely related to the ancestry of modern turtles and tortoises. You may be wondering how we can tell if fossil animals lived on land or in water, particularly when only fragments are discovered. Sometimes it’s clear. Ichthyosaurs are reptile contemporaries of dinosaurs, with paddles and streamlined bodies. The fossils look like dolphins and they certainly lived in the water like dolphins. With turtles, it manifests a little less. One method is to measure the bones of their forearms."
         },
         {
           "label": null,
-          "text": "Walter Joyce and Jacques Gauthier of Yale University obtained three measurements on the specific bones of 71 species of living turtles and turtles. They used a type of triangular graph paper to plan all three measurements against each other. All terrestrial turtle species formed a tight spot at the top of the triangle, while all water turtles are at the bottom of the triangular graph. They are not mutually exclusive, except to add some species that spend time in water and land. Of course, this amphibious species appears on the triangular graph almost halfway between the 'wet cluster' of sea turtles and the 'dry cluster' of land turtles. Determining where the fossils fell was the next step. We have no doubt the bones of P quenstedti and JR talampayensis. Their points on the graph are the thickness of the dry mass. Both of these fossils are arid land turtles. They came before our turtles could return to the water."
+          "text": "Walter Joyce and Jacques Gauthier of Yale University obtained three measurements on the specific bones of 71 species of living turtles and turtles. They used a type of triangular graph paper to plan all three measurements against each other. All terrestrial turtle species formed a tight spot at the top of the triangle, while all water turtles are at the bottom of the triangular graph. They are not mutually exclusive, except to add some species that spend time in water and land. Of course, this amphibious species appears on the triangular graph almost halfway between the ‘wet cluster’ of sea turtles and the ‘dry cluster’ of land turtles. Determining where the fossils fell was the next step. We have no doubt the bones of P quenstedti and JR talampayensis. Their points on the graph are the thickness of the dry mass. Both of these fossils are arid land turtles. They came before our turtles could return to the water."
         },
         {
           "label": null,
-          "text": "So, as most mammals did after going to sea, you might guess that modern land turtles may have stayed on land since that early terrestrial period. But obviously not. If you draw the family tree of all current turtles and tortoises, almost all the branches are aquatic. Today's land turtles are a branch with deep nests built among the branches of aquatic turtles. This suggests that modern land turtles have not relied on the land continuously since the time of P. quenstedti and P. talampayensis. On the contrary, their ancestors were among those who returned to the water, and they reappeared on land in recent times."
+          "text": "So, as most mammals did after going to sea, you might guess that modern land turtles may have stayed on land since that early terrestrial period. But obviously not. If you draw the family tree of all current turtles and tortoises, almost all the branches are aquatic. Today’s land turtles are a branch with deep nests built among the branches of aquatic turtles. This suggests that modern land turtles have not relied on the land continuously since the time of P. quenstedti and P. talampayensis. On the contrary, their ancestors were among those who returned to the water, and they reappeared on land in recent times."
         },
         {
           "label": null,
@@ -49,164 +41,176 @@
       "groups": [
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the reading passage? Write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 1,
-              "prompt": "Without whose pre-occupied land, no other displacements could have taken place.",
+              "prompt": "Plants had to colonise the land before animals could move there.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "‘We must not forget the vegetation, without whose pre-invaded land, no other migrations could have taken place.’",
+              "reference": "Paragraph 1"
             },
             {
               "number": 2,
-              "prompt": "Turtles never went to sea for a long time, like all vertebrates.",
+              "prompt": "Whales and dugongs still come ashore to breed.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "Of whales and dugongs the passage says ‘They do not even come ashore to breed.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 3,
-              "prompt": "Turtles still lay their eggs on the beaches.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "prompt": "Turtles went to sea only recently.",
+              "answer": "FALSE",
+              "explanation": "‘Turtles went to sea a long time ago.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 4,
-              "prompt": "Turtles are among the first batch of creatures to return to the sea.",
+              "prompt": "Turtles were among the first animals to return to the sea.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage says turtles ‘went to sea a long time ago’ but does not say whether they were among the first animals to do so."
+            },
+            {
+              "number": 5,
+              "prompt": "Turtles still lay their eggs on the beaches.",
+              "answer": "TRUE",
+              "explanation": "Turtles are less fully marine than whales ‘because turtles still lay their eggs on the beaches’.",
+              "reference": "Paragraph 2"
             }
           ]
         },
         {
-          "type": "summary_completion",
-          "instruction": "Answer the questions below. Choose NO MORE THAN THREE WORDS from the passage for each answer.",
-          "content": "Answer the questions below.\nChoose NO MORE THAN THREE WORDS from the passage for each answer.\n {{5}} . Who lived before most dinosaurs?\n {{6}} . Who are the Proganochelys quenstedti and Palaeochersis talampayensis?\n {{7}} . What does the fossil look like?\n {{8}} . Walter Joyce and Jacques Gauthier are from?\n {{9}} . Which species appear on the triangular graph?",
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
           "questions": [
             {
-              "number": 5,
+              "number": 6,
+              "prompt": "All modern turtles are descended from what kind of ancestor?",
               "answer": [
                 "terrestrial ancestor"
               ],
-              "explanation": "Found directly in the reading passage: 'terrestrial ancestor'."
-            },
-            {
-              "number": 6,
-              "answer": [
-                "fossils"
-              ],
-              "explanation": "Found directly in the reading passage: 'fossils'."
+              "explanation": "‘All modern turtles are descended from a terrestrial ancestor who lived before most dinosaurs.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 7,
+              "prompt": "What are Proganochelys quenstedti and Palaeochersis talampayensis?",
               "answer": [
-                "dolphins"
+                "fossils"
               ],
-              "explanation": "Found directly in the reading passage: 'dolphins'."
+              "explanation": "‘There are two major fossils known as Proganochelys quenstedti and Palaeochersis talampayensis.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 8,
+              "prompt": "What do the fossils of ichthyosaurs look like?",
               "answer": [
-                "Yale University"
+                "dolphins"
               ],
-              "explanation": "Found directly in the reading passage: 'Yale University'."
+              "explanation": "Ichthyosaurs have paddles and streamlined bodies: ‘The fossils look like dolphins.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 9,
+              "prompt": "At which university do Walter Joyce and Jacques Gauthier work?",
               "answer": [
+                "Yale University",
+                "Yale"
+              ],
+              "explanation": "‘Walter Joyce and Jacques Gauthier of Yale University’ took the measurements.",
+              "reference": "Paragraph 4"
+            },
+            {
+              "number": 10,
+              "prompt": "Which species appears on the triangular graph almost halfway between the ‘wet cluster’ and the ‘dry cluster’?",
+              "answer": [
+                "amphibious species",
                 "amphibious"
               ],
-              "explanation": "Found directly in the reading passage: 'amphibious'."
+              "explanation": "‘This amphibious species appears on the triangular graph almost halfway between’ the clusters of sea turtles and land turtles.",
+              "reference": "Paragraph 4"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, A - D",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
-              "number": 10,
-              "prompt": "All current turtles and tortoises, almost all the branches are",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "ancestors"
-                },
-                {
-                  "key": "B",
-                  "text": "fossils"
-                },
-                {
-                  "key": "C",
-                  "text": "aquatic"
-                },
-                {
-                  "key": "D",
-                  "text": "terrestrial"
-                }
-              ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
-            },
-            {
               "number": 11,
-              "prompt": "Modern land turtles have not relied on the",
+              "prompt": "According to the family tree of all current turtles and tortoises, almost all the branches are",
               "options": [
                 {
                   "key": "A",
-                  "text": "water"
+                  "text": "extinct"
                 },
                 {
                   "key": "B",
-                  "text": "desert"
+                  "text": "amphibious"
                 },
                 {
                   "key": "C",
-                  "text": "sea"
+                  "text": "terrestrial"
                 },
                 {
                   "key": "D",
-                  "text": "land"
+                  "text": "aquatic"
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "‘If you draw the family tree of all current turtles and tortoises, almost all the branches are aquatic.’",
+              "reference": "Paragraph 5"
             },
             {
               "number": 12,
-              "prompt": "Later ancestors still turned into water and became",
+              "prompt": "What does the writer suggest about modern land turtles?",
               "options": [
                 {
                   "key": "A",
-                  "text": "land turtles"
+                  "text": "They have lived on land without a break since the time of P. quenstedti."
                 },
                 {
                   "key": "B",
-                  "text": "sea turtles"
+                  "text": "Their ancestors went back to the water and later returned to land."
                 },
                 {
                   "key": "C",
-                  "text": "arid sea turtles"
+                  "text": "They are the closest relatives of whales and dugongs."
                 },
                 {
                   "key": "D",
-                  "text": "arid land turtles"
+                  "text": "They evolved from the ichthyosaurs."
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
-          "questions": [
+              "explanation": "‘Their ancestors were among those who returned to the water, and they reappeared on land in recent times.’ A is contradicted by this.",
+              "reference": "Paragraph 5"
+            },
             {
               "number": 13,
-              "prompt": "Read the complete passage thoroughly to get the correct answers for all the questions (1 - 12).",
-              "answer": "TRUE",
-              "explanation": "Confirmed directly in the reading passage: 'Read the complete passage thoroughly to get the correct answ...'"
+              "prompt": "According to the last paragraph, after living on land for many ages the ancestors of turtles became",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "worm-like creatures."
+                },
+                {
+                  "key": "B",
+                  "text": "marine fish."
+                },
+                {
+                  "key": "C",
+                  "text": "sea turtles."
+                },
+                {
+                  "key": "D",
+                  "text": "dolphins."
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘Later ancestors lived on the land and stayed there for many ages. Afterward, ancestors still turned into water and became sea turtles.’",
+              "reference": "Paragraph 6"
             }
           ]
         }
@@ -218,19 +222,15 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Read the passage thoroughly to answer all the questions (1 - 13) given below. Once finished answering, check your answers with A workaholic economy IELTS reading answers."
-        },
-        {
-          "label": null,
           "text": "As a result of the Industrial Revolution, or for the first century, increased productivity led to reduced working hours. Employees who worked 12 hours a day, six days a week, found working hours of 10 hours a day, and then, finally, eight hours, five days a week. A generation ago only social planners were worried about what people would do with this new free time. In the United States, at least, they seem to have nothing to worry about."
         },
         {
           "label": null,
-          "text": "Although the result for one-hour work has doubled since 1945, rest time seems to have been mainly reserved for the unemployed and the unemployed. Full-time workers spend as much time at work as they did at the end of World War II. In fact, working hours have increased significantly since the 1970s, and maybe real earnings have stagnated since that year. Bookstores now have plenty of manuals explaining how to handle time and deal with stress. There are many causes to miss rest time. Since 1979, companies have reacted to progress in the business environment by hiring more employees than making the employees overtime, says Juliet B., an economist at Harvard University. In fact, the recent economic recovery has achieved a certain degree of reputation for its \"unemployment\" nature, which has completely cut off increased productivity from employment."
+          "text": "Although the result for one-hour work has doubled since 1945, rest time seems to have been mainly reserved for the unemployed and the unemployed. Full-time workers spend as much time at work as they did at the end of World War II. In fact, working hours have increased significantly since the 1970s, and maybe real earnings have stagnated since that year. Bookstores now have plenty of manuals explaining how to handle time and deal with stress. There are many causes to miss rest time. Since 1979, companies have reacted to progress in the business environment by hiring more employees than making the employees overtime, says Juliet B. Schor, an economist at Harvard University. In fact, the recent economic recovery has achieved a certain degree of reputation for its “unemployment” nature, which has completely cut off increased productivity from employment."
         },
         {
           "label": null,
-          "text": "Some companies are cutting back on their profit margins. A labor economist at Cornell University, Ronald G. Snyder observes that, since all things are equal, it is good to spread the work around."
+          "text": "Some companies are cutting back on their profit margins. A labor economist at Cornell University, Ronald G. Ehrenberg observes that, since all things are equal, it is good to spread the work around."
         },
         {
           "label": null,
@@ -238,7 +238,7 @@
         },
         {
           "label": null,
-          "text": "Professional and managerial staff offer the clearest lesson in these ways. Once people are paid, it is the same for a company whether they spend 35 hours a week or 70 hours. Income will decline as overworked employees will lose performance or move to more arable pastures. But in the short term, the employer's motivation is clear."
+          "text": "Professional and managerial staff offer the clearest lesson in these ways. Once people are paid, it is the same for a company whether they spend 35 hours a week or 70 hours. Income will decline as overworked employees will lose performance or move to more arable pastures. But in the short term, the employer’s motivation is clear."
         },
         {
           "label": null,
@@ -246,213 +246,226 @@
         },
         {
           "label": null,
-          "text": "Although employees complain about long hours, they also have causes not to trade money for leisure. Schor claims that those who work part-time pay higher fines based on work. It's taken as a negative signal about their dedication to the company. Lotte Bailyn, of the Massachusetts Institute of Technology, says many corporate managers find it difficult to measure the contribution of their footnotes to a company's well-being, so they use the number of hours they work for publication. \"Employees comprehend this,\" she expresses, and they adjust their behavior accordingly."
+          "text": "Although employees complain about long hours, they also have causes not to trade money for leisure. Schor claims that those who work part-time pay higher fines based on work. It’s taken as a negative signal about their dedication to the company. Lotte Bailyn, of the Massachusetts Institute of Technology, says many corporate managers find it difficult to measure the contribution of their employees to a company’s well-being, so they use the number of hours they work for publication. “Employees comprehend this,” she expresses, and they adjust their behavior accordingly."
         },
         {
           "label": null,
-          "text": "Bailey says that, although the image of the good employee belongs to the company, it does not agree with the facts. She cites both quantitative and qualitative studies showing that part-time workers have increased productivity, that they make better use of the time they have, and that they are less likely to become exhausted from stressful work. She emphasizes that companies that hire more workers in less time also benefit from the resulting layoffs. More individuals can cover up coincidences you know, which means troubles will take people away from the workplace. Positive experiences with lessened times are beginning to change the culture even better in some companies, Schor reports."
+          "text": "Bailyn says that, although the image of the good employee belongs to the company, it does not agree with the facts. She cites both quantitative and qualitative studies showing that part-time workers have increased productivity, that they make better use of the time they have, and that they are less likely to become exhausted from stressful work. She emphasizes that companies that hire more workers in less time also benefit from the resulting layoffs. More individuals can cover up coincidences you know, which means troubles will take people away from the workplace. Positive experiences with lessened times are beginning to change the culture even better in some companies, Schor reports."
         },
         {
           "label": null,
-          "text": "Larger companies, in particular, seem to be more willing to test flexible work arrangements ..."
+          "text": "Larger companies, in particular, seem to be more willing to test flexible work arrangements."
         },
         {
           "label": null,
-          "text": "Successful trading of money for greater productivity and leisure can take more than changes in the financial and cultural structures of employment for workers, Schor argues. She says the U.S. market for goods has been skewed by the belief of full-time, two-business families. Automobile makers no longer produce cheap models, and developers no longer build small bungalows to serve first-generation home customers. Even the simplest household item is not made without a microprocessor. As Schor points out, the situation is an interesting reversal of the designers' view of \"appropriate technology\" for developing countries, where American products are only suitable for high earnings and long hours."
+          "text": "Successful trading of money for greater productivity and leisure can take more than changes in the financial and cultural structures of employment for workers, Schor argues. She says the U.S. market for goods has been skewed by the belief of full-time, two-business families. Automobile makers no longer produce cheap models, and developers no longer build small bungalows to serve first-generation home customers. Even the simplest household item is not made without a microprocessor. As Schor points out, the situation is an interesting reversal of the designers’ view of “appropriate technology” for developing countries, where American products are only suitable for high earnings and long hours."
         }
       ],
       "groups": [
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 2? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 14,
-              "prompt": "Decreased productivity led to increased working hours, for the first century.",
+              "prompt": "During the first century of the Industrial Revolution, higher productivity led to longer working hours.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "‘Increased productivity led to reduced working hours’, not longer ones.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 15,
-              "prompt": "A generation ago only social planners were worried about what people would do",
+              "prompt": "A generation ago, only social planners were concerned about how people would use their new free time.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘A generation ago only social planners were worried about what people would do with this new free time.’",
+              "reference": "Paragraph 1"
             },
             {
               "number": 16,
-              "prompt": "Full-time workers spend as much time at work as they did at the end of World War",
+              "prompt": "Full-time workers spend as long at work now as they did at the end of the Second World War.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘Full-time workers spend as much time at work as they did at the end of World War II.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 17,
-              "prompt": "Expanding rest time will help both working families.",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "prompt": "Working hours in Europe have risen more slowly than in the United States.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage is about the United States (‘In the United States, at least’) and never compares working hours with Europe."
             },
             {
               "number": 18,
-              "prompt": "Many factors push employers to hire more workers to work for longer hours.",
+              "prompt": "Many factors push employers to hire more workers instead of making existing staff work longer hours.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "‘Many factors push employers to hire fewer workers for longer hours’, which is the opposite.",
+              "reference": "Paragraph 4"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, A - D",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 19,
-              "prompt": "It is the same for a company whether they spend 35 hours a week or 70 hours,",
+              "prompt": "According to the writer, why is it attractive for employers to ask professional and managerial staff to work long hours?",
               "options": [
                 {
                   "key": "A",
-                  "text": "they are paid less"
+                  "text": "Their salaries rise with every extra hour they work."
                 },
                 {
                   "key": "B",
-                  "text": "once people joined"
+                  "text": "Once they are paid, extra hours cost the company nothing more."
                 },
                 {
                   "key": "C",
-                  "text": "once people are paid"
+                  "text": "They are more productive late in the evening."
                 },
                 {
                   "key": "D",
-                  "text": "they got no incentives"
-                }
-              ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
-            },
-            {
-              "number": 20,
-              "prompt": "Hourly employees also receive advantages such as pension contributions and",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "medical insurance"
-                },
-                {
-                  "key": "B",
-                  "text": "health insurance"
-                },
-                {
-                  "key": "C",
-                  "text": "educational benefits"
-                },
-                {
-                  "key": "D",
-                  "text": "home loan"
-                }
-              ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
-            },
-            {
-              "number": 21,
-              "prompt": "Employees complain about long hours, they also have causes not to trade money",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "for their commitment"
-                },
-                {
-                  "key": "B",
-                  "text": "in busy time"
-                },
-                {
-                  "key": "C",
-                  "text": "for progress"
-                },
-                {
-                  "key": "D",
-                  "text": "for leisure"
-                }
-              ],
-              "answer": "D",
-              "explanation": "Option D is correct based on the passage."
-            },
-            {
-              "number": 22,
-              "prompt": "Lotte Bailyn says many corporate managers find it difficult to measure the",
-              "options": [
-                {
-                  "key": "A",
-                  "text": "family"
-                },
-                {
-                  "key": "B",
-                  "text": "company's well-being"
-                },
-                {
-                  "key": "C",
-                  "text": "society"
-                },
-                {
-                  "key": "D",
-                  "text": "competitors"
+                  "text": "They do not receive pension payments."
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "‘Once people are paid, it is the same for a company whether they spend 35 hours a week or 70 hours.’",
+              "reference": "Paragraph 5"
+            },
+            {
+              "number": 20,
+              "prompt": "What does the writer say about the benefits that hourly employees receive?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Some of them are not connected to the hours worked."
+                },
+                {
+                  "key": "B",
+                  "text": "They increase with every extra hour worked."
+                },
+                {
+                  "key": "C",
+                  "text": "They are given only to managers."
+                },
+                {
+                  "key": "D",
+                  "text": "They have been reduced since 1979."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Hourly employees receive ‘pension contributions and medical insurance, which are not connected to the hours they work’.",
+              "reference": "Paragraph 6"
+            },
+            {
+              "number": 21,
+              "prompt": "According to Schor, why are employees reluctant to trade money for leisure?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Companies refuse to employ part-time staff."
+                },
+                {
+                  "key": "B",
+                  "text": "Leisure activities are too expensive."
+                },
+                {
+                  "key": "C",
+                  "text": "Working part-time is seen as a sign of weak commitment to the company."
+                },
+                {
+                  "key": "D",
+                  "text": "They are afraid of being asked to work at weekends."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Part-time workers ‘pay higher fines based on work. It’s taken as a negative signal about their dedication to the company’.",
+              "reference": "Paragraph 7"
+            },
+            {
+              "number": 22,
+              "prompt": "According to Lotte Bailyn, why do many managers judge employees by the number of hours they work?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They believe that long hours always raise productivity."
+                },
+                {
+                  "key": "B",
+                  "text": "They find it hard to measure each employee’s contribution to the company."
+                },
+                {
+                  "key": "C",
+                  "text": "They are required to do so by law."
+                },
+                {
+                  "key": "D",
+                  "text": "They want to reduce the number of staff."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Many corporate managers find it difficult to measure the contribution of their employees to a company’s well-being.’",
+              "reference": "Paragraph 7"
             }
           ]
         },
         {
           "type": "matching_sentence_endings",
-          "instruction": "Complete each sentence with the correct ending, A-G, below. Write the correct letter, A-G, as your answer to each question.",
+          "instruction": "Complete each sentence with the correct ending, **A–F**, below.",
+          "optionsTitle": "List of Endings",
           "options": [
             {
               "key": "A",
-              "text": "financial and cultural structures"
+              "text": "the financial and cultural structures of employment."
             },
             {
               "key": "B",
-              "text": "exhausted from stressful work"
+              "text": "exhausted by stressful work."
             },
             {
               "key": "C",
-              "text": "to test flexible work arrangements"
+              "text": "to test flexible work arrangements."
             },
             {
               "key": "D",
-              "text": "to change the culture"
+              "text": "to change the culture in some companies."
             },
             {
               "key": "E",
-              "text": "it does not agree with the facts"
+              "text": "does not agree with the facts."
             },
             {
               "key": "F",
-              "text": "high earnings and long hours"
+              "text": "high earnings and long hours."
             }
           ],
           "questions": [
             {
               "number": 23,
-              "prompt": "Bailey says that, although the image of the good employee belongs to the",
-              "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "prompt": "Bailyn says that the company’s image of the good employee",
+              "answer": "E",
+              "explanation": "‘Although the image of the good employee belongs to the company, it does not agree with the facts.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 24,
               "prompt": "Part-time workers are less likely to become",
               "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "explanation": "Studies show that part-time workers ‘are less likely to become exhausted from stressful work’.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 25,
-              "prompt": "Positive experiences with lessened times are beginning",
+              "prompt": "Positive experiences with shorter working hours are beginning",
               "answer": "D",
-              "explanation": "Refer to item D in the passage."
+              "explanation": "‘Positive experiences with lessened times are beginning to change the culture’; testing flexible arrangements (C) is what larger companies are willing to do, not what experiences are doing.",
+              "reference": "Paragraph 8"
             },
             {
               "number": 26,
-              "prompt": "Successful trading of money for greater productivity and leisure can take more",
+              "prompt": "Successful trading of money for greater productivity and leisure can take more than changes in",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "Success ‘can take more than changes in the financial and cultural structures of employment’.",
+              "reference": "Paragraph 10"
             }
           ]
         }
@@ -464,165 +477,190 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "Read the passage for attempting the Great Migrations IELTS reading Answers . After completing the questions, you can refer to the answer section given at the bottom of this article."
+          "text": "Animal migration is far more than just the movement of animals. It can be vaguely described as movement that occurs at regular intervals mostly annually – that includes many species of animals, and is rewarded only at the end of the long journey. It shows inherited instinct. Hugh Dingle, a biologist recognised 5 features that apply, in varying combinations and degrees, to all migrations. They are prolonged movements that bring animals outside their familiar habitats. The route is linear, and not zigzaggy. It involves special behaviours like preparation such as overfeeding and arrival. Animals need to specially allocate energy for the migration. They maintain an intense focus on the greater mission, which keeps them undistracted by temptations and undeterred by challenges that would turn other animals aside."
         },
         {
           "label": "B",
-          "text": "Animal migration is far more than just the movement of animals. It can be vaguely described as movement that occurs at regular intervals mostly annually - that includes many species of animals, and is rewarded only at the end of the long journey. It shows inherited instinct. Hugh Dingle, a biologist recognised 5 features that apply, in varying combinations and degrees, to all migrations. They are prolonged movements that bring animals outside their familiar habitats. The route is linear, and not zigzaggy. It involves special behaviours like preparation such as overfeeding and arrival. Animals need to specially allocate energy for the migration. They maintain an intense focus on the greater mission, which keeps them undistracted by temptations and undeterred by challenges that would turn other animals aside."
-        },
-        {
-          "label": "C",
           "text": "On its 20,000 km flight from the extreme south of South America to the Arctic circle, an arctic tern will take no notice of a fish that a bird-watcher gives along the way. The tern flies on while local gulls will dive voraciously for such handouts."
         },
         {
-          "label": "D",
-          "text": "Why? By an instinctive sense the arctic tern resists distraction because it is driven by a larger purpose at that moment - something we humans admire. It is persistent to reach its destination. The bird understands that it can eat, rest or mate later on. During the process, it is completely focused on the journey; its goal is the destination."
+          "label": "C",
+          "text": "Why? By an instinctive sense the arctic tern resists distraction because it is driven by a larger purpose at that moment – something we humans admire. It is persistent to reach its destination. The bird understands that it can eat, rest or mate later on. During the process, it is completely focused on the journey; its goal is the destination."
         },
         {
-          "label": "E",
+          "label": "D",
           "text": "The larger purpose will be served reaching some coastline in the Arctic, upon which other arctic terns have gathered. It will find a place, a time, and an environment in which it can lay eggs and rear offspring."
         },
         {
+          "label": "E",
+          "text": "But migration is a complex problem, and biologists view it differently, depending on what type of animals they study. Joel Berger from University of Montana, researching on the American pronghorn and some large terrestrial mammals, prefers what he calls a simple, practical definition suited to his beasts: ‘movements to a home area from another area and back again’. Mostly the reason for such seasonal migration is to seek resources that aren’t available within a single area throughout the year."
+        },
+        {
           "label": "F",
-          "text": "But migration is a complex problem, and biologists view it differently, depending on what type of animals they study. Joel Berger from University of Montana, researching on the American pronghorn and some large terrestrial mammals, prefers what he calls a simple, practical definition suited to his beasts: 'movements to a home area from another area and back again'. Mostly the reason for such seasonal migration is to seek resources that aren't available within a single area throughout the year."
+          "text": "Vertical movements by zooplankton daily in the ocean – upward movement to seek food at night and downward movement to escape predators during the day – can also be considered migration. Also the movement of aphids after depleting the young leaves on a food plant, their offspring then fly towards a different host plant, and no aphid ever returns to where it started."
         },
         {
           "label": "G",
-          "text": "Vertical movements by zooplankton daily in the ocean - upward movement to seek food at night and downward movement to escape predators during the day - can also be considered migration. Also the movement of aphids after depleting the young leaves on a food plant, their offspring then fly towards a different host plant, and no aphid ever returns to where it started."
+          "text": "Dingle is an evolutionary biologist who researches insects. His interpretation is more complicated than Berger’s, citing those 5 features that differentiate migration from other forms of movement. They allow for the fact that aphids will become sensitive to blue light from the sky when it’s time for takeoff on their big journey, and sensitive to yellow light while it is time to land."
         },
         {
           "label": "H",
-          "text": "Dingle is an evolutionary biologist who researches insects. His interpretation is more complicated than Berger's, citing those 5 features that differentiate migration from other forms of movement. They allow for the fact that aphids will become sensitive to blue light from the sky when it's time for takeoff on their big journey, and sensitive to yellow light while it is time to land."
-        },
-        {
-          "label": "I",
           "text": "Birds will feed heavily in advance of a long migrational flight to fatten themselves. Dingle argues the value of his definition is that it focuses attention on what the phenomenon of wildebeest migration has in common with the phenomenon of the aphids, and therefore helps guide researchers towards understanding how evolution has created them. However, human behaviour is having a detrimental impact on animal migration."
         },
         {
-          "label": "J",
-          "text": "The pronghorn resembles an antelope even though they aren't related, and is the fastest land mammal of the New World. One population follows a narrow route from its summer range in the mountains, across a river, and down onto the plains which spends the summer in the mountainous Grand Teton National Park of the western USA. They wait out the frozen months here, mainly feeding on sagebrush clear of snow. These pronghorns are notable for the severity of its constriction and invariance of their migration route at 3 bottlenecks. They can't reach their bounty of summer grazing, if they can't pass through each of the 3 during their spring migration. They are likely to die trying to overwinter in the deep snow if they dont pass through again in autumn, escaping south onto those windblown plains,"
+          "label": "I",
+          "text": "The pronghorn resembles an antelope even though they aren’t related, and is the fastest land mammal of the New World. One population follows a narrow route from its summer range in the mountains, across a river, and down onto the plains which spends the summer in the mountainous Grand Teton National Park of the western USA. They wait out the frozen months here, mainly feeding on sagebrush clear of snow. These pronghorns are notable for the severity of its constriction and invariance of their migration route at 3 bottlenecks. They can’t reach their bounty of summer grazing, if they can’t pass through each of the 3 during their spring migration. They are likely to die trying to overwinter in the deep snow if they don’t pass through again in autumn, escaping south onto those windblown plains."
         },
         {
-          "label": "K",
+          "label": "J",
           "text": "Pronghorn traverse high, open shoulders of land, where they can see and run. They are dependent on speed and distance vision to be safe from attacks. Forested hills rise to form a V, at one of the bottlenecks, leaving a corridor of open ground only about 150m wide, filled with private homes. Increasing development is creating a crisis for the pronghorn, threatening to block off their passageway."
         },
         {
-          "label": "L",
-          "text": "Biologists, along with some conservation scientists and land managers within the USA's National Park Service and other agencies, are now working to conserve migrational behaviours, not just species and habitats. A National Forest has identified the path of the pronghorn, much of which passes across its land, as a preserved migration path. On private land at a bottleneck neither the Forest Service nor the Park Service can control what happens. And with some other migrating species, the challenge is further complex - by vastly greater distances traversed, more jurisdictions, more borders, more dangers along the way. We will need knowledge and determination to make sure that migrating species can continue their journey a while longer."
+          "label": "K",
+          "text": "Biologists, along with some conservation scientists and land managers within the USA’s National Park Service and other agencies, are now working to conserve migrational behaviours, not just species and habitats. A National Forest has identified the path of the pronghorn, much of which passes across its land, as a preserved migration path. On private land at a bottleneck neither the Forest Service nor the Park Service can control what happens. And with some other migrating species, the challenge is further complex – by vastly greater distances traversed, more jurisdictions, more borders, more dangers along the way. We will need knowledge and determination to make sure that migrating species can continue their journey a while longer."
         }
       ],
       "groups": [
         {
-          "type": "summary_completion",
-          "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS AND/ OR A NUMBER from the passage for each",
-          "content": "Migration involves special behaviours concerning preparation such as {{27}} . ________ and arrival.\nZooplanktons move {{28}} . ______ in the ocean\nDingle's observation is more complicated than {{29}} . ________.\nA {{30}} . ________ has identified the path of the pronghorn.",
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
+          "title": "Animal migration",
+          "content": [
+            "## Features of migration",
+            "• Migration involves special behaviours such as preparation (for example {{27}}) and arrival.",
+            "## Examples and definitions",
+            "• Zooplankton make {{28}} movements in the ocean every day.",
+            "• Dingle’s interpretation of migration is more complicated than {{29}}.",
+            "## Conservation",
+            "• A {{30}} has identified the path of the pronghorn as a preserved migration path."
+          ],
           "questions": [
             {
               "number": 27,
               "answer": [
-                "Overfeeding"
+                "overfeeding"
               ],
-              "explanation": "Found directly in the reading passage: 'Overfeeding'."
+              "explanation": "Migration ‘involves special behaviours like preparation such as overfeeding and arrival’.",
+              "reference": "Paragraph A"
             },
             {
               "number": 28,
               "answer": [
-                "Animal"
+                "vertical"
               ],
-              "explanation": "Found directly in the reading passage: 'Animal'."
+              "explanation": "‘Vertical movements by zooplankton daily in the ocean’ can also be considered migration.",
+              "reference": "Paragraph F"
             },
             {
               "number": 29,
               "answer": [
-                "Berger's"
+                "Berger’s",
+                "Berger"
               ],
-              "explanation": "Found directly in the reading passage: 'Berger's'."
+              "explanation": "Dingle’s ‘interpretation is more complicated than Berger’s’.",
+              "reference": "Paragraph G"
             },
             {
               "number": 30,
               "answer": [
                 "National Forest"
               ],
-              "explanation": "Found directly in the reading passage: 'National Forest'."
+              "explanation": "‘A National Forest has identified the path of the pronghorn’ as a preserved migration path.",
+              "reference": "Paragraph K"
             }
           ]
         },
         {
           "type": "matching_information",
-          "instruction": "This reading passage has eight paragraphs, A-K.",
+          "instruction": "Reading Passage 3 has eleven paragraphs, **A–K**. Which paragraph contains the following information? **NB** You may use any letter more than once.",
           "questions": [
             {
               "number": 31,
-              "prompt": "The tern flies on while local gulls will dive voraciously for such handouts.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "a contrast between the behaviour of two kinds of bird",
+              "answer": "B",
+              "explanation": "‘The tern flies on while local gulls will dive voraciously for such handouts.’",
+              "reference": "Paragraph B"
             },
             {
               "number": 32,
-              "prompt": "After depleting the young leaves on a food plant, offspring of aphids fly towards a different",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "an example of a species whose members never go back to where they started",
+              "answer": "F",
+              "explanation": "Aphid offspring fly to a different host plant, ‘and no aphid ever returns to where it started’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 33,
-              "prompt": "Dingle is an evolutionary biologist who researches insects.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "a reference to a researcher who studies insects",
+              "answer": "G",
+              "explanation": "‘Dingle is an evolutionary biologist who researches insects.’",
+              "reference": "Paragraph G"
             },
             {
               "number": 34,
-              "prompt": "Birds flatten themselves by feeding heavily in advance of a long migrational flight.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "a description of how birds prepare physically for a long flight",
+              "answer": "H",
+              "explanation": "‘Birds will feed heavily in advance of a long migrational flight to fatten themselves.’",
+              "reference": "Paragraph H"
             },
             {
               "number": 35,
-              "prompt": "Forested hills rise to form a V, at one of the bottlenecks, leaving a corridor of open ground",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "the width of a bottleneck on a migration route",
+              "answer": "J",
+              "explanation": "A bottleneck leaves ‘a corridor of open ground only about 150m wide’.",
+              "reference": "Paragraph J"
             },
             {
               "number": 36,
-              "prompt": "The pronghorn is the fastest land mammal of the New World.",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "prompt": "a claim about the speed of an animal",
+              "answer": "I",
+              "explanation": "The pronghorn is ‘the fastest land mammal of the New World’.",
+              "reference": "Paragraph I"
             }
           ]
         },
         {
-          "type": "summary_completion",
-          "instruction": "Answer the questions below. Choose NO MORE THAN THREE WORDS from the passage for each answer.",
-          "content": "Answer the questions below.\nChoose NO MORE THAN THREE WORDS from the passage for each answer.\n {{37}} . Who identified the 5 features of animal migration?\n {{38}} . Which bird travels from South America to the Arctic circle every year?\n {{39}} . Who did the research on the American pronghorn?\n {{40}} . How do zooplanktons find food?",
+          "type": "short_answer",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
           "questions": [
             {
               "number": 37,
+              "prompt": "Who identified five features that apply to all migrations?",
               "answer": [
-                "Hugh Dingle"
+                "Hugh Dingle",
+                "Dingle"
               ],
-              "explanation": "Found directly in the reading passage: 'Hugh Dingle'."
+              "explanation": "‘Hugh Dingle, a biologist recognised 5 features that apply, in varying combinations and degrees, to all migrations.’",
+              "reference": "Paragraph A"
             },
             {
               "number": 38,
+              "prompt": "Which bird flies from South America to the Arctic circle every year?",
               "answer": [
                 "arctic tern"
               ],
-              "explanation": "Found directly in the reading passage: 'arctic tern'."
+              "explanation": "On its ‘20,000 km flight from the extreme south of South America to the Arctic circle, an arctic tern will take no notice of a fish’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 39,
+              "prompt": "Who carried out research on the American pronghorn?",
               "answer": [
-                "Joel Berger"
+                "Joel Berger",
+                "Berger"
               ],
-              "explanation": "Found directly in the reading passage: 'Joel Berger'."
+              "explanation": "‘Joel Berger from University of Montana, researching on the American pronghorn’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 40,
+              "prompt": "How do zooplankton seek food in the ocean?",
               "answer": [
                 "upward movement"
               ],
-              "explanation": "Found directly in the reading passage: 'upward movement'."
+              "explanation": "Zooplankton make an ‘upward movement to seek food at night’.",
+              "reference": "Paragraph F"
             }
           ]
         }
