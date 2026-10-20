@@ -11,11 +11,11 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Flight of the Honey",
+      "title": "Flight of the Honeybee",
       "paragraphs": [
         {
           "label": "A",
-          "text": "Honeybees are distinguished by their ability to make liquid sugar (honey) and their propensity to build wax nests in colonies, both of which require a high level of social interaction among members. As a result, they maintain strict gender-based divisions of labour, with all males working as drones to fertilize and care for the eggs, and all females, except for the one fertile queen, tasked with gathering nectar for the colony's offspring. In addition, honeybees have developed a complex system of communication to send vital information from one individual to another."
+          "text": "Honeybees are distinguished by their ability to make liquid sugar (honey) and their propensity to build wax nests in colonies, both of which require a high level of social interaction among members. As a result, they maintain strict gender-based divisions of labour, with all males working as drones to fertilize and care for the eggs, and all females, except for the one fertile queen, tasked with gathering nectar for the colony’s offspring. In addition, honeybees have developed a complex system of communication to send vital information from one individual to another."
         },
         {
           "label": "B",
@@ -23,45 +23,46 @@
         },
         {
           "label": "C",
-          "text": "The distance from the field to the hive is the first piece of information transmitted by dancing bees, which they do in one of three ways. If it is fewer than 50 meters from the colony's nest, the bee will fly in tight circles before abruptly changing direction. She will repeat this routine, which von Frisch's team referred to as the round dance until she has recruited multiple employees to return to the field with her. When the distance exceeds 50 meters but is less than 150 meters, she will do a sickle dance, a flight pattern like a crescent. If the field is more than 150 meters away, the forager will perform a waggle dance consisting of a brief run straight ahead followed by a return to her original position. She will then retrace her steps and return from the opposite side. The length of the forward run corresponds to the distance of the food source; for instance, a 2.5-second forward run implies that the nectar was located approximately 2500 meters away."
+          "text": "The distance from the field to the hive is the first piece of information transmitted by dancing bees, which they do in one of three ways. If it is fewer than 50 meters from the colony’s nest, the bee will fly in tight circles before abruptly changing direction. She will repeat this routine, which von Frisch’s team referred to as the round dance until she has recruited multiple employees to return to the field with her. When the distance exceeds 50 meters but is less than 150 meters, she will do a sickle dance, a flight pattern like a crescent. If the field is more than 150 meters away, the forager will perform a waggle dance consisting of a brief run straight ahead followed by a return to her original position. She will then retrace her steps and return from the opposite side. The length of the forward run corresponds to the distance of the food source; for instance, a 2.5-second forward run implies that the nectar was located approximately 2500 meters away."
         },
         {
           "label": "D",
-          "text": "Recruits must also know the direction in which they must fly to reach the suitable foraging spot; this information is sent to the hive via the bee's orientation. It is not, however, a direct correlation with the position of the hive's food supply, but rather its positioning relative to the sun. Therefore, if the food is located directly opposite the sun, the bee will fly straight down; if it is in the same direction as the sun, it will fly straight up from the colony nest. A position of 60 degrees to the right of the sun will cause the bee to descend at an angle of 60 degrees to the right of the nest. In addition, because the sun is in constant motion throughout the day, the bee's orientation will change depending on when the dance is done. However, sceptics of von Frisch's results argue that visual signals are insufficient to indicate the exact location of a food source. Several scientists, including Adrian Wenner, believe that odour is one of the factors along with dance for honeybee communication. Wenner was unable to attract fresh workers to the foraging activities using robotic bees performing the same dances; but, when he gave nectar to the robot, workers readily followed. Additionally, he determined that the odours must be indicative of the actual flowers that hold the food source; otherwise, the bees will arrive at the place without knowing which blooms will be beneficial."
+          "text": "Recruits must also know the direction in which they must fly to reach the suitable foraging spot; this information is sent to the hive via the bee’s orientation. It is not, however, a direct correlation with the position of the hive’s food supply, but rather its positioning relative to the sun. Therefore, if the food is located directly opposite the sun, the bee will fly straight down; if it is in the same direction as the sun, it will fly straight up from the colony nest. A position of 60 degrees to the right of the sun will cause the bee to descend at an angle of 60 degrees to the right of the nest. In addition, because the sun is in constant motion throughout the day, the bee’s orientation will change depending on when the dance is done. However, sceptics of von Frisch’s results argue that visual signals are insufficient to indicate the exact location of a food source. Several scientists, including Adrian Wenner, believe that odour is one of the factors along with dance for honeybee communication. Wenner was unable to attract fresh workers to the foraging activities using robotic bees performing the same dances; but, when he gave nectar to the robot, workers readily followed. Additionally, he determined that the odours must be indicative of the actual flowers that hold the food source; otherwise, the bees will arrive at the place without knowing which blooms will be beneficial."
         }
       ],
       "groups": [
         {
           "type": "multiple_choice",
-          "instruction": "Refer to the Reading Passage and choose the option that best completes each sentence.",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 1,
-              "prompt": "Studies undertaken in the 1970s",
+              "prompt": "The studies carried out by von Frisch and his students",
               "options": [
                 {
                   "key": "A",
-                  "text": "were conducted using conventional beehives."
+                  "text": "were carried out in conventional beehives."
                 },
                 {
                   "key": "B",
-                  "text": "found that forager bees had distinctive markings."
+                  "text": "showed that forager bees had distinctive markings from birth."
                 },
                 {
                   "key": "C",
-                  "text": "The phenomenon of the honeybee's body language has been thoroughly examined."
+                  "text": "examined the body language of honeybees in detail."
                 },
                 {
                   "key": "D",
-                  "text": "The conclusion was that there was no visible pattern to the bees' movement."
+                  "text": "found no visible pattern in the bees’ movements."
                 }
               ],
               "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "explanation": "Von Frisch ‘meticulously recorded their movements, the angle and direction of their flight, and any other visual cues’; the hives were ‘glass-walled’ and the bees were marked with paint by the researchers.",
+              "reference": "Paragraph B"
             },
             {
               "number": 2,
-              "prompt": "To determine the proximity of a nectar supply, forager bees use their sense of smell.",
+              "prompt": "When a food source is less than 50 metres from the hive, the forager bee",
               "options": [
                 {
                   "key": "A",
@@ -81,114 +82,125 @@
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "The bee ‘will fly in tight circles before abruptly changing direction’ and ‘will repeat this routine’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 3,
-              "prompt": "Honey Bees",
+              "prompt": "According to the first paragraph, honeybees",
               "options": [
                 {
                   "key": "A",
-                  "text": "possess a basic ability to convey information."
+                  "text": "possess only a basic ability to convey information."
                 },
                 {
                   "key": "B",
-                  "text": "have clearly separated functions."
+                  "text": "have clearly separated roles."
                 },
                 {
                   "key": "C",
-                  "text": "exist in equal numbers of male and female individuals."
+                  "text": "exist in equal numbers of males and females."
                 },
                 {
                   "key": "D",
-                  "text": "relocating frequently to regions with particular sorts of flowers."
+                  "text": "relocate frequently to regions with particular sorts of flowers."
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "They ‘maintain strict gender-based divisions of labour’, with drones, workers and one queen.",
+              "reference": "Paragraph A"
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
-          "maxWords": 2,
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
           "questions": [
             {
               "number": 4,
-              "prompt": "The bee will advance ______ for every 1,000 meters the food source is away.",
+              "prompt": "Von Frisch recorded the bees’ movements and any other {{4}} cues offered by the colony.",
               "answer": [
-                "honeybees"
+                "visual"
               ],
-              "explanation": "Found directly in the reading passage: 'honeybees'."
+              "explanation": "He recorded ‘any other visual cues offered by the colony’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 5,
-              "prompt": "For food sources more than 150 meters away, the forager will do a ______",
+              "prompt": "If the food is between 50 and 150 metres from the nest, the bee performs a {{5}} dance.",
               "answer": [
-                "Waggle"
+                "sickle"
               ],
-              "explanation": "Found directly in the reading passage: 'Waggle'."
+              "explanation": "‘When the distance exceeds 50 meters but is less than 150 meters, she will do a sickle dance.’",
+              "reference": "Paragraph C"
             },
             {
               "number": 6,
-              "prompt": "It has been suggested that both ______ and mobility can aid in locating food",
+              "prompt": "If the food is more than 150 metres away, the forager performs a {{6}} dance.",
               "answer": [
-                "Odour"
+                "waggle"
               ],
-              "explanation": "Found directly in the reading passage: 'Odour'."
+              "explanation": "‘If the field is more than 150 meters away, the forager will perform a waggle dance.’",
+              "reference": "Paragraph C"
             },
             {
               "number": 7,
-              "prompt": "To locate the direction of the nectar, the forager will travel in accordance with",
+              "prompt": "The direction of the dance depends on the position of the food relative to the {{7}}.",
               "answer": [
-                "alert"
+                "sun"
               ],
-              "explanation": "Found directly in the reading passage: 'alert'."
+              "explanation": "The direction is ‘not, however, a direct correlation with the position of the hive’s food supply, but rather its positioning relative to the sun’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 8,
-              "prompt": "Von Frisch used a variety of ______ cues to determine how bees communicate.",
+              "prompt": "Some scientists believe that {{8}} as well as dance plays a part in honeybee communication.",
               "answer": [
-                "Visual"
+                "odour"
               ],
-              "explanation": "Found directly in the reading passage: 'Visual'."
+              "explanation": "Wenner and others ‘believe that odour is one of the factors along with dance for honeybee communication’.",
+              "reference": "Paragraph D"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the reading passage? In boxes 9 -13 on your answer sheet write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 9,
               "prompt": "Sunlight is required for the honeybee dance to be performed.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The dance’s orientation is described ‘relative to the sun’, but the passage never says that the dance cannot be performed without sunlight."
             },
             {
               "number": 10,
-              "prompt": "The honeybee dance is performed until a sufficient number of additional bees join the nectar",
+              "prompt": "A forager repeats her dance until several other bees have been recruited to return to the field with her.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "‘She will repeat this routine ... until she has recruited multiple employees to return to the field with her.’",
+              "reference": "Paragraph C"
             },
             {
               "number": 11,
-              "prompt": "Wenner determined that a similar odour will aid bees in locating the general region of nectar,",
+              "prompt": "Wenner found that any odour at all would help bees to locate the nectar.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "He ‘determined that the odours must be indicative of the actual flowers that hold the food source’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 12,
-              "prompt": "Drone bees communicate by a series of complex actions.",
+              "prompt": "Drone bees communicate by performing a series of complex movements.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "The flight motions are ‘only performed by a female worker bee’, not by drones.",
+              "reference": "Paragraph B"
             },
             {
               "number": 13,
-              "prompt": "Von Frisch noticed that each part of the dance disclosed precise information regarding the",
+              "prompt": "Von Frisch found that each part of the dance gave specific information about where the nectar was.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "‘Each element of the dance revealed specific information about the location of the nectar reserves.’",
+              "reference": "Paragraph B"
             }
           ]
         }
@@ -196,23 +208,12 @@
     },
     {
       "passageNumber": 2,
-      "title": "Why does music move us",
+      "title": "Why Does Music Move Us?",
+      "subtitle": "Roger Highfield is perplexed as to how the amalgam of sound waves we call music can have such an impact.",
       "paragraphs": [
         {
-          "label": null,
-          "text": "You should spend about 20 minutes on"
-        },
-        {
-          "label": null,
-          "text": "Why does music move us?"
-        },
-        {
-          "label": null,
-          "text": "Roger Highoeld is perplexed as to how the amalgam of sound waves we call music can have such an impact."
-        },
-        {
           "label": "A",
-          "text": "Sound, at its most elemental, is a pressure wave propagating through air. So how can the combination of sound waves we call music become, as Tolstoy put it, \"the shorthand of emotion\"? Or, to rephrase the question, how can mechanical vibrations have such a major impact?"
+          "text": "Sound, at its most elemental, is a pressure wave propagating through air. So how can the combination of sound waves we call music become, as Tolstoy put it, “the shorthand of emotion”? Or, to rephrase the question, how can mechanical vibrations have such a major impact?"
         },
         {
           "label": "B",
@@ -220,15 +221,15 @@
         },
         {
           "label": "C",
-          "text": "Regardless of one's musical preferences, the brain must work hard. The astounding harmonics-packed richness of a note played on a piano or flute will suddenly collapse in your head, allowing you to perceive only a single note rather than a forest of Overtones, due to your mind's incredible talent for pattern recognition."
+          "text": "Regardless of one’s musical preferences, the brain must work hard. The astounding harmonics-packed richness of a note played on a piano or flute will suddenly collapse in your head, allowing you to perceive only a single note rather than a forest of overtones, due to your mind’s incredible talent for pattern recognition."
         },
         {
           "label": "D",
-          "text": "My acquaintance stated that people are hardwired to seek order and that music facilitates the recognition of these patterns. We are packed with a variety of mental shortcuts to assist us to interpret the world around us. These rules represent the neurological mechanisms that enable us to classify and comprehend musical sounds."
+          "text": "Ball stated that people are hardwired to seek order and that music facilitates the recognition of these patterns. We are packed with a variety of mental shortcuts to assist us to interpret the world around us. These rules represent the neurological mechanisms that enable us to classify and comprehend musical sounds."
         },
         {
           "label": "E",
-          "text": "Medical imaging has demonstrated that the questioned brain activity does not occur in isolation. Different musical aspects stimulate distinct parts of the brain. The temporal lobe processes melody and pitch, the hippocampus retrieves musical memories, and 'rhythm-processing circuits' are recruited to conduct motor responses."
+          "text": "Medical imaging has demonstrated that this brain activity does not occur in isolation. Different musical aspects stimulate distinct parts of the brain. The temporal lobe processes melody and pitch, the hippocampus retrieves musical memories, and ‘rhythm-processing circuits’ are recruited to conduct motor responses."
         },
         {
           "label": "F",
@@ -236,162 +237,175 @@
         },
         {
           "label": "G",
-          "text": "However, Harvard University's Steven Pinker describes music as \"auditory cheesecake,\" therefore the essential question is whether or not the human brain is designed to process it. According to him, the pleasure that our brains derive from sounds is completely accidental. The hearing system evolved to process a variety of stimuli."
+          "text": "However, Harvard University’s Steven Pinker describes music as “auditory cheesecake,” therefore the essential question is whether or not the human brain is designed to process it. According to him, the pleasure that our brains derive from sounds is completely accidental. The hearing system evolved to process a variety of stimuli."
         },
         {
           "label": "H",
-          "text": "The unfortunate truth may be that we simply do not know. We do know, however, that our upbringing has a substantial effect on how we develop a taste for music. A few years ago, Philip Ball discovered that music appears to have a national character, most likely due to the rhythms and cadences of the numerous languages spoken in each situation. Composers in the English tradition frequently employ rhythms and interludes that mirror the English tendency to vary pitch and duration in speech more than the French. According to this criterion, Elgar is frequently utilized as background music for important national pageants, as he is considered by some to be the most \"English\" composer."
+          "text": "The unfortunate truth may be that we simply do not know. We do know, however, that our upbringing has a substantial effect on how we develop a taste for music. A few years ago, Philip Ball discovered that music appears to have a national character, most likely due to the rhythms and cadences of the numerous languages spoken in each country. Composers in the English tradition frequently employ rhythms and interludes that mirror the English tendency to vary pitch and duration in speech more than the French. According to this criterion, Elgar is frequently utilized as background music for important national pageants, as he is considered by some to be the most “English” composer."
         },
         {
           "label": "I",
-          "text": "As with acoustics, the convention is the determining element for what is considered harmonic. The elderly believe that contemporary music contains dissonant, startling tones that are unpleasant to listen to. However, musical discord has always existed. Both Beethoven and Chopin are unworthy of serious consideration. It is contingent upon the existing norms of the time. In the Middle Ages, what we now consider consonant was considered dissonant. Historically, the augmented fourth was referred to as \"Diabolus in musica\" because of its demonic nature. Even now, it has a disturbing effect on us, which may explain its prevalence in heavy metal."
+          "text": "As with acoustics, the convention is the determining element for what is considered harmonic. The elderly believe that contemporary music contains dissonant, startling tones that are unpleasant to listen to. However, musical discord has always existed. It is contingent upon the existing norms of the time. In the Middle Ages, what we now consider consonant was considered dissonant. Historically, the augmented fourth was referred to as “Diabolus in musica” because of its demonic nature. Even now, it has a disturbing effect on us, which may explain its prevalence in heavy metal."
         },
         {
           "label": "J",
-          "text": "Near the end of my interview with Philip Ball, I asked if the good effects of music on the brain could be utilized. This was the perfect chance for him to examine the so-called \"Mozart effect,\" the belief that early exposure to classical music helps infants acquire an appreciation and respect for information. According to a 1996 study, rock music for infants is more beneficial to their brain development than classical music. The impact of the music on the mood of the children was more significant than the music itself."
+          "text": "Near the end of my interview with Philip Ball, I asked if the good effects of music on the brain could be utilized. This was the perfect chance for him to examine the so-called “Mozart effect,” the belief that early exposure to classical music helps infants acquire an appreciation and respect for information. According to a 1996 study, rock music for infants is more beneficial to their brain development than classical music. The impact of the music on the mood of the children was more significant than the music itself."
         },
         {
           "label": "K",
-          "text": "According to Ball, we all have a natural inclination to make the world more musical. It's difficult to claim \"I am not musical,\" even if that's how you feel whenever you're dragged along to sing karaoke. Only a small portion of the general population may be described as being completely tone-deaf."
+          "text": "According to Ball, we all have a natural inclination to make the world more musical. It’s difficult to claim “I am not musical,” even if that’s how you feel whenever you’re dragged along to sing karaoke. Only a small portion of the general population may be described as being completely tone-deaf."
         }
       ],
       "groups": [
         {
           "type": "matching_sentence_endings",
-          "instruction": "Complete each sentence with the correct ending A-l from the box below. Write the correct letter",
+          "instruction": "Complete each sentence with the correct ending, **A–I**, below.",
+          "optionsTitle": "List of Endings",
           "options": [
             {
               "key": "A",
-              "text": "Is intrinsic and facilitates the brain's ability to simplify complex musical combinations."
+              "text": "is intrinsic and helps the brain to simplify complex combinations of musical sounds."
             },
             {
               "key": "B",
-              "text": "Is a skill that few individuals possess."
+              "text": "is a skill that few people possess."
             },
             {
               "key": "C",
-              "text": "Can have a very profound effect on humans."
+              "text": "can have a very profound effect on humans."
             },
             {
               "key": "D",
-              "text": "Stimulates our temporal lobe."
+              "text": "stimulates our temporal lobe."
             },
             {
               "key": "E",
-              "text": "Has a distinct effect on the majority of listeners."
+              "text": "still has a disturbing effect on many listeners."
             },
             {
               "key": "F",
-              "text": "Engages the hippocampus."
+              "text": "engages the hippocampus."
             },
             {
               "key": "G",
-              "text": "Is more difficult than most people believe."
+              "text": "takes as much concentration as classical music does."
             },
             {
               "key": "H",
-              "text": "Depends on the type of music you enjoy the most."
+              "text": "depends on the type of music you enjoy most."
             },
             {
               "key": "I",
-              "text": "Have the same impact as reading incomprehensible sentences."
+              "text": "have the same impact as reading incomprehensible sentences."
             }
           ],
           "questions": [
             {
               "number": 14,
-              "prompt": "The perception of mechanical vibrations",
+              "prompt": "Hearing mechanical vibrations as music",
               "answer": "C",
-              "explanation": "Refer to item C in the passage."
+              "explanation": "The writer asks ‘how can mechanical vibrations have such a major impact?’",
+              "reference": "Paragraph A"
             },
             {
               "number": 15,
-              "prompt": "enjoying popular music",
+              "prompt": "Enjoying popular music",
               "answer": "G",
-              "explanation": "Refer to item G in the passage."
+              "explanation": "Popular music ‘takes as much concentration as classical composers such as Bach and Beethoven’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 16,
-              "prompt": "Identifying patterns",
+              "prompt": "The brain’s recognition of patterns",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "‘People are hardwired to seek order and ... music facilitates the recognition of these patterns.’",
+              "reference": "Paragraph D"
             },
             {
               "number": 17,
-              "prompt": "Listening to the music we prefer.",
+              "prompt": "Remembering a piece of music",
               "answer": "F",
-              "explanation": "Refer to item F in the passage."
+              "explanation": "‘The hippocampus retrieves musical memories.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 18,
-              "prompt": "The songs are non-sensical",
+              "prompt": "Chords in a piece of music that do not complement one another",
               "answer": "I",
-              "explanation": "Refer to item I in the passage."
+              "explanation": "The brain gives ‘the same signal of confusion’ for nonsensical sentences and for ‘chords in a piece of music’ that ‘do not complement one another’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 19,
-              "prompt": "Taking in some octave-discordant tunes",
+              "prompt": "A dissonant interval such as the augmented fourth",
               "answer": "E",
-              "explanation": "Refer to item E in the passage."
+              "explanation": "‘Even now, it has a disturbing effect on us, which may explain its prevalence in heavy metal.’",
+              "reference": "Paragraph I"
             }
           ]
         },
         {
           "type": "summary_completion",
-          "instruction": "7. These rules represent the ______ that allows us to categorize and understand musical",
-          "content": "{{20}} . These rules represent the ______ that allows us to categorize and understand musical sounds. {{21}} . However, Steven Pinker of Harvard University characterizes music as _________, therefore the fundamental question is whether or not the human brain is suited to process it. {{22}} . Philip Ball noticed a few years ago that music appears to have a national identity, most likely as a result of the___________ of the many languages spoken in each circumstance.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
+          "title": "Music and the brain",
+          "content": "We have many mental shortcuts that help us to interpret the world around us. These rules represent the {{20}} that enable us to classify and understand musical sounds. Steven Pinker of Harvard University, however, describes music as {{21}}, which suggests that the pleasure our brains take from it is accidental. Philip Ball has found that music appears to have a national character, most likely because of the {{22}} of the languages spoken in each country.",
           "questions": [
             {
               "number": 20,
               "answer": [
                 "neurological mechanisms"
               ],
-              "explanation": "Found directly in the reading passage: 'neurological mechanisms'."
+              "explanation": "‘These rules represent the neurological mechanisms that enable us to classify and comprehend musical sounds.’",
+              "reference": "Paragraph D"
             },
             {
               "number": 21,
               "answer": [
                 "auditory cheesecake"
               ],
-              "explanation": "Found directly in the reading passage: 'auditory cheesecake'."
+              "explanation": "Pinker ‘describes music as “auditory cheesecake,”’ and says the pleasure our brains derive from it is accidental.",
+              "reference": "Paragraph G"
             },
             {
               "number": 22,
               "answer": [
                 "rhythms and cadences"
               ],
-              "explanation": "Found directly in the reading passage: 'rhythms and cadences'."
+              "explanation": "Music’s national character is ‘most likely due to the rhythms and cadences of the numerous languages spoken in each country’.",
+              "reference": "Paragraph H"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 10-13 on your answer sheet, write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 23,
-              "prompt": "Older individuals prefer classical music over popular music.",
+              "prompt": "Older people prefer classical music to popular music.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The elderly think contemporary music contains ‘dissonant, startling tones that are unpleasant to listen to’, but the passage does not say that they prefer classical music."
             },
             {
               "number": 24,
-              "prompt": "In heavy metal music, the effect of a particular note is recognized.",
+              "prompt": "The disturbing effect of a particular musical interval may explain why it is common in heavy metal.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "The augmented fourth ‘has a disturbing effect on us, which may explain its prevalence in heavy metal’.",
+              "reference": "Paragraph I"
             },
             {
               "number": 25,
-              "prompt": "Philip Ball emphasizes the importance of youngsters listening to classical music and the",
+              "prompt": "A 1996 study found classical music to be more beneficial than rock music to babies’ brain development.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "‘According to a 1996 study, rock music for infants is more beneficial to their brain development than classical music.’",
+              "reference": "Paragraph J"
             },
             {
               "number": 26,
-              "prompt": "People who are not particularly musically inclined are likely to be drawn to karaoke.",
+              "prompt": "People who are not particularly musical are likely to be drawn to karaoke.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "Karaoke is mentioned only as something you may be ‘dragged along’ to; the passage does not say that unmusical people are drawn to it."
             }
           ]
         }
@@ -399,206 +413,205 @@
     },
     {
       "passageNumber": 3,
-      "title": "Six tips for solving \"Coming into the world\"",
+      "title": "Coming into the World",
       "paragraphs": [
-        {
-          "label": null,
-          "text": "Here are some tips to solve the 'Coming into the world' reading passage. This section will help you understand the passage better."
-        },
-        {
-          "label": null,
-          "text": "These are some of the points that you need to keep in mind before checking Coming into the world reading answers and passage. To make your preparation wiser you can check our IELTS reading tips ."
-        },
-        {
-          "label": null,
-          "text": "Answer the 14 questions with the help of the following reading passage. At the end of the practice test, you will find coming into the world reading answers ."
-        },
-        {
-          "label": null,
-          "text": "Coming Into The World"
-        },
         {
           "label": null,
           "text": "In the early 1960s, when the British Empire was on the decline, not many people outside of London had heard of the archipelago that takes its name from the largest island, Tristan da Cunha. It would take a major volcanic explosion and an emergency evacuation to draw notice to this hidden outpost of the British Empire. Although they were almost halfway between Buenos Aires, South America, and Cape Town, South Africa, the islands in the Southern Atlantic Ocean seemed to avoid discovery at all costs."
         },
         {
           "label": null,
-          "text": "They were typical of Tristan da Cunha's then-population of around 290. They were stranded on a completely cut-off island. This enormous carbuncle sticking out into the sea had no airport, nor was there room to construct one. The closest mainland port, Cape Town, was 1,500 miles from the lone harbour, which was inaccessible during rough weather. Signalling passing fishing boats was the primary means of contact, and once a year, a ship brought the islanders supplies they couldn't provide themselves."
+          "text": "Tristan da Cunha’s population at that time was around 290. The islanders were stranded on a completely cut-off island. This enormous carbuncle sticking out into the sea had no airport, nor was there room to construct one. The closest mainland port, Cape Town, was 1,500 miles from the lone harbour, which was inaccessible during rough weather. Signalling passing fishing boats was the primary means of contact, and once a year, a ship brought the islanders supplies they couldn’t provide themselves."
         },
         {
           "label": null,
-          "text": "Because this was a community that relied on its own resources and took pride in its members' ability to pull through tough times together. The island was first settled in the early nineteenth century, but it did not begin using currency until December 1942. But wartime conditions and new development, especially a new fishing business, saw the start of links that meant the Islanders had to acknowledge they were now part of the modern world, despite the fact that some of the older members of the island would reject such change."
+          "text": "This was a community that relied on its own resources and took pride in its members’ ability to pull through tough times together. The island was first settled in the early nineteenth century, but it did not begin using currency until December 1942. But wartime conditions and new development, especially a new fishing business, saw the start of links that meant the Islanders had to acknowledge they were now part of the modern world, despite the fact that some of the older members of the island would reject such change."
         },
         {
           "label": null,
-          "text": "From the beginning of July 1961 until the beginning of August 1961, the lives of the islanders ticked quietly, mostly ignored as the government of Britain wrestled with more significant events on the world stage. It all started on the 6th with some minor tremors and rockfalls, but by the end of October, the situation had gotten so serious that the island had to be evacuated. Eventually, everyone ended up in England, where they received a lot of unwelcome media attention. They lived in military barracks outside of Southampton's harbour."
+          "text": "From the beginning of July 1961 until the beginning of August 1961, the lives of the islanders ticked quietly, mostly ignored as the government of Britain wrestled with more significant events on the world stage. It all started on the 6th with some minor tremors and rockfalls, but by the end of October, the situation had gotten so serious that the island had to be evacuated. Eventually, everyone ended up in England, where they received a lot of unwelcome media attention. They lived in military barracks outside of Southampton’s harbour."
         },
         {
           "label": null,
-          "text": "Several of the island's elders passed away since they had never experienced anything like the British Isles' bitter winters or the ailments that its inhabitants had to contend with. The administration appeared unsure of what to provide the Islanders. It was unclear what was taking on in their homeland, and prospects for the future were grim. Over the course of more than 150 years, these folks developed their own culture. They had lived together in a close community for generations under a total of seven different surnames, and now it appeared that their entire way of life was doomed."
+          "text": "Several of the island’s elders passed away since they had never experienced anything like the British Isles’ bitter winters or the ailments that its inhabitants had to contend with. The administration appeared unsure of what to provide the Islanders. It was unclear what was going on in their homeland, and prospects for the future were grim. Over the course of more than 150 years, these folks developed their own culture. They had lived together in a close community for generations under a total of seven different surnames, and now it appeared that their entire way of life was doomed."
         },
         {
           "label": null,
-          "text": "Even though the islanders didn't want to talk to the media because they thought they were just historical curiosities, the attention helped keep their plight in the public's mind. When word got out that the island was once again safe to live on, most of the islanders voted to go back, despite strong opposition from the British government. They turned away from the brighter lights of their temporary home in favour of their own."
+          "text": "Even though the islanders didn’t want to talk to the media because they thought they were just historical curiosities, the attention helped keep their plight in the public’s mind. When word got out that the island was once again safe to live on, most of the islanders voted to go back, despite strong opposition from the British government. They turned away from the brighter lights of their temporary home in favour of their own."
         },
         {
           "label": null,
-          "text": "As a result of the publicity surrounding the volcanic eruption, the local economy quickly rebounded, even if communications were as challenging as ever. The last of the returning islanders returned in November 1963, and the crawfish canning industry was quickly rebuilt. Young British teacher Michael Parsons recalls that there was no television and that letters from the outside world arrived just eight times a year. He said, \"I was allowed to send a 100-word telegraph home once a month, and having news from home brought a lump to my throat.\""
+          "text": "As a result of the publicity surrounding the volcanic eruption, the local economy quickly rebounded, even if communications were as challenging as ever. The last of the returning islanders returned in November 1963, and the crawfish canning industry was quickly rebuilt. Young British teacher Michael Parsons recalls that there was no television and that letters from the outside world arrived just eight times a year. He said, “I was allowed to send a 100-word telegraph home once a month, and having news from home brought a lump to my throat.”"
         },
         {
           "label": null,
           "text": "The island was once again isolated from the rest of the world on May 23, 2001, when a hurricane ripped across the area, despite technological advancements since the turn of the century. It did a lot of damage, including taking out the power grid, the radio station, and the satellite phone connection to the island. A rescue plan to assist the Islanders rebuild would take several weeks to negotiate and agree upon after the news of the disaster finally reached London a week after it occurred."
         },
         {
-          "label": "A",
-          "text": "cyber cafe has opened on the island recently. This is a huge improvement over the past, where customers had to place an order and wait months for it to arrive, only to find out it wasn't what they needed after all. Finally, Tristan da Cunha appears to have become part of the global community."
+          "label": null,
+          "text": "A cyber cafe has opened on the island recently. This is a huge improvement over the past, where customers had to place an order and wait months for it to arrive, only to find out it wasn’t what they needed after all. Finally, Tristan da Cunha appears to have become part of the global community."
         }
       ],
       "groups": [
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter A, B, C or D.",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 27,
-              "prompt": "What does the author have to say about the Islanders?",
+              "prompt": "According to the second paragraph, how did the islanders mainly contact the outside world in the early 1960s?",
               "options": [
                 {
                   "key": "A",
-                  "text": "They might be isolated from the rest of society for a long time."
+                  "text": "by a weekly postal service."
                 },
                 {
                   "key": "B",
-                  "text": "Since they were trapped on the island, they couldn't communicate with the outside world."
+                  "text": "by a regular air service."
                 },
                 {
                   "key": "C",
-                  "text": "They communicated with passing boats by flags and hand signals."
+                  "text": "by signalling to passing fishing boats."
                 },
                 {
                   "key": "D",
-                  "text": "On the resupply ship, they made their way to the mainland."
+                  "text": "by travelling to Cape Town on the supply ship."
                 }
               ],
               "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "explanation": "‘Signalling passing fishing boats was the primary means of contact.’ The island had ‘no airport’, and the supply ship came only ‘once a year’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 28,
-              "prompt": "Tristan da Cunha is a group of islands that the author described as",
+              "prompt": "In the first paragraph, the author describes Tristan da Cunha as",
               "options": [
                 {
                   "key": "A",
-                  "text": "not easy to locate in a crisis."
+                  "text": "difficult to find in an emergency."
                 },
                 {
                   "key": "B",
-                  "text": "Somewhere the Press Was Confused"
+                  "text": "a place where the press was confused."
                 },
                 {
                   "key": "C",
-                  "text": "a country that several nations disputed."
+                  "text": "a territory that several countries disputed."
                 },
                 {
                   "key": "D",
-                  "text": "is not widely known by the general population."
+                  "text": "little known to the general public."
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "‘Not many people outside of London had heard of the archipelago.’",
+              "reference": "Paragraph 1"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write:",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 29,
-              "prompt": "There are frequent lapses in contacting the island.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "prompt": "The residents of Tristan da Cunha are completely independent.",
+              "answer": "NO",
+              "explanation": "Although this was a community that ‘relied on its own resources’, a ship brought the islanders ‘supplies they couldn’t provide themselves’.",
+              "reference": "Paragraphs 2 and 3"
             },
             {
               "number": 30,
-              "prompt": "Tristan da Cunha does not have access to any television networks.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "prompt": "Some of the older islanders died while they were living in England.",
+              "answer": "YES",
+              "explanation": "Several elders ‘passed away since they had never experienced anything like the British Isles’ bitter winters’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 31,
-              "prompt": "The Islanders have been able to make money off of stamp sales.",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "prompt": "Islanders are prone to frequent illness.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage mentions the ailments of Britain’s inhabitants, but says nothing about illness among the islanders themselves."
             },
             {
               "number": 32,
-              "prompt": "After the volcanic explosion, some island residents avoided the island.",
+              "prompt": "Some of the islanders did not vote to return to the island.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘Most of the islanders voted to go back’, so some did not.",
+              "reference": "Paragraph 6"
             },
             {
               "number": 33,
-              "prompt": "Islanders are prone to frequent illness.",
+              "prompt": "Michael Parsons taught on the island for several years.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "He is described as a ‘Young British teacher’ who recalls the island’s isolation, but his length of stay is not given."
             },
             {
               "number": 34,
-              "prompt": "The residents of Tristan da Cunha are completely independent.",
-              "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "prompt": "The hurricane of 2001 damaged the island’s communications.",
+              "answer": "YES",
+              "explanation": "It took out ‘the power grid, the radio station, and the satellite phone connection to the island’.",
+              "reference": "Paragraph 8"
             }
           ]
         },
         {
           "type": "summary_completion",
-          "instruction": "Complete the summary below. Write NO MORE THAN TWO WORDS from the passage for each answer.",
-          "content": "A ( {{35}} )____________ compelled the small population of this remote island to abandon their houses and brought their existence to the attention of ( {{36}} )_____________, bringing widespread attention to Tristan da Cunha for the first time since its colonization in the early nineteenth century. The British government grudgingly allowed the island's inhabitants to return after two years in exile in ( {{37}} )___________ once it was determined that the threat had gone. After the reconstruction was finished, the island's ( {{38}} )______________ improved thanks in part to renewed interest in the( {{39}} )___________________. A ( {{40}} )____________ nearly forty years later again caused widespread destruction on the island.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
+          "title": "The islanders of Tristan da Cunha",
+          "content": "A {{35}} forced the small population of this remote island to leave their homes and brought them to the attention of {{36}}. The islanders were taken to {{37}}, but most of them voted to return, despite opposition from the British government. Once they were back, the island’s {{38}} recovered quickly, helped by the {{39}} surrounding the eruption. Nearly forty years later, a {{40}} again caused widespread damage on the island.",
           "questions": [
             {
               "number": 35,
               "answer": [
-                "Volcanic Eruption"
+                "volcanic eruption",
+                "volcanic explosion"
               ],
-              "explanation": "Found directly in the reading passage: 'Volcanic Eruption'."
+              "explanation": "‘It would take a major volcanic explosion and an emergency evacuation to draw notice to this hidden outpost.’ Later the text refers to ‘the volcanic eruption’.",
+              "reference": "Paragraphs 1 and 7"
             },
             {
               "number": 36,
               "answer": [
-                "The media"
+                "the media",
+                "media"
               ],
-              "explanation": "Found directly in the reading passage: 'The media'."
+              "explanation": "The evacuated islanders ‘received a lot of unwelcome media attention’ and ‘didn’t want to talk to the media’.",
+              "reference": "Paragraphs 4 and 6"
             },
             {
               "number": 37,
               "answer": [
                 "England"
               ],
-              "explanation": "Found directly in the reading passage: 'England'."
+              "explanation": "‘Eventually, everyone ended up in England.’",
+              "reference": "Paragraph 4"
             },
             {
               "number": 38,
               "answer": [
-                "Local Economy",
-                "Economy"
+                "local economy",
+                "economy"
               ],
-              "explanation": "Found directly in the reading passage: 'Local Economy'."
+              "explanation": "‘The local economy quickly rebounded.’",
+              "reference": "Paragraph 7"
             },
             {
               "number": 39,
               "answer": [
-                "Because"
+                "publicity"
               ],
-              "explanation": "Found directly in the reading passage: 'Because'."
+              "explanation": "‘As a result of the publicity surrounding the volcanic eruption, the local economy quickly rebounded.’",
+              "reference": "Paragraph 7"
             },
             {
               "number": 40,
               "answer": [
-                "Hurricane"
+                "hurricane"
               ],
-              "explanation": "Found directly in the reading passage: 'Hurricane'."
+              "explanation": "‘A hurricane ripped across the area’ on 23 May 2001.",
+              "reference": "Paragraph 8"
             }
           ]
         }

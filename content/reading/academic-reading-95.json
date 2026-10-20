@@ -11,19 +11,11 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Reading Passage 163",
+      "title": "Keep Taking the Tablets",
       "paragraphs": [
         {
-          "label": null,
-          "text": "Read the below-reading passage carefully to answer all the challenging questions (27 - 40). Then, verify your answers with the given Keep taking the tablets reading answers."
-        },
-        {
-          "label": null,
-          "text": "Keep Taking the Tablets"
-        },
-        {
           "label": "A",
-          "text": "Aspirin, which was first called \"one of the most astonishing medical breakthroughs\" by Diarmuid Jeffreys, \"is incredibly versatile, curing some of the most dangerous human maladies, reducing headaches, and repairing limbs.\" It can ease your pain."
+          "text": "Aspirin, which was first called “one of the most astonishing medical breakthroughs” by Diarmuid Jeffreys, “is incredibly versatile, curing some of the most dangerous human maladies, reducing headaches, and repairing limbs.” It can ease your pain."
         },
         {
           "label": "B",
@@ -31,7 +23,7 @@
         },
         {
           "label": "C",
-          "text": "There were many reasons why the scientific community of the late nineteenth century was open to experimenting. First, they were eager to find answers to some of the biggest questions in their field. Today, even the most fundamental scientific endeavours, like sequencing the human genome, require a team of experts, a network of computers, and many millions of dollars whereas once a lone researcher with a few chemicals and a test tube can discover new knowledge."
+          "text": "There were many reasons why the scientific community of the late nineteenth century was open to experimenting. First, they were eager to find answers to some of the biggest questions in their field. Today, even the most fundamental scientific endeavours, like sequencing the human genome, require a team of experts, a network of computers, and many millions of dollars whereas once a lone researcher with a few chemicals and a test tube could discover new knowledge."
         },
         {
           "label": "D",
@@ -39,21 +31,30 @@
         },
         {
           "label": "E",
-          "text": "There is an astonishing correlation between enormous wealth and advances in the pharmaceutical industry. Huge sums of money were spent on advertising to ensure its continued viability as a popular pain reliever during its first 70 years of existence. In the 1970s, pharmaceutical companies devoted resources to promoting new pain relievers such as ibuprofen and acetaminophen. As these findings unfold, new information becomes available about aspirin's ability to reduce the risk of cardiovascular disease, stroke, and other problems. may have been lost forever."
+          "text": "There is an astonishing correlation between enormous wealth and advances in the pharmaceutical industry. Huge sums of money were spent on advertising to ensure its continued viability as a popular pain reliever during its first 70 years of existence. In the 1970s, pharmaceutical companies devoted resources to promoting new pain relievers such as ibuprofen and acetaminophen. As these findings unfold, new information becomes available about aspirin’s ability to reduce the risk of cardiovascular disease, stroke, and other problems."
         },
         {
           "label": "F",
-          "text": "Against this background, the relationship between huge amounts of money and drugs is puzzling. Continuous access to our products for innovation and scientific research is built on commercial success. In contrast, the commercial market can eliminate products as much as more desirable ones emerge. Aspirin is an example of a potential 'miracle drug' that has existed for over 70 years without any clear knowledge of its mechanism of action, yet is highly profitable. If ibuprofen and paracetamol were on the market ten years before him, aspirin might not exist today. The drug had been lying around for some time, so no one had looked into it. G. The relatively recently discovered benefits of aspirin have been identified by public sector scientists, not by multinational pharmaceutical companies. That's why. The pharmaceutical industry, which \"only invests in profitable research,\" has decided that aspirin is no longer profitable. With low production costs, low-profit margins, and no patent protection, anyone can make one. This could lead to a drop in sales of more expensive products and bankruptcy, so pharmaceutical companies have put a strong brake on promoting the drug."
+          "text": "Against this background, the relationship between huge amounts of money and drugs is puzzling. Continuous access to our products for innovation and scientific research is built on commercial success. In contrast, the commercial market can eliminate products as much as more desirable ones emerge. Aspirin is an example of a potential ‘miracle drug’ that has existed for over 70 years without any clear knowledge of its mechanism of action, yet was highly profitable. If ibuprofen and paracetamol were on the market ten years before it, aspirin might not exist today. The drug had been lying around for some time, so no one had looked into it."
+        },
+        {
+          "label": "G",
+          "text": "The relatively recently discovered benefits of aspirin have been identified by public sector scientists, not by multinational pharmaceutical companies. This is because the pharmaceutical industry, which “only invests in profitable research,” has decided that aspirin is no longer profitable. With low production costs, low-profit margins, and no patent protection, anyone can make one. This could lead to a drop in sales of more expensive products and bankruptcy, so pharmaceutical companies have put a strong brake on promoting the drug."
         },
         {
           "label": "H",
-          "text": "So how can we get more drug companies interested in the medical use of aspirin? Jeffreys argues that more federal funding should be spent on clinical research. If I was in healthcare, I would make a different decision. That said, \"This drug is really affordable. It could potentially be used in a variety of other situations.\" You'd have to spend a lot more money to find out. I. In addition to describing the creation of the \"wonder medication,\" Jeffries's book investigates the necessity of such study by analysing the nature of the innovation and the roles played by major corporations, public funding, and regulation."
+          "text": "So how can we get more drug companies interested in the medical use of aspirin? Jeffreys argues that more federal funding should be spent on clinical research. “This drug is really affordable. It could potentially be used in a variety of other situations.” You’d have to spend a lot more money to find out."
+        },
+        {
+          "label": "I",
+          "text": "In addition to describing the creation of the “wonder medication,” Jeffreys’s book investigates the necessity of such study by analysing the nature of the innovation and the roles played by major corporations, public funding, and regulation."
         }
       ],
       "groups": [
         {
           "type": "matching_sentence_endings",
-          "instruction": "Complete each sentence with the correct ending A-H from the box below. Write the correct letter A-H in boxes 27-32 on your answer sheet.",
+          "instruction": "Complete each sentence with the correct ending, **A–H**, below.",
+          "optionsTitle": "List of Endings",
           "options": [
             {
               "key": "A",
@@ -73,7 +74,7 @@
             },
             {
               "key": "E",
-              "text": "the medical uses of a particular tree"
+              "text": "the medical uses of a particular tree."
             },
             {
               "key": "F",
@@ -91,98 +92,109 @@
           "questions": [
             {
               "number": 1,
-              "prompt": "Ancient Greeks and Egyptians had practical knowledge",
+              "prompt": "The ancient Greeks and Egyptians had practical knowledge of",
               "answer": "E",
-              "explanation": "Refer to item E in the passage."
+              "explanation": "Willow tree extract ‘was a common pain reliever in ancient Egypt’, and Hippocrates ‘advocated willow bark as a treatment for labour pains’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 2,
-              "prompt": "Successful replication made Frederick Bayer & Co. possible.",
+              "prompt": "Bayer’s development of aspirin was based on research into",
               "answer": "G",
-              "explanation": "Refer to item G in the passage."
+              "explanation": "Aspirin was developed from ‘salicylates, chemicals found in willow trees’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 3,
-              "prompt": "Aspirin's success can be traced in part to the results of",
+              "prompt": "Aspirin’s success can be traced in part to the results of",
               "answer": "D",
-              "explanation": "Refer to item D in the passage."
+              "explanation": "‘The 19th century saw an intensification of both scientific progress and the rise of industry.’",
+              "reference": "Paragraph D"
             },
             {
               "number": 4,
-              "prompt": "Aspirin achieved market penetration as an analgesic",
+              "prompt": "Aspirin became established as a popular pain reliever through",
               "answer": "H",
-              "explanation": "Refer to item H in the passage."
+              "explanation": "‘Huge sums of money were spent on advertising to ensure its continued viability as a popular pain reliever.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 5,
-              "prompt": "Aspirin availability may have been compromised if.",
+              "prompt": "Recent research into aspirin has led to",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "‘New information becomes available about aspirin’s ability to reduce the risk of cardiovascular disease, stroke, and other problems.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 6,
-              "prompt": "No one has studied how aspirin actually works.",
+              "prompt": "The promotion of aspirin as a medicine has been held back by",
               "answer": "C",
-              "explanation": "Refer to item C in the passage."
+              "explanation": "‘Pharmaceutical companies have put a strong brake on promoting the drug.’",
+              "reference": "Paragraph G"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the views of the writer in the Reading Passage? In boxes 33-37 on your answer sheet write -",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 1? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 7,
-              "prompt": "Nineteenth-century scientists were able to make important discoveries through small-scale",
+              "prompt": "In the nineteenth century, important discoveries could be made by a single scientist working on a small scale.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "The writer contrasts today’s teams with the time ‘once a lone researcher with a few chemicals and a test tube could discover new knowledge’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 8,
-              "prompt": "The industrial revolution of the 19th century changed where scientists look for answers.",
+              "prompt": "The industrial revolution of the 19th century changed where scientists looked for answers.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage says ‘The 19th century saw an intensification of both scientific progress and the rise of industry’, but nothing about scientists changing where they looked for answers."
             },
             {
               "number": 9,
-              "prompt": "The discovery and development of aspirin in the 19th century followed a set schedule.",
+              "prompt": "The discovery of aspirin was a single event.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "‘The discovery of aspirin was a long process with many small milestones leading up to the big announcement.’",
+              "reference": "Paragraph D"
             },
             {
               "number": 10,
-              "prompt": "New pain relievers surpassed aspirin in the 1970s.",
+              "prompt": "New pain relievers overtook aspirin in sales in the 1970s.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage says companies promoted ‘new pain relievers such as ibuprofen and acetaminophen’ in the 1970s, but gives no sales figures or comparison with aspirin."
             },
             {
               "number": 11,
-              "prompt": "The availability of pharmaceuticals may be affected, for better or worse, by the actions of",
+              "prompt": "Decisions made by pharmaceutical companies can affect whether a drug remains available.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "Companies ‘have put a strong brake on promoting the drug’, and ‘aspirin might not exist today’ had other painkillers appeared earlier.",
+              "reference": "Paragraphs F and G"
             }
           ]
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 12,
-              "prompt": "Question 38",
+              "prompt": "Which kind of scientists identified the relatively recently discovered benefits of aspirin?",
               "answer": [
-                "first"
+                "public sector"
               ],
-              "explanation": "Found directly in the reading passage: 'first'."
+              "explanation": "The benefits ‘have been identified by public sector scientists, not by multinational pharmaceutical companies’.",
+              "reference": "Paragraph G"
             },
             {
               "number": 13,
-              "prompt": "Question 39",
+              "prompt": "What does Jeffreys argue that more federal funding should be spent on?",
               "answer": [
-                "dangerous"
+                "clinical research"
               ],
-              "explanation": "Found directly in the reading passage: 'dangerous'."
+              "explanation": "‘Jeffreys argues that more federal funding should be spent on clinical research.’",
+              "reference": "Paragraph H"
             }
           ]
         }
@@ -190,53 +202,49 @@
     },
     {
       "passageNumber": 2,
-      "title": "Answers for Hydrogen Cars",
+      "title": "Hydrogen Cars",
       "paragraphs": [
-        {
-          "label": "A",
-          "text": "Hydrogen Cars"
-        },
         {
           "label": "A",
           "text": "Due to record-high gasoline prices, road trips are more expensive than ever. But what if your car ran on the most abundant element in the universe instead of gasoline? Hydrogen will eventually replace gasoline, diesel, and natural gas as the primary fuel for automobiles, buses, and trucks, according to numerous experts. Global automobile manufacturers have already invested billions of dollars in research and development."
         },
         {
           "label": "B",
-          "text": "The benefits of hydrogen are enormous: no smog-forming exhaust gases, no carbon dioxide emissions that contribute to global warming, and no concerns regarding diminishing oil supplies and rising prices. Before mass-produced hydrogen vehicles can hit the road, however, a number of challenging questions must be answered. Where will the hydrogen supply originate? How will motorists fuel up? How will automobiles store fuel? There is also the question of how to optimally utilise the energy in the fuel for optimal performance on the road"
+          "text": "The benefits of hydrogen are enormous: no smog-forming exhaust gases, no carbon dioxide emissions that contribute to global warming, and no concerns regarding diminishing oil supplies and rising prices. Before mass-produced hydrogen vehicles can hit the road, however, a number of challenging questions must be answered. Where will the hydrogen supply originate? How will motorists fuel up? How will automobiles store fuel? There is also the question of how to optimally utilise the energy in the fuel for optimal performance on the road."
         },
         {
           "label": "C",
-          "text": "Hydrogen can be used as a fuel in two types of engines: those with a converted internal combustion engine and those with a stack of fuel cells. Automobiles have been powered by internal combustion engines for more than a century, when they replaced horse-drawn carriages. These engines are compatible with a variety of fuels, including hydrogen. However, the majority of automakers consider fuel cells powered by an electric motor to be the superior option. In contrast to heavy batteries that must be recharged frequently, fuel cells generate electricity as they move. Recent technological advancements have substantially increased a cell stack's power output. This has paved the way for electric vehicles with low emissions."
+          "text": "Hydrogen can be used as a fuel in two types of engines: those with a converted internal combustion engine and those with a stack of fuel cells. Automobiles have been powered by internal combustion engines for more than a century, when they replaced horse-drawn carriages. These engines are compatible with a variety of fuels, including hydrogen. However, the majority of automakers consider fuel cells powered by an electric motor to be the superior option. In contrast to heavy batteries that must be recharged frequently, fuel cells generate electricity as they move. Recent technological advancements have substantially increased a cell stack’s power output. This has paved the way for electric vehicles with low emissions."
         },
         {
           "label": "D",
-          "text": "Fuel cell technology seems straightforward. This is the opposite of the well-known electrolysis process, which releases oxygen and hydrogen from water. Obviously, it is somewhat more difficult in practise. Efficiency is the primary advantage of a hydrogen-powered internal combustion engine over a fuel cell engine. Using the same quantity of hydrogen, a fuel cell vehicle can travel at least twice as far as an internal combustion engine vehicle."
+          "text": "Fuel cell technology seems straightforward. This is the opposite of the well-known electrolysis process, which releases oxygen and hydrogen from water. Obviously, it is somewhat more difficult in practise. Efficiency is the primary advantage of a fuel cell engine over a hydrogen-powered internal combustion engine. Using the same quantity of hydrogen, a fuel cell vehicle can travel at least twice as far as an internal combustion engine vehicle."
         },
         {
           "label": "E",
-          "text": "Although hydrogen has numerous advantages as a vehicle fuel, it is difficult to store. This is due to the fact that hydrogen is a gas at normal temperatures. The obvious solution is to compress or liquidity the hydrogen. On the other hand, tanks designed to store hydrogen at extremely high pressures or temperatures close to absolute zero are cumbersome and expensive. Consequently, the primary disadvantages of refueling with liquid hydrogen are likely to be the high cost and the substantial amount of energy required to liquefy the fuel. Although compressed hydrogen gas refueling may reduce the distance between fill-ups, it is more practical. Hydrogen could be stored in automobiles in high-pressure tanks comparable to those used for compressed natural gas, or in carbon that has been specially treated."
+          "text": "Although hydrogen has numerous advantages as a vehicle fuel, it is difficult to store. This is due to the fact that hydrogen is a gas at normal temperatures. The obvious solution is to compress or liquefy the hydrogen. On the other hand, tanks designed to store hydrogen at extremely high pressures or temperatures close to absolute zero are cumbersome and expensive. Consequently, the primary disadvantages of refueling with liquid hydrogen are likely to be the high cost and the substantial amount of energy required to liquefy the fuel. Although compressed hydrogen gas refueling may reduce the distance between fill-ups, it is more practical. Hydrogen could be stored in automobiles in high-pressure tanks comparable to those used for compressed natural gas, or in carbon that has been specially treated."
         },
         {
           "label": "F",
-          "text": "Although there is no risk of Hydrogen depletion, it occurs naturally on Earth only as chemical compounds and not as Hydrogen gas. At central plants or filling stations, hydrogen gas for automobiles can be produced by steam reforming, a relatively simple technology. Alternatively, gasoline or methanol could be used in the tanks, with reformers onboard producing Hydrogen for the fuel cells. While research into hydrogen storage issues continues, this interim solution appears promising. Hydrogen's only potentially pollution-free source is water. Utilizing algae, bacteria, or photovoltaic cells to absorb sunlight and split water into Hydrogen and oxygen are a few of the new methods being investigated to produce Hydrogen from water. However, electrolysis, which uses an electric current to separate water into oxygen and hydrogen, is most likely to be adopted on a large scale."
+          "text": "Although there is no risk of hydrogen depletion, it occurs naturally on Earth only as chemical compounds and not as hydrogen gas. At central plants or filling stations, hydrogen gas for automobiles can be produced by steam reforming, a relatively simple technology. Alternatively, gasoline or methanol could be used in the tanks, with reformers onboard producing hydrogen for the fuel cells. While research into hydrogen storage issues continues, this interim solution appears promising. Hydrogen’s only potentially pollution-free source is water. Utilizing algae, bacteria, or photovoltaic cells to absorb sunlight and split water into hydrogen and oxygen are a few of the new methods being investigated to produce hydrogen from water. However, electrolysis, which uses an electric current to separate water into oxygen and hydrogen, is most likely to be adopted on a large scale."
         },
         {
           "label": "G",
-          "text": "'Remember the Hindenburg.' - This is a common phrase when referring to Hydrogen. In May 1937, this German hydrogen-powered passenger airship crashed as it approached Lakehurst, New Jersey, United States. There were 35 fatalities. Helium, a noncombustible gas, is the fuel of choice for lighter-than-air aircraft at present. Despite the fact that hydrogen is extremely flammable, recent research suggests that the Hindenburg disaster was caused by the airship's fabric, not hydrogen. There is no reason to believe that hydrogen is a more hazardous fuel than gasoline, the explosive liquid currently stored safely in the tanks of countless millions of automobiles."
+          "text": "‘Remember the Hindenburg’ is a common phrase when referring to hydrogen. In May 1937, this German hydrogen-powered passenger airship crashed as it approached Lakehurst, New Jersey, United States. There were 35 fatalities. Helium, a noncombustible gas, is the fuel of choice for lighter-than-air aircraft at present. Despite the fact that hydrogen is extremely flammable, recent research suggests that the Hindenburg disaster was caused by the airship’s fabric, not hydrogen. There is no reason to believe that hydrogen is a more hazardous fuel than gasoline, the explosive liquid currently stored safely in the tanks of countless millions of automobiles."
         },
         {
           "label": "H",
-          "text": "Recent technological advancements, particularly in fuel cell design, have made hydrogen-powered automobiles a viable option, with automakers expecting mass production to commence within the next decade or so. Their power and acceleration should be comparable to conventionally-powered automobiles of today, but they may require more frequent refuelling. The optimal strategies for producing, distributing, and storing hydrogen are still under investigation. Short-term, fossil fuels may continue to be a popular source of hydrogen. However, it is no longer a pipe dream that in the not-too-distant future, the majority of us will be driving non-polluting cars powered by Hydrogen from a clean, renewable source."
+          "text": "Recent technological advancements, particularly in fuel cell design, have made hydrogen-powered automobiles a viable option, with automakers expecting mass production to commence within the next decade or so. Their power and acceleration should be comparable to conventionally-powered automobiles of today, but they may require more frequent refuelling. The optimal strategies for producing, distributing, and storing hydrogen are still under investigation. Short-term, fossil fuels may continue to be a popular source of hydrogen. However, it is no longer a pipe dream that in the not-too-distant future, the majority of us will be driving non-polluting cars powered by hydrogen from a clean, renewable source."
         }
       ],
       "groups": [
         {
           "type": "multiple_choice",
-          "instruction": "Choose the appropriate letters A - D that best answer the question.",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 14,
-              "prompt": "Which of the following Hydrogen production methods for Hydrogen-powered cars is viewed in",
+              "prompt": "Which of the following methods of producing hydrogen for cars is expected to remain popular in the short term?",
               "options": [
                 {
                   "key": "A",
@@ -244,49 +252,51 @@
                 },
                 {
                   "key": "B",
-                  "text": "A technique for generating hydrogen from water vapor."
+                  "text": "A technique for generating hydrogen from water vapour."
                 },
                 {
                   "key": "C",
-                  "text": "A method of producing hydrogen that involves the use of microscopic organisms."
+                  "text": "A method that involves the use of microscopic organisms."
                 },
                 {
                   "key": "D",
-                  "text": "An electrolysis basis Hydrogen production system."
+                  "text": "A system based on electrolysis."
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "‘Short-term, fossil fuels may continue to be a popular source of hydrogen.’ Electrolysis is the method ‘most likely to be adopted on a large scale’, not the short-term one.",
+              "reference": "Paragraph H"
             },
             {
               "number": 15,
-              "prompt": "Which of the following is NOT a potential problem with the introduction of Hydrogen cars?",
+              "prompt": "Which of the following is NOT mentioned in the passage as a challenge for hydrogen cars?",
               "options": [
                 {
                   "key": "A",
-                  "text": "The frequency of refueling stops."
+                  "text": "How often the cars must be refuelled."
                 },
                 {
                   "key": "B",
-                  "text": "The production of byproducts from the electricity generation process."
+                  "text": "Pollution created by generating the electricity used to make hydrogen."
                 },
                 {
                   "key": "C",
-                  "text": "The volatility of Hydrogen."
+                  "text": "The flammability of hydrogen."
                 },
                 {
                   "key": "D",
-                  "text": "Keeping Hydrogen in cars."
+                  "text": "Storing hydrogen in the car."
                 }
               ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "answer": "B",
+              "explanation": "Frequent refuelling (‘may require more frequent refuelling’), flammability (the Hindenburg) and storage (‘it is difficult to store’) are all discussed; pollution from generating electricity is never mentioned.",
+              "reference": "Paragraphs E, G and H"
             }
           ]
         },
         {
           "type": "matching_headings",
-          "instruction": "Reading Passage 1 has 8 paragraphs (AH). From the list of headings below choose the most suitable headings for paragraphs B - H. Write the appropriate number (i - xi) in boxes 3 - 9 on",
+          "instruction": "Reading Passage 2 has eight paragraphs, **A–H**. Choose the correct heading for paragraphs **B–H** from the list of headings below.",
           "optionsTitle": "List of Headings",
           "options": [
             {
@@ -295,7 +305,7 @@
             },
             {
               "key": "ii",
-              "text": "Traditional Production Methods"
+              "text": "Early Experiments with Hydrogen"
             },
             {
               "key": "iii",
@@ -303,7 +313,7 @@
             },
             {
               "key": "iv",
-              "text": "A Wide Range of Options"
+              "text": "A Choice of Engines"
             },
             {
               "key": "v",
@@ -311,11 +321,11 @@
             },
             {
               "key": "vi",
-              "text": "Good idea, but..."
+              "text": "Good Idea, but..."
             },
             {
               "key": "vii",
-              "text": "Hydrogen Production Today"
+              "text": "Government Support for Hydrogen"
             },
             {
               "key": "viii",
@@ -327,102 +337,116 @@
             },
             {
               "key": "x",
-              "text": "The Internal Combustion Engine's Operation"
+              "text": "The Internal Combustion Engine’s Operation"
             },
             {
               "key": "xi",
-              "text": "The Engine Problem"
+              "text": "The History of the Motor Car"
             }
           ],
           "questions": [
             {
               "number": 16,
               "prompt": "Paragraph B",
-              "answer": "viii",
-              "explanation": "Refer to Paragraph B in the passage."
+              "answer": "vi",
+              "explanation": "‘The benefits of hydrogen are enormous’, but ‘a number of challenging questions must be answered’ before mass-produced cars can appear.",
+              "reference": "Paragraph B"
             },
             {
               "number": 17,
               "prompt": "Paragraph C",
-              "answer": "i",
-              "explanation": "Refer to Paragraph C in the passage."
+              "answer": "iv",
+              "explanation": "‘Hydrogen can be used as a fuel in two types of engines’: a converted internal combustion engine or a stack of fuel cells.",
+              "reference": "Paragraph C"
             },
             {
               "number": 18,
               "prompt": "Paragraph D",
-              "answer": "ix",
-              "explanation": "Refer to Paragraph D in the passage."
+              "answer": "viii",
+              "explanation": "The paragraph explains how a fuel cell works: it is ‘the opposite of the well-known electrolysis process’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 19,
               "prompt": "Paragraph E",
-              "answer": "iii",
-              "explanation": "Refer to Paragraph E in the passage."
+              "answer": "i",
+              "explanation": "‘Although hydrogen has numerous advantages as a vehicle fuel, it is difficult to store.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 20,
               "prompt": "Paragraph F",
-              "answer": "v",
-              "explanation": "Refer to Paragraph F in the passage."
+              "answer": "ix",
+              "explanation": "‘Hydrogen gas for automobiles can be produced by steam reforming’, and water is the only potentially pollution-free source.",
+              "reference": "Paragraph F"
             },
             {
               "number": 21,
               "prompt": "Paragraph G",
-              "answer": "i",
-              "explanation": "Refer to Paragraph G in the passage."
+              "answer": "iii",
+              "explanation": "‘Despite the fact that hydrogen is extremely flammable’, the paragraph weighs the danger, citing the Hindenburg disaster.",
+              "reference": "Paragraph G"
             },
             {
               "number": 22,
               "prompt": "Paragraph H",
-              "answer": "i",
-              "explanation": "Refer to Paragraph H in the passage."
+              "answer": "v",
+              "explanation": "‘It is no longer a pipe dream that in the not-too-distant future, the majority of us will be driving non-polluting cars.’",
+              "reference": "Paragraph H"
             }
           ]
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
           "questions": [
             {
               "number": 23,
-              "prompt": "Question 10",
+              "prompt": "What do fuel cells generate as they move, unlike batteries that must be recharged often?",
               "answer": [
-                "These"
+                "electricity"
               ],
-              "explanation": "Found directly in the reading passage: 'These'."
+              "explanation": "‘Fuel cells generate electricity as they move.’",
+              "reference": "Paragraph C"
             },
             {
               "number": 24,
-              "prompt": "Question 11",
+              "prompt": "Using the same quantity of hydrogen, how far can a fuel cell vehicle travel compared with an internal combustion engine vehicle?",
               "answer": [
-                "The Airship's Fabric"
+                "twice as far",
+                "at least twice"
               ],
-              "explanation": "Found directly in the reading passage: 'The Airship's Fabric'."
+              "explanation": "A fuel cell vehicle ‘can travel at least twice as far as an internal combustion engine vehicle’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 25,
-              "prompt": "Question 12",
+              "prompt": "Besides the energy needed to liquefy the fuel, what is a main disadvantage of refuelling with liquid hydrogen?",
               "answer": [
-                "Power and Acceleration"
+                "high cost"
               ],
-              "explanation": "Found directly in the reading passage: 'Power and Acceleration'."
+              "explanation": "The disadvantages ‘are likely to be the high cost and the substantial amount of energy required to liquefy the fuel’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 26,
-              "prompt": "Question 13",
+              "prompt": "Which process, using an electric current to split water into oxygen and hydrogen, is most likely to be adopted on a large scale?",
               "answer": [
-                "technological"
+                "electrolysis"
               ],
-              "explanation": "Found directly in the reading passage: 'technological'."
+              "explanation": "‘Electrolysis, which uses an electric current to separate water into oxygen and hydrogen, is most likely to be adopted on a large scale.’",
+              "reference": "Paragraph F"
             },
             {
               "number": 27,
-              "prompt": "Question 14",
+              "prompt": "According to recent research, what caused the Hindenburg disaster?",
               "answer": [
-                "A"
+                "the airship’s fabric",
+                "airship’s fabric"
               ],
-              "explanation": "Found directly in the reading passage: 'A'."
+              "explanation": "Recent research suggests the disaster ‘was caused by the airship’s fabric, not hydrogen’.",
+              "reference": "Paragraph G"
             }
           ]
         }
@@ -431,18 +455,11 @@
     {
       "passageNumber": 3,
       "title": "The Art of Healing",
+      "subtitle": "As with so many other things, Tang medicine outperformed its European counterpart. It had its own “national health service” and left behind the teachings of the legendary Sun Simiao.",
       "paragraphs": [
         {
-          "label": null,
-          "text": "Examine your The art of healing reading answers can be found after the passage and the question types. Examine your answers to identify and correct any errors."
-        },
-        {
-          "label": null,
-          "text": "As with so many other things, Tang medicine outperformed its European counterpart. It had its own \"national health service\" and left behind the teachings of the legendary Sun Simiao."
-        },
-        {
           "label": "A",
-          "text": "If no other evidence of Tang-era Chinese sophistication were available, a look at Chinese medicine would suffice. The Roman empire had vanished at the western end of the Eurasian continent, and there was nowhere new to claim the status of the world's cultural and political center. Indeed, for a few centuries, this center was the capital of the Tang empire, and Tang Chinese medicine was far ahead of its European counterpart. The organizational context of health and healing was structured to an extent unprecedented in Chinese history and without precedent elsewhere."
+          "text": "If no other evidence of Tang-era Chinese sophistication were available, a look at Chinese medicine would suffice. The Roman empire had vanished at the western end of the Eurasian continent, and there was nowhere new to claim the status of the world’s cultural and political center. Indeed, for a few centuries, this center was the capital of the Tang empire, and Tang Chinese medicine was far ahead of its European counterpart. The organizational context of health and healing was structured to an extent unprecedented in Chinese history and without precedent elsewhere."
         },
         {
           "label": "B",
@@ -454,23 +471,23 @@
         },
         {
           "label": "D",
-          "text": "In 723, Emperor Xuanzong personally composed and sent to all provincial medical schools a general formulary of prescriptions recommended to him by one of his imperial pharmacists. An Arabic traveler who visited China in 851 was surprised to see prescriptions from the emperor's formulary posted on notice boards at crossroads to improve the population's well-being."
+          "text": "In 723, Emperor Xuanzong personally composed and sent to all provincial medical schools a general formulary of prescriptions recommended to him by one of his imperial pharmacists. An Arabic traveler who visited China in 851 was surprised to see prescriptions from the emperor’s formulary posted on notice boards at crossroads to improve the population’s well-being."
         },
         {
           "label": "E",
-          "text": "The government took precautions to shield the general public from potentially harmful medical practices. The Tang legal code was the first in China to include laws prohibiting harmful and unconventional medical practices. For example, treating patients for money without following standard procedures was defined as fraud combined with theft and had to be prosecuted in accordance with theft laws. If such therapies resulted in a patient's death, the healer was to be exiled for two and a half years. If a physician purposefully failed to practice in accordance with the standards, he was to be tried under the statutes governing premeditated homicide. Even if no one was harmed, he was sentenced to sixty strokes with a heavy cane."
+          "text": "The government took precautions to shield the general public from potentially harmful medical practices. The Tang legal code was the first in China to include laws prohibiting harmful and unconventional medical practices. For example, treating patients for money without following standard procedures was defined as fraud combined with theft and had to be prosecuted in accordance with theft laws. If such therapies resulted in a patient’s death, the healer was to be exiled for two and a half years. If a physician purposefully failed to practice in accordance with the standards, he was to be tried under the statutes governing premeditated homicide. Even if no one was harmed, he was sentenced to sixty strokes with a heavy cane."
         },
         {
           "label": "F",
-          "text": "In fact, Tang-era physicians had access to a wealth of pharmaceutical and medical texts, with contents ranging from purely pragmatic advice to highly sophisticated theoretical considerations. Concise descriptions of the position, morphology, and functions of the human body's organs coexisted in libraries with books that allowed readers to calculate the daily, seasonal, and annual climatic conditions of sixty-year cycles and understand and predict their effects on health."
+          "text": "In fact, Tang-era physicians had access to a wealth of pharmaceutical and medical texts, with contents ranging from purely pragmatic advice to highly sophisticated theoretical considerations. Concise descriptions of the position, morphology, and functions of the human body’s organs coexisted in libraries with books that allowed readers to calculate the daily, seasonal, and annual climatic conditions of sixty-year cycles and understand and predict their effects on health."
         },
         {
           "label": "G",
-          "text": "Several Tang authors compiled large collections of prescriptions, carrying on a literary tradition that dates back to the 2nd century BC. Sun Simiao's (581-682?) and Wang Tao's (581-682?) works were the two most notable to be mentioned here (c.670-755). The latter was a librarian who copied over 6,000 formulas from sixty-five older works and published them under the title Wciitai Miyao, which was divided into 1,104 sections. Ophthalmology, for example, received twenty-four sections. They reflect the Indian origins of much Chinese knowledge on eye ailments, particularly cataract surgery."
+          "text": "Several Tang authors compiled large collections of prescriptions, carrying on a literary tradition that dates back to the 2nd century BC. Sun Simiao’s (581-682?) and Wang Tao’s (c. 670-755) works were the two most notable to be mentioned here. The latter was a librarian who copied over 6,000 formulas from sixty-five older works and published them under the title Waitai Miyao, which was divided into 1,104 sections. Ophthalmology, for example, received twenty-four sections. They reflect the Indian origins of much Chinese knowledge on eye ailments, particularly cataract surgery."
         },
         {
           "label": "H",
-          "text": "Sun Simiao was not only the Tang dynasty's most eminent physician and author but also the first millennium AD's most eminent physician and author. He was a well-educated intellectual and physician, and his worldview incorporated ideas from all three major currents competing at the time: Confucianism, Daoism, and Buddhism. Sun Simiao rose to prominence as a clinician (he was summoned to the imperial court at least once) and as the author of Prescriptions Worth Thousands in Gold (Qianjinfang) and its sequel. In contrast to developments in the 12th century, physicians treated their patients' illnesses with prescriptions and single substances. The acupuncture tradition's theories of systematic correspondences had not yet been extended to cover pharmacology."
+          "text": "Sun Simiao was not only the Tang dynasty’s most eminent physician and author but also the first millennium AD’s most eminent physician and author. He was a well-educated intellectual and physician, and his worldview incorporated ideas from all three major currents competing at the time: Confucianism, Daoism, and Buddhism. Sun Simiao rose to prominence as a clinician (he was summoned to the imperial court at least once) and as the author of Prescriptions Worth Thousands in Gold (Qianjinfang) and its sequel. In contrast to developments in the 12th century, physicians treated their patients’ illnesses with prescriptions and single substances. The acupuncture tradition’s theories of systematic correspondences had not yet been extended to cover pharmacology."
         },
         {
           "label": "I",
@@ -484,156 +501,168 @@
       "groups": [
         {
           "type": "summary_completion",
-          "instruction": "Complete the sentences below with words taken from the art of healing reading passage",
-          "content": "The first known medical writing in China dates back to the {{28}} .__________During the Tang era, doctors depended most on {{29}} ._________and single substances to treat their patients. {{30}} ._____________ is famous for producing a set of medical rules for Chinese physicians.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
+          "title": "Medicine in the Tang dynasty",
+          "content": "Writing collections of prescriptions was a literary tradition in China that dates back to the {{28}} BC. In the Tang era, physicians treated their patients’ illnesses mainly with {{29}} and single substances. {{30}} was the first Chinese author to write a detailed medical ethical code.",
           "questions": [
             {
               "number": 28,
               "answer": [
-                "2nd Century"
+                "2nd century"
               ],
-              "explanation": "Found directly in the reading passage: '2nd Century'."
+              "explanation": "Collecting prescriptions was ‘a literary tradition that dates back to the 2nd century BC’.",
+              "reference": "Paragraph G"
             },
             {
               "number": 29,
               "answer": [
-                "Prescriptions"
+                "prescriptions"
               ],
-              "explanation": "Found directly in the reading passage: 'Prescriptions'."
+              "explanation": "Physicians ‘treated their patients’ illnesses with prescriptions and single substances’.",
+              "reference": "Paragraph H"
             },
             {
               "number": 30,
               "answer": [
                 "Sun Simiao"
               ],
-              "explanation": "Found directly in the reading passage: 'Sun Simiao'."
+              "explanation": "‘Sun Simiao was the first Chinese author to write a detailed medical ethical code.’",
+              "reference": "Paragraph I"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the appropriate letters A-D. 4. The writer specifically mentions in the first paragraph",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 31,
-              "prompt": "The writer specifically mentions in the first paragraph",
+              "prompt": "In the first paragraph, the writer mentions",
               "options": [
                 {
                   "key": "A",
-                  "text": "Prior to the Tang dynasty, there was a lack of medical knowledge in China."
+                  "text": "a lack of medical knowledge in China before the Tang dynasty."
                 },
                 {
                   "key": "B",
-                  "text": "the Tang era's Western interest in Chinese medicine"
+                  "text": "Western interest in Chinese medicine during the Tang era."
                 },
                 {
                   "key": "C",
-                  "text": "the Tang period's systematic approach to medical issues"
+                  "text": "the systematic way in which the Tang period organised medicine."
                 },
                 {
                   "key": "D",
-                  "text": "the Tang era rivalry between Chinese and Western cultures"
+                  "text": "rivalry between Chinese and Western cultures in the Tang era."
                 }
               ],
               "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "explanation": "‘The organizational context of health and healing was structured to an extent unprecedented in Chinese history.’",
+              "reference": "Paragraph A"
             },
             {
               "number": 32,
-              "prompt": "During the Tang dynasty, a government doctor's annual salary was determined by",
+              "prompt": "During the Tang dynasty, the pay of a government doctor was decided by",
               "options": [
                 {
                   "key": "A",
-                  "text": "the efficacy of his treatment"
+                  "text": "the success of his treatments."
                 },
                 {
                   "key": "B",
-                  "text": "the breadth of his medical knowledge"
+                  "text": "the breadth of his medical knowledge."
                 },
                 {
                   "key": "C",
-                  "text": "how many people he had successfully trained"
+                  "text": "how many people he had trained."
                 },
                 {
                   "key": "D",
-                  "text": "the breadth of his medical knowledge"
+                  "text": "his seniority in the Imperial Medical Office."
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Physicians ‘were paid based on the number of cures they performed in the previous year’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 33,
-              "prompt": "Which of the following broke the law during the Tang dynasty?",
+              "prompt": "According to the Tang legal code, which of the following was a crime?",
               "options": [
                 {
                   "key": "A",
-                  "text": "refusal to practice by a qualified doctor"
+                  "text": "Refusal by a qualified doctor to practise."
                 },
                 {
                   "key": "B",
-                  "text": "the use of unconventional medical practices"
+                  "text": "The use of unconventional medical practices."
                 },
                 {
                   "key": "C",
-                  "text": "a patient who is dying as a result of medical treatment"
+                  "text": "The death of a patient during medical treatment."
                 },
                 {
                   "key": "D",
-                  "text": "money received for medical treatment"
+                  "text": "Receiving money for medical treatment."
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "The code ‘was the first in China to include laws prohibiting harmful and unconventional medical practices’; payment alone was not an offence.",
+              "reference": "Paragraph E"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the art of healing reading",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 34,
-              "prompt": "Statement regarding Question 7.",
+              "prompt": "The Tang administration set up medical colleges only in the capital.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "It established ‘one central and several provincial medical colleges’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 35,
-              "prompt": "Statement regarding Question 8.",
+              "prompt": "Students at the Tang medical colleges had to pay for their training.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage describes the colleges’ staff and the four departments of study but says nothing about fees."
             },
             {
               "number": 36,
-              "prompt": "Statement regarding Question 9.",
+              "prompt": "Few ordinary people could read the prescriptions that were posted at crossroads.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage says prescriptions were posted at crossroads ‘to improve the population’s well-being’ but never mentions whether people could read them."
             },
             {
               "number": 37,
-              "prompt": "Statement regarding Question 10.",
+              "prompt": "A doctor who treated patients for money without following standard procedures could be charged with fraud.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "Such treatment ‘was defined as fraud combined with theft’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 38,
-              "prompt": "Statement regarding Question 11.",
+              "prompt": "Some Chinese knowledge of eye diseases came originally from India.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "The formulas ‘reflect the Indian origins of much Chinese knowledge on eye ailments’.",
+              "reference": "Paragraph G"
             },
             {
               "number": 39,
-              "prompt": "Statement regarding Question 12.",
+              "prompt": "In Sun Simiao’s time, the theories of acupuncture had already been applied to pharmacology.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "‘The acupuncture tradition’s theories of systematic correspondences had not yet been extended to cover pharmacology.’",
+              "reference": "Paragraph H"
             },
             {
               "number": 40,
-              "prompt": "Statement regarding Question 13.",
+              "prompt": "The Tang dynasty produced no important new ideas about the nature of illness.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "The dynasty ‘did not contribute any significant new ideas to the interpretation of illness, health, and healing’.",
+              "reference": "Paragraph J"
             }
           ]
         }
