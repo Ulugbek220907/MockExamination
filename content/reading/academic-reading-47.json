@@ -6,24 +6,18 @@
   "variant": "academic",
   "license": "Past papers for practice and exam preparation.",
   "sortOrder": 47,
+  "access": "premium",
   "durationMinutes": 60,
   "totalQuestions": 40,
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Henry Moore (1898 - 1986)",
+      "title": "Henry Moore (1898–1986)",
+      "subtitle": "In the 20th-century art world, Henry Moore was the leading British sculptor",
       "paragraphs": [
         {
           "label": null,
-          "text": "Henry Moore (1898 - 1986) reading answers need to be assessed after reading the information and data given in the below passage."
-        },
-        {
-          "label": null,
-          "text": "In the 20th century art world Henry Moore was the leading British sculptor"
-        },
-        {
-          "label": null,
-          "text": "Henry Moore was born in the small town of Castleford near Leeds in the North of England. Raymond Moore and Mary Baker are his parents, he was the seventh child in his family. He did schooling at Castleford grammar school from 1909 to 1915. The place he got interested in art which was encouraged by the teacher named Alice Gostick. After the academics got over, Moore wanted to become a sculptor but instead as per his father's wish he got trained as a school teacher. In 1917, he had to leave his training as he was sent to France for the First World War."
+          "text": "Henry Moore was born in the small town of Castleford near Leeds in the North of England. Raymond Moore and Mary Baker are his parents, he was the seventh child in his family. He did schooling at Castleford grammar school from 1909 to 1915. The place he got interested in art which was encouraged by the teacher named Alice Gostick. After the academics got over, Moore wanted to become a sculptor but instead as per his father’s wish he got trained as a school teacher. In 1917, he had to leave his training as he was sent to France for the First World War."
         },
         {
           "label": null,
@@ -39,7 +33,7 @@
         },
         {
           "label": null,
-          "text": "The exceptional talent of Moore got recognition which made him work as a sculpture instructor at Royal College in 1926. In 1933, he became a member of unit one which has groups of young artists. The group's motto is to convince the English public of the emerging international movement of modern art and architecture."
+          "text": "The exceptional talent of Moore got recognition which made him work as a sculpture instructor at Royal College in 1926. In 1933, he became a member of unit one which has groups of young artists. The group’s motto is to convince the English public of the emerging international movement of modern art and architecture."
         },
         {
           "label": null,
@@ -47,7 +41,7 @@
         },
         {
           "label": null,
-          "text": "Throughout the 1930, Moore did not work to convince the British public. He got interested in the paintings of the Spanish artist Pablo Picasso which inspired him to distort the human body in a radical way. Sometimes he abandons the human figure altogether. In this period, the sketchbooks of Moore reveal the ideas of abstract sculptures that have some resemblance to humans."
+          "text": "Throughout the 1930s, Moore did not work to convince the British public. He got interested in the paintings of the Spanish artist Pablo Picasso which inspired him to distort the human body in a radical way. Sometimes he abandons the human figure altogether. In this period, the sketchbooks of Moore reveal the ideas of abstract sculptures that have some resemblance to humans."
         },
         {
           "label": null,
@@ -55,11 +49,11 @@
         },
         {
           "label": null,
-          "text": "In 1944, a town near London named Harlow offered Moore a commission to sculpt a family. The output shows a great change in Moore's style which is away from the experimentation of natural and human subjects done in 1930. He did many studies in clay for sculpture and they were cast in bronze and issued in 7 to 9 editions. By doing this Moore's work is available to collectors across the world. The raise in income made him focus on the great projects and worked on the scale based on the demand he felt for his sculptures."
+          "text": "In 1944, a town near London named Harlow offered Moore a commission to sculpt a family. The output shows a great change in Moore’s style which is away from the experimentation of natural and human subjects done in the 1930s. He did many studies in clay for sculpture and they were cast in bronze and issued in 7 to 9 editions. By doing this Moore’s work is available to collectors across the world. The raise in income made him focus on the great projects and worked on the scale based on the demand he felt for his sculptures."
         },
         {
           "label": null,
-          "text": "Critics who thought that Moore had become less revolutionary were proven wrong. In 1950, the series of standing figures in bronze with the harsh and angular pierced forms and direct impression of menace did that. In 1950's, Moore varied his subject matter with works such as warrior with shield and falling warrior. It is the rare example of Moore's use of male figures which happened from the visit to Greece in 1951 where he studied the ancient work of art."
+          "text": "Critics who thought that Moore had become less revolutionary were proven wrong. In 1950, the series of standing figures in bronze with the harsh and angular pierced forms and direct impression of menace did that. In the 1950s, Moore varied his subject matter with works such as warrior with shield and falling warrior. It is the rare example of Moore’s use of male figures which happened from the visit to Greece in 1951 where he studied the ancient work of art."
         },
         {
           "label": null,
@@ -69,95 +63,113 @@
       "groups": [
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements match the information with the passage? Write",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 1? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 1,
-              "prompt": "After his schooling Moore learned about sculpting",
+              "prompt": "After leaving school, Moore immediately trained as a sculptor.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "He ‘wanted to become a sculptor but instead as per his father’s wish he got trained as a school teacher’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 2,
-              "prompt": "In the first year of Leeds school of art he studied about sculpting",
+              "prompt": "In his first year at Leeds School of Art, Moore studied sculpture.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "‘The first year was gone by learning and spending time on drawing’, as ‘there was no teacher appointed for that till his second year’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 3,
-              "prompt": "At royal college of art he gained recognition for teaching sculpture excellently",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "prompt": "Moore became aware of ancient sculpture through visits to London museums.",
+              "answer": "YES",
+              "explanation": "‘The power and the beauty of the ancient Egyptian and African sculpture was discovered by him during the visits.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 4,
-              "prompt": "Only by visiting the London museums, Moore got aware of ancient sculpture",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "prompt": "The Mayan sculpture in the Trocadero Museum attracted a great deal of public interest.",
+              "answer": "NOT GIVEN",
+              "explanation": "Moore was ‘impressed by the cast of Mayan sculpture of rain spirit’, but the passage gives no information about public interest in it."
             },
             {
               "number": 5,
-              "prompt": "Mayan sculpture in the Trocadero museum gains a lot of public interest.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "prompt": "Moore thought that the Mayan sculpture was similar to other stone sculptures.",
+              "answer": "NO",
+              "explanation": "He ‘thought that no other stone sculpture had this much power and originality’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 6,
-              "prompt": "Moore thought that Mayan sculpture was similar to other stone sculptures.",
-              "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "prompt": "Moore was admired as a teacher at the Royal College.",
+              "answer": "NOT GIVEN",
+              "explanation": "His ‘exceptional talent’ was recognised and he became an instructor in 1926, but the passage does not say how his teaching was regarded."
             },
             {
               "number": 7,
-              "prompt": "The unit one members wanted to make modern art and architecture popular.",
+              "prompt": "The members of Unit One wanted the English public to accept modern art and architecture.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "The group’s motto was ‘to convince the English public of the emerging international movement of modern art and architecture’.",
+              "reference": "Paragraph 5"
             }
           ]
         },
         {
-          "type": "summary_completion",
-          "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS from the passage for each answer.",
-          "content": "{{8}} . He ____________ from the Royal college. {{9}} . Moore began sketching because of the unavailability of sculpture ______________. {{10}} . Moore did drawings of ______________ while visiting his hometown. {{11}} . Moore's work was purchased by _____________ at the beginning.",
-          "maxWords": 2,
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
+          "title": "Moore’s later career",
+          "content": [
+            "## Teaching",
+            "• Moore {{8}} from the Royal College and started a sculpture department at the Chelsea School of Art.",
+            "## The Second World War",
+            "• He began drawing because of a shortage of {{9}}.",
+            "• In 1942 he returned to Castleford to sketch {{10}} at work.",
+            "## Later success",
+            "• Casting his work in bronze in several editions made it available to {{11}} across the world."
+          ],
           "questions": [
             {
               "number": 8,
               "answer": [
-                "Resigned"
+                "resigned"
               ],
-              "explanation": "Found directly in the reading passage: 'Resigned'."
+              "explanation": "‘From the Royal College he resigned and the following year he started a sculpture department at the Chelsea School of Art in London.’",
+              "reference": "Paragraph 6"
             },
             {
               "number": 9,
               "answer": [
-                "Materials"
+                "materials"
               ],
-              "explanation": "Found directly in the reading passage: 'Materials'."
+              "explanation": "‘Due to the shortage of materials he started drawing.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 10,
               "answer": [
-                "Miners"
+                "miners"
               ],
-              "explanation": "Found directly in the reading passage: 'Miners'."
+              "explanation": "‘In 1942, he returned to Castleford to sketch a series of miners working there.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 11,
               "answer": [
-                "Collectors"
+                "collectors"
               ],
-              "explanation": "Found directly in the reading passage: 'Collectors'."
+              "explanation": "Cast in bronze in several editions, ‘Moore’s work is available to collectors across the world’.",
+              "reference": "Paragraph 9"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, a, b, c or d",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 12,
-              "prompt": "For which institute Moore got a scholarship award?",
+              "prompt": "At which institution was Moore awarded a scholarship?",
               "options": [
                 {
                   "key": "A",
@@ -177,11 +189,12 @@
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "In his final year at Leeds he ‘was awarded with a scholarship to study in Royal College of Arts in London’; the other schools are where he studied or taught.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 13,
-              "prompt": "What sculpture made Moore receive commission?",
+              "prompt": "What was Moore asked to make when the town of Harlow offered him a commission?",
               "options": [
                 {
                   "key": "A",
@@ -201,7 +214,8 @@
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "Harlow ‘offered Moore a commission to sculpt a family’; the warriors date from the 1950s.",
+              "reference": "Paragraph 9"
             }
           ]
         }
@@ -213,173 +227,200 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "The early childhood education newly-created passage is as follows. To check your early childhood education reading answers , go to the last."
+          "text": "Dr. Lockwood Smith’s recent visit to the US and Britain came with a list of findings. Being New Zealand’s National Party Education’s spokesman reports the key findings of his visit and reveals the prospects in New Zealand’s education policy."
         },
         {
           "label": "B",
-          "text": "Early Childhood Education"
+          "text": "‘Education To Be More’ is a report pertaining to the New Zealand Government Early Childhood Care and Education Working Group. It was published last August, discussing the enhancement of access and funding for childcare and early childhood education institutions. Though education is a necessity, parents don’t send children to pre-schools until they attain three years of age. Are they missing out on the most crucial years of all?"
         },
         {
           "label": "C",
-          "text": "Dr. Lockwood Smith's recent visit to the US and Britain came with a list of findings. Being New Zealand's National Party Education's spokesman reports the key findings of his visit and reveals the prospects in New Zealand's education policy."
+          "text": "A 13-year research study of early childhood development at Harvard University reveals that most children after the age of three have the ability to understand nearly 1000 words – most of the vocabularies they will practise in normal conversation for the rest of their lives. In addition to that, research shows that as every kid born will be curious, however, it can be controlled significantly in their second and third years of life. Researchers say that human behaviour gets into shape during the first two years. Similarly, during the first three years children acquire the fundamental skills which will be used later at home and at school. Once children cross three years, they try to spread their existing knowledge of the world."
         },
         {
           "label": "D",
-          "text": "'Education To Be More' is a report pertaining to the New Zealand Government Early Childhood Care and Education Working Group. It was published last August, discussing the enhancement of access and funding for childcare and early childhood education institutions. Though education is a necessity, parents don't send children to pre-schools until they attain three years of age. Are they missing out on the most crucial years of all? Let's see further."
+          "text": "A general fact is that children from poorer socio-economic backgrounds are likely to perform not well in studies. It’s acknowledged not only in New Zealand but also in Britain, America and Australia. To tackle the educational issue, a nationwide program known as ‘Headstart’ was initiated in 1965 in the United States, with a pool of money. It made a path for children to join in pre-school institutions after turning into three, and facilitated the children from poorer families perform better in school. Besides so much investment, the result was not as expected. It is because of two things. First, the program started too late. Most of the children who enrolled in it were already behind their peers in language and reasonable intelligence. Second, there is no participation from the parents. After school hours, children go back to the same home where parents don’t know how to improve their skills."
         },
         {
-          "label": "A",
-          "text": "13-year research study of early childhood development at Harvard University reveals that most children after the age of three have the ability to understand nearly 1000 words - most of the vocabularies they will practise in normal conversation for the rest of their lives. In addition to that, research shows that as every kid born will be curious, however, it can be controlled significantly in their second and third years of life. Researchers say that human behaviour gets into shape during the first two years. Similarly, during the first three years children acquire the fundamental skills which will be used later at home and at school. Once children cross three years, they try to spread their existing knowledge of the world."
+          "label": "E",
+          "text": "Now it has become evident from the pilot program ‘Headstart’ launched in Missouri in the US that the first three years of a kid’s life are important. This growing need shows that working with the parents rather than ignoring them from the process of child’s education is the most effective way of improving children’s learning abilities. The four-year pilot study involved around 380 families who have one child, and are from a cross-section of socio-economic background, etc. The other factors include age and family configurations. For this pilot study, they included single-parent and two-parent families. Moreover, it included families where both parents are working and families where one parent is at home."
         },
         {
-          "label": "A",
-          "text": "general fact is that children from poorer socio-economic backgrounds are likely to perform not well in studies. It's acknowledged not only in New Zealand but also in Britain, America and Australia. To tackle the educational issue, a nationwide program known as 'Headstart' was initiated in 1965 in the United States, with a pool of money. It made a path for children to join in pre-school institutions after turning into three, and facilitated the children from poorer families perform better in school. Besides so much investment, the result was not as expected. It is because of two things. First, the program started too late. Most of the children who enrolled in it were already behind their peers in language and reasonable intelligence. Second, there is no participation from the parents. After school hours, children go back to the same home where parents don't know how to improve their skills."
+          "label": "F",
+          "text": "The program is associated with parent-educators who visit the parent’s home engaging with tired parents or parents and the child. Know the child’s development, necessary advice on things to care for, and what to expect as the child grows, etc. all such information is given. It also added the guidance in keeping the child’s intelligence, language proficiency, social and motor-skill development. Regular diagnoses of the child’s academics and sensory development (hearing and vision) were kept available to measure possible hurdles that help with development and growth. In case of medical issues, they met the medical practitioners. Parent-educators visited homes and conducted group meetings every month with new parents. They shared experiences and discussed topics of varied subjects. Apart from that, parent resource centres offered study materials for families and facilitators for childcare. It is located in each school building."
         },
         {
           "label": "G",
-          "text": "Now it has become evident from the pilot program 'Headstart' launched in Missouri in the US that the first three years of a kid's life are important. This growing need shows that working with the parents rather than ignoring them from the process of child's education is the most effective way of improving children's learning abilities. The four-year pilot study involved around 380 families who have one child, and are from a cross-section of socio-economic background, etc. The other factors include age and family configurations. For this pilot study, they included single-parent and two-parent families. Moreover, it included families where both parents are working and families where one parent is at home."
+          "text": "The children at three years of age, who had been indulged in the pilot program ‘Missouri’ were analysed alongside a similar section of children chosen from the same range of cross-section, socio-economic aspects and family conditions, and also the same age of children as samples. Astonishingly, the results were excellent. The children with the same age group were more advanced in language proficiency than their counterparts. They showed greater potential in problem-solving techniques and other intellectual skills, besides social development. Here, the average performance of a child in this program was at the level of top 15 to 20 percent compared to their peers in things like verbal ability, language skills, and auditory comprehension."
         },
         {
           "label": "H",
-          "text": "The program is associated with parent-educators who visit the parent's home engaging with tired parents or parents and the child. Know the child's development, necessary advice on things to care for, and what to expect as the child grows, etc. all such information is given. It also added the guidance in keeping the child's intelligence, language proficiency, social and motor-skill development. Regular diagnoses of the child's academics and sensory development (hearing and vision) were kept available to measure possible hurdles that help with development and growth. In case of medical issues, they met the medical practitioners. Parent-educators visited homes and conducted group meetings every month with new parents. They shared experiences and discussed topics of varied subjects. Apart from that, parent resource centres offered study materials for families and facilitators for the child core. It is located in each school building."
+          "text": "Above all, the classical method of measures of ‘risk’ like the parents’ age and education, or whether they were a single parent, no interest or having no relationship to the assessments of success and language development. On the other hand, children performed equally well in the program despite their socio-economic backgrounds. In this program, no child was virtually abused. The one component that tended to affect the child’s development was stress from the family side that led to poor quality of parent-child relationship and interaction. That interaction was not always bad in poorer families."
         },
         {
           "label": "I",
-          "text": "The children at three years of age, who had been indulged in the pilot program 'Missouri' were analysed alongside a similar section of children chosen from the same range of cross-section, socio-economic aspects and family conditions, and also the same age of children as samples. Astonishingly, the results were excellent. The children with the same age group were more advanced in language proficiency than their counterparts. They showed greater potential in problem-solving techniques and other intellectual skills, besides social development. Here, the average performance of a child in this program was at the level of top 15 to 20 percent compared to their peers in things like verbal ability, language skills, and auditory comprehension."
-        },
-        {
-          "label": "J",
-          "text": "Above all, the classical method of measures of 'risk' like the parents' age and education, or whether they were a single parent, no interest or having no relationship to the assessments of success and language development. On the other hand, children performed equally well in the program despite their socio-economic backgrounds. In this program, no child was virtually abused. The one component that tended to affect the child's development was stress from the family side that led to poor quality of parent-child relationship and interaction. That interaction was not always bad in poorer families."
-        },
-        {
-          "label": "K",
-          "text": "Most of these findings are interesting. There is alarming evidence in New Zealand that children belonging to poorer socio-economic backgrounds are performing less at school and that our school system tends to maintain that disadvantage unknowingly. The initiative subsequently mentioned the fact that above could break that cycle of disadvantage. The idea of engaging with parents in their homes or at their workplace, could improve the situation quite markedly with respect to the Early Childhood Care and Education Working Group's report. Their main objective is to enrol children and mothers to childcare and institutionalised childhood education at an early stage. Education from the age of three to five is unquestionably important to any child, but not focusing on parent education and the vital importance of the first three years, might lead to evidence that reflects the inequality in education."
+          "text": "Most of these findings are interesting. There is alarming evidence in New Zealand that children belonging to poorer socio-economic backgrounds are performing less at school and that our school system tends to maintain that disadvantage unknowingly. The initiative subsequently mentioned the fact that above could break that cycle of disadvantage. The idea of engaging with parents in their homes or at their workplace, could improve the situation quite markedly with respect to the Early Childhood Care and Education Working Group’s report. Their main objective is to enrol children and mothers to childcare and institutionalised childhood education at an early stage. Education from the age of three to five is unquestionably important to any child, but not focusing on parent education and the vital importance of the first three years, might lead to evidence that reflects the inequality in education."
         }
       ],
       "groups": [
         {
           "type": "matching_headings",
-          "instruction": "The reading passage has nine paragraphs, A - I. Choose the correct heading for each paragraph from the list of headings below.",
+          "instruction": "Reading Passage 2 has nine paragraphs, **A–I**. Choose the correct heading for paragraphs **B** and **E–H** from the list of headings below.",
           "optionsTitle": "List of Headings",
           "options": [
             {
               "key": "i",
-              "text": "Paragraph B"
+              "text": "Factors that did and did not affect progress"
             },
             {
               "key": "ii",
-              "text": "Paragraph E"
+              "text": "A pilot study that works with parents"
             },
             {
               "key": "iii",
-              "text": "Paragraph F"
+              "text": "Results that surprised the researchers"
             },
             {
               "key": "iv",
-              "text": "Paragraph G"
+              "text": "The failure of an earlier national programme"
             },
             {
               "key": "v",
-              "text": "Paragraph H"
+              "text": "Doubts about starting pre-school at three"
+            },
+            {
+              "key": "vi",
+              "text": "The support given to families"
+            },
+            {
+              "key": "vii",
+              "text": "The cost of extending the programme"
+            },
+            {
+              "key": "viii",
+              "text": "Training for parent-educators"
             }
           ],
           "questions": [
             {
               "number": 14,
               "prompt": "Paragraph B",
-              "answer": "i",
-              "explanation": "Refer to Paragraph B in the passage."
+              "answer": "v",
+              "explanation": "The paragraph says ‘parents don’t send children to pre-schools until they attain three years of age’ and asks ‘Are they missing out on the most crucial years of all?’",
+              "reference": "Paragraph B"
             },
             {
               "number": 15,
               "prompt": "Paragraph E",
-              "answer": "i",
-              "explanation": "Refer to Paragraph E in the passage."
+              "answer": "ii",
+              "explanation": "It describes the pilot study: ‘working with the parents rather than ignoring them’ is most effective, and ‘around 380 families’ took part.",
+              "reference": "Paragraph E"
             },
             {
               "number": 16,
               "prompt": "Paragraph F",
-              "answer": "i",
-              "explanation": "Refer to Paragraph F in the passage."
+              "answer": "vi",
+              "explanation": "It lists the help given to families: ‘parent-educators who visit the parent’s home’ and ‘parent resource centres offered study materials for families’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 17,
               "prompt": "Paragraph G",
-              "answer": "i",
-              "explanation": "Refer to Paragraph G in the passage."
+              "answer": "iii",
+              "explanation": "‘Astonishingly, the results were excellent’: the children were ‘more advanced in language proficiency than their counterparts’.",
+              "reference": "Paragraph G"
             },
             {
               "number": 18,
               "prompt": "Paragraph H",
               "answer": "i",
-              "explanation": "Refer to Paragraph H in the passage."
+              "explanation": "Traditional risk factors such as the parents’ age and education were unrelated to success; ‘the one component that tended to affect the child’s development was stress from the family side’.",
+              "reference": "Paragraph H"
             }
           ]
         },
         {
-          "type": "summary_completion",
-          "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for each",
-          "content": "There is alarming evidence in {{19}} . _________ that children belonging to poorer socio-economic backgrounds are performing less. \nThough education is a {{20}} . __________, parents don't send children to pre-schools until they attain three years of age. \nParent resource centres offered study materials for families and facilitators for the {{21}} . ________ . \nThe one component that tended to affect the child's development was stress from the family side that led to poor quality of parent-child {{22}} . __________ and interaction. \nMoreover, it included families where both parents are {{23}} . __________ and families where one parent is at home.",
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
+          "title": "Early childhood education",
+          "content": [
+            "## Starting pre-school",
+            "• Education is a {{19}}, but parents do not send children to pre-schools until they are three.",
+            "## The pilot study",
+            "• The families included single-parent and two-parent families, and families where both parents were {{20}}.",
+            "• Parent resource centres offered study materials for families and facilitators for {{21}}.",
+            "• The one factor that tended to affect development was stress, which led to a poor parent-child {{22}} and poor interaction.",
+            "## Conclusion",
+            "• There is alarming evidence in {{23}} that children from poorer socio-economic backgrounds are performing less well at school."
+          ],
           "questions": [
             {
               "number": 19,
               "answer": [
-                "New Zealand"
+                "necessity"
               ],
-              "explanation": "Found directly in the reading passage: 'New Zealand'."
+              "explanation": "‘Though education is a necessity, parents don’t send children to pre-schools until they attain three years of age.’",
+              "reference": "Paragraph B"
             },
             {
               "number": 20,
               "answer": [
-                "Necessity"
+                "working"
               ],
-              "explanation": "Found directly in the reading passage: 'Necessity'."
+              "explanation": "The study ‘included families where both parents are working and families where one parent is at home’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 21,
               "answer": [
-                "Child core"
+                "childcare",
+                "child care"
               ],
-              "explanation": "Found directly in the reading passage: 'Child core'."
+              "explanation": "‘Parent resource centres offered study materials for families and facilitators for childcare.’",
+              "reference": "Paragraph F"
             },
             {
               "number": 22,
               "answer": [
-                "Relationship"
+                "relationship"
               ],
-              "explanation": "Found directly in the reading passage: 'Relationship'."
+              "explanation": "The one factor was ‘stress from the family side that led to poor quality of parent-child relationship and interaction’.",
+              "reference": "Paragraph H"
             },
             {
               "number": 23,
               "answer": [
-                "Working"
+                "New Zealand"
               ],
-              "explanation": "Found directly in the reading passage: 'Working'."
+              "explanation": "‘There is alarming evidence in New Zealand that children belonging to poorer socio-economic backgrounds are performing less at school.’",
+              "reference": "Paragraph I"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 2? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 24,
-              "prompt": "The children with the same age group were more skilled in language proficiency than",
-              "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "prompt": "Only families from poorer socio-economic backgrounds took part in the pilot study.",
+              "answer": "NO",
+              "explanation": "The families came from ‘a cross-section of socio-economic background’, not only poorer ones.",
+              "reference": "Paragraph E"
             },
             {
               "number": 25,
-              "prompt": "The children for the pilot study were selected based on their socio-economic background",
-              "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "prompt": "The children in the programme were more advanced in language than the children they were compared with.",
+              "answer": "YES",
+              "explanation": "‘The children with the same age group were more advanced in language proficiency than their counterparts.’",
+              "reference": "Paragraph G"
             },
             {
               "number": 26,
-              "prompt": "The children's performance in education is associated with the food they intake.",
+              "prompt": "A child’s performance in education is linked to the food that the child eats.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "Children from poorer backgrounds ‘perform not well in studies’, but the passage never mentions diet or food."
             }
           ]
         }
@@ -387,127 +428,141 @@
     },
     {
       "passageNumber": 3,
-      "title": "What Do Whales Feel",
+      "title": "What Do Whales Feel?",
       "paragraphs": [
         {
           "label": "A",
-          "text": "The passage for What Do Whales Feel reading answers is given below. Read this passage carefully and start answering the questions."
+          "text": "Some senses in cetaceans are reduced or are absent or don’t work in water, but we and other terrestrial mammals take these for granted. For example, toothed species are unable to smell which is evident from their brain structure. On the other hand, Baleen species have some similar brain structures but it is not understood whether these are functional. As the blowholes evolved and migrated to the top of the head it has been speculated that the neural pathways serving a sense of smell may have been nearly all sacrificed. The nerves serving these have degenerated or are rudimentary even though some cetaceans have taste buds."
         },
         {
           "label": "B",
-          "text": "Some senses in Cetaceans are reduced or are absent or don't work in water, but we and other terrestrial mammals take these for granted. For example, toothed species are unable to smell which is evident from their brain structure. On the other hand, Baleen species have some similar brain structures but it is not understood whether these are functional. As the blowholes evolved and migrated to the top of the head it has been speculated that the neural pathways serving a sense of smell may have been nearly all sacrificed. The nerves serving these have degenerated or are rudimentary even though some cetaceans have taste buds."
+          "text": "The sense of touch has been sometimes reported to be weak too, but it is mostly mistaken. Trainers comment on their captive dolphins and small whales’ responsiveness to being touched or rubbed. Free-ranging and captive cetacean individuals of all species (particularly adults and calves, or members of the same subgroup) appear to make frequent contact. Stroking or touching are part of the courtship ritual in most species and this contact may help to maintain order within a group. Captive animals often object to being touched around the area of the blowhole as it is sensitive there."
         },
         {
           "label": "C",
-          "text": "The sense of touch has been sometimes reported to be weak too, but it is mostly mistaken. Trainers comment on their captive dolphins and small whales' responsiveness to being touched or rubbed. Free- ranging and captive cetacean individuals of all species (particularly adults and calves, or members of the same subgroup) appear to make frequent contact. Stroking or touching are part of the courtship ritual in most species and this contact may help to maintain order within a group. Captive animals often object to being touched around the area of the blowhole as it is sensitive there."
-        },
-        {
-          "label": "D",
           "text": "The sense of vision is developed in different species to different degrees. Baleen species, specifically a grey whale calf, studied in captivity at close quarters underwater for a year, and humpback whales and free-ranging right whales, studied and filmed off Argentina and Hawaii, have tracked objects with vision underwater, and they can see to a certain extent both in water and in air. However, the position of the eyes limits the field of vision in baleen whales that do not have stereoscopic vision."
         },
         {
-          "label": "E",
-          "text": "The position of the eyes in most dolphins and porpoises on the other hand, indicates that they have stereoscopic vision downward and forward. The eye position in freshwater dolphins, which often swim upside down or on their side while feeding, suggests that the vision they have is stereoscopic upward and forward. In comparison, the bottlenose dolphin has extremely keen eyesight in water. Judging from the way it tracks and watches the flying fish, it can also see well through the air-water interface as well. Even though the initial experimental evidence indicates that their vision in air is low, the precision with which dolphins spring high to catch small fish out of a trainer's hand gives anecdotal evidence to the contrary."
+          "label": "D",
+          "text": "The position of the eyes in most dolphins and porpoises on the other hand, indicates that they have stereoscopic vision downward and forward. The eye position in freshwater dolphins, which often swim upside down or on their side while feeding, suggests that the vision they have is stereoscopic upward and forward. In comparison, the bottlenose dolphin has extremely keen eyesight in water. Judging from the way it tracks and watches the flying fish, it can also see well through the air-water interface as well. Even though the initial experimental evidence indicates that their vision in air is low, the precision with which dolphins spring high to catch small fish out of a trainer’s hand gives anecdotal evidence to the contrary."
         },
         {
-          "label": "F",
+          "label": "E",
           "text": "With no doubt these variations can be explained with reference to the habitats in which individual species have grown. For example, to species inhabiting clear open waters, vision is more useful than to those living in turbid rivers and flooded plains. For instance, the Chinese beiji and South American boutu appear to have very limited sight, and the Indian susus are blind, their eyes reduced to slits that mostly allow them to recognise only the intensity of light and direction."
         },
         {
-          "label": "G",
-          "text": "Even though the sense of taste and smell appear to have declined, and vision in water appears to be unknown, such shortcomings are compensated for by cetaceans' well-developed auditory sense. Most species are highly vocal, although they vary in the range of voice they generate, and many hunt their prey using echolocation. Primarily large baleen whales use lower frequencies and are often restricted in their repertoire. The complex, haunting utterances of the humpback whales and the song-like choruses of bowhead whales in summer are notable exceptions. Toothed species in general produce a wider variety of sounds and more frequency spectrum than baleen species (though the sperm whale apparently produces a monotonous series of high-energy clicks and little else). Few of the complicated sounds are also clearly communicative. The role they play in the 'culture' and social life of cetaceans has been more of a wild speculation than of solid science."
+          "label": "F",
+          "text": "Even though the sense of taste and smell appear to have declined, and vision in water appears to be unknown, such shortcomings are compensated for by cetaceans’ well-developed auditory sense. Most species are highly vocal, although they vary in the range of voice they generate, and many hunt their prey using echolocation. Primarily large baleen whales use lower frequencies and are often restricted in their repertoire. The complex, haunting utterances of the humpback whales and the song-like choruses of bowhead whales in summer are notable exceptions. Toothed species in general produce a wider variety of sounds and more frequency spectrum than baleen species (though the sperm whale apparently produces a monotonous series of high-energy clicks and little else). Few of the complicated sounds are also clearly communicative. The role they play in the ‘culture’ and social life of cetaceans has been more of a wild speculation than of solid science."
         }
       ],
       "groups": [
         {
-          "type": "summary_completion",
-          "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS AND/ OR A NUMBER from the passage for each",
-          "content": "Complete the notes below.\nWrite NO MORE THAN TWO WORDS AND/ OR A NUMBER from the passage for each\nanswer.\nToothed species are unable to {{27}} .\nBlowholes evolved and migrated to the top of the {{28}} .\nCaptive animals often object to being touched around the area of the {{29}} .\nThe sense of {{30}} is developed in different species to different degrees.\nThe bottlenose dolphin has an extremely keen {{31}} in water.",
-          "maxWords": 2,
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
+          "title": "The senses of cetaceans",
+          "content": [
+            "## Smell",
+            "• Toothed species are unable to {{27}}.",
+            "• The blowholes evolved and migrated to the top of the {{28}}.",
+            "## Touch",
+            "• Captive animals often object to being touched around the area of the {{29}}.",
+            "## Vision",
+            "• The sense of {{30}} is developed in different species to different degrees.",
+            "• The bottlenose dolphin has extremely keen {{31}} in water."
+          ],
           "questions": [
             {
               "number": 27,
               "answer": [
                 "smell"
               ],
-              "explanation": "Found directly in the reading passage: 'smell'."
+              "explanation": "‘Toothed species are unable to smell which is evident from their brain structure.’",
+              "reference": "Paragraph A"
             },
             {
               "number": 28,
               "answer": [
                 "head"
               ],
-              "explanation": "Found directly in the reading passage: 'head'."
+              "explanation": "‘The blowholes evolved and migrated to the top of the head.’",
+              "reference": "Paragraph A"
             },
             {
               "number": 29,
               "answer": [
                 "blowhole"
               ],
-              "explanation": "Found directly in the reading passage: 'blowhole'."
+              "explanation": "‘Captive animals often object to being touched around the area of the blowhole as it is sensitive there.’",
+              "reference": "Paragraph B"
             },
             {
               "number": 30,
               "answer": [
                 "vision"
               ],
-              "explanation": "Found directly in the reading passage: 'vision'."
+              "explanation": "‘The sense of vision is developed in different species to different degrees.’",
+              "reference": "Paragraph C"
             },
             {
               "number": 31,
               "answer": [
                 "eyesight"
               ],
-              "explanation": "Found directly in the reading passage: 'eyesight'."
+              "explanation": "‘The bottlenose dolphin has extremely keen eyesight in water.’",
+              "reference": "Paragraph D"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 32,
-              "prompt": "Stroking or touching may help to maintain order within a group.",
+              "prompt": "Stroking or touching may help to keep order within a group.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "Touching is part of courtship in most species ‘and this contact may help to maintain order within a group’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 33,
-              "prompt": "Captive animals like being touched around the area of the blowhole",
+              "prompt": "Captive animals like being touched around the area of the blowhole.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "Captive animals ‘often object to being touched around the area of the blowhole as it is sensitive there’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 34,
               "prompt": "Dolphins live up to the age of 30.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "Dolphins are mentioned only for touch and sight (‘the bottlenose dolphin has extremely keen eyesight’); their lifespan is never given."
             },
             {
               "number": 35,
-              "prompt": "Chinese Beiji and South American Boutu have very limited sight.",
+              "prompt": "The Chinese beiji and the South American boutu have very limited sight.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘The Chinese beiji and South American boutu appear to have very limited sight.’",
+              "reference": "Paragraph E"
             }
           ]
         },
         {
           "type": "matching_headings",
-          "instruction": "The reading passage has six paragraphs, A-F. Choose the correct heading for each paragraph from the list of headings below.",
+          "instruction": "Reading Passage 3 has six paragraphs, **A–F**. Choose the correct heading for paragraphs **A–E** from the list of headings below.",
           "optionsTitle": "List of Headings",
           "options": [
             {
               "key": "i",
-              "text": "Habitat of whales"
+              "text": "The habitat of whales"
             },
             {
               "key": "ii",
-              "text": "Absence of senses in Cetaceans"
+              "text": "Absence of senses in cetaceans"
             },
             {
               "key": "iii",
-              "text": "Voice of whales"
+              "text": "The voice of whales"
             },
             {
               "key": "iv",
@@ -515,7 +570,7 @@
             },
             {
               "key": "v",
-              "text": "Position of eyes"
+              "text": "The position of the eyes"
             },
             {
               "key": "vi",
@@ -523,39 +578,44 @@
             },
             {
               "key": "vii",
-              "text": "Sense of vision"
+              "text": "The sense of vision"
             }
           ],
           "questions": [
             {
               "number": 36,
               "prompt": "Paragraph A",
-              "answer": "i",
-              "explanation": "Refer to Paragraph A in the passage."
+              "answer": "ii",
+              "explanation": "‘Some senses in cetaceans are reduced or are absent’, for example smell in toothed species.",
+              "reference": "Paragraph A"
             },
             {
               "number": 37,
               "prompt": "Paragraph B",
-              "answer": "i",
-              "explanation": "Refer to Paragraph B in the passage."
+              "answer": "iv",
+              "explanation": "Trainers comment on the animals’ ‘responsiveness to being touched or rubbed’, and touch is ‘mostly mistaken’ as a weak sense.",
+              "reference": "Paragraph B"
             },
             {
               "number": 38,
               "prompt": "Paragraph C",
-              "answer": "i",
-              "explanation": "Refer to Paragraph C in the passage."
+              "answer": "vii",
+              "explanation": "‘The sense of vision is developed in different species to different degrees’; baleen species ‘can see to a certain extent both in water and in air’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 39,
               "prompt": "Paragraph D",
-              "answer": "i",
-              "explanation": "Refer to Paragraph D in the passage."
+              "answer": "v",
+              "explanation": "It opens with ‘The position of the eyes in most dolphins and porpoises’, which shows how they see.",
+              "reference": "Paragraph D"
             },
             {
               "number": 40,
               "prompt": "Paragraph E",
               "answer": "i",
-              "explanation": "Refer to Paragraph E in the passage."
+              "explanation": "The variations ‘can be explained with reference to the habitats in which individual species have grown’.",
+              "reference": "Paragraph E"
             }
           ]
         }

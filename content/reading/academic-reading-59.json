@@ -6,28 +6,21 @@
   "variant": "academic",
   "license": "Past papers for practice and exam preparation.",
   "sortOrder": 59,
+  "access": "premium",
   "durationMinutes": 60,
   "totalQuestions": 40,
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Why we need to protect polar bears",
+      "title": "Why We Need to Protect Polar Bears",
       "paragraphs": [
-        {
-          "label": null,
-          "text": "Read the below given academic reading passage carefully to give correct answers for the questions. And, verify your solutions with why we need to protect polar bears reading answers with location."
-        },
-        {
-          "label": null,
-          "text": "Why we need to protect polar bears"
-        },
         {
           "label": null,
           "text": "Polar bears are being increasingly threatened by the effects of climate change, but their disappearance could have far-reaching consequences. They are uniquely adapted to the extreme conditions of the Arctic Circle, where temperatures can reach -40°C. One reason for this is that they have up to 11 centimetres of fat underneath their skin. Humans with comparative levels of adipose tissue would be considered obese and would be likely to suffer from diabetes and heart disease. Yet the polar bear experiences no such consequences."
         },
         {
-          "label": "A",
-          "text": "2014 study by Shi Ping Liu and colleagues sheds light on this mystery. They compared the genetic structure of polar bears with that of their closest relatives from a warmer climate, the brown bears. This allowed them to determine the genes that have allowed polar bears to survive in one of the toughest environments on Earth. Liu and his colleagues found the polar bears had a gene known as APoB, which reduces levels of low-density lipoproteins (LDLs) - a form of 'bad' cholesterol. In humans, mutations of this gene are associated with increased risk of heart disease. Polar bears may therefore be an important study model to understand heart disease in humans."
+          "label": null,
+          "text": "A 2014 study by Shi Ping Liu and colleagues sheds light on this mystery. They compared the genetic structure of polar bears with that of their closest relatives from a warmer climate, the brown bears. This allowed them to determine the genes that have allowed polar bears to survive in one of the toughest environments on Earth. Liu and his colleagues found the polar bears had a gene known as APoB, which reduces levels of low-density lipoproteins (LDLs) – a form of ‘bad’ cholesterol. In humans, mutations of this gene are associated with increased risk of heart disease. Polar bears may therefore be an important study model to understand heart disease in humans."
         },
         {
           "label": null,
@@ -47,7 +40,7 @@
         },
         {
           "label": null,
-          "text": "As for emotions, while the evidence is once again anecdotal, many bears have been seen to hit out at ice and snow - seemingly out of frustration - when they have just missed out on a kill. Moreover, polar bears can form unusual relationships with other species, including playing with the dogs used to pull sleds in the Arctic. Remarkably, one hand-raised polar bear called Agee has formed a close relationship with her owner Mark Dumas to the point where they even swim together. This is even more astonishing since polar bears are known to actively hunt humans in the wild."
+          "text": "As for emotions, while the evidence is once again anecdotal, many bears have been seen to hit out at ice and snow – seemingly out of frustration – when they have just missed out on a kill. Moreover, polar bears can form unusual relationships with other species, including playing with the dogs used to pull sleds in the Arctic. Remarkably, one hand-raised polar bear called Agee has formed a close relationship with her owner Mark Dumas to the point where they even swim together. This is even more astonishing since polar bears are known to actively hunt humans in the wild."
         },
         {
           "label": null,
@@ -57,104 +50,120 @@
       "groups": [
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 1-7 on your answer sheet, write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 1,
               "prompt": "Polar bears suffer from various health problems due to the build-up of fat under their skin.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "Humans with so much fat would risk diabetes and heart disease, ‘Yet the polar bear experiences no such consequences’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 2,
               "prompt": "The study done by Liu and his colleagues compared different groups of polar bears.",
               "answer": "FALSE",
-              "explanation": "This line clearly shows that the polar bears have the ability to reduce the bad cholesterol."
+              "explanation": "They ‘compared the genetic structure of polar bears with that of their closest relatives from a warmer climate, the brown bears’, not different groups of polar bears.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 3,
-              "prompt": "Liu and colleagues were the first researchers to compare polar bears and brown bears",
+              "prompt": "Liu and colleagues were the first researchers to compare polar bears and brown bears.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage describes what Liu’s team compared but never says that nobody had compared polar bears and brown bears before."
             },
             {
               "number": 4,
-              "prompt": "Polar bears are able to control their levels of 'bad' cholesterol by genetic means.",
+              "prompt": "Polar bears are able to control their levels of ‘bad’ cholesterol by genetic means.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "Polar bears have ‘a gene known as APoB, which reduces levels of low-density lipoproteins (LDLs)’, a form of bad cholesterol.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 5,
               "prompt": "Female polar bears are able to survive for about six months without food.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "Pregnant females stay in their dens, a process that ‘results in about six months of fasting’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 6,
-              "prompt": "It was found that the bones of female polar bears were very weak when they came out of",
+              "prompt": "It was found that the bones of female polar bears were very weak when they came out of their dens.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "When the bears ‘finally emerged from the den with their cubs, there was no evidence of significant loss of bone density’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 7,
-              "prompt": "The polar bear's mechanism for increasing bone density could also be used by people one",
+              "prompt": "The polar bear’s mechanism for increasing bone density could also be used by people one day.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "If the mechanism ‘can be understood, many bedridden humans, and even astronauts, could potentially benefit’.",
+              "reference": "Paragraph 4"
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 1 WORDS from the passage for each answer.",
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "title": "Intelligence and emotions in polar bears",
+          "content": [
+            "## Intelligence",
+            "• People tend to see bears as stupid and, in many cases, {{8}}.",
+            "• A bear called GoGo made use of a {{9}} to dislodge a piece of {{10}} that was out of his reach.",
+            "• A wild male bear tried to reach a {{11}} standing on a high platform by running and jumping onto barrels.",
+            "• Alison Ames saw bears piling up objects and knocking them over in what appeared to be a {{12}}.",
+            "## Emotions",
+            "• Bears have been seen hitting out at ice and snow, seemingly out of {{13}}, when they have just missed a kill."
+          ],
           "maxWords": 1,
           "questions": [
             {
               "number": 8,
-              "prompt": "Question 8",
               "answer": [
-                "Violent"
+                "violent"
               ],
-              "explanation": "Found directly in the reading passage: 'Violent'."
+              "explanation": "Bears ‘seem to be perceived as stupid and in many cases violent’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 9,
-              "prompt": "Question 9",
               "answer": [
-                "Tool"
+                "tool"
               ],
-              "explanation": "Found directly in the reading passage: 'Tool'."
+              "explanation": "GoGo ‘has even been observed making use of a tool to manipulate his environment’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 10,
-              "prompt": "Question 10",
               "answer": [
-                "Meat"
+                "meat"
               ],
-              "explanation": "Found directly in the reading passage: 'Meat'."
+              "explanation": "The bear used a tree branch ‘to dislodge a piece of meat hung out of his reach’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 11,
-              "prompt": "Question 11",
               "answer": [
-                "Photographer"
+                "photographer"
               ],
-              "explanation": "Found directly in the reading passage: 'Photographer'."
+              "explanation": "A male bear ran and jumped onto barrels ‘to get to a photographer standing on a platform four metres high’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 12,
-              "prompt": "Question 12",
               "answer": [
-                "Game"
+                "game"
               ],
-              "explanation": "Found directly in the reading passage: 'Game'."
+              "explanation": "Ames saw bears putting objects in piles and knocking them over ‘in what appeared to be a game’.",
+              "reference": "Paragraph 6"
             },
             {
               "number": 13,
-              "prompt": "Question 13",
               "answer": [
-                "Frustration"
+                "frustration"
               ],
-              "explanation": "Found directly in the reading passage: 'Frustration'."
+              "explanation": "Many bears ‘hit out at ice and snow – seemingly out of frustration – when they have just missed out on a kill’.",
+              "reference": "Paragraph 7"
             }
           ]
         }
@@ -162,45 +171,39 @@
     },
     {
       "passageNumber": 2,
-      "title": "Unlikely Boomtowns: The World's Hottest Cities",
+      "title": "Unlikely Boomtowns",
+      "subtitle": "The world’s hottest cities",
       "paragraphs": [
-        {
-          "label": null,
-          "text": "Read the following passage 'Unlikely Boomtowns: The World's Hottest Cities' and answer the questions that follow."
-        },
-        {
-          "label": null,
-          "text": "Unlikely Boomtowns: The World's Hottest Cities"
-        },
         {
           "label": null,
           "text": "Unlikely boomtowns are large cities like London, New York and Tokyo that dominate our imaginations. People usually go there to build their fortune, fame and future. These cities have control over their national economies and politics. The last 50 years has been the best time for them. The number of cities with more than 10 million people grew to 20 from just 2. But with all respect to the sci-fi novel writers who have predicted a future of urban giants, their day is over. The population growth rate within a megacity has slowed from more than 8% in the 1980s to 4% over the last 5 years, and these numbers are expected to be static for the next 25 years."
         },
         {
           "label": null,
-          "text": "In a few years, more people will live in cities than in small places for the first time in human history. But increasingly, the urban core itself is becoming smaller. Almost 50% of the city dwellers in the world live in metropolises with fewer than 5 lakh residents. Second Cities or exurbs, residential areas outside the cities are booming. Between 2000 and 2015, the world's smallest cities (with under half a million people) will grow by 23%, while the next smallest (1 to 5 million people) will grow by 27%. This trend is because of the dramatic shifts in the global real-estate bubble, increase in international migration, cheaper transport, new technologies, and the fact that the boomers are reaching retirement age."
+          "text": "In a few years, more people will live in cities than in small places for the first time in human history. But increasingly, the urban core itself is becoming smaller. Almost 50% of the city dwellers in the world live in metropolises with fewer than 5 lakh residents. Second Cities or exurbs, residential areas outside the cities are booming. Between 2000 and 2015, the world’s smallest cities (with under half a million people) will grow by 23%, while the next smallest (1 to 5 million people) will grow by 27%. This trend is because of the dramatic shifts in the global real-estate bubble, increase in international migration, cheaper transport, new technologies, and the fact that the boomers are reaching retirement age."
         },
         {
           "label": null,
-          "text": "The rise of Second Cities has begun naturally from the earlier success of the megacities. In the 1990s, megacities expanded as global markets did. This happened particularly in cities with high-tech or 'knowledge-based' industries like finance. Companies offered bigger bonuses, bankers grew richer and the prices of real estate in the world's most desired cities soared. The result of this was something called 'gated regions' as said by demographer William Frey of the Washington-based Brookings, where cities and the surrounding areas became unaffordable for everyone except the rich. After a city reaches a certain size economically, its productivity starts to come down, says Mario Pezzini, head of the regional-competitiveness division of the OECD. He puts the breaking point at about 6 million people, after which expenses, travel times and the occasional chaos lead to a situation where the city centre may be a great place (only for the rich) and the outlying areas become difficult to live and work in'."
+          "text": "The rise of Second Cities has begun naturally from the earlier success of the megacities. In the 1990s, megacities expanded as global markets did. This happened particularly in cities with high-tech or ‘knowledge-based’ industries like finance. Companies offered bigger bonuses, bankers grew richer and the prices of real estate in the world’s most desired cities soared. The result of this was something called ‘gated regions’ as said by demographer William Frey of the Washington-based Brookings, where cities and the surrounding areas became unaffordable for everyone except the rich. After a city reaches a certain size economically, its productivity starts to come down, says Mario Pezzini, head of the regional-competitiveness division of the OECD. He puts the breaking point at about 6 million people, after which expenses, travel times and the occasional chaos lead to a situation where the city centre may be a great place (only for the rich) and the outlying areas become difficult to live and work in."
         },
         {
           "label": null,
-          "text": "One reaction to this phenomenon is further sprawl in prices in the urban core and traditional suburbs. This drives people to distant exurbs with extreme commutes into big cities. As Frey notes, in the major US metropolitan areas, average travelling times have increased two-fold over the last 15 years. Why does a small area become a booming Second City while another fails? The answer lies on whether a community has the money to exploit the forces pushing people and businesses out of the megacities. One key is good public transport connectivity, especially to commercial areas. Although a decade old, Goyang is South Korea's fastest-growing city in part because it is thirty minutes by subway from Seoul."
+          "text": "One reaction to this phenomenon is further sprawl in prices in the urban core and traditional suburbs. This drives people to distant exurbs with extreme commutes into big cities. As Frey notes, in the major US metropolitan areas, average travelling times have increased two-fold over the last 15 years. Why does a small area become a booming Second City while another fails? The answer lies on whether a community has the money to exploit the forces pushing people and businesses out of the megacities. One key is good public transport connectivity, especially to commercial areas. Although a decade old, Goyang is South Korea’s fastest-growing city in part because it is thirty minutes by subway from Seoul."
         },
         {
           "label": null,
-          "text": "Another reason for the growth of Second Cities is the decentralisation of work, driven greatly by new technologies. While financial deals are mostly done now in big capitals like New York and London than ever before, it is also clear that many booming service industries are going towards 'Rising Urban Stars' like Dubai, Montpellier and Cape Town. These places have not only improved their internet facilities, but often have technical institutes and universities that produce the talent that is populating growth industries. Consider the urban decentralisation case study of Montpellier, France. Montpellier was like a big Mediterranean village until the 1980s, but one with a strong university, many beautiful villas and an IBM manufacturing unit. Once the high-speed train lines were built, Parisians began coming for weekend breaks. Some purchased houses, creating a critical mass of middle-class professionals who started taking advantage of flexible working systems to do 3 days in Paris, and 2 down South, where things seemed less pressured. Soon, big companies started looking at the area; a number of medical-technology and electronics companies came to town, and IBM put more investment into service businesses there. To cater to the immigrant professionals, the city began to build facilities: an opera house, a tram line to reduce cars in the city center. The result - 'the city is now full of cosmopolitan business people. It's a new society', says French urban-planning expert Nacima Baron."
+          "text": "Another reason for the growth of Second Cities is the decentralisation of work, driven greatly by new technologies. While financial deals are mostly done now in big capitals like New York and London than ever before, it is also clear that many booming service industries are going towards ‘Rising Urban Stars’ like Dubai, Montpellier and Cape Town. These places have not only improved their internet facilities, but often have technical institutes and universities that produce the talent that is populating growth industries. Consider the urban decentralisation case study of Montpellier, France. Montpellier was like a big Mediterranean village until the 1980s, but one with a strong university, many beautiful villas and an IBM manufacturing unit. Once the high-speed train lines were built, Parisians began coming for weekend breaks. Some purchased houses, creating a critical mass of middle-class professionals who started taking advantage of flexible working systems to do 3 days in Paris, and 2 down South, where things seemed less pressured. Soon, big companies started looking at the area; a number of medical-technology and electronics companies came to town, and IBM put more investment into service businesses there. To cater to the immigrant professionals, the city began to build facilities: an opera house, a tram line to reduce cars in the city center. The result – ‘the city is now full of cosmopolitan business people. It’s a new society’, says French urban-planning expert Nacima Baron."
         },
         {
           "label": null,
-          "text": "This implies that Second Cities won't stay the same. Indeed some countries are actively aiding their growth. For example, Italy is trying to create tourist hubs of towns close to each other with unique buildings and offering different yet complementary cultural activities. Decentralising the policy making power is providing the smaller cities more freedom than ever to shape their destinies. To all these cities: this is your era. Don't blow it."
+          "text": "This implies that Second Cities won’t stay the same. Indeed some countries are actively aiding their growth. For example, Italy is trying to create tourist hubs of towns close to each other with unique buildings and offering different yet complementary cultural activities. Decentralising the policy making power is providing the smaller cities more freedom than ever to shape their destinies. To all these cities: this is your era. Don’t blow it."
         }
       ],
       "groups": [
         {
           "type": "matching_features",
-          "instruction": "Look at the following Questions 14-17 and the list of the statements below. Match each statement",
+          "instruction": "Look at the following statements (Questions 14–17) and the list of percentages below. Match each statement with the correct percentage, **A–E**.",
+          "optionsTitle": "List of Percentages",
           "options": [
             {
               "key": "A",
@@ -226,100 +229,116 @@
           "questions": [
             {
               "number": 14,
-              "prompt": "Growth rate in megacities in the last 5 years",
+              "prompt": "growth rate in megacities in the last 5 years",
               "answer": "E",
-              "explanation": "Refer to item E in the passage."
+              "explanation": "The growth rate within a megacity ‘has slowed from more than 8% in the 1980s to 4% over the last 5 years’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 15,
-              "prompt": "Growth rate of small cities (under half a million) between 2000 and 2015.",
+              "prompt": "growth of the world’s smallest cities (under half a million people) between 2000 and 2015",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "‘Between 2000 and 2015, the world’s smallest cities (with under half a million people) will grow by 23%’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 16,
-              "prompt": "Percentage of city dwellers in cities with population less than 5 lakhs",
+              "prompt": "proportion of city dwellers living in cities of fewer than 5 lakh residents",
               "answer": "C",
-              "explanation": "Refer to item C in the passage."
+              "explanation": "‘Almost 50% of the city dwellers in the world live in metropolises with fewer than 5 lakh residents.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 17,
-              "prompt": "Growth rate in megacities during 1980s",
+              "prompt": "growth rate in megacities during the 1980s",
               "answer": "D",
-              "explanation": "Refer to item D in the passage."
+              "explanation": "The growth rate ‘has slowed from more than 8% in the 1980s’.",
+              "reference": "Paragraph 1"
             }
           ]
         },
         {
-          "type": "summary_completion",
-          "instruction": "Complete the sentences below. Choose NO MORE THAN TWO WORDS AND/OR A NUMBERS from the passage for each",
-          "content": "Complete the sentences below.\nChoose NO MORE THAN TWO WORDS AND/OR A NUMBERS from the passage for each\nanswer.\n {{18}} . The rise of ________ has begun naturally from the earlier success of the megacities.\n {{19}} . ________ is South Korea's fastest-growing city in part because it is thirty minutes by subway\nfrom Seoul.\n {{20}} . ________ was like a big Mediterranean village until the 1980s.\n {{21}} . After a city reaches a certain size economically, its productivity starts to come down, says\n________.\n {{22}} . ________ the policy making power is providing the smaller cities more freedom than ever to\nshape their destinies.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 18,
+              "prompt": "The rise of {{18}} has begun naturally from the earlier success of the megacities.",
               "answer": [
                 "Second Cities"
               ],
-              "explanation": "Found directly in the reading passage: 'Second Cities'."
+              "explanation": "‘The rise of Second Cities has begun naturally from the earlier success of the megacities.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 19,
+              "prompt": "{{19}} is South Korea’s fastest-growing city in part because it is thirty minutes by subway from Seoul.",
               "answer": [
                 "Goyang"
               ],
-              "explanation": "Found directly in the reading passage: 'Goyang'."
+              "explanation": "‘Goyang is South Korea’s fastest-growing city in part because it is thirty minutes by subway from Seoul.’",
+              "reference": "Paragraph 4"
             },
             {
               "number": 20,
+              "prompt": "{{20}} was like a big Mediterranean village until the 1980s.",
               "answer": [
                 "Montpellier"
               ],
-              "explanation": "Found directly in the reading passage: 'Montpellier'."
+              "explanation": "‘Montpellier was like a big Mediterranean village until the 1980s’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 21,
+              "prompt": "After a city reaches a certain size economically, its productivity starts to come down, says {{21}}.",
               "answer": [
                 "Mario Pezzini"
               ],
-              "explanation": "Found directly in the reading passage: 'Mario Pezzini'."
+              "explanation": "‘After a city reaches a certain size economically, its productivity starts to come down, says Mario Pezzini’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 22,
+              "prompt": "{{22}} the policy making power is providing the smaller cities more freedom than ever to shape their destinies.",
               "answer": [
                 "Decentralising"
               ],
-              "explanation": "Found directly in the reading passage: 'Decentralising'."
+              "explanation": "‘Decentralising the policy making power is providing the smaller cities more freedom than ever to shape their destinies.’",
+              "reference": "Paragraph 6"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 2? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 23,
-              "prompt": "In a few years, more people will live in cities than in small places for the first time in human",
+              "prompt": "In a few years, more people will live in cities than in small places for the first time in human history.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘In a few years, more people will live in cities than in small places for the first time in human history.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 24,
               "prompt": "People go to cities to build their fortune, fame and future.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "People ‘usually go there to build their fortune, fame and future’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 25,
               "prompt": "Cities are affordable to everyone.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "Cities and the surrounding areas ‘became unaffordable for everyone except the rich’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 26,
               "prompt": "Cities have large civilisations beneath them.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage discusses the size and growth of cities but says nothing about civilisations beneath them."
             }
           ]
         }
@@ -327,16 +346,8 @@
     },
     {
       "passageNumber": 3,
-      "title": "Wolves, dogs, and humans",
+      "title": "Wolves, Dogs and Humans",
       "paragraphs": [
-        {
-          "label": null,
-          "text": "Read the below given passage carefully to answer all the questions (1 - 15). Following that, you will also find the wolves, dogs, and humans IELTS reading answers and verify your solutions."
-        },
-        {
-          "label": null,
-          "text": "Wolves, dogs, and humans"
-        },
         {
           "label": null,
           "text": "Dogs are without a doubt the oldest of all human-inhabited species, and their breeding is based on a mutually beneficial relationship with a human. It is generally believed that wolf breeding began 10,000 to 20,000 years ago. However, the latest exciting article from the International Panel of Geneticists has pushed this date back by 10 factors. A team led by Dr. Robert Wayne at the University of California, Los Angeles, found that the wolf was the only ancestor of all dog breeds. They did this by analyzing the genetic history of DNA from 140 domestic dogs representing 162 wolves and 67 breeds worldwide. Research proves for the first time that dogs are descended only from wolves and do not share DNA with coyotes or foxes. Our connection with dogs now seems to go back at least 100,000 years, which means that this partnership may have played a key role in the evolution of human hunting methods that were developed 70,000 to 90,000 years ago."
@@ -347,100 +358,117 @@
         },
         {
           "label": null,
-          "text": "In exchange for friendship and food, the dog's early ancestors helped in tracking humans, hunting, protecting, and other different activities. Finally, humans started to select and raise these animals for specific qualities. The physical properties varied and separate species started to form. As humans roamed throughout Asia and Europe, they took their dogs with them, utilized them for extra work, and further bred them for preferred traits that would help them perform specific tasks better. Colin Groves, Doctor of Archeology and Anthropology at the Australian National University. According to Colin, early humans relied on dogs' hearing, smell, and sight - letting particular areas of the human brain shrink in size compared to other areas. Dogs worked as human alarm systems, trackers and hunting aids, waste removal facilities, hot water bottles, and baby guards and playmates. Humans gave food and safety to dogs. This cohesive connection has been long-lasting for over 100,000 years and has strengthened into mutual nurturing, Dr. Groves expressed. According to him, humans raise dogs, and dogs raise humans. Dr. Groves reiterated in 1914 that humans have some of the same physical attributes as domestic animals, most notably a reduced brain size. Horse brain size was reduced by 16 percent after breeding, while the size of the pig brain was reduced by 34 percent. Estimated brain size reduction in domestic dogs differs from 30 percent to 10 percent. In the final decade, archaeologists have found enough fossil evidence to establish that human brain capacity in Europe and Africa has declined by at least 10 percent since at least 10,000 years ago. Dr. Groves feels this reduction may have been due to the intensification of the relationship between humans and dogs. Close contact between the two species allowed to reduce certain human brain functions such as smell and hearing."
+          "text": "In exchange for friendship and food, the dog’s early ancestors helped in tracking humans, hunting, protecting, and other different activities. Finally, humans started to select and raise these animals for specific qualities. The physical properties varied and separate species started to form. As humans roamed throughout Asia and Europe, they took their dogs with them, utilized them for extra work, and further bred them for preferred traits that would help them perform specific tasks better."
+        },
+        {
+          "label": null,
+          "text": "Colin Groves, Doctor of Archeology and Anthropology at the Australian National University. According to Colin, early humans relied on dogs’ hearing, smell, and sight – letting particular areas of the human brain shrink in size compared to other areas. Dogs worked as human alarm systems, trackers and hunting aids, waste removal facilities, hot water bottles, and baby guards and playmates. Humans gave food and safety to dogs. This cohesive connection has been long-lasting for over 100,000 years and has strengthened into mutual nurturing, Dr. Groves expressed. According to him, humans raise dogs, and dogs raise humans."
+        },
+        {
+          "label": null,
+          "text": "Dr. Groves reiterated in 1914 that humans have some of the same physical attributes as domestic animals, most notably a reduced brain size. Horse brain size was reduced by 16 percent after breeding, while the size of the pig brain was reduced by 34 percent. Estimated brain size reduction in domestic dogs differs from 30 percent to 10 percent. In the final decade, archaeologists have found enough fossil evidence to establish that human brain capacity in Europe and Africa has declined by at least 10 percent since at least 10,000 years ago. Dr. Groves feels this reduction may have been due to the intensification of the relationship between humans and dogs. Close contact between the two species allowed to reduce certain human brain functions such as smell and hearing."
         }
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
-          "maxWords": 3,
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
           "questions": [
             {
               "number": 27,
-              "prompt": "The breeding of dogs is based on a mutually beneficial connection with a ______.",
+              "prompt": "The breeding of dogs is based on a mutually beneficial relationship with a {{27}}.",
               "answer": [
                 "human"
               ],
-              "explanation": "Found directly in the reading passage: 'human'."
+              "explanation": "Dogs’ ‘breeding is based on a mutually beneficial relationship with a human’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 28,
-              "prompt": "The latest interesting article from the ______ Group has pushed this date back by 10",
+              "prompt": "The latest article from the International Panel of {{28}} has pushed this date much further back.",
               "answer": [
-                "doubt"
+                "Geneticists"
               ],
-              "explanation": "Found directly in the reading passage: 'doubt'."
+              "explanation": "‘the latest exciting article from the International Panel of Geneticists has pushed this date back’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 29,
-              "prompt": "Robert Wayne found that the wolf was the only ______ of all dog breeds.",
+              "prompt": "Dr Robert Wayne’s team found that the wolf was the only {{29}} of all dog breeds.",
               "answer": [
                 "ancestor"
               ],
-              "explanation": "Found directly in the reading passage: 'ancestor'."
+              "explanation": "The team ‘found that the wolf was the only ancestor of all dog breeds’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 30,
-              "prompt": "Research proves for the first time that dogs do not share DNA with ______ or ______.",
+              "prompt": "Research proves for the first time that dogs do not share DNA with {{30}} or foxes.",
               "answer": [
-                "Coyotes"
+                "coyotes"
               ],
-              "explanation": "Found directly in the reading passage: 'Coyotes'."
+              "explanation": "Dogs ‘are descended only from wolves and do not share DNA with coyotes or foxes’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 31,
-              "prompt": "During that first contact, David Paxton states that people did not raise wolves like ______",
+              "prompt": "David Paxton says that during that first contact, people did not raise wolves as much as {{31}} and domestic humans.",
               "answer": [
                 "wolves"
               ],
-              "explanation": "Found directly in the reading passage: 'wolves'."
+              "explanation": "Paxton says that people ‘did not raise wolves as much as wolves and domestic humans’.",
+              "reference": "Paragraph 2"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 32,
-              "prompt": "Humans started hating dogs after knowing that it is an ancestors of wolves.",
+              "prompt": "Humans started hating dogs after learning that they are descended from wolves.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage says nothing about humans disliking dogs once the link with wolves was known."
             },
             {
               "number": 33,
-              "prompt": "Wolves may have started to survive on food and waste by removing debris from the edges of",
+              "prompt": "Wolves may have started to survive on food and waste by removing debris from the edges of human settlements.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘Wolves may have begun to live by removing debris from the edge of human settlements and eating food and waste.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 34,
               "prompt": "Wolves that became dogs have had a tremendous failure in evolution.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "The writer says the opposite: ‘Wolves that became dogs have had tremendous success in evolution.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 35,
               "prompt": "Descendants of wolves are now rarely distributed, mostly in endangered populations.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "‘Descendants of wolves are now rarely distributed, mostly in endangered populations.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 36,
               "prompt": "Humans started to select and raise these animals for specific qualities.",
-              "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "answer": "YES",
+              "explanation": "‘Finally, humans started to select and raise these animals for specific qualities.’",
+              "reference": "Paragraph 3"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, A - D.",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 37,
-              "prompt": "humans took their dogs with them, utilized them for",
+              "prompt": "As humans roamed throughout Asia and Europe, they took their dogs with them and used them for",
               "options": [
                 {
                   "key": "A",
@@ -460,35 +488,37 @@
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "The humans who ‘roamed throughout Asia and Europe’ took their dogs with them and ‘utilized them for extra work’; nothing is said about shopping, safety alone or cleaning.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 38,
-              "prompt": "Dogs worked as human alarm systems, trackers and hunting aids, waste removal facilities,",
+              "prompt": "Dogs worked as human alarm systems, trackers and hunting aids, waste removal facilities, hot water bottles and",
               "options": [
                 {
                   "key": "A",
-                  "text": "baby guards"
+                  "text": "baby guards."
                 },
                 {
                   "key": "B",
-                  "text": "safeguards"
+                  "text": "farm labourers."
                 },
                 {
                   "key": "C",
-                  "text": "a good friend"
+                  "text": "a good friend."
                 },
                 {
                   "key": "D",
-                  "text": "playmates"
+                  "text": "sled pullers."
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Dogs were ‘hot water bottles, and baby guards and playmates’; of the options only baby guards appears in the passage.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 39,
-              "prompt": "Cohesive connection between dogs and humans has been long-lasting for over",
+              "prompt": "According to Dr Groves, the connection between dogs and humans has been long-lasting for over",
               "options": [
                 {
                   "key": "A",
@@ -500,7 +530,7 @@
                 },
                 {
                   "key": "C",
-                  "text": "10,00,000 years"
+                  "text": "1,000,000 years"
                 },
                 {
                   "key": "D",
@@ -508,31 +538,33 @@
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "The connection ‘has been long-lasting for over 100,000 years’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 40,
-              "prompt": "Humans have some of the same physical attributes as domestic animals, most notably a",
+              "prompt": "Dr Groves says that humans share some physical attributes with domestic animals, most notably",
               "options": [
                 {
                   "key": "A",
-                  "text": "increased brain size"
+                  "text": "an increased brain size."
                 },
                 {
                   "key": "B",
-                  "text": "reduced brain function"
+                  "text": "reduced brain function."
                 },
                 {
                   "key": "C",
-                  "text": "reduced brain size"
+                  "text": "a reduced brain size."
                 },
                 {
                   "key": "D",
-                  "text": "advance brain function"
+                  "text": "an advanced brain function."
                 }
               ],
               "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "explanation": "Humans share with domestic animals ‘a reduced brain size’.",
+              "reference": "Paragraph 5"
             }
           ]
         }

@@ -6,216 +6,242 @@
   "variant": "academic",
   "license": "Past papers for practice and exam preparation.",
   "sortOrder": 92,
+  "access": "premium",
   "durationMinutes": 60,
   "totalQuestions": 40,
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Check the other",
+      "title": "Beneath the Canopy",
       "paragraphs": [
         {
           "label": null,
-          "text": "Beneath The Canopy You need to spend 20 minutes on"
+          "text": "Chemical compounds that might be extracted from yet-to-be-discovered species hidden beneath the tree canopy could assist in the treatment of disease or help to control fertility. Conservationists point out that important medical discoveries have already been made from material found in tropical rainforests. The drug aspirin, now synthesised, was originally found in the bark of a rainforest tree. Two of the most potent anti-cancer drugs derive from the rosy periwinkle discovered in the 1950s in the tropical rainforests of Madagascar."
         },
         {
           "label": null,
-          "text": "concern because, although new tree growth may in time repopulate felled areas, the biologically diverse storehouse of flora and fauna is gone forever. Losing this bountiful inheritance, which took millions of years to reach its present highly evolved state, would be an unparalleled act of human stupidity. 4. Chemical compounds that might be extracted from yet-to-be-discovered species hidden beneath the tree canopy could assist in the treatment of disease or help to control fertility. Conservationists point out that important medical discoveries have already been made from material found in tropical rainforests. The drug aspirin, now synthesised, was originally found in the bark of a rainforest tree. Two of the most potent anti- cancer drugs derive from the rosy periwinkle discovered in the 1950s in the tropical rainforests of Madagascar. 5. The rewards of discovery are potentially enormous, yet the outlook"
+          "text": "The rewards of discovery are potentially enormous, yet the outlook is bleak. Timber-rich countries mired in debt, view potential financial gain decades into the future as less attractive than short-term profit from logging. Cataloguing species and analysing newly-found substances takes time and money, both of which are in short supply."
         },
         {
           "label": null,
-          "text": "is bleak. Timber-rich countries mired in debt, view potential financial gain decades into the future as less attractive than short-term profit from logging. Cataloguing species and analysing newly-found substances takes time and money, both of which are in short supply. 6. The developed world takes every opportunity to lecture countries which are the guardians of rainforest . Rich nations exhort them to preserve and care for what is left, ignoring the fact that their wealth was in large part due to the exploitation of their own natural world. 7. It is often forgotten that forests once covered most of Europe. Large tracts of forest were destroyed over the centuries for the same reason that the remaining rainforests are now being felled - timber. As well as providing material for housing, it enabled wealthy nations to build large navies and shipping"
+          "text": "The developed world takes every opportunity to lecture countries which are the guardians of rainforest. Rich nations exhort them to preserve and care for what is left, ignoring the fact that their wealth was in large part due to the exploitation of their own natural world."
         },
         {
           "label": null,
-          "text": "fleets with which to continue their plunder of the world's resources. 8. Besides, it is not clear that developing countries would necessarily benefit financially from extended bioprospecting of their rainforests. Pharmaceutical companies make huge profits from the sale of drugs with little return to the country in which an original discovery was made. 9. Also, cataloguing tropical biodiversity involves much more than a search for medically useful and therefore commercially viable drugs. Painstaking biological fieldwork helps to build immense databases of genetic, chemical and behavioural information that will be of benefit only to those countries developed enough to use them. 10. Reckless logging itself is not the only danger to rainforests. Fires lit to clear land for further logging and for housing and agricultural development played havoc in the late 1990s in the forests of Borneo. Massive clouds of smoke"
+          "text": "It is often forgotten that forests once covered most of Europe. Large tracts of forest were destroyed over the centuries for the same reason that the remaining rainforests are now being felled – timber. As well as providing material for housing, it enabled wealthy nations to build large navies and shipping fleets with which to continue their plunder of the world’s resources."
         },
         {
           "label": null,
-          "text": "from burning forest fires swept across the southernmost countries of South-East Asia choking cities and reminding even the most resolute advocates of rainforest clearing of the swiftness of nature's retribution. 11. Nor are the dangers entirely to the rainforests themselves. Until very recently, so-called \"lost\" tribes - indigenous peoples who have had no contact with the outside world - still existed deep within certain rainforests. It is now unlikely that there are any more truly lost tribes. Contact with the modern world inevitably brings with it exploitation, loss of traditional culture, and, in an alarming number of instances, complete obliteration. 12. Forest-dwellers who have managed to live in harmony with their environment have much to teach us of life beneath the tree canopy. If we do not listen, the impact will be on the entire human race. Loss of biodiversity,"
+          "text": "Besides, it is not clear that developing countries would necessarily benefit financially from extended bioprospecting of their rainforests. Pharmaceutical companies make huge profits from the sale of drugs with little return to the country in which an original discovery was made."
         },
         {
           "label": null,
-          "text": "coupled with climate change and ecological destruction will have profound and lasting consequences."
+          "text": "Also, cataloguing tropical biodiversity involves much more than a search for medically useful and therefore commercially viable drugs. Painstaking biological fieldwork helps to build immense databases of genetic, chemical and behavioural information that will be of benefit only to those countries developed enough to use them."
+        },
+        {
+          "label": null,
+          "text": "Reckless logging itself is not the only danger to rainforests. Fires lit to clear land for further logging and for housing and agricultural development played havoc in the late 1990s in the forests of Borneo. Massive clouds of smoke from burning forest fires swept across the southernmost countries of South-East Asia choking cities and reminding even the most resolute advocates of rainforest clearing of the swiftness of nature’s retribution."
+        },
+        {
+          "label": null,
+          "text": "Nor are the dangers entirely to the rainforests themselves. Until very recently, so-called “lost” tribes – indigenous peoples who have had no contact with the outside world – still existed deep within certain rainforests. It is now unlikely that there are any more truly lost tribes. Contact with the modern world inevitably brings with it exploitation, loss of traditional culture, and, in an alarming number of instances, complete obliteration."
+        },
+        {
+          "label": null,
+          "text": "Forest-dwellers who have managed to live in harmony with their environment have much to teach us of life beneath the tree canopy. If we do not listen, the impact will be on the entire human race. Loss of biodiversity, coupled with climate change and ecological destruction will have profound and lasting consequences."
         }
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "The left-hand column contains quotations taken directly from the reading passage. The",
-          "maxWords": 2,
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
+          "maxWords": 3,
           "questions": [
             {
               "number": 1,
+              "prompt": "Chemicals from species that have not yet been discovered could help to treat disease or to {{1}}.",
               "answer": [
-                "providing"
+                "control fertility"
               ],
-              "explanation": "Found directly in the reading passage: 'providing'.",
-              "prompt": "Complete the statement for question 1."
+              "explanation": "Such compounds ‘could assist in the treatment of disease or help to control fertility’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 2,
+              "prompt": "Many timber-rich countries are mired in {{2}} and so prefer the short-term profit from logging.",
               "answer": [
-                "A"
+                "debt"
               ],
-              "explanation": "Found directly in the reading passage: 'A'.",
-              "prompt": "Complete the statement for question 2."
+              "explanation": "‘Timber-rich countries mired in debt’ see future gain as ‘less attractive than short-term profit from logging’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 3,
+              "prompt": "Cataloguing species and analysing newly found substances takes {{3}}, both of which are in short supply.",
               "answer": [
-                "clear"
+                "time and money"
               ],
-              "explanation": "Found directly in the reading passage: 'clear'.",
-              "prompt": "Complete the statement for question 3."
+              "explanation": "‘Cataloguing species and analysing newly-found substances takes time and money, both of which are in short supply.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 4,
+              "prompt": "Large areas of European forest were cut down over the centuries to obtain {{4}}, the same reason that rainforests are being felled today.",
               "answer": [
-                "extended"
+                "timber"
               ],
-              "explanation": "Found directly in the reading passage: 'extended'.",
-              "prompt": "Complete the statement for question 4."
+              "explanation": "Forest was destroyed ‘for the same reason that the remaining rainforests are now being felled – timber’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 5,
+              "prompt": "Painstaking fieldwork in the tropics helps to build immense {{5}} of genetic, chemical and behavioural information.",
               "answer": [
-                "little"
+                "databases"
               ],
-              "explanation": "Found directly in the reading passage: 'little'.",
-              "prompt": "Complete the statement for question 5."
+              "explanation": "Fieldwork ‘helps to build immense databases of genetic, chemical and behavioural information’.",
+              "reference": "Paragraph 6"
             }
           ]
         },
         {
           "type": "short_answer",
-          "instruction": "Write your answers in boxes 21 - 23 on your Answer Sheet.",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN THREE WORDS** from the passage for each answer.",
           "maxWords": 3,
           "questions": [
             {
               "number": 6,
+              "prompt": "Which plant from Madagascar provides two of the most potent anti-cancer drugs?",
               "answer": [
-                "tropical"
+                "rosy periwinkle"
               ],
-              "explanation": "Found directly in the reading passage: 'tropical'.",
-              "prompt": "Complete the statement for question 6."
+              "explanation": "‘Two of the most potent anti-cancer drugs derive from the rosy periwinkle’, discovered in Madagascar in the 1950s.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 7,
+              "prompt": "Which companies make huge profits from drugs while giving little back to the country where the discovery was made?",
               "answer": [
-                "time and money"
+                "pharmaceutical companies"
               ],
-              "explanation": "Found directly in the reading passage: 'time and money'.",
-              "prompt": "Complete the statement for question 7."
+              "explanation": "‘Pharmaceutical companies make huge profits from the sale of drugs with little return to the country’ of discovery.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 8,
+              "prompt": "In the forests of which place did fires play havoc in the late 1990s?",
               "answer": [
-                "Pharmaceutical Companies"
+                "Borneo"
               ],
-              "explanation": "Found directly in the reading passage: 'Pharmaceutical Companies'.",
-              "prompt": "Complete the statement for question 8."
+              "explanation": "Fires ‘played havoc in the late 1990s in the forests of Borneo’.",
+              "reference": "Paragraph 7"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Decide which of the answers best completes the sentences. Write your answers in boxes 24-26 on your Answer Sheet.",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 9,
-              "prompt": "The amount of rainforest destroyed annually is:",
+              "prompt": "What does the writer suggest about rich nations that lecture rainforest countries?",
               "options": [
                 {
                   "key": "A",
-                  "text": "approximately 6% of the Earth's land area"
+                  "text": "They have never harmed their own natural environment."
                 },
                 {
                   "key": "B",
-                  "text": "such that it will only take 100 years to lose all the forests"
+                  "text": "Their wealth was largely built on exploiting their own natural world."
                 },
                 {
                   "key": "C",
-                  "text": "increasing at an alarming rate"
+                  "text": "They have refused to help other countries to protect their forests."
                 },
                 {
                   "key": "D",
-                  "text": "responsible for commercial development"
+                  "text": "They have already replanted the forests they once destroyed."
                 }
               ],
-              "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "answer": "B",
+              "explanation": "Rich nations lecture others, ‘ignoring the fact that their wealth was in large part due to the exploitation of their own natural world’; the other options are not stated.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 10,
-              "prompt": "In Borneo in the late 1990s:",
+              "prompt": "What does the writer say about the forest fires in Borneo in the late 1990s?",
               "options": [
                 {
                   "key": "A",
-                  "text": "burning forest fires caused air pollution problems as far away as Europe"
+                  "text": "The burning forests caused air pollution as far away as Europe."
                 },
                 {
                   "key": "B",
-                  "text": "reckless logging resulted from burning forest fires"
+                  "text": "Reckless logging was the result of the fires."
                 },
                 {
                   "key": "C",
-                  "text": "fires were lit to play the game of havoc"
+                  "text": "The fires were started by local tribes to clear farmland."
                 },
                 {
                   "key": "D",
-                  "text": "none of the above"
+                  "text": "Smoke from the fires spread over cities in several neighbouring countries."
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "‘Massive clouds of smoke from burning forest fires swept across the southernmost countries of South-East Asia choking cities’; Europe is not mentioned and the fires were lit to clear land for logging, not the reverse.",
+              "reference": "Paragraph 7"
             },
             {
               "number": 11,
-              "prompt": "Many so-called \"lost\" tribes of certain rainforests:",
+              "prompt": "What does the writer say about “lost” tribes and the modern world?",
               "options": [
                 {
                   "key": "A",
-                  "text": "have been destroyed by contact with the modern world"
+                  "text": "Contact with it has completely destroyed some of the tribes."
                 },
                 {
                   "key": "B",
-                  "text": "do not know how to exploit the rainforest without causing harm to the environment"
+                  "text": "It has taught the tribes how to protect the rainforest."
                 },
                 {
                   "key": "C",
-                  "text": "are still lost inside the rainforest"
+                  "text": "It has helped the tribes to keep their traditional culture."
                 },
                 {
                   "key": "D",
-                  "text": "must listen or they will impact the entire human race."
+                  "text": "The tribes have deliberately avoided it for centuries."
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Contact brings ‘exploitation, loss of traditional culture, and, in an alarming number of instances, complete obliteration’.",
+              "reference": "Paragraph 8"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 12,
-              "prompt": "Beneath The Canopy You need to spend 20 minutes on",
+              "prompt": "Aspirin was originally obtained from a rainforest tree.",
               "answer": "TRUE",
-              "explanation": "Confirmed directly in the reading passage: 'Beneath The Canopy You need to spend 20 minutes on...'"
+              "explanation": "‘The drug aspirin, now synthesised, was originally found in the bark of a rainforest tree.’",
+              "reference": "Paragraph 1"
             },
             {
               "number": 13,
-              "prompt": "The primary purpose of the study was to disprove earlier theories mentioned in the passage.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage discusses the research findings but does not state that the primary purpose was to disprove earlier theories."
+              "prompt": "Pharmaceutical companies return most of the profits from rainforest drugs to the countries where the discoveries were made.",
+              "answer": "FALSE",
+              "explanation": "They make ‘huge profits from the sale of drugs with little return to the country in which an original discovery was made’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 14,
-              "prompt": "The drug aspirin, now synthesised, was originally found in the bark of a rainforest tree.",
-              "answer": "TRUE",
-              "explanation": "Confirmed directly in the reading passage: 'The drug aspirin, now synthesised, was originally found in t...'"
+              "prompt": "Forest-dwelling peoples have refused to share their knowledge with outsiders.",
+              "answer": "NOT GIVEN",
+              "explanation": "The writer says forest-dwellers ‘have much to teach us’, but does not say whether they have shared or refused to share their knowledge."
             }
           ]
         }
@@ -223,82 +249,86 @@
     },
     {
       "passageNumber": 2,
-      "title": "Reading Passage 155",
+      "title": "Communicating Styles and Conflict",
       "paragraphs": [
         {
           "label": "A",
-          "text": "Communicating Styles and Conflict"
-        },
-        {
-          "label": "A",
-          "text": "Since the time of Hippocrates (460-370 B.C.), people have tried to comprehend others by categorising them based on personality type or temperament. According to Hippocrates, there are four separate bodily fluids that affect four different temperamental subtypes. 500 years later, Galen expanded on his ideas. Although we no longer think the source is the kinds of body fluid that predominate in our systems, there are many self-assessment techniques available today that connect to the fundamental descriptions given by Galen."
+          "text": "Since the time of Hippocrates (460-370 B.C.), people have tried to comprehend others by categorising them based on personality type or temperament. According to Hippocrates, there are four separate bodily fluids that affect four different temperamental subtypes. Five hundred years later, Galen expanded on his ideas. Although we no longer think the source is the kinds of body fluid that predominate in our systems, there are many self-assessment techniques available today that connect to the fundamental descriptions given by Galen."
         },
         {
           "label": "B",
-          "text": "Self-evaluation is the criteria which is used to determine one's own values. The style that people use to learn, communicate, handle conflict or other characteristics of an individual will help to depersonalise conflict affiliation between two or more people. Loss of self occurs when you realise that others are not trying to be difficult but instead, they require different or more information than you do. They don't mean to be rude, they are so attentive to the task they overlook welcoming others. They would like to work smart and fast but they don't want to jeopardise the working relationship. They were aware of their work but it would be done correctly when required information is collected, which takes time to gather."
+          "text": "Self-assessments help people to determine their own personality style, learning style, communication style, conflict-handling style and other characteristics, and this understanding helps to depersonalise conflict between two or more people. The depersonalisation occurs when you realise that others are not trying to be difficult but instead need different or more information than you do. They do not mean to be rude: they are so attentive to the task that they overlook greeting others. They would like to work smart and fast, but they do not want to jeopardise the working relationship. They are aware of the job to be done, but it can be done correctly only when the required information has been collected, which takes time."
         },
         {
           "label": "C",
-          "text": "Hippocrates and later Galen have been determined to summarise personality with four basic temperaments Sanguine( is capable of talking to new friends like they are known for a long time), Melancholic (almost always deep in thought). Choleric( they are ambitious, brave and proud, but they can also be violent) Phlegmatic( slow to warm up to others but will make friends fairly easily). These temperaments were developed centuries ago and they were still somewhat adapted, you could update the wording. Nowadays, they translate into the four fairly common communication styles described below. The sanguine person would have the capability to talk with an unknown person like they were already close friends. They also have a spirited style of communication. These people speak with expression. They often speak very fast and also invest their time, emotion and energy in their communication. They can easily give an example story to their talk. It may or may not explain the point which they are trying to make. Because of their enthusiasm, they're great team motivators. They are always concerned about the people and their relationship. They usually focus on the bigger picture and their high level of energy comes at a strong time, which means sometimes they miss details or the correct order of things. These people find lots of conflict and differences of opinion and love to engage in spirited discussion. They love change, they are constantly looking for something more exciting and adventurous."
+          "text": "Hippocrates and later Galen determined that there were four basic temperaments: sanguine (capable of talking to strangers as if they were old friends), melancholic (almost always deep in thought), choleric (ambitious, brave and proud, but also capable of violence) and phlegmatic (slow to warm up to others, but fairly easily makes friends). These descriptions were developed centuries ago and are still somewhat apt, although the wording could be updated. Nowadays, they translate into the four fairly common communication styles described below."
+        },
+        {
+          "label": "D",
+          "text": "The sanguine person is capable of talking with a stranger as if they were already close friends. Sanguine people also have a spirited style of communication. These people speak with expression. They often speak very fast and invest their time, emotion and energy in their communication. They can easily slip a story into their talk, which may or may not illustrate the point they are trying to make. Because of their enthusiasm, they are great team motivators. They are always concerned about people and relationships. They usually focus on the bigger picture and their high level of energy can come on strong at times, which means they sometimes miss details or the correct order of things. These people find conflict and differences of opinion invigorating and love to engage in spirited discussion. They love change and are constantly looking for something more exciting and adventurous."
         },
         {
           "label": "E",
-          "text": "Tile phlegmatic person and preserving- translates into the technical or systematic communication style. This style of communication mainly focused on reality and technical details. These types of people are very much focused on their task, they have an orderly methodical way of approaching, and they do not focus on people, emotions or concerns. They also focus on the required details to accomplish a task. Sometimes the details flood out the big picture and focus needs to be brought back to the context of the task. These sorts of people always treat facts as a front end to make decisions and they are uncomfortable with the conflict. They need time to adapt to the change and need to understand both the logic of it and the steps involved."
+          "text": "The phlegmatic person, cool and persevering, translates into the technical or systematic communication style. This style of communication is mainly focused on facts and technical details. These types of people are very much focused on their task; they have an orderly, methodical way of approaching it, and they do not focus on people, emotions or concerns. They also focus on the details required to accomplish a task. Sometimes the details flood out the big picture and focus needs to be brought back to the context of the task. These people think the facts should speak for themselves, and they are uncomfortable with conflict. They need time to adapt to change and need to understand both the logic of it and the steps involved."
         },
         {
           "label": "F",
-          "text": "Tile melancholic persons who are soft-hearted and oriented toward doing things for others translate into considerate or sympathetic communication style. This style of people is focused on people and relationships. They seem to be good listeners and do things for other people, even sometimes they do to the people who did harm to themselves. They want to put in for others ' opinions and make sure everyone is comfortable with whatever is required to get the job done. Sometimes this focus on others can distract from the task at hand, because they are so focused on others' needs and smoothing over issues, they do not like conflict. People believe that change menaces the level quo and tends to make people feel tense, because of this people with the same communication style, like phlegmatic people, would take some time to accept the situation and change themself to adapt to it."
+          "text": "The melancholic person, who is soft-hearted and oriented toward doing things for others, translates into the considerate or sympathetic communication style. This style is focused on people and relationships. These people seem to be good listeners and do things for other people, even sometimes for people who have done them harm. They want to ask for everyone’s opinion and make sure everyone is comfortable with whatever is required to get the job done. Sometimes this focus on others can distract from the task at hand: because they are so concerned with others’ needs and with smoothing over issues, they do not like conflict. They believe that change threatens the status quo and tends to make people feel tense, so people with this communication style, like phlegmatic people, need time to accept a change and adapt to it."
         },
         {
           "label": "G",
-          "text": "The choleric temperament people have a bold and direct style of communication. These people are brief in their communication - the fewer words the better. People with this style are overactive and they love to be involved in many activities at one time. They are focused on tasks and outcomes and often forget that the people involved in carrying out the task have needs. They don't do detailed studies on the work they are doing so they underestimate the time which could take for that. They are so direct, they often look forceful and can be very intimidating to others. They always welcome someone to challenge them. But people with other styles are scared to do so. They can also handle the changes better."
+          "text": "The choleric temperament translates into a bold and direct style of communication. These people are brief in their communication - the fewer words the better. People with this style are overactive and they love to be involved in many activities at one time. They are focused on tasks and outcomes and often forget that the people involved in carrying out the task have needs. They do not do detailed work, so they often underestimate the time it will take. They are so direct that they often seem forceful and can be very intimidating to others. They usually welcome someone challenging them, but people with other styles are scared to do so. They also handle change better."
         },
         {
           "label": "H",
-          "text": "A well-functioning team should have all these types of communicating styles for true effectiveness. All teams should focus on the task as well as on the relationship to achieve those tasks. They need a big-picture perspective of the context of their work, and they need the details to be identified and taken care of for success. We all also have aspects of each style within us. Some of us can easily move from one style to another and we can easily adapt our style to that situation, with focus on tasks or relationships. For others it is difficult, their dominant style is very evident, and they feel it is more challenging to tackle the situation from the perspective of another style. The work environment can influence communication styles either by the type of work that is required or by the predominance of one style reflected in that environment. Some people use one style at work and another style at home. The above information about communication style is that we have the ability to develop flexibility in our styles. The greater the flexibility we have the more skilled we usually are at handling possible and actual conflicts. Usually, it is relevant to us to do so. We feel shy, either because it is important or because there are incentives in our surroundings to encourage it. The key is we should be flexible with our communication style.\" Whether you think you can or you can't, you're right!\" by Henry Ford."
+          "text": "A well-functioning team should have all of these communication styles for true effectiveness. All teams need to focus on the task, and they also need to take care of relationships in order to achieve those tasks. They need a big-picture perspective of the context of their work, and they need the details to be identified and taken care of for success. We all have aspects of each style within us. Some of us can easily move from one style to another and adapt our style to the situation, whether the focus is on tasks or relationships. For others it is difficult: their dominant style is very evident, and they find it more challenging to approach a situation from the perspective of another style. The work environment can influence communication styles, either by the type of work that is required or by the predominance of one style in that environment. Some people use one style at work and another style at home. The good news about communication styles is that we have the ability to develop flexibility in our styles. The greater the flexibility we have, the more skilled we usually are at handling possible and actual conflicts. Usually it has to be relevant to us to do so, either because we think it is important or because there are incentives in our surroundings to encourage it. The key is that we have to want to become flexible with our communication style. As Henry Ford said, “Whether you think you can or you can’t, you’re right!”"
         }
       ],
       "groups": [
         {
           "type": "matching_headings",
-          "instruction": "List of Headings",
+          "instruction": "Reading Passage 2 has eight paragraphs, **A–H**. Choose the correct heading for each paragraph from the list of headings below.",
           "optionsTitle": "List of Headings",
           "options": [
             {
               "key": "i",
-              "text": "Summarising personality types"
+              "text": "The main personality types introduced"
             },
             {
               "key": "ii",
-              "text": "Combined styles for workplace"
+              "text": "Combining different styles in a team"
             },
             {
               "key": "iii",
-              "text": "Physical explanation"
+              "text": "The historical background to understanding personality"
             },
             {
               "key": "iv",
-              "text": "A lively person who encourages"
+              "text": "A lively type of person who motivates others"
             },
             {
               "key": "v",
-              "text": "Demanding and unsympathetic personality"
+              "text": "A direct and forceful type of person"
             },
             {
               "key": "vi",
-              "text": "Lazy and careless personality"
+              "text": "A lazy and careless type of person"
+            },
+            {
+              "key": "vii",
+              "text": "How understanding styles reduces personal conflict"
             },
             {
               "key": "viii",
-              "text": "Cautious and caring"
+              "text": "A cautious and caring type of person"
             },
             {
               "key": "ix",
-              "text": "Factual and analytical personality"
+              "text": "A factual and methodical type of person"
             },
             {
               "key": "x",
-              "text": "Self-assessment determines one's temperament"
+              "text": "Self-assessment determines one’s temperament"
             }
           ],
           "questions": [
@@ -306,85 +336,97 @@
               "number": 15,
               "prompt": "Paragraph A",
               "answer": "iii",
-              "explanation": "Refer to Paragraph A in the passage."
+              "explanation": "The paragraph goes back to ‘the time of Hippocrates’ and Galen, giving the history of personality typing.",
+              "reference": "Paragraph A"
             },
             {
               "number": 16,
               "prompt": "Paragraph B",
-              "answer": "i",
-              "explanation": "Refer to Paragraph B in the passage."
+              "answer": "vii",
+              "explanation": "Understanding styles ‘helps to depersonalise conflict’: others ‘are not trying to be difficult’ but ‘need different or more information’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 17,
               "prompt": "Paragraph C",
               "answer": "i",
-              "explanation": "Refer to Paragraph C in the passage."
+              "explanation": "It introduces the four temperaments: ‘sanguine’, ‘melancholic’, ‘choleric’ and ‘phlegmatic’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 18,
               "prompt": "Paragraph D",
               "answer": "iv",
-              "explanation": "Refer to Paragraph D in the passage."
+              "explanation": "The sanguine person is a ‘great team motivator’ with ‘a spirited style of communication’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 19,
               "prompt": "Paragraph E",
               "answer": "ix",
-              "explanation": "Refer to Paragraph E in the passage."
+              "explanation": "The phlegmatic style is ‘focused on facts and technical details’ and is ‘orderly, methodical’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 20,
               "prompt": "Paragraph F",
               "answer": "viii",
-              "explanation": "Refer to Paragraph F in the passage."
+              "explanation": "The melancholic person is ‘soft-hearted’, ‘focused on people and relationships’ and needs time to accept change.",
+              "reference": "Paragraph F"
             },
             {
               "number": 21,
               "prompt": "Paragraph G",
               "answer": "v",
-              "explanation": "Refer to Paragraph G in the passage."
+              "explanation": "The choleric style is ‘bold and direct’; such people ‘often seem forceful and can be very intimidating’.",
+              "reference": "Paragraph G"
             },
             {
               "number": 22,
               "prompt": "Paragraph H",
               "answer": "ii",
-              "explanation": "Refer to Paragraph H in the passage."
+              "explanation": "‘A well-functioning team should have all of these communication styles for true effectiveness.’",
+              "reference": "Paragraph H"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write whether the statement is True, False or Not Given.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 23,
-              "prompt": "It is believed that sanguine people dislike variety",
+              "prompt": "It is believed that sanguine people dislike variety.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "Sanguine people ‘love change and are constantly looking for something more exciting and adventurous’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 24,
               "prompt": "Melancholic and phlegmatic people have similar characteristics.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "Both dislike conflict, and melancholic people, ‘like phlegmatic people, need time to accept a change and adapt to it’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 25,
-              "prompt": "Managers often select their best employees according to personality types.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "prompt": "Managers often select their best employees according to personality type.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage says a team needs all the communication styles, but never mentions managers choosing employees by personality type."
             },
             {
               "number": 26,
-              "prompt": "It is possible to change one's personality type.",
+              "prompt": "People are able to change from one communication style to another.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "‘Some of us can easily move from one style to another’, and ‘we have the ability to develop flexibility in our styles’.",
+              "reference": "Paragraph H"
             },
             {
               "number": 27,
-              "prompt": "Workplace environments can affect which communication style is most effective.",
+              "prompt": "The working environment can influence the communication style that people use.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "‘The work environment can influence communication styles’, either through the type of work or the dominance of one style.",
+              "reference": "Paragraph H"
             }
           ]
         }
@@ -392,19 +434,15 @@
     },
     {
       "passageNumber": 3,
-      "title": "Hot air ballooning",
+      "title": "Hot Air Ballooning",
       "paragraphs": [
-        {
-          "label": null,
-          "text": "You can find the passage of Hot air ballooning reading answers below. You can read the questions first, then the passage, and then write the answers."
-        },
         {
           "label": "A",
           "text": "Two French brothers, Joseph and Etienne Montgolfier, are mainly credited with originating the hot air balloon. Using the notion that hot air is lighter than cold air, they could boost a little silk balloon 32 meters into the air. The brothers then sent a balloon 10,000 meters into the air, where it dismounted and then burst. Their work allured the concentration of the French Science Academy as the discovery of the qualities of hot air balloons benefited the analysis of weather patterns and the environment."
         },
         {
           "label": "B",
-          "text": "Not until a significant number of years later was a balloon qualified to carry passengers launched. Initial flights were performed by animals, but following the success of these flights, two passengers, Jean Francois Pilatre and Francois Laurent d'Arlandes, flew for 29 minutes across Paris in a balloon. The men fueled the fire in the center of their wicker basket to keep the balloon aloft, resulting in a successful journey across Paris."
+          "text": "Not until a significant number of years later was a balloon qualified to carry passengers launched. Initial flights were performed by animals, but following the success of these flights, two passengers, Jean Francois Pilatre and Francois Laurent d’Arlandes, flew for 29 minutes across Paris in a balloon. The men fueled the fire in the center of their wicker basket to keep the balloon aloft, resulting in a successful journey across Paris."
         },
         {
           "label": "C",
@@ -416,133 +454,181 @@
         },
         {
           "label": "E",
-          "text": "There are currently a number of designs and equipment available, including baskets with space for two to 35 or more passengers, segregated compartments, and specially developed flame-resistant textiles, but the balloon's fundamental components have remained basically unaltered. The propane fuel tanks are often included in wicker baskets. The burners are connected to suspension wires just above the basket and partially enveloped by the skirt. The balloon is comprised of gores, which extend from the skirt to the top of the balloon and are further divided into separate panels. This portion of the object is known as the envelope. A self-closing flap located at the top of the envelope lets hot air escape at a regulated rate to limit ascents or force the balloon to sink. This is the parachute valve, which is restrained by the vent line - the wire that travels the distance of the parachute and hangs above the basket, allowing the pilot to open and close the parachute valve."
+          "text": "There are currently a number of designs and equipment available, including baskets with space for two to 35 or more passengers, segregated compartments, and specially developed flame-resistant textiles, but the balloon’s fundamental components have remained basically unaltered. The propane fuel tanks are often included in wicker baskets. The burners are connected to suspension wires just above the basket and partially enveloped by the skirt. The balloon is comprised of gores, which extend from the skirt to the top of the balloon and are further divided into separate panels. This portion of the object is known as the envelope. A self-closing flap located at the top of the envelope lets hot air escape at a regulated rate to limit ascents or force the balloon to sink. This is the parachute valve, which is restrained by the vent line - the wire that travels the distance of the parachute and hangs above the basket, allowing the pilot to open and close the parachute valve."
         },
         {
           "label": "F",
-          "text": "Piloting a balloon demands a great deal of expertise. Ballooning demands a great deal of expertise. The controls are quite simple. To hoist a balloon, the pilot releases propane by manipulating a control. By raising or reducing the flow of propane gas, the pilot may regulate the speed of the balloon, but not its horizontal direction. As a result, balloons are frequently accompanied by ground personnel, who may need to retrieve the pilot, passengers, and balloon from a variety of landing spots. To fly a hot air balloon, a pilot must possess a commercial pilot's license and have at least 35 hours of flight instruction. There are no statutory safety regulations for passengers, but they should be aware of their flight crew and their credentials. For safety reasons, hot air balloons do not fly in the rain because the balloon's heat might cause the surface water to boil and ruin the fabric."
+          "text": "Piloting a balloon demands a great deal of expertise. The controls are quite simple. To hoist a balloon, the pilot releases propane by manipulating a control. By raising or reducing the flow of propane gas, the pilot may regulate the speed of the balloon, but not its horizontal direction. As a result, balloons are frequently accompanied by ground personnel, who may need to retrieve the pilot, passengers, and balloon from a variety of landing spots. To fly a hot air balloon, a pilot must possess a commercial pilot’s license and have at least 35 hours of flight instruction. There are no statutory safety regulations for passengers, but they should be aware of their flight crew and their credentials. For safety reasons, hot air balloons do not fly in the rain because the balloon’s heat might cause the surface water to boil and ruin the fabric."
         },
         {
           "label": "G",
-          "text": "The Balloon Federation of America is one of the major hot air balloon groups in the United States. Membership in the BFA, founded in 1961, appeals to anyone with an interest in ballooning (or \"lighter than air\" flying). With an active discussion forum, meetings, and exhibits around the United States and beyond, the BFA operates by a number of guiding principles, the most important of which is that the future of ballooning is closely tied to the safety of fans. They provide several training programs, ranging from classes for beginners seeking a basic license to pilot accomplishment programs. Even while the simulator does not immediately lead to a pilot's license, it can offer participants a sense of the sensations experienced by professional balloon pilots."
+          "text": "The Balloon Federation of America is one of the major hot air balloon groups in the United States. Membership in the BFA, founded in 1961, appeals to anyone with an interest in ballooning (or “lighter than air” flying). With an active discussion forum, meetings, and exhibits around the United States and beyond, the BFA operates by a number of guiding principles, the most important of which is that the future of ballooning is closely tied to the safety of fans. They provide several training programs, ranging from classes for beginners seeking a basic license to pilot accomplishment programs. Even while the simulator does not immediately lead to a pilot’s license, it can offer participants a sense of the sensations experienced by professional balloon pilots."
         }
       ],
       "groups": [
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the ones given in the reading passage? In boxes 1-4 on your answer sheet, write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 28,
-              "prompt": "The brothers Montgolfier were the first individuals to soar in a hot air balloon.",
+              "prompt": "The Montgolfier brothers were the first people to fly in a hot air balloon.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "The first passengers were others: ‘two passengers, Jean Francois Pilatre and Francois Laurent d’Arlandes, flew for 29 minutes across Paris’; the Montgolfiers’ own balloons carried no one.",
+              "reference": "Paragraph B"
             },
             {
               "number": 29,
-              "prompt": "Late in the eighteenth century, hot-air ballooning became less fashionable.",
+              "prompt": "Late in the eighteenth century, hot air ballooning became less fashionable.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "In 1785 the death of Pilatre was ‘a tragedy that contributed to a decrease in the favor of hot air ballooning’.",
+              "reference": "Paragraph C"
             },
             {
               "number": 30,
-              "prompt": "The volume of the largest hot air balloon exceeded 75,000 cubic meters.",
+              "prompt": "The Virgin Pacific Flyer had a smaller volume than the Virgin Atlantic Flyer.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "The Pacific Flyer was ‘nearly 10,000 cubic meters larger’ than the earlier balloon.",
+              "reference": "Paragraph D"
             },
             {
               "number": 31,
               "prompt": "Membership in the BFA is restricted to citizens of the United States.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The BFA is said to appeal to ‘anyone with an interest in ballooning’, but the passage says nothing about nationality or any restriction on membership."
             }
           ]
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "instruction": "Answer the questions below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 32,
-              "prompt": "Who was the entrepreneur's companion on the longest balloon flight?",
+              "prompt": "Who accompanied Richard Branson on the longest hot air balloon flight in history?",
               "answer": [
                 "Per Lindstrand"
               ],
-              "explanation": "Found directly in the reading passage: 'Per Lindstrand'."
+              "explanation": "‘He and Per Lindstrand of Sweden flew approximately 8,000 kilometers from Japan to Northern Canada’ in the longest voyage.",
+              "reference": "Paragraph D"
             },
             {
               "number": 33,
-              "prompt": "Who follows the flight of a hot air balloon to recover it after it lands?",
+              "prompt": "Who often accompany a hot air balloon so that they can collect the pilot, passengers and balloon after landing?",
               "answer": [
-                "later"
+                "ground personnel"
               ],
-              "explanation": "Found directly in the reading passage: 'later'."
+              "explanation": "Balloons ‘are frequently accompanied by ground personnel, who may need to retrieve the pilot, passengers, and balloon’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 34,
-              "prompt": "What can newcomers to the sport learn about the sensation of balloon flight?",
+              "prompt": "What can give participants a sense of the sensations experienced by professional balloon pilots?",
               "answer": [
-                "performed"
+                "simulator"
               ],
-              "explanation": "Found directly in the reading passage: 'performed'."
+              "explanation": "‘The simulator … can offer participants a sense of the sensations experienced by professional balloon pilots.’",
+              "reference": "Paragraph G"
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 35,
-              "prompt": "Question 8",
+              "prompt": "The balloon is made up of long strips, called {{35}}, which run from the skirt to the top.",
               "answer": [
-                "Parachute valve"
+                "gores"
               ],
-              "explanation": "Found directly in the reading passage: 'Parachute valve'."
+              "explanation": "‘The balloon is comprised of gores, which extend from the skirt to the top of the balloon.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 36,
-              "prompt": "Question 9",
+              "prompt": "Each of these strips is further divided into separate {{36}}.",
               "answer": [
-                "Envelope"
+                "panels"
               ],
-              "explanation": "Found directly in the reading passage: 'Envelope'."
+              "explanation": "The gores ‘are further divided into separate panels’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 37,
-              "prompt": "Question 10",
+              "prompt": "The whole of this fabric part of the balloon is known as the {{37}}.",
               "answer": [
-                "Panels"
+                "envelope"
               ],
-              "explanation": "Found directly in the reading passage: 'Panels'."
+              "explanation": "‘This portion of the object is known as the envelope.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 38,
-              "prompt": "Question 11",
+              "prompt": "At the top of the balloon, a self-closing flap lets hot air escape at a regulated rate; this is the {{38}}.",
               "answer": [
-                "Gores"
+                "parachute valve"
               ],
-              "explanation": "Found directly in the reading passage: 'Gores'."
+              "explanation": "The flap ‘lets hot air escape at a regulated rate’: ‘This is the parachute valve’.",
+              "reference": "Paragraph E"
             }
           ]
         },
         {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 39,
-              "prompt": "You can find the passage of Hot air ballooning reading answers below.",
-              "answer": "TRUE",
-              "explanation": "Confirmed directly in the reading passage: 'You can find the passage of Hot air ballooning reading answe...'"
+              "prompt": "What does the writer say about piloting a hot air balloon?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The controls are complicated."
+                },
+                {
+                  "key": "B",
+                  "text": "The pilot cannot control the horizontal direction in which the balloon travels."
+                },
+                {
+                  "key": "C",
+                  "text": "The pilot steers by opening and closing the parachute valve."
+                },
+                {
+                  "key": "D",
+                  "text": "A pilot’s licence is not needed to fly a hot air balloon."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The pilot may regulate the balloon ‘but not its horizontal direction’. The controls are ‘quite simple’, the valve lets hot air escape, and a commercial licence is required.",
+              "reference": "Paragraph F"
             },
             {
               "number": 40,
-              "prompt": "The primary purpose of the study was to disprove earlier theories mentioned in the passage.",
-              "answer": "NOT GIVEN",
-              "explanation": "The passage discusses the research findings but does not state that the primary purpose was to disprove earlier theories."
+              "prompt": "Why do hot air balloons not fly in the rain?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The pilot cannot see the ground."
+                },
+                {
+                  "key": "B",
+                  "text": "Rain makes the propane burners unsafe."
+                },
+                {
+                  "key": "C",
+                  "text": "The heat of the balloon could boil water on the fabric and ruin it."
+                },
+                {
+                  "key": "D",
+                  "text": "Ground personnel are unable to follow the balloon."
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘The balloon’s heat might cause the surface water to boil and ruin the fabric.’",
+              "reference": "Paragraph F"
             }
           ]
         }

@@ -135,6 +135,15 @@ class InterfaceTextTests(unittest.TestCase):
 
 
 class ContentTests(unittest.TestCase):
+    def test_free_tests_come_first_in_every_module(self):
+        """15 Reading tests and one of each other module are free, and they are numbered first (Test 1, 2, ...)."""
+        expected = {"reading": 15, "listening": 1, "writing": 1, "speaking": 1}
+        for module, count in expected.items():
+            tests = sorted(content.load_json_dir(os.path.join(BASE_DIR, "content", module)), key=lambda t: t["sortOrder"])
+            free = [t["sortOrder"] for t in tests if accounts.test_access(t) == "free"]
+            self.assertEqual(free, list(range(1, count + 1)), module)
+            self.assertEqual([t["sortOrder"] for t in tests], list(range(1, len(tests) + 1)), module)
+
     def test_expected_tests_present(self):
         self.assertGreaterEqual(len(READING), 3)
         self.assertGreaterEqual(len(LISTENING), 1)
@@ -1013,15 +1022,15 @@ class AccountApiTests(AccountApiBase):
     def test_premium_tests_and_audio_are_locked(self):
         r, data = self.call("GET", "/api/tests")
         access = {t["id"]: t["access"] for t in data["tests"]}
-        self.assertEqual((access["academic-reading-01"], access["academic-reading-02"]), ("free", "premium"))
-        r, data = self.call("GET", "/api/tests/academic-reading-02")
+        self.assertEqual((access["academic-reading-01"], access["academic-reading-36"], access["academic-reading-08"]), ("free", "free", "premium"))
+        r, data = self.call("GET", "/api/tests/academic-reading-08")
         self.assertEqual((r.code, data["code"]), (401, "login_required"))
         self.assertEqual(self.fetch("/audio/listening-02/part1.mp3").code, 401)
         self.assertEqual(self.fetch("/audio/listening-01/part1.mp3", headers={"Range": "bytes=0-9"}).code, 206)
         cookie, _ = self.login("nopay@example.com")
-        r, data = self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)
+        r, data = self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)
         self.assertEqual((r.code, data["code"]), (402, "plan_required"))
-        r, data = self.call("POST", "/api/reading/academic-reading-02/submit", {"answers": {}}, cookie=cookie)
+        r, data = self.call("POST", "/api/reading/academic-reading-08/submit", {"answers": {}}, cookie=cookie)
         self.assertEqual(r.code, 402)
         self.assertEqual(self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie}).code, 402)
 
@@ -1053,7 +1062,7 @@ class AccountApiTests(AccountApiBase):
         self.assertEqual(data["order"]["status"], "paid")
         r, data = self.call("GET", "/api/me", cookie=cookie)
         self.assertTrue(data["plan"]["active"])
-        r, _ = self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)
+        r, _ = self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)
         self.assertEqual(r.code, 200)
         self.assertEqual(self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code, 206)
         # Admin can also give plan days directly.
@@ -1716,18 +1725,18 @@ class PaymentAccessTests(AccountApiBase):
         db = self._app.settings["store"].db
         uid = data["user"]["id"]
         audio = lambda: self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code
-        self.assertEqual(self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)[0].code, 402)
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)[0].code, 402)
         self.assertEqual(audio(), 402)
         order = billing.create_order(db, uid, "plan")
         billing.fulfil_order(db, order["id"], "payme")
-        self.assertEqual(self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)[0].code, 200)
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)[0].code, 200)
         self.assertEqual(audio(), 206)  # the active plan is now cached for audio range requests
         r, data = self.call("GET", "/api/orders", cookie=cookie)
         receipt = next(o for o in data["orders"] if o["id"] == order["id"])
         self.assertEqual((receipt["status"], receipt["amount"]), ("paid", billing.PRICES["plan"]))
         self.assertIn("endsAt", receipt["unlocked"]["plan"])
         billing.refund_order(db, billing.get_order(db, order["id"]))
-        self.assertEqual(self.call("GET", "/api/tests/academic-reading-02", cookie=cookie)[0].code, 402)
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)[0].code, 402)
         self.assertEqual(audio(), 402)  # no minute of free access after a refund
         r, data = self.call("GET", "/api/orders", cookie=cookie)
         self.assertNotIn("unlocked", next(o for o in data["orders"] if o["id"] == order["id"]))
