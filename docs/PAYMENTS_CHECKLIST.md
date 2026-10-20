@@ -58,7 +58,7 @@ Use a separate student account (not an admin email), on a phone, with mobile dat
 2. Pay with Payme. Expected:
    - you come back to the site;
    - **Account** says *Your pass is active until …*;
-   - Reading Test 2 opens at once, and Listening Test 2 plays its recording;
+   - Reading Test 16 (the first paid one) opens at once, and Listening Test 2 plays its recording;
    - under Payments the order shows **Paid**, and **Receipt** shows the order number,
      amount, date, "Payme" and the pass dates;
    - the owner gets the Telegram message, if Telegram is set up.
@@ -80,7 +80,7 @@ not started. It does **not** send money anywhere. The money goes back through th
 | Card transfer | Transfer the money back yourself | Admin → Orders → Refund. |
 
 Check after a refund:
-- Reading Test 2 is locked again immediately, and so is its audio;
+- Reading Test 16 is locked again immediately, and so is Listening Test 2's audio;
 - the order says **Refunded**, and the receipt button has gone;
 - if the student had bought another month after this one, that month now starts today.
 
