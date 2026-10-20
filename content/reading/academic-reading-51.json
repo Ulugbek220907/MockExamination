@@ -15,19 +15,15 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "The numeration reading passage (newly-developed) is as follows. The numeration reading answers are given at the end of this passage."
-        },
-        {
-          "label": null,
           "text": "One of the best intellectual achievements of a baby is learning how to talk to a person, and the next is learning how to count numbers and play with them. From childhood days, we get so attached to the numbers and the numeration system. It is considered a feat of pure imaginative thinking to look at the problems encountered by humans who did not invent this kind of luxury. After a thorough observation of our self-made numeration system, it is clear that it takes us to the conviction that, instead of being a luxury that is inbuilt in a person, it is one of the best and incomparable achievements of the human tribe."
         },
         {
           "label": null,
-          "text": "It is not correct to learn the series of things that happened that made us develop the idea of number, number system, etc. Let's assume that our ancestors developed a system of numeration that, if not advanced, was good enough to perform tasks they had during that time. Our earliest tribal men and women had very limited usage of actual numbers. Is this sufficient? Instead of how many? For instance, when they indulged in hunting and food gathering. On the other hand, when early tribal communities initially started to present on the nature of invariable things surrounded by them, they found out that they required a concept of numbers and number system just to think in an orderly manner. As they started to stop shifting from one place to another, plant trees, and feed animals, the requirement for an advanced number system became inevitable. It will become an unknown fact how and when this numeration skill came to life, however it is clear that certain numeration was developed correctly when we as humans settled for even semi-permanent lives."
+          "text": "It is not correct to learn the series of things that happened that made us develop the idea of number, number system, etc. Let’s assume that our ancestors developed a system of numeration that, if not advanced, was good enough to perform tasks they had during that time. Our earliest tribal men and women had very limited usage of actual numbers. Is this sufficient? Instead of how many? For instance, when they indulged in hunting and food gathering. On the other hand, when early tribal communities initially started to present on the nature of invariable things surrounded by them, they found out that they required a concept of numbers and number system just to think in an orderly manner. As they started to stop shifting from one place to another, plant trees, and feed animals, the requirement for an advanced number system became inevitable. It will become an unknown fact how and when this numeration skill came to life, however it is clear that certain numeration was developed correctly when we as humans settled for even semi-permanent lives."
         },
         {
           "label": null,
-          "text": "There are many proofs and evidence of initial stages of arithmetic and numeration found in some parts of the world. Even now, many tribal people from Tasmania and other parts of Africa were only able to count numbers like one, two, many; in some parts of South Africa counted one, two, two and one, two twos, two twos and one, etc. Now, the number and words are mostly accompanied by physical gestures to avoid unnecessary confusion. For instance, while counting the numbers like one, two, many types of system, the word many would seem to be, Follow my hands and follow the number of fingers I am showing you. This fundamental step is used only in the variety of numbers which it can express, but this will normally diminish while facing the easier components of mere existence."
+          "text": "There are many proofs and evidence of initial stages of arithmetic and numeration found in some parts of the world. Even now, many tribal people from Tasmania and other parts of Africa were only able to count numbers like one, two, many; in some parts of South Africa counted one, two, two and one, two twos, two twos and one, etc. Now, the number and words are mostly accompanied by physical gestures to avoid unnecessary confusion. For instance, while counting the numbers like one, two, many types of system, the word many would seem to be, ‘Follow my hands and follow the number of fingers I am showing you.’ This fundamental step is used only in the variety of numbers which it can express, but this will normally diminish while facing the easier components of mere existence."
         },
         {
           "label": null,
@@ -39,7 +35,7 @@
         },
         {
           "label": null,
-          "text": "There are many traces identified in the early stages of the development of numeration. It can be witnessed in many currently speaking languages. In British Columbia, the Tsimshian language has approximately seven different forms of words, especially for numbers based on the class of the item counted. For example, to count flat objects, materials and animals, to count round objects, time, to count the number of people, to count the long objects like trees, to count canoes, to measure something, and to count any particular item which is not being numerated. It is found that the last was a new development from the humans' side, where the first six groups reveal the order system used. When we look at the Japanese language, we can find this diversity of names for each number."
+          "text": "There are many traces identified in the early stages of the development of numeration. It can be witnessed in many currently speaking languages. In British Columbia, the Tsimshian language has approximately seven different forms of words, especially for numbers based on the class of the item counted. For example, to count flat objects, materials and animals, to count round objects, time, to count the number of people, to count the long objects like trees, to count canoes, to measure something, and to count any particular item which is not being numerated. It is found that the last was a new development from the humans’ side, where the first six groups reveal the order system used. When we look at the Japanese language, we can find this diversity of names for each number."
         },
         {
           "label": null,
@@ -49,120 +45,133 @@
       "groups": [
         {
           "type": "summary_completion",
-          "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for each",
-          "content": "Similarly, in the seventh century, the word {{1}} . ________ was interchangeable with the tachund or {{2}} . _________ of the Anglo-Saxon language, and so 100 was denoted as hund teontig, or ten times ten. A typical individual from the {{3}} . __________ in Europe did not know anything about numbers as we use them in this modern era. In the previous days, when a person needed to be produced as a {{4}} . ___________ in a court of law, they must be able to {{5}} . __________ numbers from one to nine. In this case the most basic action to develop a sense of number is definitely not how to count but rather to {{6}} . ___________ that the concept of number is an {{7}} . ___________. It is not a simple attachment to a group of specific subjects.",
+          "instruction": "Complete the summary below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
+          "content": "Similarly, in the seventh century, the word {{1}} was interchangeable with the tachund or {{2}} of the Anglo-Saxon language, and so 100 was denoted as hund teontig, or ten times ten. A typical individual from the {{3}} in Europe did not know anything about numbers as we use them in this modern era. In the previous days, when a person needed to be produced as a {{4}} in a court of law, they must be able to {{5}} numbers from one to nine. In this case the most basic action to develop a sense of number is definitely not how to count but rather to {{6}} that the concept of number is an {{7}}. It is not a simple attachment to a group of specific subjects.",
           "maxWords": 2,
           "questions": [
             {
               "number": 1,
               "answer": [
-                "Toen"
+                "toen"
               ],
-              "explanation": "Found directly in the reading passage: 'Toen'."
+              "explanation": "The word ‘toen’ was ‘interchangeable with the tachund or hund of the Anglo-Saxon language’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 2,
               "answer": [
-                "Hund"
+                "hund"
               ],
-              "explanation": "Found directly in the reading passage: 'Hund'."
+              "explanation": "‘The word toen was interchangeable with the tachund or hund of the Anglo-Saxon language.’",
+              "reference": "Paragraph 4"
             },
             {
               "number": 3,
               "answer": [
-                "Seventh century"
+                "seventh century"
               ],
-              "explanation": "Found directly in the reading passage: 'Seventh century'."
+              "explanation": "‘A typical individual from the seventh century in Europe did not know anything about numbers as we use them’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 4,
               "answer": [
-                "Witness"
+                "witness"
               ],
-              "explanation": "Found directly in the reading passage: 'Witness'."
+              "explanation": "A person ‘needed to be produced as a witness in a court of law’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 5,
               "answer": [
-                "Count"
+                "count"
               ],
-              "explanation": "Found directly in the reading passage: 'Count'."
+              "explanation": "A witness ‘must be able to count numbers from one to nine’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 6,
               "answer": [
-                "Understand"
+                "understand"
               ],
-              "explanation": "Found directly in the reading passage: 'Understand'."
+              "explanation": "The basic action is ‘not how to count but rather to understand that the concept of number is an abstract idea’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 7,
               "answer": [
-                "A"
+                "abstract idea"
               ],
-              "explanation": "Found directly in the reading passage: 'A'."
+              "explanation": "The concept of number ‘is an abstract idea’ rather than ‘a simple attachment to a group of specific subjects’.",
+              "reference": "Paragraph 5"
             }
           ]
         },
         {
-          "type": "matching_features",
-          "instruction": "Match the correct statement with the letter",
+          "type": "matching_sentence_endings",
+          "instruction": "Complete each sentence with the correct ending, **A–C**, below.",
           "options": [
             {
               "key": "A",
-              "text": "Numbers, words, and expressions"
+              "text": "numbers, words and expressions."
             },
             {
               "key": "B",
-              "text": "Extraordinary achievement"
+              "text": "an extraordinary achievement."
             },
             {
               "key": "C",
-              "text": "minimum use of actual numbers"
+              "text": "very limited use of actual numbers."
             }
           ],
           "questions": [
             {
               "number": 8,
               "prompt": "Our earliest tribal men and women had",
-              "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "answer": "C",
+              "explanation": "The earliest tribal people ‘had very limited usage of actual numbers’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 9,
-              "prompt": "The earlier version of European languages had poor standards in",
+              "prompt": "The earlier versions of European languages were very poor in",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "In earlier European languages ‘the words, expressions and numbers are very poor in standards’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 10,
-              "prompt": "Self-made numeration system is a",
-              "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "prompt": "Our self-made numeration system is",
+              "answer": "B",
+              "explanation": "The numeration system is called ‘one of the best and incomparable achievements of the human tribe’.",
+              "reference": "Paragraph 1"
             }
-          ]
+          ],
+          "optionsTitle": "List of Endings"
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the reading passage? Write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 11,
-              "prompt": "The Tsimshian language in British Columbia has more letters than other languages",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "prompt": "The Tsimshian language in British Columbia has more letters than other languages.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage says Tsimshian has ‘approximately seven different forms of words’ for numbers, but the number of letters in the language is never mentioned."
             },
             {
               "number": 12,
-              "prompt": "A person from Europe during the seventh century knows something about numbers",
+              "prompt": "A person in Europe during the seventh century knew a good deal about numbers as they are used today.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "‘A typical individual from the seventh century in Europe did not know anything about numbers as we use them in this modern era.’",
+              "reference": "Paragraph 4"
             },
             {
               "number": 13,
               "prompt": "In the Anglo-Saxon language, the word toen was interchangeable with tachund",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "‘The word toen was interchangeable with the tachund or hund of the Anglo-Saxon language.’",
+              "reference": "Paragraph 4"
             }
           ]
         }
@@ -174,19 +183,15 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Read this passage given below carefully and write the Neuroaesthetics IELTS Reading Answers ."
+          "text": "Neuroaesthetics is an emerging discipline seeking to bring scientific objectivity to the study of art, and has already given us a better understanding of many masterpieces. For instance the brain’s amygdala seems to be stimulated by the blurred imagery of impressionist paintings. That finding might explain why many people find these pieces so moving since the amygdala plays a crucial role in our feelings."
         },
         {
           "label": null,
-          "text": "Neuroaesthetics is an emerging discipline seeking to bring scientific objectivity to the study of art, and has already given us a better understanding of many masterpieces. For instance the brain's amygdala seems to be stimulated by the blurred imagery of impressionist paintings. That finding might explain why many people find these pieces so moving since the amygdala plays a crucial role in our feelings."
+          "text": "Could the same approach also shed light on abstract 20th century pieces, from Pollock’s seemingly haphazard arrangements of splashed paint on canvas to Mondrian’s geometrical blocks of colour? Sceptics believe that because they are famous people claim to like such works. We always have an inclination to follow the crowd. When asked to make simple perceptual decisions, for example matching a shape to its rotated image, people often choose the wrong answer if they see others choosing it. It is easy to imagine that this behaviour would have even more effect on a fuzzy concept where there is no right or wrong answer, like art appreciation."
         },
         {
           "label": null,
-          "text": "Could the same approach also shed light on abstract 20th century pieces, from Pollock's seemingly haphazard arrangements of splashed paint on canvas to Mondrian's geometrical blocks of colour? Sceptics believe that because they are famous people claim to like such works. We always have an inclination to follow the crowd. When asked to make simple perceptual decisions, for example matching a shape to its rotated image, people often choose the wrong answer if they see others choosing it. It is easy to imagine that this behaviour would have even more effect on a fuzzy concept where there is no right or wrong answer, like art appreciation."
-        },
-        {
-          "label": null,
-          "text": "Angelina Hawley-Dolan, of Boston College, Massachusetts, asked volunteers to view pairs of paintings - either the doodles of chimps, infants and elephants or the creations of famous abstract artists. They then had to tell which they liked. No captions were given to one-third of the paintings, while many were labelled incorrectly. Volunteers were actually seeing an acclaimed masterpiece but they thought they were seeing a chimp's messy brush strokes. In each set of trials, even when they believed it was by an animal or a child, volunteers generally preferred the work of renowned artists. Even if they can't explain why, it seems that the viewer can sense the artist's vision in paintings."
+          "text": "Angelina Hawley-Dolan, of Boston College, Massachusetts, asked volunteers to view pairs of paintings – either the doodles of chimps, infants and elephants or the creations of famous abstract artists. They then had to tell which they liked. No captions were given to one-third of the paintings, while many were labelled incorrectly. Volunteers were actually seeing an acclaimed masterpiece but they thought they were seeing a chimp’s messy brush strokes. In each set of trials, even when they believed it was by an animal or a child, volunteers generally preferred the work of renowned artists. Even if they can’t explain why, it seems that the viewer can sense the artist’s vision in paintings."
         },
         {
           "label": null,
@@ -194,7 +199,7 @@
         },
         {
           "label": null,
-          "text": "And what about artists such as Mondrian, whose paintings are created exclusively of vertical and horizontal lines enclosing blocks of colour? Mondrian's works are deceptively simple, but eye-tracking studies confirm that they are carefully composed, and that simply rotating a piece radically changes the way we see it. With the altered versions they would flit across a piece more rapidly but with the originals, volunteers' eyes stayed longer on certain places in the image. As a result, when they later rated the work, the volunteers considered the altered versions less pleasurable."
+          "text": "And what about artists such as Mondrian, whose paintings are created exclusively of vertical and horizontal lines enclosing blocks of colour? Mondrian’s works are deceptively simple, but eye-tracking studies confirm that they are carefully composed, and that simply rotating a piece radically changes the way we see it. With the altered versions they would flit across a piece more rapidly but with the originals, volunteers’ eyes stayed longer on certain places in the image. As a result, when they later rated the work, the volunteers considered the altered versions less pleasurable."
         },
         {
           "label": null,
@@ -202,76 +207,78 @@
         },
         {
           "label": null,
-          "text": "Analysing the visual intricacy of different pieces of art, Alex Forsythe of the University of Liverpool, suggested that many artists use a key level of detail to please the brain. Too much detail makes it kind of a 'perceptual overload' but too little detail is boring, according to Forsythe. Appealing pieces both representational and abstract, show signs of 'fractals' - repeated motifs keep repeating in different scales, fractals are common throughout nature, for example in the branches of trees or shapes of mountain peaks. It is possible that our visual system finds it easier to process such patterns, which evolved in the great outdoors."
+          "text": "Analysing the visual intricacy of different pieces of art, Alex Forsythe of the University of Liverpool, suggested that many artists use a key level of detail to please the brain. Too much detail makes it kind of a ‘perceptual overload’ but too little detail is boring, according to Forsythe. Appealing pieces both representational and abstract, show signs of ‘fractals’ – repeated motifs keep repeating in different scales, fractals are common throughout nature, for example in the branches of trees or shapes of mountain peaks. It is possible that our visual system finds it easier to process such patterns, which evolved in the great outdoors."
         },
         {
           "label": null,
-          "text": "Like replaying the writer's moment of creation, the brain appears to process movement when we see a handwritten letter. Because the brain reconstructs the energetic actions the artist used as he painted it led some to wonder whether Pollock's works feel so dynamic. This may be because of our brain's 'mirror neurons', which mimic others' actions. It might even be the case that we could use neuroaesthetic studies to understand the longevity of some pieces of artwork, however the hypothesis will need to be tested thoroughly. Works best suited to our visual system may be the most likely to linger once the trends of previous generations have been forgotten while the fashions of the time might shape what is currently popular."
+          "text": "Like replaying the writer’s moment of creation, the brain appears to process movement when we see a handwritten letter. Because the brain reconstructs the energetic actions the artist used as he painted it led some to wonder whether Pollock’s works feel so dynamic. This may be because of our brain’s ‘mirror neurons’, which mimic others’ actions. It might even be the case that we could use neuroaesthetic studies to understand the longevity of some pieces of artwork, however the hypothesis will need to be tested thoroughly. Works best suited to our visual system may be the most likely to linger once the trends of previous generations have been forgotten while the fashions of the time might shape what is currently popular."
         },
         {
           "label": null,
-          "text": "These studies are probably only a taste of what is to come and is still early days for the field of neuroaesthetics. However it would be stupid to reduce art appreciation to a set of scientific laws. We shouldn't underestimate the importance of the artistic environment, the style of a particular artist, and their place in history. Abstract art offers both the freedom and a challenge to play with different interpretations. Like science in some ways, we keep decoding meaning and looking for systems so that we can view and appreciate the world in a new way."
+          "text": "These studies are probably only a taste of what is to come and is still early days for the field of neuroaesthetics. However it would be stupid to reduce art appreciation to a set of scientific laws. We shouldn’t underestimate the importance of the artistic environment, the style of a particular artist, and their place in history. Abstract art offers both the freedom and a challenge to play with different interpretations. Like science in some ways, we keep decoding meaning and looking for systems so that we can view and appreciate the world in a new way."
         }
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
-          "maxWords": 3,
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
           "questions": [
             {
               "number": 14,
-              "prompt": "Question 1",
               "answer": [
-                "art"
+                "objectivity"
               ],
-              "explanation": "Found directly in the reading passage: 'art'."
+              "explanation": "Neuroaesthetics seeks ‘to bring scientific objectivity to the study of art’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 15,
-              "prompt": "Question 2",
               "answer": [
-                "scientific"
+                "amygdala"
               ],
-              "explanation": "Found directly in the reading passage: 'scientific'."
+              "explanation": "‘The brain’s amygdala seems to be stimulated by the blurred imagery of impressionist paintings.’",
+              "reference": "Paragraph 1"
             },
             {
               "number": 16,
-              "prompt": "Question 3",
               "answer": [
-                "instance"
+                "crowd"
               ],
-              "explanation": "Found directly in the reading passage: 'instance'."
+              "explanation": "‘We always have an inclination to follow the crowd.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 17,
-              "prompt": "Question 4",
               "answer": [
-                "art appreciation"
+                "renowned"
               ],
-              "explanation": "Found directly in the reading passage: 'art appreciation'."
+              "explanation": "‘Even when they believed it was by an animal or a child, volunteers generally preferred the work of renowned artists.’",
+              "reference": "Paragraph 3"
             },
             {
               "number": 18,
-              "prompt": "Question 5",
               "answer": [
-                "paintings"
+                "neural"
               ],
-              "explanation": "Found directly in the reading passage: 'paintings'."
+              "explanation": "‘The longer they took to answer these questions, the greater their neural activity.’",
+              "reference": "Paragraph 4"
             },
             {
               "number": 19,
-              "prompt": "Question 6",
               "answer": [
-                "paintings"
+                "puzzles"
               ],
-              "explanation": "Found directly in the reading passage: 'paintings'."
+              "explanation": "‘It looked like the brain sees these images as puzzles.’",
+              "reference": "Paragraph 4"
             }
-          ]
+          ],
+          "title": "How the brain responds to art",
+          "content": "Neuroaesthetics aims to bring scientific {{14}} to the study of art. The brain’s {{15}} seems to be stimulated by the blurred imagery of impressionist paintings. Sceptics believe that people claim to like abstract works because they are famous, since we always have an inclination to follow the {{16}}. In Hawley-Dolan’s study, volunteers generally preferred the work of {{17}} artists, even when they believed it was by an animal or a child. In Pepperell’s study, the longer volunteers took to answer, the greater their {{18}} activity, as the brain seems to see ambiguous images as {{19}}."
         },
         {
           "type": "matching_features",
-          "instruction": "Look at the following Questions 20-23 and the list of the statements below.",
+          "instruction": "Look at the following statements (Questions 20–23) and the list of people below. Match each statement with the correct person, **A–E**. **NB** You may use any letter more than once.",
           "options": [
             {
               "key": "A",
@@ -297,66 +304,75 @@
           "questions": [
             {
               "number": 20,
-              "prompt": "Made volunteers see pairs of paintings - either the doodles of chimps, infants and",
+              "prompt": "asked volunteers to view pairs of paintings, either the doodles of chimps, infants and elephants or the creations of famous abstract artists",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "Hawley-Dolan ‘asked volunteers to view pairs of paintings’ by animals, infants or famous abstract artists.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 21,
-              "prompt": "Created ambiguous works that are neither clearly representational nor entirely abstract.",
+              "prompt": "creates ambiguous works that are neither clearly representational nor entirely abstract",
               "answer": "C",
-              "explanation": "Refer to item C in the passage."
+              "explanation": "Pepperell ‘creates ambiguous works that are neither clearly representational nor entirely abstract’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 22,
-              "prompt": "Asked volunteers to compare original paintings with ones which he had altered by moving",
+              "prompt": "asked volunteers to compare original paintings with ones that he had altered by moving objects around within the frame",
               "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "explanation": "Vartanian ‘asked volunteers to compare original paintings with ones which he had altered by moving objects around within the frame’.",
+              "reference": "Paragraph 6"
             },
             {
               "number": 23,
-              "prompt": "Suggested that many artists use a key level of detail to please the brain.",
+              "prompt": "suggested that many artists use a key level of detail to please the brain",
               "answer": "E",
-              "explanation": "Refer to item E in the passage."
+              "explanation": "Forsythe ‘suggested that many artists use a key level of detail to please the brain’.",
+              "reference": "Paragraph 7"
             }
-          ]
+          ],
+          "optionsTitle": "List of People"
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 24,
-              "prompt": "Neuroaesthetics is an emerging discipline seeking to bring scientific objectivity to the",
+              "prompt": "Neuroaesthetics has already given us a better understanding of many {{24}}.",
               "answer": [
-                "Masterpieces"
+                "masterpieces"
               ],
-              "explanation": "Found directly in the reading passage: 'Masterpieces'."
+              "explanation": "Neuroaesthetics ‘has already given us a better understanding of many masterpieces’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 25,
-              "prompt": "Mondrian's works are deceptively simple, but ______ studies confirm that they are",
+              "prompt": "Mondrian’s works are deceptively simple, but {{25}} studies confirm that they are carefully composed.",
               "answer": [
-                "Eye-tracking"
+                "eye-tracking"
               ],
-              "explanation": "Found directly in the reading passage: 'Eye-tracking'."
+              "explanation": "‘Eye-tracking studies confirm that they are carefully composed.’",
+              "reference": "Paragraph 5"
             },
             {
               "number": 26,
-              "prompt": "Like replaying the writer's moment of creation, the brain appears to process movement",
+              "prompt": "The brain appears to process {{26}} when we see a handwritten letter.",
               "answer": [
-                "either"
+                "movement"
               ],
-              "explanation": "Found directly in the reading passage: 'either'."
+              "explanation": "‘The brain appears to process movement when we see a handwritten letter.’",
+              "reference": "Paragraph 8"
             },
             {
               "number": 27,
-              "prompt": "We shouldn't underestimate the importance of the ______, the style of a particular",
+              "prompt": "We should not underestimate the importance of the {{27}}, the style of a particular artist, and their place in history.",
               "answer": [
                 "artistic environment"
               ],
-              "explanation": "Found directly in the reading passage: 'artistic environment'."
+              "explanation": "‘We shouldn’t underestimate the importance of the artistic environment, the style of a particular artist, and their place in history.’",
+              "reference": "Paragraph 9"
             }
           ]
         }
@@ -368,27 +384,19 @@
       "paragraphs": [
         {
           "label": null,
-          "text": "Read the below provided passage to answer all the questions (1 - 13). Immediately, check your answers with the Alternative medicine in Australia reading answers."
+          "text": "The first students to study alternative medicine at the university level in Australia started a four-year full-time course in early 1994 at the University of Technology in Sydney. Their course is acupuncture, among other therapies. The theory they learned was based on the standard Chinese interpretation of this ancient healing art, which regulates the flow of ‘Qi’ or energy through the paths in the body. This course reflects how far some alternative therapies have come in their struggle for approval by the medical institution."
         },
         {
           "label": null,
-          "text": "Alternative Medicine in Australia"
+          "text": "According to Dr. Paul Laver, a public health lecturer at the University of Sydney, Australia has the most conservative approach to natural or alternative therapies in the Western world. ‘We have a tradition that doctors are very strong, and I think they are very reluctant to allow any impersonator in their work to come into it.’ In multiple industrialized countries, traditional and alternative medicine have been working ‘hand in glove’ for many years. In Europe, only traditional healers can prescribe herbal medicines. In Germany, herbal remedies make up 10% of the national income from medicines. Americans visited alternative therapists more than Orthodox physicians in the 1990s, and spend about $12 billion every year on unscientific treatments."
         },
         {
           "label": null,
-          "text": "The first students to study alternative medicine at the university level in Australia started a four-year full-time course in early 1994 at the University of Technology in Sydney. Their course is acupuncture, among other therapies. The theory they learned was based on the standard Chinese interpretation of this ancient healing art, which regulates the flow of 'Qi' or energy through the paths in the body. This course reflects how far some alternative therapies have come in their struggle for approval by the medical institution."
+          "text": "Meantime, the popularity of alternative medicine in Australia has been steadily rising over the past 20 years. In the 1983 National Health Survey, 1.9% of people told they had consulted a chiropractor, naturopath, osteopath, acupuncturist, or herbalist two weeks before the poll. By 1990, this number had increased to 2.6% of the population. The 550,000 consultations with alternative therapists registered in the 1990 survey represent one-eighth of the total number of consultations conducted with clinically qualified individuals under the survey, according to Dr. Laver and colleagues who wrote in the 1993 Australian Journal of Public Health. ‘A better educated and less accepted public is generally frustrated with professionals and increasingly skeptical of science and experience-based knowledge,’ they expressed. ‘The high level of experts, including doctors, has been distorted as a result.’"
         },
         {
           "label": null,
-          "text": "According to Dr. Paul Laver, a public health lecturer at the University of Sydney, Australia has the most conservative approach to natural or alternative therapies in the Western world. 'We have a tradition that doctors are very strong, and I think they are very reluctant to allow any impersonator in their work to come into it.' In multiple industrialized countries, traditional and alternative medicine have been working 'hand in glove' for many years. In Europe, only traditional healers can prescribe herbal medicines. In Germany, herbal remedies make up 10% of the national income from medicines. Americans visited alternative therapists more than Orthodox physicians in the 1990s, and spend about $ 12 billion every year on unscientific treatments."
-        },
-        {
-          "label": null,
-          "text": "Dissatisfaction with traditional medicine. Meantime, the popularity of alternative medicine in Australia has been steadily rising over the past 20 years. In the 1983 National Health Survey, 1.9% of people told they had consulted a chiropractor, naturopath, osteopath, acupuncturist, or herbalist two weeks before the poll. By 1990, this number had increased to 2.6% of the population. The 550,000 consultations with alternative therapists registered in the 1990 survey represent one-eighth of the total number of consultations conducted with clinically qualified individuals under the survey, according to Dr. Laver and colleagues who wrote in the 1993 Australian Journal of Public Health. 'A better educated and less accepted public is generally frustrated with professionals and increasingly skeptical of science and experience-based knowledge,' they expressed. 'The high level of experts, including doctors, has been distorted as a result."
-        },
-        {
-          "label": null,
-          "text": "Instead of opposing or criticizing this trend, increasingly many Australian physicians, especially younger ones, form group practices with practitioners or practice themselves, especially in acupuncture and herbal medicine. Part of the incentive is funding, Dr. Laver stated. 'The main feature of this is that most general practitioners are businessmen. If they find potential customers going elsewhere, they may like to offer a similar service."
+          "text": "Instead of opposing or criticizing this trend, increasingly many Australian physicians, especially younger ones, form group practices with practitioners or practice themselves, especially in acupuncture and herbal medicine. Part of the incentive is funding, Dr. Laver stated. ‘The main feature of this is that most general practitioners are businessmen. If they find potential customers going elsewhere, they may like to offer a similar service.’"
         },
         {
           "label": null,
@@ -406,11 +414,11 @@
       "groups": [
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, A - D",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 28,
-              "prompt": "Ancient healing art regulates the flow of 'Qi' or energy through the paths in the",
+              "prompt": "In the standard Chinese interpretation of acupuncture, the flow of ‘Qi’, or energy, is regulated through the paths in the",
               "options": [
                 {
                   "key": "A",
@@ -430,11 +438,12 @@
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "The theory is based on ‘the flow of Qi or energy through the paths in the body’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 29,
-              "prompt": "Australia has the most conservative approach to natural or alternative therapies in",
+              "prompt": "According to Dr Laver, Australia has the most conservative approach to natural or alternative therapies in the",
               "options": [
                 {
                   "key": "A",
@@ -454,35 +463,37 @@
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "Laver says Australia has ‘the most conservative approach to natural or alternative therapies in the Western world’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 30,
-              "prompt": "Only traditional healers can prescribe herbal medicines.",
+              "prompt": "Where, according to the passage, can only traditional healers prescribe herbal medicines?",
               "options": [
                 {
                   "key": "A",
-                  "text": "in Australia"
+                  "text": "Australia"
                 },
                 {
                   "key": "B",
-                  "text": "in America"
+                  "text": "America"
                 },
                 {
                   "key": "C",
-                  "text": "in Germany"
+                  "text": "Germany"
                 },
                 {
                   "key": "D",
-                  "text": "in Europe"
+                  "text": "Europe"
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "‘In Europe, only traditional healers can prescribe herbal medicines.’ Germany is mentioned only for its herbal-remedy sales.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 31,
-              "prompt": "Americans visited alternative therapists more than Orthodox physicians in the",
+              "prompt": "The passage says that Americans visited alternative therapists more than orthodox physicians in the",
               "options": [
                 {
                   "key": "A",
@@ -490,23 +501,24 @@
                 },
                 {
                   "key": "B",
-                  "text": "1994s"
+                  "text": "1980s"
                 },
                 {
                   "key": "C",
-                  "text": "1993s"
+                  "text": "1970s"
                 },
                 {
                   "key": "D",
-                  "text": "1983s"
+                  "text": "1960s"
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "‘Americans visited alternative therapists more than Orthodox physicians in the 1990s.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 32,
-              "prompt": "The popularity of alternative medicine in Australia has been steadily rising over the",
+              "prompt": "The popularity of alternative medicine in Australia has been steadily rising over the past",
               "options": [
                 {
                   "key": "A",
@@ -526,44 +538,54 @@
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "Popularity ‘has been steadily rising over the past 20 years’.",
+              "reference": "Paragraph 3"
             }
           ]
         },
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 33,
-              "prompt": "In the 1993 National Health Survey, 1.9% of people told they had consulted a",
+              "prompt": "In the 1993 National Health Survey, 1.9% of people said they had consulted an alternative therapist in the previous two weeks.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "The 1.9% figure comes from ‘the 1983 National Health Survey’, not 1993.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 34,
-              "prompt": "By 1994, this number had increased to 2.6% of the population.",
+              "prompt": "By 1994, the proportion of the population consulting alternative therapists had increased to 2.6%.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "The figure had increased to 2.6% ‘by 1990’, not 1994.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 35,
               "prompt": "Alternative therapists are paid more than physicians.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage discusses the popularity of alternative therapies but never compares what therapists and physicians earn."
             },
             {
               "number": 36,
-              "prompt": "The main feature of this is that most general practitioners are businessmen.",
+              "prompt": "Dr Laver considers most general practitioners to be businessmen.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "Laver says ‘most general practitioners are businessmen’ who copy services that attract customers.",
+              "reference": "Paragraph 4"
             }
           ]
         },
         {
-          "type": "summary_completion",
-          "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS from the passage for each answer.",
-          "content": "In 1993, Dr. Laver and his colleagues published a survey of {{37}} Sydney people.\n The impersonal pattern of {{38}} physicians was featured in the survey. \nRespiratory disorders account for {{39}} of patients, and Candida sufferers represent an equal percentage.\nThe survey recommended that complementary medicine is a better term than {{40}} medicine.",
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **NO MORE THAN TWO WORDS AND/OR A NUMBER** from the passage for each answer.",
+          "content": [
+            "## Dr Laver’s survey",
+            "• In 1993, Dr Laver and his colleagues published a survey of {{37}} Sydney people.",
+            "• The impersonal pattern of {{38}} physicians was featured in the survey.",
+            "• Respiratory disorders account for {{39}} of patients, and Candida sufferers represent an equal percentage.",
+            "• The survey recommended that complementary medicine is a better term than {{40}} medicine."
+          ],
           "maxWords": 2,
           "questions": [
             {
@@ -571,30 +593,36 @@
               "answer": [
                 "289"
               ],
-              "explanation": "Found directly in the reading passage: '289'."
+              "explanation": "The survey covered ‘289 Sydney people who attended the practices of eight alternative therapists’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 38,
               "answer": [
                 "orthodox"
               ],
-              "explanation": "Found directly in the reading passage: 'orthodox'."
+              "explanation": "‘The cool, impersonal pattern of orthodox physicians was featured in the survey.’",
+              "reference": "Paragraph 5"
             },
             {
               "number": 39,
               "answer": [
+                "7%",
                 "7"
               ],
-              "explanation": "Found directly in the reading passage: '7'."
+              "explanation": "‘Respiratory disorders account for 7% of patients, and Candida sufferers represent an equal percentage.’",
+              "reference": "Paragraph 6"
             },
             {
               "number": 40,
               "answer": [
                 "alternative"
               ],
-              "explanation": "Found directly in the reading passage: 'alternative'."
+              "explanation": "‘The survey recommended that complementary medicine is a better term than alternative medicine.’",
+              "reference": "Paragraph 7"
             }
-          ]
+          ],
+          "title": "Dr Laver’s survey"
         }
       ]
     }

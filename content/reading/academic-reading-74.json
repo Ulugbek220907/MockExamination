@@ -11,23 +11,15 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "Astronaut Ice Cream, Anyone",
+      "title": "Astronaut Ice Cream, Anyone?",
       "paragraphs": [
         {
           "label": null,
-          "text": "To attempt further questions (1-13) you must read the reading passage. Then, verify your answers with the given Astronaut Ice Cream, Anyone reading answers."
-        },
-        {
-          "label": null,
-          "text": "Astronaut Ice Cream, Anyone"
+          "text": "A technique for astronauts that can help to provide food is known as freeze-drying. However, it can also be used for other situations."
         },
         {
           "label": "A",
-          "text": "technique for astronauts that can help to provide food is known as Breeze-drying. However, it can also be used for other situations."
-        },
-        {
-          "label": "A",
-          "text": "Freeze-drying treats food like a suspended animation: you can easily keep a freeze-dried meal for an indefinite time, and when you're ready to consume, you can simply have it. With some hot water, you can rejuvenate it completely. The primal foodstuff will remain unchanged even after various years."
+          "text": "Freeze-drying treats food like a suspended animation: you can easily keep a freeze-dried meal for an indefinite time, and when you’re ready to consume, you can simply have it. With some hot water, you can rejuvenate it completely. The primal foodstuff will remain unchanged even after various years."
         },
         {
           "label": "B",
@@ -43,19 +35,19 @@
         },
         {
           "label": "E",
-          "text": "Freeze-drying differs from uncomplicated drying as it can remove almost all of the water from materials, whereas simple drying processes can only remove 90-95 percent. This means that, rather than just slowing down the harm caused by bacteria and enzymes, the damage can be essentially prevented instead. Furthermore, because the material's composition and structure are not considerably altered, it can be revitalised without jeopardising its original quality."
+          "text": "Freeze-drying differs from uncomplicated drying as it can remove almost all of the water from materials, whereas simple drying processes can only remove 90-95 percent. This means that, rather than just slowing down the harm caused by bacteria and enzymes, the damage can be essentially prevented instead. Furthermore, because the material’s composition and structure are not considerably altered, it can be revitalised without jeopardising its original quality."
         },
         {
           "label": "F",
-          "text": "This is feasible because during freeze-drying, solid water - ice - is converted directly into water vapour, bypassing the liquid phase entirely. This is called 'sublimation' in which the solid substance shifts directly into gas.Sublimation occurs when a molecule gets enough energy to break out from the molecules around it, similar to evaporation. When the molecules in water have enough energy to break free but the conditions aren't right for a liquid to form, it will sublimate from a solid (ice) to a gas (vapour). These conditions are determined by heat and atmospheric pressure.When the temperature is above the freezing point so that the ice can thaw however the atmospheric pressure is too low for a liquid to form (below 0.06 atmospheres (ATM)) then the substance forms a gas."
+          "text": "This is feasible because during freeze-drying, solid water - ice - is converted directly into water vapour, bypassing the liquid phase entirely. This is called ‘sublimation’ in which the solid substance shifts directly into gas. Sublimation occurs when a molecule gets enough energy to break out from the molecules around it, similar to evaporation. When the molecules in water have enough energy to break free but the conditions aren’t right for a liquid to form, it will sublimate from a solid (ice) to a gas (vapour). These conditions are determined by heat and atmospheric pressure. When the temperature is above the freezing point so that the ice can thaw however the atmospheric pressure is too low for a liquid to form (below 0.06 atmospheres (ATM)) then the substance forms a gas."
         },
         {
           "label": "G",
-          "text": "This is the underlying principle of freeze-drying equipment .The freeze-drying chamber is coupled to a freezing coil and refrigerator compressor in result it preserves the material. The temperature inside the chamber reduces as the chamber seals off. As the material is frozen in the solid form, the water is separated from everything around on a molecular level, even though the water is still present. Next, the chamber's ambient pressure is then reduced to 0.06 ATM by a vacuum pump which forces air out of the chamber The heating units apply a modest quantity of heat to the chamber's shelves which causes the ice to undergo a phase shift. The ice directly transforms into water vapour since the pressure in the chamber is too low.Following this the water vapour then leaves the freeze-drying chamber and flows past the freezing coil. The water vapour condenses onto the freezing coil in the form of solid ice, in the same way that water condenses as frost on a cold day."
+          "text": "This is the underlying principle of freeze-drying equipment. The freeze-drying chamber is coupled to a freezing coil and refrigerator compressor in result it preserves the material. The temperature inside the chamber reduces as the chamber seals off. As the material is frozen in the solid form, the water is separated from everything around on a molecular level, even though the water is still present. Next, the chamber’s ambient pressure is then reduced to 0.06 ATM by a vacuum pump which forces air out of the chamber The heating units apply a modest quantity of heat to the chamber’s shelves which causes the ice to undergo a phase shift. The ice directly transforms into water vapour since the pressure in the chamber is too low. Following this the water vapour then leaves the freeze-drying chamber and flows past the freezing coil. The water vapour condenses onto the freezing coil in the form of solid ice, in the same way that water condenses as frost on a cold day."
         },
         {
           "label": "H",
-          "text": "The process continues for several hours (even days) while the material gradually dries out. This time period is required to avoid overheating, which might compromise the material's structure. It is packed in a moisture-free package once it has dried sufficiently. The material can lie on a shelf for years and years without degrading if the box is secure, until it is returned to its forma form with a little hot water. If everything goes according to the plan, the material will make it through the entire process almost undamaged."
+          "text": "The process continues for several hours (even days) while the material gradually dries out. This time period is required to avoid overheating, which might compromise the material’s structure. It is packed in a moisture-free package once it has dried sufficiently. The material can lie on a shelf for years and years without degrading if the box is secure, until it is returned to its former form with a little hot water. If everything goes according to the plan, the material will make it through the entire process almost undamaged."
         },
         {
           "label": "I",
@@ -64,136 +56,156 @@
       ],
       "groups": [
         {
-          "type": "summary_completion",
-          "instruction": "Complete the notes below. Choose NO MORE THAN THREE WORDS from the passage for",
-          "content": "• food preservation• easy ( {{1}} ) __________ of food items• long-term storage of ( {{2}} ) __________ and biological samples• preservation of precious ( {{3}} ) __________ Freeze-drying• is based on the process of ( {{4}} ) __________ is more efficient than ( {{5}} ) __________",
-          "maxWords": 3,
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "content": [
+            "## Uses of freeze-drying",
+            "• food preservation",
+            "• easy {{1}} of food items",
+            "• long-term storage of {{2}} and biological samples",
+            "• preservation of precious {{3}}",
+            "## How it works",
+            "• is based on the process of {{4}}",
+            "• is more efficient than simple {{5}}"
+          ],
+          "maxWords": 1,
           "questions": [
             {
               "number": 1,
               "answer": [
-                "Transportation"
+                "transportation"
               ],
-              "explanation": "Found directly in the reading passage: 'Transportation'."
+              "explanation": "‘Transportation would be less difficult if we remove the water as this makes the food much lighter.’",
+              "reference": "Paragraph C"
             },
             {
               "number": 2,
               "answer": [
-                "Pharmaceuticals"
+                "pharmaceuticals"
               ],
-              "explanation": "Found directly in the reading passage: 'Pharmaceuticals'."
+              "explanation": "‘Many materials such as Pharmaceuticals can be stored using this method.’",
+              "reference": "Paragraph D"
             },
             {
               "number": 3,
               "answer": [
-                "Manuscripts"
+                "manuscripts"
               ],
-              "explanation": "Found directly in the reading passage: 'Manuscripts'."
+              "explanation": "Freeze-drying can protect ‘things from water damage such as esteemed manuscripts’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 4,
               "answer": [
-                "Sublimation"
+                "sublimation"
               ],
-              "explanation": "Found directly in the reading passage: 'Sublimation'."
+              "explanation": "The writer describes the process in which ‘the solid substance shifts directly into gas’ and names it sublimation.",
+              "reference": "Paragraph F"
             },
             {
               "number": 5,
               "answer": [
-                "conserve"
+                "drying"
               ],
-              "explanation": "Found directly in the reading passage: 'conserve'."
+              "explanation": "Freeze-drying ‘can remove almost all of the water from materials, whereas simple drying processes can only remove 90-95 percent’.",
+              "reference": "Paragraph E"
             }
-          ]
+          ],
+          "title": "Freeze-drying"
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 2 WORDS from the passage for each answer.",
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
           "maxWords": 2,
           "questions": [
             {
               "number": 6,
-              "prompt": "Question 6",
+              "prompt": "The {{6}} is coupled to a freezing coil and a refrigerator compressor.",
               "answer": [
-                "Freeze-Drying Chamber"
+                "freeze-drying chamber"
               ],
-              "explanation": "Found directly in the reading passage: 'Freeze-Drying Chamber'."
+              "explanation": "‘The freeze-drying chamber is coupled to a freezing coil and refrigerator compressor.’",
+              "reference": "Paragraph G"
             },
             {
               "number": 7,
-              "prompt": "Question 7",
+              "prompt": "The heating units apply a modest quantity of heat to the chamber’s {{7}}.",
               "answer": [
-                "Shelves"
+                "shelves"
               ],
-              "explanation": "Found directly in the reading passage: 'Shelves'."
+              "explanation": "‘The heating units apply a modest quantity of heat to the chamber’s shelves.’",
+              "reference": "Paragraph G"
             },
             {
               "number": 8,
-              "prompt": "Question 8",
+              "prompt": "The water vapour condenses onto the {{8}} in the form of solid ice.",
               "answer": [
-                "Freezing Coil"
+                "freezing coil"
               ],
-              "explanation": "Found directly in the reading passage: 'Freezing Coil'."
+              "explanation": "‘The water vapour condenses onto the freezing coil in the form of solid ice.’",
+              "reference": "Paragraph G"
             },
             {
               "number": 9,
-              "prompt": "Question 9",
+              "prompt": "The chamber is connected to a freezing coil and a {{9}}.",
               "answer": [
-                "refrigerator Compressor",
-                "Compressor"
+                "refrigerator compressor",
+                "compressor"
               ],
-              "explanation": "Found directly in the reading passage: 'refrigerator Compressor'."
+              "explanation": "The chamber ‘is coupled to a freezing coil and refrigerator compressor’.",
+              "reference": "Paragraph G"
             }
           ]
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
-          "maxWords": 3,
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **ONE WORD AND/OR A NUMBER** from the passage for each answer.",
+          "maxWords": 1,
           "questions": [
             {
               "number": 10,
-              "prompt": "Question 10",
+              "prompt": "Without water, {{10}} cannot cause the natural ripening of food.",
               "answer": [
-                "Enzymes"
+                "enzymes"
               ],
-              "explanation": "Found directly in the reading passage: 'Enzymes'."
+              "explanation": "‘Without water the enzymes cannot cause ripening which occurs naturally in the food.’",
+              "reference": "Paragraph B"
             },
             {
               "number": 11,
-              "prompt": "Question 11",
+              "prompt": "Because the material’s {{11}} and structure are not considerably altered, it can be revitalised without losing its original quality.",
               "answer": [
-                "Composition"
+                "composition"
               ],
-              "explanation": "Found directly in the reading passage: 'Composition'."
+              "explanation": "‘The material’s composition and structure are not considerably altered.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 12,
-              "prompt": "Question 12",
+              "prompt": "The drying process takes a long time in order to avoid {{12}}, which might compromise the material’s structure.",
               "answer": [
-                "Overheating"
+                "overheating"
               ],
-              "explanation": "Found directly in the reading passage: 'Overheating'."
+              "explanation": "The time period ‘is required to avoid overheating, which might compromise the material’s structure’.",
+              "reference": "Paragraph H"
             },
             {
               "number": 13,
-              "prompt": "Question 13",
+              "prompt": "Pharmaceuticals can be stored in a container lacking both {{13}} and water.",
               "answer": [
                 "oxygen"
               ],
-              "explanation": "Found directly in the reading passage: 'oxygen'."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
-          "questions": [
+              "explanation": "Material can be stored ‘in a container lacking both oxygen and water’.",
+              "reference": "Paragraph D"
+            },
             {
               "number": 14,
-              "prompt": "To attempt further questions (1-13) you must read the reading passage.",
-              "answer": "TRUE",
-              "explanation": "Confirmed directly in the reading passage: 'To attempt further questions (1-13) you must read the readin...'"
+              "prompt": "A vacuum pump reduces the chamber’s ambient pressure to {{14}} ATM.",
+              "answer": [
+                "0.06"
+              ],
+              "explanation": "‘The chamber’s ambient pressure is then reduced to 0.06 ATM by a vacuum pump.’",
+              "reference": "Paragraph G"
             }
           ]
         }
@@ -201,148 +213,162 @@
     },
     {
       "passageNumber": 2,
-      "title": "Australia's Lost Giants",
+      "title": "Australia’s Lost Giants",
       "paragraphs": [
         {
           "label": "A",
-          "text": "The Victorian Cave was explored by a fossil hunter named Rod Wells, who came to Naracoorte, South Australia, in 1969. The narrow passages, which were distinctly clawed, led to huge chambers. The ground had red soil, and the floor was bedraggled with strange objects. It took Wells a moment to acknowledge that what he was checking out were the bones of thousands of animals that might have fallen from openings in the ground above and gotten stuck. Compared to the mammals found today in Australia, some of the oldest were far more sizable. These bones belonged to Australian megafauna-giant mammals of the Pleistocene epoch. Across the continent, in boneyards, fossils of a giant snake, a huge flightless bird, and a seven-foot kangaroo, to give some examples, were discovered by scientists. Considering the amount of light cast on the extinction of the dinosaurs, it's surprising that a little has been discovered about megafauna. Prehistoric humans never harmed Tyrannosaurus rex with spears, although they did hunt mammoths and mastodons."
+          "text": "The Victorian Cave was explored by a fossil hunter named Rod Wells, who came to Naracoorte, South Australia, in 1969. The narrow passages, which were distinctly clawed, led to huge chambers. The ground had red soil, and the floor was bedraggled with strange objects. It took Wells a moment to acknowledge that what he was checking out were the bones of thousands of animals that might have fallen from openings in the ground above and gotten stuck. Compared to the mammals found today in Australia, some of the oldest were far more sizable. These bones belonged to Australian megafauna-giant mammals of the Pleistocene epoch. Across the continent, in boneyards, fossils of a giant snake, a huge flightless bird, and a seven-foot kangaroo, to give some examples, were discovered by scientists. Considering the amount of light cast on the extinction of the dinosaurs, it’s surprising that little has been discovered about megafauna. Prehistoric humans never harmed Tyrannosaurus rex with spears, although they did hunt mammoths and mastodons."
         },
         {
           "label": "B",
-          "text": "Soon after the arrival of humans, the extinction of megafauna in America, including mammoths, saber-toothed cats, and gigantic sloths, occurred around 13,000 years ago. A paleoecologist named Paul Martin published a hypothesis known as the \"blitzkrieg hypothesis\" in the 1960s. Modern people caused chaos in the Americas by killing animals with spears. These animals had never seen a smart predator before, so they couldn't defend themselves.But this period of extinction was not complete. On the continent, North America retained its deer, black bears, and a small type of bison, and on the continent, South America had its jaguars and llamas."
+          "text": "Soon after the arrival of humans, the extinction of megafauna in America, including mammoths, saber-toothed cats, and gigantic sloths, occurred around 13,000 years ago. A paleoecologist named Paul Martin published a hypothesis known as the “blitzkrieg hypothesis” in the 1960s. Modern people caused chaos in the Americas by killing animals with spears. These animals had never seen a smart predator before, so they couldn’t defend themselves. But this period of extinction was not complete. On the continent, North America retained its deer, black bears, and a small type of bison, and on the continent, South America had its jaguars and llamas."
         },
         {
           "label": "C",
-          "text": "It is confounding to witness the melancholy of Australia's large animals. For quite a long time, researchers put aside any other causes for extinction other than environmental changes. To be sure, Australia has been drying out for more than 1,000,000 years, and the megafauna were confronted with a landmass where vegetation had started to vanish. Tim Flannery, an Australian paleontologist, proposed that people who moved onto the continent around 50 centuries ago used fire to hunt. This was accompanied by deforestation. Something worrisome occurred to Australia's predominant land animals-somewhere around 46,000 years ago, not long after the intrusion of a profoundly wise hunter with excellent tools."
+          "text": "It is confounding to witness the melancholy of Australia’s large animals. For quite a long time, researchers put aside any other causes for extinction other than environmental changes. To be sure, Australia has been drying out for more than 1,000,000 years, and the megafauna were confronted with a landmass where vegetation had started to vanish. Tim Flannery, an Australian paleontologist, proposed that people who moved onto the continent around 50 centuries ago used fire to hunt. This was accompanied by deforestation. Something worrisome occurred to Australia’s predominant land animals-somewhere around 46,000 years ago, not long after the intrusion of a profoundly wise hunter with excellent tools."
         },
         {
           "label": "D",
-          "text": "The controversy over megafauna revolves around the methods for dating old bones and the sediments in which they are buried. Only if scholars can demonstrate that the extinction of megafauna occurred within a few centuries, or possibly a couple thousand years, of the emergence of humans would the argument be strengthened-regardless of whether it was merely coincidental. Cuddie Springs in New South Wales can demonstrate this case without a shadow of a doubt. Judith Field, an archaeologist, is currently the most vocal. In 1991, she discovered megafauna bones as well as stone tools. This was a significant discovery. She claims there are two strata displaying the affiliation, one around 30,000 years old and the other around 35,000 years old. This suggests that people and megafauna coexisted in Australia for at least 20 thousand years. \"What Cuddie Springs reveals is that you have a long cross-over of people and megafauna that existed together,\" Field added. Critics argue that the original locations of fossils were altered and were replaced by younger sediments."
+          "text": "The controversy over megafauna revolves around the methods for dating old bones and the sediments in which they are buried. Only if scholars can demonstrate that the extinction of megafauna occurred within a few centuries, or possibly a couple thousand years, of the emergence of humans would the argument be strengthened-regardless of whether it was merely coincidental. Cuddie Springs in New South Wales can demonstrate this case without a shadow of a doubt. Judith Field, an archaeologist, is currently the most vocal. In 1991, she discovered megafauna bones as well as stone tools. This was a significant discovery. She claims there are two strata displaying the affiliation, one around 30,000 years old and the other around 35,000 years old. This suggests that people and megafauna coexisted in Australia for at least 20 thousand years. “What Cuddie Springs reveals is that you have a long cross-over of people and megafauna that existed together,” Field added. Critics argue that the original locations of fossils were altered and were replaced by younger sediments."
         },
         {
           "label": "E",
-          "text": "Another renowned boneyard in a similar area is a spot called Wellington Caverns,Diprotodon, the largest known marsupial (an animal that, like kangaroos and koalas, bears its young in a pouch), was discovered.In 1830 a regional officer, George Rankin lowered down himself into the cave utilizing a rope snared to a hole in a cave wall. The hole was actually a bone. 12 months later a surveyor, Thomas Mitchell examined the caves in the area and gave Richard Owen, British paleontologist , who was recognised later for unraveling the existence of dinosaurs. extinct marsupial's cave bones were found in Wellington. In 1909 and 1915 sediments in Mammoth Cave that consisted of fossils were dug out and studied in haphazard manner as a result of this no scolar agreed with these findings. Yet, a single bone particularly captured dramatic attention : a femur with a wound in it, possibly left there by a sharp tool."
+          "text": "Another renowned boneyard in a similar area is a spot called Wellington Caverns, Diprotodon, the largest known marsupial (an animal that, like kangaroos and koalas, bears its young in a pouch), was discovered. In 1830 a regional officer, George Rankin lowered down himself into the cave utilizing a rope snared to a hole in a cave wall. The hole was actually a bone. 12 months later a surveyor, Thomas Mitchell examined the caves in the area and gave Richard Owen, British paleontologist, who was recognised later for unraveling the existence of dinosaurs. extinct marsupial’s cave bones were found in Wellington. In 1909 and 1915 sediments in Mammoth Cave that consisted of fossils were dug out and studied in haphazard manner as a result of this no scholar agreed with these findings. Yet, a single bone particularly captured dramatic attention: a femur with a wound in it, possibly left there by a sharp tool."
         },
         {
           "label": "F",
-          "text": "Sadly, the Earth conserves its history in a chaotic manner.Bones degrade , the land erodes, the climate changes, the mere existence of forests is uncertain , rivers change their course and the history slowly gets disguised. Sadly, the Earth conserves its history in a chaotic manner. The storys constructed from time to time have limited information. Various rock art portrayed Australia's first people. The paintings of Palorchestes, a megafauna marsupial , on rock, in far northern Australia, was examined by Peter Murray, a Paleontologist. In Western Australia another site shows what seems to be a hunter with either a marsupial lion ; in the more recent historical era, the marsupial lion went extinct as they were bigger. \"Every stage of the procedure requires analysis. The information does not speak for itself.\" said Murray ."
+          "text": "Sadly, the Earth conserves its history in a chaotic manner. Bones degrade, the land erodes, the climate changes, the mere existence of forests is uncertain, rivers change their course and the history slowly gets disguised. The stories constructed from time to time have limited information. Various rock art portrayed Australia’s first people. The paintings of Palorchestes, a megafauna marsupial, on rock, in far northern Australia, was examined by Peter Murray, a Paleontologist. In Western Australia another site shows what seems to be a hunter with either a marsupial lion; in the more recent historical era, the marsupial lion went extinct as they were bigger. “Every stage of the procedure requires analysis. The information does not speak for itself.” said Murray."
         }
       ],
       "groups": [
         {
           "type": "matching_information",
-          "instruction": "The text above has six paragraphs, A-F. Which paragraphs contain the following information?",
+          "instruction": "Reading Passage 2 has six paragraphs, **A–F**. Which paragraph contains the following information? **NB** You may use any letter more than once.",
           "questions": [
             {
               "number": 15,
               "prompt": "examples of the kinds of animals that did not die out as a result of hunting",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "answer": "B",
+              "explanation": "North America ‘retained its deer, black bears, and a small type of bison’ and South America ‘had its jaguars and llamas’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 16,
               "prompt": "descriptions of naturally occurring events that make the past hard to trace",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "answer": "F",
+              "explanation": "‘Bones degrade, the land erodes, the climate changes… rivers change their course and the history slowly gets disguised.’",
+              "reference": "Paragraph F"
             },
             {
               "number": 17,
               "prompt": "an account of the discovery of a particular animal which had died out",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "answer": "E",
+              "explanation": "Diprotodon, ‘the largest known marsupial’, was discovered at Wellington Caverns; the account covers Rankin’s descent into the cave.",
+              "reference": "Paragraph E"
             },
             {
               "number": 18,
               "prompt": "the suggestion that a procedure to uncover fossilized secrets was inappropriate",
-              "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "answer": "E",
+              "explanation": "The Mammoth Cave sediments were ‘dug out and studied in haphazard manner’, so ‘no scholar agreed with these findings’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 19,
               "prompt": "the reason why a variety of animals all died in the same small area",
               "answer": "A",
-              "explanation": "Refer to paragraph A in the passage."
+              "explanation": "Animals ‘might have fallen from openings in the ground above and gotten stuck’ in the Victorian Cave.",
+              "reference": "Paragraph A"
             }
           ]
         },
         {
           "type": "choose_multiple",
-          "instruction": "6 Judith Field's opponents claim that",
-          "prompt": "6 Judith Field's opponents claim that",
+          "instruction": "Which **FOUR** of the following statements are true, according to the passage? Choose **FOUR** letters, **A–G**.",
+          "prompt": "Which FOUR of the following statements are true, according to the passage?",
           "options": [
             {
               "key": "A",
-              "text": "The fossils of some younger animals were found in Cuddie Springs."
+              "text": "Many of the animals in the Victorian Cave probably fell into it through openings in the ground."
             },
             {
               "key": "B",
-              "text": "There was a long co-existence of humans and megafauna."
+              "text": "Prehistoric humans hunted Tyrannosaurus rex with spears."
             },
             {
               "key": "C",
-              "text": "The layers where fossils were found had been displaced."
+              "text": "Australia has been getting drier for more than a million years."
             },
             {
               "key": "D",
-              "text": "a drop in temperature"
+              "text": "Stone tools were found among megafauna bones at Cuddie Springs."
             },
             {
               "key": "E",
-              "text": "the introduction of new animal species"
+              "text": "All of the large mammals of the Americas died out around 13,000 years ago."
+            },
+            {
+              "key": "F",
+              "text": "Some critics argue that the Cuddie Springs fossils had been moved into younger sediments."
+            },
+            {
+              "key": "G",
+              "text": "The fossils of Mammoth Cave were excavated carefully in 1909 and 1915."
             }
           ],
           "answer": [
             "A",
-            "B",
             "C",
-            "D"
+            "D",
+            "F"
           ],
           "questions": [
             {
-              "number": 20,
-              "explanation": "Refer to the passage for Question 6."
+              "number": 20
             },
             {
-              "number": 21,
-              "explanation": "Refer to the passage for Question 7."
+              "number": 21
             },
             {
-              "number": 22,
-              "explanation": "Refer to the passage for Question 8."
+              "number": 22
             },
             {
-              "number": 23,
-              "explanation": "Refer to the passage for Question 9."
+              "number": 23
             }
-          ]
+          ],
+          "explanation": "A: animals ‘might have fallen from openings in the ground above’. C: ‘Australia has been drying out for more than 1,000,000 years’. D: Field ‘discovered megafauna bones as well as stone tools’. F: ‘Critics argue that the original locations of fossils were altered’. B is false (humans ‘never harmed Tyrannosaurus rex’), E is false (‘this period of extinction was not complete’), and G is false (studied ‘in haphazard manner’).",
+          "reference": "Paragraphs A, B, C, D and E"
         },
         {
           "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Write",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 24,
-              "prompt": "There is sufficient evidence to support Tim Flannery's ideas about megafauna extinction.",
+              "prompt": "Paul Martin suggested that American animals could not defend themselves because they had never met an intelligent predator.",
               "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "explanation": "Martin’s hypothesis: ‘These animals had never seen a smart predator before, so they couldn’t defend themselves.’",
+              "reference": "Paragraph B"
             },
             {
               "number": 25,
-              "prompt": "Extinct megafauna should receive more attention than the extinction of the dinosaurs.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "prompt": "Tim Flannery believes that Australia’s megafauna had already died out before humans arrived.",
+              "answer": "FALSE",
+              "explanation": "Flannery suggests humans used fire to hunt, and the megafauna declined ‘not long after the intrusion’ of a skilled hunter.",
+              "reference": "Paragraph C"
             },
             {
               "number": 26,
-              "prompt": "The Aborigines should have found a more effective way to protest about Flannery's book.",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "prompt": "Rod Wells received funding from the Australian government for his work at Naracoorte.",
+              "answer": "NOT GIVEN",
+              "explanation": "The passage describes Wells’s discovery in 1969 but says nothing about how his work was paid for."
             },
             {
               "number": 27,
-              "prompt": "There are problems with Paul Martin's 'blitzkrieg' hypothesis for the Americas",
-              "answer": "TRUE",
-              "explanation": "The passage confirms this statement is TRUE."
+              "prompt": "All scientists accept that the Cuddie Springs evidence shows that humans and megafauna lived at the same time.",
+              "answer": "FALSE",
+              "explanation": "‘Critics argue that the original locations of fossils were altered and were replaced by younger sediments.’",
+              "reference": "Paragraph D"
             }
           ]
         }
@@ -354,11 +380,11 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "At times everyone daydreams about something . When we close our eyes while relaxing , we usually think about something that we wish must happen or something we might have changed in the past.Mostly daydreaming is enjoyable.We would like the daydream to come true, and we would be overjoyed if it did. We could daydream that we are living someone else's life, or accomplishing something we would always intended to do, or that others love or admire us which might be unusual for us."
+          "text": "At times everyone daydreams about something. When we close our eyes while relaxing, we usually think about something that we wish must happen or something we might have changed in the past. Mostly daydreaming is enjoyable. We would like the daydream to come true, and we would be overjoyed if it did. We could daydream that we are living someone else’s life, or accomplishing something we would always intended to do, or that others love or admire us which might be unusual for us."
         },
         {
           "label": "B",
-          "text": "Daydreams are not dreams, due to the reason that we can only daydream if we are awake. Moreover, unlike dreams , we can pick what our daydreams will be. Although , we know most of our daydreams might not even come true.At the very least, if it occurs, it is unlikely to occur in the manner we would want. In spite of that, some daydreams are about something that will surely happen. With the help of this, our daydreams usually help us to figure out what we want to do or how to execute it in the greatest way possible. Therefore , daydreams are useful as we can utilize our imagination to gain a better understanding of the world and other people."
+          "text": "Daydreams are not dreams, due to the reason that we can only daydream if we are awake. Moreover, unlike dreams, we can pick what our daydreams will be. Although, we know most of our daydreams might not even come true. At the very least, if it occurs, it is unlikely to occur in the manner we would want. In spite of that, some daydreams are about something that will surely happen. With the help of this, our daydreams usually help us to figure out what we want to do or how to execute it in the greatest way possible. Therefore, daydreams are useful as we can utilize our imagination to gain a better understanding of the world and other people."
         },
         {
           "label": "C",
@@ -366,119 +392,123 @@
         },
         {
           "label": "D",
-          "text": "In the 1980s, scientists elaborated that most daydreams are about ordinary, everyday occurrences. According to an experiment, it was revealed that more than 75% of workers in so-called \"monotonous jobs\" such as truck drivers and security guards, spend a significant amount of time daydreaming in order to make their time at work engaging. In a recent survey, daydreaming has indeed been demonstrated to have a beneficial effect on the brain.MRI brain scan experiments show that the areas of the brain linked with intricate solving problems are more active during daydreaming.According to the researchers, daydreaming is an activity in which the brain consolidates learning. Daydreaming is analogous to sleeping dreams in this regard."
+          "text": "In the 1980s, scientists elaborated that most daydreams are about ordinary, everyday occurrences. According to an experiment, it was revealed that more than 75% of workers in so-called “monotonous jobs” such as truck drivers and security guards, spend a significant amount of time daydreaming in order to make their time at work engaging. In a recent survey, daydreaming has indeed been demonstrated to have a beneficial effect on the brain. MRI brain scan experiments show that the areas of the brain linked with intricate solving problems are more active during daydreaming. According to the researchers, daydreaming is an activity in which the brain consolidates learning. Daydreaming is analogous to sleeping dreams in this regard."
         },
         {
           "label": "E",
-          "text": "Albeit there seems to be numerous perks to daydreaming, it is frowned upon in many societies; the main reason behind this is that you are not being productive while you are daydreaming.Individuals who daydreamed a lot, for instance, were considered lethargic in the nineteenth century.This was especially true when individuals began working on production lines in factories.If someone operate on a production line, all you are doing is the same small task repetitively.It's quite monotonous, and you clearly can't be unique. So many individuals believed that daydreaming was worthless."
+          "text": "Albeit there seems to be numerous perks to daydreaming, it is frowned upon in many societies; the main reason behind this is that you are not being productive while you are daydreaming. Individuals who daydreamed a lot, for instance, were considered lethargic in the nineteenth century. This was especially true when individuals began working on production lines in factories. If someone operate on a production line, all you are doing is the same small task repetitively. It’s quite monotonous, and you clearly can’t be unique. So many individuals believed that daydreaming was worthless."
         },
         {
           "label": "F",
-          "text": "Some have said that daydreaming tends to 'escapism,' which would also be unhealthy. Escapists waste a lot of money living in a dream world in which they are successful and famous, rather than coping with the challenges they encounter in reality.Such people frequently appear depressed and unprepared or unwilling to alter their daily life. Indeed, recent research reveals that those who daydream frequently have less close connections than others. In fact, they frequently have no close pals at all."
+          "text": "Some have said that daydreaming tends to ‘escapism,’ which would also be unhealthy. Escapists waste a lot of money living in a dream world in which they are successful and famous, rather than coping with the challenges they encounter in reality. Such people frequently appear depressed and unprepared or unwilling to alter their daily life. Indeed, recent research reveals that those who daydream frequently have less close connections than others. In fact, they frequently have no close pals at all."
         }
       ],
       "groups": [
         {
-          "type": "short_answer",
-          "instruction": "Do the following assertions verify the data in the text?",
-          "maxWords": 2,
+          "type": "summary_completion",
+          "instruction": "Complete the summary below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
           "questions": [
             {
               "number": 28,
               "answer": [
                 "relaxing"
               ],
-              "explanation": ".",
-              "prompt": "Complete the statement for question 28."
+              "explanation": "‘When we close our eyes while relaxing, we usually think about something that we wish must happen.’",
+              "reference": "Paragraph A"
             },
             {
               "number": 29,
               "answer": [
-                "might"
+                "awake"
               ],
-              "explanation": "Found directly in the reading passage: 'might'.",
-              "prompt": "Complete the statement for question 29."
+              "explanation": "Daydreams differ from dreams because ‘we can only daydream if we are awake’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 30,
               "answer": [
-                "could"
+                "execute"
               ],
-              "explanation": "Found directly in the reading passage: 'could'.",
-              "prompt": "Complete the statement for question 30."
+              "explanation": "Daydreams help us ‘to figure out what we want to do or how to execute it in the greatest way possible’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 31,
               "answer": [
-                "always"
+                "creativeness"
               ],
-              "explanation": "Found directly in the reading passage: 'always'.",
-              "prompt": "Complete the statement for question 31."
+              "explanation": "‘Creativeness can be increased with the help of daydreams.’",
+              "reference": "Paragraph C"
             },
             {
               "number": 32,
               "answer": [
-                "Daydreams"
+                "learning"
               ],
-              "explanation": "Found directly in the reading passage: 'Daydreams'.",
-              "prompt": "Complete the statement for question 32."
+              "explanation": "‘Daydreaming is an activity in which the brain consolidates learning.’",
+              "reference": "Paragraph D"
             },
             {
               "number": 33,
               "answer": [
-                "daydreams"
+                "productive"
               ],
-              "explanation": "Found directly in the reading passage: 'daydreams'.",
-              "prompt": "Complete the statement for question 33."
+              "explanation": "It is frowned upon because ‘you are not being productive while you are daydreaming’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 34,
               "answer": [
-                "daydreams"
+                "lethargic"
               ],
-              "explanation": "Found directly in the reading passage: 'daydreams'.",
-              "prompt": "Complete the statement for question 34."
+              "explanation": "‘Individuals who daydreamed a lot, for instance, were considered lethargic in the nineteenth century.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 35,
               "answer": [
-                "execute"
+                "escapism"
               ],
-              "explanation": "Found directly in the reading passage: 'execute'.",
-              "prompt": "Complete the statement for question 35."
+              "explanation": "Some have said that daydreaming tends to escapism, in which people live in ‘a dream world’ instead of ‘coping with the challenges they encounter in reality’.",
+              "reference": "Paragraph F"
             }
-          ]
+          ],
+          "title": "Daydreaming",
+          "content": "Most people daydream, often when they are {{28}} with their eyes closed. Unlike dreams, daydreams can happen only when we are {{29}}, and we can choose what they will be. They can help us to decide what we want to do and how best to {{30}} it. Daydreaming can also increase {{31}}, which is why musicians, authors and filmmakers use it to generate ideas. Researchers say that daydreaming is an activity in which the brain consolidates {{32}}. However, many societies disapprove of it because a daydreamer is not being {{33}}; in the nineteenth century, people who daydreamed a lot were considered {{34}}. Some people also say that daydreaming leads to {{35}}, a habit of living in a dream world rather than facing reality."
         },
         {
-          "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 3 WORDS from the passage for each answer.",
-          "maxWords": 3,
+          "type": "sentence_completion",
+          "instruction": "Complete the sentences below. Choose **NO MORE THAN TWO WORDS** from the passage for each answer.",
+          "maxWords": 2,
           "questions": [
             {
               "number": 36,
-              "prompt": "The areas of the brain used in daydreaming are also used for complicated 10.......",
+              "prompt": "More than 75% of workers in so-called ‘{{36}}’, such as truck drivers and security guards, spend a lot of time daydreaming to make their time at work engaging.",
               "answer": [
-                "better"
+                "monotonous jobs"
               ],
-              "explanation": "Found directly in the reading passage: 'better'."
+              "explanation": "An experiment showed that more than 75% of workers in ‘monotonous jobs’ daydream a great deal to make work engaging.",
+              "reference": "Paragraph D"
             },
             {
               "number": 37,
-              "prompt": "Question 10",
+              "prompt": "Albert Einstein stated that {{37}} is more essential than knowledge.",
               "answer": [
-                "creative"
+                "imagination"
               ],
-              "explanation": "Found directly in the reading passage: 'creative'."
+              "explanation": "Einstein ‘stated that imagination is more essential than knowledge since knowledge is finite’.",
+              "reference": "Paragraph C"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter, A, B, C or D.",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 38,
-              "prompt": "Daydreams are",
+              "prompt": "According to the passage, daydreams are",
               "options": [
                 {
                   "key": "A",
@@ -497,12 +527,13 @@
                   "text": "activities that only a few people are able to do."
                 }
               ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "answer": "C",
+              "explanation": "Daydreams are about ‘something that we wish must happen’; they are not dreams, because we are awake.",
+              "reference": "Paragraph A"
             },
             {
               "number": 39,
-              "prompt": "People who daydream a lot",
+              "prompt": "According to the passage, people who daydream a lot",
               "options": [
                 {
                   "key": "A",
@@ -521,8 +552,9 @@
                   "text": "do not have as many friends as other people."
                 }
               ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "answer": "D",
+              "explanation": "Frequent daydreamers ‘have less close connections than others’ and ‘frequently have no close pals at all’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 40,
@@ -534,7 +566,7 @@
                 },
                 {
                   "key": "B",
-                  "text": "A way of avoiding work."
+                  "text": "a way of avoiding work."
                 },
                 {
                   "key": "C",
@@ -545,8 +577,9 @@
                   "text": "a healthy activity."
                 }
               ],
-              "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "answer": "B",
+              "explanation": "Daydreamers were ‘considered lethargic’ in the nineteenth century and daydreaming was thought ‘worthless’ because it was not productive work, so B fits best.",
+              "reference": "Paragraph E"
             }
           ]
         }
