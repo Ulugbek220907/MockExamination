@@ -11,47 +11,39 @@
   "passages": [
     {
       "passageNumber": 1,
-      "title": "The creation of lasting memories",
+      "title": "The Creation of Lasting Memories",
       "paragraphs": [
-        {
-          "label": null,
-          "text": "You should spend about 20 minutes on"
-        },
-        {
-          "label": null,
-          "text": "The creation of lasting memories"
-        },
         {
           "label": "A",
           "text": "Multiple studies of the cognitive processes underlying memory consolidation (permanent memories) have required the treatment and retraining of animal and human subjects to complete an early task. These have vastly contributed to our knowledge."
         },
         {
           "label": "B",
-          "text": "Bernard Agranoff showed that administering creatine supplementation inhibitors had a ground-breaking work with goldfish that caused goldfish to unlearn everything they had previously learned. Moreover, before teaching the fish he administered blockers of the synthesis of proteins immediately. Surprisingly, the creation of protein inhibitors hindered declarative memory yet had no effect on short-term memory, the fish learned the task normally but quickly forgot it."
+          "text": "Bernard Agranoff’s ground-breaking work with goldfish showed that administering protein synthesis inhibitors caused the fish to forget what they had previously learned. Moreover, he administered the blockers of protein synthesis immediately, before teaching the fish. Surprisingly, the protein inhibitors hindered long-term memory yet had no effect on short-term memory: the fish learned the task normally but quickly forgot it."
         },
         {
           "label": "C",
-          "text": "Electroconvulsive therapy (ECT), which inhibits declarative memory preserves short-term memory, according to mounting evidence. Ivan Izquierdo discovered that certain pharmacological treatments can impair short-term memory without affecting memory development. On the flip side, a theory was put forth that long-term memory and short-term memory are not dependent on one another. This was suggested by Canadian psychologist Donald Hebb in 1949."
+          "text": "Electroconvulsive therapy (ECT), which inhibits long-term memory, preserves short-term memory, according to mounting evidence. Ivan Izquierdo discovered that certain pharmacological treatments can impair short-term memory without affecting memory development. On the flip side, a theory was put forth that long-term memory and short-term memory are not dependent on one another. This was suggested by Canadian psychologist Donald Hebb in 1949."
         },
         {
           "label": "D",
-          "text": "These results demonstrate that our experiences generate simultaneous and potentially separate periods of memory, each with its own lifespan. The reason for this is unknown for all of these clinical and experimental trial results strongly show that the brain makes recent and remote memories differently"
+          "text": "These results demonstrate that our experiences generate simultaneous and potentially separate periods of memory, each with its own lifespan. The reason for this is unknown, but all of these clinical and experimental results strongly show that the brain makes recent and remote memories differently."
         },
         {
           "label": "E",
-          "text": "To adapt to an environment that is always changing, we need a memory that can be generated quickly. The majority of contemporary building codes, for example, stipulate that stair step heights must be the same. After ascending or descending a few steps, we immediately remember their heights and think that the rest will be the same. If they do not correspond, we may trip and fall. This situation is helpful for lawyers but surely not for all of us and insurance companies. It would be of little use if we could only recall the step heights after several hours have passed and the memory has solidified."
+          "text": "To adapt to an environment that is always changing, we need a memory that can be generated quickly. The majority of contemporary building codes, for example, stipulate that stair step heights must be the same. After ascending or descending a few steps, we immediately remember their heights and think that the rest will be the same. If they do not correspond, we may trip and fall. It would be of little use if we could only recall the step heights after several hours have passed and the memory has solidified."
         },
         {
           "label": "F",
-          "text": "The majority of this theory's support comes from clinical and experimental data that medications and illnesses affecting brain function can have an effect on long-term memory development. Many other sorts of evidence show that after learning, memories gradually solidify over time. Human participants educated in visual skill showed no improvement until eight hours after the training was complete, and then showed even greater improvement the following day, as reported by Avi Kami and Dov Sagi. Also, the mastery was maintained over a long period of time."
+          "text": "The majority of this theory’s support comes from clinical and experimental data that medications and illnesses affecting brain function can have an effect on long-term memory development. Many other sorts of evidence show that after learning, memories gradually solidify over time. Human participants trained in a visual skill showed no improvement until eight hours after the training was complete, and then showed even greater improvement the following day, as reported by Avi Karni and Dov Sagi. Also, the mastery was maintained over a long period of time."
         },
         {
           "label": "G",
-          "text": "In addition, studies employing human brain scans to carefully assess neuronal activity induced by learning have revealed that these changes linger for hours after learning. Reza Shadmehr and Henry Holcomb performed innovative research using functions available of the brain to assess brain activity in various regions of the brain shortly after training human volunteers in a motor learning task including arm and hand movements. Although the subjects' performance remained consistent for several hours following training, their brain function did not; various regions of the brain were extremely active at various times over the several hours of training. The activity changed from the prefrontal cortex to the recognized movement-regulating motor cortex and cerebellar cortex. Integration of the motor ability appeared to include activation of many neural networks, which maintained underlying brain processes."
+          "text": "In addition, studies employing human brain scans to carefully assess neuronal activity induced by learning have revealed that these changes linger for hours after learning. Reza Shadmehr and Henry Holcomb performed innovative research using brain imaging to assess brain activity in various regions of the brain shortly after training human volunteers in a motor learning task including arm and hand movements. Although the subjects’ performance remained consistent for several hours following training, their brain function did not; various regions of the brain were extremely active at various times over the several hours of training. The activity changed from the prefrontal cortex to the recognized movement-regulating motor cortex and cerebellar cortex. Integration of the motor ability appeared to include activation of many neural networks, which maintained underlying brain processes."
         },
         {
           "label": "H",
-          "text": "In addition, there is evidence that learning-induced associations in the firing of neurons in the cerebral cortex persist for days following training. In a series of extensive experiments with rats implanted with diodes in the auditory cortex, Norman Weinberger found that after a narrow band tone was recurrently paired with footshock, nerve cells in the auditory cortex reacted more firmly to the particular tone and less strongly to other tones with various frequencies. Inquisitiveness, the uniqueness of the neurons' responses to the particular tone used in learning remained higher for a number of days after training had concluded."
+          "text": "In addition, there is evidence that learning-induced associations in the firing of neurons in the cerebral cortex persist for days following training. In a series of extensive experiments with rats implanted with diodes in the auditory cortex, Norman Weinberger found that after a narrow band tone was recurrently paired with footshock, nerve cells in the auditory cortex reacted more firmly to the particular tone and less strongly to other tones with various frequencies. Interestingly, the uniqueness of the neurons’ responses to the particular tone used in learning remained higher for a number of days after training had concluded."
         },
         {
           "label": "I",
@@ -65,133 +57,140 @@
       "groups": [
         {
           "type": "yes_no_not_given",
-          "instruction": "Do the following statements agree with the views of the writer in the Reading Passage? For Questions 1-4 in your answer sheet, write",
+          "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 1? Choose **YES** if the statement agrees with the claims of the writer, **NO** if the statement contradicts the claims of the writer, or **NOT GIVEN** if it is impossible to say what the writer thinks about this.",
           "questions": [
             {
               "number": 1,
-              "prompt": "The subjects of kami and sagi were subjected to numerous days of training.",
+              "prompt": "The participants in Karni and Sagi’s study were trained over a period of several days.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The participants ‘showed no improvement until eight hours after the training was complete’, but the passage never says how many days they were trained."
             },
             {
               "number": 2,
-              "prompt": "Rats in Weinberger's research learned to associate a particular noise with a particular",
+              "prompt": "Weinberger’s rats learned to associate a particular sound with an unpleasant physical experience.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "A ‘narrow band tone was recurrently paired with footshock’, and the rats’ nerve cells then ‘reacted more firmly to the particular tone’.",
+              "reference": "Paragraph H"
             },
             {
               "number": 3,
-              "prompt": "Weinberger's researchers suggested that the strength of rats' learned associations",
+              "prompt": "Weinberger found that, for several days after training, the rats’ nerve cells still responded more strongly to the training tone than to other tones.",
               "answer": "YES",
-              "explanation": "The passage confirms this statement is YES."
+              "explanation": "The ‘uniqueness of the neurons’ responses to the particular tone used in learning remained higher for a number of days after training had concluded’.",
+              "reference": "Paragraph H"
             },
             {
               "number": 4,
-              "prompt": "It is easy to recognize the evolutionary advantage of the manner in which humans create",
+              "prompt": "It is easy to see why humans form long-term memories slowly.",
               "answer": "NO",
-              "explanation": "The passage confirms this statement is NO."
+              "explanation": "The writer says ‘Why our long-term memories grow slowly is not easily explicable’ and finds it ‘definitely puzzling’.",
+              "reference": "Paragraph I"
             }
           ]
         },
         {
           "type": "multiple_choice",
-          "instruction": "Choose the correct letter A, B, C, or D",
+          "instruction": "Choose the correct letter, **A, B, C or D**.",
           "questions": [
             {
               "number": 5,
-              "prompt": "Reading passage describes Bernard Agranoff' 's entailed",
+              "prompt": "What did Bernard Agranoff’s work with goldfish show?",
               "options": [
                 {
                   "key": "A",
-                  "text": "injecting goldfish at several experimental stages."
+                  "text": "Blocking protein synthesis stopped the fish from keeping what they had learned."
                 },
                 {
                   "key": "B",
-                  "text": "Training goldfish to perform a variety of activities"
+                  "text": "Goldfish can be taught a wide variety of activities."
                 },
                 {
                   "key": "C",
-                  "text": "Utilizing an alternative method to cure Goldfish"
+                  "text": "Goldfish learn new tasks more slowly than other animals."
                 },
                 {
                   "key": "D",
-                  "text": "Comparing the performance of various goldfish to complete specific activities."
+                  "text": "Protein inhibitors destroy short-term memory in goldfish."
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "The protein inhibitors had ‘no effect on short-term memory’: the fish ‘learned the task normally but quickly forgot it’. D is wrong because short-term memory was unaffected.",
+              "reference": "Paragraph B"
             },
             {
               "number": 6,
-              "prompt": "Recent study indicates that",
+              "prompt": "According to the evidence described in paragraphs C and D,",
               "options": [
                 {
                   "key": "A",
-                  "text": "pharmacological therapies often do not impact short-term memory."
+                  "text": "pharmacological treatments never affect short-term memory."
                 },
                 {
                   "key": "B",
-                  "text": "Selective memories serve as the basis for long-term memory."
+                  "text": "selective memories are the basis of long-term memory."
                 },
                 {
                   "key": "C",
-                  "text": "Different systems produce both short-term and long-term memories"
+                  "text": "different systems produce short-term and long-term memories."
                 },
                 {
                   "key": "D",
-                  "text": "The ECT treatment has an effect on both forms of memory."
+                  "text": "ECT affects both kinds of memory in the same way."
                 }
               ],
               "answer": "C",
-              "explanation": "Option C is correct based on the passage."
+              "explanation": "Hebb suggested that long-term and short-term memory ‘are not dependent on one another’, and the brain ‘makes recent and remote memories differently’.",
+              "reference": "Paragraphs C and D"
             },
             {
               "number": 7,
-              "prompt": "What is the author aiming to convey in the fifth paragraph using staircases as an illustration?",
+              "prompt": "What point does the writer make by using staircases as an example in paragraph E?",
               "options": [
                 {
                   "key": "A",
-                  "text": "The completion of daily tasks is contingent upon the fast formation of memories."
+                  "text": "Everyday tasks depend on memories that can be formed quickly."
                 },
                 {
                   "key": "B",
-                  "text": "It is possible to execute mundane tasks unconsciously."
+                  "text": "Routine tasks can be carried out without conscious thought."
                 },
                 {
                   "key": "C",
-                  "text": "Accidents involving the body might impair memory function."
+                  "text": "Accidents can damage a person’s ability to remember."
                 },
                 {
                   "key": "D",
-                  "text": "Complex information, such as regulations, cannot be stored in memory."
+                  "text": "Complex information such as regulations cannot be stored in memory."
                 }
               ],
               "answer": "A",
-              "explanation": "Option A is correct based on the passage."
+              "explanation": "‘To adapt to an environment that is always changing, we need a memory that can be generated quickly’; step heights are remembered after only ‘a few steps’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 8,
-              "prompt": "The research on memory that Kami and Sagi",
+              "prompt": "The research by Karni and Sagi",
               "options": [
                 {
                   "key": "A",
-                  "text": "have been conducting raises questions about the commonly held beliefs."
+                  "text": "has raised doubts about commonly held beliefs."
                 },
                 {
                   "key": "B",
-                  "text": "Having nothing more than an effect on the working memory"
+                  "text": "had an effect only on working memory."
                 },
                 {
                   "key": "C",
-                  "text": "Activities that required one to make use of their hearing formed the basis of these"
+                  "text": "involved tasks that depended on hearing."
                 },
                 {
                   "key": "D",
-                  "text": "confirmed by additional testing the findings of the previous ones"
+                  "text": "supported the findings of earlier studies with further evidence."
                 }
               ],
               "answer": "D",
-              "explanation": "Option D is correct based on the passage."
+              "explanation": "It is offered as ‘Many other sorts of evidence show that after learning, memories gradually solidify over time’: improvement appeared only after eight hours and again the next day.",
+              "reference": "Paragraph F"
             },
             {
               "number": 9,
@@ -199,71 +198,74 @@
               "options": [
                 {
                   "key": "A",
-                  "text": "Activating different parts and subparts of the brain required the completion of a range of different activities."
+                  "text": "Different tasks activate different parts of the brain."
                 },
                 {
                   "key": "B",
-                  "text": "As the process progressed, the activity in the brain gradually moved from one region to other regions as it moved through the brain."
+                  "text": "Brain activity moved from one region to others as time passed."
                 },
                 {
                   "key": "C",
-                  "text": "The participants' overall performance in a given task continued to show signs of improvement even after the training program had been completed."
+                  "text": "Participants’ performance kept improving after the training ended."
                 },
                 {
                   "key": "D",
-                  "text": "The medication that was given to the patients resulted in an improvement in the subject's performance on the task that was being tested."
+                  "text": "A drug improved the participants’ performance on the task."
                 }
               ],
               "answer": "B",
-              "explanation": "Option B is correct based on the passage."
+              "explanation": "Performance ‘remained consistent’ but brain activity did not: ‘The activity changed from the prefrontal cortex’ to the motor and cerebellar cortex.",
+              "reference": "Paragraph G"
             }
           ]
         },
         {
           "type": "summary_completion",
-          "instruction": "Complete the Summary using the list of words A-I given below",
-          "content": "Researchers from a broad range of disciplines have looked at the processes that underlie the formation of long-term memories. Experiments that are carried out in a laboratory often involve telling people to do something ( {{10}} )_______, and then either delivering medication to them or giving them minor electric shocks after they have completed the task. Other studies either look at a person's behavior after they have been through a learning experience or utilize the advanced technology to observe brain activity in people while they are learning.The findings, which are mostly consistent with one another, indicate that long-term memories are the consequence of a complex biological process that costs ( {{11}} )________.The fact that humans and other species, even animals with ( {{12}} )________brains, share this attribute is proof that it originated ( {{13}} )________during the course of the evolutionary journey of our species.",
-          "maxWords": 2,
+          "instruction": "Complete the summary below. Choose **ONE WORD ONLY** from the passage for each answer.",
+          "maxWords": 1,
+          "title": "Studying long-term memory",
+          "content": "Researchers from many disciplines have studied the processes that underlie the formation of long-term memories. Laboratory experiments often involve getting animal or human subjects to complete a {{10}} and then treating them in various ways. Other studies use brain imaging, which shows that changes in brain activity linger for {{11}} after learning. Long-term memory is found in every known animal species, including birds, bees, {{12}}, fish and rodents, so it appears to have been conserved since the beginning of {{13}}. Scientists believe that slow consolidation is useful because it allows the brain to adjust the {{14}} of a memory shortly after learning.",
           "questions": [
             {
               "number": 10,
               "answer": [
-                "memory"
+                "task"
               ],
-              "explanation": "Found directly in the reading passage: 'memory'."
+              "explanation": "Studies required subjects ‘to complete an early task’ before they were treated.",
+              "reference": "Paragraph A"
             },
             {
               "number": 11,
               "answer": [
-                "results"
+                "hours"
               ],
-              "explanation": "Found directly in the reading passage: 'results'."
+              "explanation": "Brain scans showed that changes ‘linger for hours after learning’.",
+              "reference": "Paragraph G"
             },
             {
               "number": 12,
               "answer": [
-                "periods"
+                "mollusks",
+                "molluscs"
               ],
-              "explanation": "Found directly in the reading passage: 'periods'."
+              "explanation": "‘Birds, bees, mollusks, fish, and rodents have long-term memory.’",
+              "reference": "Paragraph I"
             },
             {
               "number": 13,
               "answer": [
-                "A"
+                "evolution"
               ],
-              "explanation": "Found directly in the reading passage: 'A'."
-            }
-          ]
-        },
-        {
-          "type": "true_false_not_given",
-          "instruction": "Do the following statements agree with the information given in the Reading Passage? Choose TRUE if the statement agrees with the information, FALSE if it contradicts the information, or NOT GIVEN if there is no information on this.",
-          "questions": [
+              "explanation": "Memory consolidation ‘has existed and been conserved since the beginning of evolution’.",
+              "reference": "Paragraph I"
+            },
             {
               "number": 14,
-              "prompt": "These have vastly contributed to our knowledge.",
-              "answer": "TRUE",
-              "explanation": "Confirmed directly in the reading passage: 'These have vastly contributed to our knowledge....'"
+              "answer": [
+                "intensity"
+              ],
+              "explanation": "Slow consolidation ‘allows neurobiological mechanisms to adjust the memory intensity for experiences immediately after learning’.",
+              "reference": "Paragraph J"
             }
           ]
         }
@@ -271,45 +273,38 @@
     },
     {
       "passageNumber": 2,
-      "title": "Taking us back to the paradise city",
+      "title": "Taking Us Back to Paradise City",
       "paragraphs": [
         {
           "label": null,
-          "text": "You should spend about 20 minutes on"
+          "text": "The hard rock band Guns N’ Roses was founded in 1985 by Axl Rose and Tracii Guns and took its name from its two founding members, who served as the group’s main guitarists at the time. Few could have anticipated the band’s level of popularity at the time. The band, which became a symbol of the hedonistic rebelliousness of the 1980s and 1990s punk-rock era, has, after much rumor, resurrected itself for another assault on the music charts. The band has sold more than 100 million albums worldwide, including 46 million in the United States alone, to date. A new world tour has officially started for GNR, as the group is now known. And as it begins a new chapter of its journey, we look back at the band’s colorful and frequently contentious past."
         },
         {
           "label": null,
-          "text": "Taking us back to the paradise city"
+          "text": "In the beginning, the band lineup saw a lot of changes. Tracii Guns, a founding member, was replaced as the lead guitarist by Slash since he missed the rehearsals. Slash also added his close friend Steven Adler to the lineup after the band’s former drummer Rob Gardner left for personal reasons. Axl Rose (vocals), Izzy Stradlin (rhythm guitar), Duff McKagan (bass), Slash (lead guitar), and Steven Adler (drums) entered their first tour, known as the “Hell Tour,” after settling into their positions and completing the line-up. The band found its chemistry while touring, and even though it was only able to put out one four-track EP, Like a Suicide, during this time, the foundation for future success was laid. This was because the group quickly developed a reputation for giving energetic live performances."
         },
         {
           "label": null,
-          "text": "The hard rock band Guns and Roses was founded in 1985 by Axl Rose and Tracii Guns and took its name from its two founding members, who served as the group's main guitarists at the time. Few could have anticipated the band's level of popularity at the time. The band, which became a symbol of the hedonistic rebelliousness of the 1980s and 1990s punk-rock era, has, after much rumor, resurrected itself for another assault on the music charts. The band has sold more than 100 million albums worldwide, including 46 million in the United States alone, to date. A new world tour has officially started for GNR, as the group is now known. And as it begins a new chapter of its journey, we look back at the band's colorful and frequently contentious past."
+          "text": "The group’s debut album, Appetite for Destruction, was released on July 21st, 1987. The album remained at the bottom of the charts for over a year before the band’s representative was able to persuade MTV execs to play Welcome to the Jungle, the album’s lead single, during their afternoon rotations. However, success wasn’t by any means instantaneous. Rock and punk fans soon noticed and started clamoring for the video in droves. The album’s second US hit, “Sweet Child of Mine,” the song and its accompanying music video received regular airplay and quickly rose to the top of the US charts, in large part due to strong grassroots support. After receiving invites to participate at significant international rock festivals, a world tour began. The band was currently well on its way to becoming famous and wealthy."
         },
         {
           "label": null,
-          "text": "In the beginning, the band lineup saw a lot of changes. Tracii Gun, a founding member, was replaced as the lead guitarist by Slash since he missed the rehearsals. Slash also added his close friend Steven Adler to the lineup after the band's former drummer Rob Gardner left for personal reasons. Axl Rose (vocals), Izzy Stradlin (rhythm guitar), Duff McKagan (bass), Slash (lead guitar), and Steven Adler (drums) entered their first tour, known as the \"Hell Tour,\" after settling into their positions and completing the line-up. The band found its chemistry while touring, and even though it was only able to put out one four-track EP, Like a Suicide, during this time, the foundation for future success was laid. This was because the group quickly developed a reputation for giving energetic live performances."
+          "text": "All of the band members led extreme lives, but drummer Adler’s lifestyle ultimately got the best of him. He could no longer perform with the band due to the severity of his drug use and was sacked in July 1990. Matt Sorum took his place. The group also gained a sixth member when Dizzy Reed joined as the group’s keyboardist. The band then began working on its most ambitious project to date, releasing two albums, Use Your Illusion 1 and Use Your Illusion 2, at the same time. The risk paid off brilliantly as the albums shot to numbers one and two in the charts, the first time a band had ever accomplished such a feat. However, despite being on top of a wave, the band members were constantly dogged by controversy, especially singer Rose, who was among other things charged with assault and accused of inciting a riot that claimed many lives. Nevertheless, the Use Your Illusion Tour ended with a bang, drawing record crowds and lasting an amazing 28 months."
         },
         {
           "label": null,
-          "text": "The group's debut album, Appetite for Destruction, was released on July 21st, 1987. The album remained at the bottom of the charts for over a year before the band's representative was able to persuade MTV execs to play Welcome to the Jungle, the album's lead single, during their afternoon rotations. However, success wasn't by any means instantaneous. Rock and punk fans soon noticed and started clamoring for the video in droves. The album's second US hit, \"Sweet Child of Mine,\" the song and its accompanying music video received regular airplay and quickly rose to the top of the US charts, in large part due to strong grassroots support. After receiving invites to participate at significant international rock festivals, a world tour began. The band was currently well on its way to becoming famous and wealthy."
+          "text": "But just when it seemed like the band could not fail, everything started to slowly fall apart. Prior to Slash’s official departure in 1996, the band took a break during which time they did not record or tour. Rose and Slash both experienced personal problems. Rose replaced most of the other band members who left after Slash did, but it took a full nine years until a highly anticipated reunion performance was given in Las Vegas. The band’s anticipated new album, Chinese Democracy, never appeared, and tour plans were frequently postponed or scrapped entirely. Chinese Democracy wasn’t actually released until 2008 when Rose was the last survivor of the original band."
         },
         {
           "label": null,
-          "text": "All of the band members led extreme lives, but drummer Adler's lifestyle ultimately got the best of him. He could no longer perform with the band due to the severity of his drug use and was sacked in July 1990. Matt Sorum took his place. The group also gained a sixth member when Dizzy Reed joined as the group's keyboardist. The band then began working on its most ambitious project to date, releasing two albums, Use Your Illusion 1 and Use Your Illusion 2, at the same time. The risk paid off brilliantly as the albums shot to numbers one and two in the charts, the first time a band had ever accomplished such a feat. However, despite being on top of a wave, the band members were constantly dogged by controversy, especially singer Rose, who was among other things charged with assault and accused of inciting a riot that claimed many lives. Nevertheless, the Use Your Illusion Tour ended with a bang, drawing record crowds and lasting an amazing 28 months."
-        },
-        {
-          "label": null,
-          "text": "But just when it seemed like the band could not fail, everything started to slowly fall apart. Prior to Slash's official departure in 1996, the band took a break during which time they did not record or tour. Rose and Slash both experienced personal problems. Rose replaced most of the other band members who left after Slash did, but it took a full nine years until a highly anticipated reunion performance was given in Las Vegas. The band's anticipated new album, Chinese Democracy, never appeared, and tour plans were frequently postponed or scrapped entirely. Chinese Democracy wasn't actually released until 2008 when Rose was the last survivor of the original band."
-        },
-        {
-          "label": null,
-          "text": "Following the release of Chinese Democracy, the band embarked on a new global tour, which got generally favorable reviews but was marred by controversy due to Rose's penchant for being late for shows and his stage presence, both of which have drawn much ire. After all is said and done, though, GNR's ongoing appeal cannot be disputed. Just as they did before when the band first became popular, devoted fans continue to queue up in the thousands to get tickets for every new tour stop. The only difference is that they are more anticipating than hoping for a fantastic performance today, but that's rock and roll, baby!"
+          "text": "Following the release of Chinese Democracy, the band embarked on a new global tour, which got generally favorable reviews but was marred by controversy due to Rose’s penchant for being late for shows and his stage presence, both of which have drawn much ire. After all is said and done, though, GNR’s ongoing appeal cannot be disputed. Just as they did before when the band first became popular, devoted fans continue to queue up in the thousands to get tickets for every new tour stop. The only difference is that they are more anticipating than hoping for a fantastic performance today, but that’s rock and roll, baby!"
         }
       ],
       "groups": [
         {
           "type": "matching_features",
-          "instruction": "Look at the following statements (Questions 15-20 and the lists of periods of time below.",
+          "instruction": "Look at the following statements (Questions 15–20) and the list of periods of time below. Match each statement with the correct period of time, **A–D**. **NB** You may use any letter more than once.",
+          "optionsTitle": "Periods of Time",
           "options": [
             {
               "key": "A",
@@ -331,128 +326,142 @@
           "questions": [
             {
               "number": 15,
-              "prompt": "During the band's lengthy absence, several members opted to quit.",
+              "prompt": "During the band’s long absence, several members chose to leave.",
               "answer": "D",
-              "explanation": "Refer to item D in the passage."
+              "explanation": "Rose ‘replaced most of the other band members who left after Slash did’, following the break before Slash’s departure in 1996.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 16,
-              "prompt": "Prior to the release of the band's upcoming record, there was a very significant delay.",
+              "prompt": "There was a very long delay before the band’s next album was released.",
               "answer": "D",
-              "explanation": "Refer to item D in the passage."
+              "explanation": "‘Chinese Democracy wasn’t actually released until 2008’, and ‘tour plans were frequently postponed or scrapped’.",
+              "reference": "Paragraph 5"
             },
             {
               "number": 17,
-              "prompt": "During the band's tour, the friendship between its members improved.",
+              "prompt": "The members became closer friends while on tour.",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "‘The band found its chemistry while touring’ in the early line-up of 1985–86, before the debut album of 1987.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 18,
-              "prompt": "One member of the band was fired due to his inability to perform due to a destructive",
+              "prompt": "One member was dismissed because he could no longer perform as a result of a destructive lifestyle.",
               "answer": "C",
-              "explanation": "Refer to item C in the passage."
+              "explanation": "Adler ‘could no longer perform with the band due to the severity of his drug use and was sacked in July 1990’.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 19,
-              "prompt": "A new member joined the band playing an instrument that none of the previous",
+              "prompt": "A new member joined the band playing an instrument that no previous member had played.",
               "answer": "C",
-              "explanation": "Refer to item C in the passage."
+              "explanation": "‘Dizzy Reed joined as the group’s keyboardist’, making a sixth member, in 1990.",
+              "reference": "Paragraph 4"
             },
             {
               "number": 20,
-              "prompt": "The band achieved their first number-one single.",
+              "prompt": "The band had its first number-one single.",
               "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "explanation": "‘Sweet Child of Mine’ ‘quickly rose to the top of the US charts’ after the album’s release in July 1987.",
+              "reference": "Paragraph 3"
             }
           ]
         },
         {
           "type": "short_answer",
-          "instruction": "Answer the questions below. Choose NO MORE THAN 1 WORDS from the passage for each answer.",
+          "instruction": "Answer the questions below. Choose **ONE WORD ONLY** from the passage for each answer.",
           "maxWords": 1,
           "questions": [
             {
               "number": 21,
-              "prompt": "Question 7",
+              "prompt": "What did Tracii Guns fail to attend, leading to his replacement as lead guitarist?",
               "answer": [
                 "rehearsals"
               ],
-              "explanation": "Found directly in the reading passage: 'rehearsals'."
+              "explanation": "Guns ‘was replaced as the lead guitarist by Slash since he missed the rehearsals’.",
+              "reference": "Paragraph 2"
             },
             {
               "number": 22,
-              "prompt": "Question 8",
+              "prompt": "What did the band find while it was touring?",
               "answer": [
                 "chemistry"
               ],
-              "explanation": "Found directly in the reading passage: 'chemistry'."
+              "explanation": "‘The band found its chemistry while touring.’",
+              "reference": "Paragraph 2"
             },
             {
               "number": 23,
-              "prompt": "Question 9",
+              "prompt": "What did the song and video for “Sweet Child of Mine” receive on a regular basis?",
               "answer": [
                 "airplay"
               ],
-              "explanation": "Found directly in the reading passage: 'airplay'."
+              "explanation": "The song and its video ‘received regular airplay’.",
+              "reference": "Paragraph 3"
             },
             {
               "number": 24,
-              "prompt": "Question 10",
+              "prompt": "According to the final paragraph, which quality of GNR cannot be disputed?",
               "answer": [
                 "appeal"
               ],
-              "explanation": "Found directly in the reading passage: 'appeal'."
+              "explanation": "‘GNR’s ongoing appeal cannot be disputed.’",
+              "reference": "Paragraph 6"
             }
           ]
         },
         {
           "type": "matching_sentence_endings",
-          "instruction": "Complete each sentence with the correct ending, A-G, below.",
+          "instruction": "Complete each sentence with the correct ending, **A–F**, below.",
+          "optionsTitle": "List of Endings",
           "options": [
             {
               "key": "A",
-              "text": "takes its name from two former members."
+              "text": "a symbol of the hedonistic rebelliousness of the 1980s and 1990s."
             },
             {
               "key": "B",
-              "text": "was named after its founding members."
+              "text": "was named after two of its founding members."
             },
             {
               "key": "C",
-              "text": "success in the States alone."
+              "text": "success in the United States alone."
             },
             {
               "key": "D",
-              "text": "was never a predictable band musically."
+              "text": "has never changed its line-up."
             },
             {
               "key": "E",
-              "text": "considerable success in America."
+              "text": "considerable success in the United States."
             },
             {
               "key": "F",
-              "text": "a symbol of success in the 1980s."
+              "text": "was formed by a drummer and a singer."
             }
           ],
           "questions": [
             {
               "number": 25,
-              "prompt": "Gun and Roses",
+              "prompt": "Guns N’ Roses",
               "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "explanation": "The band ‘took its name from its two founding members’.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 26,
               "prompt": "The band has enjoyed",
               "answer": "E",
-              "explanation": "Refer to item E in the passage."
+              "explanation": "The band has sold ‘46 million in the United States alone’ out of more than 100 million albums worldwide, so its success was not confined to the US.",
+              "reference": "Paragraph 1"
             },
             {
               "number": 27,
               "prompt": "The band became",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "It ‘became a symbol of the hedonistic rebelliousness of the 1980s and 1990s’.",
+              "reference": "Paragraph 1"
             }
           ]
         }
@@ -464,58 +473,90 @@
       "paragraphs": [
         {
           "label": "A",
-          "text": "You should spend about 20 minutes on"
+          "text": "Although the game itself is much older, football as we know it now originated in Britain in the nineteenth century. In fact, the term “football” has historically referred to games performed on foot, as opposed to those played on horseback, so kicking a ball was not always a component. It has generally been played by men, although at the end of the 17th century, married and unmarried women in a Scottish town played the game. The married women consistently won."
         },
         {
           "label": "B",
-          "text": "The Beginning of Football"
+          "text": "Tsu’chu, which was played in China, was the earliest form of football for which we have evidence, and may date back 3,000 years. It was performed in front of the Emperor during his birthday celebrations. It entailed kicking a leather ball through a 30-40 cm aperture into a small net attached to long bamboo canes, a feat that required exceptional ability and precision."
         },
         {
-          "label": "A",
-          "text": "- Although the game itself is much older football as we know it now was originated in Britain in the nineteenth century. In fact, the term \"football\" has historically referred to games performed on foot, as opposed to those played on horseback, therefore kicking a ball was not always a component. It has generally been played by men, although at the end of the 17th century, married and unmarried women in a Scottish town played the game. The married women consistently win. B - Tsu'chu, which was played in China was the earliest form of football which have evidence that may date back 3,000 years. It was performed in front of the Emperor during their birthday celebrations. It entailed kicking a leather ball through a 30-40 cm aperture into a small net attached to long bamboo canes, a feat that required exceptional ability and precision. C - The Japanese 'kemari', which dates back to roughly the fifth century and is still played today, is a variant of the game that also originated in the Far East. This is a form of circula/r football, a more dignified and ceremonial event requiring specific skills, but not competitive in the same way that the Chinese game was, nor is there any hint of fight for possession of the ball. The players had to transfer the ball to one another in a somewhat confined area without allowing it to hit the ground. D - The Romans had a far more exciting game called 'harpastum' Each team member had a distinct tactical assignment and exhibited a loud interest in the game's progress and score. The involvement of the feet was so tiny as to be negligible. The game remained popular for 700 or 800 years, but despite its introduction to England, it is unlikely to be considered a precursor to modern football. E - The game that flourished in Britain between the 8th and 19th centuries was significantly different from all previously known versions; it was more disorganised, aggressive, spontaneous, and typically played by an undetermined number of players. Frequently, the games consisted of a fierce competition between entire communities. Kicking opponents was permitted, as was virtually anything else. F - Even though the authorities intervened often to limit football as a public nuisance, there was a great deal of passion for the sport. During the 14th and 15th centuries, football was ruled illegal in England, Scotland, and France due to the unrest that sometimes accompanied it or because it prohibited subjects from practising more useful military disciplines. None of these initiatives had an appreciable effect. G - The popularity of the somewhat more organised Italian game 'Calcio' had a significant impact on the development of football in England throughout the sixteenth century. Richard Mulcaster, the school's headmaster, was a notable fan of English football, which remained as harsh as ever. He emphasised that it had educational value and fostered health and vitality. Mulcaster stated that all that was required was a little refinement, a cap on the number of players per team, and most crucially, a referee to monitor the game. H - Until the early 19th century, when a number of influential English schools created their own modifications, the game existed in a disorganised state. In some schools, particularly Rugby schools, the ball may be carried or touched with the hands, and opponents might be tripped and booted. In educational circles, it was acknowledged that football, as a team sport, helped to foster values such as loyalty, altruism, cooperation, subordination, and respect for team spirit. In schools, a 'games cult' arose, and football became a required part of the curriculum. I - In 1863, the culmination of events was reached. At Cambridge University, there was a movement to develop consistent standards and rules that would be accepted by everybody, but there were essentially two camps: Rugby School and others intended to continue with their own version of the game, which included permitting players to carry the ball. Eleven London clubs and schools dispatched delegations in October of the same year to draught a set of fundamental regulations to regulate their matches. This gathering signified the establishment of the Football Association. J - The issue over kicking and tripping opponents and carrying the ball was exhaustively examined at this and following sessions until, on December 8, the most ardent proponents of the Rugby style departed, resulting in a definitive split between rugby and football. Within eight years, the Football Association had 50 member clubs and launched the FA Cup, the first football competition in the globe."
+          "label": "C",
+          "text": "The Japanese ‘kemari’, which dates back to roughly the fifth century and is still played today, is a variant of the game that also originated in the Far East. This is a form of circular football, a more dignified and ceremonial event requiring specific skills, but not competitive in the same way that the Chinese game was, nor is there any hint of fight for possession of the ball. The players had to transfer the ball to one another in a somewhat confined area without allowing it to hit the ground."
+        },
+        {
+          "label": "D",
+          "text": "The Romans had a far more exciting game called ‘harpastum’. Each team member had a distinct tactical assignment and exhibited a loud interest in the game’s progress and score. The involvement of the feet was so tiny as to be negligible. The game remained popular for 700 or 800 years, but despite its introduction to England, it is unlikely to be considered a precursor to modern football."
+        },
+        {
+          "label": "E",
+          "text": "The game that flourished in Britain between the 8th and 19th centuries was significantly different from all previously known versions; it was more disorganised, aggressive, spontaneous, and typically played by an undetermined number of players. Frequently, the games consisted of a fierce competition between entire communities. Kicking opponents was permitted, as was virtually anything else."
+        },
+        {
+          "label": "F",
+          "text": "Even though the authorities intervened often to limit football as a public nuisance, there was a great deal of passion for the sport. During the 14th and 15th centuries, football was ruled illegal in England, Scotland, and France due to the unrest that sometimes accompanied it or because it prevented subjects from practising more useful military disciplines. None of these initiatives had an appreciable effect."
+        },
+        {
+          "label": "G",
+          "text": "The popularity of the somewhat more organised Italian game ‘Calcio’ had a significant impact on the development of football in England throughout the sixteenth century. Richard Mulcaster, a school headmaster, was a notable fan of English football, which remained as harsh as ever. He emphasised that it had educational value and fostered health and vitality. Mulcaster stated that all that was required was a little refinement, a cap on the number of players per team, and most crucially, a referee to monitor the game."
+        },
+        {
+          "label": "H",
+          "text": "Until the early 19th century, when a number of influential English schools created their own modifications, the game existed in a disorganised state. In some schools, particularly Rugby School, the ball could be carried or touched with the hands, and opponents could be tripped and kicked. In educational circles, it was acknowledged that football, as a team sport, helped to foster values such as loyalty, altruism, cooperation, subordination, and respect for team spirit. In schools, a ‘games cult’ arose, and football became a required part of the curriculum."
+        },
+        {
+          "label": "I",
+          "text": "In 1863, the culmination of events was reached. At Cambridge University, there was a movement to develop consistent standards and rules that would be accepted by everybody, but there were essentially two camps: Rugby School and others intended to continue with their own version of the game, which included permitting players to carry the ball. Eleven London clubs and schools dispatched delegations in October of the same year to draw up a set of fundamental regulations to regulate their matches. This gathering signified the establishment of the Football Association."
+        },
+        {
+          "label": "J",
+          "text": "The issue over kicking and tripping opponents and carrying the ball was exhaustively examined at this and following sessions until, on December 8, the most ardent proponents of the Rugby style departed, resulting in a definitive split between rugby and football. Within eight years, the Football Association had 50 member clubs and launched the FA Cup, the first football competition in the globe."
         }
       ],
       "groups": [
         {
           "type": "matching_headings",
-          "instruction": "Reading Passage 1 has ten paragraphs A-J. Choose the correct headings for paragraphs D-H from the list of headings below.",
+          "instruction": "Reading Passage 3 has ten paragraphs, **A–J**. Choose the correct heading for paragraphs **D–H** from the list of headings below.",
           "optionsTitle": "List of Headings",
           "options": [
             {
               "key": "i",
-              "text": "Paragraph D"
+              "text": "Limited success in suppressing the game"
             },
             {
               "key": "ii",
-              "text": "Paragraph E"
+              "text": "The formation of a body to regulate the game"
             },
             {
               "key": "iii",
-              "text": "Paragraph F"
+              "text": "A way of developing moral values"
             },
             {
               "key": "iv",
-              "text": "Paragraph G"
+              "text": "Football matches between countries"
             },
             {
               "key": "v",
-              "text": "Paragraph H"
+              "text": "A game that has survived"
             },
             {
               "key": "vi",
-              "text": "was played by teams of a fixed size."
+              "text": "Separation into two sports"
             },
             {
               "key": "vii",
-              "text": "was less popular than it later became."
+              "text": "Proposals for minor improvements"
             },
             {
               "key": "viii",
-              "text": "was often played by one community against another."
+              "text": "Football’s popularity in Italy"
             },
             {
               "key": "ix",
-              "text": "formed part of a celebration."
+              "text": "Probably not an early version of football"
+            },
+            {
+              "key": "x",
+              "text": "A chaotic activity with virtually no rules"
             }
           ],
           "questions": [
@@ -523,37 +564,43 @@
               "number": 28,
               "prompt": "Paragraph D",
               "answer": "ix",
-              "explanation": "\"The game that flourished in Britain from the 8th to the 19th centuries was substantially different from all the previously known forms - more disorganized, more violent, more spontaneous, and usually played by an indefinite number of players.\" This suggests that the game that developed in Britain from the 8th to the 19th centuries considerably used to be led to chaos and disorganization."
+              "explanation": "The Romans’ harpastum is described, but ‘it is unlikely to be considered a precursor to modern football’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 29,
               "prompt": "Paragraph E",
-              "answer": "i",
-              "explanation": "\"In the 14th and 15th centuries, England, Scotland, and France all made football punishable by law, because of the disorder that commonly accompanied it, or because the well-loved recreation prevented subjects from practising more useful military disciplines.\" This suggests that football was banned and prohibited as it used to be considered a distracting activity that took people's interest off more important activities such as military disciplines. Therefore, the answer is option E."
+              "answer": "x",
+              "explanation": "British football was ‘disorganised, aggressive, spontaneous’, and ‘Kicking opponents was permitted, as was virtually anything else’.",
+              "reference": "Paragraph E"
             },
             {
               "number": 30,
               "prompt": "Paragraph F",
               "answer": "i",
-              "explanation": "Refer to Paragraph F in the passage."
+              "explanation": "The authorities ‘intervened often to limit football as a public nuisance’, but ‘None of these initiatives had an appreciable effect’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 31,
               "prompt": "Paragraph G",
               "answer": "vii",
-              "explanation": "\"Mulcaster claimed that all that was needed was to refine it a little, limit the number of participants in each team, and, more importantly, have a referee to oversee the game.\" This is suggestive of the minute proposals aimed at refining the game for better organization and discipline."
+              "explanation": "Mulcaster said ‘all that was required was a little refinement, a cap on the number of players per team’ and a referee: minor improvements.",
+              "reference": "Paragraph G"
             },
             {
               "number": 32,
               "prompt": "Paragraph H",
               "answer": "iii",
-              "explanation": "Refer to Paragraph H in the passage."
+              "explanation": "Football ‘helped to foster values such as loyalty, altruism, cooperation, subordination, and respect for team spirit’.",
+              "reference": "Paragraph H"
             }
           ]
         },
         {
           "type": "matching_sentence_endings",
-          "instruction": "Complete each sentence with the correct ending A-I. Write the correct letter A-I for the Questions 33-38 on your answer sheet.",
+          "instruction": "Complete each sentence with the correct ending, **A–I**, below.",
+          "optionsTitle": "List of Endings",
           "options": [
             {
               "key": "A",
@@ -595,57 +642,64 @@
           "questions": [
             {
               "number": 33,
-              "prompt": "Tsu'chu",
+              "prompt": "Tsu’chu",
               "answer": "I",
-              "explanation": "Refer to item I in the passage."
+              "explanation": "Tsu’chu ‘was performed in front of the Emperor during his birthday celebrations’.",
+              "reference": "Paragraph B"
             },
             {
               "number": 34,
               "prompt": "Kemari",
               "answer": "D",
-              "explanation": "Refer to item D in the passage."
+              "explanation": "In kemari the players ‘had to transfer the ball to one another’ and there was no ‘fight for possession of the ball’, so it was a shared effort.",
+              "reference": "Paragraph C"
             },
             {
               "number": 35,
               "prompt": "Harpastum",
               "answer": "B",
-              "explanation": "Refer to item B in the passage."
+              "explanation": "In harpastum ‘Each team member had a distinct tactical assignment’.",
+              "reference": "Paragraph D"
             },
             {
               "number": 36,
-              "prompt": "From the 8th century, football in the British Isles",
+              "prompt": "From the 8th to the 19th centuries, football in Britain",
               "answer": "H",
-              "explanation": "Refer to item H in the passage."
+              "explanation": "‘Frequently, the games consisted of a fierce competition between entire communities.’",
+              "reference": "Paragraph E"
             },
             {
               "number": 37,
-              "prompt": "In the past, the authorities legitimately despised football and acted on the belief that football.",
+              "prompt": "In the 14th and 15th centuries, the authorities tried to restrict football because they believed it",
               "answer": "E",
-              "explanation": "Refer to item E in the passage."
+              "explanation": "It prevented ‘subjects from practising more useful military disciplines’.",
+              "reference": "Paragraph F"
             },
             {
               "number": 38,
-              "prompt": "When it was accepted in academic settings, football.",
+              "prompt": "When schools took up football in the early 19th century, it",
               "answer": "A",
-              "explanation": "Refer to item A in the passage."
+              "explanation": "Educators acknowledged that football ‘helped to foster values such as loyalty, altruism, cooperation’, and it became ‘a required part of the curriculum’.",
+              "reference": "Paragraph H"
             }
           ]
         },
         {
           "type": "true_false_not_given",
-          "instruction": "TRUE if the statement agrees with the information",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Choose **TRUE** if the statement agrees with the information, **FALSE** if the statement contradicts the information, or **NOT GIVEN** if there is no information on this.",
           "questions": [
             {
               "number": 39,
-              "prompt": "Football has been played by men though in the 18th century both men and women started to",
+              "prompt": "Football matches between women in Scotland attracted large crowds.",
               "answer": "NOT GIVEN",
-              "explanation": "The passage confirms this statement is NOT GIVEN."
+              "explanation": "The passage says ‘married and unmarried women in a Scottish town played the game’ and that the married women won, but it says nothing about spectators or crowds."
             },
             {
               "number": 40,
-              "prompt": "The earliest form of football involved kicking a leather ball through a 20-45 cm opening into",
+              "prompt": "The earliest form of football involved kicking a leather ball through a 20–45 cm opening into a small net.",
               "answer": "FALSE",
-              "explanation": "The passage confirms this statement is FALSE."
+              "explanation": "The opening in tsu’chu was ‘30-40 cm’, not 20–45 cm.",
+              "reference": "Paragraph B"
             }
           ]
         }
