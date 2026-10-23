@@ -1,0 +1,1506 @@
+{
+  "id": "listening-04",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 4",
+  "shortTitle": "Practice Test 4",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 4,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "gareth": {
+      "name": "Gareth",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "rosa": {
+      "name": "Rosa",
+      "voice": "af_bella",
+      "lang": "en-us"
+    },
+    "margaret": {
+      "name": "Margaret",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "hannah": {
+      "name": "Hannah",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "jamal": {
+      "name": "Jamal",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "reid": {
+      "name": "Dr Reid",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {
+    "Ptolemy": "tˈɒləmi"
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Enrolling for an evening class",
+      "context": "A woman phones a college to enrol on an evening class.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman telephoning a college to enrol on an evening class. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.77
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.77,
+          "end": 38.84
+        },
+        {
+          "speaker": "gareth",
+          "text": "Good evening, Brackenfield College, evening class enrolment. Gareth speaking.",
+          "start": 39.74,
+          "end": 44.82
+        },
+        {
+          "speaker": "rosa",
+          "text": "Oh, hello. I'm phoning about your evening classes. I'd like to sign up for one of the photography courses, if there are still places.",
+          "start": 45.32,
+          "end": 53.08
+        },
+        {
+          "speaker": "gareth",
+          "text": "Ah, digital photography. That's one of our most popular courses. I'll take a few details from you, and then we'll see what we can do.",
+          "start": 53.58,
+          "end": 61.01
+        },
+        {
+          "speaker": "narrator",
+          "text": "The woman wants to join a photography course, so 'photography' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 61.91,
+          "end": 77.69
+        },
+        {
+          "speaker": "gareth",
+          "text": "Right, could I have your name, please?",
+          "start": 78.59,
+          "end": 81.09
+        },
+        {
+          "speaker": "rosa",
+          "text": "Yes, it's Rosa Whitcombe.",
+          "start": 81.59,
+          "end": 83.34
+        },
+        {
+          "speaker": "gareth",
+          "text": "Sorry, could you spell your surname for me?",
+          "start": 83.84,
+          "end": 86.57
+        },
+        {
+          "speaker": "rosa",
+          "text": "Of course. It's W-H-I-T-C-O-M-B-E.",
+          "tts": "Of course. It's W, H, I, T, C, O, M, B, E.",
+          "start": 87.07,
+          "end": 90.97
+        },
+        {
+          "speaker": "gareth",
+          "text": "Thanks. And your address?",
+          "start": 91.47,
+          "end": 93.61
+        },
+        {
+          "speaker": "rosa",
+          "text": "It's seventy-two Hartley Road. Oh, sorry, no, I always say that the wrong way round. Twenty-seven, not seventy-two.",
+          "start": 94.11,
+          "end": 101.96
+        },
+        {
+          "speaker": "gareth",
+          "text": "No problem. And how did you hear about the course?",
+          "start": 102.46,
+          "end": 105.59
+        },
+        {
+          "speaker": "rosa",
+          "text": "Well, I picked up your brochure in the library, but the real reason is that my sister did the pottery course here last year. She enjoyed it so much that she talked me into trying something myself.",
+          "start": 106.09,
+          "end": 117.42
+        },
+        {
+          "speaker": "gareth",
+          "text": "Good for her. Now, the course runs on two evenings, Tuesday and Thursday. Which would you prefer?",
+          "start": 117.92,
+          "end": 123.32
+        },
+        {
+          "speaker": "rosa",
+          "text": "Thursday, please, if possible. I play badminton on Tuesdays.",
+          "start": 123.82,
+          "end": 127.64
+        },
+        {
+          "speaker": "gareth",
+          "text": "I'm afraid the Thursday class has been full since August. There are still a few places on the Tuesday one, though.",
+          "start": 128.14,
+          "end": 134.28
+        },
+        {
+          "speaker": "rosa",
+          "text": "Oh, that's a shame. Well, I suppose I can move my badminton to another night. I'll take Tuesday, then.",
+          "start": 134.78,
+          "end": 141.1
+        },
+        {
+          "speaker": "gareth",
+          "text": "Lovely. Both classes run from seven until nine, for ten weeks.",
+          "start": 141.6,
+          "end": 146.03
+        },
+        {
+          "speaker": "rosa",
+          "text": "And how much does it cost? The brochure says one hundred and twenty pounds.",
+          "start": 146.53,
+          "end": 150.76
+        },
+        {
+          "speaker": "gareth",
+          "text": "Ah, that's last year's price, I'm afraid. It's gone down this year, to 95 pounds for the whole course, thanks to a grant from the council.",
+          "start": 151.26,
+          "end": 159.43
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 160.33,
+          "end": 166.05
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 186.05,
+          "end": 189.37
+        },
+        {
+          "speaker": "gareth",
+          "text": "Now, the college term starts on the fourteenth of January, but the first photography class isn't until the following week, on the twenty-first.",
+          "start": 190.27,
+          "end": 198.02
+        },
+        {
+          "speaker": "rosa",
+          "text": "Is it in the main building? I've never been to the college before.",
+          "start": 198.52,
+          "end": 202.1
+        },
+        {
+          "speaker": "gareth",
+          "text": "No, it's in the new Hawthorn Building, on the third floor, in room 36. There's a lift, if you don't fancy the stairs.",
+          "start": 202.6,
+          "end": 209.73
+        },
+        {
+          "speaker": "rosa",
+          "text": "Great. Do I need to bring anything with me?",
+          "start": 210.23,
+          "end": 212.42
+        },
+        {
+          "speaker": "gareth",
+          "text": "You'll need your own camera, of course, but it doesn't have to be an expensive one. And you should bring a tripod as well. The college only has a few to lend, and they go very quickly.",
+          "start": 212.92,
+          "end": 222.25
+        },
+        {
+          "speaker": "rosa",
+          "text": "OK. And is there an exam at the end?",
+          "start": 222.75,
+          "end": 225.03
+        },
+        {
+          "speaker": "gareth",
+          "text": "No exam. Instead, in the last week there's a public exhibition of everyone's work, held in the town gallery. A lot of people bring their families along.",
+          "start": 225.53,
+          "end": 234.3
+        },
+        {
+          "speaker": "rosa",
+          "text": "That sounds lovely. One last thing: is there anywhere to park? I'll be coming straight from work.",
+          "start": 234.8,
+          "end": 240.41
+        },
+        {
+          "speaker": "gareth",
+          "text": "There's a car park behind the Hawthorn Building. It's two pounds an hour until six o'clock, but after that it's free, and as your class doesn't start until seven, you'll be fine.",
+          "start": 240.91,
+          "end": 250.49
+        },
+        {
+          "speaker": "rosa",
+          "text": "Perfect. Thank you very much.",
+          "start": 250.99,
+          "end": 252.74
+        },
+        {
+          "speaker": "gareth",
+          "text": "You're welcome, Ms Whitcombe. I'll email you a confirmation this evening, and we'll see you in January.",
+          "start": 253.24,
+          "end": 259.29
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 260.19,
+          "end": 264.72
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Brackenfield College – evening class enrolment",
+          "content": [
+            "Example: Course chosen: **photography**",
+            "## Student details",
+            "• Name: Rosa {{1}}",
+            "• Address: {{2}} Hartley Road",
+            "• Recommended by her {{3}}",
+            "## Course details",
+            "• Class held on {{4}} evenings, 7–9 pm",
+            "• Fee: £{{5}}",
+            "• First class: Tuesday {{6}} January",
+            "• Room {{7}}, Hawthorn Building",
+            "## Other information",
+            "• Students must provide their own camera and a {{8}}",
+            "• Course ends with an exhibition of students' work at the town {{9}}",
+            "• College car park is free after {{10}} pm"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Whitcombe"
+              ],
+              "explanation": "Rosa gives her name and then spells her surname: ‘W-H-I-T-C-O-M-B-E’.",
+              "cue": "W-H-I-T-C-O-M-B-E"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "27",
+                "twenty-seven"
+              ],
+              "explanation": "She starts to say seventy-two, then corrects herself: ‘Twenty-seven, not seventy-two’.",
+              "cue": "Twenty-seven, not seventy-two"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "sister"
+              ],
+              "explanation": "She picked up the brochure in the library, but ‘the real reason is that my sister’ did a course there last year.",
+              "cue": "the real reason is that my sister"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "Tuesday",
+                "Tuesdays"
+              ],
+              "explanation": "She would prefer Thursday, but that class is full, so she says ‘I'll take Tuesday, then’.",
+              "cue": "I'll take Tuesday, then"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "95",
+                "ninety-five"
+              ],
+              "explanation": "The brochure price of £120 is out of date; this year the fee ‘has gone down … to 95 pounds for the whole course’.",
+              "cue": "to 95 pounds for the whole course"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "21",
+                "21st",
+                "twenty-first"
+              ],
+              "explanation": "Term starts on the fourteenth, but the first photography class ‘isn't until the following week, on the twenty-first’.",
+              "cue": "isn't until the following week, on the twenty-first"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "36",
+                "thirty-six"
+              ],
+              "explanation": "The class is in the Hawthorn Building, on the third floor, ‘in room 36’.",
+              "cue": "in room 36"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "tripod"
+              ],
+              "explanation": "She needs her own camera, and ‘you should bring a tripod as well’ because the college has only a few to lend.",
+              "cue": "you should bring a tripod as well"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "gallery"
+              ],
+              "explanation": "There is no exam; instead the public exhibition of students' work is ‘held in the town gallery’.",
+              "cue": "held in the town gallery"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "Parking costs two pounds an hour ‘until six o'clock’, but after that it is free.",
+              "cue": "until six o'clock"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-04/part1.mp3",
+        "duration": 295.52
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A visit to a railway museum",
+      "context": "A guide gives a talk to visitors at a small railway museum.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a guide giving a talk to a group of visitors at a small railway museum. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.99
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.99,
+          "end": 40.26
+        },
+        {
+          "speaker": "margaret",
+          "text": "Good morning, everyone, and welcome to the Aldercombe Railway Museum. My name's Margaret, and I'll be your guide today. First, a little background.",
+          "start": 41.16,
+          "end": 49.28
+        },
+        {
+          "speaker": "margaret",
+          "text": "Many people assume that a branch line like ours was built for holidaymakers, and it did carry plenty of them in later years. But when it opened in 1871, the purpose was much more practical. The quarries in the hills needed a way of getting their slate down to the harbour at Port Elwick, and the railway did exactly that.",
+          "start": 49.63,
+          "end": 68.94
+        },
+        {
+          "speaker": "margaret",
+          "text": "It closed in 1966. Visitors often tell me that was because the viaduct had become unsafe, but it had been repaired years earlier, and the quarries were still busy. The real problem was that most families now had a car, or took the bus, and the trains were running almost empty.",
+          "start": 69.29,
+          "end": 86.02
+        },
+        {
+          "speaker": "margaret",
+          "text": "After the closure, the station stood empty, and the council planned to demolish it. But local people, including several retired railway workers, formed a society to save it, and the museum opened in 1988. Now, we've bought a few things at auction, and a national museum has lent us some signalling equipment, but most of what you'll see was donated by families in the valley, who'd kept things in their attics for years.",
+          "start": 86.37,
+          "end": 110.2
+        },
+        {
+          "speaker": "margaret",
+          "text": "We're a charity, run almost entirely by volunteers. We actually have more people offering to help than we can use, and visitor numbers are the highest for ten years. Our big worry is the roof of the engine shed, which leaks badly. Replacing it will cost nearly eighty thousand pounds, which is a great deal for a small museum.",
+          "start": 110.55,
+          "end": 128.61
+        },
+        {
+          "speaker": "margaret",
+          "text": "Our star exhibit is Number Seven, a steam locomotive from 1923, which you'll find in the engine shed. She doesn't run any more, so I'm afraid there are no rides. Some visitors ask to watch our engineers at work, but that area is closed for safety reasons. What you can do is climb up into the driver's cab, which children especially love.",
+          "start": 128.96,
+          "end": 148.72
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 149.62,
+          "end": 155.34
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 175.34,
+          "end": 179.22
+        },
+        {
+          "speaker": "margaret",
+          "text": "Now, let me explain the layout. Please look at the map. We're standing just inside the main entrance, at the bottom. Straight ahead is the station building, with the ticket office and the museum shop. The toilets are on the left, next to the car park, in case anyone needs them before we set off.",
+          "start": 180.12,
+          "end": 195.48
+        },
+        {
+          "speaker": "margaret",
+          "text": "Let's start at the west end. If you go through the station building onto the platform and turn left, you can walk right to the end, and just beyond it you'll find the signal box. You're welcome to go inside and pull the levers.",
+          "start": 195.83,
+          "end": 207.46
+        },
+        {
+          "speaker": "margaret",
+          "text": "Back at the front of the station building, turn right, and the first building you come to is the café. It's in the old goods shed, and it closes at three.",
+          "start": 207.81,
+          "end": 215.96
+        },
+        {
+          "speaker": "margaret",
+          "text": "Now, if you go back down towards the entrance, you'll see the model railway, in the old warehouse. Directly across the path from the car park. The children love it.",
+          "start": 216.31,
+          "end": 224.86
+        },
+        {
+          "speaker": "margaret",
+          "text": "To see our restoration work, return to the platform and use the foot crossing to cross the line. Just beyond the crossing, on the right, is the carriage workshop, where volunteers are restoring old carriages.",
+          "start": 225.21,
+          "end": 236.64
+        },
+        {
+          "speaker": "margaret",
+          "text": "And on the other side of the crossing, to the left, there's a large field, which is our picnic area, with tables in the shade. Further along on the right, beyond the workshop, there's a small play area, but that's only for younger children.",
+          "start": 236.99,
+          "end": 249.41
+        },
+        {
+          "speaker": "margaret",
+          "text": "Right, if there are no questions, shall we make a start? Please follow me.",
+          "start": 249.76,
+          "end": 253.2
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 254.1,
+          "end": 258.43
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "What was the main reason for building the railway?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to attract holidaymakers to the area"
+                },
+                {
+                  "key": "B",
+                  "text": "to deliver post to remote villages"
+                },
+                {
+                  "key": "C",
+                  "text": "to carry goods from local quarries to the port"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Holidaymakers came later: the line was built because the quarries needed ‘a way of getting their slate down to the harbour’.",
+              "cue": "getting their slate down to the harbour"
+            },
+            {
+              "number": 12,
+              "prompt": "Why did the railway close in 1966?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Too few people were using it."
+                },
+                {
+                  "key": "B",
+                  "text": "A bridge had become dangerous."
+                },
+                {
+                  "key": "C",
+                  "text": "The quarries had stopped working."
+                }
+              ],
+              "answer": "A",
+              "explanation": "The viaduct had been repaired and the quarries were busy; the real problem was that ‘the trains were running almost empty’.",
+              "cue": "the trains were running almost empty"
+            },
+            {
+              "number": 13,
+              "prompt": "How did the museum get most of its collection?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It bought items at auctions."
+                },
+                {
+                  "key": "B",
+                  "text": "Local families gave items to it."
+                },
+                {
+                  "key": "C",
+                  "text": "A national museum lent items to it."
+                }
+              ],
+              "answer": "B",
+              "explanation": "A few things were bought and some equipment is on loan, but ‘most of what you'll see was donated by families in the valley’.",
+              "cue": "most of what you'll see was donated"
+            },
+            {
+              "number": 14,
+              "prompt": "What is the museum's main worry at the moment?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "finding enough volunteers"
+                },
+                {
+                  "key": "B",
+                  "text": "a fall in the number of visitors"
+                },
+                {
+                  "key": "C",
+                  "text": "the cost of repairing a building"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Volunteers and visitor numbers are not a problem; ‘Our big worry is the roof of the engine shed’, which will cost nearly eighty thousand pounds to replace.",
+              "cue": "Our big worry is the roof of the engine shed"
+            },
+            {
+              "number": 15,
+              "prompt": "What can visitors do in the engine shed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "go inside the locomotive"
+                },
+                {
+                  "key": "B",
+                  "text": "ride on the locomotive"
+                },
+                {
+                  "key": "C",
+                  "text": "watch engineers repair it"
+                }
+              ],
+              "answer": "A",
+              "explanation": "There are no rides and the engineers' area is closed, but visitors can ‘climb up into the driver's cab’.",
+              "cue": "climb up into the driver's cab"
+            }
+          ]
+        },
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 16–20.",
+          "map": {
+            "title": "Aldercombe Railway Museum",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "area",
+                "x": 40,
+                "y": 40,
+                "w": 200,
+                "h": 95,
+                "style": "field"
+              },
+              {
+                "type": "trees",
+                "x": 48,
+                "y": 48,
+                "w": 64,
+                "h": 48
+              },
+              {
+                "type": "line",
+                "x1": 20,
+                "y1": 175,
+                "x2": 505,
+                "y2": 175,
+                "style": "road",
+                "label": "Railway line",
+                "lx": -160
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 196,
+                "x2": 320,
+                "y2": 92,
+                "style": "path",
+                "label": "Foot crossing",
+                "lx": 52
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 430,
+                "x2": 320,
+                "y2": 296,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 140,
+                "y": 196,
+                "w": 330,
+                "h": 28,
+                "style": "parking",
+                "label": "Platform",
+                "lx": -120
+              },
+              {
+                "type": "rect",
+                "x": 250,
+                "y": 224,
+                "w": 140,
+                "h": 72,
+                "style": "building",
+                "label": "Station building"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 330,
+                "w": 170,
+                "h": 85,
+                "style": "parking",
+                "label": "Car park"
+              },
+              {
+                "type": "rect",
+                "x": 215,
+                "y": 340,
+                "w": 60,
+                "h": 45,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 82,
+                "y": 192,
+                "w": 48,
+                "h": 44,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 425,
+                "y": 240,
+                "w": 100,
+                "h": 58,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 350,
+                "y": 335,
+                "w": 110,
+                "h": 62,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 505,
+                "y": 125,
+                "w": 110,
+                "h": 95,
+                "style": "building",
+                "label": "Engine shed"
+              },
+              {
+                "type": "rect",
+                "x": 345,
+                "y": 40,
+                "w": 140,
+                "h": 75,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 505,
+                "y": 35,
+                "w": 100,
+                "h": 70,
+                "style": "sports"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 430,
+                "label": "Main entrance"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 395
+              },
+              {
+                "type": "letter",
+                "x": 475,
+                "y": 269,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 245,
+                "y": 362,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 106,
+                "y": 214,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 555,
+                "y": 70,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 405,
+                "y": 366,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 415,
+                "y": 78,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 175,
+                "y": 88,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Signal box",
+              "answer": "C",
+              "explanation": "Turn left on the platform and walk to its end: ‘just beyond it you'll find the signal box’. B is the toilets.",
+              "cue": "just beyond it you'll find the signal box"
+            },
+            {
+              "number": 17,
+              "prompt": "Café",
+              "answer": "A",
+              "explanation": "Turning right outside the front of the station building, ‘the first building you come to is the café’.",
+              "cue": "the first building you come to is the café"
+            },
+            {
+              "number": 18,
+              "prompt": "Model railway",
+              "answer": "E",
+              "explanation": "On the way back to the entrance, it is ‘directly across the path from the car park’. B, next to the car park, is the toilets.",
+              "cue": "Directly across the path from the car park"
+            },
+            {
+              "number": 19,
+              "prompt": "Carriage workshop",
+              "answer": "F",
+              "explanation": "After using the foot crossing, ‘just beyond the crossing, on the right, is the carriage workshop’. D is the play area.",
+              "cue": "Just beyond the crossing, on the right, is the carriage workshop"
+            },
+            {
+              "number": 20,
+              "prompt": "Picnic area",
+              "answer": "G",
+              "explanation": "‘On the other side of the crossing, to the left, there's a large field, which is our picnic area’. The play area (D) is on the right.",
+              "cue": "there's a large field, which is our picnic area"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-04/part2.mp3",
+        "duration": 289.23
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A project on sleep and memory",
+      "context": "Two psychology students discuss their project with a tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two psychology students, Hannah and Jamal, discussing a project on sleep and memory with their tutor, Dr Reid. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 14.06
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 39.06,
+          "end": 43.78
+        },
+        {
+          "speaker": "reid",
+          "text": "Come in, both of you. Before we discuss the pilot, remind me why you chose sleep and memory. I think it was on my list of suggestions.",
+          "start": 44.68,
+          "end": 52.21
+        },
+        {
+          "speaker": "jamal",
+          "text": "It was, but that's not why we picked it. We went to the talk by the visiting researcher in October, and we both found it fascinating.",
+          "start": 52.71,
+          "end": 61.11
+        },
+        {
+          "speaker": "hannah",
+          "text": "I'm a terrible sleeper myself, but that's not why. It was the talk that made me want to study it properly.",
+          "start": 61.61,
+          "end": 67.67
+        },
+        {
+          "speaker": "reid",
+          "text": "Fair enough. So, how did the pilot go?",
+          "start": 68.17,
+          "end": 70.58
+        },
+        {
+          "speaker": "hannah",
+          "text": "Mostly fine. One person forgot to come back for the second session, but that's normal. The real problem was the test itself. The word pairs were far too easy, so nearly everyone scored thirty-eight or more out of forty.",
+          "start": 71.08,
+          "end": 84.93
+        },
+        {
+          "speaker": "reid",
+          "text": "So there's no room to see any difference. What will you change?",
+          "start": 85.43,
+          "end": 88.71
+        },
+        {
+          "speaker": "jamal",
+          "text": "Well, Hannah wanted longer lists, but then the session would last over an hour. Her other idea was pictures instead of words, but they're much harder to score. So we're keeping forty pairs, but making them completely unrelated, like a candle and a tractor.",
+          "start": 89.21,
+          "end": 105.38
+        },
+        {
+          "speaker": "reid",
+          "text": "Good. That's the standard solution. And who does what in the main study?",
+          "start": 105.88,
+          "end": 109.64
+        },
+        {
+          "speaker": "hannah",
+          "text": "I offered to run all the sessions, with Jamal doing the statistics.",
+          "start": 110.14,
+          "end": 114.02
+        },
+        {
+          "speaker": "jamal",
+          "text": "But if only one of us meets the participants, the instructions might not always be the same. So we'll both be at every session, and Hannah will do the analysis, because she's better at it than I am.",
+          "start": 114.52,
+          "end": 127.36
+        },
+        {
+          "speaker": "jamal",
+          "text": "There's something else, Dr Reid. We wondered about a third group, who would stay awake all night.",
+          "start": 127.71,
+          "end": 133.24
+        },
+        {
+          "speaker": "reid",
+          "text": "I'd advise against it. The ethics committee might object, but that's not my main worry. If that group remembers less, you wouldn't know whether it was because they hadn't slept, or just because they were too tired to concentrate. The results would be impossible to interpret.",
+          "start": 133.74,
+          "end": 148.2
+        },
+        {
+          "speaker": "jamal",
+          "text": "I see. We'll stick to two groups, then.",
+          "start": 148.7,
+          "end": 151.11
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 152.01,
+          "end": 158.16
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 178.16,
+          "end": 182.0
+        },
+        {
+          "speaker": "reid",
+          "text": "Right, now the plan for the main study. I'll tell you what I think of each part. First, participants. How many are you hoping to recruit?",
+          "start": 182.9,
+          "end": 190.06
+        },
+        {
+          "speaker": "jamal",
+          "text": "Twenty-four, so twelve in each group.",
+          "start": 190.56,
+          "end": 192.87
+        },
+        {
+          "speaker": "reid",
+          "text": "Hmm. That's rather few for comparing two groups. If the effect is small, you won't be able to show it. Try to get at least forty.",
+          "start": 193.37,
+          "end": 200.28
+        },
+        {
+          "speaker": "hannah",
+          "text": "OK. At the moment, one group is tested at nine in the morning, and the other at nine in the evening.",
+          "start": 200.78,
+          "end": 206.58
+        },
+        {
+          "speaker": "reid",
+          "text": "That worries me. People are simply sharper at some times of day than others, so you'd never know whether a difference came from sleep or from the clock. Both groups need to be tested at the same time of day.",
+          "start": 207.08,
+          "end": 217.64
+        },
+        {
+          "speaker": "reid",
+          "text": "And how will you measure the sleep itself?",
+          "start": 217.99,
+          "end": 220.23
+        },
+        {
+          "speaker": "jamal",
+          "text": "A diary that people fill in each morning.",
+          "start": 220.73,
+          "end": 223.29
+        },
+        {
+          "speaker": "reid",
+          "text": "Hmm. A student who's been up until three won't necessarily admit it. The department has wristbands that record movement during the night, so you'd have hard figures that don't depend on what people tell you.",
+          "start": 223.79,
+          "end": 234.59
+        },
+        {
+          "speaker": "reid",
+          "text": "And what does the information sheet say about the study?",
+          "start": 234.94,
+          "end": 237.75
+        },
+        {
+          "speaker": "hannah",
+          "text": "That we're investigating whether sleep helps memory.",
+          "start": 238.25,
+          "end": 240.79
+        },
+        {
+          "speaker": "reid",
+          "text": "I'd leave that out. If participants know what you expect, the sleep group may try harder without realising it. Just say it's a study of memory, and explain the full aim afterwards.",
+          "start": 241.29,
+          "end": 251.17
+        },
+        {
+          "speaker": "reid",
+          "text": "Finally, the report. Nearly all your participants will be students, aged eighteen to twenty-two, and young people sleep very differently from older adults. In the discussion, point out that your findings may not apply to everyone.",
+          "start": 251.52,
+          "end": 264.26
+        },
+        {
+          "speaker": "reid",
+          "text": "Oh, and you needn't go back to the ethics committee. You're only changing the timetable, so your existing approval is fine.",
+          "start": 264.61,
+          "end": 271.03
+        },
+        {
+          "speaker": "hannah",
+          "text": "That's a relief. Thank you, Dr Reid.",
+          "start": 271.53,
+          "end": 273.77
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 274.67,
+          "end": 279.13
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did the students choose sleep and memory as their topic?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Their tutor recommended it."
+                },
+                {
+                  "key": "B",
+                  "text": "They went to a talk about it."
+                },
+                {
+                  "key": "C",
+                  "text": "Hannah has problems with her own sleep."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The topic was on Dr Reid's list and Hannah sleeps badly, but both reject these reasons (‘that's not why’): ‘We went to the talk by the visiting researcher’.",
+              "cue": "We went to the talk by the visiting researcher"
+            },
+            {
+              "number": 22,
+              "prompt": "What was the main problem with the pilot study?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A participant failed to return."
+                },
+                {
+                  "key": "B",
+                  "text": "The instructions confused people."
+                },
+                {
+                  "key": "C",
+                  "text": "The memory test was too easy."
+                }
+              ],
+              "answer": "C",
+              "explanation": "One person not returning is ‘normal’; ‘the real problem’ was that ‘the word pairs were far too easy’.",
+              "cue": "The word pairs were far too easy"
+            },
+            {
+              "number": 23,
+              "prompt": "How have the students decided to make the memory test harder?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by using unrelated pairs of words"
+                },
+                {
+                  "key": "B",
+                  "text": "by making the word lists longer"
+                },
+                {
+                  "key": "C",
+                  "text": "by replacing words with pictures"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Longer lists would take over an hour and pictures are harder to score, so they are ‘making them completely unrelated’.",
+              "cue": "making them completely unrelated"
+            },
+            {
+              "number": 24,
+              "prompt": "How will the students share the work in the main study?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Hannah will run the sessions and Jamal will do the statistics."
+                },
+                {
+                  "key": "B",
+                  "text": "They will both run the sessions and Hannah will do the statistics."
+                },
+                {
+                  "key": "C",
+                  "text": "They will both run the sessions and Jamal will do the statistics."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Hannah first offers to run everything, but Jamal explains ‘we'll both be at every session, and Hannah will do the analysis’.",
+              "cue": "we'll both be at every session"
+            },
+            {
+              "number": 25,
+              "prompt": "Why does Dr Reid advise against a third group of participants?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It would take too long to organise."
+                },
+                {
+                  "key": "B",
+                  "text": "The results would be hard to understand."
+                },
+                {
+                  "key": "C",
+                  "text": "The ethics committee would not allow it."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The ethics committee ‘might object’, but ‘that's not my main worry’: ‘The results would be impossible to interpret’.",
+              "cue": "The results would be impossible to interpret"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What advice does Dr Reid give about each part of the students' plan? Choose **FIVE** answers from the box and write the correct letter, **A–F**, next to Questions 26–30.",
+          "optionsTitle": "Advice",
+          "options": [
+            {
+              "key": "A",
+              "text": "keep some information from the participants"
+            },
+            {
+              "key": "B",
+              "text": "use a more objective measure"
+            },
+            {
+              "key": "C",
+              "text": "mention a weakness in the report"
+            },
+            {
+              "key": "D",
+              "text": "make the test times the same for everyone"
+            },
+            {
+              "key": "E",
+              "text": "recruit more participants"
+            },
+            {
+              "key": "F",
+              "text": "apply for ethical approval again"
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "the number of participants",
+              "answer": "E",
+              "explanation": "Twenty-four is ‘rather few for comparing two groups’, so she says ‘Try to get at least forty’.",
+              "cue": "Try to get at least forty"
+            },
+            {
+              "number": 27,
+              "prompt": "the timing of the sessions",
+              "answer": "D",
+              "explanation": "People are sharper at different times of day, so ‘both groups need to be tested at the same time of day’.",
+              "cue": "Both groups need to be tested at the same time of day"
+            },
+            {
+              "number": 28,
+              "prompt": "the sleep diaries",
+              "answer": "B",
+              "explanation": "Diaries depend on what people admit, whereas ‘wristbands that record movement’ give ‘hard figures’, an objective measure.",
+              "cue": "wristbands that record movement during the night"
+            },
+            {
+              "number": 29,
+              "prompt": "the information sheet",
+              "answer": "A",
+              "explanation": "She tells them to leave out their expectation: ‘Just say it's a study of memory, and explain the full aim afterwards’.",
+              "cue": "Just say it's a study of memory"
+            },
+            {
+              "number": 30,
+              "prompt": "the final report",
+              "answer": "C",
+              "explanation": "Because the participants are nearly all young students, the discussion should say ‘your findings may not apply to everyone’. She says no new ethics approval is needed (F).",
+              "cue": "your findings may not apply to everyone"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-04/part3.mp3",
+        "duration": 309.93
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how medieval maps were made",
+      "context": "A lecture about how maps were made in medieval Europe.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how maps were made in medieval Europe. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.97
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.97,
+          "end": 44.38
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today I want to look at medieval maps, and in particular at how they were actually made, because every single one of them was a hand-made object. There was no printing of maps in Europe until the late fifteenth century, so each map had to be drawn one at a time, and very often copied from another.",
+          "start": 45.28,
+          "end": 61.07
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Let's start with the materials. You might expect paper, but paper was still rare and expensive for much of the period. The papyrus used by the Romans was no use either, because it rots in the damp European climate. So what they normally used was parchment, which is animal skin that has been scraped and stretched until it is thin and smooth. It might come from sheep, goats or calves.",
+          "start": 61.42,
+          "end": 80.13
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The pen was a quill, which is simply a large feather, usually from a goose, cut to a point with a small knife. Colours came from natural materials, ground up and mixed with egg, and gold leaf was sometimes added for the most important buildings.",
+          "start": 80.48,
+          "end": 93.32
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Next, where did mapmakers get their information? Well, perhaps surprisingly, they hardly ever went anywhere themselves. A mapmaker was usually a scholar working at a desk, using written descriptions by ancient authors, and the stories of travellers. Soldiers and merchants contributed a few details, but the most valuable accounts came from pilgrims, who often wrote guides to the routes they had followed. Nobody surveyed the land, of course, so distances were usually estimated in days of travel.",
+          "start": 93.67,
+          "end": 120.46
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The best-known kind of medieval map is the mappa mundi, or world map. These were not meant for finding your way. They were designed to show how the world fitted into the Christian story, and many were displayed in cathedrals. The layout reflects that purpose. Jerusalem was usually placed at the centre, as the holiest city. And the map was turned so that east was at the top, rather than north, which is where we get the word orientation. Around the edges, where mapmakers had no real information, they drew monsters, such as men with dogs' heads, and huge sea serpents.",
+          "start": 120.81,
+          "end": 150.37
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Sea charts, known as portolan charts, were quite different, because they were practical tools. From about 1300, ships in the Mediterranean used charts that were drawn from the observations of other sailors: the courses they had steered by compass, and the distances they thought they had covered. The magnetic compass, which had reached Europe in the twelfth century, made all this possible, and the results are surprisingly accurate. Straight lines radiate across the chart from compass roses, helping the captain to choose a direction. The names of ports are written at right angles to the coast, mostly in black ink, but the most important ports are always written in red. Almost nothing is shown inland, since that was of no interest to a sailor.",
+          "start": 150.72,
+          "end": 187.62
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, the question of copying. Because making a map was so time-consuming, maps were usually copied rather than made from scratch. For much of the Middle Ages, the copyists were monks, working in the writing rooms of monasteries. Every copyist made small mistakes, and those mistakes were copied again, so an error could survive for centuries. This began to change around the year 1400, when scholars in Italy rediscovered the work of Ptolemy, a Greek geographer from ancient Alexandria. He had listed places by their coordinates, using lines of latitude and longitude, and that idea gradually changed the way maps were drawn.",
+          "start": 187.97,
+          "end": 221.76
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So a medieval map is really a mixture: part guidebook, part history lesson, part religious teaching and, in the case of sea charts, part practical instrument. That's all for today. Next week, we'll look at how printing changed the map trade.",
+          "start": 222.11,
+          "end": 234.67
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 235.57,
+          "end": 239.97
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 269.97,
+          "end": 272.68
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Medieval maps",
+          "content": [
+            "## Materials",
+            "• maps were usually drawn on {{31}}, made from animal skin",
+            "• pens were cut from the {{32}} of large birds such as geese",
+            "## Sources of information",
+            "• mapmakers seldom travelled; they used written descriptions and travellers' stories",
+            "• the best travellers' accounts were by {{33}}",
+            "## World maps (mappae mundi)",
+            "• {{34}} was placed in the middle",
+            "• the top of the map showed {{35}}, not north",
+            "• blank areas were decorated with {{36}}",
+            "## Sea charts",
+            "• charts were based on the records of {{37}}",
+            "• names of leading ports appeared in {{38}} ink",
+            "## Copying",
+            "• for a long time, copies were made by hand by {{39}}",
+            "• in the 1400s, Italian scholars began to use the ideas of a Greek geographer called {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "parchment"
+              ],
+              "explanation": "Paper was rare and papyrus rots, so ‘what they normally used was parchment’, which is animal skin.",
+              "cue": "what they normally used was parchment"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "feathers",
+                "feather"
+              ],
+              "explanation": "The pen was a quill, ‘simply a large feather, usually from a goose’.",
+              "cue": "simply a large feather"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "pilgrims",
+                "pilgrim"
+              ],
+              "explanation": "Soldiers and merchants added a few details, but ‘the most valuable accounts came from pilgrims’.",
+              "cue": "the most valuable accounts came from pilgrims"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "Jerusalem"
+              ],
+              "explanation": "On a mappa mundi, ‘Jerusalem was usually placed at the centre, as the holiest city’.",
+              "cue": "Jerusalem was usually placed at the centre"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "east"
+              ],
+              "explanation": "The map was turned so that ‘east was at the top, rather than north’, the origin of the word ‘orientation’.",
+              "cue": "east was at the top"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "monsters",
+                "monster"
+              ],
+              "explanation": "Where mapmakers ‘had no real information, they drew monsters’, such as sea serpents.",
+              "cue": "they drew monsters"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "sailors",
+                "sailor"
+              ],
+              "explanation": "Portolan charts were ‘drawn from the observations of other sailors’.",
+              "cue": "the observations of other sailors"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "red"
+              ],
+              "explanation": "Most port names are in black ink, but ‘the most important ports are always written in red’.",
+              "cue": "the most important ports are always written in red"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "monks",
+                "monk"
+              ],
+              "explanation": "‘The copyists were monks, working in the writing rooms of monasteries.’",
+              "cue": "the copyists were monks"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "Ptolemy"
+              ],
+              "explanation": "Around 1400, scholars in Italy ‘rediscovered the work of Ptolemy, a Greek geographer’.",
+              "cue": "rediscovered the work of Ptolemy"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-04/part4.mp3",
+        "duration": 273.48
+      }
+    }
+  ],
+  "durationMinutes": 19
+}
