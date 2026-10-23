@@ -35,7 +35,7 @@
       "title": "Introduction and interview",
       "topics": [
         "Work or studies",
-        "Friends",
+        "Museums",
         "Social media"
       ],
       "questions": [
@@ -85,35 +85,35 @@
         },
         {
           "key": "p1-5",
-          "topic": "Friends",
-          "text": "Do you have many friends?",
-          "say": "Now let's move on to talk about friends. Do you have many friends?",
+          "topic": "Museums",
+          "text": "Do you like visiting museums?",
+          "say": "Now let's move on to talk about museums. Do you like visiting museums?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-25/p1-5.mp3",
-            "duration": 4.97
+            "duration": 5.88
           }
         },
         {
           "key": "p1-6",
-          "topic": "Friends",
-          "text": "How often do you see your friends?",
-          "say": "How often do you see your friends?",
+          "topic": "Museums",
+          "text": "When did you last visit a museum?",
+          "say": "When did you last visit a museum?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-25/p1-6.mp3",
-            "duration": 2.61
+            "duration": 3.02
           }
         },
         {
           "key": "p1-7",
-          "topic": "Friends",
-          "text": "Do you prefer to have a few close friends or many friends?",
-          "say": "Do you prefer to have a few close friends or many friends?",
+          "topic": "Museums",
+          "text": "Do you think museums should be free?",
+          "say": "Do you think museums should be free?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-25/p1-7.mp3",
-            "duration": 4.04
+            "duration": 2.97
           }
         },
         {
