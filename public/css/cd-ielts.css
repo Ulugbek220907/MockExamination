@@ -81,6 +81,12 @@ body.text-extra-large { --cd-base-font-size: 20px; }
   cursor: pointer; white-space: nowrap;
 }
 .cd-timer-box.warning { background: rgba(220, 38, 38, 0.45); color: #fecaca; border-color: #ef4444; }
+/* At 10 and 5 minutes the clock flashes for ten seconds (slowly: twice a second). Reduced motion keeps the toast only. */
+.cd-timer-box.flash { animation: timer-flash 1s steps(1, end) infinite; }
+@keyframes timer-flash { 50% { background: rgba(220, 38, 38, 0.95); color: #fff; } }
+@media (prefers-reduced-motion: reduce) { .cd-timer-box.flash { animation: none; } }
+.exam-cover { position: fixed; inset: 0; z-index: 5000; background: #1f2732; color: #e5e7eb; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; }
+.exam-cover p { margin-bottom: 16px; font-size: 1.1em; }
 .cd-header-right { display: flex; align-items: center; gap: 8px; }
 .cd-icon-btn {
   background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25); color: var(--cd-header-text);

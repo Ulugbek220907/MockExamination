@@ -35,7 +35,7 @@
       "title": "Introduction and interview",
       "topics": [
         "Your home",
-        "The sea",
+        "Weekends",
         "Drinking water"
       ],
       "questions": [
@@ -85,35 +85,35 @@
         },
         {
           "key": "p1-5",
-          "topic": "The sea",
-          "text": "Do you like going to the sea?",
-          "say": "Now let's move on to talk about the sea. Do you like going to the sea?",
+          "topic": "Weekends",
+          "text": "What do you usually do at weekends?",
+          "say": "Now let's move on to talk about weekends. What do you usually do at weekends?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-26/p1-5.mp3",
-            "duration": 4.99
+            "duration": 5.5
           }
         },
         {
           "key": "p1-6",
-          "topic": "The sea",
-          "text": "Have you ever travelled by boat?",
-          "say": "Have you ever travelled by boat?",
+          "topic": "Weekends",
+          "text": "Do you prefer to relax or to be active at weekends?",
+          "say": "Do you prefer to relax or to be active at weekends?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-26/p1-6.mp3",
-            "duration": 2.63
+            "duration": 3.51
           }
         },
         {
           "key": "p1-7",
-          "topic": "The sea",
-          "text": "Do you think it is important to protect the sea?",
-          "say": "Do you think it is important to protect the sea?",
+          "topic": "Weekends",
+          "text": "What is your favourite day of the week?",
+          "say": "What is your favourite day of the week?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-26/p1-7.mp3",
-            "duration": 3.17
+            "duration": 2.68
           }
         },
         {

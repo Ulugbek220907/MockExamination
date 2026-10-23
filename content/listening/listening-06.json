@@ -1,0 +1,1300 @@
+{
+  "id": "listening-06",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 6",
+  "shortTitle": "Practice Test 6",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 6,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "helen": {
+      "name": "Helen",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "stuart": {
+      "name": "Stuart",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "hannah": {
+      "name": "Hannah",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "nadia": {
+      "name": "Nadia",
+      "voice": "af_bella",
+      "lang": "en-us"
+    },
+    "oscar": {
+      "name": "Oscar",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "hughes": {
+      "name": "Dr Hughes",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a holiday cottage",
+      "context": "A man phones an agency to book a cottage for a family holiday.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man telephoning a holiday cottage agency to book a cottage for a week in July. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 11.76
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 31.76,
+          "end": 40.82
+        },
+        {
+          "speaker": "helen",
+          "text": "Good morning, Heron Holiday Lets, Helen speaking.",
+          "start": 41.72,
+          "end": 44.63
+        },
+        {
+          "speaker": "stuart",
+          "text": "Oh, hello. I'm calling about one of your cottages. We'd like to book a week in July, please. It's for our twentieth wedding anniversary.",
+          "start": 45.13,
+          "end": 53.51
+        },
+        {
+          "speaker": "helen",
+          "text": "Congratulations! Right, I'll just open up the booking form, then.",
+          "start": 54.01,
+          "end": 57.7
+        },
+        {
+          "speaker": "narrator",
+          "text": "The man wants to book a cottage for a wedding anniversary, so 'wedding anniversary' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 58.6,
+          "end": 75.65
+        },
+        {
+          "speaker": "helen",
+          "text": "Can I take your name, please?",
+          "start": 76.55,
+          "end": 78.42
+        },
+        {
+          "speaker": "stuart",
+          "text": "Yes, it's Stuart Ackroyd.",
+          "start": 78.92,
+          "end": 80.65
+        },
+        {
+          "speaker": "helen",
+          "text": "Sorry, could you spell your surname for me?",
+          "start": 81.15,
+          "end": 83.41
+        },
+        {
+          "speaker": "stuart",
+          "text": "Of course. It's A-C-K-R-O-Y-D.",
+          "tts": "Of course. It's A, C, K, R, O, Y, D.",
+          "start": 83.91,
+          "end": 86.98
+        },
+        {
+          "speaker": "helen",
+          "text": "Thank you, Mr Ackroyd. And which dates were you hoping for?",
+          "start": 87.48,
+          "end": 90.9
+        },
+        {
+          "speaker": "stuart",
+          "text": "We'd like to arrive on Saturday the twelfth of July and stay for a week.",
+          "start": 91.4,
+          "end": 96.05
+        },
+        {
+          "speaker": "helen",
+          "text": "Ah, now, our changeover day is always Friday, I'm afraid, so I can't offer you the twelfth. I could give you the eleventh, which is a Friday, or the eighteenth.",
+          "start": 96.55,
+          "end": 105.0
+        },
+        {
+          "speaker": "stuart",
+          "text": "The eighteenth would be too late for us, because my wife has to be back at work. So the eleventh it is, then. That's even better, really, because we'll get an extra night.",
+          "start": 105.5,
+          "end": 115.35
+        },
+        {
+          "speaker": "helen",
+          "text": "And how many of you will there be?",
+          "start": 115.85,
+          "end": 117.73
+        },
+        {
+          "speaker": "stuart",
+          "text": "Four adults, that's me and my wife, and my brother and his wife, and our two children. They're six and nine.",
+          "start": 118.23,
+          "end": 124.95
+        },
+        {
+          "speaker": "helen",
+          "text": "So six people altogether. Let me see. Curlew Cottage only sleeps four, so that's too small, and Sandpiper Cottage is lovely, but it's about two miles from the sea. If you'd like to be near the beach, I'd suggest Kingfisher Cottage. It sleeps six, and it's right by the coast path.",
+          "start": 125.45,
+          "end": 140.79
+        },
+        {
+          "speaker": "stuart",
+          "text": "Kingfisher sounds just right. Please put us down for that one.",
+          "start": 141.29,
+          "end": 145.02
+        },
+        {
+          "speaker": "helen",
+          "text": "Lovely. Is there anything else I should make a note of?",
+          "start": 145.52,
+          "end": 148.32
+        },
+        {
+          "speaker": "stuart",
+          "text": "Yes, we'd like to bring our dog. Is that allowed?",
+          "start": 148.82,
+          "end": 151.74
+        },
+        {
+          "speaker": "helen",
+          "text": "Dogs are welcome at Kingfisher, but there's a small charge to cover the extra cleaning. It's fifteen pounds a week for one dog.",
+          "start": 152.24,
+          "end": 159.17
+        },
+        {
+          "speaker": "stuart",
+          "text": "That's fine.",
+          "start": 159.67,
+          "end": 160.55
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 161.45,
+          "end": 167.16
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 187.16,
+          "end": 190.49
+        },
+        {
+          "speaker": "stuart",
+          "text": "Could you tell me a bit about the garden? My wife loves eating outside in the evenings.",
+          "start": 191.39,
+          "end": 196.38
+        },
+        {
+          "speaker": "helen",
+          "text": "Yes, it's completely fenced, so the dog will be quite safe. There's a patio with a table and chairs, and a barbecue, which is just the thing on a summer evening.",
+          "start": 196.88,
+          "end": 205.27
+        },
+        {
+          "speaker": "stuart",
+          "text": "Wonderful. And how far is it to the beach?",
+          "start": 205.77,
+          "end": 208.31
+        },
+        {
+          "speaker": "helen",
+          "text": "The brochure says five minutes' walk, but I think that's only if you're in a hurry. With young children, I'd say it's more like ten.",
+          "start": 208.81,
+          "end": 215.57
+        },
+        {
+          "speaker": "stuart",
+          "text": "Ten is fine. That's no distance at all. What about shopping? Is there a shop nearby, or will we have to drive to a supermarket?",
+          "start": 216.07,
+          "end": 224.26
+        },
+        {
+          "speaker": "helen",
+          "text": "There's a village shop about half a mile away, which sells most of the basics. It's open until six on weekdays, but on Sundays it closes at four, so don't leave it too late.",
+          "start": 224.76,
+          "end": 234.19
+        },
+        {
+          "speaker": "stuart",
+          "text": "OK, I'll remember that. Now, can you tell me how much the cottage will cost for the week?",
+          "start": 234.69,
+          "end": 240.17
+        },
+        {
+          "speaker": "helen",
+          "text": "For that week in July, the normal price is 680 pounds. But because you're booking early, we can give you a discount, so for you it will be 620 pounds in total.",
+          "start": 240.67,
+          "end": 250.87
+        },
+        {
+          "speaker": "stuart",
+          "text": "That sounds very reasonable.",
+          "start": 251.37,
+          "end": 253.42
+        },
+        {
+          "speaker": "helen",
+          "text": "Oh, and one more thing. Bed linen and a welcome pack are included, but we don't supply towels, so you'll need to bring your own.",
+          "start": 253.92,
+          "end": 260.66
+        },
+        {
+          "speaker": "stuart",
+          "text": "Thanks for telling me. I'd have forgotten!",
+          "start": 261.16,
+          "end": 263.7
+        },
+        {
+          "speaker": "helen",
+          "text": "I'll email the confirmation and a map to you this afternoon.",
+          "start": 264.2,
+          "end": 267.48
+        },
+        {
+          "speaker": "stuart",
+          "text": "Brilliant. Thanks very much for your help.",
+          "start": 267.98,
+          "end": 270.31
+        },
+        {
+          "speaker": "helen",
+          "text": "Thank you for calling, Mr Ackroyd.",
+          "start": 270.81,
+          "end": 272.9
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 273.8,
+          "end": 278.32
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Heron Holiday Lets – cottage booking",
+          "content": [
+            "Example: Reason for booking: **wedding anniversary**",
+            "## Customer details",
+            "• Name: Stuart {{1}}",
+            "• Arrival date: {{2}} July",
+            "• Party: 4 adults and {{3}} children",
+            "• Cottage: {{4}} Cottage",
+            "• Charge for bringing a dog: £{{5}} per week",
+            "## Cottage information",
+            "• Garden: private and fenced, with a {{6}}",
+            "• Walk to the beach: {{7}} minutes",
+            "• Village shop: closes at {{8}} pm on Sundays",
+            "• Total price for the week: £{{9}}",
+            "• Guests must bring their own {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Ackroyd"
+              ],
+              "explanation": "He spells his surname: ‘A-C-K-R-O-Y-D’.",
+              "cue": "A-C-K-R-O-Y-D"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "11",
+                "11th",
+                "eleventh"
+              ],
+              "explanation": "He asks for the twelfth, but the changeover day is Friday. Helen offers the eleventh or the eighteenth, and he chooses: ‘the eleventh it is’.",
+              "cue": "So the eleventh it is"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "2",
+                "two"
+              ],
+              "explanation": "There are four adults plus ‘our two children’. Six and nine are the children's ages.",
+              "cue": "and our two children"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "Kingfisher"
+              ],
+              "explanation": "Curlew sleeps only four and Sandpiper is two miles from the sea, so he accepts ‘Kingfisher’.",
+              "cue": "Kingfisher sounds just right"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "15",
+                "fifteen"
+              ],
+              "explanation": "Dogs are allowed, with a charge of ‘fifteen pounds a week for one dog’.",
+              "cue": "fifteen pounds a week"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "barbecue",
+                "barbeque",
+                "bbq"
+              ],
+              "explanation": "The garden has a patio with a table and chairs, ‘and a barbecue’.",
+              "cue": "and a barbecue"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "10",
+                "ten"
+              ],
+              "explanation": "The brochure says five minutes' walk, but with young children Helen says ‘more like ten’.",
+              "cue": "more like ten"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "4",
+                "four"
+              ],
+              "explanation": "The shop is open until six on weekdays, but ‘on Sundays it closes at four’.",
+              "cue": "on Sundays it closes at four"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "620"
+              ],
+              "explanation": "The normal price is 680 pounds, but with the early-booking discount ‘it will be 620 pounds in total’.",
+              "cue": "it will be 620 pounds in total"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "towels",
+                "towel"
+              ],
+              "explanation": "Bed linen is included, but ‘we don't supply towels’, so guests must bring their own.",
+              "cue": "we don't supply towels"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-06/part1.mp3",
+        "duration": 299.12
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A new exhibition on the history of glass",
+      "context": "A museum guide introduces an exhibition to a group of visitors.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a museum guide introducing a new exhibition about the history of glass. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 11.16
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 36.16,
+          "end": 40.43
+        },
+        {
+          "speaker": "hannah",
+          "text": "Good morning, everyone, and welcome to Ashgrove Museum. My name's Hannah, and I'm going to introduce our new exhibition, Fire and Sand: Five Thousand Years of Glass. It opened last Saturday, and it runs until the end of March.",
+          "start": 41.33,
+          "end": 55.62
+        },
+        {
+          "speaker": "hannah",
+          "text": "People often ask me why we chose glass. You might think it's because of the anniversary of the old Bellfield glassworks, but that isn't until next year. And although we're always pleased to see more families, that wasn't the reason either. The real reason is that last spring the museum was left a collection of nearly four hundred pieces by a local collector, Edith Marlowe, who asked in her will for it to be shown to the public.",
+          "start": 55.97,
+          "end": 80.48
+        },
+        {
+          "speaker": "hannah",
+          "text": "Now, let's start at the beginning. You may know the story that glass was discovered by accident, when some sailors lit a fire on a beach and the sand melted. It's a lovely story, but there's no evidence for it at all. What archaeologists have actually found are tiny beads and small bottles from Egypt and Mesopotamia, and they seem to have been made as jewellery and decoration for wealthy families.",
+          "start": 80.83,
+          "end": 104.23
+        },
+        {
+          "speaker": "hannah",
+          "text": "The next big change was glassblowing, about two thousand years ago. Before that, a single small bottle could take a whole day to make. With blowing, it took minutes, so glass stopped being a luxury and became cheap enough for ordinary Roman households. What it didn't do, though, was improve windows. Roman window glass stayed thick and cloudy, and really clear sheets didn't come until very much later.",
+          "start": 104.58,
+          "end": 127.54
+        },
+        {
+          "speaker": "hannah",
+          "text": "In the Middle Ages, the centre of glassmaking moved to Venice. In 1291, all of the city's glassmakers were ordered to move to the island of Murano. People often say this was to stop them passing their secrets to rival cities, and that did become a reason later on. But the original order was about safety. The furnaces burned day and night, and most of Venice was built of wood, so the authorities were afraid of a fire.",
+          "tts": "In the Middle Ages, the centre of glassmaking moved to Venice. In twelve ninety-one, all of the city's glassmakers were ordered to move to the island of Murano. People often say this was to stop them passing their secrets to rival cities, and that did become a reason later on. But the original order was about safety. The furnaces burned day and night, and most of Venice was built of wood, so the authorities were afraid of a fire.",
+          "start": 127.89,
+          "end": 153.4
+        },
+        {
+          "speaker": "hannah",
+          "text": "So, what can you actually do here? We spent a lot of money on a virtual-reality furnace, which lets you step inside a glassworks, and we assumed it would be the star attraction. There's also a short film in the first gallery, which most people walk straight past. In fact, visitors have spent the longest at the touch table, where you can handle everything from a Roman bottle to a modern phone screen, so I'd head there first.",
+          "start": 153.75,
+          "end": 176.88
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 177.78,
+          "end": 183.5
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 203.5,
+          "end": 207.38
+        },
+        {
+          "speaker": "hannah",
+          "text": "Right, shall we go in? There are four galleries, and I'll just point out one thing to look for in each.",
+          "start": 208.28,
+          "end": 213.48
+        },
+        {
+          "speaker": "hannah",
+          "text": "Gallery One, Beginnings, covers the ancient world. The oldest object in the whole exhibition is here, a small blue vessel about three thousand four hundred years old. The old label calls it a bottle, but it has a handle, so it's clearly a jug.",
+          "start": 213.83,
+          "end": 228.49
+        },
+        {
+          "speaker": "hannah",
+          "text": "Gallery Two, Colour and Light, is about medieval stained glass. Most people expect windows to come from churches or cathedrals, but our finest piece was rescued from a ruined abbey on the north coast.",
+          "start": 228.84,
+          "end": 241.26
+        },
+        {
+          "speaker": "hannah",
+          "text": "Gallery Three, Glass and Discovery, is about science. Beside the lenses and early telescopes, you'll see a copy of the glass prism that Isaac Newton used in the 1660s to show that sunlight is made up of all the colours of the rainbow.",
+          "tts": "Gallery Three, Glass and Discovery, is about science. Beside the lenses and early telescopes, you'll see a copy of the glass prism that Isaac Newton used in the sixteen sixties to show that sunlight is made up of all the colours of the rainbow.",
+          "start": 241.61,
+          "end": 256.88
+        },
+        {
+          "speaker": "hannah",
+          "text": "And Gallery Four is Glass Today. The centrepiece is a chandelier by the artist Tomas Reyes, made from recycled bottles. He planned to use four hundred, but the first design looked too small, so it ended up with 600. On Saturdays, you can also join a workshop in this gallery and make your own glass paperweight to take home.",
+          "start": 257.23,
+          "end": 277.67
+        },
+        {
+          "speaker": "hannah",
+          "text": "That's all from me. Does anyone have any questions before we go in?",
+          "start": 278.02,
+          "end": 281.62
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 282.52,
+          "end": 286.85
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Why did the museum decide to hold the exhibition?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to celebrate the anniversary of a local business"
+                },
+                {
+                  "key": "B",
+                  "text": "to attract more families to the museum"
+                },
+                {
+                  "key": "C",
+                  "text": "to display a collection that it had been given"
+                }
+              ],
+              "answer": "C",
+              "explanation": "It is not for an anniversary (that is ‘next year’) or to attract families. The real reason is that the museum ‘was left a collection of nearly four hundred pieces’ by a collector.",
+              "cue": "was left a collection of nearly four hundred pieces"
+            },
+            {
+              "number": 12,
+              "prompt": "What does the guide say about the earliest glass?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It was discovered by accident on a beach."
+                },
+                {
+                  "key": "B",
+                  "text": "It was used mainly for decorative objects."
+                },
+                {
+                  "key": "C",
+                  "text": "It was first made in the Roman Empire."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The sailors story has ‘no evidence’. The earliest finds, from Egypt and Mesopotamia, were ‘made as jewellery and decoration’ for wealthy families.",
+              "cue": "made as jewellery and decoration"
+            },
+            {
+              "number": 13,
+              "prompt": "What does the guide say about the effect of glassblowing?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It made glass affordable for ordinary people."
+                },
+                {
+                  "key": "B",
+                  "text": "It led to much clearer windows."
+                },
+                {
+                  "key": "C",
+                  "text": "It made glass stronger."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Glass ‘became cheap enough for ordinary Roman households’. Windows did not improve: Roman window glass ‘stayed thick and cloudy’.",
+              "cue": "cheap enough for ordinary Roman households"
+            },
+            {
+              "number": 14,
+              "prompt": "Why were the glassmakers of Venice ordered to move to Murano?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to stop their methods being copied"
+                },
+                {
+                  "key": "B",
+                  "text": "to be nearer to supplies of sand"
+                },
+                {
+                  "key": "C",
+                  "text": "to reduce the danger of fire"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Secrecy became a reason only ‘later on’. ‘The original order was about safety’: the furnaces burned all the time in a city built of wood.",
+              "cue": "the original order was about safety"
+            },
+            {
+              "number": 15,
+              "prompt": "Which feature of the exhibition has proved the most popular?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the touch table"
+                },
+                {
+                  "key": "B",
+                  "text": "the virtual-reality furnace"
+                },
+                {
+                  "key": "C",
+                  "text": "the short film"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The furnace was expected to be the star attraction and most people walk past the film, but visitors have ‘spent the longest at the touch table’.",
+              "cue": "spent the longest at the touch table"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Fire and Sand – the four galleries",
+          "content": {
+            "headers": [
+              "Gallery",
+              "Theme",
+              "What to look for"
+            ],
+            "rows": [
+              [
+                "1  Beginnings",
+                "Glass in the ancient world",
+                "the earliest piece: a small blue {{16}}"
+              ],
+              [
+                "2  Colour and Light",
+                "Medieval stained glass",
+                "a window rescued from a ruined {{17}}"
+              ],
+              [
+                "3  Glass and Discovery",
+                "Science",
+                "a copy of the {{18}} that Newton used to split sunlight"
+              ],
+              [
+                "4  Glass Today",
+                "Art and design",
+                "a chandelier made from {{19}} recycled bottles; a Saturday workshop where visitors make a glass {{20}}"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 16,
+              "answer": [
+                "jug"
+              ],
+              "explanation": "The old label calls it a bottle, but ‘it has a handle, so it's clearly a jug’.",
+              "cue": "so it's clearly a jug"
+            },
+            {
+              "number": 17,
+              "answer": [
+                "abbey"
+              ],
+              "explanation": "Not a church or a cathedral: the finest piece was ‘rescued from a ruined abbey’.",
+              "cue": "rescued from a ruined abbey"
+            },
+            {
+              "number": 18,
+              "answer": [
+                "prism"
+              ],
+              "explanation": "Gallery Three also has lenses and telescopes, but the piece described is ‘a copy of the glass prism’ that Newton used.",
+              "cue": "a copy of the glass prism"
+            },
+            {
+              "number": 19,
+              "answer": [
+                "600"
+              ],
+              "explanation": "The artist planned four hundred bottles, but the first design looked too small, so ‘it ended up with 600’.",
+              "cue": "it ended up with 600"
+            },
+            {
+              "number": 20,
+              "answer": [
+                "paperweight",
+                "paperweights"
+              ],
+              "explanation": "On Saturdays visitors can ‘make your own glass paperweight’ in the workshop.",
+              "cue": "make your own glass paperweight"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-06/part2.mp3",
+        "duration": 307.65
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A case study of a family bakery",
+      "context": "Two business students discuss their case study with their tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two business students, Nadia and Oscar, talking to their tutor, Dr Hughes, about a case study of a family-owned bakery. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 14.53
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 39.53,
+          "end": 44.25
+        },
+        {
+          "speaker": "hughes",
+          "text": "Come in, both of you. I've read your draft case study of Brindle's Bakery. Before I give you my comments, remind me why you chose that business.",
+          "start": 45.15,
+          "end": 53.29
+        },
+        {
+          "speaker": "oscar",
+          "text": "Well, I used to buy my lunch there, but I'd never met the family. And their accounts aren't published, so that made life harder, if anything. What really drew us in was that they're facing a big decision this year about whether to expand, and we wanted to see how a family firm actually makes a choice like that.",
+          "start": 53.79,
+          "end": 72.74
+        },
+        {
+          "speaker": "hughes",
+          "text": "Good. And how did you collect your information?",
+          "start": 73.24,
+          "end": 76.18
+        },
+        {
+          "speaker": "nadia",
+          "text": "Mostly through interviews. We were worried the family would be too busy, but Joanne Brindle gave us a whole afternoon, and the staff were surprisingly frank. The hard part was the money. They would only tell us the total sales. The profit figures for each shop were off limits.",
+          "start": 76.68,
+          "end": 93.24
+        },
+        {
+          "speaker": "hughes",
+          "text": "Now, my comments. The literature review is thorough, and I don't mind the length. And your findings are very clearly presented. My concern is the analysis. You explain the three-circle model of family firms very well, but then you never use it. You don't say where Walter Brindle, or his daughter, would fit in the model.",
+          "start": 93.74,
+          "end": 109.72
+        },
+        {
+          "speaker": "oscar",
+          "text": "We thought the explanation would be enough.",
+          "start": 110.22,
+          "end": 112.39
+        },
+        {
+          "speaker": "hughes",
+          "text": "It isn't, I'm afraid. Theory has to be applied to the case, otherwise it's just decoration. Now, one other thing. You've quoted several members of staff by name. Those quotations are the best thing in your draft, so I'd keep them, but I'd take the names out.",
+          "start": 112.89,
+          "end": 126.52
+        },
+        {
+          "speaker": "nadia",
+          "text": "We could ask each of them to sign a permission form, couldn't we?",
+          "start": 127.02,
+          "end": 130.44
+        },
+        {
+          "speaker": "hughes",
+          "text": "You could, but that takes time, and some of them might say no. It's much simpler to leave the names out.",
+          "start": 130.94,
+          "end": 136.68
+        },
+        {
+          "speaker": "oscar",
+          "text": "OK. Should we also interview another family bakery, so that we can compare?",
+          "start": 137.18,
+          "end": 142.06
+        },
+        {
+          "speaker": "hughes",
+          "text": "It would be nice, but you've only got two weeks, and the introduction is fine as it is. I'd spend the time making sure your facts about Brindle's are right. Send the family a summary of your findings before you submit.",
+          "start": 142.56,
+          "end": 153.63
+        },
+        {
+          "speaker": "nadia",
+          "text": "Good idea. We'll email Joanne tonight.",
+          "start": 154.13,
+          "end": 156.48
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 157.38,
+          "end": 163.52
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 183.52,
+          "end": 187.36
+        },
+        {
+          "speaker": "hughes",
+          "text": "Right, now your stakeholder section. You describe five people with different views about the future of the business. Take me through them.",
+          "start": 188.26,
+          "end": 195.5
+        },
+        {
+          "speaker": "nadia",
+          "text": "Yes. Walter Brindle is the founder. He's eighty-one, but he still comes in at five every morning. He's happy for the business to grow, he says, as long as nobody touches the recipes.",
+          "start": 196.0,
+          "end": 207.37
+        },
+        {
+          "speaker": "oscar",
+          "text": "His daughter Joanne is the managing director. A regional supermarket chain has offered her a contract, and she's convinced that's the best way to grow.",
+          "start": 207.87,
+          "end": 217.51
+        },
+        {
+          "speaker": "nadia",
+          "text": "Then there's her brother Martin, the head baker. He isn't interested in the consultant's idea of cutting the range. He'd like to bake more kinds of bread, not fewer. What he really loves is teaching. He already runs informal baking sessions on Sunday mornings for local people, and he'd like to make those a regular part of the business.",
+          "start": 218.01,
+          "end": 237.47
+        },
+        {
+          "speaker": "oscar",
+          "text": "Joanne's daughter, Fiona, joined last year to run the marketing. She's the one who wants to sell bread online, with next-day delivery across the region.",
+          "start": 237.97,
+          "end": 248.21
+        },
+        {
+          "speaker": "nadia",
+          "text": "And finally there's Gareth, the finance manager. He isn't a member of the family, but his views carry a lot of weight. He isn't against any of these ideas, but he's very nervous about borrowing money. The bakery opened a shop in Eastbridge in 2015, took out a big loan, and had to close it within a year.",
+          "start": 248.71,
+          "end": 267.82
+        },
+        {
+          "speaker": "hughes",
+          "text": "That's a clear summary. Make sure your recommendations follow from those positions.",
+          "start": 268.32,
+          "end": 273.23
+        },
+        {
+          "speaker": "nadia",
+          "text": "We will. Thank you, Dr Hughes.",
+          "start": 273.73,
+          "end": 275.67
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 276.57,
+          "end": 281.03
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did the students choose Brindle's Bakery for their case study?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They had known the owners for a long time."
+                },
+                {
+                  "key": "B",
+                  "text": "The business was facing an important decision."
+                },
+                {
+                  "key": "C",
+                  "text": "Detailed information about the company was easy to find."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Oscar had ‘never met the family’ and their accounts are not published. What drew them in was a ‘big decision this year about whether to expand’.",
+              "cue": "they're facing a big decision this year"
+            },
+            {
+              "number": 22,
+              "prompt": "What problem did the students have with their research?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The owners were too busy to be interviewed."
+                },
+                {
+                  "key": "B",
+                  "text": "The staff were unwilling to speak openly."
+                },
+                {
+                  "key": "C",
+                  "text": "Some financial figures were not provided."
+                }
+              ],
+              "answer": "C",
+              "explanation": "The owners found time and the staff were ‘surprisingly frank’, but ‘the hard part was the money’: profits for each shop were ‘off limits’.",
+              "cue": "The hard part was the money"
+            },
+            {
+              "number": 23,
+              "prompt": "What is Dr Hughes's main criticism of the draft?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The theory is not applied to the case."
+                },
+                {
+                  "key": "B",
+                  "text": "The literature review is too long."
+                },
+                {
+                  "key": "C",
+                  "text": "The findings are not clearly presented."
+                }
+              ],
+              "answer": "A",
+              "explanation": "He accepts the length of the review and says the findings are ‘very clearly presented’. His concern is that the three-circle model is explained but ‘you never use it’.",
+              "cue": "you never use it"
+            },
+            {
+              "number": 24,
+              "prompt": "What does Dr Hughes advise about the quotations from staff?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Ask each person for written permission."
+                },
+                {
+                  "key": "B",
+                  "text": "Leave out the names of the people quoted."
+                },
+                {
+                  "key": "C",
+                  "text": "Use quotations from family members only."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Permission forms would take time, and the staff quotations are the best part of the draft, so he says ‘I'd take the names out’.",
+              "cue": "I'd take the names out"
+            },
+            {
+              "number": 25,
+              "prompt": "What will the students do next?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Ask the owners to check their findings."
+                },
+                {
+                  "key": "B",
+                  "text": "Interview another family business."
+                },
+                {
+                  "key": "C",
+                  "text": "Rewrite the introduction."
+                }
+              ],
+              "answer": "A",
+              "explanation": "There is no time for a second interview and the introduction is ‘fine as it is’. He tells them to ‘send the family a summary of your findings’.",
+              "cue": "Send the family a summary of your findings"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What is each person's main view about the future of the bakery? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Views",
+          "options": [
+            {
+              "key": "A",
+              "text": "wants to open more shops"
+            },
+            {
+              "key": "B",
+              "text": "wants to sell to large food retailers"
+            },
+            {
+              "key": "C",
+              "text": "wants to reach customers over the internet"
+            },
+            {
+              "key": "D",
+              "text": "is worried about taking on debt"
+            },
+            {
+              "key": "E",
+              "text": "wants to teach members of the public"
+            },
+            {
+              "key": "F",
+              "text": "wants the products to stay as they are"
+            },
+            {
+              "key": "G",
+              "text": "wants to reduce the range of products"
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "Walter",
+              "answer": "F",
+              "explanation": "He is happy for the business to grow ‘as long as nobody touches the recipes’.",
+              "cue": "as long as nobody touches the recipes"
+            },
+            {
+              "number": 27,
+              "prompt": "Joanne",
+              "answer": "B",
+              "explanation": "‘A regional supermarket chain has offered her a contract’, and she is convinced it is the best way to grow.",
+              "cue": "A regional supermarket chain has offered her a contract"
+            },
+            {
+              "number": 28,
+              "prompt": "Martin",
+              "answer": "E",
+              "explanation": "He rejects the idea of cutting the range (G) and wants to ‘make those’ Sunday baking sessions for local people ‘a regular part of the business’.",
+              "cue": "he'd like to make those a regular part of the business"
+            },
+            {
+              "number": 29,
+              "prompt": "Fiona",
+              "answer": "C",
+              "explanation": "Fiona, who runs the marketing, is ‘the one who wants to sell bread online’.",
+              "cue": "wants to sell bread online"
+            },
+            {
+              "number": 30,
+              "prompt": "Gareth",
+              "answer": "D",
+              "explanation": "He is ‘very nervous about borrowing money’ because a shop opened with a big loan in 2015 had to close within a year (so he is not the one who wants more shops).",
+              "cue": "very nervous about borrowing money"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-06/part3.mp3",
+        "duration": 301.83
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how desert animals survive the heat",
+      "context": "A lecture about the ways in which animals cope with extreme heat in deserts.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how animals survive in hot deserts. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.94
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.94,
+          "end": 44.36
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today I'd like to look at how animals survive in one of the harshest environments on Earth, the hot desert. In the Sahara, the surface of the sand can reach seventy degrees Celsius, and in some years there's no rain at all. So desert animals face two linked problems: how to avoid overheating, and how to avoid running out of water. Most of my examples come from the Sahara, but the same principles apply in deserts all over the world. I'm going to look at their solutions under three headings: behaviour, body structure and physiology.",
+          "start": 45.26,
+          "end": 74.74
+        },
+        {
+          "speaker": "lecturer",
+          "text": "First, behaviour. The simplest strategy is to keep out of the heat. Just a few centimetres below the surface, the sand is far cooler and more stable, so many small mammals spend the day in underground burrows and only come out after dark. The jerboa, a tiny hopping rodent, is a good example. Animals that have to be active in daylight make use of shade, and the Cape ground squirrel has an unusual way of creating its own. It raises its bushy tail over its back, like a parasol, and sits in the shadow.",
+          "start": 75.09,
+          "end": 102.58
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Second, body structure. Here, the fennec fox is a classic example. It's the smallest fox in the world, but its ears are enormous, and they're full of blood vessels very close to the skin. As the blood flows through them, the heat escapes into the air. The ears also help the fox to hear insects moving underground, but cooling is their main job. The jackrabbit of North America has the same feature.",
+          "start": 102.93,
+          "end": 122.56
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Even insects have clever solutions. The silver ant, which lives in the Sahara, goes out at midday, when the sand is at its hottest, because that's when the lizards that hunt it have retreated underground. It's covered in tiny silver hairs, which have a triangular shape and reflect the sunlight, so the ant stays much cooler than you'd expect. It also has very long legs, which lift its body well clear of the burning sand. Even so, it can only stay out for a few minutes at a time.",
+          "start": 122.91,
+          "end": 144.69
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Third, physiology, and here the key issue is water. The kangaroo rat of North America almost never drinks. It gets the moisture it needs from the dry seeds that it eats, not from green plants, because water is released inside its body as the food is broken down. It also loses very little. Its urine is extremely concentrated, and its nose recovers moisture from the air that it breathes out. In fact, it can live its whole life without taking a single drink.",
+          "start": 145.04,
+          "end": 167.12
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Then there's the camel, which is surrounded by myths. Many people believe that its hump stores water. It doesn't. The hump is a store of fat, which the camel can use as an energy reserve when food is scarce. What camels do have is a remarkable tolerance of dehydration. They let their body temperature rise by several degrees during the day, rather than sweating to keep it down. And a camel can lose up to a quarter of its body weight in water and survive, whereas a human is in serious trouble after losing about ten per cent. And when it finds water, a thirsty camel can drink well over a hundred litres in around ten minutes.",
+          "start": 167.47,
+          "end": 199.87
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Some animals even collect water from the air. The thorny devil, a small spiny lizard from Australia, has tiny grooves between the scales on its skin. When dew forms on its body overnight, or when it stands on damp sand, the water is drawn along those grooves until it reaches the corner of the lizard's mouth. In effect, the whole body works like a drinking straw.",
+          "start": 200.22,
+          "end": 218.35
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, birds. Birds have no sweat glands, so they can't sweat, and many desert species, such as nightjars, use a different technique, known as gular fluttering. They open their beaks and vibrate the skin of the throat very rapidly. Water evaporates from the moist surface and takes heat away with it, in much the same way that sweating cools us.",
+          "start": 218.7,
+          "end": 235.68
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So, no single trick works on its own. Most desert animals combine several: they avoid the worst of the heat, they are built to lose it, and they treat every drop of water as precious. Next week, we'll look at how climate change is putting these strategies under pressure.",
+          "start": 236.03,
+          "end": 249.96
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 250.86,
+          "end": 255.26
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 275.26,
+          "end": 277.97
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "How desert animals survive extreme heat",
+          "content": [
+            "## Behaviour",
+            "• many small mammals shelter in underground {{31}} during the day",
+            "• the Cape ground squirrel shades itself with its {{32}}",
+            "## Body structure",
+            "• fennec fox: heat escapes through blood vessels in its huge {{33}}",
+            "• silver ant: its silver {{34}} reflect sunlight",
+            "• its long {{35}} keep its body off the hot sand",
+            "## Physiology",
+            "• kangaroo rat: gets water from the {{36}} it eats and does not need to drink",
+            "• camel: the hump is a store of {{37}}, not water",
+            "• a camel can lose a quarter of its body {{38}} and survive",
+            "• thorny devil: water travels along {{39}} in the skin to its mouth",
+            "• birds cool down by rapidly vibrating their {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "burrows",
+                "burrow"
+              ],
+              "explanation": "Small mammals ‘spend the day in underground burrows’, because the sand below the surface is cooler.",
+              "cue": "spend the day in underground burrows"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "tail"
+              ],
+              "explanation": "The Cape ground squirrel ‘raises its bushy tail over its back, like a parasol’.",
+              "cue": "raises its bushy tail over its back"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "ears"
+              ],
+              "explanation": "The fennec fox's ears ‘are enormous’ and full of blood vessels, so heat escapes into the air.",
+              "cue": "its ears are enormous"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "hairs",
+                "hair"
+              ],
+              "explanation": "The ant is ‘covered in tiny silver hairs’ that reflect the sunlight.",
+              "cue": "covered in tiny silver hairs"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "legs"
+              ],
+              "explanation": "It also has ‘very long legs, which lift its body well clear of the burning sand’.",
+              "cue": "very long legs"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "seeds",
+                "seed"
+              ],
+              "explanation": "The kangaroo rat gets its moisture ‘from the dry seeds that it eats, not from green plants’.",
+              "cue": "from the dry seeds that it eats"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "fat"
+              ],
+              "explanation": "Many people think the hump stores water, but ‘the hump is a store of fat’.",
+              "cue": "The hump is a store of fat"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "weight"
+              ],
+              "explanation": "A camel can lose ‘up to a quarter of its body weight’ in water and survive, whereas a human is in trouble at about ten per cent. Its body temperature rises during the day, but that is a separate point.",
+              "cue": "up to a quarter of its body weight"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "grooves",
+                "groove"
+              ],
+              "explanation": "The thorny devil has ‘tiny grooves between the scales’, and the water is drawn along those grooves to its mouth.",
+              "cue": "tiny grooves between the scales"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "throat"
+              ],
+              "explanation": "Birds ‘vibrate the skin of the throat very rapidly’ (gular fluttering).",
+              "cue": "vibrate the skin of the throat"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-06/part4.mp3",
+        "duration": 278.77
+      }
+    }
+  ],
+  "durationMinutes": 20
+}

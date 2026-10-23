@@ -62,6 +62,7 @@
       this.on($("btn-contrast"), "click", () => this.cycle(CONTRAST_THEMES, "mockexam:contrast"));
       this.on($("btn-text-size"), "click", () => this.cycle(TEXT_SIZES, "mockexam:textSize"));
       this.on($("btn-help"), "click", () => this.showHelp());
+      this.on($("btn-hide"), "click", () => this.hideScreen());
       this.on($("exam-timer-box"), "click", () => {
         this.timerHidden = !this.timerHidden;
         this.renderTimer();
@@ -77,6 +78,25 @@
       this.initSplitter();
       this.initPaneSwitch();
       this.startTimer();
+    }
+
+    flashTimer() {
+      const box = $("exam-timer-box");
+      box.classList.add("flash");
+      setTimeout(() => box.classList.remove("flash"), 10000);
+    }
+
+    /** "Hide": covers the test with a plain screen for a short break. The clock keeps running, as in the real test. */
+    hideScreen() {
+      if (document.getElementById("exam-cover")) return;
+      const cover = document.createElement("div");
+      cover.id = "exam-cover";
+      cover.className = "exam-cover";
+      cover.innerHTML = `<div><p>The test is hidden. The clock is still running.</p><button type="button" class="cd-submit-btn" id="exam-resume">Resume test</button></div>`;
+      document.body.appendChild(cover);
+      const resume = cover.querySelector("#exam-resume");
+      resume.addEventListener("click", () => cover.remove());
+      resume.focus();
     }
 
     cycle(list, key) {
@@ -98,8 +118,9 @@
         this.elapsed++;
         this.renderTimer();
         if (this.mode === "exam") {
-          if (this.remaining === 600) U.toast("10 minutes remaining.", "warn");
-          if (this.remaining === 300) U.toast("5 minutes remaining.", "warn");
+          // As in the real test, the clock starts to flash at 10 minutes and again at 5 minutes.
+          if (this.remaining === 600) { U.toast("10 minutes remaining.", "warn"); this.flashTimer(); }
+          if (this.remaining === 300) { U.toast("5 minutes remaining.", "warn"); this.flashTimer(); }
           if (this.remaining <= 0) {
             clearInterval(this.timer);
             U.toast("Time is up. Your answers are being submitted.", "warn");
@@ -192,6 +213,7 @@
         <p><strong>Tools</strong></p>
         <ul class="help-list">
           <li><strong>Timer:</strong> click the clock to hide or show it.</li>
+          <li><strong>Hide:</strong> covers the test for a short break. The clock keeps running.</li>
           <li><strong>Contrast / Text size:</strong> change the colours and font size of the test.</li>
           <li><strong>Resize:</strong> drag the bar between the two panels.</li>
         </ul>`;
@@ -883,6 +905,7 @@
         <p><strong>Tools</strong></p>
         <ul class="help-list">
           <li><strong>Timer:</strong> click the clock to hide or show it.</li>
+          <li><strong>Hide:</strong> covers the test for a short break. The clock keeps running.</li>
           <li><strong>Contrast / Text size:</strong> change the colours and font size of the test.</li>
           <li>Select text in a question to highlight it.</li>
         </ul>`;

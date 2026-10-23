@@ -35,8 +35,8 @@
       "title": "Introduction and interview",
       "topics": [
         "Your home",
-        "Music at festivals",
-        "Holidays"
+        "The news",
+        "Pets"
       ],
       "questions": [
         {
@@ -85,68 +85,68 @@
         },
         {
           "key": "p1-5",
-          "topic": "Music at festivals",
-          "text": "Do you enjoy going to concerts or festivals?",
-          "say": "Now let's move on to talk about music festivals. Do you enjoy going to concerts or festivals?",
+          "topic": "The news",
+          "text": "Do you often read or watch the news?",
+          "say": "Now let's move on to talk about the news. Do you often read or watch the news?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-23/p1-5.mp3",
-            "duration": 6.67
+            "duration": 5.67
           }
         },
         {
           "key": "p1-6",
-          "topic": "Music at festivals",
-          "text": "What kind of music is popular at festivals in your country?",
-          "say": "What kind of music is popular at festivals in your country?",
+          "topic": "The news",
+          "text": "Where do you usually get your news?",
+          "say": "Where do you usually get your news?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-23/p1-6.mp3",
-            "duration": 3.93
+            "duration": 2.57
           }
         },
         {
           "key": "p1-7",
-          "topic": "Music at festivals",
-          "text": "Would you rather go to a festival with friends or with family?",
-          "say": "Would you rather go to a festival with friends or with family?",
+          "topic": "The news",
+          "text": "Do you think children should follow the news?",
+          "say": "Do you think children should follow the news?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-23/p1-7.mp3",
-            "duration": 4.04
+            "duration": 2.91
           }
         },
         {
           "key": "p1-8",
-          "topic": "Holidays",
-          "text": "Where do you usually go on holiday?",
-          "say": "Now let's move on to talk about holidays. Where do you usually go on holiday?",
+          "topic": "Pets",
+          "text": "Do you have a pet?",
+          "say": "Now let's move on to talk about pets. Do you have a pet?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-23/p1-8.mp3",
-            "duration": 5.54
+            "duration": 4.58
           }
         },
         {
           "key": "p1-9",
-          "topic": "Holidays",
-          "text": "Do you prefer short holidays or long ones?",
-          "say": "Do you prefer short holidays or long ones?",
+          "topic": "Pets",
+          "text": "Do many people in your country keep pets?",
+          "say": "Do many people in your country keep pets?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-23/p1-9.mp3",
-            "duration": 3.15
+            "duration": 2.93
           }
         },
         {
           "key": "p1-10",
-          "topic": "Holidays",
-          "text": "What did you do on holidays when you were a child?",
-          "say": "What did you do on holidays when you were a child?",
+          "topic": "Pets",
+          "text": "What pet would you like to have?",
+          "say": "What pet would you like to have?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-23/p1-10.mp3",
-            "duration": 3.12
+            "duration": 2.42
           }
         }
       ]

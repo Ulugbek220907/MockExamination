@@ -35,7 +35,7 @@
       "title": "Introduction and interview",
       "topics": [
         "Your home",
-        "Helping others",
+        "Reading",
         "Mornings"
       ],
       "questions": [
@@ -85,35 +85,35 @@
         },
         {
           "key": "p1-5",
-          "topic": "Helping others",
-          "text": "Do you often help your friends or family?",
-          "say": "Now let's move on to talk about helping others. Do you often help your friends or family?",
+          "topic": "Reading",
+          "text": "Do you enjoy reading?",
+          "say": "Now let's move on to talk about reading. Do you enjoy reading?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-05/p1-5.mp3",
-            "duration": 6.06
+            "duration": 4.84
           }
         },
         {
           "key": "p1-6",
-          "topic": "Helping others",
-          "text": "How did you help at home when you were a child?",
-          "say": "How did you help at home when you were a child?",
+          "topic": "Reading",
+          "text": "What kinds of things do you read?",
+          "say": "What kinds of things do you read?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-05/p1-6.mp3",
-            "duration": 2.87
+            "duration": 2.48
           }
         },
         {
           "key": "p1-7",
-          "topic": "Helping others",
-          "text": "Do people in your area help their neighbours?",
-          "say": "Do people in your area help their neighbours?",
+          "topic": "Reading",
+          "text": "Do you prefer books on paper or on a screen?",
+          "say": "Do you prefer books on paper or on a screen?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-05/p1-7.mp3",
-            "duration": 3.02
+            "duration": 3.21
           }
         },
         {

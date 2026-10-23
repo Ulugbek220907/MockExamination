@@ -124,6 +124,24 @@ class InterfaceTextTests(unittest.TestCase):
             self.assertIsNone(re.search(r"hyphens:\s*auto", css), name)
             self.assertIsNone(re.search(r"word-break:\s*break-all", css), name)
 
+    def test_vendor_scripts_do_not_replace_the_sites_globals(self):
+        """A vendored library once defined a global `t` and turned every label into "NaN"; it must stay inside its own scope."""
+        import shutil
+        import subprocess
+        if not shutil.which("node"):
+            self.skipTest("node is not installed")
+        js = os.path.join(PUBLIC_DIR, "js")
+        script = (
+            "const vm=require('vm'),fs=require('fs');const ctx=vm.createContext({});ctx.window=ctx;"
+            "vm.runInContext(fs.readFileSync(process.argv[1],'utf8'),ctx);const t=ctx.t,plural=ctx.plural,TEXT=ctx.TEXT;"
+            "for(const f of process.argv.slice(2)){vm.runInContext(fs.readFileSync(f,'utf8'),ctx);}"
+            "if(ctx.t!==t||ctx.plural!==plural||ctx.TEXT!==TEXT||ctx.t('Free')!=='Free'){console.log('OVERWRITTEN');process.exit(1);}"
+        )
+        vendor = sorted(os.path.join(js, "vendor", f) for f in os.listdir(os.path.join(js, "vendor")) if f.endswith(".js"))
+        self.assertTrue(vendor)
+        result = subprocess.run(["node", "-e", script, os.path.join(js, "strings.js"), *vendor], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_no_language_switch_or_translations_left(self):
         js = os.path.join(PUBLIC_DIR, "js")
         for name in ("i18n.js", "i18n-strings.js", "i18n-uz.js", "i18n-ru.js"):

@@ -35,7 +35,7 @@
       "title": "Introduction and interview",
       "topics": [
         "Your hometown",
-        "Films",
+        "Neighbours",
         "Laughing"
       ],
       "questions": [
@@ -85,20 +85,20 @@
         },
         {
           "key": "p1-5",
-          "topic": "Films",
-          "text": "How often do you watch films?",
-          "say": "Now let's move on to talk about films. How often do you watch films?",
+          "topic": "Neighbours",
+          "text": "How well do you know your neighbours?",
+          "say": "Now let's move on to talk about neighbours. How well do you know your neighbours?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-15/p1-5.mp3",
-            "duration": 4.95
+            "duration": 4.86
           }
         },
         {
           "key": "p1-6",
-          "topic": "Films",
-          "text": "What kind of films do you like?",
-          "say": "What kind of films do you like?",
+          "topic": "Neighbours",
+          "text": "How often do you talk to them?",
+          "say": "How often do you talk to them?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-15/p1-6.mp3",
@@ -107,13 +107,13 @@
         },
         {
           "key": "p1-7",
-          "topic": "Films",
-          "text": "Do you prefer watching films at home or at the cinema?",
-          "say": "Do you prefer watching films at home or at the cinema?",
+          "topic": "Neighbours",
+          "text": "Would you like to live in a different kind of neighbourhood?",
+          "say": "Would you like to live in a different kind of neighbourhood?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-15/p1-7.mp3",
-            "duration": 3.34
+            "duration": 3.02
           }
         },
         {

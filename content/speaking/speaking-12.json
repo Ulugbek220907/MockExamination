@@ -35,8 +35,8 @@
       "title": "Introduction and interview",
       "topics": [
         "Your hometown",
-        "Swimming",
-        "Sports on television"
+        "Music",
+        "Cooking"
       ],
       "questions": [
         {
@@ -64,12 +64,12 @@
         {
           "key": "p1-3",
           "topic": "Your hometown",
-          "text": "Are there good places to exercise in your hometown?",
-          "say": "Are there good places to exercise in your hometown?",
+          "text": "How do people usually get around in your hometown?",
+          "say": "How do people usually get around in your hometown?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-12/p1-3.mp3",
-            "duration": 3.51
+            "duration": 3.47
           }
         },
         {
@@ -85,68 +85,68 @@
         },
         {
           "key": "p1-5",
-          "topic": "Swimming",
-          "text": "Can you swim?",
-          "say": "Now let's move on to talk about swimming. Can you swim?",
+          "topic": "Music",
+          "text": "Do you like listening to music?",
+          "say": "Now let's move on to talk about music. Do you like listening to music?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-12/p1-5.mp3",
-            "duration": 4.56
+            "duration": 5.2
           }
         },
         {
           "key": "p1-6",
-          "topic": "Swimming",
-          "text": "Where do people swim where you live?",
-          "say": "Where do people swim where you live?",
+          "topic": "Music",
+          "text": "What kind of music do you listen to?",
+          "say": "What kind of music do you listen to?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-12/p1-6.mp3",
-            "duration": 2.63
+            "duration": 2.57
           }
         },
         {
           "key": "p1-7",
-          "topic": "Swimming",
-          "text": "Do you think every child should learn to swim?",
-          "say": "Do you think every child should learn to swim?",
+          "topic": "Music",
+          "text": "Did you ever learn to play a musical instrument?",
+          "say": "Did you ever learn to play a musical instrument?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-12/p1-7.mp3",
-            "duration": 3.04
+            "duration": 3.21
           }
         },
         {
           "key": "p1-8",
-          "topic": "Sports on television",
-          "text": "Do you like watching sport on television?",
-          "say": "Now let's move on to talk about watching sport on television. Do you like watching sport on television?",
+          "topic": "Cooking",
+          "text": "Do you like cooking?",
+          "say": "Now let's move on to talk about cooking. Do you like cooking?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-12/p1-8.mp3",
-            "duration": 6.82
+            "duration": 4.65
           }
         },
         {
           "key": "p1-9",
-          "topic": "Sports on television",
-          "text": "Which sports are most popular on TV in your country?",
-          "say": "Which sports are most popular on TV in your country?",
+          "topic": "Cooking",
+          "text": "Who usually cooks in your home?",
+          "say": "Who usually cooks in your home?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-12/p1-9.mp3",
-            "duration": 3.72
+            "duration": 2.55
           }
         },
         {
           "key": "p1-10",
-          "topic": "Sports on television",
-          "text": "Would you rather watch a match at home or at the stadium?",
-          "say": "Would you rather watch a match at home or at the stadium?",
+          "topic": "Cooking",
+          "text": "What was the last meal you cooked?",
+          "say": "What was the last meal you cooked?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-12/p1-10.mp3",
-            "duration": 3.57
+            "duration": 2.51
           }
         }
       ]

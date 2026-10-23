@@ -35,7 +35,7 @@
       "title": "Introduction and interview",
       "topics": [
         "Your home",
-        "Cameras",
+        "Seasons",
         "Memories"
       ],
       "questions": [
@@ -85,35 +85,35 @@
         },
         {
           "key": "p1-5",
-          "topic": "Cameras",
-          "text": "Do you use a camera, or only the camera on your phone?",
-          "say": "Now let's move on to talk about cameras. Do you use a camera, or only the camera on your phone?",
+          "topic": "Seasons",
+          "text": "What is your favourite season?",
+          "say": "Now let's move on to talk about seasons. What is your favourite season?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-32/p1-5.mp3",
-            "duration": 7.08
+            "duration": 5.48
           }
         },
         {
           "key": "p1-6",
-          "topic": "Cameras",
-          "text": "When was the last time you took a photo?",
-          "say": "When was the last time you took a photo?",
+          "topic": "Seasons",
+          "text": "What is the weather like in your country in summer?",
+          "say": "What is the weather like in your country in summer?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-32/p1-6.mp3",
-            "duration": 3.34
+            "duration": 3.64
           }
         },
         {
           "key": "p1-7",
-          "topic": "Cameras",
-          "text": "Do you like having your photo taken?",
-          "say": "Do you like having your photo taken?",
+          "topic": "Seasons",
+          "text": "Does the weather affect your mood?",
+          "say": "Does the weather affect your mood?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-32/p1-7.mp3",
-            "duration": 3.06
+            "duration": 2.83
           }
         },
         {
