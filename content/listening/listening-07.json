@@ -1,0 +1,1347 @@
+{
+  "id": "listening-07",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 7",
+  "shortTitle": "Practice Test 7",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 7,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "julia": {
+      "name": "Julia",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "neil": {
+      "name": "Neil",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "fiona": {
+      "name": "Fiona",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "ellie": {
+      "name": "Ellie",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "marcus": {
+      "name": "Marcus",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "whitaker": {
+      "name": "Dr Whitaker",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Registering with a doctor's surgery",
+      "context": "A man phones a doctor's surgery to register as a new patient.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man telephoning a doctor's surgery to register as a new patient. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.56
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.56,
+          "end": 39.63
+        },
+        {
+          "speaker": "julia",
+          "text": "Kestrel Lane Surgery, good morning. Julia speaking.",
+          "start": 40.53,
+          "end": 43.73
+        },
+        {
+          "speaker": "neil",
+          "text": "Oh, good morning. I wonder if you can help me. I've just moved house, and I need to find a new doctor. Is it possible to register over the phone?",
+          "start": 44.23,
+          "end": 53.42
+        },
+        {
+          "speaker": "julia",
+          "text": "Yes, it is. It only takes a few minutes, and I'll fill in the form as we go along.",
+          "start": 53.92,
+          "end": 58.51
+        },
+        {
+          "speaker": "narrator",
+          "text": "The man has just moved house, so 'moved house' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 59.41,
+          "end": 74.34
+        },
+        {
+          "speaker": "julia",
+          "text": "Right, could I have your full name, please?",
+          "start": 75.24,
+          "end": 77.74
+        },
+        {
+          "speaker": "neil",
+          "text": "Yes, it's Neil Hargreaves.",
+          "start": 78.24,
+          "end": 79.93
+        },
+        {
+          "speaker": "julia",
+          "text": "Sorry, could you spell your surname for me?",
+          "start": 80.43,
+          "end": 82.9
+        },
+        {
+          "speaker": "neil",
+          "text": "Of course. That's H-A-R-G-R-E-A-V-E-S.",
+          "tts": "Of course. That's H, A, R, G, R, E, A, V, E, S.",
+          "start": 83.4,
+          "end": 87.33
+        },
+        {
+          "speaker": "julia",
+          "text": "Thank you. And what's your new address?",
+          "start": 87.83,
+          "end": 90.02
+        },
+        {
+          "speaker": "neil",
+          "text": "It's forty-three Cedar Road.",
+          "start": 90.52,
+          "end": 92.25
+        },
+        {
+          "speaker": "julia",
+          "text": "Cedar Road. Is that the new estate behind the garden centre?",
+          "start": 92.75,
+          "end": 96.44
+        },
+        {
+          "speaker": "neil",
+          "text": "That's the one. The houses are so new that you might not find them on the map yet. We only moved in at the weekend.",
+          "start": 96.94,
+          "end": 104.11
+        },
+        {
+          "speaker": "julia",
+          "text": "That's all right. And your date of birth?",
+          "start": 104.61,
+          "end": 107.02
+        },
+        {
+          "speaker": "neil",
+          "text": "The fourteenth of March. Oh, no, sorry, that's my wife's birthday. Mine's the twenty-fourth. I always get the two of them mixed up.",
+          "start": 107.52,
+          "end": 115.88
+        },
+        {
+          "speaker": "julia",
+          "text": "Not to worry. The twenty-fourth of March. And what do you do for a living? We ask for your occupation.",
+          "start": 116.38,
+          "end": 121.61
+        },
+        {
+          "speaker": "neil",
+          "text": "Well, I started out as a carpenter, but these days I'm an architect. I work for a firm in the city centre.",
+          "start": 122.11,
+          "end": 129.04
+        },
+        {
+          "speaker": "julia",
+          "text": "Lovely. And which surgery were you with before?",
+          "start": 129.54,
+          "end": 132.12
+        },
+        {
+          "speaker": "neil",
+          "text": "It was the Riverside Health Centre, in Dunmore.",
+          "start": 132.62,
+          "end": 135.53
+        },
+        {
+          "speaker": "julia",
+          "text": "Riverside. Right, thank you. I'll ask them to send your records over. It usually takes about a week.",
+          "start": 136.03,
+          "end": 141.51
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 142.41,
+          "end": 148.13
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 168.13,
+          "end": 171.45
+        },
+        {
+          "speaker": "julia",
+          "text": "And how long were you registered at the Riverside?",
+          "start": 172.35,
+          "end": 175.23
+        },
+        {
+          "speaker": "neil",
+          "text": "Eight years. I lived in Dunmore for twelve altogether, but I didn't join the Riverside until my daughter was born.",
+          "start": 175.73,
+          "end": 183.24
+        },
+        {
+          "speaker": "julia",
+          "text": "I see. Now, do you have any allergies we should know about?",
+          "start": 183.74,
+          "end": 186.99
+        },
+        {
+          "speaker": "neil",
+          "text": "Penicillin. It gives me a terrible rash. I used to think I was allergic to shellfish as well, but I had some tests last year, and it turns out I'm not.",
+          "start": 187.49,
+          "end": 197.38
+        },
+        {
+          "speaker": "julia",
+          "text": "That's good news. I'll just put penicillin, then. Now, when you come in, we need to see some documents. First, photo ID, so a passport or a driving licence will do. And we also need proof of your new address. We used to accept a gas or electricity bill, but we've stopped doing that. These days it has to be a recent bank statement.",
+          "start": 197.88,
+          "end": 215.53
+        },
+        {
+          "speaker": "neil",
+          "text": "That's no problem. I've got one from last month.",
+          "start": 216.03,
+          "end": 219.12
+        },
+        {
+          "speaker": "julia",
+          "text": "Perfect. Finally, we like all new patients to have a health check with our practice nurse. I can offer you Tuesday at ten o'clock.",
+          "start": 219.62,
+          "end": 226.81
+        },
+        {
+          "speaker": "neil",
+          "text": "Oh, I can't do Tuesdays, I'm afraid. I'm on building sites all day. Have you got anything on Thursday?",
+          "start": 227.31,
+          "end": 234.29
+        },
+        {
+          "speaker": "julia",
+          "text": "Let me look. Um, yes, Thursday at ten is free.",
+          "start": 234.79,
+          "end": 237.56
+        },
+        {
+          "speaker": "neil",
+          "text": "That's perfect. Put me down for that, please.",
+          "start": 238.06,
+          "end": 240.77
+        },
+        {
+          "speaker": "julia",
+          "text": "Right. Oh, hold on, I'm so sorry. I've just noticed that the nurse is away on a training course on Thursday. I could offer you Friday instead.",
+          "start": 241.27,
+          "end": 249.59
+        },
+        {
+          "speaker": "neil",
+          "text": "Friday's fine.",
+          "start": 250.09,
+          "end": 251.37
+        },
+        {
+          "speaker": "julia",
+          "text": "Although I'm afraid the only appointment she has left is at nine o'clock.",
+          "start": 251.87,
+          "end": 256.03
+        },
+        {
+          "speaker": "neil",
+          "text": "That's all right. I can go to work afterwards.",
+          "start": 256.53,
+          "end": 259.37
+        },
+        {
+          "speaker": "julia",
+          "text": "Lovely. So that's Friday at nine. We'll send you a reminder by text message, and a letter confirming your registration should arrive next week. Thank you for registering with us, Mr Hargreaves.",
+          "start": 259.87,
+          "end": 270.87
+        },
+        {
+          "speaker": "neil",
+          "text": "Thank you very much. Goodbye.",
+          "start": 271.37,
+          "end": 273.38
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 274.28,
+          "end": 278.8
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Kestrel Lane Surgery – new patient registration",
+          "content": [
+            "Example: Reason for registering: **moved house**",
+            "## Personal details",
+            "• Name: Neil {{1}}",
+            "• Address: {{2}} Cedar Road",
+            "• Date of birth: {{3}} March",
+            "• Occupation: {{4}}",
+            "• Previous surgery: {{5}} Health Centre",
+            "## Medical details",
+            "• Registered at previous surgery for {{6}} years",
+            "• Allergic to {{7}}",
+            "## Registration",
+            "• Documents needed: photo ID and a recent bank {{8}}",
+            "• Health check with nurse: {{9}} at {{10}} am"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Hargreaves"
+              ],
+              "explanation": "Neil gives his name and then spells his surname letter by letter: ‘H-A-R-G-R-E-A-V-E-S’.",
+              "cue": "H-A-R-G-R-E-A-V-E-S"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "43",
+                "forty-three"
+              ],
+              "explanation": "He gives the number of his new house: ‘forty-three Cedar Road’.",
+              "cue": "It's forty-three Cedar Road"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "24",
+                "24th",
+                "twenty-fourth"
+              ],
+              "explanation": "He starts with the fourteenth, but that is his wife's birthday, so he corrects himself: ‘Mine's the twenty-fourth’.",
+              "cue": "Mine's the twenty-fourth"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "architect"
+              ],
+              "explanation": "He used to be a carpenter, but ‘these days I'm an architect’.",
+              "cue": "these days I'm an architect"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "Riverside"
+              ],
+              "explanation": "He names his old surgery as ‘the Riverside Health Centre, in Dunmore’.",
+              "cue": "It was the Riverside Health Centre"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "8",
+                "eight"
+              ],
+              "explanation": "He lived in Dunmore for twelve years, but was registered at the surgery for ‘Eight years’, because he did not join until his daughter was born.",
+              "cue": "Eight years. I lived in Dunmore for twelve altogether"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "penicillin"
+              ],
+              "explanation": "He is allergic to ‘Penicillin’, which ‘gives me a terrible rash’; the suspected shellfish allergy was ruled out by tests.",
+              "cue": "Penicillin. It gives me a terrible rash"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "statement"
+              ],
+              "explanation": "Gas and electricity bills are no longer accepted, so proof of address ‘has to be a recent bank statement’.",
+              "cue": "These days it has to be a recent bank statement"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "Friday"
+              ],
+              "explanation": "Tuesday is offered and Thursday is agreed, but the nurse is on a training course that day, so Julia says ‘I could offer you Friday instead’.",
+              "cue": "I could offer you Friday instead"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "9",
+                "nine"
+              ],
+              "explanation": "The Thursday slot was at ten, but the only Friday appointment left ‘is at nine o'clock’.",
+              "cue": "the only appointment she has left is at nine o'clock"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-07/part1.mp3",
+        "duration": 309.6
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A town book fair",
+      "context": "The organiser of a town's annual book fair briefs a group of volunteers.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the organiser of a town's annual book fair talking to a group of volunteers. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 11.52
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 36.52,
+          "end": 40.79
+        },
+        {
+          "speaker": "fiona",
+          "text": "Good evening, everyone, and thank you for coming. I'm Fiona Garrick, and I chair the committee that organises the Marlbury Book Fair. This is our twentieth year, and we're going to need every one of you.",
+          "start": 41.69,
+          "end": 52.27
+        },
+        {
+          "speaker": "fiona",
+          "text": "Several of you have asked how it all began. A lot of people assume it was the library's idea, since the library is such a big part of it now. But in fact it started much more modestly. A bookseller called Mr Okoro, who had a shop on Bridge Street, had a cellar crammed with books that nobody had bought, and he couldn't face throwing them away. So one Saturday he put them out on tables in the market square, and invited a few friends to do the same. It was only meant to happen once, but hundreds of people turned up. The schools joined in later, but that came afterwards.",
+          "start": 52.62,
+          "end": 83.61
+        },
+        {
+          "speaker": "fiona",
+          "text": "So, what's new this year? We did think about adding a Friday, so that the fair would run for three days, but you would all be exhausted, so it stays at two. Entry will be free again, because that's what makes the fair special. No, the real change is that, for the first time, we've invited writers from the area to enter a short-story competition.",
+          "start": 83.96,
+          "end": 102.22
+        },
+        {
+          "speaker": "fiona",
+          "text": "People often ask about money. We don't charge visitors, so where does it come from? The council gave us a grant in the early years, but that ended a long time ago. These days, the people who rent tables pay a small fee, which covers our printing and insurance, but the bulk of our income comes from local firms. The bakery and the bank each sponsor an event, and without them we simply couldn't do it.",
+          "start": 102.57,
+          "end": 123.93
+        },
+        {
+          "speaker": "fiona",
+          "text": "Now, every year something goes wrong, and this year it's books. Not a shortage, quite the opposite. Once word got out that we were collecting, people brought in so many boxes that we've run out of places to put them. The library storeroom has been full since February, and we're using the vestry at St Mark's as well. As for volunteers, forty of you is a record. And yes, one of our authors had to cancel because of illness, but we found a replacement within a day.",
+          "tts": "Now, every year something goes wrong, and this year it's books. Not a shortage, quite the opposite. Once word got out that we were collecting, people brought in so many boxes that we've run out of places to put them. The library storeroom has been full since February, and we're using the vestry at Saint Mark's as well. As for volunteers, forty of you is a record. And yes, one of our authors had to cancel because of illness, but we found a replacement within a day.",
+          "start": 124.28,
+          "end": 147.6
+        },
+        {
+          "speaker": "fiona",
+          "text": "So, what do I need from you? Many of you have already told me which day you prefer, but I still need to know which hours you're free, so please fill in the green form at the back of the room before you leave tonight. There's no training session, I'm pleased to say, and I'll decide which event each of you helps at, so please don't ask for particular ones.",
+          "start": 147.95,
+          "end": 165.48
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 166.38,
+          "end": 172.1
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 192.1,
+          "end": 195.98
+        },
+        {
+          "speaker": "fiona",
+          "text": "Right, now the programme. The main sale is in the Corn Exchange on both days from ten o'clock. But there are also five special events, and some things have changed since the leaflet was printed, so please listen carefully.",
+          "start": 196.88,
+          "end": 209.08
+        },
+        {
+          "speaker": "fiona",
+          "text": "First, the poetry evening on Saturday night. The leaflet says it's in St Mark's church hall, but, as I said, that's now full of boxes, so it has moved to the Regal, which used to be the town's cinema until the nineties. It's a better venue anyway.",
+          "tts": "First, the poetry evening on Saturday night. The leaflet says it's in Saint Mark's church hall, but, as I said, that's now full of boxes, so it has moved to the Regal, which used to be the town's cinema until the nineties. It's a better venue anyway.",
+          "start": 209.43,
+          "end": 222.94
+        },
+        {
+          "speaker": "fiona",
+          "text": "On Sunday morning there'll be stories for the under-fives. Last year they were at the museum, but the museum is being redecorated, so this year it's in the children's section of the library.",
+          "start": 223.29,
+          "end": 233.25
+        },
+        {
+          "speaker": "fiona",
+          "text": "Then comes the main attraction, the interviews with visiting authors. We thought about putting those in the Corn Exchange, but with the sale going on, it would be far too noisy. So they're upstairs in the Town Hall, in the council chamber.",
+          "start": 233.6,
+          "end": 246.02
+        },
+        {
+          "speaker": "fiona",
+          "text": "On Saturday afternoon, you can learn to bind your own notebook. It needs a large table and a sink for the glue, which is why we're using the education room at the museum.",
+          "start": 246.37,
+          "end": 255.69
+        },
+        {
+          "speaker": "fiona",
+          "text": "And finally, on Sunday afternoon, there's the book swap. You bring a book you've finished with, and take away one you haven't read. This will be out in the market square, where the first fair was held, though if it rains we'll have to move everyone into the Corn Exchange.",
+          "start": 256.04,
+          "end": 269.63
+        },
+        {
+          "speaker": "fiona",
+          "text": "That's the programme. Please fill in the green form before you go. Thank you all very much.",
+          "start": 269.98,
+          "end": 274.57
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 275.47,
+          "end": 279.8
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "How did the Marlbury Book Fair begin?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The library needed to raise money."
+                },
+                {
+                  "key": "B",
+                  "text": "A shop owner wanted to clear surplus books."
+                },
+                {
+                  "key": "C",
+                  "text": "Local schools wanted to encourage reading."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Many people think it was the library's idea, but a bookseller ‘had a cellar crammed with books that nobody had bought’ and could not bear to throw them away.",
+              "cue": "had a cellar crammed with books that nobody had bought"
+            },
+            {
+              "number": 12,
+              "prompt": "What is new about this year's fair?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It will last for three days."
+                },
+                {
+                  "key": "B",
+                  "text": "Visitors will have to pay to get in."
+                },
+                {
+                  "key": "C",
+                  "text": "Local writers can enter a contest."
+                }
+              ],
+              "answer": "C",
+              "explanation": "A third day was considered and rejected, and entry stays free; the real change is that ‘for the first time, we've invited writers from the area to enter a short-story competition’.",
+              "cue": "for the first time, we've invited writers from the area"
+            },
+            {
+              "number": 13,
+              "prompt": "Where does most of the fair's money come from?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "local companies"
+                },
+                {
+                  "key": "B",
+                  "text": "fees paid by people renting tables"
+                },
+                {
+                  "key": "C",
+                  "text": "a grant from the council"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The council grant ended long ago and table fees only cover printing and insurance; ‘the bulk of our income comes from local firms’.",
+              "cue": "the bulk of our income comes from local firms"
+            },
+            {
+              "number": 14,
+              "prompt": "What has caused the committee the most difficulty this year?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "finding enough volunteers"
+                },
+                {
+                  "key": "B",
+                  "text": "replacing an author who cancelled"
+                },
+                {
+                  "key": "C",
+                  "text": "storing all the donated books"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Forty volunteers is a record and the missing author was replaced within a day; the real problem is that people brought ‘so many boxes that we've run out of places to put them’.",
+              "cue": "so many boxes that we've run out of places to put them"
+            },
+            {
+              "number": 15,
+              "prompt": "What does Fiona ask the volunteers to do before they leave tonight?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "choose which event they will work at"
+                },
+                {
+                  "key": "B",
+                  "text": "sign up for a training session"
+                },
+                {
+                  "key": "C",
+                  "text": "write down when they are free"
+                }
+              ],
+              "answer": "C",
+              "explanation": "She will choose the events herself and there is no training, but she needs to know ‘which hours you're free’ and wants the green form filled in.",
+              "cue": "which hours you're free"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Where will each event be held? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 16–20.",
+          "optionsTitle": "Venues",
+          "options": [
+            {
+              "key": "A",
+              "text": "the Corn Exchange"
+            },
+            {
+              "key": "B",
+              "text": "St Mark's church hall"
+            },
+            {
+              "key": "C",
+              "text": "the library"
+            },
+            {
+              "key": "D",
+              "text": "the market square"
+            },
+            {
+              "key": "E",
+              "text": "the museum"
+            },
+            {
+              "key": "F",
+              "text": "the Town Hall"
+            },
+            {
+              "key": "G",
+              "text": "the old cinema"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "poetry evening",
+              "answer": "G",
+              "explanation": "The leaflet says St Mark's church hall, but that is full of boxes, so ‘it has moved to the Regal’, which used to be the town's cinema.",
+              "cue": "it has moved to the Regal"
+            },
+            {
+              "number": 17,
+              "prompt": "stories for young children",
+              "answer": "C",
+              "explanation": "Last year's venue, the museum, is being redecorated, so ‘this year it's in the children's section of the library’.",
+              "cue": "this year it's in the children's section of the library"
+            },
+            {
+              "number": 18,
+              "prompt": "interviews with authors",
+              "answer": "F",
+              "explanation": "The Corn Exchange would be too noisy, so the interviews are ‘upstairs in the Town Hall’, in the council chamber.",
+              "cue": "upstairs in the Town Hall"
+            },
+            {
+              "number": 19,
+              "prompt": "bookbinding workshop",
+              "answer": "E",
+              "explanation": "The workshop needs a large table and a sink, so it is held in ‘the education room at the museum’.",
+              "cue": "the education room at the museum"
+            },
+            {
+              "number": 20,
+              "prompt": "book swap",
+              "answer": "D",
+              "explanation": "The swap is ‘out in the market square’, where the first fair was held; the Corn Exchange is only the wet-weather alternative.",
+              "cue": "out in the market square"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-07/part2.mp3",
+        "duration": 310.6
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A model-bridge project",
+      "context": "Two engineering students discuss a model-bridge project with their tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two engineering students, Ellie and Marcus, discussing a model-bridge project with their tutor, Dr Whitaker. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 13.91
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 38.91,
+          "end": 43.63
+        },
+        {
+          "speaker": "whitaker",
+          "text": "Come in, both of you. Let's see where you've got to with the bridge. When we last spoke, you were still deciding on the design.",
+          "start": 44.53,
+          "end": 51.05
+        },
+        {
+          "speaker": "marcus",
+          "text": "We were. I'll be honest, Dr Whitaker, I really wanted to build an arch. They look so elegant.",
+          "start": 51.55,
+          "end": 56.53
+        },
+        {
+          "speaker": "ellie",
+          "text": "But it wouldn't have worked, would it? An arch pushes outwards at the bottom, and the test rig only has two plain supports, with nothing to stop the ends sliding apart.",
+          "start": 57.03,
+          "end": 65.92
+        },
+        {
+          "speaker": "marcus",
+          "text": "True. And it wasn't the weight, because arches can be really light, and I'm sure we could have cut the pieces accurately enough. It was just the supports. So we've gone for a truss.",
+          "start": 66.42,
+          "end": 74.89
+        },
+        {
+          "speaker": "whitaker",
+          "text": "Sensible. Now, you made a prototype, I gather. How did it go?",
+          "start": 75.39,
+          "end": 79.47
+        },
+        {
+          "speaker": "ellie",
+          "text": "Well, we loaded it in the workshop on Friday. It held about nine kilos, and then it suddenly collapsed.",
+          "start": 79.97,
+          "end": 85.92
+        },
+        {
+          "speaker": "marcus",
+          "text": "We assumed the wood had snapped. We'd chosen quite thin sticks to keep the weight down. It did bend a lot before it went, too, but that's just what balsa does. Anyway, when we looked at the pieces, none of the beams was actually broken. It was the joints. The glue had simply let go.",
+          "start": 86.42,
+          "end": 100.8
+        },
+        {
+          "speaker": "marcus",
+          "text": "So we thought, more glue at every joint.",
+          "start": 101.15,
+          "end": 103.45
+        },
+        {
+          "speaker": "whitaker",
+          "text": "I'd resist that. Extra glue adds weight, and a big blob of dried glue is quite brittle. What I'd do instead is look up gusset plates. They're just little triangles of thin card, which you glue over each joint so that the load spreads out. They weigh almost nothing, and make a huge difference.",
+          "start": 103.95,
+          "end": 118.88
+        },
+        {
+          "speaker": "ellie",
+          "text": "Good idea. We were also wondering about thicker sticks for the diagonals.",
+          "start": 119.38,
+          "end": 123.61
+        },
+        {
+          "speaker": "whitaker",
+          "text": "You could, but you'd lose out on the weight side of the marking. Try the plates first.",
+          "start": 124.11,
+          "end": 128.78
+        },
+        {
+          "speaker": "ellie",
+          "text": "How does the marking work, exactly? Is it simply whoever's bridge holds the most?",
+          "start": 129.28,
+          "end": 134.08
+        },
+        {
+          "speaker": "whitaker",
+          "text": "No, and that's where some groups come unstuck. The first part is the load your bridge carries before it fails, but that's judged against its own weight, so a very light bridge that holds a lot scores higher than a heavy one that holds a little more. The second part is a prediction. Before the test, you hand in your estimate of the breaking load, and the closer you are, the more marks you get.",
+          "start": 134.58,
+          "end": 153.33
+        },
+        {
+          "speaker": "marcus",
+          "text": "So it doesn't matter what it looks like?",
+          "start": 153.83,
+          "end": 155.75
+        },
+        {
+          "speaker": "whitaker",
+          "text": "Not in the slightest. Nor does how fast you build it. You've all been given the same wood, so cost doesn't come into it either.",
+          "start": 156.25,
+          "end": 163.14
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 164.04,
+          "end": 170.19
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 190.19,
+          "end": 194.03
+        },
+        {
+          "speaker": "whitaker",
+          "text": "Right, now your list of materials for the final bridge, because anything special has to be ordered by Friday. Balsa first.",
+          "start": 194.93,
+          "end": 202.29
+        },
+        {
+          "speaker": "ellie",
+          "text": "Yes, we're using it for the main frame again.",
+          "start": 202.79,
+          "end": 205.82
+        },
+        {
+          "speaker": "whitaker",
+          "text": "Fine, but a word of warning. Balsa is beautifully light, but no two sticks are the same. Even in one packet, some are twice as stiff as others. So test each one by flexing it, and save the stiffest for the parts that carry the most load.",
+          "start": 206.32,
+          "end": 219.14
+        },
+        {
+          "speaker": "marcus",
+          "text": "OK, we hadn't thought of that. We've also got some bamboo skewers for the diagonals. They're incredibly strong for their weight.",
+          "start": 219.64,
+          "end": 226.34
+        },
+        {
+          "speaker": "whitaker",
+          "text": "They are, I'll give you that. The trouble is attaching them. They're thin, round and slippery, so glue just won't hold them firmly in place.",
+          "start": 226.84,
+          "end": 234.49
+        },
+        {
+          "speaker": "ellie",
+          "text": "Right. And for the glue itself, we've been using ordinary white wood glue.",
+          "start": 234.99,
+          "end": 239.15
+        },
+        {
+          "speaker": "whitaker",
+          "text": "Fine. You might be tempted by epoxy, which is stronger, but you can only buy it from one supplier in town, and it's a nuisance to mix. So stay with the white glue, but allow plenty of time, because it takes ages to dry properly.",
+          "start": 239.65,
+          "end": 252.24
+        },
+        {
+          "speaker": "marcus",
+          "text": "Could we use a bit of sticky tape to hold things together while the glue sets?",
+          "start": 252.74,
+          "end": 256.28
+        },
+        {
+          "speaker": "whitaker",
+          "text": "I'm afraid not. The rules are quite clear. It's wood, card and glue, and nothing else. Even a tiny strip of tape, and you're disqualified.",
+          "start": 256.78,
+          "end": 264.74
+        },
+        {
+          "speaker": "ellie",
+          "text": "And what about a coat of varnish, to protect it?",
+          "start": 265.24,
+          "end": 268.25
+        },
+        {
+          "speaker": "whitaker",
+          "text": "It would look nice, but varnish is heavy, and it does nothing at all for the strength. You'd be penalised for the extra weight and get nothing back.",
+          "start": 268.75,
+          "end": 276.32
+        },
+        {
+          "speaker": "marcus",
+          "text": "OK. We'll finalise the list tonight.",
+          "start": 276.82,
+          "end": 279.1
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 280.0,
+          "end": 284.46
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did the students decide against building an arch?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It would not suit the way the bridge is supported."
+                },
+                {
+                  "key": "B",
+                  "text": "It would be too heavy."
+                },
+                {
+                  "key": "C",
+                  "text": "It would be too difficult to make accurately."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Weight and accuracy were not the problem; the rig has two plain supports ‘with nothing to stop the ends sliding apart’, which an arch needs.",
+              "cue": "with nothing to stop the ends sliding apart"
+            },
+            {
+              "number": 22,
+              "prompt": "What did the students discover when they examined the broken prototype?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Several of the beams were too thin."
+                },
+                {
+                  "key": "B",
+                  "text": "The joints had come apart."
+                },
+                {
+                  "key": "C",
+                  "text": "The bridge had bent too far."
+                }
+              ],
+              "answer": "B",
+              "explanation": "They first blamed thin sticks, and the bridge did bend, but ‘none of the beams was actually broken’; ‘the glue had simply let go’.",
+              "cue": "none of the beams was actually broken"
+            },
+            {
+              "number": 23,
+              "prompt": "What does Dr Whitaker advise the students to do about the weak joints?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Cover them with small pieces of card."
+                },
+                {
+                  "key": "B",
+                  "text": "Apply more glue."
+                },
+                {
+                  "key": "C",
+                  "text": "Use thicker wood."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Extra glue is heavy and brittle, and thicker sticks cost marks for weight; he recommends ‘little triangles of thin card’ glued over each joint.",
+              "cue": "little triangles of thin card"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO things will the students' marks depend on?",
+          "options": [
+            {
+              "key": "A",
+              "text": "the speed at which the bridge is built"
+            },
+            {
+              "key": "B",
+              "text": "the accuracy of the students' forecast of when it will fail"
+            },
+            {
+              "key": "C",
+              "text": "the cost of the materials"
+            },
+            {
+              "key": "D",
+              "text": "the weight of the bridge compared with the load it carries"
+            },
+            {
+              "key": "E",
+              "text": "the appearance of the finished bridge"
+            }
+          ],
+          "answer": [
+            "B",
+            "D"
+          ],
+          "explanation": "Marks depend on the load carried ‘judged against its own weight’ (D) and on the estimate of the breaking load: ‘the closer you are, the more marks you get’ (B). Appearance, speed and cost do not count.",
+          "questions": [
+            {
+              "number": 24,
+              "cue": "judged against its own weight",
+              "explanation": "The load the bridge carries is ‘judged against its own weight’, so a light bridge that holds a lot scores best (D)."
+            },
+            {
+              "number": 25,
+              "cue": "the closer you are, the more marks you get",
+              "explanation": "Students hand in a prediction of the breaking load, and ‘the closer you are, the more marks you get’ (B)."
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What does Dr Whitaker say about each material? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is only sold by one supplier."
+            },
+            {
+              "key": "B",
+              "text": "It is against the rules."
+            },
+            {
+              "key": "C",
+              "text": "It is difficult to mix properly."
+            },
+            {
+              "key": "D",
+              "text": "It needs a long time to dry."
+            },
+            {
+              "key": "E",
+              "text": "Its quality is not consistent."
+            },
+            {
+              "key": "F",
+              "text": "It adds weight without adding strength."
+            },
+            {
+              "key": "G",
+              "text": "It is strong but hard to attach firmly."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "balsa wood",
+              "answer": "E",
+              "explanation": "Balsa is light, but ‘no two sticks are the same’ and some are twice as stiff as others.",
+              "cue": "no two sticks are the same"
+            },
+            {
+              "number": 27,
+              "prompt": "bamboo skewers",
+              "answer": "G",
+              "explanation": "They are strong, but ‘glue just won't hold them firmly in place’.",
+              "cue": "glue just won't hold them firmly in place"
+            },
+            {
+              "number": 28,
+              "prompt": "white wood glue",
+              "answer": "D",
+              "explanation": "Epoxy is only sold by one supplier and is hard to mix (A and C), but the white glue is fine if they allow time, because ‘it takes ages to dry properly’.",
+              "cue": "it takes ages to dry properly"
+            },
+            {
+              "number": 29,
+              "prompt": "sticky tape",
+              "answer": "B",
+              "explanation": "‘It's wood, card and glue, and nothing else’; even a tiny strip of tape means disqualification.",
+              "cue": "It's wood, card and glue, and nothing else"
+            },
+            {
+              "number": 30,
+              "prompt": "varnish",
+              "answer": "F",
+              "explanation": "Varnish ‘does nothing at all for the strength’, and its extra weight would be penalised.",
+              "cue": "it does nothing at all for the strength"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-07/part3.mp3",
+        "duration": 315.26
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the migration of Arctic terns",
+      "context": "A lecture about the long-distance migration of Arctic terns.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the migration of Arctic terns. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.45
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.45,
+          "end": 43.87
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning, everyone. Today I want to talk about a seabird that holds a world record: the Arctic tern. It's a slender, elegant bird, white and pale grey, with a black cap and a bright red beak, and it weighs about as much as a bar of soap. Yet it makes the longest migration of any animal on the planet. It breeds in the far north, in places like Greenland and Iceland, and it spends our winter in the far south, around the edge of Antarctica. And it makes that round trip every single year.",
+          "start": 44.77,
+          "end": 71.24
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So why go to all that trouble? Well, the simple answer is food. The terns eat mostly small fish, although they'll take insects too. Their hunting method is hovering above the water, perfectly still, and then plunging in headfirst when they spot a fish. In the Arctic summer, with the sun hardly setting, the seas are full of fish. But when that summer ends, the fish move away, and the birds simply follow the summer south. So a tern lives through two summers every year, and probably sees more daylight than any other creature on Earth.",
+          "start": 71.59,
+          "end": 99.0
+        },
+        {
+          "speaker": "lecturer",
+          "text": "For most of the twentieth century, we knew surprisingly little about how they made the journey. Scientists fitted numbered metal rings to the legs of chicks, and then waited for somebody to find the bird, usually dead, and report the number. That told us where a bird began and where it ended up, but nothing about the route in between. Radio transmitters might have helped, but even the smallest ones were far too heavy for a bird this size.",
+          "start": 99.35,
+          "end": 119.23
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The breakthrough came about fifteen years ago, with a device called a geolocator. It weighs about a gram, and it's attached to the bird's leg ring. Now, it doesn't use satellites. And, sorry, I see my slide says it records temperature, but that's a mistake. What it actually records is the level of light, every few minutes. From the times of sunrise and sunset, researchers can work out where the bird was on any given day. The weakness is that a geolocator can't send out its information; it can only store it. So the data can't be collected unless the same bird is caught again, a year later, which is a lot harder than it sounds.",
+          "start": 119.58,
+          "end": 151.96
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So, what did the data show? Well, it overturned a few assumptions. You'd expect the birds to fly in a straight line down the Atlantic, but they don't. They follow an enormous S-shaped route. You might guess they're following ocean currents, but the tracking showed that it's the winds that matter. The terns choose the route where the prevailing winds are behind them, so although the zigzag makes the journey longer, it's faster, and uses less energy, than battling into a headwind. Over a year, a tern flies around seventy thousand kilometres.",
+          "start": 152.31,
+          "end": 179.95
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Another surprise was that the birds don't fly non-stop. On the way south, there's a long stopover in the middle of the North Atlantic, where they stay for about a month. Food is plentiful there, so the terns feed heavily, building up reserves of fat for the long flight ahead. After that, they head down the coast of West Africa, and reach the edge of the Antarctic ice, usually in December. They stay through the southern summer, and fly back north, arriving at their breeding colonies in May.",
+          "start": 180.3,
+          "end": 202.14
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Now, the breeding colonies. Arctic terns nest on open ground, usually on gravel or sand, and they make little more than a shallow hollow. That leaves the eggs and chicks very exposed, to foxes, to gulls, and even to people walking past. So the terns have developed a ferocious defence. They treat anything that wanders into the colony as an intruder, and they dive at it, striking it on the head with their beaks.",
+          "start": 202.49,
+          "end": 222.5
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, the future. Arctic terns can live for thirty years, which adds up to the equivalent of three trips to the Moon and back. But the species is under pressure. In some regions, the numbers of sandeels, the small fish that terns feed their chicks on, have fallen sharply. Overfishing has played a part in some places, but the main cause is climate change, because the ocean is getting warmer. Where the fish decline, chicks starve.",
+          "start": 222.85,
+          "end": 243.14
+        },
+        {
+          "speaker": "lecturer",
+          "text": "That's all for today. Next week, we'll look at how young birds find their way.",
+          "start": 243.49,
+          "end": 247.48
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 248.38,
+          "end": 252.78
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 282.78,
+          "end": 285.49
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Arctic terns",
+          "content": [
+            "## Feeding",
+            "• catch small fish by {{31}} over the water and then diving",
+            "• experience two summers a year, so get more {{32}} than any other animal",
+            "## Tracking the birds",
+            "• early research: metal {{33}} fitted to the legs of chicks",
+            "• radio transmitters were too {{34}} for such small birds",
+            "• a geolocator shows the bird's position by recording the level of {{35}}",
+            "• data can only be collected if the same bird is {{36}} the following year",
+            "## Migration route",
+            "• the route is S-shaped because the birds take advantage of the {{37}}",
+            "• they stop for about a month in the middle of the Atlantic to build up {{38}}",
+            "## Breeding and survival",
+            "• nests are on open ground, so adults attack any {{39}} that approaches the colony",
+            "• the supply of fish is shrinking, mainly because the sea is becoming {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "hovering"
+              ],
+              "explanation": "Terns catch fish using ‘hovering above the water, perfectly still’ before plunging in.",
+              "cue": "Their hunting method is hovering above the water"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "daylight"
+              ],
+              "explanation": "Living through two summers a year, a tern ‘sees more daylight than any other creature on Earth’.",
+              "cue": "probably sees more daylight than any other creature"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "rings",
+                "ring"
+              ],
+              "explanation": "Early research depended on ‘numbered metal rings’ fitted to the legs of chicks.",
+              "cue": "numbered metal rings to the legs of chicks"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "heavy"
+              ],
+              "explanation": "Radio transmitters were ‘far too heavy for a bird this size’.",
+              "cue": "far too heavy for a bird this size"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "light"
+              ],
+              "explanation": "The lecturer corrects a mistake on the slide: the geolocator does not use satellites or record temperature, but ‘the level of light’.",
+              "cue": "What it actually records is the level of light"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "caught",
+                "recaptured"
+              ],
+              "explanation": "The device can only store data, so ‘the same bird’ must be ‘caught again, a year later’.",
+              "cue": "unless the same bird is caught again"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "winds",
+                "wind"
+              ],
+              "explanation": "Ocean currents are only a guess; the tracking showed that ‘it's the winds that matter’.",
+              "cue": "it's the winds that matter"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "fat"
+              ],
+              "explanation": "At the mid-Atlantic stopover the terns feed heavily, ‘building up reserves of fat’.",
+              "cue": "building up reserves of fat"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "intruder",
+                "intruders"
+              ],
+              "explanation": "The terns treat ‘anything that wanders into the colony as an intruder’ and dive at it.",
+              "cue": "anything that wanders into the colony as an intruder"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "warmer"
+              ],
+              "explanation": "Overfishing is only a minor cause; the main one is climate change, because ‘the ocean is getting warmer’.",
+              "cue": "the ocean is getting warmer"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-07/part4.mp3",
+        "duration": 286.29
+      }
+    }
+  ],
+  "durationMinutes": 20
+}
