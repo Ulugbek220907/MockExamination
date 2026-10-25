@@ -1,0 +1,1406 @@
+{
+  "id": "listening-11",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 11",
+  "shortTitle": "Practice Test 11",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 11,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "hilary": {
+      "name": "Hilary",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "andreas": {
+      "name": "Andreas",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "neil": {
+      "name": "Neil",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "nora": {
+      "name": "Nora",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "ethan": {
+      "name": "Ethan",
+      "voice": "am_puck",
+      "lang": "en-us"
+    },
+    "barnes": {
+      "name": "Dr Barnes",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Renting a flat",
+      "context": "A student phones a letting agency to ask about renting a flat.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a student telephoning a letting agency to ask about renting a flat. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.73
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.73,
+          "end": 39.8
+        },
+        {
+          "speaker": "hilary",
+          "text": "Good morning, Marlow Lettings. Hilary speaking.",
+          "start": 40.7,
+          "end": 43.52
+        },
+        {
+          "speaker": "andreas",
+          "text": "Oh, hello. I'm looking for a flat to rent from September. I'm about to start a degree at the university.",
+          "start": 44.02,
+          "end": 49.54
+        },
+        {
+          "speaker": "hilary",
+          "text": "Congratulations. What will you be studying?",
+          "start": 50.04,
+          "end": 52.67
+        },
+        {
+          "speaker": "andreas",
+          "text": "Architecture.",
+          "start": 53.17,
+          "end": 54.21
+        },
+        {
+          "speaker": "narrator",
+          "text": "The student is going to study architecture, so 'architecture' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 55.11,
+          "end": 71.15
+        },
+        {
+          "speaker": "hilary",
+          "text": "Right, could I have your name, please?",
+          "start": 72.05,
+          "end": 74.21
+        },
+        {
+          "speaker": "andreas",
+          "text": "Yes, it's Andreas Sorensen.",
+          "start": 74.71,
+          "end": 76.8
+        },
+        {
+          "speaker": "hilary",
+          "text": "Sorry, could you spell your surname for me?",
+          "start": 77.3,
+          "end": 79.77
+        },
+        {
+          "speaker": "andreas",
+          "text": "Of course. It's S-O-R-E-N-S-E-N.",
+          "tts": "Of course. It's S, O, R, E, N, S, E, N.",
+          "start": 80.27,
+          "end": 82.79
+        },
+        {
+          "speaker": "hilary",
+          "text": "Thanks, Mr Sorensen. Which part of town were you thinking of?",
+          "start": 83.29,
+          "end": 86.7
+        },
+        {
+          "speaker": "andreas",
+          "text": "Well, I'll be cycling to the university, so that doesn't matter. What matters more is being within walking distance of the station, because I'll be catching a train home most weekends.",
+          "start": 87.2,
+          "end": 96.53
+        },
+        {
+          "speaker": "hilary",
+          "text": "That's sensible. And what's your budget? Per week or per month, whichever you prefer.",
+          "start": 97.03,
+          "end": 101.49
+        },
+        {
+          "speaker": "andreas",
+          "text": "Per week, I think. About 85 pounds. Oh, hang on. I spoke to my parents last night and they've offered to help, so make that 95.",
+          "start": 101.99,
+          "end": 109.24
+        },
+        {
+          "speaker": "hilary",
+          "text": "That's fine. And how long would you want the tenancy for? Some students prefer to pay only for the university year.",
+          "start": 109.74,
+          "end": 116.05
+        },
+        {
+          "speaker": "andreas",
+          "text": "Nine months would be ideal, from September to the end of May. I'd rather not pay for the summer.",
+          "start": 116.55,
+          "end": 121.59
+        },
+        {
+          "speaker": "hilary",
+          "text": "I understand, but I should warn you that nearly all our landlords insist on a full year. One or two might accept less, but they're rare.",
+          "start": 122.09,
+          "end": 129.68
+        },
+        {
+          "speaker": "andreas",
+          "text": "Hmm. In that case, I'll go for twelve months. At least I won't have to move all my things out in June.",
+          "start": 130.18,
+          "end": 135.6
+        },
+        {
+          "speaker": "hilary",
+          "text": "Good. Is there anything else I should note down?",
+          "start": 136.1,
+          "end": 138.96
+        },
+        {
+          "speaker": "andreas",
+          "text": "Yes, actually. I'll be doing a lot of drawing at home, so I need room to spread out big sheets of paper. A desk isn't big enough. What I really need is a proper table.",
+          "start": 139.46,
+          "end": 148.46
+        },
+        {
+          "speaker": "hilary",
+          "text": "That makes sense. I'll put that down.",
+          "start": 148.96,
+          "end": 151.27
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 152.17,
+          "end": 157.88
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 177.88,
+          "end": 181.21
+        },
+        {
+          "speaker": "hilary",
+          "text": "Right, I think I've got just the thing. It's a second-floor flat in Dunmore Road. That's D-U-N-M-O-R-E. It's only five minutes from the station.",
+          "tts": "Right, I think I've got just the thing. It's a second-floor flat in Dunmore Road. That's D, U, N, M, O, R, E. It's only five minutes from the station.",
+          "start": 182.11,
+          "end": 190.41
+        },
+        {
+          "speaker": "andreas",
+          "text": "That sounds ideal. What about bills? Are gas and electricity included?",
+          "start": 190.91,
+          "end": 194.77
+        },
+        {
+          "speaker": "hilary",
+          "text": "No, those are extra, I'm afraid. The rent covers your water and broadband, though.",
+          "start": 195.27,
+          "end": 200.11
+        },
+        {
+          "speaker": "andreas",
+          "text": "OK. Is it furnished?",
+          "start": 200.61,
+          "end": 202.3
+        },
+        {
+          "speaker": "hilary",
+          "text": "Yes. There's a bed, a wardrobe, a sofa and a fully equipped kitchen. All you need to bring is your own bedding.",
+          "start": 202.8,
+          "end": 209.11
+        },
+        {
+          "speaker": "andreas",
+          "text": "Great. Could I see it tomorrow afternoon? That's Wednesday, isn't it?",
+          "start": 209.61,
+          "end": 213.11
+        },
+        {
+          "speaker": "hilary",
+          "text": "Let me look at the landlord's diary. Yes, he could do Wednesday at four o'clock.",
+          "start": 213.61,
+          "end": 218.11
+        },
+        {
+          "speaker": "andreas",
+          "text": "Oh, that's a pity. I've got a lab session until six on Wednesdays. Is there any chance of another day?",
+          "start": 218.61,
+          "end": 224.03
+        },
+        {
+          "speaker": "hilary",
+          "text": "Hmm, let me see. Yes, he's free on Thursday, at the same time.",
+          "start": 224.53,
+          "end": 228.07
+        },
+        {
+          "speaker": "andreas",
+          "text": "Thursday at four. Perfect.",
+          "start": 228.57,
+          "end": 230.39
+        },
+        {
+          "speaker": "hilary",
+          "text": "One more thing. If you decide you want the flat, we ask for a small holding deposit, which comes off your first month's rent.",
+          "start": 230.89,
+          "end": 237.44
+        },
+        {
+          "speaker": "andreas",
+          "text": "How much is that? And is it the same as the main deposit?",
+          "start": 237.94,
+          "end": 241.14
+        },
+        {
+          "speaker": "hilary",
+          "text": "No, that's separate. The main deposit is five weeks' rent, and you pay it when you sign the contract. The holding deposit is only 60 pounds.",
+          "start": 241.64,
+          "end": 249.68
+        },
+        {
+          "speaker": "andreas",
+          "text": "That's fine. Thank you very much for your help.",
+          "start": 250.18,
+          "end": 252.51
+        },
+        {
+          "speaker": "hilary",
+          "text": "You're welcome. I'll email you the address this afternoon. Goodbye.",
+          "start": 253.01,
+          "end": 256.7
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 257.6,
+          "end": 262.12
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Marlow Lettings – tenant enquiry",
+          "content": [
+            "Example: Course: **architecture**",
+            "## Student details",
+            "• Name: Andreas {{1}}",
+            "• Wants to live near the {{2}}",
+            "• Maximum rent: £{{3}} per week",
+            "• Length of tenancy: {{4}} months",
+            "• Needs room for a large {{5}}",
+            "## The flat",
+            "• Address: {{6}} Road",
+            "• Rent includes water and {{7}}",
+            "• Tenant must bring own {{8}}",
+            "## Next steps",
+            "• Viewing arranged for {{9}}, 4 pm",
+            "• Holding deposit: £{{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Sorensen"
+              ],
+              "explanation": "Andreas gives his name and then spells his surname: ‘S-O-R-E-N-S-E-N’.",
+              "cue": "S-O-R-E-N-S-E-N"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "station"
+              ],
+              "explanation": "The university and shops do not matter because he will cycle; what matters is ‘being within walking distance of the station’.",
+              "cue": "within walking distance of the station"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "95",
+                "ninety-five"
+              ],
+              "explanation": "He first says 85, but then changes it after talking to his parents: ‘make that 95’.",
+              "cue": "make that 95"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "12",
+                "twelve"
+              ],
+              "explanation": "He would prefer nine months, but the landlords ‘insist on a full year’, so he decides: ‘I'll go for twelve months’.",
+              "cue": "I'll go for twelve months"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "table"
+              ],
+              "explanation": "A desk is not big enough for his drawings: ‘What I really need is a proper table’.",
+              "cue": "What I really need is a proper table"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "Dunmore"
+              ],
+              "explanation": "The agent describes ‘a second-floor flat in Dunmore Road’ and spells the name of the road.",
+              "cue": "a second-floor flat in Dunmore Road"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "broadband"
+              ],
+              "explanation": "Gas and electricity are extra, but ‘the rent covers your water and broadband’.",
+              "cue": "The rent covers your water and broadband"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "bedding"
+              ],
+              "explanation": "The flat is fully furnished and equipped, and ‘all you need to bring is your own bedding’.",
+              "cue": "All you need to bring is your own bedding"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "Thursday"
+              ],
+              "explanation": "Wednesday at four is offered, but he has a lab session, so the landlord is ‘free on Thursday, at the same time’.",
+              "cue": "he's free on Thursday"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "60",
+                "sixty"
+              ],
+              "explanation": "The main deposit is five weeks' rent, which is separate; ‘the holding deposit is only 60 pounds’.",
+              "cue": "The holding deposit is only 60 pounds"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-11/part1.mp3",
+        "duration": 292.92
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A charity fun run",
+      "context": "A coordinator briefs volunteers about a charity fun run.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the coordinator of a charity fun run talking to a group of volunteers. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 11.31
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 36.31,
+          "end": 40.58
+        },
+        {
+          "speaker": "neil",
+          "text": "Good evening, everyone, and thank you for coming. I'm Neil, the coordinator of this year's Little Lights Fun Run. First, some background, and then I'll take you round the route.",
+          "start": 41.48,
+          "end": 52.16
+        },
+        {
+          "speaker": "neil",
+          "text": "First, some history for the new people. Many assume the run was started by the hospital, or by one of the local running clubs, but in fact it was the idea of a group of parents whose children had been treated on the children's ward at Marston General. The first run, eleven years ago, had just forty entrants.",
+          "start": 52.51,
+          "end": 71.76
+        },
+        {
+          "speaker": "neil",
+          "text": "Now, where does the money go? Not to medical research, as some people think. That's a different charity. We'd planned to build a garden outside the ward, but the hospital found funding for that elsewhere, and a minibus for family outings would have cost too much to run. So we'll be paying for a specialist worker, a trained person who'll spend time with the children on the ward every day for the next two years.",
+          "start": 72.11,
+          "end": 95.45
+        },
+        {
+          "speaker": "neil",
+          "text": "Of course, a run needs runners and marshals. Entries are well ahead of last year, and the council gave us permission to close the park road within a week, which was a lovely surprise. What does keep me awake at night is the marshals. We need around eighty, and we're about a third short, so please ask your friends.",
+          "start": 95.8,
+          "end": 115.25
+        },
+        {
+          "speaker": "neil",
+          "text": "A word about race numbers. We used to post them out, but some got lost. Then we tried handing them out at the park on the morning, but two years ago the queues were terrible and some people missed the start. So this year, every runner must collect their number from Harper's Sports Shop in Market Street, on any day in the week before.",
+          "start": 115.6,
+          "end": 135.04
+        },
+        {
+          "speaker": "neil",
+          "text": "Finally, what if it rains? Some people expect us to shorten the route, and others think we'd postpone, but we've never called the run off in eleven years. The paths are properly surfaced, and the date can't move because of the road licence. So unless there's an official storm warning, it goes ahead, and you will get wet!",
+          "start": 135.39,
+          "end": 154.69
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 155.59,
+          "end": 161.31
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 181.31,
+          "end": 185.19
+        },
+        {
+          "speaker": "neil",
+          "text": "Right, now the route. It's a five-kilometre loop, starting and finishing at the bandstand, and I'll take you round it in order, telling you what will be where.",
+          "start": 186.09,
+          "end": 195.1
+        },
+        {
+          "speaker": "neil",
+          "text": "The first stretch follows the lakeside path. Just after the boathouse, about a kilometre and a half in, is the first water station, with cups of water and extra bins for the empties. Please make sure your team clears them up, as we don't want litter in the lake.",
+          "start": 195.45,
+          "end": 211.3
+        },
+        {
+          "speaker": "neil",
+          "text": "After that, the path climbs into the Rose Garden. It's the prettiest part of the park, but also the narrowest. We thought of putting the photographers there, but they'd be in everybody's way. Instead, we've arranged for a samba band from Marston High School to play as the runners go past.",
+          "start": 211.65,
+          "end": 229.25
+        },
+        {
+          "speaker": "neil",
+          "text": "Next, you cross the stone bridge. That's the best place for pictures, with the water behind the runners, so our official photographer will stand there. Everyone's photos go online afterwards, free of charge.",
+          "start": 229.6,
+          "end": 242.14
+        },
+        {
+          "speaker": "neil",
+          "text": "Then comes the hardest part, Beacon Hill. Last year the first-aid post was at the start and finish, but far more runners struggle on the climb, so this year the nurses will be at the top of the hill, with a paramedic on a bike for emergencies.",
+          "start": 242.49,
+          "end": 257.36
+        },
+        {
+          "speaker": "neil",
+          "text": "From there it's downhill all the way back to the bandstand. At the finish line, volunteers will give each runner a medal and something to eat, a banana or an orange. The information stall, with leaflets about the charity, will be in a marquee by the car park.",
+          "start": 257.71,
+          "end": 273.97
+        },
+        {
+          "speaker": "neil",
+          "text": "Right, that's everything. If you have any questions, grab me at the break.",
+          "start": 274.32,
+          "end": 278.41
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 279.31,
+          "end": 283.64
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Who started the Little Lights Fun Run?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "some parents of former patients"
+                },
+                {
+                  "key": "B",
+                  "text": "staff at the hospital"
+                },
+                {
+                  "key": "C",
+                  "text": "members of a running club"
+                }
+              ],
+              "answer": "A",
+              "explanation": "People assume the hospital or a running club started it, but ‘it was the idea of a group of parents’ whose children had been treated on the ward.",
+              "cue": "it was the idea of a group of parents"
+            },
+            {
+              "number": 12,
+              "prompt": "What will this year's money be used for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "creating a garden at the hospital"
+                },
+                {
+                  "key": "B",
+                  "text": "buying a vehicle for family trips"
+                },
+                {
+                  "key": "C",
+                  "text": "employing someone to support the children"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The garden has been funded elsewhere and a minibus would cost too much to run, so ‘we'll be paying for a specialist worker’ who will spend time with the children on the ward.",
+              "cue": "we'll be paying for a specialist worker"
+            },
+            {
+              "number": 13,
+              "prompt": "What is Neil's main concern at present?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "whether enough people will enter"
+                },
+                {
+                  "key": "B",
+                  "text": "whether there will be enough people to supervise the route"
+                },
+                {
+                  "key": "C",
+                  "text": "whether the roads can be closed"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Entries are ahead of last year and the road closure is agreed; ‘what does keep me awake at night is the marshals’, as they are a third short.",
+              "cue": "What does keep me awake at night is the marshals"
+            },
+            {
+              "number": 14,
+              "prompt": "Where must runners collect their race numbers this year?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the park on the morning of the run"
+                },
+                {
+                  "key": "B",
+                  "text": "from a shop in town"
+                },
+                {
+                  "key": "C",
+                  "text": "from their own front door by post"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Posting and collecting at the park have both failed, so ‘every runner must collect their number from Harper's Sports Shop’.",
+              "cue": "collect their number from Harper's Sports Shop"
+            },
+            {
+              "number": 15,
+              "prompt": "What will happen if the weather is bad?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The run will go ahead as planned."
+                },
+                {
+                  "key": "B",
+                  "text": "The route will be made shorter."
+                },
+                {
+                  "key": "C",
+                  "text": "The run will be moved to another day."
+                }
+              ],
+              "answer": "A",
+              "explanation": "The run has never been called off and the date cannot move, so unless there is a storm warning ‘it goes ahead’.",
+              "cue": "it goes ahead, and you will get wet"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What will be provided at each point along the route? Choose **FIVE** answers from the box and write the correct letter, **A–F**, next to Questions 16–20.",
+          "optionsTitle": "Facilities",
+          "options": [
+            {
+              "key": "A",
+              "text": "medical help"
+            },
+            {
+              "key": "B",
+              "text": "entertainment"
+            },
+            {
+              "key": "C",
+              "text": "food"
+            },
+            {
+              "key": "D",
+              "text": "photography"
+            },
+            {
+              "key": "E",
+              "text": "drinks"
+            },
+            {
+              "key": "F",
+              "text": "information about the charity"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "the boathouse",
+              "answer": "E",
+              "explanation": "Just after the boathouse is ‘the first water station, with cups of water’.",
+              "cue": "the first water station, with cups of water"
+            },
+            {
+              "number": 17,
+              "prompt": "the Rose Garden",
+              "answer": "B",
+              "explanation": "Photographers were rejected for this narrow path; instead ‘a samba band from Marston High School’ will play for the runners.",
+              "cue": "a samba band from Marston High School"
+            },
+            {
+              "number": 18,
+              "prompt": "the stone bridge",
+              "answer": "D",
+              "explanation": "It is the best place for pictures, so ‘our official photographer will stand there’.",
+              "cue": "our official photographer will stand there"
+            },
+            {
+              "number": 19,
+              "prompt": "the top of Beacon Hill",
+              "answer": "A",
+              "explanation": "The first-aid post has moved from the finish to the climb: ‘the nurses will be at the top of the hill’.",
+              "cue": "the nurses will be at the top of the hill"
+            },
+            {
+              "number": 20,
+              "prompt": "the finish line",
+              "answer": "C",
+              "explanation": "Each runner gets ‘a medal and something to eat, a banana or an orange’. The information stall (F) is in a marquee by the car park.",
+              "cue": "a medal and something to eat"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-11/part2.mp3",
+        "duration": 314.44
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "An experiment on decision-making",
+      "context": "Two psychology students discuss an experiment with their tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two psychology students, Nora and Ethan, discussing an experiment on decision-making with their tutor, Dr Barnes. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 14.4
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 39.4,
+          "end": 44.12
+        },
+        {
+          "speaker": "barnes",
+          "text": "Come in, both of you. Before we look at your figures, remind me how you came up with the idea. I seem to remember the famous jam study came into it.",
+          "start": 45.02,
+          "end": 53.51
+        },
+        {
+          "speaker": "ethan",
+          "text": "It did, because that's what Nora wanted to repeat. But it's been done so often. What really started us off was my Saturday job in a shoe shop. Customers who see a whole wall of trainers often leave with nothing.",
+          "start": 54.01,
+          "end": 66.72
+        },
+        {
+          "speaker": "nora",
+          "text": "So we thought we'd test it properly, with something cheaper than shoes.",
+          "start": 67.22,
+          "end": 71.04
+        },
+        {
+          "speaker": "barnes",
+          "text": "Fair enough. Did you use the department's participant pool?",
+          "start": 71.54,
+          "end": 74.89
+        },
+        {
+          "speaker": "nora",
+          "text": "We meant to, but there's a long waiting list. Ethan wanted to put an advert on the student website, but I was worried we'd only get people who were already interested in psychology. So we set up a table in the library foyer and invited people as they walked past.",
+          "start": 75.39,
+          "end": 89.34
+        },
+        {
+          "speaker": "barnes",
+          "text": "I see. And remind me what the task was, and what you expected.",
+          "start": 89.84,
+          "end": 93.43
+        },
+        {
+          "speaker": "ethan",
+          "text": "Half our participants chose a notebook from six designs, and half from twenty-four. We predicted that the second group would give lower ratings afterwards. You know, they'd keep thinking about all the ones they hadn't picked.",
+          "start": 93.93,
+          "end": 106.51
+        },
+        {
+          "speaker": "barnes",
+          "text": "A sensible hypothesis. So what did you find?",
+          "start": 107.01,
+          "end": 110.11
+        },
+        {
+          "speaker": "ethan",
+          "text": "Well, that's the odd thing. The ratings were almost identical in the two groups. The only real difference was that the larger group took about twice as long to choose.",
+          "start": 110.61,
+          "end": 120.68
+        },
+        {
+          "speaker": "barnes",
+          "text": "Interesting. Why do you think that happened?",
+          "start": 121.18,
+          "end": 123.46
+        },
+        {
+          "speaker": "nora",
+          "text": "I wondered whether the notebooks were just too boring for people to care.",
+          "start": 123.96,
+          "end": 128.03
+        },
+        {
+          "speaker": "barnes",
+          "text": "Possibly, but think about who walks into a library foyer. Quite a few probably already have a favourite colour, or a style they always buy. If someone heads straight for the blue one, six notebooks or twenty-four makes very little difference.",
+          "start": 128.53,
+          "end": 141.23
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 142.13,
+          "end": 148.27
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 168.27,
+          "end": 172.11
+        },
+        {
+          "speaker": "barnes",
+          "text": "Right, how could you get a clearer result next time?",
+          "start": 173.01,
+          "end": 175.83
+        },
+        {
+          "speaker": "ethan",
+          "text": "I thought we could put a time limit on each choice. Thirty seconds, say.",
+          "start": 176.33,
+          "end": 180.21
+        },
+        {
+          "speaker": "barnes",
+          "text": "I'd avoid that. It adds another variable, so you wouldn't know which was causing any difference.",
+          "start": 180.71,
+          "end": 185.57
+        },
+        {
+          "speaker": "nora",
+          "text": "What about giving people real money to spend, instead of a notebook?",
+          "start": 186.07,
+          "end": 189.98
+        },
+        {
+          "speaker": "barnes",
+          "text": "I don't think money is the point. What matters is whether people have a view before they begin. So I'd suggest using things they haven't come across before. Unusual teas, perhaps, or crisps from other countries. Then nobody has a favourite.",
+          "start": 190.48,
+          "end": 203.64
+        },
+        {
+          "speaker": "ethan",
+          "text": "That makes sense.",
+          "start": 204.14,
+          "end": 205.16
+        },
+        {
+          "speaker": "barnes",
+          "text": "And my other suggestion is to add a short questionnaire. Some people are maximisers, who keep looking for the very best option, and others are satisficers, who are happy with one that's good enough. You could see whether the number of choices affects the two types differently.",
+          "start": 205.66,
+          "end": 220.09
+        },
+        {
+          "speaker": "nora",
+          "text": "Oh, that's a great idea.",
+          "start": 220.59,
+          "end": 222.7
+        },
+        {
+          "speaker": "ethan",
+          "text": "Should we show more notebooks as well? Fifty, maybe?",
+          "start": 223.2,
+          "end": 225.91
+        },
+        {
+          "speaker": "barnes",
+          "text": "No need. Twenty-four is already more than most studies use.",
+          "start": 226.41,
+          "end": 229.86
+        },
+        {
+          "speaker": "nora",
+          "text": "One more thing. A few people took ages, over ten minutes. Should we leave them out of the analysis?",
+          "start": 230.36,
+          "end": 236.02
+        },
+        {
+          "speaker": "barnes",
+          "text": "Only if you made that rule before you saw the data. Otherwise you're choosing the results that suit you. So keep everybody in, and mention the long times in your report.",
+          "start": 236.52,
+          "end": 245.52
+        },
+        {
+          "speaker": "barnes",
+          "text": "Now, how will you describe your results?",
+          "start": 245.87,
+          "end": 248.22
+        },
+        {
+          "speaker": "ethan",
+          "text": "Honestly, I was going to say the experiment failed.",
+          "start": 248.72,
+          "end": 251.47
+        },
+        {
+          "speaker": "barnes",
+          "text": "Please don't. Many students think that if the results don't support the hypothesis, the experiment has failed. It hasn't. An honest report of a surprising result is exactly what examiners want to see.",
+          "start": 251.97,
+          "end": 263.66
+        },
+        {
+          "speaker": "barnes",
+          "text": "So, what happens next?",
+          "start": 264.01,
+          "end": 265.69
+        },
+        {
+          "speaker": "nora",
+          "text": "We'll buy the tea and the crisps this week and start straight away.",
+          "start": 266.19,
+          "end": 269.8
+        },
+        {
+          "speaker": "barnes",
+          "text": "Hold on. Because you're adding a questionnaire and a new kind of product, you'll need to ask the ethics committee to approve the changes first. In the meantime, you could write the method section of your report.",
+          "start": 270.3,
+          "end": 281.09
+        },
+        {
+          "speaker": "ethan",
+          "text": "OK, will do. Thank you, Dr Barnes.",
+          "start": 281.59,
+          "end": 283.85
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 284.75,
+          "end": 289.21
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What gave the students the idea for their experiment?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a lecture they had attended"
+                },
+                {
+                  "key": "B",
+                  "text": "Ethan's part-time job"
+                },
+                {
+                  "key": "C",
+                  "text": "a suggestion from Dr Barnes"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The famous jam study was Nora's first idea, but ‘what really started us off was my Saturday job in a shoe shop’.",
+              "cue": "What really started us off was my Saturday job"
+            },
+            {
+              "number": 22,
+              "prompt": "How did the students find their participants?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "through the department's participant pool"
+                },
+                {
+                  "key": "B",
+                  "text": "by advertising on a website"
+                },
+                {
+                  "key": "C",
+                  "text": "by approaching people in the library"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The participant pool has a long waiting list and Nora rejects Ethan's online advert, so ‘we set up a table in the library foyer’ and invited people to take part.",
+              "cue": "set up a table in the library foyer"
+            },
+            {
+              "number": 23,
+              "prompt": "What did the students expect to find?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "People with more choice would be less happy with their choice."
+                },
+                {
+                  "key": "B",
+                  "text": "People with more choice would decide more quickly."
+                },
+                {
+                  "key": "C",
+                  "text": "People with less choice would pick the most expensive item."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Ethan says the group choosing from twenty-four ‘would give lower ratings’, because they would keep thinking about the notebooks they had not picked.",
+              "cue": "would give lower ratings"
+            },
+            {
+              "number": 24,
+              "prompt": "What was surprising about the results?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "People with more notebooks to choose from made faster decisions."
+                },
+                {
+                  "key": "B",
+                  "text": "The two groups gave similar satisfaction ratings."
+                },
+                {
+                  "key": "C",
+                  "text": "People with fewer notebooks were less satisfied."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Ethan says ‘the ratings were almost identical in the two groups’; the only difference was that the larger group was slower, not faster.",
+              "cue": "The ratings were almost identical in the two groups"
+            },
+            {
+              "number": 25,
+              "prompt": "How does Dr Barnes explain the results?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The notebooks were not attractive enough."
+                },
+                {
+                  "key": "B",
+                  "text": "The participants did not take the task seriously."
+                },
+                {
+                  "key": "C",
+                  "text": "Many participants already had a preference."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Nora blames boring notebooks, but Dr Barnes suspects that many people ‘already have a favourite colour, or a style they always buy’, so the number of options matters little.",
+              "cue": "or a style they always buy"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO suggestions does Dr Barnes make for improving the study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "using products that are new to the participants"
+            },
+            {
+              "key": "B",
+              "text": "limiting the time allowed for each decision"
+            },
+            {
+              "key": "C",
+              "text": "giving participants money to spend"
+            },
+            {
+              "key": "D",
+              "text": "finding out how participants usually make decisions"
+            },
+            {
+              "key": "E",
+              "text": "showing a larger number of items"
+            }
+          ],
+          "answer": [
+            "A",
+            "D"
+          ],
+          "explanation": "She suggests ‘using things they haven't come across before’ (A) and a short questionnaire on ‘maximisers’ and ‘satisficers’ (D). The time limit (B) adds a variable, money (C) is ‘not the point’, and ‘there's no need’ for more items (E).",
+          "questions": [
+            {
+              "number": 26,
+              "explanation": "She recommends ‘using things they haven't come across before’, such as unusual teas, so that nobody has a favourite.",
+              "cue": "using things they haven't come across before"
+            },
+            {
+              "number": 27,
+              "explanation": "Her ‘other suggestion is to add a short questionnaire’ to find out whether people are maximisers or satisficers.",
+              "cue": "my other suggestion is to add a short questionnaire"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 28,
+              "prompt": "What does Dr Barnes advise about participants who took a very long time?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Their results should be removed."
+                },
+                {
+                  "key": "B",
+                  "text": "Their results should be kept and mentioned in the report."
+                },
+                {
+                  "key": "C",
+                  "text": "They should be tested a second time."
+                }
+              ],
+              "answer": "B",
+              "explanation": "A rule to leave them out would have to be made before seeing the data, so she says ‘keep everybody in’ and mention the long times in the report.",
+              "cue": "keep everybody in"
+            },
+            {
+              "number": 29,
+              "prompt": "What does Dr Barnes think about the results of the first study?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They are worth writing up."
+                },
+                {
+                  "key": "B",
+                  "text": "They need to be repeated immediately."
+                },
+                {
+                  "key": "C",
+                  "text": "They are too unclear to be useful."
+                }
+              ],
+              "answer": "A",
+              "explanation": "The experiment has not failed: ‘an honest report of a surprising result’ is what examiners want to see.",
+              "cue": "An honest report of a surprising result"
+            },
+            {
+              "number": 30,
+              "prompt": "What must the students do before they start the new study?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "buy the products to be used"
+                },
+                {
+                  "key": "B",
+                  "text": "get the changes approved"
+                },
+                {
+                  "key": "C",
+                  "text": "write part of their report"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Nora wants to start straight away, but ‘you'll need to ask the ethics committee to approve the changes first’. Writing the method section is only for ‘in the meantime’.",
+              "cue": "you'll need to ask the ethics committee to approve the changes first"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-11/part3.mp3",
+        "duration": 320.01
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: coral reefs under threat",
+      "context": "A lecture about coral reefs and why they are under threat.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about coral reefs and why they are under threat. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.92
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.92,
+          "end": 44.34
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon, everyone. Today I want to talk about coral reefs: what they are, why they matter, and why so many of them are in serious trouble.",
+          "start": 45.24,
+          "end": 53.22
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Let's start with a common misunderstanding. A coral looks like a rock, or perhaps a plant, but it is neither. Corals are animals. Each one begins as a tiny creature called a polyp, no bigger than a grain of rice, and polyps live together in enormous colonies. As they grow, they build a hard skeleton around themselves, and over thousands of years these skeletons pile up to form a reef.",
+          "start": 53.57,
+          "end": 74.54
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Now, polyps are not very good hunters. They catch a little plankton at night, but most of their food comes from somewhere else: microscopic algae that live inside their tissues. The coral gives the algae shelter, and in return the algae use sunlight to make sugars, which they pass to the coral. The algae also give the coral its colour. This partnership is why reefs only grow in warm, shallow, clear water, where plenty of light can get through.",
+          "start": 74.89,
+          "end": 97.69
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So why should we care? Well, reefs cover less than one percent of the ocean floor, yet they are home to roughly a quarter of all the fish in the sea. Reefs also protect the coast. A healthy reef takes most of the energy out of the waves before they reach the shore, which is why islands and low-lying coasts behind reefs suffer less damage in storms. And for the people who live nearby, a reef provides food, and it provides jobs, mostly in fishing and tourism.",
+          "start": 98.04,
+          "end": 122.15
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Now let's turn to the threats, starting with climate change, which affects reefs in two different ways. The first is warming. Corals live close to the upper limit of the temperatures they can tolerate. If the water stays just one or two degrees above normal for several weeks, the coral becomes stressed and pushes out its algae. Without them, it loses its colour and turns white, which is why this is called bleaching. A bleached coral isn't dead, not yet. If the water cools in time, the algae can return. But if the heat continues, the coral starves.",
+          "start": 122.5,
+          "end": 152.83
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The second effect is less well known. The oceans absorb a great deal of the carbon dioxide we release into the air, and as they do so, the seawater becomes more acidic. In more acidic water, corals find it harder to take the minerals they need to build their skeletons, so reefs grow more slowly and become more fragile.",
+          "start": 153.18,
+          "end": 171.4
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Then there are local threats. When farmers spread fertiliser on their fields, rain washes some of it into the rivers and out to sea. There it encourages tiny plants in the water to multiply, which makes the water cloudy and cuts out the sunlight that the corals' algae need. Fishing is another problem. Some fish, such as parrotfish, graze on seaweed and keep it under control. If too many of them are caught, the seaweed spreads, and it can smother the coral completely.",
+          "start": 171.75,
+          "end": 194.92
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, what can be done? Marine reserves, where fishing is banned, help reefs to recover, but they can't protect against warming. A newer idea is coral gardening. Small fragments of healthy coral are broken off, and grown on frames in underwater nurseries until they are big enough to be planted on damaged reefs. It's slow work, and it can't replace action on climate change, but it gives some reefs a fighting chance.",
+          "start": 195.27,
+          "end": 217.67
+        },
+        {
+          "speaker": "lecturer",
+          "text": "That's all for today. Next week, we'll turn to mangrove forests, which protect coastlines in a similar way.",
+          "start": 218.02,
+          "end": 223.69
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 224.59,
+          "end": 228.99
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 258.99,
+          "end": 261.7
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Coral reefs",
+          "content": [
+            "## What corals are",
+            "• tiny animals called {{31}} that live together in colonies",
+            "• most of their food comes from microscopic {{32}} inside their tissues",
+            "## Why reefs matter",
+            "• home to about a quarter of all the {{33}} in the sea",
+            "• reduce the force of {{34}} before they reach the shore",
+            "• give people in coastal communities food and {{35}}",
+            "## Threats",
+            "• warm water: corals lose their algae and turn {{36}} (bleaching)",
+            "• carbon dioxide absorbed by the sea makes the water {{37}}",
+            "• chemical {{38}} used on farmland is carried to the sea and reduces the light reaching reefs",
+            "• when too many plant-eating fish are caught, {{39}} grows over the coral",
+            "## Protection",
+            "• fragments of coral are grown in underwater {{40}} and then transplanted to damaged reefs"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "polyps",
+                "polyp"
+              ],
+              "explanation": "Corals are animals, and each one begins as ‘a tiny creature called a polyp’; polyps live together in colonies.",
+              "cue": "a tiny creature called a polyp"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "algae"
+              ],
+              "explanation": "Most of the polyps' food comes from ‘microscopic algae that live inside their tissues’.",
+              "cue": "microscopic algae that live inside their tissues"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "fish"
+              ],
+              "explanation": "Reefs cover under one percent of the ocean floor but are home to ‘roughly a quarter of all the fish in the sea’.",
+              "cue": "roughly a quarter of all the fish in the sea"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "waves"
+              ],
+              "explanation": "A healthy reef ‘takes most of the energy out of the waves before they reach the shore’.",
+              "cue": "takes most of the energy out of the waves"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "jobs",
+                "job"
+              ],
+              "explanation": "For people nearby, ‘a reef provides food, and it provides jobs’, mostly in fishing and tourism.",
+              "cue": "it provides jobs"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "white"
+              ],
+              "explanation": "When stressed corals push out their algae, they lose their colour and ‘turn white’, which is called bleaching.",
+              "cue": "turns white"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "acidic"
+              ],
+              "explanation": "The oceans absorb carbon dioxide, and ‘the seawater becomes more acidic’.",
+              "cue": "the seawater becomes more acidic"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "fertiliser",
+                "fertilisers",
+                "fertilizer",
+                "fertilizers"
+              ],
+              "explanation": "‘When farmers spread fertiliser on their fields’, rain washes it out to sea, where it clouds the water and cuts out sunlight.",
+              "cue": "When farmers spread fertiliser on their fields"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "seaweed"
+              ],
+              "explanation": "Parrotfish ‘graze on seaweed’; if too many are caught, ‘the seaweed spreads’ and can smother the coral.",
+              "cue": "graze on seaweed"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "nurseries",
+                "nursery"
+              ],
+              "explanation": "In coral gardening, fragments are ‘grown on frames in underwater nurseries’ until they can be planted on damaged reefs.",
+              "cue": "grown on frames in underwater nurseries"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-11/part4.mp3",
+        "duration": 262.5
+      }
+    }
+  ],
+  "durationMinutes": 20
+}

@@ -1,0 +1,1503 @@
+{
+  "id": "listening-10",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 10",
+  "shortTitle": "Practice Test 10",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 10,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "dev": {
+      "name": "Dev",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "helen": {
+      "name": "Helen",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "ewan": {
+      "name": "Ewan",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "amara": {
+      "name": "Amara",
+      "voice": "af_sarah",
+      "lang": "en-us"
+    },
+    "ben": {
+      "name": "Ben",
+      "voice": "am_adam",
+      "lang": "en-us"
+    },
+    "hargreaves": {
+      "name": "Dr Hargreaves",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {
+    "pumice": "pˈʌmɪs"
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Catering for a school summer fair",
+      "context": "A parent phones a catering company to arrange food for a school summer fair.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman telephoning a catering company to arrange food for a school summer fair. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 11.2
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 31.2,
+          "end": 40.27
+        },
+        {
+          "speaker": "dev",
+          "text": "Good morning, Larkspur Catering, Dev speaking.",
+          "start": 41.17,
+          "end": 44.2
+        },
+        {
+          "speaker": "helen",
+          "text": "Oh, hello. I'm phoning about food for our school's summer fair. A friend of mine said you did the catering at her daughter's school.",
+          "start": 44.7,
+          "end": 51.31
+        },
+        {
+          "speaker": "dev",
+          "text": "Yes, we do a lot of school events. I'll take a few details first, and then we can talk about what you need.",
+          "start": 51.81,
+          "end": 58.06
+        },
+        {
+          "speaker": "narrator",
+          "text": "The woman is arranging food for a summer fair, so 'summer fair' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 58.96,
+          "end": 75.2
+        },
+        {
+          "speaker": "dev",
+          "text": "Right, could I have your name, please?",
+          "start": 76.1,
+          "end": 78.0
+        },
+        {
+          "speaker": "helen",
+          "text": "Yes, it's Helen Fairbrother.",
+          "start": 78.5,
+          "end": 80.14
+        },
+        {
+          "speaker": "dev",
+          "text": "Sorry, could you spell the surname for me?",
+          "start": 80.64,
+          "end": 82.75
+        },
+        {
+          "speaker": "helen",
+          "text": "Of course. It's F-A-I-R-B-R-O-T-H-E-R.",
+          "tts": "Of course. It's F, A, I, R, B, R, O, T, H, E, R.",
+          "start": 83.25,
+          "end": 86.32
+        },
+        {
+          "speaker": "dev",
+          "text": "Thank you. And are you one of the teachers at the school?",
+          "start": 86.82,
+          "end": 89.64
+        },
+        {
+          "speaker": "helen",
+          "text": "Oh, no, I'm just a parent. But I chair the Parents' Association this year, so the food is left to me.",
+          "start": 90.14,
+          "end": 95.56
+        },
+        {
+          "speaker": "dev",
+          "text": "Lovely. And when is the fair?",
+          "start": 96.06,
+          "end": 97.89
+        },
+        {
+          "speaker": "helen",
+          "text": "It's on Saturday the 19th of June. Oh, sorry, no, that was last year's date. This year it's the 26th.",
+          "start": 98.39,
+          "end": 104.54
+        },
+        {
+          "speaker": "dev",
+          "text": "The 26th, fine. And roughly how many people are you expecting?",
+          "start": 105.04,
+          "end": 109.28
+        },
+        {
+          "speaker": "helen",
+          "text": "Well, about 200 came last year, but we've advertised in the local paper this time, so we're hoping for 250.",
+          "start": 109.78,
+          "end": 117.16
+        },
+        {
+          "speaker": "dev",
+          "text": "Will everything be outdoors?",
+          "start": 117.66,
+          "end": 119.39
+        },
+        {
+          "speaker": "helen",
+          "text": "The stalls and the games will be on the school field, yes. But you know what the weather's like here, so we'd like the food to be under cover somewhere, if that's possible.",
+          "start": 119.89,
+          "end": 128.25
+        },
+        {
+          "speaker": "dev",
+          "text": "It is. I'd recommend a marquee. We can put one up next to the field for you, and it only costs a little extra.",
+          "start": 128.75,
+          "end": 135.49
+        },
+        {
+          "speaker": "helen",
+          "text": "Oh, that would be perfect. Last year the food was in the hall, and it was a long way from everything else.",
+          "start": 135.99,
+          "end": 141.37
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 142.27,
+          "end": 147.99
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 167.99,
+          "end": 171.32
+        },
+        {
+          "speaker": "dev",
+          "text": "Now, what sort of food were you thinking of?",
+          "start": 172.22,
+          "end": 174.56
+        },
+        {
+          "speaker": "helen",
+          "text": "Well, last year we had a barbecue, but it rained all afternoon and the poor volunteers got soaked, so I'd rather not do that again.",
+          "start": 175.06,
+          "end": 182.12
+        },
+        {
+          "speaker": "dev",
+          "text": "I don't blame you. We could do a baked potato bar, with different fillings, or a selection of wraps and salads.",
+          "start": 182.62,
+          "end": 189.17
+        },
+        {
+          "speaker": "helen",
+          "text": "Hmm. Potatoes might get a bit messy with the little ones, don't you think? Let's go for the wraps.",
+          "start": 189.67,
+          "end": 194.49
+        },
+        {
+          "speaker": "dev",
+          "text": "Lovely. Do you have any dietary requirements we should know about?",
+          "start": 194.99,
+          "end": 198.75
+        },
+        {
+          "speaker": "helen",
+          "text": "Yes, one important thing. As far as I know, nobody has a problem with dairy or gluten, but three of the children have serious allergies, so there mustn't be any nuts in anything.",
+          "start": 199.25,
+          "end": 208.66
+        },
+        {
+          "speaker": "dev",
+          "text": "That's no trouble. We don't use them in our wraps anyway.",
+          "start": 209.16,
+          "end": 212.4
+        },
+        {
+          "speaker": "helen",
+          "text": "Thank you. And how much would it all cost? Our budget's quite tight.",
+          "start": 212.9,
+          "end": 216.44
+        },
+        {
+          "speaker": "dev",
+          "text": "Normally the wrap lunch is 8 pounds per person, but we give schools a discount, so for you it would be 6 pounds, and that includes a drink.",
+          "start": 216.94,
+          "end": 225.56
+        },
+        {
+          "speaker": "helen",
+          "text": "Oh, that's better than I'd hoped.",
+          "start": 226.06,
+          "end": 227.92
+        },
+        {
+          "speaker": "dev",
+          "text": "And how would you like to pay? I can send an invoice to the school office, or you could pay by card on the day.",
+          "start": 228.42,
+          "end": 234.67
+        },
+        {
+          "speaker": "helen",
+          "text": "An invoice, please. The school secretary deals with all of that.",
+          "start": 235.17,
+          "end": 238.69
+        },
+        {
+          "speaker": "dev",
+          "text": "Fine. Now, the delivery. Our van will arrive at about nine o'clock. Should the driver come in by the main gate, on Station Road?",
+          "start": 239.19,
+          "end": 247.53
+        },
+        {
+          "speaker": "helen",
+          "text": "Oh, no, that will be closed because of the children's parade. Could he come round to the back gate, in Mill Lane?",
+          "start": 248.03,
+          "end": 253.7
+        },
+        {
+          "speaker": "dev",
+          "text": "The back gate, in Mill Lane. Fine, I've made a note. I'll email you a quote this afternoon.",
+          "start": 254.2,
+          "end": 259.96
+        },
+        {
+          "speaker": "helen",
+          "text": "Thank you so much. You've been really helpful.",
+          "start": 260.46,
+          "end": 262.79
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 263.69,
+          "end": 268.21
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Larkspur Catering – enquiry form",
+          "content": [
+            "Example: Event: **summer fair**",
+            "## Customer details",
+            "• Name: Helen {{1}}",
+            "• Position: head of the Parents' {{2}}",
+            "## Event details",
+            "• Date: Saturday {{3}} June",
+            "• Number of visitors expected: {{4}}",
+            "• Food to be served in a {{5}} beside the field",
+            "## Order",
+            "• Main dish: {{6}} with salad",
+            "• Allergies: no {{7}} in any of the food",
+            "• Cost: £{{8}} per person",
+            "• Payment: by {{9}} sent to the school office",
+            "• Delivery van to arrive at the {{10}} gate"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Fairbrother"
+              ],
+              "explanation": "Helen gives her name and then spells the surname letter by letter: ‘F-A-I-R-B-R-O-T-H-E-R’.",
+              "cue": "F-A-I-R-B-R-O-T-H-E-R"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Association"
+              ],
+              "explanation": "She is not a teacher but a parent who is in charge of the group: ‘I chair the Parents' Association this year’.",
+              "cue": "I chair the Parents' Association"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "26",
+                "26th",
+                "twenty-sixth"
+              ],
+              "explanation": "She starts to say the 19th, then corrects herself because that was last year's date: ‘This year it's the 26th’.",
+              "cue": "This year it's the 26th"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "250"
+              ],
+              "explanation": "About 200 people came last year, but because of the newspaper advertising ‘we're hoping for 250’ this time.",
+              "cue": "we're hoping for 250"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "marquee"
+              ],
+              "explanation": "She wants the food under cover (last year it was in the hall), and Dev answers ‘I'd recommend a marquee’ next to the field.",
+              "cue": "I'd recommend a marquee"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "wraps",
+                "wrap"
+              ],
+              "explanation": "A barbecue is ruled out because of last year's rain and the potato bar sounds messy, so she decides ‘Let's go for the wraps’.",
+              "cue": "Let's go for the wraps"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "nuts",
+                "nut"
+              ],
+              "explanation": "Dairy and gluten are not a problem, but three children have serious allergies, so ‘there mustn't be any nuts in anything’.",
+              "cue": "there mustn't be any nuts in anything"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "The normal price is 8 pounds, but schools get a discount: ‘for you it would be 6 pounds’, with a drink included.",
+              "cue": "for you it would be 6 pounds"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "invoice"
+              ],
+              "explanation": "Dev offers an invoice or payment by card on the day, and she chooses the first: ‘An invoice, please’.",
+              "cue": "An invoice, please"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "back"
+              ],
+              "explanation": "The main gate on Station Road will be closed for the parade, so she asks him to ‘come round to the back gate’ in Mill Lane.",
+              "cue": "come round to the back gate"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-10/part1.mp3",
+        "duration": 299.01
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A visit to a lighthouse",
+      "context": "A guide leads a group of visitors round a coastal lighthouse and visitor centre.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a guide giving a talk to a group of visitors at a lighthouse and visitor centre. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 11.39
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 36.39,
+          "end": 40.66
+        },
+        {
+          "speaker": "ewan",
+          "text": "Good afternoon, everyone, and welcome to Skerrow Point Lighthouse. My name's Ewan, and I'll be showing you round today. First, let me explain how the site is laid out, so please look at the map on your sheet. We're standing at the bottom, just inside the main entrance, in front of the visitor centre.",
+          "start": 41.56,
+          "end": 56.71
+        },
+        {
+          "speaker": "ewan",
+          "text": "First, refreshments. The tearoom is the small building immediately to the right of the visitor centre, the one with the bright blue door. The toilets are on the other side, between the visitor centre and the car park, so do use them before we start, because there aren't any further up.",
+          "start": 57.06,
+          "end": 71.24
+        },
+        {
+          "speaker": "ewan",
+          "text": "Now, the path straight ahead of us leads up to the lighthouse, and about halfway up it crosses the cliff path, which runs from left to right on your map. If you turn right at the crossing and follow the cliff path, the first building you come to, set back a little on the right, is the fog signal station. A huge horn in there used to warn ships in foggy weather, and you can still see the old machinery.",
+          "start": 71.59,
+          "end": 90.54
+        },
+        {
+          "speaker": "ewan",
+          "text": "Carry on to the very end of the path, and you'll find the coastguard lookout, on your left, right on the edge of the cliff. It's a wonderful place to watch the seabirds, but please stay behind the rope.",
+          "start": 90.89,
+          "end": 101.02
+        },
+        {
+          "speaker": "ewan",
+          "text": "Now, if we go back to the crossing and this time turn left, you'll pass a row of cottages on your left. They were built for the keepers' families, and now they house a small museum. At the far end of the row there's a little stone hut, which people often take to be part of the museum. In fact it's the old oil store, and it's kept locked for safety.",
+          "start": 101.37,
+          "end": 118.59
+        },
+        {
+          "speaker": "ewan",
+          "text": "Then, opposite the cottages, on the right, you'll see the walled garden, where our volunteers grow herbs for the tearoom.",
+          "start": 118.94,
+          "end": 125.55
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 126.45,
+          "end": 132.17
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 152.17,
+          "end": 156.05
+        },
+        {
+          "speaker": "ewan",
+          "text": "Right, that's the layout. Now a little about the lighthouse itself. People assume it was built to guide the fishing boats into Port Gannet, just around the headland. A reasonable guess, but the fishermen knew these waters perfectly well. The real reason was a reef called the Teeth, which lies half a mile offshore and vanishes completely at high tide. In 1861 a cargo steamer struck it in a storm, and a proper light was agreed. Until then there'd only been a coal fire in an iron basket on the cliff.",
+          "start": 156.95,
+          "end": 185.15
+        },
+        {
+          "speaker": "ewan",
+          "text": "The keepers took turns to look after the lamp, day and night, all year round. You might imagine the storms were the worst part, but they soon got used to those. The heavy work was tiring too, especially carrying cans of paraffin up all those steps. But the keepers' diaries show that what they dreaded most was the long night watches in winter, when it was all they could do to keep awake until dawn.",
+          "start": 185.5,
+          "end": 205.04
+        },
+        {
+          "speaker": "ewan",
+          "text": "Now, a word about the climb. There are 147 steps to the top. I'm afraid we can't go into the lantern room today, where the great lens is. Normally it's closed only when the wind is very strong, and there's hardly a breath of it today. It holds just eight people at a time, but we could easily go up in groups. No, the reason this time is that an engineer is repairing part of the mechanism that turns the lens. So we'll climb as far as the watch room instead.",
+          "start": 205.39,
+          "end": 231.03
+        },
+        {
+          "speaker": "ewan",
+          "text": "Your ticket money helps to pay for the upkeep of the site. The tower was repainted last year, thanks to a grant, and we'd love to build a classroom for school visits one day. But the first call on every ticket is the cliff path, where the edge near the lookout is crumbling into the sea.",
+          "start": 231.38,
+          "end": 245.69
+        },
+        {
+          "speaker": "ewan",
+          "text": "Finally, in winter we run evening tours, when the lamp is switched on. You can't book at the desk here, because they always sell out weeks ahead, and the telephone line is only staffed on weekday mornings, so the quickest way is the website. Right, if there are no questions, let's make a start.",
+          "start": 246.04,
+          "end": 260.76
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 261.66,
+          "end": 265.99
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Skerrow Point Lighthouse",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "rect",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 64,
+                "style": "water",
+                "label": "Sea"
+              },
+              {
+                "type": "trees",
+                "x": 440,
+                "y": 372,
+                "w": 130,
+                "h": 48
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 430,
+                "x2": 320,
+                "y2": 136,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 40,
+                "y1": 185,
+                "x2": 600,
+                "y2": 185,
+                "style": "path",
+                "label": "Cliff path",
+                "lx": 150
+              },
+              {
+                "type": "rect",
+                "x": 270,
+                "y": 80,
+                "w": 100,
+                "h": 56,
+                "style": "building",
+                "label": "Lighthouse"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 330,
+                "w": 160,
+                "h": 85,
+                "style": "parking",
+                "label": "Car park"
+              },
+              {
+                "type": "rect",
+                "x": 250,
+                "y": 300,
+                "w": 140,
+                "h": 70,
+                "style": "building",
+                "label": "Visitor centre"
+              },
+              {
+                "type": "rect",
+                "x": 200,
+                "y": 340,
+                "w": 40,
+                "h": 40,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 420,
+                "y": 305,
+                "w": 90,
+                "h": 52,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 420,
+                "y": 215,
+                "w": 110,
+                "h": 48,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 530,
+                "y": 105,
+                "w": 80,
+                "h": 50,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 100,
+                "y": 215,
+                "w": 110,
+                "h": 55,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 35,
+                "y": 225,
+                "w": 50,
+                "h": 44,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 110,
+                "y": 95,
+                "w": 120,
+                "h": 70,
+                "style": "field"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 430,
+                "label": "Entrance"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 395
+              },
+              {
+                "type": "letter",
+                "x": 60,
+                "y": 247,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 155,
+                "y": 243,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 220,
+                "y": 360,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 475,
+                "y": 239,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 170,
+                "y": 130,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 465,
+                "y": 331,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 570,
+                "y": 130,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Tearoom",
+              "answer": "F",
+              "explanation": "The tearoom is ‘the small building immediately to the right of the visitor centre’. C, between the visitor centre and the car park, is the toilets.",
+              "cue": "immediately to the right of the visitor centre"
+            },
+            {
+              "number": 12,
+              "prompt": "Fog signal station",
+              "answer": "D",
+              "explanation": "Turn right at the crossing and follow the cliff path: the first building, ‘set back a little on the right’, is the fog signal station.",
+              "cue": "set back a little on the right, is the fog signal station"
+            },
+            {
+              "number": 13,
+              "prompt": "Coastguard lookout",
+              "answer": "G",
+              "explanation": "At the very end of the cliff path ‘you'll find the coastguard lookout, on your left’, right on the cliff edge.",
+              "cue": "you'll find the coastguard lookout, on your left"
+            },
+            {
+              "number": 14,
+              "prompt": "Keepers' cottages",
+              "answer": "B",
+              "explanation": "Back at the crossing, turning left, ‘you'll pass a row of cottages on your left’. The hut at the far end (A) is only the oil store.",
+              "cue": "a row of cottages on your left"
+            },
+            {
+              "number": 15,
+              "prompt": "Walled garden",
+              "answer": "E",
+              "explanation": "It is on the other side of the cliff path: ‘opposite the cottages, on the right, you'll see the walled garden’.",
+              "cue": "you'll see the walled garden"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Why was the lighthouse built?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to guide fishing boats into a harbour"
+                },
+                {
+                  "key": "B",
+                  "text": "to warn ships about a hidden reef"
+                },
+                {
+                  "key": "C",
+                  "text": "to replace an older lighthouse"
+                }
+              ],
+              "answer": "B",
+              "explanation": "People assume it was for the fishing boats, but ‘the real reason was a reef called the Teeth’, which vanishes at high tide. Before that there was only a coal fire, not a lighthouse.",
+              "cue": "a reef called the Teeth"
+            },
+            {
+              "number": 17,
+              "prompt": "What did the keepers find hardest about their work?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "coping with storms"
+                },
+                {
+                  "key": "B",
+                  "text": "carrying fuel up the tower"
+                },
+                {
+                  "key": "C",
+                  "text": "staying alert through the night"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The keepers soon got used to storms and the carrying was only tiring, but they dreaded the night watches when ‘it was all they could do to keep awake until dawn’.",
+              "cue": "keep awake until dawn"
+            },
+            {
+              "number": 18,
+              "prompt": "Why can't the group go into the lantern room today?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A piece of equipment is being fixed."
+                },
+                {
+                  "key": "B",
+                  "text": "The wind is too strong."
+                },
+                {
+                  "key": "C",
+                  "text": "The room is too small for the group."
+                }
+              ],
+              "answer": "A",
+              "explanation": "There is hardly any wind, and the room's small size would not matter because they could go up in groups; the reason is that ‘an engineer is repairing part of the mechanism’.",
+              "cue": "an engineer is repairing part of the mechanism"
+            },
+            {
+              "number": 19,
+              "prompt": "What will money from ticket sales be spent on first?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "repainting the tower"
+                },
+                {
+                  "key": "B",
+                  "text": "protecting a path near the cliff edge"
+                },
+                {
+                  "key": "C",
+                  "text": "building a room for school groups"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The repainting was done last year and the classroom is only a hope, but the first call on tickets is the cliff path, where the edge is ‘crumbling into the sea’.",
+              "cue": "crumbling into the sea"
+            },
+            {
+              "number": 20,
+              "prompt": "How can visitors book a place on an evening tour?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the visitor centre desk"
+                },
+                {
+                  "key": "B",
+                  "text": "by telephone"
+                },
+                {
+                  "key": "C",
+                  "text": "online"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The desk does not take bookings and the telephone line is staffed only on weekday mornings, so ‘the quickest way is the website’.",
+              "cue": "the quickest way is the website"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-10/part2.mp3",
+        "duration": 296.79
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A study of tablets in primary classrooms",
+      "context": "Two education students discuss their study with a tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two education students, Amara and Ben, discussing a study of tablet computers in primary classrooms with their tutor, Dr Hargreaves. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 16.07
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 41.07,
+          "end": 45.78
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "Come in, both of you. I've read the draft of your tablet study, and it's coming along well. Remind me why you chose this topic. I have a feeling it came from one of my lectures.",
+          "start": 46.68,
+          "end": 56.09
+        },
+        {
+          "speaker": "ben",
+          "text": "Not this time, I'm afraid. I'd read an article about it over the summer, but that wasn't what decided us.",
+          "start": 56.59,
+          "end": 62.16
+        },
+        {
+          "speaker": "amara",
+          "text": "No, it was my placement, really. The school where I was working had just bought thirty tablets, and when I arrived they were sitting in a cupboard, because nobody was sure how to use them in lessons.",
+          "start": 62.66,
+          "end": 73.24
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "I see. And was it difficult to get the study started?",
+          "start": 73.74,
+          "end": 76.81
+        },
+        {
+          "speaker": "ben",
+          "text": "Not as much as we expected. The parents returned the consent forms within a week, and the teachers were keen to help. The real headache was the timetable. Between assemblies, music and swimming, finding six weeks of regular lessons took us ages.",
+          "start": 77.31,
+          "end": 91.2
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "Yes, schools are always crowded. So how did the study itself work?",
+          "start": 91.7,
+          "end": 95.6
+        },
+        {
+          "speaker": "amara",
+          "text": "One Year 4 class used tablets in lessons for six weeks, while the parallel class carried on as usual. We observed the lessons and gave both classes the same test before and after.",
+          "start": 96.1,
+          "end": 107.07
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "And how did the pupils feel about using them?",
+          "start": 107.57,
+          "end": 109.98
+        },
+        {
+          "speaker": "amara",
+          "text": "In the first week or two they were thrilled. But by week four the novelty had worn off, and the teacher said she had to work much harder to keep them interested.",
+          "start": 110.48,
+          "end": 118.93
+        },
+        {
+          "speaker": "ben",
+          "text": "We'd expected the boys to enjoy it more than the girls, but there was no real difference.",
+          "start": 119.43,
+          "end": 124.14
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "And the test results? Did the tablets make a difference?",
+          "start": 124.64,
+          "end": 127.71
+        },
+        {
+          "speaker": "ben",
+          "text": "Less than we'd hoped. The tablet class went up a little more, but the gap was tiny. Both classes improved by almost the same amount.",
+          "start": 128.21,
+          "end": 135.68
+        },
+        {
+          "speaker": "amara",
+          "text": "Not that the other class did any better, though.",
+          "start": 136.18,
+          "end": 138.38
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "Now, in your conclusion you say that tablets make no difference to learning in primary schools. I'd be careful there. With only fifty-two pupils from a single school, you shouldn't claim more than your evidence allows. And there's no need to recommend buying more tablets, either. But do keep the pupils' comments in. They're the most interesting part.",
+          "start": 138.88,
+          "end": 157.35
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 158.25,
+          "end": 164.4
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 184.4,
+          "end": 188.24
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "Right, now the section on how the tablets were used. Let's take the five activities one at a time. Starting with the maths game?",
+          "start": 189.14,
+          "end": 196.13
+        },
+        {
+          "speaker": "amara",
+          "text": "It was the most successful. The game marks every answer straight away, so she wasn't taking home piles of exercise books. She reckoned that gave her two hours a week back. We'd worried the pupils would sneak off to play other games, but they stayed on task.",
+          "start": 196.63,
+          "end": 211.03
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "And the reading app?",
+          "start": 211.53,
+          "end": 212.94
+        },
+        {
+          "speaker": "ben",
+          "text": "That was a surprise. We assumed the children would love reading on screen, but most of them preferred real books.",
+          "start": 213.44,
+          "end": 219.69
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "What about the story-making project?",
+          "start": 220.19,
+          "end": 222.45
+        },
+        {
+          "speaker": "amara",
+          "text": "That was my favourite. The pupils combined drawings, text and recorded voices, and the finished stories were far better than anything they'd written on paper. I'd expected it to help the weaker writers most, but the confident ones gained just as much.",
+          "start": 222.95,
+          "end": 237.4
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "And the science quiz tool? I gather you had some difficulties.",
+          "start": 237.9,
+          "end": 241.37
+        },
+        {
+          "speaker": "ben",
+          "text": "We did. In theory it was great. But the school network kept dropping out, and in two lessons the teacher spent half the time trying to reconnect everyone.",
+          "start": 241.87,
+          "end": 250.36
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "And finally, the video recording?",
+          "start": 250.86,
+          "end": 253.0
+        },
+        {
+          "speaker": "amara",
+          "text": "That worked brilliantly. The pupils filmed their own experiments in groups, and they kept supporting each other, deciding together who would film and who would explain.",
+          "start": 253.5,
+          "end": 262.71
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "That's very good. Send me the next draft by Friday, and we'll talk again then.",
+          "start": 263.21,
+          "end": 267.22
+        },
+        {
+          "speaker": "amara",
+          "text": "Thank you, Dr Hargreaves.",
+          "start": 267.72,
+          "end": 269.39
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 270.29,
+          "end": 274.75
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What made the students choose this topic?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Amara's experience on placement"
+                },
+                {
+                  "key": "B",
+                  "text": "an article that Ben had read"
+                },
+                {
+                  "key": "C",
+                  "text": "a lecture given by Dr Hargreaves"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Dr Hargreaves guesses a lecture and Ben mentions an article, but ‘that wasn't what decided us’; Amara saw tablets ‘sitting in a cupboard’ at her placement school.",
+              "cue": "sitting in a cupboard"
+            },
+            {
+              "number": 22,
+              "prompt": "What was the main difficulty in setting up the study?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "getting consent from parents"
+                },
+                {
+                  "key": "B",
+                  "text": "finding teachers willing to help"
+                },
+                {
+                  "key": "C",
+                  "text": "finding enough time in the school day"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Parents returned the forms quickly and the teachers were keen, but ‘the real headache was the timetable’, because of assemblies, music and swimming.",
+              "cue": "The real headache was the timetable"
+            },
+            {
+              "number": 23,
+              "prompt": "What did the students find about the pupils' motivation?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It stayed high throughout the study."
+                },
+                {
+                  "key": "B",
+                  "text": "It fell after the first few weeks."
+                },
+                {
+                  "key": "C",
+                  "text": "It was higher among the boys."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The pupils were thrilled at first, but ‘by week four the novelty had worn off’. The boys did not enjoy it more than the girls.",
+              "cue": "by week four the novelty had worn off"
+            },
+            {
+              "number": 24,
+              "prompt": "What do the students say about the test results?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Both classes improved by a similar amount."
+                },
+                {
+                  "key": "B",
+                  "text": "The tablet class improved much more."
+                },
+                {
+                  "key": "C",
+                  "text": "The other class improved much more."
+                }
+              ],
+              "answer": "A",
+              "explanation": "The tablet class went up slightly more, but the gap was tiny: ‘Both classes improved by almost the same amount’.",
+              "cue": "improved by almost the same amount"
+            },
+            {
+              "number": 25,
+              "prompt": "What does Dr Hargreaves advise about the students' conclusion?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It should recommend that schools buy more tablets."
+                },
+                {
+                  "key": "B",
+                  "text": "It should leave out the pupils' comments."
+                },
+                {
+                  "key": "C",
+                  "text": "It should avoid claiming too much from the results."
+                }
+              ],
+              "answer": "C",
+              "explanation": "With only fifty-two pupils, ‘you shouldn't claim more than your evidence allows’. She rejects recommending more tablets and wants the comments kept in.",
+              "cue": "claim more than your evidence allows"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What did the students find about each of the following uses of tablets? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Findings",
+          "options": [
+            {
+              "key": "A",
+              "text": "Pupils helped one another more than usual."
+            },
+            {
+              "key": "B",
+              "text": "Pupils used it to do something else."
+            },
+            {
+              "key": "C",
+              "text": "Weaker pupils benefited most."
+            },
+            {
+              "key": "D",
+              "text": "It was affected by technical problems."
+            },
+            {
+              "key": "E",
+              "text": "It was less popular than the paper version."
+            },
+            {
+              "key": "F",
+              "text": "It reduced the teacher's workload."
+            },
+            {
+              "key": "G",
+              "text": "It raised the standard of pupils' work."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "the maths game",
+              "answer": "F",
+              "explanation": "The game marked answers straight away, so she was not ‘taking home piles of exercise books’, which gave her two hours a week back. The pupils did not sneak off (B).",
+              "cue": "piles of exercise books"
+            },
+            {
+              "number": 27,
+              "prompt": "the reading app",
+              "answer": "E",
+              "explanation": "Contrary to expectations, ‘most of them preferred real books’ to reading on screen.",
+              "cue": "most of them preferred real books"
+            },
+            {
+              "number": 28,
+              "prompt": "the story-making app",
+              "answer": "G",
+              "explanation": "The finished stories were ‘far better than anything they'd written on paper’. The weaker writers (C) did not gain more than the confident ones.",
+              "cue": "far better than anything they'd written on paper"
+            },
+            {
+              "number": 29,
+              "prompt": "the science quiz tool",
+              "answer": "D",
+              "explanation": "The school network kept dropping out, and in two lessons the teacher spent half the time ‘trying to reconnect everyone’.",
+              "cue": "trying to reconnect everyone"
+            },
+            {
+              "number": 30,
+              "prompt": "the video recording",
+              "answer": "A",
+              "explanation": "When filming in groups the pupils ‘kept supporting each other’, deciding together who would film and who would explain.",
+              "cue": "kept supporting each other"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-10/part3.mp3",
+        "duration": 305.55
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: why Roman concrete has lasted so long",
+      "context": "A lecture about the materials and methods behind Roman concrete.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about why Roman concrete has lasted so long. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 10.16
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 40.16,
+          "end": 44.57
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning, everyone. Today I want to look at a puzzle in the history of engineering. Many Roman harbours, bridges and temples are still standing after two thousand years, yet a modern concrete road may start to crumble within fifty. So what did the Romans know that we have forgotten? To answer that, I'll begin with what their concrete was made of, then look at some of their most famous structures, and finish with some very recent research.",
+          "start": 45.47,
+          "end": 65.76
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Modern concrete is based on cement, which was only invented in the nineteenth century. The Romans used something different. Their key ingredient was lime, which they mixed not with ordinary sand, as you might expect, but with volcanic ash. The best ash came from the region around Naples, and the Roman writer Vitruvius advised builders to use it wherever they could. To this paste they added the coarse material that gives concrete its bulk. Usually this was pieces of stone, though broken tiles were used as well, so that nothing went to waste.",
+          "start": 66.11,
+          "end": 94.78
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The Romans didn't only use concrete on land. They were among the first people to use it in the sea. All around the Mediterranean, they built harbours by pouring the mixture into huge wooden frames and lowering them into the water. Modern engineers would expect seawater to damage concrete, but when researchers examined samples drilled from ancient harbour walls, they found the opposite. Seawater had seeped slowly into the mixture, reacted with the ash, and caused tiny crystals to grow inside the concrete. These crystals locked the material together, so in a sense the concrete became stronger over the centuries, instead of weaker.",
+          "start": 95.13,
+          "end": 127.85
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Of course, the best-known Roman concrete structure isn't a harbour at all. You might expect me to say the Colosseum, but the building I have in mind is the Pantheon in Rome, which was completed in about the year 126. Its dome is forty-three metres across, and it is still the largest dome in the world built from concrete without any steel inside it.",
+          "start": 128.2,
+          "end": 146.82
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The builders were extremely clever in the way they used their materials. At the base of the dome, they mixed in heavy rock to carry the load, but as the dome rose they switched to pumice, a volcanic rock so light that it can float on water. And the shell itself becomes thinner as it rises. It's about six metres thick near the bottom, but barely more than a metre at the top.",
+          "start": 147.17,
+          "end": 165.54
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Now compare that with a modern building. Today, concrete is almost always reinforced with steel bars, which gives it great strength, but also a weakness. Once water reaches the steel, it begins to rust, and because rust takes up more space than the metal, it pushes outwards and splits the concrete. That is why many modern structures need major repairs after fifty or sixty years. The Romans had no steel, and so, no rust.",
+          "start": 165.89,
+          "end": 186.54
+        },
+        {
+          "speaker": "lecturer",
+          "text": "I'd like to end with the most surprising discovery of all. If you look closely at a piece of Roman concrete, you often see small white lumps scattered through it. They are made of lime, and for a long time experts assumed they were the result of careless mixing, a sign that the workers hadn't stirred the ingredients thoroughly. A recent research team has argued that exactly the opposite is true. The lumps act as a kind of repair kit. When a crack opens up, water seeps in and reaches the lumps. The lime dissolves, flows into the gap, and then hardens again into limestone, which seals the crack. In other words, the concrete can heal itself.",
+          "start": 186.89,
+          "end": 219.18
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So the secret of Roman concrete was a combination of things: an unusual ingredient, a clever choice of materials, and, quite possibly, a built-in repair system. Engineers today are trying to copy these ideas, and next week we'll look at how they're getting on.",
+          "start": 219.53,
+          "end": 233.91
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 234.81,
+          "end": 239.21
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 269.21,
+          "end": 271.91
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Roman concrete",
+          "content": [
+            "## Ingredients",
+            "• lime was combined with {{31}} from volcanoes near Naples",
+            "• the bulk came from lumps of {{32}}, or sometimes fragments of tile",
+            "## Use in the sea",
+            "• engineers used concrete to construct {{33}}",
+            "• seawater produced {{34}} inside the concrete, which made it stronger",
+            "## The Pantheon, Rome",
+            "• the {{35}} has the largest dome made of unreinforced concrete",
+            "• near the top, {{36}} was used because it weighs very little",
+            "• the dome is much {{37}} at the top than at the base",
+            "## Modern concrete",
+            "• contains steel, which may {{38}} and split the concrete",
+            "## Self-repair",
+            "• white lumps of lime were once believed to show bad {{39}}",
+            "• water entering a crack reacts with the lumps, and {{40}} fills the gap"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "ash"
+              ],
+              "explanation": "The Romans mixed lime ‘not with ordinary sand … but with volcanic ash’, the best of which came from near Naples.",
+              "cue": "but with volcanic ash"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "stone",
+                "stones"
+              ],
+              "explanation": "The coarse material that gave concrete its bulk was usually ‘pieces of stone’, though broken tiles were sometimes used too.",
+              "cue": "pieces of stone"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "harbours",
+                "harbors",
+                "harbour",
+                "harbor"
+              ],
+              "explanation": "The Romans were among the first to use concrete in the sea: ‘they built harbours by pouring the mixture’ into wooden frames.",
+              "cue": "they built harbours by pouring the mixture"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "crystals",
+                "crystal"
+              ],
+              "explanation": "Seawater seeping into the mixture reacted with the ash and caused ‘tiny crystals to grow inside the concrete’, locking it together.",
+              "cue": "tiny crystals to grow inside the concrete"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "Pantheon"
+              ],
+              "explanation": "The lecturer expects students to think of the Colosseum, but ‘the building I have in mind is the Pantheon in Rome’.",
+              "cue": "the Pantheon in Rome"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "pumice"
+              ],
+              "explanation": "Heavy rock was used at the base, but ‘as the dome rose they switched to pumice’, a volcanic rock so light it floats.",
+              "cue": "they switched to pumice"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "thinner"
+              ],
+              "explanation": "The shell is about six metres thick near the bottom but barely a metre at the top: it ‘becomes thinner as it rises’.",
+              "cue": "becomes thinner as it rises"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "rust",
+                "rusts"
+              ],
+              "explanation": "Once water reaches the steel bars, ‘it begins to rust’ and the expanding rust splits the concrete.",
+              "cue": "it begins to rust"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "mixing"
+              ],
+              "explanation": "Experts assumed the white lumps were ‘the result of careless mixing’, but recent research argues the opposite.",
+              "cue": "the result of careless mixing"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "limestone"
+              ],
+              "explanation": "Lime dissolved by the water in a crack ‘hardens again into limestone, which seals the crack’.",
+              "cue": "hardens again into limestone"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-10/part4.mp3",
+        "duration": 272.71
+      }
+    }
+  ],
+  "durationMinutes": 20
+}

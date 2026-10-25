@@ -1,0 +1,1492 @@
+{
+  "id": "listening-08",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 8",
+  "shortTitle": "Practice Test 8",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 8,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "joanna": {
+      "name": "Joanna",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "daniel": {
+      "name": "Daniel",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "ruth": {
+      "name": "Ruth",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "tara": {
+      "name": "Tara",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "marcus": {
+      "name": "Marcus",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "whitfield": {
+      "name": "Dr Whitfield",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {
+    "Drais": "dɹˈaɪs"
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Enquiring about a hotel vacancy",
+      "context": "A man phones a hotel to ask about a part-time job.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man telephoning a hotel to ask about a job. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.09
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.09,
+          "end": 38.16
+        },
+        {
+          "speaker": "joanna",
+          "text": "Good morning, Linden Court Hotel. Joanna speaking.",
+          "start": 39.06,
+          "end": 42.04
+        },
+        {
+          "speaker": "daniel",
+          "text": "Oh, good morning. I'm phoning about the vacancy you advertised on your website, the one for a receptionist. It's part-time, isn't it?",
+          "start": 42.54,
+          "end": 50.37
+        },
+        {
+          "speaker": "joanna",
+          "text": "That's right, and it's still open. I deal with the recruitment, so I can take a few details from you and tell you about the post.",
+          "start": 50.87,
+          "end": 57.36
+        },
+        {
+          "speaker": "narrator",
+          "text": "The man is asking about a job as a receptionist, so 'receptionist' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 58.26,
+          "end": 74.96
+        },
+        {
+          "speaker": "joanna",
+          "text": "Could I have your name, please?",
+          "start": 75.86,
+          "end": 77.44
+        },
+        {
+          "speaker": "daniel",
+          "text": "Yes, it's Daniel Brewster.",
+          "start": 77.94,
+          "end": 80.29
+        },
+        {
+          "speaker": "joanna",
+          "text": "Sorry, how do you spell your surname?",
+          "start": 80.79,
+          "end": 82.69
+        },
+        {
+          "speaker": "daniel",
+          "text": "It's B-R-E-W-S-T-E-R.",
+          "tts": "It's B, R, E, W, S, T, E, R.",
+          "start": 83.19,
+          "end": 86.19
+        },
+        {
+          "speaker": "joanna",
+          "text": "Thank you. And what are you doing at the moment, Daniel? Are you working?",
+          "start": 86.69,
+          "end": 90.04
+        },
+        {
+          "speaker": "daniel",
+          "text": "Yes and no. I'm in my final year at university, studying languages, but I help out in a bookshop on Saturdays and in the holidays, serving customers and sorting the new stock.",
+          "start": 90.54,
+          "end": 100.89
+        },
+        {
+          "speaker": "joanna",
+          "text": "I see. Have you worked in a hotel before?",
+          "start": 101.39,
+          "end": 103.61
+        },
+        {
+          "speaker": "daniel",
+          "text": "A little. I spent last summer in a hotel kitchen, mostly washing up, but I enjoyed the atmosphere. I've never worked on a front desk, though.",
+          "start": 104.11,
+          "end": 112.11
+        },
+        {
+          "speaker": "joanna",
+          "text": "That doesn't matter, we train everybody. Now, the job involves dealing with guests from abroad, so do you speak any other languages?",
+          "start": 112.61,
+          "end": 119.88
+        },
+        {
+          "speaker": "daniel",
+          "text": "Well, I did French at school, but I wouldn't say I was fluent. I'm much better at Spanish. My mother's from Madrid, so we speak it at home.",
+          "start": 120.38,
+          "end": 127.98
+        },
+        {
+          "speaker": "joanna",
+          "text": "That could be really useful. We get a lot of visitors from Spain in the summer.",
+          "start": 128.48,
+          "end": 132.53
+        },
+        {
+          "speaker": "daniel",
+          "text": "Good. Now, the advert said twenty hours a week. Is that still right?",
+          "start": 133.03,
+          "end": 137.15
+        },
+        {
+          "speaker": "joanna",
+          "text": "That was the original plan, but we've had so much demand for evening work that we've put it up to twenty-five.",
+          "start": 137.65,
+          "end": 143.3
+        },
+        {
+          "speaker": "daniel",
+          "text": "That's fine by me. And what's the pay?",
+          "start": 143.8,
+          "end": 146.51
+        },
+        {
+          "speaker": "joanna",
+          "text": "It's eleven pounds an hour to start with, rising to thirteen once you've finished your three-month trial period.",
+          "start": 147.01,
+          "end": 152.71
+        },
+        {
+          "speaker": "daniel",
+          "text": "That sounds reasonable.",
+          "start": 153.21,
+          "end": 155.21
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 156.11,
+          "end": 161.83
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 181.83,
+          "end": 185.16
+        },
+        {
+          "speaker": "daniel",
+          "text": "So when would I start, if I got the job?",
+          "start": 186.06,
+          "end": 188.92
+        },
+        {
+          "speaker": "joanna",
+          "text": "Now, let me see. It says here the first of May. Oh, no, sorry, that's the date from the old advert. We've moved it back a month, so it'll be the first of June.",
+          "start": 189.42,
+          "end": 197.74
+        },
+        {
+          "speaker": "daniel",
+          "text": "That suits me, because it's after my final exams. Are there any extras with the job?",
+          "start": 198.24,
+          "end": 203.29
+        },
+        {
+          "speaker": "joanna",
+          "text": "Well, we don't have staff parking, I'm afraid, and the discount on rooms only applies to family members. But there's a staff restaurant, and everybody on duty gets a hot meal there at no charge, which people really appreciate.",
+          "start": 203.79,
+          "end": 216.38
+        },
+        {
+          "speaker": "daniel",
+          "text": "That's good to know. Will I have to wear a uniform?",
+          "start": 216.88,
+          "end": 220.02
+        },
+        {
+          "speaker": "joanna",
+          "text": "Yes. We supply the jacket, two shirts and the trousers, and we wash them for you. The only thing you have to buy yourself is a pair of black shoes.",
+          "start": 220.52,
+          "end": 228.39
+        },
+        {
+          "speaker": "daniel",
+          "text": "That's no problem. How do I apply?",
+          "start": 228.89,
+          "end": 231.62
+        },
+        {
+          "speaker": "joanna",
+          "text": "Just email your CV and a covering letter. Address it to the general manager, Mr Sutherland, and put the job title in the subject line.",
+          "start": 232.12,
+          "end": 240.23
+        },
+        {
+          "speaker": "daniel",
+          "text": "Mr Sutherland. Right. And when do you need it by?",
+          "start": 240.73,
+          "end": 244.05
+        },
+        {
+          "speaker": "joanna",
+          "text": "We're interviewing the week after next, on the Tuesday, so applications have to be in by this Friday.",
+          "start": 244.55,
+          "end": 249.8
+        },
+        {
+          "speaker": "daniel",
+          "text": "That doesn't give me long, but I'll write it tonight. Thanks very much for your help.",
+          "start": 250.3,
+          "end": 255.04
+        },
+        {
+          "speaker": "joanna",
+          "text": "You're welcome, Daniel. Good luck.",
+          "start": 255.54,
+          "end": 257.37
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 258.27,
+          "end": 262.79
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Linden Court Hotel – job enquiry",
+          "content": [
+            "Example: Vacancy: part-time **receptionist**",
+            "## Caller's details",
+            "• Name: Daniel {{1}}",
+            "• Present job: assistant in a {{2}}",
+            "• Language spoken fluently: {{3}}",
+            "## The job",
+            "• Working {{4}} hours per week",
+            "• Pay at the start: £{{5}} per hour",
+            "• Start date: 1st {{6}}",
+            "• Staff are given a free {{7}} on each shift",
+            "• Uniform provided, but staff must buy their own {{8}}",
+            "## Applying",
+            "• Application to be addressed to Mr {{9}}, who runs the hotel",
+            "• Applications must arrive by {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Brewster"
+              ],
+              "explanation": "He gives his name and then spells his surname: ‘B-R-E-W-S-T-E-R’.",
+              "cue": "B-R-E-W-S-T-E-R"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "bookshop"
+              ],
+              "explanation": "He is a student, and his hotel kitchen job was last summer; his present work is in a shop: ‘I help out in a bookshop on Saturdays and in the holidays’.",
+              "cue": "I help out in a bookshop"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "Spanish"
+              ],
+              "explanation": "He did French at school but is not fluent; ‘I'm much better at Spanish’, which his mother speaks at home.",
+              "cue": "I'm much better at Spanish"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "25",
+                "twenty-five"
+              ],
+              "explanation": "The advert said twenty hours, but demand has grown, so ‘we've put it up to twenty-five’.",
+              "cue": "we've put it up to twenty-five"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "11",
+                "eleven"
+              ],
+              "explanation": "The starting rate is ‘eleven pounds an hour’; the higher figure of thirteen only applies after the trial period.",
+              "cue": "eleven pounds an hour to start with"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "June"
+              ],
+              "explanation": "She first reads out ‘the first of May’, then corrects herself because that was the old advert: ‘it'll be the first of June’.",
+              "cue": "it'll be the first of June"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "meal",
+                "meals"
+              ],
+              "explanation": "There is no staff parking and the room discount is for family only, but ‘everybody on duty gets a hot meal’ free of charge.",
+              "cue": "everybody on duty gets a hot meal"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "shoes"
+              ],
+              "explanation": "The hotel supplies the jacket, shirts and trousers; the only item he must buy is ‘a pair of black shoes’.",
+              "cue": "a pair of black shoes"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "Sutherland"
+              ],
+              "explanation": "She tells him to address the email to ‘the general manager, Mr Sutherland’.",
+              "cue": "the general manager, Mr Sutherland"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "Friday"
+              ],
+              "explanation": "Interviews are on a Tuesday, but that is not the deadline: ‘applications have to be in by this Friday’.",
+              "cue": "applications have to be in by this Friday"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-08/part1.mp3",
+        "duration": 293.59
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A tour of a botanic garden",
+      "context": "A guide welcomes visitors and explains the layout of a botanic garden.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a guide giving a walking tour of a botanical garden. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 9.82
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 34.82,
+          "end": 39.08
+        },
+        {
+          "speaker": "ruth",
+          "text": "Good morning, everyone, and welcome to Haverley Botanic Garden. I'm Ruth, and I'll be your guide today. First, a little background.",
+          "start": 39.98,
+          "end": 47.26
+        },
+        {
+          "speaker": "ruth",
+          "text": "The garden was founded in 1851. Many people assume it began as a public park, and it's true that factory workers came here on Sundays, but that wasn't the idea. It was set up by Dr Amos Haverley, who taught at the town infirmary. He wanted his students to learn to recognise the plants that medicines are made from. Rare plants from abroad only arrived later.",
+          "tts": "The garden was founded in eighteen fifty-one. Many people assume it began as a public park, and it's true that factory workers came here on Sundays, but that wasn't the idea. It was set up by Dr Amos Haverley, who taught at the town infirmary. He wanted his students to learn to recognise the plants that medicines are made from. Rare plants from abroad only arrived later.",
+          "start": 47.61,
+          "end": 68.81
+        },
+        {
+          "speaker": "ruth",
+          "text": "Our pride and joy is the Great Glasshouse. By the 1990s it was in a dreadful state and nearly had to be pulled down. We applied to the national heritage fund for a grant, but we were turned down. A local brewery paid for the new roof, which was generous, but it was only a small part of the work. Most of the money came from ordinary people: visitors who dropped coins into collecting boxes, and schools that organised sponsored walks.",
+          "tts": "Our pride and joy is the Great Glasshouse. By the nineteen nineties it was in a dreadful state and nearly had to be pulled down. We applied to the national heritage fund for a grant, but we were turned down. A local brewery paid for the new roof, which was generous, but it was only a small part of the work. Most of the money came from ordinary people: visitors who dropped coins into collecting boxes, and schools that organised sponsored walks.",
+          "start": 69.16,
+          "end": 92.8
+        },
+        {
+          "speaker": "ruth",
+          "text": "You might imagine our scientists spend their time travelling to remote forests to find new species. They did once, but not any more, and we don't breed new varieties for the garden trade either. Our main work is far less glamorous. In the basement of the visitor centre is a seed bank, where we store seeds of wild plants that are in danger of disappearing for ever.",
+          "start": 93.15,
+          "end": 112.97
+        },
+        {
+          "speaker": "ruth",
+          "text": "That brings me to our appeal. The heating in the glasshouse is very old, but the council has agreed to pay for a new system. Some volunteers would love a new area of woodland, but there's no funding for that yet. What this year's appeal will pay for is a classroom, where school groups can do experiments. At the moment we teach children in a corridor.",
+          "start": 113.32,
+          "end": 132.48
+        },
+        {
+          "speaker": "ruth",
+          "text": "A word about when to visit. People say summer is best because of the roses, and they are lovely in June. Early spring is popular too, when the magnolias flower, but one hard frost and the petals turn brown. My own favourite is October, when the maples around the lake turn bright red.",
+          "start": 132.83,
+          "end": 149.04
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 149.94,
+          "end": 155.66
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 175.66,
+          "end": 179.54
+        },
+        {
+          "speaker": "ruth",
+          "text": "Now, let me explain the layout. Please look at the map. We're at the main entrance, at the bottom, and north is at the top. The visitor centre is just inside the gate on the right. On the left is the café, and between the café and the main path is our plant sales area, which I'd leave until the end. The wide path ahead is the Central Walk, which runs straight up to the glasshouse. We'll start by turning left at the first crossing.",
+          "start": 180.44,
+          "end": 203.03
+        },
+        {
+          "speaker": "ruth",
+          "text": "Once we've turned left, the café is on your left, and the first bed on your right is the rose garden. It has over two hundred varieties.",
+          "start": 203.38,
+          "end": 210.85
+        },
+        {
+          "speaker": "ruth",
+          "text": "Now, if you have one of our older leaflets, it shows the herb garden beside the glasshouse. Please ignore that. It was moved last year, because the old site was too shady. It's now a little further along this path, still on the right, directly across from the café.",
+          "start": 211.2,
+          "end": 225.3
+        },
+        {
+          "speaker": "ruth",
+          "text": "Then we'll go back to the Central Walk and head north. As you walk up, you'll see the sensory garden on your right, with the lake beyond it.",
+          "start": 225.65,
+          "end": 232.37
+        },
+        {
+          "speaker": "ruth",
+          "text": "When we reach the glasshouse, we'll turn right along the northern path. Once you're past the glasshouse, the bamboo grove is on your left. You'll hear it rustling before you see it.",
+          "start": 232.72,
+          "end": 241.76
+        },
+        {
+          "speaker": "ruth",
+          "text": "Then we'll double back and carry on west. Just beyond the glasshouse, on the right, is the rock garden. It's a new feature, built where the herb garden used to be.",
+          "start": 242.11,
+          "end": 250.43
+        },
+        {
+          "speaker": "ruth",
+          "text": "To finish, we'll walk back down to the first crossing and turn east. Keep the lake on your left, and beyond the visitor centre you'll find the orchard on your right, directly across the path from the lake. Right, if there are no questions, shall we make a start? Please follow me.",
+          "start": 250.78,
+          "end": 264.76
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 265.66,
+          "end": 269.99
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "What was the original purpose of the garden?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to display rare plants brought back from abroad"
+                },
+                {
+                  "key": "B",
+                  "text": "to give factory workers somewhere to relax"
+                },
+                {
+                  "key": "C",
+                  "text": "to teach future doctors about healing plants"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Factory workers visited later and rare plants ‘only arrived later’; the founder ‘wanted his students to learn to recognise the plants’ that medicines are made from.",
+              "cue": "He wanted his students to learn to recognise the plants"
+            },
+            {
+              "number": 12,
+              "prompt": "How was most of the money for restoring the glasshouse raised?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "from members of the public"
+                },
+                {
+                  "key": "B",
+                  "text": "from a national grant"
+                },
+                {
+                  "key": "C",
+                  "text": "from a local business"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The heritage grant was refused and the brewery paid only for the roof, a ‘small part’; ‘most of the money came from ordinary people’.",
+              "cue": "Most of the money came from ordinary people"
+            },
+            {
+              "number": 13,
+              "prompt": "What is the main work of the garden's scientists today?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "discovering new species in remote places"
+                },
+                {
+                  "key": "B",
+                  "text": "keeping the seeds of endangered plants"
+                },
+                {
+                  "key": "C",
+                  "text": "producing new varieties to sell"
+                }
+              ],
+              "answer": "B",
+              "explanation": "They no longer search for new species or breed varieties for the trade; their main work is ‘a seed bank’ storing seeds of plants ‘in danger of disappearing’.",
+              "cue": "a seed bank, where we store seeds of wild plants"
+            },
+            {
+              "number": 14,
+              "prompt": "What will this year's appeal pay for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a new heating system"
+                },
+                {
+                  "key": "B",
+                  "text": "a classroom for school groups"
+                },
+                {
+                  "key": "C",
+                  "text": "a new area of woodland"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The council is paying for the heating and there is no money for woodland yet; ‘What this year's appeal will pay for is a classroom’.",
+              "cue": "What this year's appeal will pay for is a classroom"
+            },
+            {
+              "number": 15,
+              "prompt": "According to Ruth, when does the garden look its best?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in October, when the leaves change colour"
+                },
+                {
+                  "key": "B",
+                  "text": "in June, when the roses are in flower"
+                },
+                {
+                  "key": "C",
+                  "text": "in early spring, when the magnolias bloom"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Roses and magnolias are mentioned but are not her choice; ‘My own favourite is October, when the maples around the lake turn bright red’.",
+              "cue": "My own favourite is October"
+            }
+          ]
+        },
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 16–20.",
+          "map": {
+            "title": "Haverley Botanic Garden",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "ellipse",
+                "cx": 515,
+                "cy": 232,
+                "rx": 62,
+                "ry": 55,
+                "style": "water",
+                "label": "Lake"
+              },
+              {
+                "type": "line",
+                "x1": 60,
+                "y1": 150,
+                "x2": 580,
+                "y2": 150,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 60,
+                "y1": 315,
+                "x2": 580,
+                "y2": 315,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 430,
+                "x2": 320,
+                "y2": 128,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 255,
+                "y": 35,
+                "w": 130,
+                "h": 90,
+                "style": "building",
+                "label": "Great Glasshouse"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 40,
+                "w": 190,
+                "h": 90,
+                "style": "field"
+              },
+              {
+                "type": "trees",
+                "x": 410,
+                "y": 40,
+                "w": 170,
+                "h": 90
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 170,
+                "w": 130,
+                "h": 125,
+                "style": "field"
+              },
+              {
+                "type": "rect",
+                "x": 185,
+                "y": 170,
+                "w": 120,
+                "h": 125,
+                "style": "field"
+              },
+              {
+                "type": "rect",
+                "x": 335,
+                "y": 170,
+                "w": 100,
+                "h": 125,
+                "style": "field"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 340,
+                "w": 150,
+                "h": 70,
+                "style": "building",
+                "label": "Café"
+              },
+              {
+                "type": "rect",
+                "x": 205,
+                "y": 340,
+                "w": 100,
+                "h": 70,
+                "style": "field"
+              },
+              {
+                "type": "rect",
+                "x": 335,
+                "y": 340,
+                "w": 120,
+                "h": 70,
+                "style": "building",
+                "label": "Visitor centre"
+              },
+              {
+                "type": "trees",
+                "x": 470,
+                "y": 340,
+                "w": 110,
+                "h": 70
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 430,
+                "label": "Main entrance"
+              },
+              {
+                "type": "compass",
+                "x": 608,
+                "y": 90
+              },
+              {
+                "type": "letter",
+                "x": 135,
+                "y": 85,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 495,
+                "y": 85,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 105,
+                "y": 232,
+                "letter": "G"
+              },
+              {
+                "type": "letter",
+                "x": 245,
+                "y": 232,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 385,
+                "y": 232,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 255,
+                "y": 375,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 525,
+                "y": 375,
+                "letter": "E"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Rose garden",
+              "answer": "D",
+              "explanation": "After turning left at the first crossing, ‘the first bed on your right is the rose garden’. A is the plant sales area, between the café and the main path.",
+              "cue": "the first bed on your right is the rose garden"
+            },
+            {
+              "number": 17,
+              "prompt": "Herb garden",
+              "answer": "G",
+              "explanation": "The old leaflet puts it beside the glasshouse (F), but it ‘was moved last year’ and is now ‘a little further along this path, still on the right’, across from the café.",
+              "cue": "a little further along this path, still on the right"
+            },
+            {
+              "number": 18,
+              "prompt": "Bamboo grove",
+              "answer": "C",
+              "explanation": "Turning right along the northern path and passing the glasshouse, ‘the bamboo grove is on your left’. B, on the right, is the sensory garden.",
+              "cue": "the bamboo grove is on your left"
+            },
+            {
+              "number": 19,
+              "prompt": "Rock garden",
+              "answer": "F",
+              "explanation": "Heading west, ‘just beyond the glasshouse, on the right, is the rock garden’, on the plot where the herb garden used to be.",
+              "cue": "Just beyond the glasshouse, on the right, is the rock garden"
+            },
+            {
+              "number": 20,
+              "prompt": "Orchard",
+              "answer": "E",
+              "explanation": "Going east with the lake on the left, ‘beyond the visitor centre you'll find the orchard on your right’, directly across the path from the lake.",
+              "cue": "you'll find the orchard on your right"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-08/part2.mp3",
+        "duration": 300.79
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A survey of regional dialects",
+      "context": "Two linguistics students discuss a dialect survey with their tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two linguistics students, Tara and Marcus, talking to their tutor, Dr Whitfield, about a survey of regional dialect words. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 15.15
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 40.15,
+          "end": 44.86
+        },
+        {
+          "speaker": "whitfield",
+          "text": "Come in, both of you. I've read your draft, and before the results, I'd like to hear how the fieldwork went. Tara, you did most of the interviews, didn't you?",
+          "start": 45.76,
+          "end": 55.3
+        },
+        {
+          "speaker": "tara",
+          "text": "Mostly, yes. We stood outside the market in Hexley on Saturdays. Some people were in a hurry, of course, but the real difficulty was that they'd say, 'Oh, I haven't got an accent, you want my grandad,' and walk off. They couldn't see why their speech would be of any interest. Once they did stop, nobody minded telling us their age.",
+          "start": 55.8,
+          "end": 75.45
+        },
+        {
+          "speaker": "whitfield",
+          "text": "That's very common. People assume dialect belongs to somebody else. Now, you used photographs rather than a list of written questions. Why was that?",
+          "start": 75.95,
+          "end": 85.4
+        },
+        {
+          "speaker": "marcus",
+          "text": "Well, our first idea was to ask, 'What do you call a bread roll?', but then people just repeat your words back to you. With a photograph, they say the first word that comes into their head. It was a bit quicker as well, but that wasn't the reason.",
+          "start": 85.9,
+          "end": 100.9
+        },
+        {
+          "speaker": "whitfield",
+          "text": "Fine. And did the pilot lead to any changes?",
+          "start": 101.4,
+          "end": 104.11
+        },
+        {
+          "speaker": "tara",
+          "text": "It took about twenty-five minutes, which was long, but we kept all forty pictures and let people stop whenever they liked. A couple were confusing, like the one meant to be a sofa, which looked more like a bench, but you told us to leave it in, because the confusion was interesting. The one thing we did change was adding a question about where people grew up, not just where they live now.",
+          "start": 104.61,
+          "end": 126.22
+        },
+        {
+          "speaker": "whitfield",
+          "text": "Good. Now, I do have one worry about your method.",
+          "start": 126.72,
+          "end": 129.75
+        },
+        {
+          "speaker": "marcus",
+          "text": "It's the prompting, isn't it? When people couldn't think of a word, I sometimes helped them out. 'Is it a cob or a bap?', that sort of thing. Tara said I shouldn't.",
+          "start": 130.25,
+          "end": 140.31
+        },
+        {
+          "speaker": "whitfield",
+          "text": "She was right. As soon as you suggest a word, you can't be sure it's really theirs. That worries me more than the sample size, or how you wrote the answers down.",
+          "start": 140.81,
+          "end": 150.54
+        },
+        {
+          "speaker": "marcus",
+          "text": "So should we do those interviews again?",
+          "start": 151.04,
+          "end": 153.2
+        },
+        {
+          "speaker": "whitfield",
+          "text": "No, you wouldn't have time, and don't throw the data away, either. Mark which answers were prompted, and say so openly in your methods section.",
+          "start": 153.7,
+          "end": 162.59
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 163.49,
+          "end": 169.64
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 189.64,
+          "end": 193.48
+        },
+        {
+          "speaker": "whitfield",
+          "text": "Right, now the results. You looked at five social factors. Let's take them one at a time. Which came out as the most important?",
+          "start": 194.38,
+          "end": 202.23
+        },
+        {
+          "speaker": "tara",
+          "text": "Age, by a long way. The over-sixties gave the most local words, for the bread roll, the gym shoes and the narrow passage between houses. The under-thirties mostly gave the standard words you'd hear anywhere in the country.",
+          "start": 202.73,
+          "end": 216.38
+        },
+        {
+          "speaker": "whitfield",
+          "text": "No surprise there. What about gender?",
+          "start": 216.88,
+          "end": 219.42
+        },
+        {
+          "speaker": "marcus",
+          "text": "We predicted that women would use fewer local words, because there's a theory that women lean towards the standard form. But our figures show the opposite. Women gave slightly more.",
+          "start": 219.92,
+          "end": 231.91
+        },
+        {
+          "speaker": "whitfield",
+          "text": "Interesting, but don't claim too much from a small difference. And how long people had lived in the area?",
+          "start": 232.41,
+          "end": 238.49
+        },
+        {
+          "speaker": "tara",
+          "text": "We wanted to compare long-term residents with newcomers, but only four of our participants had moved to the area in the last ten years, so we can't really say anything.",
+          "start": 238.99,
+          "end": 248.27
+        },
+        {
+          "speaker": "whitfield",
+          "text": "No, four is far too few. Say so in the report. What about education?",
+          "start": 248.77,
+          "end": 253.68
+        },
+        {
+          "speaker": "marcus",
+          "text": "We compared people with degrees and people who left school at sixteen, and the answers were very much the same. There's no clear pattern at all.",
+          "start": 254.18,
+          "end": 263.26
+        },
+        {
+          "speaker": "whitfield",
+          "text": "And the last one, occupation? I noticed the farmers stood out in your table.",
+          "start": 263.76,
+          "end": 268.56
+        },
+        {
+          "speaker": "tara",
+          "text": "At first sight, yes. They used more local words than any other group. But then we realised nearly all of them were over sixty, so when we took age into account, the difference disappeared.",
+          "start": 269.06,
+          "end": 279.84
+        },
+        {
+          "speaker": "whitfield",
+          "text": "Good. That's exactly the kind of check I wanted to see.",
+          "start": 280.34,
+          "end": 283.39
+        },
+        {
+          "speaker": "marcus",
+          "text": "Thank you, Dr Whitfield.",
+          "start": 283.89,
+          "end": 285.64
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 286.54,
+          "end": 291.0
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What did Tara find most difficult about the fieldwork?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Most people were in too much of a hurry."
+                },
+                {
+                  "key": "B",
+                  "text": "Many people refused to say how old they were."
+                },
+                {
+                  "key": "C",
+                  "text": "Many people did not think their speech was worth studying."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Some people were in a hurry and nobody minded giving their age; ‘the real difficulty’ was that ‘They couldn't see why their speech would be of any interest’.",
+              "cue": "They couldn't see why their speech would be of any interest"
+            },
+            {
+              "number": 22,
+              "prompt": "Why did the students use photographs in the survey?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to save time"
+                },
+                {
+                  "key": "B",
+                  "text": "to avoid influencing the answers"
+                },
+                {
+                  "key": "C",
+                  "text": "to help people who found reading difficult"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Written questions would make people ‘just repeat your words back’; with a photograph they ‘say the first word that comes into their head’. Speed was ‘not the reason’.",
+              "cue": "they say the first word that comes into their head"
+            },
+            {
+              "number": 23,
+              "prompt": "What change did the students make after the pilot study?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They reduced the number of pictures."
+                },
+                {
+                  "key": "B",
+                  "text": "They replaced some unclear pictures."
+                },
+                {
+                  "key": "C",
+                  "text": "They added a question about participants' backgrounds."
+                }
+              ],
+              "answer": "C",
+              "explanation": "They ‘kept all forty pictures’ and left the confusing one in, but they did add ‘a question about where people grew up’.",
+              "cue": "adding a question about where people grew up"
+            },
+            {
+              "number": 24,
+              "prompt": "What does Dr Whitfield see as the main weakness of the survey?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Some participants were given suggestions."
+                },
+                {
+                  "key": "B",
+                  "text": "The sample was too small."
+                },
+                {
+                  "key": "C",
+                  "text": "The answers were not recorded accurately."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Marcus sometimes helped people with words, and ‘you can't be sure it's really theirs’; this worries her more than ‘the sample size’ or how answers were written down.",
+              "cue": "you can't be sure it's really theirs"
+            },
+            {
+              "number": 25,
+              "prompt": "What does Dr Whitfield advise about the prompted answers?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Repeat the interviews."
+                },
+                {
+                  "key": "B",
+                  "text": "Identify them in the report."
+                },
+                {
+                  "key": "C",
+                  "text": "Remove them from the results."
+                }
+              ],
+              "answer": "B",
+              "explanation": "She rejects repeating the interviews (‘you wouldn't have time’) and deleting the data; they should ‘Mark which answers were prompted, and say so openly’.",
+              "cue": "Mark which answers were prompted"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What did the students find out about each of the following factors in their survey? Choose **FIVE** answers from the box and write the correct letter, **A–F**, next to Questions 26–30.",
+          "optionsTitle": "Findings",
+          "options": [
+            {
+              "key": "A",
+              "text": "It had the strongest influence on word choice."
+            },
+            {
+              "key": "B",
+              "text": "It made no clear difference."
+            },
+            {
+              "key": "C",
+              "text": "It mattered in one place only."
+            },
+            {
+              "key": "D",
+              "text": "There was not enough data to draw conclusions."
+            },
+            {
+              "key": "E",
+              "text": "The result was the opposite of what was predicted."
+            },
+            {
+              "key": "F",
+              "text": "An apparent effect disappeared when another factor was considered."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "age",
+              "answer": "A",
+              "explanation": "Tara says the most important factor was ‘Age, by a long way’: the over-sixties gave the most local words.",
+              "cue": "Age, by a long way"
+            },
+            {
+              "number": 27,
+              "prompt": "gender",
+              "answer": "E",
+              "explanation": "They predicted women would use fewer local words, ‘But our figures show the opposite’.",
+              "cue": "But our figures show the opposite"
+            },
+            {
+              "number": 28,
+              "prompt": "length of time living in the area",
+              "answer": "D",
+              "explanation": "‘Only four’ participants were recent arrivals, so ‘we can't really say anything about it’; Dr Whitfield agrees that four is ‘far too few’.",
+              "cue": "only four of our participants had moved"
+            },
+            {
+              "number": 29,
+              "prompt": "level of education",
+              "answer": "B",
+              "explanation": "Graduates and school-leavers gave very similar answers: ‘There's no clear pattern at all’.",
+              "cue": "There's no clear pattern at all"
+            },
+            {
+              "number": 30,
+              "prompt": "type of work",
+              "answer": "F",
+              "explanation": "The farmers seemed to use more local words, but they were nearly all over sixty, so ‘when we took age into account, the difference disappeared’.",
+              "cue": "when we took age into account, the difference disappeared"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-08/part3.mp3",
+        "duration": 321.8
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the history of the bicycle",
+      "context": "A lecture about how the bicycle developed in the nineteenth century.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of the bicycle. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.98
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.98,
+          "end": 43.4
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today I want to trace the history of the bicycle. It's a machine so familiar that we tend to assume it was invented in a single moment by a single genius. In reality, the design we know took nearly seventy years to arrive, and almost every step began as an attempt to fix a problem with the one before.",
+          "start": 44.3,
+          "end": 61.62
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The story begins in Germany in 1817, with Karl von Drais. He's often described as a baron, and he certainly was an inventor, but his actual job was as a forester, managing woodland in the state of Baden. His machine had two wheels in a line, a wooden frame and a handle for steering, but no pedals. The rider simply pushed along the ground with their feet. Historians think he was prompted by a crisis. In 1816, after a huge volcanic eruption on the other side of the world, Europe had no real summer. Harvests failed, and the price of oats rose so high that many horses had to be killed. Suddenly there was a demand for a way of getting about without one.",
+          "tts": "The story begins in Germany in eighteen seventeen, with Karl von Drais. He's often described as a baron, and he certainly was an inventor, but his actual job was as a forester, managing woodland in the state of Baden. His machine had two wheels in a line, a wooden frame and a handle for steering, but no pedals. The rider simply pushed along the ground with their feet. Historians think he was prompted by a crisis. In eighteen sixteen, after a huge volcanic eruption on the other side of the world, Europe had no real summer. Harvests failed, and the price of oats rose so high that many horses had to be killed. Suddenly there was a demand for a way of getting about without one.",
+          "start": 61.97,
+          "end": 97.19
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The machine became a craze in England, where it was taken up by fashionable young men, and so it was nicknamed the dandy horse. Some people called it the hobby horse, but the name that stuck was dandy. The craze didn't last, partly because riders kept colliding with pedestrians, and several cities banned them from the pavement.",
+          "start": 97.54,
+          "end": 113.75
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The next breakthrough came in France in the 1860s, when makers fixed pedals directly to the front wheel. For the first time, a rider could move without touching the ground. These machines were heavy, with wooden wheels and iron rims, and anyone who rode one over cobbles soon understood why it was nicknamed the boneshaker.",
+          "tts": "The next breakthrough came in France in the eighteen sixties, when makers fixed pedals directly to the front wheel. For the first time, a rider could move without touching the ground. These machines were heavy, with wooden wheels and iron rims, and anyone who rode one over cobbles soon understood why it was nicknamed the boneshaker.",
+          "start": 114.1,
+          "end": 130.57
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Then, in the 1870s, came the high-wheeler, later nicknamed the penny-farthing after two British coins of very different sizes. Because the pedals were attached to the front wheel, one turn of the pedals meant exactly one turn of the wheel. So the bigger the wheel, the greater the distance you covered each time, and some wheels were taller than a man's waist. This was fast but frightening. If the wheel hit a stone, the rider was thrown forward over the handlebars, which was known as taking a header.",
+          "tts": "Then, in the eighteen seventies, came the high-wheeler, later nicknamed the penny-farthing after two British coins of very different sizes. Because the pedals were attached to the front wheel, one turn of the pedals meant exactly one turn of the wheel. So the bigger the wheel, the greater the distance you covered each time, and some wheels were taller than a man's waist. This was fast but frightening. If the wheel hit a stone, the rider was thrown forward over the handlebars, which was known as taking a header.",
+          "start": 130.92,
+          "end": 157.37
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The solution came in 1885, from an English manufacturer, John Kemp Starley. His Rover was the first really successful safety bicycle. Its wheels were almost the same size, so the rider sat low down, and instead of attaching the pedals to the wheel, Starley used a chain to drive the back one. That meant the wheel size no longer mattered, and gears could be added later. Nearly every bicycle since has followed this plan.",
+          "tts": "The solution came in eighteen eighty-five, from an English manufacturer, John Kemp Starley. His Rover was the first really successful safety bicycle. Its wheels were almost the same size, so the rider sat low down, and instead of attaching the pedals to the wheel, Starley used a chain to drive the back one. That meant the wheel size no longer mattered, and gears could be added later. Nearly every bicycle since has followed this plan.",
+          "start": 157.72,
+          "end": 178.82
+        },
+        {
+          "speaker": "lecturer",
+          "text": "One thing still spoiled the ride, though: solid rubber tyres. In 1888, a Scottish vet, John Dunlop, tried to make his young son's tricycle more comfortable. He wrapped a rubber tube around each wheel and filled it with air. This pneumatic tyre made riding smoother, and it made bicycles faster as well.",
+          "tts": "One thing still spoiled the ride, though: solid rubber tyres. In eighteen eighty-eight, a Scottish vet, John Dunlop, tried to make his young son's tricycle more comfortable. He wrapped a rubber tube around each wheel and filled it with air. This pneumatic tyre made riding smoother, and it made bicycles faster as well.",
+          "start": 179.17,
+          "end": 194.61
+        },
+        {
+          "speaker": "lecturer",
+          "text": "By the 1890s, a cycling craze had swept Europe and North America, and its social effects were enormous, especially for women. A young woman on a bicycle could visit friends, travel to work or just go out for the day without a chaperone, and the independence this gave alarmed many of their parents. Women also demanded more practical clothing, and long skirts gave way to shorter ones, and even to trousers called bloomers.",
+          "tts": "By the eighteen nineties, a cycling craze had swept Europe and North America, and its social effects were enormous, especially for women. A young woman on a bicycle could visit friends, travel to work or just go out for the day without a chaperone, and the independence this gave alarmed many of their parents. Women also demanded more practical clothing, and long skirts gave way to shorter ones, and even to trousers called bloomers.",
+          "start": 194.96,
+          "end": 216.17
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The craze had one more consequence, which is easy to forget. Cyclists formed clubs which campaigned for better roads, because the surfaces of the time were dreadful. When the first motorists appeared a few years later, they inherited the smooth roads that cyclists had won. Many early car makers had also begun as bicycle makers, and brought their skills with them: steel tubing, ball bearings, chain drives and, of course, tyres filled with air.",
+          "start": 216.52,
+          "end": 237.42
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So the bicycle changed far more than the way people travel. That's all for today. Next week, we'll look at how the motor car developed.",
+          "start": 237.77,
+          "end": 245.03
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 245.93,
+          "end": 250.32
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 280.32,
+          "end": 283.03
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The history of the bicycle",
+          "content": [
+            "## Early machines",
+            "• 1817: built by Karl von Drais, a German {{31}}",
+            "• no pedals: the rider pushed along with their feet",
+            "• possibly inspired by a shortage of {{32}} for horses",
+            "• called the '{{33}} horse' in England",
+            "## Pedals and big wheels",
+            "• 1860s: pedals fixed to the front wheel; the rough ride gave it the name '{{34}}'",
+            "• high-wheeler: the bigger the wheel, the greater the {{35}} covered with each turn of the pedals",
+            "• danger: the rider could be thrown forward, known as taking a '{{36}}'",
+            "## The modern bicycle",
+            "• 1885: Starley's Rover, with a {{37}} to drive the back wheel",
+            "• 1888: Dunlop's tyre, filled with {{38}}",
+            "## Social effects",
+            "• 1890s: women gained more {{39}}",
+            "• cyclists' clubs campaigned for better {{40}}, which later helped motorists"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "forester"
+              ],
+              "explanation": "He is often called a baron or an inventor, ‘but his actual job was as a forester’, managing woodland.",
+              "cue": "his actual job was as a forester"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "oats",
+                "oat"
+              ],
+              "explanation": "After the failed harvests of 1816, ‘the price of oats rose so high that many horses had to be killed’, creating a demand for horseless transport.",
+              "cue": "the price of oats rose so high"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "dandy"
+              ],
+              "explanation": "Fashionable young men rode it, so it was ‘nicknamed the dandy horse’; ‘hobby horse’ was also used, but ‘the name that stuck was dandy’.",
+              "cue": "nicknamed the dandy horse"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "boneshaker"
+              ],
+              "explanation": "On cobbled streets riders found out ‘why it was nicknamed the boneshaker’.",
+              "cue": "why it was nicknamed the boneshaker"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "distance"
+              ],
+              "explanation": "One pedal turn meant one wheel turn, so ‘the bigger the wheel, the greater the distance you covered each time’.",
+              "cue": "the greater the distance you covered each time"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "header"
+              ],
+              "explanation": "If the wheel hit a stone, the rider was thrown over the handlebars, ‘known as taking a header’.",
+              "cue": "known as taking a header"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "chain"
+              ],
+              "explanation": "Instead of attaching the pedals to the wheel, ‘Starley used a chain to drive the back one’.",
+              "cue": "Starley used a chain to drive the back one"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "air"
+              ],
+              "explanation": "Dunlop ‘wrapped a rubber tube around each wheel and filled it with air’, making the pneumatic tyre.",
+              "cue": "filled it with air"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "independence"
+              ],
+              "explanation": "A woman could travel alone ‘without a chaperone, and the independence this gave alarmed many of their parents’.",
+              "cue": "the independence this gave alarmed many of their parents"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "roads",
+                "road"
+              ],
+              "explanation": "Cyclists' clubs ‘campaigned for better roads’, which the first motorists later inherited.",
+              "cue": "campaigned for better roads"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-08/part4.mp3",
+        "duration": 283.83
+      }
+    }
+  ],
+  "durationMinutes": 20
+}
