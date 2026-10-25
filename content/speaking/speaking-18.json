@@ -35,7 +35,7 @@
       "title": "Introduction and interview",
       "topics": [
         "Your hometown",
-        "Clothes",
+        "Walking",
         "Colours"
       ],
       "questions": [
@@ -85,35 +85,35 @@
         },
         {
           "key": "p1-5",
-          "topic": "Clothes",
-          "text": "What kind of clothes do you like to wear?",
-          "say": "Now let's move on to talk about clothes. What kind of clothes do you like to wear?",
+          "topic": "Walking",
+          "text": "Do you like walking?",
+          "say": "Now let's move on to talk about walking. Do you like walking?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-18/p1-5.mp3",
-            "duration": 6.06
+            "duration": 5.1
           }
         },
         {
           "key": "p1-6",
-          "topic": "Clothes",
-          "text": "Do you wear different clothes at the weekend?",
-          "say": "Do you wear different clothes at the weekend?",
+          "topic": "Walking",
+          "text": "How often do you walk to places?",
+          "say": "How often do you walk to places?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-18/p1-6.mp3",
-            "duration": 3.29
+            "duration": 2.68
           }
         },
         {
           "key": "p1-7",
-          "topic": "Clothes",
-          "text": "Do you ever buy second-hand clothes?",
-          "say": "Do you ever buy second-hand clothes?",
+          "topic": "Walking",
+          "text": "Is your area a good place for walking?",
+          "say": "Is your area a good place for walking?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-18/p1-7.mp3",
-            "duration": 3.21
+            "duration": 3.25
           }
         },
         {

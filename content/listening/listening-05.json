@@ -1,0 +1,1508 @@
+{
+  "id": "listening-05",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 5",
+  "shortTitle": "Practice Test 5",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 5,
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "martin": {
+      "name": "Martin",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "hannah": {
+      "name": "Hannah",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "nina": {
+      "name": "Nina Brennan",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "tessa": {
+      "name": "Tessa",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "callum": {
+      "name": "Callum",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "hughes": {
+      "name": "Dr Hughes",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {
+    "Lindqvist": "lˈɪndkwɪst"
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Reporting a lost bag",
+      "context": "A woman phones a railway station's lost property office to report a lost rucksack.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman telephoning a railway station to report a lost bag. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.94
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.94,
+          "end": 39.01
+        },
+        {
+          "speaker": "martin",
+          "text": "Kingsmead Central Station, lost property office. Martin speaking.",
+          "start": 39.91,
+          "end": 44.24
+        },
+        {
+          "speaker": "hannah",
+          "text": "Oh, hello. Um, I'm hoping you can help me. I think I left my rucksack on a train yesterday, and I wondered if anyone had handed it in.",
+          "start": 44.74,
+          "end": 51.95
+        },
+        {
+          "speaker": "martin",
+          "text": "I'm sorry to hear that. Don't worry, we get a lot of bags handed in. I'll just start filling in a report form.",
+          "start": 52.45,
+          "end": 59.39
+        },
+        {
+          "speaker": "narrator",
+          "text": "The woman has lost a rucksack, so 'rucksack' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 60.29,
+          "end": 75.18
+        },
+        {
+          "speaker": "martin",
+          "text": "Right. Can I take your name, please?",
+          "start": 76.08,
+          "end": 78.08
+        },
+        {
+          "speaker": "hannah",
+          "text": "Yes. It's Hannah Lindqvist.",
+          "start": 78.58,
+          "end": 80.18
+        },
+        {
+          "speaker": "martin",
+          "text": "Sorry, could you spell your surname for me?",
+          "start": 80.68,
+          "end": 82.88
+        },
+        {
+          "speaker": "hannah",
+          "text": "Of course. It's L-I-N-D-Q-V-I-S-T. It's a Swedish name, so people always get it wrong.",
+          "tts": "Of course. It's L, I, N, D, Q, V, I, S, T. It's a Swedish name, so people always get it wrong.",
+          "start": 83.38,
+          "end": 89.27
+        },
+        {
+          "speaker": "martin",
+          "text": "Thank you. And what's the best number to reach you on?",
+          "start": 89.77,
+          "end": 92.56
+        },
+        {
+          "speaker": "hannah",
+          "text": "My mobile is 07700 900 316. Oh, sorry, I've swapped the last two digits. It's 361.",
+          "tts": "My mobile is oh seven seven double oh, nine double oh, three one six. Oh, sorry, I've swapped the last two digits. It's three six one.",
+          "start": 93.06,
+          "end": 100.93
+        },
+        {
+          "speaker": "martin",
+          "text": "So that's 07700 900 361. Is that right?",
+          "tts": "So that's oh seven seven double oh, nine double oh, three six one. Is that right?",
+          "start": 101.43,
+          "end": 106.87
+        },
+        {
+          "speaker": "hannah",
+          "text": "Yes, that's it.",
+          "start": 107.37,
+          "end": 108.61
+        },
+        {
+          "speaker": "martin",
+          "text": "Lovely. And what date did you travel on?",
+          "start": 109.11,
+          "end": 111.67
+        },
+        {
+          "speaker": "hannah",
+          "text": "Yesterday. That was the fourteenth. No, hang on, today's the sixteenth, isn't it? So it was the fifteenth. Sorry, I've lost track of the days this week.",
+          "start": 112.17,
+          "end": 120.17
+        },
+        {
+          "speaker": "martin",
+          "text": "No problem. And which train were you on?",
+          "start": 120.67,
+          "end": 123.15
+        },
+        {
+          "speaker": "hannah",
+          "text": "Well, I started out at Westerby, but I had to change at Dunmore, and I left the rucksack on the second train, the one from Dunmore to here.",
+          "start": 123.65,
+          "end": 131.05
+        },
+        {
+          "speaker": "martin",
+          "text": "I see. And what time did that train leave Dunmore?",
+          "start": 131.55,
+          "end": 134.51
+        },
+        {
+          "speaker": "hannah",
+          "text": "I usually catch the quarter to nine, but I missed it this time, so I took the next one, at nine twenty.",
+          "start": 135.01,
+          "end": 140.47
+        },
+        {
+          "speaker": "martin",
+          "text": "Right, thanks. And do you remember where you put the bag?",
+          "start": 140.97,
+          "end": 144.11
+        },
+        {
+          "speaker": "hannah",
+          "text": "Um, up on the rack above my seat, I think. I got off in a hurry, because my meeting started in half an hour.",
+          "start": 144.61,
+          "end": 150.39
+        },
+        {
+          "speaker": "martin",
+          "text": "That's the most likely place, yes. OK, I think that's everything for the journey. Now I just need a description of the bag.",
+          "start": 150.89,
+          "end": 158.61
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 159.51,
+          "end": 165.23
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 185.23,
+          "end": 188.56
+        },
+        {
+          "speaker": "martin",
+          "text": "So, what does the rucksack look like?",
+          "start": 189.46,
+          "end": 191.59
+        },
+        {
+          "speaker": "hannah",
+          "text": "It's a medium-sized one, dark green, with a grey stripe down the front. Oh, no, sorry, that's my brother's. Mine is dark blue. The stripe's grey on both, though.",
+          "start": 192.09,
+          "end": 200.99
+        },
+        {
+          "speaker": "martin",
+          "text": "OK. And is there anything on it that would help us recognise it? A name label, for instance?",
+          "start": 201.49,
+          "end": 207.31
+        },
+        {
+          "speaker": "hannah",
+          "text": "I took the label off ages ago. But there's a little metal keyring clipped to the zip, and it's a tiny lighthouse. I bought it on holiday years ago.",
+          "start": 207.81,
+          "end": 216.07
+        },
+        {
+          "speaker": "martin",
+          "text": "Lovely. And what was inside? Anything valuable?",
+          "start": 216.57,
+          "end": 219.88
+        },
+        {
+          "speaker": "hannah",
+          "text": "Mostly clothes, and a couple of textbooks. My laptop's at home, thank goodness. But there's a camera in a padded case, and that's what worries me most. It belongs to my university department.",
+          "start": 220.38,
+          "end": 231.04
+        },
+        {
+          "speaker": "martin",
+          "text": "I'll put all that on the report. Now, if it has been handed in, it'll be brought down to us. The station's a big place, so let me explain. The main entrance is next to platform one, but we're at the far end of the concourse, beside platform six, just past the ticket machines.",
+          "start": 231.54,
+          "end": 248.14
+        },
+        {
+          "speaker": "hannah",
+          "text": "Right. And is there a charge for collecting it?",
+          "start": 248.64,
+          "end": 251.07
+        },
+        {
+          "speaker": "martin",
+          "text": "Yes, there's a handling charge. We keep everything here for ten days, and after that it's sent to the central depot, where the charge is higher. If you collect it from us, it's five pounds, and you can only pay by card, I'm afraid.",
+          "start": 251.57,
+          "end": 265.67
+        },
+        {
+          "speaker": "hannah",
+          "text": "That's fine. Thank you very much for your help.",
+          "start": 266.17,
+          "end": 268.43
+        },
+        {
+          "speaker": "martin",
+          "text": "You're welcome. We'll text you as soon as it turns up. Goodbye.",
+          "start": 268.93,
+          "end": 272.73
+        },
+        {
+          "speaker": "hannah",
+          "text": "Goodbye.",
+          "start": 273.23,
+          "end": 274.38
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 275.28,
+          "end": 279.81
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 3,
+          "title": "Kingsmead Central Station – lost property report",
+          "content": [
+            "Example: Item lost: **rucksack**",
+            "## Personal details",
+            "• Name: Hannah {{1}}",
+            "• Mobile number: {{2}}",
+            "## Journey",
+            "• Date of journey: {{3}} October",
+            "• Lost on the train from {{4}}",
+            "• Train left at {{5}}",
+            "## The bag",
+            "• Colour: dark {{6}}",
+            "• Keyring on zip: a miniature {{7}}",
+            "• Most valuable item inside: a {{8}}",
+            "## Collecting it",
+            "• Office is near platform {{9}}",
+            "• Handling charge: £{{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Lindqvist"
+              ],
+              "explanation": "She spells her surname: ‘L-I-N-D-Q-V-I-S-T’.",
+              "cue": "L-I-N-D-Q-V-I-S-T"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "07700 900 361",
+                "07700 900361",
+                "07700900361"
+              ],
+              "explanation": "She first says ‘900 316’ but corrects herself (‘I've swapped the last two digits’), and Martin reads back the right number: ‘900 361’.",
+              "cue": "07700 900 361"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "15",
+                "15th",
+                "fifteenth"
+              ],
+              "explanation": "She starts with ‘the fourteenth’, then works out that ‘today's the sixteenth’: ‘So it was the fifteenth’.",
+              "cue": "So it was the fifteenth"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "Dunmore"
+              ],
+              "explanation": "She began at Westerby but lost the rucksack on ‘the one from Dunmore to here’, the second train.",
+              "cue": "the one from Dunmore to here"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "9.20",
+                "9:20",
+                "09.20",
+                "09:20",
+                "9.20am",
+                "9:20am",
+                "9.20 am",
+                "9:20 am",
+                "nine twenty"
+              ],
+              "explanation": "She usually takes ‘the quarter to nine’ (8.45), but she missed it and took the next train, ‘at nine twenty’.",
+              "cue": "at nine twenty"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "blue"
+              ],
+              "explanation": "She first says ‘dark green’, then corrects herself: ‘that's my brother's. Mine is dark blue’.",
+              "cue": "Mine is dark blue"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "lighthouse"
+              ],
+              "explanation": "There is no name label, but there is a ‘little metal keyring’ on the zip: ‘it's a tiny lighthouse’.",
+              "cue": "it's a tiny lighthouse"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "camera"
+              ],
+              "explanation": "Her laptop is at home, so the item she worries about is ‘a camera in a padded case’.",
+              "cue": "there's a camera in a padded case"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "The main entrance is next to platform one, but the lost property office is ‘beside platform six’.",
+              "cue": "beside platform six"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "Items are kept for ten days before going to the depot; collecting from the office costs ‘five pounds’.",
+              "cue": "it's five pounds"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-05/part1.mp3",
+        "duration": 300.61
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Welcome to a new sports centre",
+      "context": "The manager of a new community sports centre welcomes local people on its open day.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the manager of a new community sports centre welcoming local people on its open day. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 12.12
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 37.12,
+          "end": 41.39
+        },
+        {
+          "speaker": "nina",
+          "text": "Good morning, everyone, and welcome to Harbourside Community Sports Centre. I'm Nina Brennan, the manager. It's lovely to see so many of you at our first open day. Before I show you round, a few words about how the centre came about.",
+          "start": 42.29,
+          "end": 55.49
+        },
+        {
+          "speaker": "nina",
+          "text": "Some of you may have read that it grew out of a council survey. Well, that isn't quite right. It began with a group of local parents, who were tired of driving their children to another town just to find a swimming pool. They started a petition, and only when they'd collected five thousand signatures did the council agree to pay. The athletics club backed the campaign too, but it was the parents who got it started.",
+          "start": 55.84,
+          "end": 77.6
+        },
+        {
+          "speaker": "nina",
+          "text": "Now, the building itself. We tried to make it as green as possible. There are solar panels on the roof, but they only power the lighting. The pool is a different story. Next door is a commercial laundry, which gives off huge amounts of hot air every day, and until now that heat was simply wasted. We've fitted pipes to capture it, and it now keeps the whole pool warm. We did consider a heat pump, but that would have cost twice as much.",
+          "start": 77.95,
+          "end": 100.82
+        },
+        {
+          "speaker": "nina",
+          "text": "Now, membership. Everybody who joins gets a fitness assessment, so that's not a special offer. Last month we were also waiving the joining fee, but I'm afraid that has ended. What we're offering this month is different: if you sign up before the end of June, you can bring a friend free of charge for your first four weeks.",
+          "start": 101.17,
+          "end": 118.17
+        },
+        {
+          "speaker": "nina",
+          "text": "A word about classes. You can book up to a week ahead. I know many of you will want to ring us, but we've stopped taking phone bookings, because the line was always busy. You can book at the front desk, but there's often a queue, so I'd strongly recommend downloading our app.",
+          "start": 118.52,
+          "end": 132.63
+        },
+        {
+          "speaker": "nina",
+          "text": "And finally, can teenagers use the gym? Yes, from the age of fourteen. A parent doesn't need to stay with them, and they don't need a letter from school. What they do need is to attend an induction session with one of our instructors before their first visit. After that, they're free to use it on their own.",
+          "start": 132.98,
+          "end": 149.04
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 149.94,
+          "end": 155.66
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 175.66,
+          "end": 179.54
+        },
+        {
+          "speaker": "nina",
+          "text": "Now let me tell you where everything is. Please look at the plan of the ground floor. You're standing at the main entrance, at the bottom of the plan. Reception is straight away on your left, where you'll collect your membership cards.",
+          "start": 180.44,
+          "end": 191.62
+        },
+        {
+          "speaker": "nina",
+          "text": "Opposite reception, on the right, is our café, which opens at seven every morning. Next to the café, on its far side, is the physiotherapy room, but that won't open until the autumn.",
+          "start": 191.97,
+          "end": 202.4
+        },
+        {
+          "speaker": "nina",
+          "text": "Now walk straight ahead along the main corridor until you reach a junction. The swimming pool is straight in front of you. Turn left, and the first room on your left is the fitness gym. Directly opposite the gym, across the main corridor, are the squash courts, but they're not ready yet.",
+          "start": 202.75,
+          "end": 217.83
+        },
+        {
+          "speaker": "nina",
+          "text": "Carry on to the end of the corridor. The last room on the left is the dance studio, with mirrors on three walls. The big room on the right is the sports hall.",
+          "start": 218.18,
+          "end": 226.55
+        },
+        {
+          "speaker": "nina",
+          "text": "Back at the junction, if you turn right instead, you'll pass the swimming pool on your left. At the far end, the large room on your left is the climbing wall. And directly opposite it, on the right, you'll find the crèche, where children from six months old are looked after while you exercise.",
+          "start": 226.9,
+          "end": 241.76
+        },
+        {
+          "speaker": "nina",
+          "text": "Right, that's all from me. Tours leave from reception every quarter of an hour, so do have a look around.",
+          "start": 242.11,
+          "end": 247.55
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 248.45,
+          "end": 252.79
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "How did the idea for the sports centre begin?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Local parents started a campaign."
+                },
+                {
+                  "key": "B",
+                  "text": "The council carried out a survey."
+                },
+                {
+                  "key": "C",
+                  "text": "A sports club asked for new facilities."
+                }
+              ],
+              "answer": "A",
+              "explanation": "The council survey story is ‘not quite right’ and the athletics club only ‘backed the campaign’: ‘it was the parents who got it started’.",
+              "cue": "it was the parents who got it started"
+            },
+            {
+              "number": 12,
+              "prompt": "The swimming pool is heated using",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "solar panels."
+                },
+                {
+                  "key": "B",
+                  "text": "a heat pump."
+                },
+                {
+                  "key": "C",
+                  "text": "heat from a nearby business."
+                }
+              ],
+              "answer": "C",
+              "explanation": "The solar panels only ‘power the lighting’ and a heat pump was rejected as too costly; pipes capture heat from the laundry next door, so ‘it now keeps the whole pool warm’.",
+              "cue": "it now keeps the whole pool warm"
+            },
+            {
+              "number": 13,
+              "prompt": "What is the special offer for people who join this month?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a free fitness assessment"
+                },
+                {
+                  "key": "B",
+                  "text": "free entry for a friend"
+                },
+                {
+                  "key": "C",
+                  "text": "no joining fee"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The assessment is for everyone and the joining-fee offer has ‘ended’; this month ‘you can bring a friend free of charge’.",
+              "cue": "you can bring a friend free of charge"
+            },
+            {
+              "number": 14,
+              "prompt": "What does the manager recommend for booking classes?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "using the centre's app"
+                },
+                {
+                  "key": "B",
+                  "text": "telephoning the centre"
+                },
+                {
+                  "key": "C",
+                  "text": "going to the front desk"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Phone bookings have stopped and the front desk often has a queue, so ‘I'd strongly recommend downloading our app’.",
+              "cue": "I'd strongly recommend downloading our app"
+            },
+            {
+              "number": 15,
+              "prompt": "Young people aged 14 and over can use the gym if they",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "come with an adult."
+                },
+                {
+                  "key": "B",
+                  "text": "bring a letter from their school."
+                },
+                {
+                  "key": "C",
+                  "text": "complete an introductory session."
+                }
+              ],
+              "answer": "C",
+              "explanation": "A parent need not stay and no school letter is needed; they must ‘attend an induction session with one of our instructors’ first.",
+              "cue": "attend an induction session with one of our instructors"
+            }
+          ]
+        },
+        {
+          "type": "map_labelling",
+          "instruction": "Label the plan below. Choose the correct letter, **A–G**, next to Questions 16–20.",
+          "map": {
+            "title": "Harbourside Community Sports Centre – ground floor",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "parking"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 430,
+                "x2": 320,
+                "y2": 190,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 60,
+                "y1": 215,
+                "x2": 590,
+                "y2": 215,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 25,
+                "y": 30,
+                "w": 165,
+                "h": 160,
+                "style": "building",
+                "label": "Sports hall"
+              },
+              {
+                "type": "rect",
+                "x": 205,
+                "y": 30,
+                "w": 230,
+                "h": 160,
+                "style": "water",
+                "label": "Swimming pool"
+              },
+              {
+                "type": "rect",
+                "x": 450,
+                "y": 30,
+                "w": 110,
+                "h": 160,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 232,
+                "w": 155,
+                "h": 95,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 200,
+                "y": 232,
+                "w": 100,
+                "h": 95,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 340,
+                "y": 232,
+                "w": 110,
+                "h": 95,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 465,
+                "y": 232,
+                "w": 95,
+                "h": 95,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 340,
+                "w": 155,
+                "h": 65,
+                "style": "building",
+                "label": "Changing rooms"
+              },
+              {
+                "type": "rect",
+                "x": 205,
+                "y": 340,
+                "w": 95,
+                "h": 65,
+                "style": "building",
+                "label": "Reception"
+              },
+              {
+                "type": "rect",
+                "x": 340,
+                "y": 340,
+                "w": 110,
+                "h": 65,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 465,
+                "y": 340,
+                "w": 95,
+                "h": 65,
+                "style": "building"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 430,
+                "label": "Main entrance"
+              },
+              {
+                "type": "compass",
+                "x": 600,
+                "y": 80
+              },
+              {
+                "type": "letter",
+                "x": 107,
+                "y": 280,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 250,
+                "y": 280,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 395,
+                "y": 280,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 395,
+                "y": 372,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 512,
+                "y": 280,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 505,
+                "y": 110,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 512,
+                "y": 372,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Café",
+              "answer": "D",
+              "explanation": "‘Opposite reception, on the right, is our café.’ G is the physiotherapy room, ‘beside the café’.",
+              "cue": "is our café"
+            },
+            {
+              "number": 17,
+              "prompt": "Fitness gym",
+              "answer": "B",
+              "explanation": "After turning left at the junction, ‘the first room on your left is the fitness gym’. C, the squash courts, is directly opposite it.",
+              "cue": "the first room on your left is the fitness gym"
+            },
+            {
+              "number": 18,
+              "prompt": "Dance studio",
+              "answer": "A",
+              "explanation": "At the end of the corridor, ‘the last room on the left is the dance studio’; the sports hall is on the right.",
+              "cue": "the last room on the left is the dance studio"
+            },
+            {
+              "number": 19,
+              "prompt": "Climbing wall",
+              "answer": "F",
+              "explanation": "Turning right at the junction, you pass the pool, and ‘at the far end, the large room on your left is the climbing wall’.",
+              "cue": "the large room on your left is the climbing wall"
+            },
+            {
+              "number": 20,
+              "prompt": "Crèche",
+              "answer": "E",
+              "explanation": "It is ‘directly opposite’ the climbing wall, on the right-hand side of the corridor.",
+              "cue": "directly opposite it, on the right"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-05/part2.mp3",
+        "duration": 273.59
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A field-trip report on rock pools",
+      "context": "Two marine biology students discuss a field-trip report with their tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two marine biology students, Tessa and Callum, talking to their tutor, Dr Hughes, about a report on a field trip to a rocky shore. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 15.45
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 40.45,
+          "end": 45.16
+        },
+        {
+          "speaker": "hughes",
+          "text": "Come in, both of you. I've read your draft report, and on the whole it's very good. Let's start with the site. Why Kelby Point? I'd have thought Seaton would have been easier, with the bus stopping right outside.",
+          "start": 46.06,
+          "end": 56.77
+        },
+        {
+          "speaker": "tessa",
+          "text": "It would have been easier to get to, yes. But Seaton is mostly sand, with just a few small pools. At Kelby the rocks run from the top of the shore right down to the low-tide line, so there are pools at several different heights.",
+          "start": 57.27,
+          "end": 69.26
+        },
+        {
+          "speaker": "callum",
+          "text": "And that mattered, because the whole point was to compare them. Dr Cooper did mention Kelby to us, but that wasn't why we picked it.",
+          "start": 69.76,
+          "end": 78.15
+        },
+        {
+          "speaker": "hughes",
+          "text": "Fine. Now, did everything go to plan on the day?",
+          "start": 78.65,
+          "end": 81.55
+        },
+        {
+          "speaker": "callum",
+          "text": "Well, um, not quite. The weather was lovely, and the equipment all worked. But we'd got the tide table wrong by about an hour, so the water came back faster than we expected, and we only half finished the two lowest pools.",
+          "start": 82.05,
+          "end": 97.02
+        },
+        {
+          "speaker": "hughes",
+          "text": "I see. And what did you make of the results overall?",
+          "start": 97.52,
+          "end": 100.64
+        },
+        {
+          "speaker": "tessa",
+          "text": "Well, we expected the number of species to go up steadily as you go down the shore, because the lower pools are covered by the sea for longer. And the upper pools did have the fewest, mostly just a few periwinkles and some seaweed.",
+          "start": 101.14,
+          "end": 113.25
+        },
+        {
+          "speaker": "callum",
+          "text": "But what surprised us was the middle shore. We thought it would be somewhere between the other two, but it had almost as many species as the lowest pools. Eleven, compared with twelve.",
+          "start": 113.75,
+          "end": 125.23
+        },
+        {
+          "speaker": "hughes",
+          "text": "That's worth highlighting. Now, presentation. You've put all your raw counts in the main text, sixty-odd lines of numbers. Was that deliberate?",
+          "start": 125.73,
+          "end": 133.95
+        },
+        {
+          "speaker": "callum",
+          "text": "That was my idea, actually. I thought readers would want to check every figure.",
+          "start": 134.45,
+          "end": 139.35
+        },
+        {
+          "speaker": "tessa",
+          "text": "But it makes the results section really long, and the graphs get lost.",
+          "start": 139.85,
+          "end": 143.78
+        },
+        {
+          "speaker": "hughes",
+          "text": "Tessa's right. Readers want to see the pattern first, so I'd move the raw data to an appendix and keep a short summary table in the main text.",
+          "start": 144.28,
+          "end": 152.58
+        },
+        {
+          "speaker": "callum",
+          "text": "OK, that makes sense. I'll do that.",
+          "start": 153.08,
+          "end": 155.68
+        },
+        {
+          "speaker": "hughes",
+          "text": "And what about those two pools you only half surveyed? What did you do with those figures?",
+          "start": 156.18,
+          "end": 161.06
+        },
+        {
+          "speaker": "tessa",
+          "text": "We left them out of the analysis, but we didn't say so anywhere in the report. Should we go back and finish them?",
+          "start": 161.56,
+          "end": 167.47
+        },
+        {
+          "speaker": "hughes",
+          "text": "There isn't time before the deadline, and you don't need to. But don't hide it. Say what happened, and put it in your limitations section. Markers respect honesty far more than a tidy-looking result.",
+          "start": 167.97,
+          "end": 179.13
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 180.03,
+          "end": 186.17
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 206.17,
+          "end": 210.01
+        },
+        {
+          "speaker": "hughes",
+          "text": "Right. Now let's go through the species section. Limpets first.",
+          "start": 210.91,
+          "end": 214.67
+        },
+        {
+          "speaker": "tessa",
+          "text": "They were the easiest to survey, because each limpet stays on its own patch of rock. We found them in every single pool, from the top of the shore to the bottom.",
+          "start": 215.17,
+          "end": 223.68
+        },
+        {
+          "speaker": "hughes",
+          "text": "Good. And the starfish?",
+          "start": 224.18,
+          "end": 225.87
+        },
+        {
+          "speaker": "callum",
+          "text": "Those were only found in the lowest pools. We didn't see a single one higher up, which makes sense, because they can't cope with being out of the water for long.",
+          "start": 226.37,
+          "end": 236.2
+        },
+        {
+          "speaker": "hughes",
+          "text": "What about the shore crabs?",
+          "start": 236.7,
+          "end": 238.49
+        },
+        {
+          "speaker": "tessa",
+          "text": "They were the hardest to count, because they hide under rocks and in the seaweed. So our figures are probably an underestimate.",
+          "start": 238.99,
+          "end": 245.69
+        },
+        {
+          "speaker": "hughes",
+          "text": "And periwinkles? I thought you said there was something odd there.",
+          "start": 246.19,
+          "end": 249.52
+        },
+        {
+          "speaker": "callum",
+          "text": "Yes. There were far fewer than in the last survey of Kelby Point, ten years ago. We wondered if the warm weather had affected them, but the temperatures were normal for the time of year. So we think people may be collecting them to eat. We can't prove it, though.",
+          "start": 250.02,
+          "end": 265.87
+        },
+        {
+          "speaker": "hughes",
+          "text": "Interesting. And the prawns?",
+          "start": 266.37,
+          "end": 268.31
+        },
+        {
+          "speaker": "tessa",
+          "text": "We saw lots of them, but they move about so fast that we kept losing count. In the end we just recorded them as present or absent.",
+          "start": 268.81,
+          "end": 276.49
+        },
+        {
+          "speaker": "hughes",
+          "text": "That's fine. Right, send me the revised version by Friday.",
+          "start": 276.99,
+          "end": 280.6
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 281.5,
+          "end": 285.96
+        },
+        {
+          "pause": 20
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did the students choose Kelby Point for their survey?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It was easy to reach by bus."
+                },
+                {
+                  "key": "B",
+                  "text": "It had pools at different levels of the shore."
+                },
+                {
+                  "key": "C",
+                  "text": "A lecturer had suggested it."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Seaton would have been easier to reach, and Dr Cooper only mentioned Kelby; the students chose it because there are ‘pools at several different heights’.",
+              "cue": "pools at several different heights"
+            },
+            {
+              "number": 22,
+              "prompt": "What problem did the students have on the day of the survey?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They misjudged the time of the tide."
+                },
+                {
+                  "key": "B",
+                  "text": "One of their instruments stopped working."
+                },
+                {
+                  "key": "C",
+                  "text": "The weather made counting difficult."
+                }
+              ],
+              "answer": "A",
+              "explanation": "The weather was ‘lovely’ and the equipment ‘all worked’, but ‘we'd got the tide table wrong’ so ‘the water came back faster than we expected’.",
+              "cue": "the water came back faster than we expected"
+            },
+            {
+              "number": 23,
+              "prompt": "What surprised the students about their results?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The upper pools contained no animals."
+                },
+                {
+                  "key": "B",
+                  "text": "The lowest pools had fewer species than expected."
+                },
+                {
+                  "key": "C",
+                  "text": "The middle pools were almost as varied as the lowest ones."
+                }
+              ],
+              "answer": "C",
+              "explanation": "The upper pools did have a few periwinkles, and the lowest pools had most species as expected; the surprise was that the middle shore ‘had almost as many species as the lowest pools’.",
+              "cue": "it had almost as many species as the lowest pools"
+            },
+            {
+              "number": 24,
+              "prompt": "What does Dr Hughes advise about the raw counts?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Put them in a separate section at the end."
+                },
+                {
+                  "key": "B",
+                  "text": "Replace them with graphs."
+                },
+                {
+                  "key": "C",
+                  "text": "Explain each one in the text."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Callum wanted every figure in the text, but Dr Hughes agrees with Tessa: ‘I'd move the raw data to an appendix’.",
+              "cue": "I'd move the raw data to an appendix"
+            },
+            {
+              "number": 25,
+              "prompt": "What does Dr Hughes tell the students to do about the two incomplete pools?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Leave them out without comment."
+                },
+                {
+                  "key": "B",
+                  "text": "Describe the problem in the report."
+                },
+                {
+                  "key": "C",
+                  "text": "Go back and finish the survey."
+                }
+              ],
+              "answer": "B",
+              "explanation": "There is no time to return, and leaving the figures out silently is wrong: ‘Say what happened, and put it in your limitations section’.",
+              "cue": "Say what happened"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What comment do the students make about each of the following animals? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "was larger in the deeper pools"
+            },
+            {
+              "key": "B",
+              "text": "was present at every level of the shore"
+            },
+            {
+              "key": "C",
+              "text": "was easily overlooked"
+            },
+            {
+              "key": "D",
+              "text": "may have declined because of human activity"
+            },
+            {
+              "key": "E",
+              "text": "was restricted to the lowest part of the shore"
+            },
+            {
+              "key": "F",
+              "text": "was too quick to be counted reliably"
+            },
+            {
+              "key": "G",
+              "text": "was harmed by unusually high temperatures"
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "limpets",
+              "answer": "B",
+              "explanation": "Each limpet stays on its own patch of rock, and ‘we found them in every single pool’.",
+              "cue": "We found them in every single pool"
+            },
+            {
+              "number": 27,
+              "prompt": "starfish",
+              "answer": "E",
+              "explanation": "‘Those were only found in the lowest pools’; they cannot cope with being out of the water.",
+              "cue": "only found in the lowest pools"
+            },
+            {
+              "number": 28,
+              "prompt": "shore crabs",
+              "answer": "C",
+              "explanation": "They ‘hide under rocks and in the seaweed’, so the students' figures are probably too low.",
+              "cue": "they hide under rocks and in the seaweed"
+            },
+            {
+              "number": 29,
+              "prompt": "periwinkles",
+              "answer": "D",
+              "explanation": "The warm weather was ruled out (‘temperatures were normal’), so ‘people may be collecting them to eat’.",
+              "cue": "people may be collecting them to eat"
+            },
+            {
+              "number": 30,
+              "prompt": "prawns",
+              "answer": "F",
+              "explanation": "‘They move about so fast that we kept losing count.’",
+              "cue": "they move about so fast"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-05/part3.mp3",
+        "duration": 306.76
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: urban beekeeping and pollination",
+      "context": "A lecture about keeping bees in cities and what it means for pollination.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about keeping bees in cities and why it matters for pollination. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 11.37
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 41.37,
+          "end": 45.79
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. In today's session on urban ecology, I want to look at something that has become a surprisingly common sight in our cities: the beehive. Look down from almost any tall building and you'll spot them, up on the rooftops of offices, hotels and even theatres. Beekeeping in cities has boomed over the last ten years, and I want to ask two questions. Is it good for the bees? And is it good for the plants that depend on them?",
+          "start": 46.69,
+          "end": 66.4
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Let's start with the bees themselves. A honeybee colony can contain fifty thousand workers in midsummer. They fly out to collect nectar, which they turn into honey, and pollen, which feeds the young. A worker will usually forage within about two kilometres of the hive. Sorry, nearer three, actually. In a city, that means thousands of gardens, parks and balconies within reach.",
+          "start": 66.75,
+          "end": 85.01
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So why might a city suit bees better than the countryside? There are three main reasons. First, variety. A large arable farm may grow only one crop, say sunflowers, which flower for a few weeks and then leave the bees with nothing. A city has gardens, street trees and parks, so something is in flower almost all year round, from snowdrops in February to ivy in October. Second, temperature. Buildings and roads hold heat, so a city can be a couple of degrees warmer than the surrounding countryside. Plants flower earlier and carry on later, so the season is considerably longer. And third, chemicals. Farmers have to protect huge areas of crops, and they use a lot of pesticides. Most gardeners use far less, and some city councils have banned them from public parks altogether.",
+          "start": 85.36,
+          "end": 123.71
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Now, what does this have to do with pollination? When a bee lands on a flower, tiny grains of pollen stick to the branched hairs covering its body. When it flies to the next flower, some of those grains rub off, and the flower can be fertilised and produce seeds or fruit. Many of the foods we eat depend on this, including apples, strawberries and beans. And bees have a remarkable way of sharing information. When a worker finds a good patch of flowers, she returns to the hive and performs what we call a waggle dance. The angle of the dance tells the others which direction to fly in, and its length tells them how far to go.",
+          "start": 124.06,
+          "end": 156.12
+        },
+        {
+          "speaker": "lecturer",
+          "text": "However, urban beekeeping isn't without problems. The first is competition. Honeybees are very efficient foragers, and in a city with too many hives there may not be enough flowers to go round. A three-year study in the northern city of Ashgrove compared districts with many hives and districts with few. In the crowded districts, researchers counted noticeably fewer wild bumblebees, which suggests that the honeybees were taking their food. The second problem is disease. A tiny parasite called the varroa mite feeds on honeybees and spreads viruses between colonies, and those viruses can then pass to wild bees visiting the same flowers. The third problem worries neighbours rather than bees. In early summer, when a colony outgrows its hive, the old queen leaves with about half the workers to find a new home. This is called swarming. A swarm looks frightening, but the bees are actually very gentle at that stage, because they have no honey or young to defend.",
+          "start": 156.47,
+          "end": 207.98
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So what can be done? Beekeepers can help by not keeping too many hives in one area, and by checking their colonies regularly for disease. Hives on roofs also need a source of water close by. Bees use it to cool the hive in hot weather, and a roof has no ponds or puddles, so a shallow dish with pebbles in it is essential. Shade is useful too, but water is the thing they can't manage without. And cities themselves can help. Councils could plant more lime trees along streets. Their flowers are rich in nectar, and they bloom in July, just when many other plants have finished. Oak and cherry trees are attractive, but oak gives almost no nectar and cherry blossom comes much earlier in the spring.",
+          "start": 208.33,
+          "end": 243.03
+        },
+        {
+          "speaker": "lecturer",
+          "text": "To sum up, used carefully, urban beekeeping can benefit both bees and plants. Next week, we'll look at the honey itself, and why city honey can taste so different from one neighbourhood to the next.",
+          "start": 243.38,
+          "end": 253.86
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 254.76,
+          "end": 259.15
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 279.15,
+          "end": 281.86
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Urban beekeeping and pollination",
+          "content": [
+            "## Background",
+            "• hives in cities are often kept on {{31}}",
+            "• workers forage within about 3 km of the hive",
+            "## Why cities suit honeybees",
+            "• gardens and parks provide flowers throughout the year",
+            "• cities are warmer, so the flowering season is much {{32}}",
+            "• gardeners use fewer {{33}} than farmers",
+            "## Pollination",
+            "• pollen grains stick to the {{34}} on a bee's body",
+            "• foragers tell others where food is by performing a special {{35}}",
+            "## Problems",
+            "• wild {{36}} were less common where hives were densely packed",
+            "• the varroa mite, a parasite of honeybees, passes {{37}} from hive to hive",
+            "• a colony that has outgrown its hive may split in two – this is called {{38}}",
+            "## What can be done",
+            "• hives on roofs need a nearby supply of {{39}}",
+            "• street planting of {{40}} trees would help, as they flower in July"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "rooftops",
+                "rooftop",
+                "roofs"
+              ],
+              "explanation": "Hives can be spotted ‘up on the rooftops of offices, hotels and even theatres’.",
+              "cue": "up on the rooftops of offices"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "longer"
+              ],
+              "explanation": "Plants ‘flower earlier and carry on later, so the season is considerably longer’.",
+              "cue": "the season is considerably longer"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "pesticides",
+                "pesticide"
+              ],
+              "explanation": "Farmers protect huge areas and ‘use a lot of pesticides’, whereas most gardeners ‘use far less’.",
+              "cue": "they use a lot of pesticides"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "hairs",
+                "hair"
+              ],
+              "explanation": "Grains of pollen ‘stick to the branched hairs covering its body’.",
+              "cue": "the branched hairs covering its body"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "dance"
+              ],
+              "explanation": "A worker that finds flowers ‘performs what we call a waggle dance’, which tells the others direction and distance.",
+              "cue": "performs what we call a waggle dance"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "bumblebees",
+                "bumblebee"
+              ],
+              "explanation": "In crowded districts, ‘researchers counted noticeably fewer wild bumblebees’.",
+              "cue": "researchers counted noticeably fewer wild bumblebees"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "viruses",
+                "virus"
+              ],
+              "explanation": "The varroa mite ‘feeds on honeybees and spreads viruses between colonies’.",
+              "cue": "spreads viruses between colonies"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "swarming"
+              ],
+              "explanation": "When a colony outgrows its hive and the old queen leaves with half the workers, ‘This is called swarming’.",
+              "cue": "This is called swarming"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "water"
+              ],
+              "explanation": "Roof hives need ‘a source of water close by’, because a roof has no ponds or puddles; shade is useful but ‘water is the thing they can't manage without’.",
+              "cue": "a source of water close by"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "lime"
+              ],
+              "explanation": "‘Councils could plant more lime trees’, which bloom in July; oak gives almost no nectar and cherry flowers much earlier.",
+              "cue": "Councils could plant more lime trees"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-05/part4.mp3",
+        "duration": 282.66
+      }
+    }
+  ],
+  "durationMinutes": 19
+}

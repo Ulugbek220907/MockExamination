@@ -35,7 +35,7 @@
       "title": "Introduction and interview",
       "topics": [
         "Work or studies",
-        "Patience",
+        "Food",
         "Daily routine"
       ],
       "questions": [
@@ -85,35 +85,35 @@
         },
         {
           "key": "p1-5",
-          "topic": "Patience",
-          "text": "Would you say you are a patient person?",
-          "say": "Now let's move on to talk about patience. Would you say you are a patient person?",
+          "topic": "Food",
+          "text": "What kind of food do you like to eat?",
+          "say": "Now let's move on to talk about food. What kind of food do you like to eat?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-10/p1-5.mp3",
-            "duration": 5.91
+            "duration": 5.71
           }
         },
         {
           "key": "p1-6",
-          "topic": "Patience",
-          "text": "In what situations do you find it hard to be patient?",
-          "say": "In what situations do you find it hard to be patient?",
+          "topic": "Food",
+          "text": "Do you prefer eating at home or in restaurants?",
+          "say": "Do you prefer eating at home or in restaurants?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-10/p1-6.mp3",
-            "duration": 3.85
+            "duration": 3.47
           }
         },
         {
           "key": "p1-7",
-          "topic": "Patience",
-          "text": "Do you think people are less patient than they used to be?",
-          "say": "Do you think people are less patient than they used to be?",
+          "topic": "Food",
+          "text": "Is there any food you do not like?",
+          "say": "Is there any food you do not like?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-10/p1-7.mp3",
-            "duration": 3.61
+            "duration": 2.83
           }
         },
         {

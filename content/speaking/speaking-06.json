@@ -35,7 +35,7 @@
       "title": "Introduction and interview",
       "topics": [
         "Your hometown",
-        "Technology",
+        "Parks",
         "Sleep"
       ],
       "questions": [
@@ -85,35 +85,35 @@
         },
         {
           "key": "p1-5",
-          "topic": "Technology",
-          "text": "How often do you use a computer?",
-          "say": "Now let's move on to talk about technology. How often do you use a computer?",
+          "topic": "Parks",
+          "text": "Are there many parks where you live?",
+          "say": "Now let's move on to talk about parks. Are there many parks where you live?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-06/p1-5.mp3",
-            "duration": 5.48
+            "duration": 5.22
           }
         },
         {
           "key": "p1-6",
-          "topic": "Technology",
-          "text": "Which piece of technology do you use most every day?",
-          "say": "Which piece of technology do you use most every day?",
+          "topic": "Parks",
+          "text": "What do you like to do in a park?",
+          "say": "What do you like to do in a park?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-06/p1-6.mp3",
-            "duration": 4.0
+            "duration": 2.21
           }
         },
         {
           "key": "p1-7",
-          "topic": "Technology",
-          "text": "Was there any technology you wanted when you were a child?",
-          "say": "Was there any technology you wanted when you were a child?",
+          "topic": "Parks",
+          "text": "Do you spend much time outdoors?",
+          "say": "Do you spend much time outdoors?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-06/p1-7.mp3",
-            "duration": 3.87
+            "duration": 2.4
           }
         },
         {

@@ -36,7 +36,7 @@
       "topics": [
         "Your home",
         "Languages",
-        "Chatting"
+        "Getting around"
       ],
       "questions": [
         {
@@ -118,35 +118,35 @@
         },
         {
           "key": "p1-8",
-          "topic": "Chatting",
-          "text": "Do you prefer chatting with friends in person or online?",
-          "say": "Now let's move on to talk about chatting with friends. Do you prefer chatting with friends in person or online?",
+          "topic": "Getting around",
+          "text": "How do you usually travel around your town?",
+          "say": "Now let's move on to talk about getting around. How do you usually travel around your town?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-11/p1-8.mp3",
-            "duration": 7.78
+            "duration": 6.61
           }
         },
         {
           "key": "p1-9",
-          "topic": "Chatting",
-          "text": "What do you usually talk about with your friends?",
-          "say": "What do you usually talk about with your friends?",
+          "topic": "Getting around",
+          "text": "Is public transport good where you live?",
+          "say": "Is public transport good where you live?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-11/p1-9.mp3",
-            "duration": 3.15
+            "duration": 3.34
           }
         },
         {
           "key": "p1-10",
-          "topic": "Chatting",
-          "text": "Do you like talking to people you don't know?",
-          "say": "Do you like talking to people you don't know?",
+          "topic": "Getting around",
+          "text": "Would you like to cycle more often?",
+          "say": "Would you like to cycle more often?",
           "answerSeconds": 30,
           "audio": {
             "src": "audio/speaking-11/p1-10.mp3",
-            "duration": 3.29
+            "duration": 3.0
           }
         }
       ]
