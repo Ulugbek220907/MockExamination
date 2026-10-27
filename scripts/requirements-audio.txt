@@ -4,4 +4,5 @@
 kokoro-onnx==0.6.1     # Kokoro-82M text-to-speech (model: Apache-2.0; package: MIT)
 lameenc==1.8.4         # MP3 encoding
 numpy>=1.26
+onnx>=1.16           # lets build_listening_audio.py read when each phoneme is spoken (spelled names)
 faster-whisper==1.2.1  # speech recognition used by check_listening_audio.py

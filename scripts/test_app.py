@@ -178,6 +178,21 @@ class ContentTests(unittest.TestCase):
                 self.assertTrue(os.path.getsize(path) > 100_000, path)
                 self.assertGreater(part["audio"]["duration"], 120)
 
+    def test_spelled_words_are_left_to_the_audio_builder(self):
+        """A spelled name is written K-O-W-A-L-S-K-I and voiced letter by letter by the builder; a hand-made
+        `tts` of "K, O, W, ..." would be read as one rushed run of letters, which sounds nothing like a person."""
+        spelled = re.compile(r"\b[A-Z](?:-[A-Z]){2,}\b")
+        letters = re.compile(r"(?:\b[A-Z]\b[,.]? ){3,}")
+        found = 0
+        for t in LISTENING:
+            for part in t["parts"]:
+                for line in part["script"]:
+                    found += bool(spelled.search(line.get("text", "")))
+                    self.assertIsNone(letters.search(line.get("tts", "")), f"{t['id']}: {line.get('tts')}")
+                    if spelled.search(line.get("text", "")):
+                        self.assertNotIn("tts", line, f"{t['id']}: a spelled line must not override its spoken text")
+        self.assertGreaterEqual(found, 10)
+
     def test_public_listening_view_hides_answers_and_transcript(self):
         for t in LISTENING:
             public = content.public_listening_test(t)
