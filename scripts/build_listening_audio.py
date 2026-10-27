@@ -48,6 +48,10 @@ LEAD_IN = 0.6          # silence at the start of each part (seconds)
 GAP_SAME = 0.35        # between two lines by the same speaker
 GAP_CHANGE = 0.5       # when the speaker changes
 GAP_NARRATOR = 0.9     # around narrator instructions
+SPELL_GAP_LETTER = 0.2   # between two letters of a spelled word
+SPELL_GAP_GROUP = 0.45   # between groups of letters
+SPELL_GAP_AROUND = 0.3   # between a spelled word and the words around it
+SPELLING = re.compile(r"\b[A-Z](?:-[A-Z]){2,}\b")  # K-O-W-A-L-S-K-I
 TARGET_RMS_DB = -20.0  # every line is levelled to this loudness
 PEAK_DB = -1.0
 
@@ -103,6 +107,96 @@ class Synth:
         return samples
 
 
+    def letter(self, letter, voice, lang, speed, final, double=False):
+        """
+        One spelled letter (or "double O") as its own clip, with the silence trimmed off. Letters are voiced
+        one at a time because the model rushes and garbles a run of "K, O, W, A": spoken alone, every letter
+        comes out clear and evenly stressed. A comma after the phonemes gives the "more to come" intonation,
+        a full stop the falling one of the last letter.
+        """
+        name = self.kokoro.tokenizer.phonemize(letter, lang=lang).strip(" .,")
+        phonemes = ("dˈʌbəl " if double else "") + name + ("." if final else ",")
+        key = hashlib.sha1(f"letter|{voice}|{lang}|{speed}|{phonemes}".encode("utf-8")).hexdigest()
+        path = os.path.join(CACHE_DIR, key + ".npy")
+        if os.path.exists(path):
+            return np.load(path)
+        samples, sr = self.kokoro.create(phonemes, voice=voice, speed=speed, lang=lang, is_phonemes=True)
+        if sr != SAMPLE_RATE:
+            raise RuntimeError(f"unexpected sample rate {sr}")
+        samples = trim_silence(np.asarray(samples, dtype=np.float32))
+        np.save(path, samples)
+        return samples
+
+    def spell(self, word, voice, lang, speed):
+        """
+        A word spelled out the way a person dictates it: in groups of about three letters, a short pause
+        between letters and a longer one between groups. British speakers say "double O" for a repeated
+        letter. `word` is the hyphenated form, e.g. "H-A-R-W-O-O-D".
+        """
+        units = []  # (letter, is_double)
+        for ch in word.replace("-", ""):
+            if lang == "en-gb" and units and units[-1][0] == ch and not units[-1][1]:
+                units[-1] = (ch, True)
+            else:
+                units.append((ch, False))
+        sizes = spelling_groups(len(units))
+        chunks, i = [], 0
+        for g, size in enumerate(sizes):
+            for j in range(size):
+                letter, double = units[i]
+                last = i == len(units) - 1
+                chunks.append(level(self.letter(letter, voice, lang, speed, last, double)))
+                i += 1
+                if not last:
+                    chunks.append(silence(SPELL_GAP_GROUP if j == size - 1 else SPELL_GAP_LETTER))
+        return np.concatenate(chunks)
+
+    def speak_line(self, text, voice, lang, speed, pronunciations=None):
+        """A script line; any hyphenated spelling in it (K-O-W-A-L-S-K-I) is voiced letter by letter."""
+        pieces, pos = [], 0
+        for m in SPELLING.finditer(text):
+            pieces.append(("say", text[pos:m.start()]))
+            pieces.append(("spell", m.group(0)))
+            pos = m.end()
+        pieces.append(("say", text[pos:]))
+        pieces = [(kind, s) for kind, s in pieces if kind == "spell" or re.search(r"\w", s)]
+        if not any(kind == "spell" for kind, _ in pieces):
+            return self.speak(text, voice, lang, speed, pronunciations)
+        chunks = []
+        for kind, s in pieces:
+            if chunks:
+                chunks.append(silence(SPELL_GAP_AROUND))
+            if kind == "spell":
+                chunks.append(self.spell(s, voice, lang, speed))
+            else:
+                chunks.append(level(trim_silence(self.speak(s.strip(), voice, lang, speed, pronunciations))))
+        return np.concatenate(chunks)
+
+
+def trim_silence(samples, threshold=0.03, margin=0.02):
+    """Cut the quiet lead-in and tail off a short clip (keeps `margin` seconds), with a tiny fade at each end."""
+    loud = np.where(np.abs(samples) > threshold * float(np.max(np.abs(samples)) or 1e-9))[0]
+    if not len(loud):
+        return samples
+    keep = int(margin * SAMPLE_RATE)
+    out = samples[max(0, loud[0] - keep):loud[-1] + keep].copy()
+    fade = min(len(out) // 4, int(0.008 * SAMPLE_RATE))
+    ramp = np.linspace(0.0, 1.0, fade, dtype=np.float32)
+    out[:fade] *= ramp
+    out[len(out) - fade:] *= ramp[::-1]
+    return out
+
+
+def spelling_groups(n):
+    """Sizes of the groups a spelling is dictated in: threes, with a leftover single letter joining the last group."""
+    sizes = [3] * (n // 3)
+    if n % 3 == 1 and sizes:
+        sizes[-1] += 1
+    elif n % 3:
+        sizes.append(n % 3)
+    return sizes or [n]
+
+
 def level(samples):
     """Normalise one utterance to the target loudness so all voices sound equally loud."""
     rms = float(np.sqrt(np.mean(samples ** 2))) or 1e-9
@@ -151,8 +245,8 @@ def build_part(synth, test, part, speakers):
                 GAP_SAME if previous == item["speaker"] else GAP_CHANGE)
             chunks.append(silence(gap))
             cursor += gap
-        audio = level(synth.speak(item.get("tts", item["text"]), spk["voice"], spk["lang"], spk.get("speed", 1.0),
-                                  test.get("pronunciations")))
+        audio = level(synth.speak_line(item.get("tts", item["text"]), spk["voice"], spk["lang"], spk.get("speed", 1.0),
+                                       test.get("pronunciations")))
         item["start"] = round(cursor, 2)
         cursor += len(audio) / SAMPLE_RATE
         item["end"] = round(cursor, 2)
