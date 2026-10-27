@@ -15,6 +15,7 @@ Serves the single-page app from public/ and a JSON API:
   GET  /api/history[?clientId=<uuid>]  recent attempts: the account's, or this browser's
   GET  /api/admin/stats                totals (admin session or ADMIN_TOKEN)
   POST /api/admin/refresh              reload test content (admin session or ADMIN_TOKEN)
+  POST /api/admin/sync-content         upload new and changed tests from content/ to Supabase; GET shows progress
   /api/auth, /api/me, /api/orders, /api/pay, /api/examiners, /api/checks, /api/examiner, /api/admin/*
                                        accounts, payments and examiner checks (see mockexam/api.py)
 
@@ -63,7 +64,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, analytics, api, auth, content, notify, pool, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, analytics, api, auth, content, content_sync, notify, pool, scoring, speaking, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -622,6 +623,18 @@ class AdminRefreshHandler(api.AdminHandler):
         self.send_json({"reloaded": len(tests)})
 
 
+class AdminSyncContentHandler(api.AdminHandler):
+    """Upload new and changed tests from content/ to Supabase (see mockexam/content_sync.py)."""
+
+    async def get(self):
+        await self.require_admin()
+        self.send_json(content_sync.status())
+
+    async def post(self):
+        await self.require_admin()
+        self.send_json(await in_thread(content_sync.start, STORE))
+
+
 class ApiNotFoundHandler(BaseHandler):
     def prepare(self):
         self.send_error_json(404, "Endpoint not found")
@@ -748,6 +761,7 @@ def make_app():
             (r"/api/history", HistoryHandler),
             (r"/api/admin/stats", AdminStatsHandler),
             (r"/api/admin/refresh", AdminRefreshHandler),
+            (r"/api/admin/sync-content", AdminSyncContentHandler),
             *api.routes(),
             (r"/api/.*", ApiNotFoundHandler),
             (r"/audio/(.*)", AudioHandler, {"path": os.path.join(PUBLIC_DIR, "audio")}),

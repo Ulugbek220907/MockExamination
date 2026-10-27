@@ -1001,6 +1001,7 @@ class AccountApiBase(AsyncHTTPTestCase):
 
     def login(self, email, client_id=None):
         api.CODE_PER_IP.hits.clear()  # every test signs in from 127.0.0.1
+        api.CODE_PER_EMAIL.hits.clear()  # and the owner signs in from many tests
         r, data = self.call("POST", "/api/auth/code", {"email": email})
         self.assertEqual(r.code, 200, data)
         r, data = self.call("POST", "/api/auth/verify", {"email": email, "code": data["devCode"], "clientId": client_id})
@@ -1051,6 +1052,17 @@ class AccountApiTests(AccountApiBase):
         r, data = self.call("POST", "/api/reading/academic-reading-08/submit", {"answers": {}}, cookie=cookie)
         self.assertEqual(r.code, 402)
         self.assertEqual(self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie}).code, 402)
+
+    def test_sync_content_endpoint_is_for_admins_only(self):
+        r, _ = self.call("GET", "/api/admin/sync-content")
+        self.assertIn(r.code, (401, 403))
+        student, _ = self.login("student-sync@example.com")
+        r, _ = self.call("POST", "/api/admin/sync-content", {}, cookie=student)
+        self.assertEqual(r.code, 403)
+        admin, _ = self.login("owner@example.com")
+        r, data = self.call("POST", "/api/admin/sync-content", {}, cookie=admin)
+        self.assertEqual(r.code, 200)
+        self.assertIn("nothing to upload", data["message"])  # these tests run on local content, so there is nothing to send
 
     def test_buy_plan_by_card_transfer(self):
         cookie, _ = self.login("buyer@example.com")
@@ -1733,6 +1745,58 @@ class PaymentHardeningTests(unittest.TestCase):
         self.assertEqual(_payme(api, "CancelTransaction", {"id": "pm-c", "reason": 5})["result"]["state"], -2)
         self.assertEqual(db.select("checks", {"id": check["id"]})[0]["status"], "cancelled")
         self.assertEqual(billing.get_order(db, order["id"])["status"], "refunded")
+
+
+class ContentSyncTests(unittest.TestCase):
+    """Production reads tests from Supabase; the sync uploads only what is new or changed, and only if every file is valid."""
+
+    class FakeStore:
+        name = "supabase"
+
+        def __init__(self, tests):
+            self.tests, self.uploaded, self.refreshed = list(tests), [], 0
+
+        def list_tests(self):
+            return self.tests
+
+        def refresh(self):
+            self.refreshed += 1
+
+        def upsert_test(self, test):
+            self.uploaded.append(test["id"])
+
+    def run_sync(self, store, local):
+        from mockexam import content_sync
+        content_sync.start(store, local_tests=local, public_dir=PUBLIC_DIR)
+        for _ in range(100):
+            s = content_sync.status()
+            if not s["running"]:
+                return s
+            time.sleep(0.05)
+        self.fail("the sync did not finish")
+
+    def test_only_new_and_changed_tests_are_uploaded(self):
+        local = [t for t in TESTS if t["module"] == "reading"][:3]
+        changed = json.loads(json.dumps(local[1]))
+        changed["access"] = "premium" if changed.get("access") == "free" else "free"
+        store = self.FakeStore([local[0], changed])  # holds test 1 as is, test 2 differently, and lacks test 3
+        status = self.run_sync(store, local)
+        self.assertEqual(sorted(store.uploaded), sorted([local[1]["id"], local[2]["id"]]))
+        self.assertEqual((status["total"], status["done"], status["failed"]), (2, 2, []))
+        self.assertGreaterEqual(store.refreshed, 2)  # before comparing and after uploading
+
+    def test_nothing_is_uploaded_when_a_file_is_invalid(self):
+        local = json.loads(json.dumps([t for t in TESTS if t["module"] == "reading"][:2]))
+        local[1]["passages"][0]["groups"][0]["questions"][0]["number"] = 99
+        store = self.FakeStore([])
+        status = self.run_sync(store, local)
+        self.assertEqual(store.uploaded, [])
+        self.assertTrue(status["problems"])
+
+    def test_a_site_reading_its_own_files_has_nothing_to_upload(self):
+        from mockexam import content_sync
+        local_store = types.SimpleNamespace(name="local")
+        self.assertIn("nothing to upload", content_sync.start(local_store)["message"])
 
 
 class PaymentAccessTests(AccountApiBase):
