@@ -55,9 +55,34 @@ def heard(expected, words):
     target = " ".join(expand_numbers(norm_tokens(expected)))
     if f" {target} " in joined:
         return True
-    # Spelled-out words (K-O-W-A-L-S-K-I) may be heard as single letters or as the word.
+    # Spelled-out words (K-O-W-A-L-S-K-I) may be heard as single letters or as the word, and "double O" is
+    # two letters. Whisper sometimes adds a letter that was not said, so one extra letter is allowed.
+    spoken = []
+    for t in heard_tokens:
+        if spoken and spoken[-1] == "double":
+            spoken[-1] = t
+        spoken.append(t)
+    stream = "".join(spoken)
     letters = "".join(norm_tokens(expected))
-    return letters and letters in "".join(heard_tokens)
+    return bool(letters) and (letters in stream or (len(letters) >= 5 and one_extra_letter(letters, stream)))
+
+
+def one_extra_letter(letters, stream):
+    """True if `letters` occur in `stream` in order with at most one other character in between."""
+    for start in range(len(stream)):
+        if stream[start] != letters[0]:
+            continue
+        pos, extra = start, 0
+        for ch in letters:
+            if pos < len(stream) and stream[pos] == ch:
+                pos += 1
+            elif pos + 1 < len(stream) and stream[pos + 1] == ch and not extra:
+                extra, pos = 1, pos + 2
+            else:
+                break
+        else:
+            return True
+    return False
 
 
 def main():

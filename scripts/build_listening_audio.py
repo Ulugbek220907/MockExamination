@@ -48,7 +48,7 @@ LEAD_IN = 0.6          # silence at the start of each part (seconds)
 GAP_SAME = 0.35        # between two lines by the same speaker
 GAP_CHANGE = 0.5       # when the speaker changes
 GAP_NARRATOR = 0.9     # around narrator instructions
-SPELL_SPEED = 0.8        # letters are said a little slower than speech, as when dictating
+SPELL_SPEED = 0.6        # letters are said slower than speech, as when dictating, so none is clipped short
 SPELL_GAP_LETTER = 0.2   # between two letters of a spelled word
 SPELL_GAP_GROUP = 0.45   # between groups of letters
 SPELL_GAP_AROUND = 0.35  # between a spelled word and the words around it
@@ -144,7 +144,7 @@ class Synth:
         apart at the moments the model reports for each phoneme and put back with real pauses between them.
         """
         letters = word.replace("-", "")
-        key = hashlib.sha1(f"spell10|{voice}|{lang}|{speed}|{letters}".encode("utf-8")).hexdigest()
+        key = hashlib.sha1(f"spell11|{voice}|{lang}|{speed}|{SPELL_SPEED}|{SPELL_GAP_LETTER}|{SPELL_GAP_GROUP}|{letters}".encode("utf-8")).hexdigest()
         path = os.path.join(CACHE_DIR, key + ".npy")
         if os.path.exists(path):
             return np.load(path)
@@ -162,7 +162,7 @@ class Synth:
         lead = kokoro.tokenizer.phonemize("Okay", lang=lang).strip(" .,")
         phonemes = lead + ", " + ", ".join(units) + "."
         audio, sr, timings = kokoro.create_timed(
-            phonemes, voice, speed=speed * SPELL_SPEED, lang=lang, is_phonemes=True, trim=False,
+            phonemes, voice, speed=max(0.5, speed * SPELL_SPEED), lang=lang, is_phonemes=True, trim=False,
             sentence_pause=0.0, clause_pause=0.0)
         known = kokoro.tokenizer.known
         if sr != SAMPLE_RATE or len(timings) != len(known(phonemes)):
