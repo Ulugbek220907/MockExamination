@@ -45,6 +45,8 @@ Total time: about 30 minutes.
 
    The script validates every test first and refuses to upload broken content. Run it again whenever you add or edit a test, then call `POST /api/admin/refresh` (or wait 5 minutes) for the live site to pick up the change.
 
+To update the tests later without a laptop: after a deploy that adds or changes test files, sign in with an admin email and open **Account → Admin → Tests**, then press **Upload new and changed tests**. The site compares its files with Supabase, uploads only the tests that differ (and none at all if a file is invalid), and reloads them. Recordings are part of the deploy itself and need no upload. `POST /api/admin/sync-content` with the `ADMIN_TOKEN` does the same from a script.
+
 If Supabase is ever unreachable, the site keeps working using the bundled `content/` files.
 
 ## 2. AI writing examiner (Anthropic)
