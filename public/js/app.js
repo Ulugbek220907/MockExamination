@@ -2,7 +2,8 @@
  * Application controller: routing, the home page, the test lists,
  * pre-test instructions, launching exams, results, and the about and legal pages.
  *
- * Routes: #/ (home), #/tests/<module> (every test of one module), #/about, #/start (instructions),
+ * Routes: #/ (home), #/tests/<module> (every test of one module), #/practice (practice by question type),
+ *         #/about, #/start (instructions),
  *         #/exam (active test), #/results (last result), #/speaking/<id>
  *         (a recorded Speaking test), and the account
  *         pages from account.js: #/pricing, #/account, #/examiners,
@@ -183,6 +184,7 @@
       window.scrollTo(0, 0);
       const catalog = path.match(/^\/tests\/(listening|reading|writing|speaking)$/);
       if (catalog) this.renderCatalog(catalog[1]);
+      else if (path === "/practice") await this.renderPractice();
       else if (path === "/about") this.renderAbout();
       else if (path === "/terms") this.renderLegal("terms");
       else if (path === "/privacy") this.renderLegal("privacy");
@@ -231,7 +233,11 @@
       const el = e.target.closest("[data-action]");
       if (!el) return;
       if (el.dataset.action === "start") this.prepare(el.dataset.test, el.dataset.mode, el);
-      if (el.dataset.action === "retake" && this.lastResult) this.prepare(this.lastResult.testId, this.lastResult.mode || "exam");
+      if (el.dataset.action === "practice-type") this.startPractice(el.dataset.type, el);
+      if (el.dataset.action === "retake" && this.lastResult) {
+        if (this.lastResult.module === "practice") this.startPractice(this.lastResult.type, el);
+        else this.prepare(this.lastResult.testId, this.lastResult.mode || "exam");
+      }
     }
 
     /* Home: what TestDay is, the four modules, three numbers ------------------------ */
@@ -241,9 +247,12 @@
         <div class="home">
           <h1 class="home-title">${t("home.title")}</h1>
           <p class="hero-lead">${this.leadText()}</p>
+          <div class="home-notice" id="home-account-notes">${this.accountNotesHTML()}</div>
           ${this.loadError ? `<div class="notice notice-warn home-notice"><strong>${t("Could not load the tests. Please refresh the page.")}</strong></div>` : ""}
           <h2 class="sr-only">${t("Tests")}</h2>
           <ul class="ledger" id="ledger"></ul>
+          ${this.testsOf("reading").length ? `<p class="practice-line" id="practice-line">${t("practice.line")}
+            <a href="#/practice" data-track="home_practice">${t("Practise one question type")}</a></p>` : ""}
           <section id="history-section" aria-label="${esc(t("Your recent tests"))}" hidden></section>
           <section class="facts" id="facts" aria-label="${esc(t("Price and marking"))}"></section>
         </div>`;
@@ -251,6 +260,25 @@
       this.renderFacts();
       this.loadHistory();
       this.loadPrices();
+    }
+
+    /** For a signed-in student: the pass-ending notice and their goal (or an invitation to set one). */
+    accountNotesHTML() {
+      if (!Account.user()) return "";
+      const g = Account.goal();
+      let goal;
+      if (g.targetBand || g.examDate) {
+        const days = Account.daysUntil(g.examDate);
+        const parts = [];
+        if (g.targetBand) parts.push(t("Your goal: band {band}", { band: `<strong>${esc(IeltsScoring.formatBand(g.targetBand))}</strong>` }));
+        if (days !== null && days >= 0) {
+          parts.push(days === 0 ? t("Your exam is today. Good luck!") : `${plural(days, "Exam in {n} day", "Exam in {n} days")}<span class="muted-text"> (${esc(new Date(`${g.examDate}T12:00:00`).toLocaleDateString(U.LOCALE, { day: "numeric", month: "long" }))})</span>`);
+        }
+        goal = `<p class="goal-strip">${parts.join(" · ")} <a href="#/account">${t("Change")}</a></p>`;
+      } else {
+        goal = `<p class="goal-strip"><a href="#/account" data-track="home_goal">${t("Set your target band and exam date")}</a></p>`;
+      }
+      return Account.planEndingHTML() + goal;
     }
 
     /** "167 timed tests for Listening, Reading, Writing and Speaking. 18 are free." Counted from the tests, never typed. */
@@ -514,6 +542,68 @@
       return `${band}${status}<a href="#/speaking/${Number(i.id)}">${t("Listen ({n} answers)", { n: i.answered })}</a>`;
     }
 
+    /* Practice by question type ------------------------------------------ */
+    async renderPractice() {
+      document.title = `${t("Practise one question type")} – ${this.config.siteName}`;
+      this.main.innerHTML = `
+        <section class="page catalog practice-page" aria-labelledby="practice-title">
+          <a class="back-link" href="#/">${ICON_BACK} ${t("Home")}</a>
+          <div class="catalog-head">
+            <h1 id="practice-title">${t("Practise one question type")}</h1>
+            <p>${t("practice.sub")}</p>
+          </div>
+          <ol class="test-list" id="practice-list"><li class="skeleton" style="height:64px"></li></ol>
+        </section>`;
+      let types = [];
+      try {
+        types = (await U.api(`/api/practice?clientId=${encodeURIComponent(U.clientId())}`)).types || [];
+      } catch (err) {
+        const list = document.getElementById("practice-list");
+        if (list) list.innerHTML = `<li class="empty-note">${t("Could not load this page. Check your connection and try again.")}</li>`;
+        return;
+      }
+      const list = document.getElementById("practice-list");
+      if (!list) return;
+      const tried = types.some((x) => x.total);
+      list.innerHTML = (tried ? "" : `<li class="empty-note">${t("practice.untried")}</li>`) + types.map((x) => {
+        const pct = x.total ? Math.round((x.correct / x.total) * 100) : 0;
+        const score = x.total
+          ? `<span class="practice-score"><span class="passage-progress-bar"><span class="passage-progress-fill" style="width:${pct}%"></span></span>
+              ${t("{n} of {total} correct in your tests", { n: x.correct, total: x.total })}</span>`
+          : `<span class="muted-text">${t("Not tried yet")}</span>`;
+        return `
+          <li class="test-row practice-row">
+            <h2 class="test-row-name">${esc(x.label)}</h2>
+            <p class="test-row-topics">${score}</p>
+            <div class="test-row-tag"><span class="test-tag">${plural(x.sets, "{n} set", "{n} sets")}</span></div>
+            <div class="test-row-act"><button type="button" class="btn-primary btn-sm" data-action="practice-type" data-type="${esc(x.type)}"
+              aria-label="${esc(t("Practise {type}", { type: x.label }))}">${t("Practise")}</button></div>
+          </li>`;
+      }).join("");
+    }
+
+    /** Open the next set of one question type: one passage, only that type, no timer and no band. */
+    async startPractice(type, button) {
+      if (this.preparing || !type) return;
+      const key = `testday:practiceSet:${type}`;
+      const n = Number(U.store.get(key, 0)) || 0;
+      this.preparing = true;
+      if (button) { button.classList.add("is-busy"); button.setAttribute("aria-busy", "true"); }
+      try {
+        const [data] = await Promise.all([U.api(`/api/practice/${encodeURIComponent(type.replace(/_/g, "-"))}?set=${n}`), U.need("exam")]);
+        U.store.set(key, data.set + 1); // the next time, the next set
+        U.store.remove(`mockexam:progress:${data.test.id}`);
+        this.launch(data.test, "practice", U.store.get("mockexam:name", "") || "Candidate", null);
+      } catch (err) {
+        if (!err.loadFailed) {
+          U.modal({ title: t("Could not load the test"), bodyHTML: `<p>${esc(err.status ? err.message : t("Could not load this page. Check your connection and try again."))}</p>` });
+        }
+      } finally {
+        this.preparing = false;
+        if (button && button.isConnected) { button.classList.remove("is-busy"); button.removeAttribute("aria-busy"); }
+      }
+    }
+
     /* Pre-test instructions -------------------------------------------- */
     async prepare(testId, mode, button) {
       if (this.preparing) return; // a second tap while this test is still loading
@@ -721,7 +811,7 @@
 
     launch(test, mode, name, saved) {
       this.pending = null;
-      const summary = this.tests.find((x) => x.id === test.id);
+      const summary = !test.practice && this.tests.find((x) => x.id === test.id);
       if (summary && summary.access === "free") U.track("free_test_started", { module: test.module, testId: test.id });
       this.showView("exam");
       const Exam = { writing: WritingExam, listening: ListeningExam, speaking: SpeakingExam }[test.module] || ReadingExam;
@@ -739,7 +829,7 @@
         this.exam.destroy();
         this.exam = null;
       }
-      result.module = test.module;
+      result.module = test.practice ? "practice" : test.module;
       result.mode = mode;
       if (test.module === "speaking") {
         // Speaking results live on the server (the recordings), at their own address.
@@ -768,6 +858,7 @@
       // Writing results draw the Task 1 charts, which come with the exam bundle.
       if (!(await this.loadFor(r.module === "writing" ? "exam" : "results"))) return;
       document.title = `${t("Your results")} – ${this.config.siteName}`;
+      if (r.module === "practice") return Results.renderPractice(r, this.main);
       await this.loadPrices();
       const extra = {
         next: this.nextStopHTML(r.module, r.testId, r.typeBreakdown),
@@ -786,11 +877,15 @@
       const at = tests.findIndex((x) => x.id === testId);
       const next = tests.slice(at + 1).concat(tests.slice(0, Math.max(at, 0))).find((x) => !this.ridden[x.id]);
       if (!weak && !next) return "";
+      // Reading types can be practised on their own; the practice sets are Reading passages.
+      const drill = weak && module === "reading" && this.testsOf("reading").length;
       const focus = weak ? `
         <div class="next-card">
           <h3>${t("Practise: {type}", { type: esc(weak[1].label) })}</h3>
           <p>${esc(t(`tip.${weak[0]}`))}</p>
           <p class="muted-text small-text">${t("{n} of {total} correct in this test", { n: weak[1].correct, total: weak[1].total })}</p>
+          ${drill ? `<div class="next-actions"><button type="button" class="btn-secondary" data-action="practice-type" data-type="${esc(weak[0])}"
+            data-track="next_practice">${t("Practise this type")}</button></div>` : ""}
         </div>` : "";
       const name = next ? this.testName(next) : "";
       const price = this.prices && this.prices.plan ? U.money(this.prices.plan) : "";

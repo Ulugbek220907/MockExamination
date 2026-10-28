@@ -18,6 +18,7 @@ by the order id, so a repeated callback never gives anything twice.
 """
 
 import base64
+import datetime
 import hashlib
 import hmac
 import json
@@ -593,3 +594,12 @@ def _to_int(value):
         return int(value)
     except (TypeError, ValueError):
         return None
+
+
+def revenue(db, days, at=None):
+    """Money from orders paid in the last `days` days (refunded orders no longer count), by kind."""
+    since = (at or now()) - datetime.timedelta(days=days)
+    rows = db.select("orders", {"status": "paid", "paid_at": ("gte", iso(since))}, limit=10000)
+    plan = sum(int(r["amount"]) for r in rows if r["kind"] == "plan")
+    total = sum(int(r["amount"]) for r in rows)
+    return {"total": total, "plan": plan, "checks": total - plan, "orders": len(rows)}

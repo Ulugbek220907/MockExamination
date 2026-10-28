@@ -76,6 +76,54 @@ def find_profile_by_email(db, email):
 
 
 # --------------------------------------------------------------------------
+# Study goal: the band a student aims for and the day of their exam
+# --------------------------------------------------------------------------
+
+class GoalError(ValueError):
+    status = 400
+
+
+def clean_goal(body, today=None):
+    """
+    The goal fields present in `body`, ready to store: {"target_band": 7.0, "exam_date": "2026-12-05"}.
+    An empty value clears a field. Raises GoalError with a message for the student.
+    """
+    out = {}
+    if "targetBand" in body:
+        raw = body.get("targetBand")
+        if raw in (None, ""):
+            out["target_band"] = None
+        else:
+            try:
+                band = float(raw)
+            except (TypeError, ValueError):
+                raise GoalError("Choose a band between 4.0 and 9.0.")
+            if not 4 <= band <= 9 or band * 2 != int(band * 2):
+                raise GoalError("Choose a band between 4.0 and 9.0.")
+            out["target_band"] = band
+    if "examDate" in body:
+        raw = str(body.get("examDate") or "").strip()
+        if not raw:
+            out["exam_date"] = None
+        else:
+            try:
+                day = datetime.date.fromisoformat(raw[:10])
+            except ValueError:
+                raise GoalError("Enter the date of your exam.")
+            today = today or now().date()
+            if day < today or day > today + datetime.timedelta(days=730):
+                raise GoalError("Enter an exam date between today and two years from now.")
+            out["exam_date"] = day.isoformat()
+    return out
+
+
+def public_goal(profile):
+    band = (profile or {}).get("target_band")
+    day = (profile or {}).get("exam_date")
+    return {"targetBand": float(band) if band is not None else None, "examDate": str(day)[:10] if day else None}
+
+
+# --------------------------------------------------------------------------
 # The monthly plan
 # --------------------------------------------------------------------------
 
@@ -140,6 +188,49 @@ def revoke_plan_period(db, order_id):
                     })
     _plan_changed(gone["user_id"])
     return gone
+
+
+def pass_counts(db, at=None):
+    """Students with the pass now, and how many of them lose it within 7 days (no later month bought)."""
+    at = at or now()
+    rows = db.select("subscription_periods", {"ends_at": ("gt", iso(at))}, limit=10000)
+    active, last_end = set(), {}
+    for p in rows:
+        ends = parse_time(p["ends_at"])
+        if parse_time(p["starts_at"]) <= at:
+            active.add(p["user_id"])
+        last_end[p["user_id"]] = max(ends, last_end.get(p["user_id"], ends))
+    week = at + datetime.timedelta(days=7)
+    return {"active": len(active), "endingIn7Days": sum(1 for u in active if last_end[u] <= week)}
+
+
+REMIND_DAYS = 3
+
+
+def send_plan_reminders(db, send, at=None):
+    """
+    Tell each student once when their pass ends within REMIND_DAYS days and no
+    later month is already bought. `send(db, user_id, ends_at)` sends the message.
+    Returns how many were sent. Safe to run as often as you like.
+    """
+    at = at or now()
+    soon = at + datetime.timedelta(days=REMIND_DAYS)
+    rows = db.select("subscription_periods", {"ends_at": ("gt", iso(at)), "reminded_at": None},
+                     order=[("ends_at", "asc")], limit=200)
+    sent = 0
+    for p in rows:
+        ends = parse_time(p["ends_at"])
+        if ends > soon:
+            break  # the rest end later
+        if parse_time(p["starts_at"]) > at:
+            continue  # a month queued after the current one: its turn comes later
+        db.update("subscription_periods", {"id": p["id"]}, {"reminded_at": iso(at)})
+        later = db.select("subscription_periods", {"user_id": p["user_id"], "ends_at": ("gt", p["ends_at"])}, limit=1)
+        if later:
+            continue  # already renewed
+        send(db, p["user_id"], p["ends_at"])
+        sent += 1
+    return sent
 
 
 # --------------------------------------------------------------------------

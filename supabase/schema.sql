@@ -569,3 +569,15 @@ alter table public.feedback enable row level security;
 drop policy if exists server_access on public.feedback;
 create policy server_access on public.feedback for all to anon
   using ((select private.request_has_app_key())) with check ((select private.request_has_app_key()));
+
+-- ============================================================================
+-- Study goal and pass reminders. Safe to run again on an existing database.
+--   profiles.target_band, profiles.exam_date  the band a student aims for and their exam day
+--   subscription_periods.reminded_at          when the "your pass ends soon" email was sent
+-- ============================================================================
+
+alter table public.profiles add column if not exists target_band numeric(2,1)
+  check (target_band is null or (target_band between 4 and 9));
+alter table public.profiles add column if not exists exam_date date;
+alter table public.subscription_periods add column if not exists reminded_at timestamptz;
+create index if not exists subscription_periods_ends_idx on public.subscription_periods (ends_at);

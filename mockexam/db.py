@@ -57,7 +57,9 @@ CREATE TABLE IF NOT EXISTS profiles (
     name TEXT,
     role TEXT NOT NULL DEFAULT 'student',
     created_at TEXT,
-    last_login_at TEXT
+    last_login_at TEXT,
+    target_band REAL,
+    exam_date TEXT
 );
 CREATE TABLE IF NOT EXISTS orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -81,7 +83,8 @@ CREATE TABLE IF NOT EXISTS subscription_periods (
     ends_at TEXT NOT NULL,
     source TEXT NOT NULL,
     note TEXT,
-    created_at TEXT
+    created_at TEXT,
+    reminded_at TEXT
 );
 CREATE TABLE IF NOT EXISTS payme_transactions (
     id TEXT PRIMARY KEY,
@@ -195,6 +198,12 @@ CREATE TABLE IF NOT EXISTS feedback (
 
 # Early development databases had placeholder Speaking tables with other columns.
 _REPLACED_TABLES = {"speaking_submissions": "recordings_deleted_at", "recordings": "path"}
+# Columns added after a table was first created: (table, column, type). Added to older local databases.
+_ADDED_COLUMNS = [
+    ("profiles", "target_band", "REAL"),
+    ("profiles", "exam_date", "TEXT"),
+    ("subscription_periods", "reminded_at", "TEXT"),
+]
 
 
 class DbError(Exception):
@@ -262,6 +271,9 @@ class SqliteDb:
                         if cols and column not in cols:
                             conn.execute(f'DROP TABLE "{table}"')
                     conn.executescript(SQLITE_SCHEMA)
+                    for table, column, kind in _ADDED_COLUMNS:
+                        if column not in {r[1] for r in conn.execute(f'PRAGMA table_info("{table}")')}:
+                            conn.execute(f'ALTER TABLE "{table}" ADD COLUMN "{column}" {kind}')
             finally:
                 conn.close()
 

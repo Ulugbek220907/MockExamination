@@ -808,9 +808,13 @@
       if (this.finished) return;
       this.finished = true;
       clearInterval(this.timer);
-      const done = U.loadingOverlay("Marking your answers…", "Calculating your estimated band score.");
+      // A practice set (one question type) is marked without a band and not saved.
+      const set = this.test.practice;
+      const done = U.loadingOverlay("Marking your answers…", set ? "Checking each answer." : "Calculating your estimated band score.");
       try {
-        const result = await U.api(`/api/${this.moduleName.toLowerCase()}/${encodeURIComponent(this.test.id)}/submit`, {
+        const url = set ? `/api/practice/${encodeURIComponent(set.type.replace(/_/g, "-"))}/check`
+          : `/api/${this.moduleName.toLowerCase()}/${encodeURIComponent(this.test.id)}/submit`;
+        const result = await U.api(url, {
           method: "POST",
           body: JSON.stringify({
             answers: this.answers,
@@ -818,6 +822,7 @@
             clientId: U.clientId(),
             mode: this.mode,
             timeSpentSeconds: this.elapsed,
+            ...(set ? { testId: set.testId, passage: set.passage } : {}),
           }),
         });
         this.clearProgress();

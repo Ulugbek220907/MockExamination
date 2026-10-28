@@ -3,8 +3,9 @@
  * change since the previous test) and a line chart of band scores over time,
  * with a hover/keyboard readout, a legend, direct end labels and a table view.
  *
- * Progress.render(el, points) – points from GET /api/progress:
- *   [{module, date, band, testId, source}] oldest first.
+ * Progress.render(el, points, goal) – points from GET /api/progress:
+ *   [{module, date, band, testId, source}] oldest first; goal is the
+ *   student's target band (or null), drawn as a dashed line and on the tiles.
  */
 (function () {
   "use strict";
@@ -31,7 +32,15 @@
     return t ? t.shortTitle : id;
   };
 
-  function tiles(points) {
+  function goalLine(last, goal) {
+    if (!goal || !last) return "";
+    const gap = goal - last.band;
+    return gap <= 0
+      ? `<div class="tile-goal is-met">${t("Goal {band} reached", { band: band(goal) })}</div>`
+      : `<div class="tile-goal">${t("{gap} to your goal of {band}", { gap: band(gap), band: band(goal) })}</div>`;
+  }
+
+  function tiles(points, goal) {
     return `<div class="progress-tiles">${SERIES.map(([key, label, color]) => {
       const pts = points.filter((p) => p.module === key);
       const last = pts[pts.length - 1];
@@ -51,12 +60,13 @@
           <div class="tile-value">${last ? band(last.band) : "–"}</div>
           ${delta}
           <div class="tile-sub">${pts.length ? `${t("Best {band}", { band: band(best) })} · ${plural(pts.length, "{n} test", "{n} tests")}` : "&nbsp;"}</div>
+          ${goalLine(last, goal)}
         </div>`;
     }).join("")}</div>`;
   }
 
   /** Scales for a chart drawn at its real pixel width, so text stays 12px on every screen. */
-  function layout(points, width) {
+  function layout(points, width, goal) {
     const W = Math.max(280, Math.round(width));
     const H = W < 520 ? 220 : 280;
     const right = W < 520 ? 16 : M.right; // no room for end labels on a phone
@@ -64,10 +74,11 @@
     let x0 = Math.min(...times);
     let x1 = Math.max(...times);
     if (x1 - x0 < DAY) { x0 -= DAY; x1 += DAY; }
-    const y0 = Math.min(Math.max(0, Math.floor(Math.min(...points.map((p) => p.band))) - 1), 8);
+    const lowest = Math.min(...points.map((p) => p.band), goal || 9);
+    const y0 = Math.min(Math.max(0, Math.floor(lowest) - 1), 8);
     const y1 = 9;
     return {
-      W, H, right, x0, x1, y0, y1, narrow: W < 520,
+      W, H, right, x0, x1, y0, y1, narrow: W < 520, goal,
       X: (t) => M.left + ((t - x0) / (x1 - x0)) * (W - M.left - right),
       Y: (b) => M.top + (1 - (b - y0) / (y1 - y0)) * (H - M.top - M.bottom),
     };
@@ -82,10 +93,19 @@
       grid.push(`<line x1="${M.left}" x2="${W - R}" y1="${Y(b)}" y2="${Y(b)}" class="pv-grid"/>
         <text x="${M.left - 8}" y="${Y(b) + 4}" text-anchor="end" class="pv-tick">${b}</text>`);
     }
-    const ticks = g.narrow ? 2 : 4;
+    // Never more date labels than days in the range, and never the same date twice.
+    const ticks = Math.max(1, Math.min(g.narrow ? 2 : 4, Math.floor((x1 - x0) / DAY)));
+    const seen = new Set();
     for (let i = 0; i <= ticks; i++) {
       const t = x0 + ((x1 - x0) * i) / ticks;
-      grid.push(`<text x="${X(t)}" y="${H - 8}" text-anchor="${i === 0 ? "start" : i === ticks ? "end" : "middle"}" class="pv-tick">${esc(shortDate(t))}</text>`);
+      const label = shortDate(t);
+      if (seen.has(label)) continue;
+      seen.add(label);
+      grid.push(`<text x="${X(t)}" y="${H - 8}" text-anchor="${i === 0 ? "start" : i === ticks ? "end" : "middle"}" class="pv-tick">${esc(label)}</text>`);
+    }
+    if (g.goal) {
+      grid.push(`<line x1="${M.left}" x2="${W - R}" y1="${Y(g.goal)}" y2="${Y(g.goal)}" class="pv-goal"/>
+        <text x="${M.left + 6}" y="${Y(g.goal) - 6}" class="pv-goal-label">${esc(t("Goal {band}", { band: band(g.goal) }))}</text>`);
     }
 
     const present = SERIES.filter(([key]) => points.some((p) => p.module === key));
@@ -201,7 +221,7 @@
     });
   }
 
-  function render(el, points) {
+  function render(el, points, goal) {
     if (!el) return;
     if (!points.length) {
       el.innerHTML = `
@@ -213,7 +233,7 @@
     el.innerHTML = `
       <h2 class="section-title">${t("Your progress")}</h2>
       <p class="muted-text section-sub">${t("Timed Listening and Reading tests, and marked Writing and Speaking tests.")}</p>
-      ${tiles(points)}
+      ${tiles(points, goal)}
       <div class="progress-viz">
         <div class="pv-legend">${present.map(([, label, color]) =>
           `<span class="pv-legend-item"><span class="line-key" style="background:${color}" aria-hidden="true"></span>${label}</span>`).join("")}</div>
@@ -226,7 +246,7 @@
       const width = plot.clientWidth;
       if (!width || width === lastWidth) return;
       lastWidth = width;
-      const g = layout(points, width);
+      const g = layout(points, width, goal);
       plot.innerHTML = chart(points, g);
       bindHover(plot, points, g);
     };

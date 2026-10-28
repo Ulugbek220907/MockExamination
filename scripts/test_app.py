@@ -1001,6 +1001,7 @@ class AccountApiBase(AsyncHTTPTestCase):
 
     def login(self, email, client_id=None):
         api.CODE_PER_IP.hits.clear()  # every test signs in from 127.0.0.1
+        api.CODE_PER_EMAIL.hits.clear()  # and many sign in as the same admin
         r, data = self.call("POST", "/api/auth/code", {"email": email})
         self.assertEqual(r.code, 200, data)
         r, data = self.call("POST", "/api/auth/verify", {"email": email, "code": data["devCode"], "clientId": client_id})
@@ -1951,6 +1952,257 @@ class SecurityAndHardeningTests(AccountApiBase):
 
         r, _ = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=cookie_b)
         self.assertEqual(r.code, 404)
+
+
+def _fresh_db():
+    return SqliteDb(os.path.join(tempfile.mkdtemp(), "fresh.sqlite3"))
+
+
+def _profile(db, email):
+    import uuid
+    return db.insert("profiles", {"id": str(uuid.uuid4()), "email": email, "role": "student"})
+
+
+class PracticeApiTests(AccountApiBase):
+    """Practice by question type: one passage, one type, no band, nothing saved."""
+
+    def test_types_come_weakest_first(self):
+        client = "7d1f0b9c-2222-4333-8444-955566667777"
+        test = READING[0]
+        answers = perfect_answers(test)
+        weak = test["passages"][0]["groups"][0]["type"]
+        for _, group in content.iter_groups(test):
+            if group["type"] == weak:
+                for q in group["questions"]:
+                    answers.pop(str(q["number"]), None)
+        r, _ = self.call("POST", f"/api/reading/{test['id']}/submit", {"answers": answers, "clientId": client})
+        self.assertEqual(r.code, 200)
+        r, data = self.call("GET", f"/api/practice?clientId={client}")
+        first = data["types"][0]
+        self.assertEqual((first["type"], first["correct"]), (weak, 0))
+        self.assertGreater(first["total"], 0)
+        tried = [x for x in data["types"] if x["total"]]
+        self.assertTrue(all(x["correct"] == x["total"] for x in tried[1:]))
+        self.assertTrue(all(x["sets"] > 0 for x in data["types"]))
+        # Someone with no attempts still gets every type, in the usual order.
+        r, data = self.call("GET", "/api/practice")
+        self.assertEqual([x["type"] for x in data["types"]][:2], list(scoring.TYPE_LABELS)[:2])
+
+    def test_set_has_one_type_and_no_answers(self):
+        r, data = self.call("GET", "/api/practice/true-false-not-given?set=0")
+        self.assertEqual(r.code, 200, data)
+        drill = data["test"]
+        self.assertEqual(len(drill["passages"]), 1)
+        self.assertEqual({g["type"] for g in drill["passages"][0]["groups"]}, {"true_false_not_given"})
+        self.assertFalse(contains_key(drill, "answer"))
+        self.assertFalse(contains_key(drill, "explanation"))
+        source = next(t for t in TESTS if t["id"] == drill["practice"]["testId"])
+        self.assertEqual(accounts.test_access(source), "free")
+        # The next set is a different passage.
+        r, other = self.call("GET", "/api/practice/true-false-not-given?set=1")
+        self.assertNotEqual(other["test"]["practice"], drill["practice"])
+        r, data = self.call("GET", "/api/practice/not-a-type")
+        self.assertEqual(r.code, 404)
+
+    def test_pass_opens_more_sets(self):
+        r, free = self.call("GET", "/api/practice/matching-headings")
+        admin, _ = self.login("owner@example.com")
+        r, everything = self.call("GET", "/api/practice/matching-headings", cookie=admin)
+        self.assertGreater(everything["sets"], free["sets"])
+
+    def test_check_marks_without_saving(self):
+        client = "5b2e4a1d-3333-4444-8555-a66677778888"
+        r, data = self.call("GET", "/api/practice/summary-completion")
+        drill = data["test"]["practice"]
+        source = next(t for t in TESTS if t["id"] == drill["testId"])
+        full = perfect_answers(source)
+        r, result = self.call("POST", "/api/practice/summary-completion/check",
+                              {"answers": full, "testId": drill["testId"], "passage": drill["passage"], "clientId": client})
+        self.assertEqual(r.code, 200, result)
+        self.assertEqual(result["rawScore"], result["totalQuestions"])
+        self.assertNotIn("bandScore", result)
+        self.assertTrue(all(x["type"] == "summary_completion" for x in result["results"]))
+        r, history = self.call("GET", f"/api/history?clientId={client}")
+        self.assertEqual(history["items"], [])
+        # A locked test or a passage without this type is refused.
+        locked = next(t for t in READING if accounts.test_access(t) == "premium")
+        r, _ = self.call("POST", "/api/practice/summary-completion/check", {"answers": {}, "testId": locked["id"], "passage": 0})
+        self.assertEqual(r.code, 404)
+        r, _ = self.call("POST", "/api/practice/summary-completion/check", {"answers": {}, "testId": drill["testId"], "passage": 9})
+        self.assertEqual(r.code, 404)
+
+
+class GoalApiTests(AccountApiBase):
+    """The study goal: a target band and an exam date on the account."""
+
+    def test_set_change_and_clear(self):
+        cookie, data = self.login("goal@example.com")
+        self.assertEqual(data["user"]["goal"], {"targetBand": None, "examDate": None})
+        self.call("POST", "/api/me", {"name": "Goal Setter"}, cookie=cookie)
+        day = (datetime.date.today() + datetime.timedelta(days=40)).isoformat()
+        r, data = self.call("POST", "/api/me", {"targetBand": 7, "examDate": day}, cookie=cookie)
+        self.assertEqual(r.code, 200, data)
+        self.assertEqual(data["user"]["goal"], {"targetBand": 7.0, "examDate": day})
+        self.assertEqual(data["user"]["name"], "Goal Setter")  # the name is kept when not sent
+        r, data = self.call("GET", "/api/me", cookie=cookie)
+        self.assertEqual(data["user"]["goal"]["targetBand"], 7.0)
+        r, data = self.call("POST", "/api/me", {"targetBand": None, "examDate": ""}, cookie=cookie)
+        self.assertEqual(data["user"]["goal"], {"targetBand": None, "examDate": None})
+
+    def test_bad_goals_are_refused(self):
+        cookie, _ = self.login("badgoal@example.com")
+        past = (datetime.date.today() - datetime.timedelta(days=1)).isoformat()
+        far = (datetime.date.today() + datetime.timedelta(days=800)).isoformat()
+        for body in ({"targetBand": 9.5}, {"targetBand": 6.3}, {"targetBand": "high"}, {"examDate": past},
+                     {"examDate": far}, {"examDate": "next week"}):
+            r, data = self.call("POST", "/api/me", body, cookie=cookie)
+            self.assertEqual(r.code, 400, body)
+            self.assertTrue(data["error"])
+        r, _ = self.call("POST", "/api/me", {"targetBand": 7})
+        self.assertEqual(r.code, 401)
+
+
+class PassReminderTests(unittest.TestCase):
+    """The email 3 days before the pass ends, sent once, and not to students who already renewed."""
+
+    def test_sent_once_three_days_before(self):
+        db = _fresh_db()
+        user = _profile(db, "remind@example.com")
+        period = accounts.grant_plan_period(db, user["id"], 30, "admin")
+        ends = parse_time(period["ends_at"])
+        sent = []
+        record = lambda db, uid, at: sent.append((uid, at))
+        self.assertEqual(accounts.send_plan_reminders(db, record), 0)  # 30 days left
+        two_days_before = ends - datetime.timedelta(days=2)
+        self.assertEqual(accounts.send_plan_reminders(db, record, at=two_days_before), 1)
+        self.assertEqual(accounts.send_plan_reminders(db, record, at=two_days_before), 0)
+        self.assertEqual(sent, [(user["id"], period["ends_at"])])
+
+    def test_not_sent_after_renewing(self):
+        db = _fresh_db()
+        user = _profile(db, "renewed@example.com")
+        first = accounts.grant_plan_period(db, user["id"], 30, "admin")
+        accounts.grant_plan_period(db, user["id"], 30, "admin")  # a second month, queued after the first
+        sent = []
+        at = parse_time(first["ends_at"]) - datetime.timedelta(days=1)
+        self.assertEqual(accounts.send_plan_reminders(db, lambda *a: sent.append(a), at=at), 0)
+        self.assertEqual(sent, [])
+
+    def test_email_wording(self):
+        db = _fresh_db()
+        user = _profile(db, "wording@example.com")
+        posted = []
+        env = {"RESEND_API_KEY": "re_test", "EMAIL_FROM": "TestDay <noreply@example.com>", "SITE_URL": "https://mock.example"}
+        with mock.patch.dict(os.environ, env), \
+                mock.patch.object(notify, "_post_json", lambda url, payload, headers=None: posted.append(payload)):
+            notify.plan_ending(db, user["id"], "2026-11-05T10:00:00+00:00")
+        self.assertEqual(posted[0]["to"], ["wording@example.com"])
+        self.assertIn("5 November 2026", posted[0]["subject"])
+        self.assertIn("https://mock.example/#/pricing", posted[0]["text"])
+
+
+class AdminRevenueTests(AccountApiBase):
+    """Revenue for the last 7 and 30 days and the passes running now, for the admin page."""
+
+    def test_revenue_and_passes(self):
+        db = _fresh_db()
+        buyer = _profile(db, "rev@example.com")
+        recent, old = iso(now() - datetime.timedelta(days=2)), iso(now() - datetime.timedelta(days=20))
+        for kind, amount, status, paid in (("plan", 39000, "paid", recent), ("writing_check", 10000, "paid", recent),
+                                           ("speaking_check", 20000, "paid", old), ("plan", 39000, "refunded", recent),
+                                           ("plan", 39000, "pending", None)):
+            db.insert("orders", {"user_id": buyer["id"], "kind": kind, "amount": amount, "status": status, "paid_at": paid})
+        self.assertEqual(billing.revenue(db, 7), {"total": 49000, "plan": 39000, "checks": 10000, "orders": 2})
+        self.assertEqual(billing.revenue(db, 30), {"total": 69000, "plan": 39000, "checks": 30000, "orders": 3})
+        accounts.grant_plan_period(db, buyer["id"], 5, "admin")
+        long_one = _profile(db, "long@example.com")
+        accounts.grant_plan_period(db, long_one["id"], 30, "admin")
+        self.assertEqual(accounts.pass_counts(db), {"active": 2, "endingIn7Days": 1})
+
+    def test_admin_stats_carry_revenue(self):
+        admin, _ = self.login("owner@example.com")
+        r, data = self.call("GET", "/api/admin/stats", cookie=admin)
+        self.assertEqual(r.code, 200)
+        self.assertEqual(set(data["revenue"]), {"7", "30"})
+        self.assertIn("plan", data["revenue"]["30"])
+        self.assertIn("endingIn7Days", data["passes"])
+
+
+class ErrorAlertTests(unittest.TestCase):
+    """Server errors reach the owner on Telegram, at most once per 15 minutes for the same error."""
+
+    def test_deduplicated_and_quiet_without_telegram(self):
+        import logging
+        clock = [1000.0]
+        alerts = notify.ErrorAlerts(clock=lambda: clock[0])
+        logger = logging.getLogger("mockexam.test-alerts")
+        logger.addHandler(alerts)
+        logger.propagate = False
+        sent = []
+        notify.SYNC = True
+        try:
+            with mock.patch.object(notify, "send_telegram", lambda text: sent.append(text)), \
+                    mock.patch.dict(os.environ, {"TELEGRAM_BOT_TOKEN": "1:a", "TELEGRAM_ADMIN_CHAT_ID": "1"}):
+                try:
+                    raise ValueError("database down")
+                except ValueError:
+                    logger.exception("Could not save attempt")
+                logger.error("Could not save attempt")
+                logger.warning("only a warning")
+                self.assertEqual(len(sent), 1)
+                self.assertIn("ValueError: database down", sent[0])
+                logger.error("Another failure")
+                self.assertEqual(len(sent), 2)
+                clock[0] += 15 * 60 + 1
+                logger.error("Could not save attempt")
+                self.assertEqual(len(sent), 3)
+                logging.getLogger("mockexam.notify").addHandler(alerts)
+                logging.getLogger("mockexam.notify").error("Notification failed")  # never re-reported
+                logging.getLogger("mockexam.notify").removeHandler(alerts)
+                self.assertEqual(len(sent), 3)
+            with mock.patch.object(notify, "send_telegram", lambda text: sent.append(text)):
+                logger.error("No Telegram configured")
+            self.assertEqual(len(sent), 3)
+        finally:
+            notify.SYNC = False
+            logger.removeHandler(alerts)
+
+
+class InstallAndMigrationTests(AccountApiBase):
+    def test_app_manifest_and_icons(self):
+        r = self.fetch("/manifest.webmanifest")
+        self.assertEqual(r.code, 200)
+        self.assertTrue(r.headers["Content-Type"].startswith("application/manifest+json"))
+        manifest = json.loads(r.body)
+        self.assertEqual(manifest["display"], "standalone")
+        for icon in manifest["icons"]:
+            self.assertTrue(os.path.exists(os.path.join(PUBLIC_DIR, icon["src"])), icon["src"])
+        self.assertTrue(any(i["purpose"] == "maskable" for i in manifest["icons"]))
+        page = self.fetch("/").body.decode()
+        self.assertIn('rel="manifest" href="manifest.webmanifest"', page)
+        self.assertIn('rel="apple-touch-icon"', page)
+
+    def test_older_local_database_gets_the_new_columns(self):
+        import sqlite3
+        path = os.path.join(tempfile.mkdtemp(), "old.sqlite3")
+        conn = sqlite3.connect(path)
+        conn.executescript("CREATE TABLE profiles (id TEXT PRIMARY KEY, email TEXT NOT NULL UNIQUE, name TEXT, "
+                           "role TEXT NOT NULL DEFAULT 'student', created_at TEXT, last_login_at TEXT);"
+                           "CREATE TABLE subscription_periods (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, "
+                           "order_id INTEGER UNIQUE, starts_at TEXT NOT NULL, ends_at TEXT NOT NULL, source TEXT NOT NULL, "
+                           "note TEXT, created_at TEXT);")
+        conn.close()
+        db = SqliteDb(path)
+        user = _profile(db, "old@example.com")
+        db.update("profiles", {"id": user["id"]}, {"target_band": 6.5, "exam_date": "2027-01-10"})
+        self.assertEqual(db.select("profiles", {"id": user["id"]})[0]["target_band"], 6.5)
+        self.assertIn("reminded_at", accounts.grant_plan_period(db, user["id"], 3, "admin"))
+
+    def test_schema_sql_has_the_new_columns(self):
+        with open(os.path.join(BASE_DIR, "supabase", "schema.sql"), encoding="utf-8") as f:
+            sql = f.read()
+        for column in ("target_band", "exam_date", "reminded_at"):
+            self.assertRegex(sql, rf"add column if not exists {column}\b")
 
 
 if __name__ == "__main__":

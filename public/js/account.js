@@ -59,6 +59,73 @@
   function role() {
     return (user() && user().role) || "guest";
   }
+  /** The student's goal: {targetBand, examDate}; both may be null. */
+  function goal() {
+    return (user() && user().goal) || { targetBand: null, examDate: null };
+  }
+  /** Whole days until a YYYY-MM-DD date (0 = today), counted in the student's own time zone. */
+  function daysUntil(day) {
+    if (!day) return null;
+    const [y, m, d] = day.split("-").map(Number);
+    const today = new Date();
+    return Math.round((Date.UTC(y, m - 1, d) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / 86400000);
+  }
+  /** Days left on the pass when it ends within 5 days and no later month is bought; otherwise null. */
+  const ENDING_DAYS = 5;
+  function planEndingIn() {
+    const plan = state.me && state.me.plan;
+    if (!plan || !plan.active || !plan.endsAt) return null;
+    const left = (new Date(plan.endsAt) - Date.now()) / 86400000;
+    return left <= ENDING_DAYS ? Math.max(0, Math.ceil(left)) : null;
+  }
+  /** The "your pass ends soon" notice, or "". */
+  function planEndingHTML() {
+    const left = planEndingIn();
+    if (left === null) return "";
+    const when = left <= 1 ? t("Your pass ends tomorrow.") : t("Your pass ends in {n} days.", { n: left });
+    return `<div class="notice notice-warn plan-ending" role="status"><strong>${when}</strong>
+      <span>${t("plan.ending", { date: esc(longDate(state.me.plan.endsAt)) })}</span>
+      <span><button type="button" class="btn-primary btn-sm" data-action="buy-plan" data-track="plan_ending">${t("Add another month")}</button></span></div>`;
+  }
+  const BANDS = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9];
+  /** The study goal form (target band and exam date). */
+  function goalFormHTML() {
+    const g = goal();
+    const today = new Date();
+    const min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+    return `
+      <form id="goal-form" class="goal-form" novalidate>
+        <label for="goal-band">${t("Target band")}
+          <select id="goal-band" name="targetBand">
+            <option value="">${t("No goal yet")}</option>
+            ${BANDS.map((b) => `<option value="${b}" ${g.targetBand === b ? "selected" : ""}>${IeltsScoring.formatBand(b)}</option>`).join("")}
+          </select></label>
+        <label for="goal-date">${t("Exam date")}
+          <input id="goal-date" name="examDate" type="date" min="${min}" value="${esc(g.examDate || "")}" /></label>
+        <button type="submit" class="btn-secondary">${t("Save")}</button>
+        <p class="form-error" id="goal-error" role="alert" hidden></p>
+      </form>`;
+  }
+  function bindGoalForm(root, after) {
+    const form = root.querySelector("#goal-form");
+    if (!form) return;
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const error = form.querySelector("#goal-error");
+      error.hidden = true;
+      try {
+        state.me = await U.api("/api/me", { method: "POST", body: JSON.stringify({
+          targetBand: form.targetBand.value ? Number(form.targetBand.value) : null, examDate: form.examDate.value || null,
+        }) });
+        U.store.set(ME_KEY, state.me);
+        U.toast(t("Saved."));
+        if (after) after();
+      } catch (err) {
+        error.textContent = err.message;
+        error.hidden = false;
+      }
+    });
+  }
 
   // The last /api/me is kept in this browser, so the next visit can draw the page before the server answers.
   const ME_KEY = "testday:me";
@@ -442,6 +509,7 @@
           </div>
           <button type="button" class="btn-secondary" data-action="signout">${t("Sign out")}</button>
         </div>
+        ${planEndingHTML()}
         ${waiting.length ? `<div class="notice notice-info"><strong>${t("We are checking your payment.")}</strong>
           <span>${t("payment.waiting", { orders: waiting.map((o) => `#MX${o.id} (${esc(money(o.amount))})`).join(", ") })}</span></div>` : ""}
 
@@ -464,6 +532,11 @@
               <button type="submit" class="btn-secondary">${t("Save")}</button>
             </form>
             <p class="muted-text small-text">${t("Examiners see this name on your checks.")}</p>
+          </div>
+          <div class="account-card" id="goal-card">
+            <h2>${t("Your goal")}</h2>
+            ${goalFormHTML()}
+            <p class="muted-text small-text">${t("goal.help")}</p>
           </div>
         </div>
 
@@ -502,8 +575,12 @@
     // The chart's code loads after the page is shown.
     U.need("progress").then(() => {
       const slot = main.querySelector("#progress-section");
-      if (slot) Progress.render(slot, progressRes.points || []);
+      if (slot) Progress.render(slot, progressRes.points || [], goal().targetBand);
     }).catch(() => { /* U.need has shown a toast */ });
+    bindGoalForm(main, () => {
+      const slot = main.querySelector("#progress-section");
+      if (slot && window.Progress) Progress.render(slot, progressRes.points || [], goal().targetBand);
+    });
     if (window.app) window.app.loadHistory();
   }
 
@@ -976,7 +1053,7 @@
     const tab = params.get("tab") || "payments";
     const waiting = (state.me.todo || {}).payments || 0;
     const tabs = [["payments", `Payments to confirm${waiting ? ` (${waiting})` : ""}`], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"],
-      ["insights", "Funnel & feedback"]];
+      ["insights", "Revenue, funnel & feedback"]];
     main.innerHTML = `
       <section class="page admin-page">
         <h1>Admin</h1>
@@ -1063,7 +1140,7 @@
       });
     } else if (tab === "insights") {
       const [stats, { feedback }] = await Promise.all([U.api("/api/admin/stats", { fresh: true }), U.api("/api/admin/feedback")]);
-      body.innerHTML = `${funnelHTML(stats.funnel)}
+      body.innerHTML = `${revenueHTML(stats.revenue, stats.passes)}${funnelHTML(stats.funnel)}
         <h2 class="section-title">Feedback</h2>
         ${feedback.length ? `<div class="feedback-list">${feedback.map((f) => `
           <article class="feedback-item">
@@ -1096,6 +1173,28 @@
         } catch (err) { U.toast(err.message, "warn"); }
       }));
     }
+  }
+
+  /* ================================================================ revenue */
+  /** Money paid in the last 7 and 30 days (pass and examiner checks), and how many passes are running. */
+  function revenueHTML(revenue, passes) {
+    if (!revenue) return `<p class="empty-inline">Revenue could not be counted. Check the server log.</p>`;
+    const row = (label, key) => `<tr><th scope="row">${label}</th>
+      <td>${esc(money(revenue["7"][key]))}</td><td>${esc(money(revenue["30"][key]))}</td></tr>`;
+    return `
+      <h2 class="section-title">Revenue</h2>
+      <div class="admin-kpis">
+        <div class="admin-kpi"><span class="admin-kpi-val">${esc(money(revenue["30"].total))}</span><span class="admin-kpi-lbl">Last 30 days</span></div>
+        <div class="admin-kpi"><span class="admin-kpi-val">${esc(money(revenue["7"].total))}</span><span class="admin-kpi-lbl">Last 7 days</span></div>
+        ${passes ? `<div class="admin-kpi"><span class="admin-kpi-val">${U.number(passes.active)}</span><span class="admin-kpi-lbl">Passes active now</span></div>
+        <div class="admin-kpi"><span class="admin-kpi-val">${U.number(passes.endingIn7Days)}</span><span class="admin-kpi-lbl">Passes ending within 7 days</span></div>` : ""}
+      </div>
+      <div class="table-scroll"><table class="history-table funnel-table">
+        <thead><tr><th scope="col"></th><th scope="col">Last 7 days</th><th scope="col">Last 30 days</th></tr></thead>
+        <tbody>${row("Monthly pass", "plan")}${row("Examiner checks", "checks")}${row("Total", "total")}
+          <tr><th scope="row">Paid orders</th><td>${U.number(revenue["7"].orders)}</td><td>${U.number(revenue["30"].orders)}</td></tr></tbody>
+      </table></div>
+      <p class="muted-text small-text revenue-note">Counted by payment date. Refunded orders are left out. "Ending" means no later month is bought yet; those students get a reminder email 3 days before.</p>`;
   }
 
   /* ================================================================ funnel */
@@ -1171,7 +1270,7 @@
   }
 
   window.Account = {
-    state, refreshMe, primeMe, user, planActive, role, login, logout, paywall, buy, billing, money, onClick, renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
+    state, refreshMe, primeMe, user, planActive, role, goal, daysUntil, planEndingHTML, goalFormHTML, bindGoalForm, login, logout, paywall, buy, billing, money, onClick, renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
     setConfig(config) { state.config = config || {}; },
   };
 })();
