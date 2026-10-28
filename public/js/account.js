@@ -1053,7 +1053,7 @@
     const tab = params.get("tab") || "payments";
     const waiting = (state.me.todo || {}).payments || 0;
     const tabs = [["payments", `Payments to confirm${waiting ? ` (${waiting})` : ""}`], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"],
-      ["insights", "Revenue, funnel & feedback"]];
+      ["insights", "Revenue, funnel & feedback"], ["tests", "Tests"]];
     main.innerHTML = `
       <section class="page admin-page">
         <h1>Admin</h1>
@@ -1071,6 +1071,26 @@
         U.toast(err.message, "warn");
       }
     };
+
+    if (tab === "tests") {
+      const show = (s) => {
+        body.innerHTML = `
+          <p class="lead-text">The live site reads its tests from Supabase. After new tests are added to the site files, upload them here.
+            Only new and changed tests are sent, and nothing is sent if a test file is invalid.</p>
+          <div class="btn-row"><button type="button" class="btn-primary" id="sync-tests" ${s.running ? "disabled" : ""}>Upload new and changed tests</button></div>
+          <p class="muted-text" id="sync-msg" role="status" style="margin-top:16px">${esc(s.message || "")}${s.running ? ` (${s.done} of ${s.total})` : ""}</p>
+          ${s.problems && s.problems.length ? `<ul class="help-list">${s.problems.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>` : ""}
+          ${s.failed && s.failed.length ? `<p class="warn-text">Failed: ${esc(s.failed.join(", "))}</p>` : ""}`;
+        const btn = body.querySelector("#sync-tests");
+        if (btn) btn.addEventListener("click", async () => {
+          btn.disabled = true;
+          try { show(await U.api("/api/admin/sync-content", { method: "POST", body: "{}" })); } catch (err) { U.toast(err.message, "warn"); btn.disabled = false; }
+        });
+        if (s.running) setTimeout(async () => { if (location.hash.startsWith("#/admin?tab=tests")) show(await U.api("/api/admin/sync-content")); }, 2000);
+      };
+      show(await U.api("/api/admin/sync-content"));
+      return;
+    }
 
     if (tab === "payments" || tab === "orders") {
       const status = tab === "payments" ? "awaiting_confirmation" : params.get("status") || "";
