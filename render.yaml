@@ -8,6 +8,10 @@ services:
     plan: free
     branch: main
     autoDeploy: true
+    # The social poster (social-poster/) is a separate service: changes there do not redeploy the website.
+    buildFilter:
+      ignoredPaths:
+        - social-poster/**
     buildCommand: pip install -r requirements.txt
     startCommand: python server.py
     healthCheckPath: /api/health
