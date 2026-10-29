@@ -112,6 +112,10 @@ In the Supabase dashboard:
 
 On Render, set `ADMIN_EMAILS` to your own email address. After you sign in with it you get the **Admin** page (`#/admin`).
 
+> **Launch setting.** While `COMMERCE_ENABLED` is `0` (the default, and what `render.yaml` sets), nothing below is visible: five tests per module are free, the others show "Coming soon…", and prices, the pass, refunds and examiner checks are hidden in the site and closed on the server. Everything in section 4 keeps working in the code; set `COMMERCE_ENABLED=1` on Render when you are ready to sell, and set the paid tests' `"access"` back to `"premium"` if you had set any to `"soon"`.
+>
+> After this update, open **Account → Admin → Tests** and press **Upload new and changed tests**: the five-free-per-module setting changes ten Reading tests (6 to 15 are no longer free) in Supabase.
+
 ### 4.2 Prices
 
 Change prices with environment variables (in so'm): `PLAN_PRICE` (default 39000 a month), `WRITING_CHECK_PRICE` (10000), `SPEAKING_CHECK_PRICE` (20000). `PLAN_FIRST_BONUS_DAYS` (30) is the free extra month on a student's first payment.

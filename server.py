@@ -333,8 +333,13 @@ async def catalog():
 
 async def allowed_to_open(test, profile):
     """(ok, error_status, error_code) for a signed-in (or anonymous) user and a test."""
-    if accounts.test_access(test) == "free":
+    access = accounts.test_access(test)
+    if access == "free":
         return True, None, None
+    if access == "soon":  # not open yet: only admins and examiners may preview it, and signing in does not help
+        if profile and accounts.profile_role(profile) in ("admin", "examiner"):
+            return True, None, None
+        return False, 403, "coming_soon"
     if not profile:
         return False, 401, "login_required"
     plan = await in_thread(PLAN_CACHE.get, STORE.db, profile["id"])
@@ -348,7 +353,8 @@ async def require_test_access(handler, test):
     profile = await handler.load_profile()
     ok, status, code = await allowed_to_open(test, profile)
     if not ok:
-        message = "Sign in to open this test." if code == "login_required" else "This test is part of the monthly plan."
+        message = {"login_required": "Sign in to open this test.",
+                   "coming_soon": "This test is coming soon."}.get(code, "This test is part of the monthly plan.")
         raise api.ApiError(status, message, code)
     return profile
 
@@ -376,6 +382,7 @@ class ConfigHandler(BaseHandler):
             "storage": STORE.name,
             "auth": {"email": True, "google": await in_thread(AUTH.google_enabled), "dev": AUTH.name == "dev"},
             "speakingKeepDays": speaking.KEEP_DAYS,
+            "commerce": accounts.commerce_enabled(),
         })
 
 

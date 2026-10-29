@@ -16,6 +16,10 @@ services:
         value: 3.11.9
       - key: SITE_NAME
         value: TestDay
+      # Launch setting: five free tests per module, the rest "Coming soon…", no prices, pass, refunds or
+      # examiner checks. Set to 1 when the site starts selling.
+      - key: COMMERCE_ENABLED
+        value: "0"
       - key: ANTHROPIC_MODEL
         value: claude-sonnet-5-5
       - key: AI_PER_IP_PER_HOUR

@@ -206,7 +206,7 @@
     if (!points.length) {
       el.innerHTML = `
         <h2 class="section-title">${t("Your progress")}</h2>
-        <p class="empty-inline">${t("progress.empty")}</p>`;
+        <p class="empty-inline">${t(window.Account && window.Account.commerce() ? "progress.empty" : "progress.empty.free")}</p>`;
       return;
     }
     const present = SERIES.filter(([key]) => points.some((p) => p.module === key));

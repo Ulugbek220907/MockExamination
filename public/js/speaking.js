@@ -964,14 +964,15 @@
         ${err.status === 401 ? `<button type="button" class="btn-primary" data-action="signin">${tr("Sign in")}</button>` : ""}</section>`;
       return;
     }
-    const b = await Account.billing().catch(() => ({ prices: {} }));
+    const shop = Account.commerce();
+    const b = shop ? await Account.billing().catch(() => ({ prices: {} })) : { prices: {} };
     const check = sub.check;
     const offer = check
       ? `<div class="notice ${check.status === "completed" ? "notice-success" : "notice-info"}">
           <strong>${check.status === "completed" ? tr("Your examiner's band: {band}", { band: IeltsScoring.formatBand(check.overallBand) }) : tr("An examiner is marking this test.")}</strong>
           <span>${check.status === "completed" ? tr("See the feedback on every criterion.") : tr("Most checks are finished within 48 hours.")}
             <a href="#/check/${check.id}">${tr("Open the check")}</a></span></div>`
-      : sub.recordingsDeleted ? "" : `
+      : sub.recordingsDeleted || !shop ? "" : `
         <div class="examiner-offer speak-offer">
           <div>
             <h2>${tr("Get your Speaking band from an examiner")}</h2>
