@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>TestDay – IELTS practice tests for Listening, Reading, Writing and Speaking</title>
-  <meta name="description" content="Timed IELTS practice tests on a screen like the computer-delivered exam: Listening, Academic Reading, Writing and Speaking. Free tests in every module, instant band estimates, explained answers and marking by real examiners. Independent practice site, not affiliated with the IELTS partners." />
+  <meta name="description" content="Timed IELTS practice tests on a screen like the computer-delivered exam: Listening, Academic Reading, Writing and Speaking. Five free full tests in every module, instant band estimates and explained answers. Independent practice site, not affiliated with the IELTS partners." />
   <meta name="theme-color" content="#e9e8e2" />
   <!-- Google Search Console ownership check for https://www.testday.uz/ (keep it: removing it un-verifies the site). -->
   <meta name="google-site-verification" content="Prm-tWClyByMpQqNwmQhTiq2pMa4gYLGruGIfOelJ1I" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TestDay" />
   <meta property="og:title" content="TestDay – IELTS practice like test day" />
-  <meta property="og:description" content="Timed Listening, Reading, Writing and Speaking tests on a screen like test day. Free tests in every module." />
+  <meta property="og:description" content="Timed Listening, Reading, Writing and Speaking tests on a screen like test day. Five free full tests in every module." />
   <meta property="og:url" content="%SITE_URL%/" />
   <meta property="og:locale" content="en_GB" />
   <meta property="og:image" content="%SITE_URL%/img/og.png" />
@@ -29,10 +29,9 @@
   <link rel="preload" href="/api/config" as="fetch" crossorigin />
   <link rel="preload" href="/api/me" as="fetch" crossorigin />
   <script type="application/json" id="asset-versions">{}</script>
-  <!-- For search engines: the site, its owner, and the questions on the Prices page (keep them in step with strings.js). -->
+  <!-- For search engines: the site and its owner. -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TestDay","url":"%SITE_URL%/","inLanguage":"en","description":"Computer-delivered IELTS practice: Listening, Academic Reading, Writing and Speaking tests. Free tests in every module."}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TestDay","url":"%SITE_URL%/","logo":"%SITE_URL%/img/logo-512.png"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does the pass renew automatically?","acceptedAnswer":{"@type":"Answer","text":"No. Nothing is charged automatically. When your month ends, you can pay for another month. Your very first payment gives you two months."}},{"@type":"Question","name":"How does an examiner check work?","acceptedAnswer":{"@type":"Answer","text":"Finish a Writing or Speaking test while signed in. On your results page, choose an examiner and pay. The examiner reads your essays or listens to your recorded answers, usually within 48 hours, and you see the bands and feedback in your account. You can rate the examiner once for each check."}},{"@type":"Question","name":"Do I need the pass to order an examiner check?","acceptedAnswer":{"@type":"Answer","text":"No. You can order a check for any test you have taken, including the free tests."}},{"@type":"Question","name":"Can I get a refund?","acceptedAnswer":{"@type":"Answer","text":"Yes. The monthly pass can be refunded within 3 days of payment if you have not started a test that needs the pass, and an examiner check until the examiner starts marking it. Write to us with your order number; the money goes back the way you paid. See the <a href=\"#/refunds\">refund policy</a>."}}]}</script>
   <script src="js/strings.js" defer></script>
   <script src="js/util.js" defer></script>
   <script src="js/vendor/lenis.min.js" defer></script>
@@ -50,7 +49,7 @@
     <header class="site-nav">
       <a class="site-brand" href="#/" aria-label="TestDay home"><span data-site-name>TestDay</span></a>
       <nav class="site-links" aria-label="Main">
-        <a href="#/pricing" data-nav="pricing">Price</a>
+        <a href="#/pricing" data-nav="pricing" data-commerce hidden>Price</a>
         <a href="#/about" data-nav="about">About</a>
       </nav>
       <div class="site-tools">
@@ -78,12 +77,12 @@
           <div class="col-b">
             <div class="footer-links" id="footer-social"></div>
             <nav class="footer-nav" aria-label="More">
-              <a href="#/pricing">Price</a>
+              <a href="#/pricing" data-commerce hidden>Price</a>
               <a href="#/about">About</a>
-              <a href="#/examiners">Examiners</a>
+              <a href="#/examiners" data-commerce hidden>Examiners</a>
               <a href="#/terms">Terms</a>
               <a href="#/privacy">Privacy</a>
-              <a href="#/refunds">Refunds</a>
+              <a href="#/refunds" data-commerce hidden>Refunds</a>
               <button type="button" id="feedback-open">Feedback</button>
             </nav>
             <p class="footer-small">TestDay is independent and not affiliated with the IELTS partners. <span class="sys">©</span> <span id="footer-year">2026</span></p>

@@ -9,5 +9,7 @@ __pycache__/
 *.log
 .tts-cache/
 data/
+# ...except the social poster's content bank, which the service needs to run
+!social-poster/data/
 *.zip
 .impeccable/review/

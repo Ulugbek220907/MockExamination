@@ -431,7 +431,7 @@
           </div>
           <p class="score-note">${tr("results.note.writing")}</p>`
         : statusNotice(data)}
-        ${data.submissionId ? `
+        ${data.submissionId && extra.commerce ? `
           <div class="examiner-offer">
             <div>
               <h2>${tr("Get your writing marked by an examiner")}</h2>

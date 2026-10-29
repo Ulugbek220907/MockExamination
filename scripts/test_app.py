@@ -38,6 +38,9 @@ for var in ("SUPABASE_URL", "SUPABASE_KEY", "SUPABASE_SERVICE_ROLE_KEY", "SUPABA
 os.environ["AUTH_DEV_CODES"] = "1"
 os.environ["ADMIN_EMAILS"] = "owner@example.com"
 os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
+# Most tests cover buying the pass and examiner checks, which the live site hides until COMMERCE_ENABLED is on.
+# CommerceOffTests below switches it off to check the launch setting.
+os.environ["COMMERCE_ENABLED"] = "1"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
@@ -154,8 +157,8 @@ class InterfaceTextTests(unittest.TestCase):
 
 class ContentTests(unittest.TestCase):
     def test_free_tests_come_first_in_every_module(self):
-        """15 Reading tests and one of each other module are free, and they are numbered first (Test 1, 2, ...)."""
-        expected = {"reading": 15, "listening": 1, "writing": 1, "speaking": 1}
+        """The first five tests of every module are free, and they are numbered first (Test 1, 2, ...)."""
+        expected = {"reading": 5, "listening": 5, "writing": 5, "speaking": 5}
         for module, count in expected.items():
             tests = sorted(content.load_json_dir(os.path.join(BASE_DIR, "content", module)), key=lambda t: t["sortOrder"])
             free = [t["sortOrder"] for t in tests if accounts.test_access(t) == "free"]
@@ -893,7 +896,7 @@ class ApiTests(AsyncHTTPTestCase):
         footer = footer[:footer.index("</nav>")]
         self.assertIn('href="#/pricing"', footer)
         self.assertNotIn("#/resources", footer)
-        # The top of the page names only what matters: Price and About (and the account).
+        # The top of the page has Price (hidden until the site sells something), About and the account.
         header = page[page.index('<nav class="site-links"'):]
         header = header[:header.index("</nav>")]
         self.assertIn('href="#/pricing"', header)
@@ -917,14 +920,8 @@ class ApiTests(AsyncHTTPTestCase):
             self.assertIn(tag, page)
         self.assertEqual(self.fetch("/img/og.png").code, 200)
         blocks = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', page)]
-        self.assertEqual({b["@type"] for b in blocks}, {"WebSite", "Organization", "FAQPage"})
-        # The FAQ for search engines says exactly what the Prices page says.
-        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
-            strings = f.read()
-        faq = next(b for b in blocks if b["@type"] == "FAQPage")["mainEntity"]
-        for key, item in zip(("faq.renew", "faq.check", "faq.checkfree", "faq.refund"), faq):
-            m = re.search(rf'^\s+"{re.escape(key)}":\s*("(?:[^"\\]|\\.)*"),?$', strings, re.M)
-            self.assertEqual(item["acceptedAnswer"]["text"], json.loads(m.group(1)), key)
+        # No FAQ about the pass, prices or refunds while the site sells nothing.
+        self.assertEqual({b["@type"] for b in blocks}, {"WebSite", "Organization"})
 
     def test_contact_email_is_never_blank(self):
         r = self.fetch("/api/config")
@@ -933,8 +930,11 @@ class ApiTests(AsyncHTTPTestCase):
         page = self.fetch("/").body.decode()
         footer = page[page.index('<nav class="footer-nav"'):]
         footer = footer[:footer.index("</nav>")]
-        for link in ("#/terms", "#/privacy", "#/refunds"):
+        for link in ("#/terms", "#/privacy"):
             self.assertIn(link, footer)
+        # Price, Examiners and Refunds are in the page but hidden until the site sells something.
+        for link in ("#/pricing", "#/examiners", "#/refunds"):
+            self.assertRegex(footer, rf'<a href="{re.escape(link)}" data-commerce hidden>')
 
     def test_sitemap_and_robots(self):
         r = self.fetch("/sitemap.xml")
@@ -1056,17 +1056,17 @@ class AccountApiTests(AccountApiBase):
     def test_premium_tests_and_audio_are_locked(self):
         r, data = self.call("GET", "/api/tests")
         access = {t["id"]: t["access"] for t in data["tests"]}
-        self.assertEqual((access["academic-reading-01"], access["academic-reading-36"], access["academic-reading-08"]), ("free", "free", "premium"))
+        self.assertEqual((access["academic-reading-01"], access["academic-reading-36"], access["academic-reading-08"]), ("free", "premium", "premium"))
         r, data = self.call("GET", "/api/tests/academic-reading-08")
         self.assertEqual((r.code, data["code"]), (401, "login_required"))
-        self.assertEqual(self.fetch("/audio/listening-02/part1.mp3").code, 401)
+        self.assertEqual(self.fetch("/audio/listening-06/part1.mp3").code, 401)
         self.assertEqual(self.fetch("/audio/listening-01/part1.mp3", headers={"Range": "bytes=0-9"}).code, 206)
         cookie, _ = self.login("nopay@example.com")
         r, data = self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)
         self.assertEqual((r.code, data["code"]), (402, "plan_required"))
         r, data = self.call("POST", "/api/reading/academic-reading-08/submit", {"answers": {}}, cookie=cookie)
         self.assertEqual(r.code, 402)
-        self.assertEqual(self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie}).code, 402)
+        self.assertEqual(self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": cookie}).code, 402)
 
     def test_sync_content_endpoint_is_for_admins_only(self):
         r, _ = self.call("GET", "/api/admin/sync-content")
@@ -1109,7 +1109,7 @@ class AccountApiTests(AccountApiBase):
         self.assertTrue(data["plan"]["active"])
         r, _ = self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)
         self.assertEqual(r.code, 200)
-        self.assertEqual(self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code, 206)
+        self.assertEqual(self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code, 206)
         # Admin can also give plan days directly.
         r, data = self.call("POST", "/api/admin/plan", {"email": "other@example.com", "days": 7}, cookie=admin)
         self.assertTrue(data["plan"]["active"])
@@ -1230,9 +1230,9 @@ class SpeakingApiTests(AccountApiBase):
         r, data = self.call("POST", f"/api/speaking/{SPEAKING[0]['id']}/start", {})
         self.assertEqual((r.code, data["code"]), (401, "login_required"))
         cookie, _ = self.login("speaker.free@example.com")
-        r, data = self.call("POST", f"/api/speaking/{SPEAKING[1]['id']}/start", {}, cookie=cookie)
+        r, data = self.call("POST", f"/api/speaking/{SPEAKING[5]['id']}/start", {}, cookie=cookie)
         self.assertEqual((r.code, data["code"]), (402, "plan_required"))
-        self.assertEqual(self.fetch(f"/audio/{SPEAKING[1]['id']}/p1-1.mp3", headers={"Cookie": cookie}).code, 402)
+        self.assertEqual(self.fetch(f"/audio/{SPEAKING[5]['id']}/p1-1.mp3", headers={"Cookie": cookie}).code, 402)
         self.assertEqual(self.fetch(f"/audio/{SPEAKING[0]['id']}/p1-1.mp3").code, 200)
         r, data = self.call("POST", "/api/speaking/academic-reading-01/start", {}, cookie=cookie)
         self.assertEqual(r.code, 404)
@@ -1762,6 +1762,74 @@ class PaymentHardeningTests(unittest.TestCase):
         self.assertEqual(billing.get_order(db, order["id"])["status"], "refunded")
 
 
+class CommerceOffTests(AccountApiBase):
+    """The launch setting: five free tests per module, the rest "coming soon", nothing for sale."""
+
+    def setUp(self):
+        super().setUp()
+        patcher = mock.patch.dict(os.environ, {"COMMERCE_ENABLED": "0"})
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        # The server builds its test list (with each test's access) once; build it again under this setting, and after.
+        server._CATALOG = server.Catalog([])
+        self.addCleanup(lambda: setattr(server, "_CATALOG", server.Catalog([])))
+
+    def test_config_says_nothing_is_for_sale_and_prices_are_empty(self):
+        self.assertFalse(json.loads(self.fetch("/api/config").body)["commerce"])
+        r, data = self.call("GET", "/api/billing")
+        self.assertEqual((r.code, data), (200, {"enabled": False, "prices": {}, "providers": []}))
+        with mock.patch.dict(os.environ, {"COMMERCE_ENABLED": "1"}):
+            self.assertTrue(json.loads(self.fetch("/api/config").body)["commerce"])
+
+    def test_five_tests_are_free_and_the_rest_are_coming_soon(self):
+        r, data = self.call("GET", "/api/tests")
+        by_module = {}
+        for t in data["tests"]:
+            by_module.setdefault(t["module"], []).append(t)
+        self.assertEqual(sorted(by_module), ["listening", "reading", "speaking", "writing"])
+        for module, tests in by_module.items():
+            tests.sort(key=lambda t: t["sortOrder"])
+            self.assertEqual([t["access"] for t in tests[:5]], ["free"] * 5, module)
+            self.assertEqual({t["access"] for t in tests[5:]}, {"soon"}, module)
+
+    def test_coming_soon_tests_are_refused_to_everyone_but_admins(self):
+        student, _ = self.login("soon.student@example.com")
+        owner, _ = self.login("owner@example.com")
+        for cookie in (None, student):
+            r, data = self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)
+            self.assertEqual((r.code, data["code"]), (403, "coming_soon"))
+            r, data = self.call("POST", "/api/reading/academic-reading-08/submit", {"answers": {}}, cookie=cookie)
+            self.assertEqual(r.code, 403)
+            self.assertEqual(self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": cookie} if cookie else {}).code, 403)
+        r, data = self.call("POST", f"/api/speaking/{SPEAKING[5]['id']}/start", {}, cookie=student)
+        self.assertEqual((r.code, data["code"]), (403, "coming_soon"))
+        # an admin can still preview the test
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-08", cookie=owner)[0].code, 200)
+        self.assertEqual(self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": owner, "Range": "bytes=0-9"}).code, 206)
+        # the free tests stay open without signing in
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-01")[0].code, 200)
+        self.assertEqual(self.fetch("/audio/listening-01/part1.mp3", headers={"Range": "bytes=0-9"}).code, 206)
+
+    def test_a_paid_pass_does_not_open_a_coming_soon_test(self):
+        student, data = self.login("had.pass@example.com")
+        accounts.grant_plan_period(server.STORE.db, data["user"]["id"], 30, "admin", None, "test")
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-08", cookie=student)[1]["code"], "coming_soon")
+
+    def test_orders_payments_examiners_and_checks_are_closed(self):
+        cookie, _ = self.login("shopper@example.com")
+        for method, path, body in (("GET", "/api/orders", None), ("POST", "/api/orders", {"kind": "plan"}),
+                                   ("GET", "/api/examiners?kind=writing", None), ("GET", "/api/checks", None),
+                                   ("POST", "/api/pay/payme", {}), ("GET", "/api/examiner/me", None)):
+            r, data = self.call(method, path, body, cookie=cookie)
+            self.assertEqual(r.code, 404, f"{method} {path}")
+
+    def test_the_site_shell_hides_price_and_refund_links_until_commerce_is_on(self):
+        page = self.fetch("/").body.decode()
+        self.assertRegex(page, r'<a href="#/pricing" data-nav="pricing" data-commerce hidden>')
+        js = open(os.path.join(PUBLIC_DIR, "js", "app.js"), encoding="utf-8").read()
+        self.assertIn("applyCommerce", js)
+
+
 class ContentSyncTests(unittest.TestCase):
     """Production reads tests from Supabase; the sync uploads only what is new or changed, and only if every file is valid."""
 
@@ -1821,7 +1889,7 @@ class PaymentAccessTests(AccountApiBase):
         cookie, data = self.login("unlock@example.com")
         db = self._app.settings["store"].db
         uid = data["user"]["id"]
-        audio = lambda: self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code
+        audio = lambda: self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code
         self.assertEqual(self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)[0].code, 402)
         self.assertEqual(audio(), 402)
         order = billing.create_order(db, uid, "plan")

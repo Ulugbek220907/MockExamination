@@ -4,6 +4,8 @@
 
 > **Independent site.** TestDay is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press & Assessment. "IELTS" is a registered trademark of its owners and is used only to describe the exam this site helps people prepare for.
 
+> **Also in this repository:** `social-poster/` is a separate small service that posts a TestDay post every day to YouTube, TikTok, Instagram, Threads and Facebook. It has its own `render.yaml`, requirements and tests and is not part of the website; see [social-poster/README.md](social-poster/README.md).
+
 ## What's inside
 
 | Module | Content | Marking |
@@ -15,7 +17,8 @@
 | **Examiner checks** | Students choose a human examiner (rated by other students) and pay per check: Writing 10,000 so'm, Speaking 20,000 so'm | The examiner marks the four official criteria (reading the essays or playing the recordings) with feedback; the student rates the examiner once |
 
 ### Free trial and the monthly plan
-- Free tests: 15 Reading tests and one test of each other module (a test is free when its JSON has `"access": "free"`; every other test is `"premium"`). Listening, Reading and Writing need no sign-in; Speaking needs a (free) account because the recordings are saved to it. The other tests and their audio need the monthly plan, and the server enforces this.
+- **Launch mode** (`COMMERCE_ENABLED` unset or `0`, the default): the first five tests of every module are free and every other test is shown blurred with "Coming soon…". Nothing is for sale: the Price, Examiners and Refund pages, the pass, orders and examiner checks are hidden in the site and answer 404 on the server. A test is free when its JSON says `"access": "free"` (or has no `access` and `sortOrder` is 5 or less); a test that says `"premium"` (or has no `access` and `sortOrder` above 5) is "soon" in launch mode, and refused by the API and the audio to everyone except admins and examiners, who can preview it. Listening, Reading and Writing need no sign-in; Speaking needs a (free) account because the recordings are saved to it.
+- **Selling mode** (`COMMERCE_ENABLED=1`): the same `"premium"` tests need the monthly plan, the Price, Examiners and Refunds pages come back, and the server enforces the plan.
 - The plan costs 39,000 so'm a month (configurable). The first payment gives two months, and nothing renews automatically.
 - Sign-in uses a 6-digit email code or Google (Supabase Auth). Attempts made before signing in are added to the account.
 - Payments: Payme and Click (merchant APIs built in, switched on by environment variables), or a card transfer confirmed by an admin.
@@ -26,7 +29,7 @@
 **All content is original** and written for this project. The recordings are voiced with the open-source Kokoro text-to-speech model (Apache 2.0). The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
 
 ### Design
-- The home page is one headline, the four modules (each with a *Start free* button and a link to its full list), and three numbers counted from the data. The header has only **Price** and **About**; the footer carries the contact email, the social links, the legal pages and Feedback. The design is described in DESIGN.md. Set `SOCIAL_TELEGRAM`, `SOCIAL_INSTAGRAM`, `SOCIAL_YOUTUBE` and `SOCIAL_TIKTOK` to show social links in the footer.
+- The home page is one headline, the four modules (each with a *Start free* button and a link to its full list), and three numbers counted from the data. The header has only **About** (and **Price** once `COMMERCE_ENABLED=1`); the footer carries the contact email, the social links, the legal pages and Feedback. The design is described in DESIGN.md. Set `SOCIAL_TELEGRAM`, `SOCIAL_INSTAGRAM`, `SOCIAL_YOUTUBE` and `SOCIAL_TIKTOK` to show social links in the footer.
 - The interface is in English only, like the exam itself (all text in `js/strings.js`; `t()` looks it up).
 - The site opens straight away. The home page loads only what it needs (about 58 KB compressed, and its three data requests start while the scripts download). A test's questions, the exam screen's code and styles (`css/cd-ielts.css`, `exam.js`, `speaking.js`, `charts.js`, `highlighter.js`), the results page and the progress chart load when a test is started or a result is opened. `U.need()` in `util.js` downloads each bundle whole and runs it in order, so a dropped connection never leaves it half-loaded.
 - Product context and the design direction live in `PRODUCT.md` and `.impeccable/surfaces/`; the visual system is documented in `DESIGN.md`.

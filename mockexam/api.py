@@ -252,7 +252,9 @@ class ProgressHandler(BaseHandler):
 
 class BillingConfigHandler(BaseHandler):
     def get(self):
-        self.send_json(billing.public_config())
+        if not accounts.commerce_enabled():
+            return self.send_json({"enabled": False, "prices": {}, "providers": []})
+        self.send_json({"enabled": True, **billing.public_config()})
 
 
 async def _own_order(handler, order_id):
@@ -454,10 +456,12 @@ class SpeakingStartHandler(BaseHandler):
             raise ApiError(404, "Speaking test not found.")
         profile = await self.load_profile()
         if not profile:
-            raise ApiError(401, "Sign in to record your answers. Speaking Test 1 is free.", "login_required")
+            raise ApiError(401, "Sign in to record your answers.", "login_required")
         if accounts.test_access(test) != "free":
             plan = await in_thread(accounts.plan_status, self.db, profile["id"])
             if not accounts.can_open_test(test, profile, plan):
+                if accounts.test_access(test) == "soon":
+                    raise ApiError(403, "This test is coming soon.", "coming_soon")
                 raise ApiError(402, "This test is part of the monthly plan.", "plan_required")
         body = self.body_json()
         try:
@@ -764,6 +768,20 @@ class AdminPlanHandler(AdminHandler):
         self.send_json({"plan": await in_thread(accounts.plan_status, self.db, profile["id"])})
 
 
+def commerce_only(handler_class):
+    """The same handler, but answering 404 while the site sells nothing (COMMERCE_ENABLED is off)."""
+    class Gated(handler_class):
+        async def prepare(self):
+            if not accounts.commerce_enabled():
+                raise ApiError(404, "Not available.")
+            result = super().prepare()
+            if result is not None:
+                await result
+
+    Gated.__name__ = handler_class.__name__
+    return Gated
+
+
 def routes():
     return [
         (r"/api/auth/code", AuthCodeHandler),
@@ -774,18 +792,18 @@ def routes():
         (r"/api/me", MeHandler),
         (r"/api/progress", ProgressHandler),
         (r"/api/billing", BillingConfigHandler),
-        (r"/api/orders", OrdersHandler),
-        (r"/api/orders/(\d+)/pay", OrderPayHandler),
-        (r"/api/orders/(\d+)/manual-paid", OrderManualPaidHandler),
-        (r"/api/pay/payme", PaymeHandler),
-        (r"/api/pay/click/(prepare|complete)", ClickHandler),
-        (r"/api/examiners", ExaminersHandler),
-        (r"/api/examiners/([0-9a-f\-]{36})", ExaminerDetailHandler),
-        (r"/api/checks", MyChecksHandler),
-        (r"/api/checks/(\d+)", CheckHandler),
-        (r"/api/checks/(\d+)/rate", CheckRateHandler),
-        (r"/api/examiner/me", ExaminerMeHandler),
-        (r"/api/examiner/checks/(\d+)/(start|result)", ExaminerCheckActionHandler),
+        (r"/api/orders", commerce_only(OrdersHandler)),
+        (r"/api/orders/(\d+)/pay", commerce_only(OrderPayHandler)),
+        (r"/api/orders/(\d+)/manual-paid", commerce_only(OrderManualPaidHandler)),
+        (r"/api/pay/payme", commerce_only(PaymeHandler)),
+        (r"/api/pay/click/(prepare|complete)", commerce_only(ClickHandler)),
+        (r"/api/examiners", commerce_only(ExaminersHandler)),
+        (r"/api/examiners/([0-9a-f\-]{36})", commerce_only(ExaminerDetailHandler)),
+        (r"/api/checks", commerce_only(MyChecksHandler)),
+        (r"/api/checks/(\d+)", commerce_only(CheckHandler)),
+        (r"/api/checks/(\d+)/rate", commerce_only(CheckRateHandler)),
+        (r"/api/examiner/me", commerce_only(ExaminerMeHandler)),
+        (r"/api/examiner/checks/(\d+)/(start|result)", commerce_only(ExaminerCheckActionHandler)),
         (r"/api/speaking/([a-z0-9][a-z0-9\-]{0,80})/start", SpeakingStartHandler),
         (r"/api/speaking/submissions/(\d+)/answers/([a-z0-9][a-z0-9\-]{0,30})", SpeakingAnswerHandler),
         (r"/api/speaking/submissions/(\d+)/complete", SpeakingCompleteHandler),

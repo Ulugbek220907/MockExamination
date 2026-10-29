@@ -146,15 +146,34 @@ def revoke_plan_period(db, order_id):
 # Access to tests
 # --------------------------------------------------------------------------
 
+# The first tests of every module are free; the others need the pass. While nothing is for sale
+# (COMMERCE_ENABLED is off, the launch setting) a test that needs the pass is "soon": shown blurred as
+# "Coming soon…", refused to everyone except admins and examiners, who can still preview it.
+FREE_TESTS_PER_MODULE = 5
+
+
+def commerce_enabled():
+    """True once the site sells the pass and examiner checks. Read each time so a restart is not needed in tests."""
+    return os.environ.get("COMMERCE_ENABLED", "").strip().lower() in ("1", "true", "yes", "on")
+
+
+def declared_access(test):
+    """What the test file says: "free" or "premium" (a test may also say "soon" outright)."""
+    return test.get("access") or ("free" if test.get("sortOrder", 1) <= FREE_TESTS_PER_MODULE else "premium")
+
+
 def test_access(test):
-    return test.get("access") or ("free" if test.get("sortOrder", 1) <= 1 else "premium")
+    """free, premium (needs the pass) or soon (not open yet). The pass tests are "soon" while commerce is off."""
+    access = declared_access(test)
+    return "soon" if access == "premium" and not commerce_enabled() else access
 
 
 def can_open_test(test, profile, plan):
-    if test_access(test) == "free":
+    access = test_access(test)
+    if access == "free":
         return True
     if not profile:
         return False
     if profile_role(profile) in ("admin", "examiner"):
         return True
-    return bool(plan and plan.get("active"))
+    return access == "premium" and bool(plan and plan.get("active"))

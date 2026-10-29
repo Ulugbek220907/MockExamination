@@ -1,0 +1,1482 @@
+{
+ "vocab": [
+  {
+   "id": "v001",
+   "word": "considerable",
+   "pos": "adjective",
+   "meaning": "fairly large or important",
+   "example": "Smartphones save people a considerable amount of time.",
+   "phrase": "a considerable amount of",
+   "use": "Writing Task 1 and 2"
+  },
+  {
+   "id": "v002",
+   "word": "outweigh",
+   "pos": "verb",
+   "meaning": "be greater or more important than something else",
+   "example": "For most students, the benefits of studying abroad outweigh the costs.",
+   "phrase": "the advantages outweigh the disadvantages",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v003",
+   "word": "reluctant",
+   "pos": "adjective",
+   "meaning": "unwilling and hesitating",
+   "example": "Many teenagers are reluctant to speak in class.",
+   "phrase": "reluctant to admit",
+   "use": "Speaking Part 1 and 3"
+  },
+  {
+   "id": "v004",
+   "word": "peak",
+   "pos": "verb",
+   "meaning": "reach the highest point",
+   "example": "Sales peaked in July at 12,000 units.",
+   "phrase": "peak at",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v005",
+   "word": "tackle",
+   "pos": "verb",
+   "meaning": "try to deal with a problem",
+   "example": "Cities must tackle traffic congestion before it gets worse.",
+   "phrase": "tackle a problem",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v006",
+   "word": "revenue",
+   "pos": "noun",
+   "meaning": "the money a company or government receives",
+   "example": "Tourism brings in a large share of the country's revenue.",
+   "phrase": "tax revenue",
+   "use": "Writing Task 1 and 2"
+  },
+  {
+   "id": "v007",
+   "word": "surge",
+   "pos": "noun",
+   "meaning": "a sudden large increase",
+   "example": "There was a surge in online shopping in 2020.",
+   "phrase": "a surge in demand",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v008",
+   "word": "pursue",
+   "pos": "verb",
+   "meaning": "try to achieve something over a period of time",
+   "example": "She decided to pursue a career in medicine.",
+   "phrase": "pursue a career",
+   "use": "Speaking Part 1 and 2"
+  },
+  {
+   "id": "v009",
+   "word": "foster",
+   "pos": "verb",
+   "meaning": "help something to develop",
+   "example": "Schools should foster creativity as well as knowledge.",
+   "phrase": "foster a sense of",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v010",
+   "word": "inadequate",
+   "pos": "adjective",
+   "meaning": "not enough, or not good enough",
+   "example": "Public transport in rural areas is often inadequate.",
+   "phrase": "inadequate facilities",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v011",
+   "word": "comprehensive",
+   "pos": "adjective",
+   "meaning": "including everything that is needed",
+   "example": "The report gives a comprehensive overview of the market.",
+   "phrase": "a comprehensive survey",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v012",
+   "word": "enhance",
+   "pos": "verb",
+   "meaning": "improve the quality of something",
+   "example": "Music can enhance concentration while studying.",
+   "phrase": "enhance performance",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v013",
+   "word": "get the hang of",
+   "pos": "phrase",
+   "meaning": "learn how to do something",
+   "example": "It took me a month to get the hang of cooking rice properly.",
+   "phrase": "get the hang of it",
+   "use": "Speaking Part 2"
+  },
+  {
+   "id": "v014",
+   "word": "deteriorate",
+   "pos": "verb",
+   "meaning": "become worse",
+   "example": "Air quality has deteriorated in many large cities.",
+   "phrase": "deteriorate rapidly",
+   "use": "Writing Task 1 and 2"
+  },
+  {
+   "id": "v015",
+   "word": "overwhelming",
+   "pos": "adjective",
+   "meaning": "very great in amount or effect",
+   "example": "An overwhelming majority of people support the plan.",
+   "phrase": "an overwhelming majority",
+   "use": "Writing Task 1 and 2"
+  },
+  {
+   "id": "v016",
+   "word": "scarce",
+   "pos": "adjective",
+   "meaning": "not enough of something; hard to find",
+   "example": "Fresh water is becoming scarce in many regions.",
+   "phrase": "scarce resources",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v017",
+   "word": "plummet",
+   "pos": "verb",
+   "meaning": "fall very quickly and by a large amount",
+   "example": "Prices plummeted in the second year.",
+   "phrase": "plummet to",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v018",
+   "word": "alleviate",
+   "pos": "verb",
+   "meaning": "make a problem or pain less severe",
+   "example": "New bus lanes could alleviate traffic congestion.",
+   "phrase": "alleviate poverty",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v019",
+   "word": "diminish",
+   "pos": "verb",
+   "meaning": "become smaller or less important",
+   "example": "The value of old computers diminishes quickly.",
+   "phrase": "diminish in importance",
+   "use": "Writing Task 1 and 2"
+  },
+  {
+   "id": "v020",
+   "word": "keen on",
+   "pos": "phrase",
+   "meaning": "interested in something and enjoying it",
+   "example": "I've always been keen on photography.",
+   "phrase": "be keen on",
+   "use": "Speaking Part 1"
+  },
+  {
+   "id": "v021",
+   "word": "hinder",
+   "pos": "verb",
+   "meaning": "make it harder for something to happen",
+   "example": "Poor transport links hinder economic growth.",
+   "phrase": "hinder progress",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v022",
+   "word": "contemporary",
+   "pos": "adjective",
+   "meaning": "belonging to the present time",
+   "example": "Contemporary art attracts a younger audience.",
+   "phrase": "contemporary society",
+   "use": "Speaking and Writing"
+  },
+  {
+   "id": "v023",
+   "word": "tend to",
+   "pos": "phrase",
+   "meaning": "usually do something; often be a certain way",
+   "example": "People in my city tend to eat dinner quite late.",
+   "phrase": "tend to prefer",
+   "use": "Speaking Part 1 and 3"
+  },
+  {
+   "id": "v024",
+   "word": "abundant",
+   "pos": "adjective",
+   "meaning": "existing in large quantities",
+   "example": "Solar energy is abundant in desert regions.",
+   "phrase": "abundant supplies",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v025",
+   "word": "thrive",
+   "pos": "verb",
+   "meaning": "grow and succeed",
+   "example": "Small businesses thrive when regulations are simple.",
+   "phrase": "thrive on",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v026",
+   "word": "accommodate",
+   "pos": "verb",
+   "meaning": "have enough space for; adapt to",
+   "example": "The new stadium can accommodate 50,000 people.",
+   "phrase": "accommodate a growing population",
+   "use": "Writing Task 1 and 2"
+  },
+  {
+   "id": "v027",
+   "word": "plateau",
+   "pos": "verb",
+   "meaning": "stop rising or falling and stay at the same level",
+   "example": "Sales plateaued at around 200 units a month.",
+   "phrase": "plateau at",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v028",
+   "word": "inevitable",
+   "pos": "adjective",
+   "meaning": "certain to happen; impossible to avoid",
+   "example": "Some job losses are inevitable as technology advances.",
+   "phrase": "an inevitable consequence",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v029",
+   "word": "inhabitants",
+   "pos": "noun",
+   "meaning": "the people who live in a place",
+   "example": "The city has two million inhabitants.",
+   "phrase": "local inhabitants",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v030",
+   "word": "approximately",
+   "pos": "adverb",
+   "meaning": "about; not exactly",
+   "example": "Approximately 40 per cent of the visitors were under 25.",
+   "phrase": "approximately half",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v031",
+   "word": "substantial",
+   "pos": "adjective",
+   "meaning": "large in amount or importance",
+   "example": "There has been a substantial rise in the number of people working from home.",
+   "phrase": "a substantial increase",
+   "use": "Writing Task 1 and 2"
+  },
+  {
+   "id": "v032",
+   "word": "fluctuate",
+   "pos": "verb",
+   "meaning": "go up and down in an irregular way",
+   "example": "House prices fluctuated sharply over the decade.",
+   "phrase": "fluctuate between X and Y",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v033",
+   "word": "curb",
+   "pos": "verb",
+   "meaning": "control or limit something harmful",
+   "example": "Higher taxes could curb the consumption of sugary drinks.",
+   "phrase": "curb spending",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v034",
+   "word": "resilient",
+   "pos": "adjective",
+   "meaning": "able to recover quickly after difficulty",
+   "example": "Resilient communities recover faster after floods.",
+   "phrase": "a resilient economy",
+   "use": "Speaking Part 3"
+  },
+  {
+   "id": "v035",
+   "word": "mitigate",
+   "pos": "verb",
+   "meaning": "make something less serious or harmful",
+   "example": "Governments should act to mitigate the effects of climate change.",
+   "phrase": "mitigate the impact of",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v036",
+   "word": "sustainable",
+   "pos": "adjective",
+   "meaning": "able to continue without harming the environment or running out",
+   "example": "We need more sustainable sources of energy.",
+   "phrase": "sustainable development",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v037",
+   "word": "proportion",
+   "pos": "noun",
+   "meaning": "a part of a whole",
+   "example": "A large proportion of students study abroad.",
+   "phrase": "a significant proportion of",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v038",
+   "word": "deprive",
+   "pos": "verb",
+   "meaning": "prevent someone from having something",
+   "example": "Long working hours deprive parents of time with their children.",
+   "phrase": "deprive someone of",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v039",
+   "word": "phenomenon",
+   "pos": "noun",
+   "meaning": "something that exists and can be seen or studied",
+   "example": "Remote working is a relatively new phenomenon.",
+   "phrase": "a global phenomenon",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v040",
+   "word": "undermine",
+   "pos": "verb",
+   "meaning": "weaken something little by little",
+   "example": "Constant criticism can undermine a child's confidence.",
+   "phrase": "undermine confidence",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v041",
+   "word": "mundane",
+   "pos": "adjective",
+   "meaning": "ordinary and rather boring",
+   "example": "Robots could do the mundane tasks in offices.",
+   "phrase": "mundane tasks",
+   "use": "Speaking Part 1 and 3"
+  },
+  {
+   "id": "v042",
+   "word": "detrimental",
+   "pos": "adjective",
+   "meaning": "causing harm",
+   "example": "Too much screen time can be detrimental to children's sleep.",
+   "phrase": "detrimental to health",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v043",
+   "word": "incentive",
+   "pos": "noun",
+   "meaning": "something that encourages people to act",
+   "example": "Tax incentives encourage firms to hire young graduates.",
+   "phrase": "offer an incentive",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v044",
+   "word": "vulnerable",
+   "pos": "adjective",
+   "meaning": "easy to harm or hurt",
+   "example": "Elderly people are especially vulnerable to heat waves.",
+   "phrase": "vulnerable to",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v045",
+   "word": "a blessing in disguise",
+   "pos": "idiom",
+   "meaning": "something that seems bad at first but turns out well",
+   "example": "Missing the bus was a blessing in disguise because I met my best friend.",
+   "phrase": "turn out to be a blessing in disguise",
+   "use": "Speaking Part 2"
+  },
+  {
+   "id": "v046",
+   "word": "plausible",
+   "pos": "adjective",
+   "meaning": "seeming reasonable or likely to be true",
+   "example": "It is plausible that remote work will stay popular.",
+   "phrase": "a plausible explanation",
+   "use": "Speaking Part 3"
+  },
+  {
+   "id": "v047",
+   "word": "retain",
+   "pos": "verb",
+   "meaning": "keep something",
+   "example": "Companies want to retain their most skilled staff.",
+   "phrase": "retain employees",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v048",
+   "word": "crucial",
+   "pos": "adjective",
+   "meaning": "extremely important",
+   "example": "Sleep is crucial for memory.",
+   "phrase": "play a crucial role",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v049",
+   "word": "gradual",
+   "pos": "adjective",
+   "meaning": "happening slowly, a little at a time",
+   "example": "The chart shows a gradual decline in sales.",
+   "phrase": "a gradual increase",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v050",
+   "word": "allocate",
+   "pos": "verb",
+   "meaning": "give money or time for a particular purpose",
+   "example": "Governments should allocate more money to public transport.",
+   "phrase": "allocate resources",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v051",
+   "word": "come across",
+   "pos": "phrasal verb",
+   "meaning": "find or meet by chance",
+   "example": "I came across an old photo of my grandfather last week.",
+   "phrase": "come across as friendly",
+   "use": "Speaking Part 2"
+  },
+  {
+   "id": "v052",
+   "word": "widespread",
+   "pos": "adjective",
+   "meaning": "found in many places or among many people",
+   "example": "Mobile phone use is now widespread among teenagers.",
+   "phrase": "widespread concern",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v053",
+   "word": "compelling",
+   "pos": "adjective",
+   "meaning": "very convincing; hard to resist",
+   "example": "There is compelling evidence that exercise improves memory.",
+   "phrase": "compelling evidence",
+   "use": "Speaking Part 3"
+  },
+  {
+   "id": "v054",
+   "word": "rely on",
+   "pos": "phrasal verb",
+   "meaning": "depend on someone or something",
+   "example": "Many farmers rely on rainfall rather than irrigation.",
+   "phrase": "rely heavily on",
+   "use": "Writing and Speaking"
+  },
+  {
+   "id": "v055",
+   "word": "contribute to",
+   "pos": "phrasal verb",
+   "meaning": "help to cause something",
+   "example": "A poor diet contributes to many health problems.",
+   "phrase": "contribute to the problem",
+   "use": "Writing Task 2"
+  },
+  {
+   "id": "v056",
+   "word": "at the end of the day",
+   "pos": "phrase",
+   "meaning": "when everything is considered",
+   "example": "At the end of the day, practice matters more than talent.",
+   "phrase": "at the end of the day, it depends",
+   "use": "Speaking Part 3"
+  },
+  {
+   "id": "v057",
+   "word": "disparity",
+   "pos": "noun",
+   "meaning": "a big difference between things that should be equal",
+   "example": "There is a growing disparity between rich and poor.",
+   "phrase": "a disparity in income",
+   "use": "Writing Task 1 and 2"
+  },
+  {
+   "id": "v058",
+   "word": "negligible",
+   "pos": "adjective",
+   "meaning": "so small that it is not important",
+   "example": "The cost of the change was negligible.",
+   "phrase": "a negligible amount",
+   "use": "Writing Task 1"
+  },
+  {
+   "id": "v059",
+   "word": "hectic",
+   "pos": "adjective",
+   "meaning": "very busy and full of activity",
+   "example": "My week at university is usually quite hectic.",
+   "phrase": "a hectic schedule",
+   "use": "Speaking Part 1"
+  },
+  {
+   "id": "v060",
+   "word": "versatile",
+   "pos": "adjective",
+   "meaning": "able to be used in many ways",
+   "example": "Bamboo is a versatile building material.",
+   "phrase": "a versatile tool",
+   "use": "Speaking Part 1 and 2"
+  },
+  {
+   "id": "v061",
+   "word": "laid-back",
+   "pos": "adjective",
+   "meaning": "relaxed and not easily worried",
+   "example": "My brother is very laid-back about exams.",
+   "phrase": "a laid-back attitude",
+   "use": "Speaking Part 1 and 2"
+  },
+  {
+   "id": "v062",
+   "word": "prevalent",
+   "pos": "adjective",
+   "meaning": "common at a particular time or place",
+   "example": "Obesity is increasingly prevalent among children.",
+   "phrase": "become more prevalent",
+   "use": "Writing Task 2"
+  }
+ ],
+ "tips": [
+  {
+   "id": "t001",
+   "module": "Reading",
+   "title": "True, False or Not Given",
+   "body": "False means the text says the opposite. Not Given means the text does not say. Use only the passage, never your own knowledge."
+  },
+  {
+   "id": "t002",
+   "module": "Reading",
+   "title": "Skim first, then scan",
+   "body": "Do not read every word. Skim the title and the first lines of each paragraph for the structure, then scan for key words from the question."
+  },
+  {
+   "id": "t003",
+   "module": "Writing",
+   "title": "Do not memorise essays",
+   "body": "Examiners recognise memorised answers, and they can lower your score. Learn useful phrases instead and write about the actual question."
+  },
+  {
+   "id": "t004",
+   "module": "Reading",
+   "title": "Look for synonyms",
+   "body": "The question rarely uses the exact words of the passage. Find the paraphrase: \"increase\" in the question may be \"rise\" in the text."
+  },
+  {
+   "id": "t005",
+   "module": "Speaking",
+   "title": "Develop your ideas in Part 3",
+   "body": "Give your opinion, explain why, add an example, and compare the past and the present or different groups of people."
+  },
+  {
+   "id": "t006",
+   "module": "Speaking",
+   "title": "It is fine to ask",
+   "body": "If you do not understand a question, ask the examiner to repeat it. It does not lower your score."
+  },
+  {
+   "id": "t007",
+   "module": "Speaking",
+   "title": "Paraphrase to show range",
+   "body": "If you cannot remember a word, explain it in other words. Using a range of vocabulary matters more than using rare words."
+  },
+  {
+   "id": "t008",
+   "module": "Writing",
+   "title": "Check your essay",
+   "body": "Keep two or three minutes at the end to check verb tenses, articles (a, an, the), plurals and spelling."
+  },
+  {
+   "id": "t009",
+   "module": "Reading",
+   "title": "Matching headings",
+   "body": "Read the first and last sentences of each paragraph. The heading is the main idea of the paragraph, not a detail from it."
+  },
+  {
+   "id": "t010",
+   "module": "Writing",
+   "title": "Plan for five minutes",
+   "body": "Before you write, choose your position and two main ideas, each with an example. A short plan makes the essay clearer and faster to write."
+  },
+  {
+   "id": "t011",
+   "module": "Listening",
+   "title": "Listen for corrections",
+   "body": "Speakers often change their minds: \"Tuesday, no, sorry, Thursday.\" The final version is the answer, not the first one you hear."
+  },
+  {
+   "id": "t012",
+   "module": "Listening",
+   "title": "Respect the word limit",
+   "body": "If the instructions say NO MORE THAN TWO WORDS, a three-word answer scores zero. Check the limit on every question."
+  },
+  {
+   "id": "t013",
+   "module": "Listening",
+   "title": "Find your starting point on a map",
+   "body": "On a map or plan question, find where you are and the compass points before the recording starts. Then follow the directions step by step."
+  },
+  {
+   "id": "t014",
+   "module": "Writing",
+   "title": "Answer every part of the question",
+   "body": "If the question asks for causes and solutions, write about both. Missing a part limits your score for task response."
+  },
+  {
+   "id": "t015",
+   "module": "Speaking",
+   "title": "Stress the important words",
+   "body": "Good pronunciation is not an accent. It is clear sounds, stressed key words and a natural pace that is neither rushed nor slow."
+  },
+  {
+   "id": "t016",
+   "module": "Listening",
+   "title": "Use the preview time",
+   "body": "Before each part starts, read the questions and underline the key words. Decide what kind of answer you need: a number, a name, a place."
+  },
+  {
+   "id": "t017",
+   "module": "Speaking",
+   "title": "Do not memorise answers",
+   "body": "Examiners can tell when an answer is learned by heart. Speak naturally about your own life and ideas."
+  },
+  {
+   "id": "t018",
+   "module": "Writing",
+   "title": "Use linking words with care",
+   "body": "\"However\" and \"In addition\" are useful, but not at the start of every sentence. Make the ideas connect first, then add the link."
+  },
+  {
+   "id": "t019",
+   "module": "Writing",
+   "title": "Task 2 counts double",
+   "body": "Task 2 carries twice the marks of Task 1. Aim for about 20 minutes on Task 1 and 40 on Task 2."
+  },
+  {
+   "id": "t020",
+   "module": "Reading",
+   "title": "Yes, No or Not Given",
+   "body": "These questions are about the writer's opinion or claims, not facts. Look for words such as \"believes\", \"argues\" and \"suggests\"."
+  },
+  {
+   "id": "t021",
+   "module": "Speaking",
+   "title": "Use your minute in Part 2",
+   "body": "Write key words, not sentences. Cover every point on the card and keep speaking until the examiner stops you after two minutes."
+  },
+  {
+   "id": "t022",
+   "module": "Reading",
+   "title": "Watch your time",
+   "body": "You have 60 minutes for three passages, about 20 for each. Do not spend more than a minute on one question at first."
+  },
+  {
+   "id": "t023",
+   "module": "Reading",
+   "title": "Never leave an answer blank",
+   "body": "There is no penalty for a wrong answer. Move on from a hard question, come back if you have time, and guess before you finish."
+  },
+  {
+   "id": "t024",
+   "module": "Listening",
+   "title": "Spelling counts",
+   "body": "A misspelled answer loses the mark. Both British and American spelling are accepted, but check names, plurals and endings."
+  },
+  {
+   "id": "t025",
+   "module": "Listening",
+   "title": "Plurals and numbers",
+   "body": "Listen for the final -s. \"Book\" and \"books\" are different answers. Write numbers carefully: 13 and 30 sound alike."
+  },
+  {
+   "id": "t026",
+   "module": "Speaking",
+   "title": "Fluency before perfection",
+   "body": "Correct yourself calmly and keep going. Phrases like \"Well, let me think\" give you a moment without a long silence."
+  },
+  {
+   "id": "t027",
+   "module": "Writing",
+   "title": "One idea per paragraph",
+   "body": "Start each body paragraph with a topic sentence, explain it, then give an example. Do not mix two ideas in one paragraph."
+  },
+  {
+   "id": "t028",
+   "module": "Listening",
+   "title": "Beware of distractors",
+   "body": "The speaker may mention every option. Listen for the one that is not rejected, changed or corrected."
+  },
+  {
+   "id": "t029",
+   "module": "Writing",
+   "title": "Paraphrase the question",
+   "body": "In your introduction, do not copy the question. Change the key words and the structure, then state your position."
+  },
+  {
+   "id": "t030",
+   "module": "Reading",
+   "title": "Copy words exactly",
+   "body": "In gap-fill questions copy the word exactly as it appears in the text, check the word limit, and make sure the answer fits the grammar of the sentence."
+  },
+  {
+   "id": "t031",
+   "module": "Speaking",
+   "title": "Extend your answers in Part 1",
+   "body": "Do not give one-word answers. Say your answer, give a reason, and add a short example: two or three sentences is about right."
+  },
+  {
+   "id": "t032",
+   "module": "Listening",
+   "title": "Answers come in order",
+   "body": "In every section the answers are heard in the same order as the questions. If you miss one, let it go and listen for the next."
+  },
+  {
+   "id": "t033",
+   "module": "Writing",
+   "title": "Accuracy beats length",
+   "body": "A few complex sentences that are correct are better than many long sentences full of mistakes. Keep your grammar under control."
+  },
+  {
+   "id": "t034",
+   "module": "Writing",
+   "title": "Always write an overview",
+   "body": "In Task 1, one or two sentences about the main trends or the biggest differences is the key part of a good answer. Do not give opinions."
+  }
+ ],
+ "speaking": [
+  {
+   "id": "s001",
+   "topic": "Describe a day that you spent outdoors and enjoyed.",
+   "points": [
+    "where you were",
+    "who you were with",
+    "what you did"
+   ],
+   "explain": "and explain why you enjoyed that day.",
+   "source": "speaking-31"
+  },
+  {
+   "id": "s002",
+   "topic": "Describe a time when you helped someone.",
+   "points": [
+    "who you helped",
+    "when and where it happened",
+    "what you did to help"
+   ],
+   "explain": "and explain how you felt about helping this person.",
+   "source": "speaking-05"
+  },
+  {
+   "id": "s003",
+   "topic": "Describe a time when you had to wait for something.",
+   "points": [
+    "what you were waiting for",
+    "how long you had to wait",
+    "what you did while you were waiting"
+   ],
+   "explain": "and explain how you felt about waiting.",
+   "source": "speaking-10"
+  },
+  {
+   "id": "s004",
+   "topic": "Describe a useful skill that you have learned.",
+   "points": [
+    "what the skill is",
+    "when and how you learned it",
+    "how often you use it"
+   ],
+   "explain": "and explain why this skill is useful to you.",
+   "source": "speaking-02"
+  },
+  {
+   "id": "s005",
+   "topic": "Describe a river, lake or sea that you have visited.",
+   "points": [
+    "where it is",
+    "when you went there",
+    "what you did there"
+   ],
+   "explain": "and explain how you felt about this place.",
+   "source": "speaking-26"
+  },
+  {
+   "id": "s006",
+   "topic": "Describe a festival or public holiday in your country.",
+   "points": [
+    "what it is called",
+    "when it takes place",
+    "what people do during it"
+   ],
+   "explain": "and explain how you feel about this festival or holiday.",
+   "source": "speaking-23"
+  },
+  {
+   "id": "s007",
+   "topic": "Describe a piece of technology that you use often.",
+   "points": [
+    "what it is",
+    "when you got it",
+    "how often you use it"
+   ],
+   "explain": "and explain why it is important to you.",
+   "source": "speaking-06"
+  },
+  {
+   "id": "s008",
+   "topic": "Describe a film that you watched recently.",
+   "points": [
+    "what the film was",
+    "where and when you watched it",
+    "what happened in it"
+   ],
+   "explain": "and explain what you thought of it.",
+   "source": "speaking-15"
+  },
+  {
+   "id": "s009",
+   "topic": "Describe a time when you saw an animal in an unusual place.",
+   "points": [
+    "what the animal was",
+    "where you saw it",
+    "what it was doing"
+   ],
+   "explain": "and explain why you found it unusual.",
+   "source": "speaking-27"
+  },
+  {
+   "id": "s010",
+   "topic": "Describe a gift that you gave to someone.",
+   "points": [
+    "who you gave it to",
+    "what the gift was",
+    "why you chose it"
+   ],
+   "explain": "and explain how the person felt when they received it.",
+   "source": "speaking-13"
+  },
+  {
+   "id": "s011",
+   "topic": "Describe a building that you find attractive.",
+   "points": [
+    "where the building is",
+    "what it looks like",
+    "what it is used for"
+   ],
+   "explain": "and explain why you find it attractive.",
+   "source": "speaking-14"
+  },
+  {
+   "id": "s012",
+   "topic": "Describe a book you have read that you found interesting.",
+   "points": [
+    "what the book was",
+    "when you read it",
+    "what it was about"
+   ],
+   "explain": "and explain why you found it interesting.",
+   "source": "speaking-04"
+  },
+  {
+   "id": "s013",
+   "topic": "Describe a friend you have known for a long time.",
+   "points": [
+    "who this person is",
+    "how you met",
+    "what you like to do together"
+   ],
+   "explain": "and explain why your friendship has lasted so long.",
+   "source": "speaking-25"
+  },
+  {
+   "id": "s014",
+   "topic": "Describe an interesting conversation you had with someone.",
+   "points": [
+    "who you talked to",
+    "when and where the conversation happened",
+    "what you talked about"
+   ],
+   "explain": "and explain why you found it interesting.",
+   "source": "speaking-11"
+  },
+  {
+   "id": "s015",
+   "topic": "Describe a time when you were very busy.",
+   "points": [
+    "when it was",
+    "what you had to do",
+    "how you organised your time"
+   ],
+   "explain": "and explain how you felt during this busy time.",
+   "source": "speaking-24"
+  },
+  {
+   "id": "s016",
+   "topic": "Describe a teacher who you remember well.",
+   "points": [
+    "who the teacher was",
+    "what subject they taught",
+    "what they were like"
+   ],
+   "explain": "and explain why you remember this teacher.",
+   "source": "speaking-17"
+  },
+  {
+   "id": "s017",
+   "topic": "Describe a website or app that you find useful.",
+   "points": [
+    "what it is",
+    "how you found out about it",
+    "what you use it for"
+   ],
+   "explain": "and explain why you find it useful.",
+   "source": "speaking-22"
+  },
+  {
+   "id": "s018",
+   "topic": "Describe a memorable journey you have taken.",
+   "points": [
+    "where you went",
+    "how you travelled",
+    "who you were with"
+   ],
+   "explain": "and explain why this journey was memorable.",
+   "source": "speaking-07"
+  },
+  {
+   "id": "s019",
+   "topic": "Describe a family celebration that you enjoyed.",
+   "points": [
+    "what the celebration was",
+    "when and where it took place",
+    "who was there"
+   ],
+   "explain": "and explain why you enjoyed it.",
+   "source": "speaking-08"
+  },
+  {
+   "id": "s020",
+   "topic": "Describe an item of clothing that is special to you.",
+   "points": [
+    "what it is",
+    "where you got it",
+    "when you wear it"
+   ],
+   "explain": "and explain why it is special to you.",
+   "source": "speaking-18"
+  },
+  {
+   "id": "s021",
+   "topic": "Describe a photograph that you like.",
+   "points": [
+    "what is in the photograph",
+    "who took it",
+    "where you keep it"
+   ],
+   "explain": "and explain why you like this photograph.",
+   "source": "speaking-32"
+  },
+  {
+   "id": "s022",
+   "topic": "Describe something you bought that you were very pleased with.",
+   "points": [
+    "what it was",
+    "where you bought it",
+    "how much it cost"
+   ],
+   "explain": "and explain why you were pleased with it.",
+   "source": "speaking-28"
+  },
+  {
+   "id": "s023",
+   "topic": "Describe a place you have visited that you would like to visit again.",
+   "points": [
+    "where the place is",
+    "when you went there",
+    "what you did there"
+   ],
+   "explain": "and explain why you would like to go there again.",
+   "source": "speaking-01"
+  },
+  {
+   "id": "s024",
+   "topic": "Describe a time when you received some good news.",
+   "points": [
+    "what the news was",
+    "when you received it",
+    "how you received it"
+   ],
+   "explain": "and explain how you felt when you heard it.",
+   "source": "speaking-29"
+  },
+  {
+   "id": "s025",
+   "topic": "Describe a person who has had an important influence on your life.",
+   "points": [
+    "who this person is",
+    "how long you have known them",
+    "what they have done for you"
+   ],
+   "explain": "and explain why this person has been important to you.",
+   "source": "speaking-03"
+  },
+  {
+   "id": "s026",
+   "topic": "Describe a meal that you enjoyed with other people.",
+   "points": [
+    "where you had the meal",
+    "who you were with",
+    "what you ate"
+   ],
+   "explain": "and explain why you enjoyed this meal.",
+   "source": "speaking-19"
+  },
+  {
+   "id": "s027",
+   "topic": "Describe a time when you learned something from a mistake.",
+   "points": [
+    "what the mistake was",
+    "when it happened",
+    "what the result of the mistake was"
+   ],
+   "explain": "and explain what you learned from it.",
+   "source": "speaking-21"
+  },
+  {
+   "id": "s028",
+   "topic": "Describe a town or city where you would like to live.",
+   "points": [
+    "where it is",
+    "how you know about it",
+    "what it is like"
+   ],
+   "explain": "and explain why you would like to live there.",
+   "source": "speaking-33"
+  },
+  {
+   "id": "s029",
+   "topic": "Describe a goal that you would like to achieve in the future.",
+   "points": [
+    "what the goal is",
+    "when you would like to achieve it",
+    "what you need to do to achieve it"
+   ],
+   "explain": "and explain why this goal is important to you.",
+   "source": "speaking-20"
+  },
+  {
+   "id": "s030",
+   "topic": "Describe a job that you would like to do in the future.",
+   "points": [
+    "what the job is",
+    "how you heard about it",
+    "what skills it needs"
+   ],
+   "explain": "and explain why you would like to do this job.",
+   "source": "speaking-30"
+  },
+  {
+   "id": "s031",
+   "topic": "Describe a sport or physical activity that you enjoy.",
+   "points": [
+    "what the activity is",
+    "when you started doing it",
+    "who you do it with"
+   ],
+   "explain": "and explain why you enjoy it.",
+   "source": "speaking-12"
+  },
+  {
+   "id": "s032",
+   "topic": "Describe a park or garden that you like to visit.",
+   "points": [
+    "where it is",
+    "how often you go there",
+    "what you do there"
+   ],
+   "explain": "and explain why you like this place.",
+   "source": "speaking-09"
+  },
+  {
+   "id": "s033",
+   "topic": "Describe a difficult decision that you made.",
+   "points": [
+    "what the decision was",
+    "when you made it",
+    "what you had to choose between"
+   ],
+   "explain": "and explain why it was difficult to make.",
+   "source": "speaking-16"
+  }
+ ],
+ "writing": [
+  {
+   "id": "w001",
+   "lines": [
+    "These days, many young people choose to start their own business rather than work for a company.",
+    "Do the advantages of this outweigh the disadvantages?"
+   ],
+   "type": "advantages_disadvantages",
+   "source": "academic-writing-32"
+  },
+  {
+   "id": "w002",
+   "lines": [
+    "Some people believe that it is best to accept a bad situation, such as an unsatisfying job or a shortage of money. Others argue that it is better to try to improve such situations.",
+    "Discuss both views and give your own opinion."
+   ],
+   "type": "discussion",
+   "source": "academic-writing-26"
+  },
+  {
+   "id": "w003",
+   "lines": [
+    "In many cities, the amount of rubbish that people throw away is increasing every year.",
+    "What are the causes of this problem? What measures could be taken to reduce the amount of rubbish?"
+   ],
+   "type": "problem_solution",
+   "source": "academic-writing-08"
+  },
+  {
+   "id": "w004",
+   "lines": [
+    "Some people believe that individuals can do very little to slow climate change, and that only governments and large companies can make a real difference.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-29"
+  },
+  {
+   "id": "w005",
+   "lines": [
+    "Many people today prefer to buy goods online rather than in shops.",
+    "Why is this the case? Is this a positive or negative development?"
+   ],
+   "type": "two_part",
+   "source": "academic-writing-10"
+  },
+  {
+   "id": "w006",
+   "lines": [
+    "International tourism has grown enormously in recent decades, and many places now receive millions of foreign visitors every year.",
+    "Is this a positive or negative development for the countries that tourists visit?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-14"
+  },
+  {
+   "id": "w007",
+   "lines": [
+    "In many countries, children and young people are spending less time outdoors than in the past.",
+    "Why is this happening? What can be done to encourage them to spend more time outside?"
+   ],
+   "type": "problem_solution",
+   "source": "academic-writing-05"
+  },
+  {
+   "id": "w008",
+   "lines": [
+    "Some people believe that technology has made our lives more complicated. Others think that it has made life much easier.",
+    "Discuss both views and give your own opinion."
+   ],
+   "type": "discussion",
+   "source": "academic-writing-16"
+  },
+  {
+   "id": "w009",
+   "lines": [
+    "Some people think that schools should spend more time teaching practical skills, such as cooking and managing money, than academic subjects.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-19"
+  },
+  {
+   "id": "w010",
+   "lines": [
+    "Some people believe that robots and artificial intelligence will create more jobs than they destroy. Others think that they will lead to widespread unemployment.",
+    "Discuss both views and give your own opinion."
+   ],
+   "type": "discussion",
+   "source": "academic-writing-35"
+  },
+  {
+   "id": "w011",
+   "lines": [
+    "In some countries, children begin learning a foreign language at primary school rather than at secondary school.",
+    "Do the advantages of this outweigh the disadvantages?"
+   ],
+   "type": "advantages_disadvantages",
+   "source": "academic-writing-04"
+  },
+  {
+   "id": "w012",
+   "lines": [
+    "Some people say that the best way to improve public health is to increase the number of sports facilities. Others, however, believe that this would have little effect and that other measures are required.",
+    "Discuss both views and give your own opinion."
+   ],
+   "type": "discussion",
+   "source": "academic-writing-21"
+  },
+  {
+   "id": "w013",
+   "lines": [
+    "Some students take a year off between finishing school and starting university, in order to work or to travel.",
+    "Do the advantages of this outweigh the disadvantages?"
+   ],
+   "type": "advantages_disadvantages",
+   "source": "academic-writing-23"
+  },
+  {
+   "id": "w014",
+   "lines": [
+    "Some people believe that unpaid community service, such as helping in hospitals or cleaning parks, should be a compulsory part of high school programmes.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-07"
+  },
+  {
+   "id": "w015",
+   "lines": [
+    "Some people think that spending large amounts of money on space exploration is a waste when there are so many problems that need solving on Earth.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-12"
+  },
+  {
+   "id": "w016",
+   "lines": [
+    "Some people believe that newspapers, magazines and websites should not be allowed to report on the private lives of famous people.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-25"
+  },
+  {
+   "id": "w017",
+   "lines": [
+    "Some people believe that homework should be banned for children at primary school.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-31"
+  },
+  {
+   "id": "w018",
+   "lines": [
+    "In many countries, the number of children who are overweight is increasing.",
+    "What are the causes of this problem? What solutions can you suggest?"
+   ],
+   "type": "problem_solution",
+   "source": "academic-writing-13"
+  },
+  {
+   "id": "w019",
+   "lines": [
+    "In many countries, an increasing number of people are choosing to live alone.",
+    "What are the reasons for this trend? Do you think it is a positive or negative development?"
+   ],
+   "type": "two_part",
+   "source": "academic-writing-02"
+  },
+  {
+   "id": "w020",
+   "lines": [
+    "Noise in cities has become a serious problem, affecting people's health and quality of life.",
+    "What are the main causes of noise in cities? What can be done to reduce it?"
+   ],
+   "type": "problem_solution",
+   "source": "academic-writing-34"
+  },
+  {
+   "id": "w021",
+   "lines": [
+    "Some people think that art and music should be compulsory subjects for all students until the age of sixteen.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-33"
+  },
+  {
+   "id": "w022",
+   "lines": [
+    "In many countries, the gap between the richest and the poorest people is increasing.",
+    "What problems does this cause? What solutions can you suggest?"
+   ],
+   "type": "problem_solution",
+   "source": "academic-writing-27"
+  },
+  {
+   "id": "w023",
+   "lines": [
+    "Some people think that governments should spend more money on public transport than on building new roads.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-03"
+  },
+  {
+   "id": "w024",
+   "lines": [
+    "In many countries, fewer and fewer young people are choosing to become farmers.",
+    "Why is this happening? What can be done to encourage more young people to work in farming?"
+   ],
+   "type": "problem_solution",
+   "source": "academic-writing-20"
+  },
+  {
+   "id": "w025",
+   "lines": [
+    "Some people believe that all advertising aimed at children should be banned.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-15"
+  },
+  {
+   "id": "w026",
+   "lines": [
+    "Increasingly, people are choosing to take courses online instead of attending classes in person.",
+    "Do the advantages of this outweigh the disadvantages?"
+   ],
+   "type": "advantages_disadvantages",
+   "source": "academic-writing-17"
+  },
+  {
+   "id": "w027",
+   "lines": [
+    "Some people think that children should begin their formal education at a very early age. Others believe that children should not start school until they are at least seven years old.",
+    "Discuss both views and give your own opinion."
+   ],
+   "type": "discussion",
+   "source": "academic-writing-11"
+  },
+  {
+   "id": "w028",
+   "lines": [
+    "Some people think that the main purpose of a university education is to give students academic knowledge, while others believe that universities should prepare students for the world of work.",
+    "Discuss both these views and give your own opinion."
+   ],
+   "type": "discussion",
+   "source": "academic-writing-01"
+  },
+  {
+   "id": "w029",
+   "lines": [
+    "Some people believe that rich countries should give much more financial aid to poorer countries.",
+    "To what extent do you agree or disagree?"
+   ],
+   "type": "opinion",
+   "source": "academic-writing-22"
+  },
+  {
+   "id": "w030",
+   "lines": [
+    "Today, many people get their news from social media rather than from newspapers, television or radio.",
+    "Why is this the case? Is this a positive or negative development?"
+   ],
+   "type": "two_part",
+   "source": "academic-writing-28"
+  },
+  {
+   "id": "w031",
+   "lines": [
+    "In many countries, people are living longer than ever before. Some people believe that an ageing population creates serious problems for governments. Others think that there are benefits if a society has more elderly people.",
+    "Discuss both views and give your own opinion."
+   ],
+   "type": "discussion",
+   "source": "academic-writing-06"
+  },
+  {
+   "id": "w032",
+   "lines": [
+    "More and more people are choosing to work from home rather than travelling to an office every day.",
+    "Do the advantages of this development outweigh the disadvantages?"
+   ],
+   "type": "advantages_disadvantages",
+   "source": "academic-writing-09"
+  },
+  {
+   "id": "w033",
+   "lines": [
+    "In many cities, museums and historical sites are visited mainly by tourists rather than by local people.",
+    "Why is this the case? What can be done to encourage more local people to visit them?"
+   ],
+   "type": "problem_solution",
+   "source": "academic-writing-18"
+  },
+  {
+   "id": "w034",
+   "lines": [
+    "In many parts of the world, traditional languages are dying out because fewer and fewer people speak them.",
+    "Why is this happening? Does it matter if some languages disappear?"
+   ],
+   "type": "two_part",
+   "source": "academic-writing-24"
+  },
+  {
+   "id": "w035",
+   "lines": [
+    "Some people think that it is better for children to grow up in the countryside. Others believe that cities offer children a better environment.",
+    "Discuss both views and give your own opinion."
+   ],
+   "type": "discussion",
+   "source": "academic-writing-30"
+  }
+ ],
+ "promo": [
+  {
+   "id": "p001",
+   "title": "Five free full tests in every module",
+   "body": "Listening, Reading, Writing and Speaking: five full tests of each are free on TestDay. Listening, Reading and Writing need no sign-up."
+  },
+  {
+   "id": "p002",
+   "title": "Practise on a screen like test day",
+   "body": "Timer, question navigator, highlighting and notes: TestDay tests look and work like the computer-delivered IELTS."
+  },
+  {
+   "id": "p003",
+   "title": "Instant band estimates",
+   "body": "Finish a Listening or Reading test and see your band estimate, your answers and an explanation for every question straight away."
+  },
+  {
+   "id": "p004",
+   "title": "Listen as in the real test",
+   "body": "Four-part Listening tests with recordings you play once, just like the exam. Five of them are free."
+  },
+  {
+   "id": "p005",
+   "title": "Speak, record, listen back",
+   "body": "Take a full Speaking test with the examiner's questions played aloud, record your answers and listen back. The first five tests are free."
+  },
+  {
+   "id": "p006",
+   "title": "Writing practice with a timer",
+   "body": "Task 1 and Task 2 in one 60-minute test, with model answers to compare. Five Writing tests are free."
+  }
+ ]
+}

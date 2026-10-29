@@ -946,6 +946,14 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .test-row-tag { grid-area: tag; justify-self: end; }
 .test-row-topics { grid-area: topics; color: var(--muted); font-size: var(--t-small); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .test-row-act { grid-area: act; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+/* A test that is not open yet: the row is blurred and "Coming soon…" sits over it. */
+.test-row.is-soon { position: relative; min-height: 4.5rem; }
+.test-row.is-soon > :not(.soon-label) { filter: blur(5px); opacity: 0.5; user-select: none; pointer-events: none; }
+.test-row.is-soon .soon-label {
+  position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center;
+  font-size: var(--t-lead, 1.125rem); font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+}
+.test-tag.is-soon { color: var(--muted); }
 .catalog-more { display: flex; justify-content: center; margin: 22px 0 8px; }
 @media (min-width: 1024px) {
   .test-row { grid-template-columns: 11rem minmax(0, 1fr) 9rem auto; grid-template-areas: "name topics tag act"; gap: 0 24px; padding: 14px 0; }

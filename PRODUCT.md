@@ -21,7 +21,7 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 - The exam screens reproduce the computer-delivered IELTS: split screen, timer, question navigator, Review flags, highlighting and notes, contrast and text-size options, a sound check, and listening that plays once in timed mode.
 - Listening, Writing and Speaking tests and Reading tests 1–6 are written for the site. See Content status below for the rest of the Reading bank.
 - Human examiners (rated by students) mark Writing and Speaking checks for a small fee, paid locally with Payme or Click.
-- Priced for Uzbekistan: 15 Reading tests and one test of each other module are free; the monthly plan is 39,000 so'm (first payment gives two months, no automatic renewal).
+- Launch: five full tests of every module are free and the rest show "Coming soon…" (blurred); prices, the pass, refunds and examiner checks are hidden (`COMMERCE_ENABLED=0`). When selling starts (`COMMERCE_ENABLED=1`) the monthly plan is 39,000 so'm (first payment gives two months, no automatic renewal).
 
 ## Operating Context
 
@@ -33,7 +33,7 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 
 ## Capabilities and Constraints
 
-- Modules and content today: Listening 11 tests, Academic Reading 96, Academic Writing 35, Speaking 33. Reading has 15 free tests (the best 15); Listening, Writing and Speaking have 1 free each; the rest need the plan.
+- Modules and content today: Listening 11 tests, Academic Reading 96, Academic Writing 35, Speaking 33. Each module has 5 free tests; the rest are "Coming soon" until selling starts.
 - Content status: Reading tests 1–6 are original. Most of the remaining Reading tests are practice material of mixed origin, repaired and checked but not original; they are to be replaced by original tests over time, and until then the site must not call its content original. Listening has 11 tests (about 20 minutes each, voiced with open-licence text-to-speech) and is the next thing to grow.
 - Results: estimated band, per-section and per-question-type breakdown, explanation for every answer, listening transcript with answers highlighted and "listen again".
 - Progress page with latest band per module and band over time; history of attempts.
