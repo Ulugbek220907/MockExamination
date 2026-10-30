@@ -64,7 +64,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, analytics, api, auth, content, content_sync, notify, pool, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, ai, analytics, api, auth, content, content_sync, notify, pool, scoring, speaking, speaking_ai, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -377,6 +377,8 @@ class ConfigHandler(BaseHandler):
         self.send_json({
             "siteName": SITE_NAME,
             "aiMarking": writing.ai_configured(),
+            "aiSpeaking": speaking_ai.configured(),
+            "aiSpeakingPerDay": speaking_ai.PER_USER_PER_DAY,
             "contactEmail": CONTACT_EMAIL,
             "social": SOCIAL_LINKS,
             "storage": STORE.name,
@@ -523,7 +525,7 @@ class WritingSubmitHandler(BaseHandler):
                 else:
                     try:
                         async with AI_SEMAPHORE:
-                            assessment = await writing.assess_with_claude(test, responses, analyses)
+                            assessment = await writing.assess_with_ai(test, responses, analyses)
                         status = "complete"
                     except writing.AssessmentUnavailable as e:
                         status, message = "error", str(e)
@@ -662,7 +664,7 @@ class IndexHandler(BaseHandler):
     # Their hashed addresses go into the page as data for its loader.
     LAZY_ASSETS = (
         "css/cd-ielts.css", "js/highlighter.js", "js/charts.js", "js/exam.js", "js/results.js", "js/speaking.js",
-        "js/progress.js",
+        "js/ai-examiner.js", "js/pcm-worklet.js", "js/progress.js",
     )
     ASSET_SLOT = '<script type="application/json" id="asset-versions">{}</script>'
 
@@ -807,7 +809,7 @@ def main():
     server_max_body = max(MAX_BODY_BYTES, speaking.MAX_RECORDING_BYTES + 64 * 1024)
     app.listen(PORT, address="0.0.0.0", max_body_size=server_max_body)
     log.info("%s running on http://0.0.0.0:%d (storage=%s, sign-in=%s, AI marking=%s)",
-             SITE_NAME, PORT, STORE.name, AUTH.name, "on" if writing.ai_configured() else "off")
+             SITE_NAME, PORT, STORE.name, AUTH.name, f"on ({ai.model_name()})" if writing.ai_configured() else "off")
     log.info("Loaded %d reading, %d listening, %d writing and %d speaking tests",
              counts["reading"], counts["listening"], counts["writing"], counts["speaking"])
     if STORE.name == "supabase" and os.environ.get("DB_KEEP_WARM", "1") != "0":

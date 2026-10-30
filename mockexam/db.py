@@ -36,6 +36,7 @@ JSON_COLUMNS = {
     "reading_attempts": {"answers", "breakdown"},
     "listening_attempts": {"answers", "breakdown"},
     "writing_submissions": {"analysis", "assessment"},
+    "speaking_submissions": {"ai_review"},
 }
 BOOL_COLUMNS = {
     "examiners": {"does_writing", "does_speaking", "accepting", "approved"},
@@ -142,7 +143,8 @@ CREATE TABLE IF NOT EXISTS speaking_submissions (
     time_spent_seconds INTEGER,
     created_at TEXT,
     completed_at TEXT,
-    recordings_deleted_at TEXT
+    recordings_deleted_at TEXT,
+    ai_review TEXT
 );
 CREATE TABLE IF NOT EXISTS recordings (
     id TEXT PRIMARY KEY,
@@ -195,6 +197,8 @@ CREATE TABLE IF NOT EXISTS feedback (
 
 # Early development databases had placeholder Speaking tables with other columns.
 _REPLACED_TABLES = {"speaking_submissions": "recordings_deleted_at", "recordings": "path"}
+# Columns added after a table was first created: (table, column, type).
+_ADDED_COLUMNS = [("speaking_submissions", "ai_review", "TEXT")]
 
 
 class DbError(Exception):
@@ -262,6 +266,9 @@ class SqliteDb:
                         if cols and column not in cols:
                             conn.execute(f'DROP TABLE "{table}"')
                     conn.executescript(SQLITE_SCHEMA)
+                    for table, column, kind in _ADDED_COLUMNS:
+                        if column not in {r[1] for r in conn.execute(f'PRAGMA table_info("{table}")')}:
+                            conn.execute(f'ALTER TABLE "{table}" ADD COLUMN "{column}" {kind}')
             finally:
                 conn.close()
 

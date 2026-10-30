@@ -66,10 +66,11 @@ def start_submission(db, user_id, test, candidate_name, mode):
     recent = db.select("speaking_submissions", {"user_id": user_id, "created_at": ("gte", iso(since))}, limit=STARTS_PER_DAY + 1)
     if len(recent) >= STARTS_PER_DAY:
         raise SpeakingError(f"You can start {STARTS_PER_DAY} Speaking tests a day. Please come back tomorrow.", 429)
-    return db.insert("speaking_submissions", {
-        "user_id": user_id, "test_id": test["id"], "candidate_name": candidate_name,
-        "mode": "practice" if mode == "practice" else "exam", "status": "recording",
-    })
+    row = {"user_id": user_id, "test_id": test["id"], "candidate_name": candidate_name,
+           "mode": mode if mode in ("practice", "ai") else "exam", "status": "recording"}
+    if mode == "ai":
+        row["ai_review"] = {"status": "recording"}
+    return db.insert("speaking_submissions", row)
 
 
 def get_submission(db, submission_id):
@@ -222,11 +223,14 @@ def history_items(db, user_id, limit=20):
     items = []
     for s in subs:
         c = checks.get(s["id"])
+        review = s.get("ai_review") if isinstance(s.get("ai_review"), dict) else {}
+        ai_band = review.get("overallBand") if review.get("status") == "done" else None
         items.append({
             "module": "speaking", "id": s["id"], "testId": s["test_id"], "createdAt": s["created_at"],
             "timeSpentSeconds": s.get("time_spent_seconds"), "mode": s.get("mode"), "answered": counts.get(s["id"], 0),
             "bandScore": float(c["overall_band"]) if c and c.get("overall_band") is not None else None,
             "checkId": c["id"] if c else None, "checkStatus": c["status"] if c else None,
+            "aiBand": float(ai_band) if ai_band is not None else None,
         })
     return items
 

@@ -49,22 +49,30 @@ To update the tests later without a laptop: after a deploy that adds or changes 
 
 If Supabase is ever unreachable, the site keeps working using the bundled `content/` files.
 
-## 2. AI writing examiner (Anthropic)
+## 2. AI examiner for Writing and Speaking (OpenRouter)
 
-1. Create an API key at <https://console.anthropic.com> → **API Keys** and add billing credit.
-2. Set `ANTHROPIC_API_KEY` on the server.
+The AI examiner marks Writing scripts and Speaking tests taken with the AI examiner. It reaches the model through [OpenRouter](https://openrouter.ai) (`mockexam/ai.py`), so the model can be changed without changing code.
+
+1. Create an API key at <https://openrouter.ai/settings/keys> and add credit.
+2. Set `OPENROUTER_API_KEY` on the server (Render → the service → **Environment**). Nothing else is needed.
 3. Optional tuning:
-   - `ANTHROPIC_MODEL` defaults to `claude-sonnet-5-5` (good marking at a low price per script). `claude-opus-5-5` costs about twice as much and is the most reliable.
-   - `AI_PER_IP_PER_HOUR` (default 6) and `AI_DAILY_LIMIT` (default 300) cap your spend. Each writing submission makes two model calls (Task 1 and Task 2).
-   - Set a monthly spend limit in the Anthropic console as a hard safety net.
+   - `AI_MODEL` defaults to `google/gemini-3.8-flash`. Speaking needs a model that accepts audio input.
+   - `AI_REASONING` is `low`, `medium` (default) or `high`: how long the model thinks before it rates.
+   - Writing: `AI_PER_IP_PER_HOUR` (default 6) and `AI_DAILY_LIMIT` (default 300). Each script makes two calls (Task 1 and Task 2).
+   - Speaking: `SPEAKING_AI_PER_DAY` (default 3 tests per candidate a day) and `SPEAKING_AI_DAILY_LIMIT` (default 150 a day for the whole site). One test makes one call per answer (about 18, with the audio) and one call to rate the whole test: roughly US$0.03–0.08 per test with Gemini 3.8 Flash.
+   - Set a credit limit on the OpenRouter key as a hard safety net.
 
-Without a key, writing submissions still get automatic checks, statistics and model answers. The site says clearly that AI marking is off.
+How marking works:
+- **Writing** (`mockexam/writing.py`): each task is marked against a paraphrase of the public Writing band descriptors (May 2023) for Task 1 (Academic) or Task 2, with the limits examiners apply (no overview caps Task Achievement at 5, an unanswered part of the question caps Task Response at 5, and so on) and instructions for each Task 1 visual (line, bar, pie, table, process, map, two visuals) and each Task 2 question type (opinion, discussion, advantages/disadvantages, problem/solution, two-part). The model gives four whole bands; the site computes the task band and the overall band (Task 2 counts double).
+- **Speaking** (`mockexam/speaking_ai.py`): the browser records each answer as 16 kHz WAV. The server measures every answer from the audio (speaking time, silent pauses, the longest pause, time to start), the model listens to each answer and transcribes it word for word with fillers, repetitions and pauses, and notes what it hears for each criterion, pronunciation included. A final call rates the whole test on the four criteria from all of that, as an examiner rates the average performance across the three parts.
+
+Without a key, writing submissions still get automatic checks, statistics and model answers, the AI examiner button is hidden on Speaking tests, and the site says clearly that AI marking is off.
 
 ## 3. Render (hosting)
 
 1. Push this repository to GitHub.
 2. In <https://dashboard.render.com> click **New + → Blueprint** and choose the repository. Render reads [`render.yaml`](render.yaml).
-3. When prompted, fill in `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_APP_SECRET`, `ANTHROPIC_API_KEY` and `CONTACT_EMAIL`. `ADMIN_TOKEN` is generated for you; copy it from the Environment tab if you need the admin endpoints.
+3. When prompted, fill in `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_APP_SECRET`, `OPENROUTER_API_KEY` and `CONTACT_EMAIL`. `ADMIN_TOKEN` is generated for you; copy it from the Environment tab if you need the admin endpoints.
 4. Click **Apply**. The health check is `/api/health`.
 5. (Optional) **Settings → Custom Domains** to add your own domain. Render issues HTTPS automatically.
 

@@ -327,7 +327,7 @@
   // What the home page, prices and the other site pages do not need. Each name loads
   // when a page first uses it; order matters (Speaking builds on the exam engine and Results).
   const BUNDLES = {
-    exam: ["css/cd-ielts.css", "js/highlighter.js", "js/charts.js", "js/exam.js", "js/results.js", "js/speaking.js"],
+    exam: ["css/cd-ielts.css", "js/highlighter.js", "js/charts.js", "js/exam.js", "js/results.js", "js/speaking.js", "js/ai-examiner.js"],
     results: ["css/cd-ielts.css", "js/results.js"],
     progress: ["js/progress.js"],
   };

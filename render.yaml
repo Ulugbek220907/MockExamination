@@ -24,8 +24,9 @@ services:
       # examiner checks. Set to 1 when the site starts selling.
       - key: COMMERCE_ENABLED
         value: "0"
-      - key: ANTHROPIC_MODEL
-        value: claude-sonnet-5-5
+      # The AI examiner (Writing marking and Speaking with the AI examiner), through OpenRouter.
+      - key: AI_MODEL
+        value: google/gemini-3.8-flash
       - key: AI_PER_IP_PER_HOUR
         value: "6"
       - key: AI_DAILY_LIMIT
@@ -39,7 +40,7 @@ services:
         sync: false
       - key: SUPABASE_APP_SECRET
         sync: false
-      - key: ANTHROPIC_API_KEY
+      - key: OPENROUTER_API_KEY
         sync: false
       - key: CONTACT_EMAIL
         sync: false
