@@ -34,7 +34,8 @@
     constructor(opts) {
       this.test = opts.test;
       this.candidateName = opts.candidateName || "Candidate";
-      this.mode = opts.mode === "practice" ? "practice" : "exam";
+      // "ai" is the Speaking test with the AI examiner; it runs like a timed test.
+      this.mode = opts.mode === "practice" || opts.mode === "ai" ? opts.mode : "exam";
       this.onFinish = opts.onFinish || (() => {});
       this.saved = opts.saved || null;
       this.duration = (this.test.durationMinutes || 60) * 60;

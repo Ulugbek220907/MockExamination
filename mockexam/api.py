@@ -26,7 +26,8 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
 
   POST /api/speaking/<test>/start     start a Speaking test (signed in)
   POST /api/speaking/submissions/<id>/answers/<key>   upload one recorded answer (raw audio body)
-  POST /api/speaking/submissions/<id>/complete        finish the test
+  POST /api/speaking/submissions/<id>/complete        finish the test (an AI-examiner test is then rated)
+  POST /api/speaking/submissions/<id>/ai-review       rate an AI-examiner test again after a failure
   GET  /api/speaking/submissions/<id> the questions and recordings (owner, its examiner, admin)
   GET  /api/speaking/recordings/<id>  play one recording (same people)
 
@@ -41,7 +42,7 @@ import re
 
 import tornado.web
 
-from . import accounts, analytics, auth, billing, checks, notify, speaking
+from . import accounts, analytics, auth, billing, checks, notify, speaking, speaking_ai
 from .dbcache import gather
 from .web import BaseHandler, in_thread
 
@@ -211,7 +212,7 @@ def progress_points(store, db, user_id):
     """
     One point per scored attempt, oldest first: timed Listening and Reading
     tests, Writing (the examiner's band if a check was marked, otherwise the AI
-    estimate) and Speaking tests marked by an examiner.
+    estimate) and Speaking (the examiner's band, otherwise the AI examiner's).
     """
     items = store.list_history(None, 300, user_id=user_id) + speaking.history_items(db, user_id, 300)
     marked = {c["submission_id"]: c for c in db.select("checks", {"student_id": user_id, "kind": "writing",
@@ -231,6 +232,8 @@ def progress_points(store, db, user_id):
                 source = "ai"
         elif i["module"] == "speaking":
             source = "examiner"
+            if band is None and i.get("aiBand") is not None:
+                band, source = i["aiBand"], "ai"
         if band is None or not i.get("createdAt"):
             continue
         points.append({"module": i["module"], "date": i["createdAt"], "band": float(band), "testId": i["testId"],
@@ -464,12 +467,17 @@ class SpeakingStartHandler(BaseHandler):
                     raise ApiError(403, "This test is coming soon.", "coming_soon")
                 raise ApiError(402, "This test is part of the monthly plan.", "plan_required")
         body = self.body_json()
+        mode = body.get("mode")
+
+        def start():
+            if mode == "ai":
+                speaking_ai.check_can_start(self.db, profile["id"])
+            return speaking.start_submission(self.db, profile["id"], test, clean_name(body.get("candidateName")), mode)
         try:
-            sub = await in_thread(speaking.start_submission, self.db, profile["id"], test,
-                                  clean_name(body.get("candidateName")), body.get("mode"))
-        except speaking.SpeakingError as e:
+            sub = await in_thread(start)
+        except (speaking.SpeakingError, speaking_ai.ReviewError) as e:
             _raise(e)
-        self.send_json({"submissionId": sub["id"]})
+        self.send_json({"submissionId": sub["id"], "mode": sub.get("mode")})
 
 
 @tornado.web.stream_request_body
@@ -528,7 +536,11 @@ class SpeakingCompleteHandler(BaseHandler):
         def complete():
             sub = speaking.own_submission(self.db, submission_id, profile["id"])
             sub = speaking.complete_submission(self.db, sub, body.get("notes"), seconds)
-            return speaking.submission_view(self.db, self.store, sub)
+            if sub.get("mode") == "ai":
+                sub["ai_review"] = speaking_ai.start_review(self.db, self.store.files, self.store, sub)
+            view = speaking.submission_view(self.db, self.store, sub)
+            view["aiReview"] = speaking_ai.public_review(sub)
+            return view
         try:
             view = await in_thread(complete)
         except speaking.SpeakingError as e:
@@ -548,6 +560,8 @@ class SpeakingSubmissionHandler(BaseHandler):
                 raise speaking.SpeakingError("Speaking test not found.", 404)
             view = speaking.submission_view(self.db, self.store, sub)
             view["viewerRole"] = role
+            # The examiner marking a check does not see the AI's band, so it cannot sway theirs.
+            view["aiReview"] = speaking_ai.public_review(sub) if role in ("owner", "admin") else None
             if role == "owner":
                 check = speaking.checks_by_submission(self.db, profile["id"]).get(sub["id"])
                 view["check"] = checks.public_check(check, include_result=False) if check else None
@@ -557,6 +571,25 @@ class SpeakingSubmissionHandler(BaseHandler):
         except speaking.SpeakingError as e:
             _raise(e)
         self.send_json({"submission": view})
+
+
+class SpeakingAiReviewHandler(BaseHandler):
+    """Rate an AI-examiner test again after the first review failed."""
+
+    async def post(self, submission_id):
+        profile = await self.require_profile()
+
+        def retry():
+            sub = speaking.own_submission(self.db, submission_id, profile["id"])
+            if sub["status"] != "completed":
+                raise speaking.SpeakingError("Finish the test first.", 409)
+            speaking_ai.retry_review(self.db, self.store.files, self.store, sub)
+            return speaking_ai.public_review(speaking.get_submission(self.db, sub["id"]))
+        try:
+            review = await in_thread(retry)
+        except (speaking.SpeakingError, speaking_ai.ReviewError) as e:
+            _raise(e)
+        self.send_json({"aiReview": review})
 
 
 class RecordingHandler(BaseHandler):
@@ -807,6 +840,7 @@ def routes():
         (r"/api/speaking/([a-z0-9][a-z0-9\-]{0,80})/start", SpeakingStartHandler),
         (r"/api/speaking/submissions/(\d+)/answers/([a-z0-9][a-z0-9\-]{0,30})", SpeakingAnswerHandler),
         (r"/api/speaking/submissions/(\d+)/complete", SpeakingCompleteHandler),
+        (r"/api/speaking/submissions/(\d+)/ai-review", SpeakingAiReviewHandler),
         (r"/api/speaking/submissions/(\d+)", SpeakingSubmissionHandler),
         (r"/api/speaking/recordings/([0-9a-f\-]{36})", RecordingHandler),
         (r"/api/admin/orders", AdminOrdersHandler),

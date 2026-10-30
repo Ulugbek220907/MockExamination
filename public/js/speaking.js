@@ -920,7 +920,8 @@
           <ol class="speak-answer-list">
             ${p.questions.map((q) => `
               <li><p class="speak-answer-q">${q.type === "long_turn" ? "<strong>Long turn</strong> (up to 2 minutes)" : esc(q.text)}</p>
-                ${recordingHTML(q.recording)}</li>`).join("")}
+                ${recordingHTML(q.recording)}
+                ${opts.ai && opts.ai[q.key] && window.AiExaminer ? AiExaminer.answerExtrasHTML(opts.ai[q.key]) : ""}</li>`).join("")}
           </ol>
         </div>
       </details>`).join("");
@@ -964,6 +965,9 @@
         ${err.status === 401 ? `<button type="button" class="btn-primary" data-action="signin">${tr("Sign in")}</button>` : ""}</section>`;
       return;
     }
+    const review = sub.aiReview;
+    const aiAnswers = review && review.status === "done"
+      ? Object.fromEntries((review.answers || []).map((a) => [a.key, a])) : null;
     const shop = Account.commerce();
     const b = shop ? await Account.billing().catch(() => ({ prices: {} })) : { prices: {} };
     const check = sub.check;
@@ -990,20 +994,22 @@
             <div>
               <h1>${esc(sub.title)}</h1>
               <p class="muted-text">${esc(U.formatDate(sub.completedAt || sub.createdAt))} · ${esc(tr("{n} of {total} questions answered", { n: sub.answered, total: sub.totalQuestions }))}
-                ${sub.timeSpentSeconds ? ` · ${esc(U.formatDuration(sub.timeSpentSeconds))}` : ""}${sub.mode === "practice" ? ` · ${tr("practice")}` : ""}</p>
+                ${sub.timeSpentSeconds ? ` · ${esc(U.formatDuration(sub.timeSpentSeconds))}` : ""}${sub.mode === "practice" ? ` · ${tr("practice")}` : sub.mode === "ai" ? ` · ${tr("with the AI examiner")}` : ""}</p>
             </div>
           </div>
-          <div class="results-actions"><button type="button" class="btn-secondary" data-action="start" data-test="${esc(sub.testId)}" data-mode="${sub.mode === "practice" ? "practice" : "exam"}">${tr("Take it again")}</button></div>
+          <div class="results-actions"><button type="button" class="btn-secondary" data-action="start" data-test="${esc(sub.testId)}" data-mode="${["practice", "ai"].includes(sub.mode) ? sub.mode : "exam"}">${tr("Take it again")}</button></div>
         </div>
         ${sub.status !== "completed" ? `<div class="notice notice-warn"><strong>${tr("This test was not finished.")}</strong><span>${tr("You can listen to the answers you recorded.")}</span></div>` : ""}
+        <div id="ai-review"></div>
         ${offer}
         ${window.app ? window.app.nextStopHTML("speaking", sub.testId, null) : ""}
         <h2 class="section-title">${tr("Listen to your answers")}</h2>
         <p class="muted-text section-sub">${check ? tr("Only you and your examiner can play these recordings. They are kept for {days} days.", { days: sub.keepDays })
           : tr("Only you can play these recordings. They are kept for {days} days.", { days: sub.keepDays })}</p>
-        ${submissionHTML(sub, { open: true })}
-        ${selfCheckHTML()}
+        ${submissionHTML(sub, { open: true, ai: aiAnswers })}
+        ${review && review.status === "done" ? "" : selfCheckHTML()}
       </section>`;
+    if (review && window.AiExaminer) AiExaminer.mountReview(main.querySelector("#ai-review"), sub, () => renderResult(main, id));
   }
 
   /** The examiner's marking form for a Speaking check (four criteria, like the public descriptors). */
@@ -1094,5 +1100,7 @@
   window.SpeakingExam = SpeakingExam;
   window.Speaking = {
     CRITERIA, bindMicCheck, renderResult, submissionHTML, resultHTML, markForm, fixWebmDuration, micSupported,
+    // For the AI examiner (ai-examiner.js), which builds on this test.
+    CANCELLED, Uploader, openMic, stopStream, micErrorMessage,
   };
 })();

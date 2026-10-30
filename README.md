@@ -12,8 +12,8 @@
 |---|---|---|
 | **Listening** | 3 full tests: 12 parts, 120 questions, about an hour of original recordings (form, note, table and flow-chart completion, map and plan labelling, multiple choice, choose two, matching) | Instant: estimated band, per-part and per-question-type analysis, explanations, and the full transcript with every answer highlighted and a *Listen again* button |
 | **Reading** | 8 full Academic tests: 24 passages, 320 questions, every IELTS question type | Instant: estimated band, per-passage and per-question-type analysis, explanation for every answer |
-| **Writing** | 5 full Academic tests: Task 1 line graph, bar chart, process diagram, pie charts and table, plus 5 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** scores all four criteria and gives corrections |
-| **Speaking** | 3 full tests: Part 1 interview (8 questions), Part 2 cue card with 1 minute to prepare and 2 minutes to speak, Part 3 discussion (5 questions). The examiner's questions are original recordings | Answers are recorded in the browser and saved to the account. The candidate listens back, gets a self-check, and can order an examiner check |
+| **Writing** | 5 full Academic tests: Task 1 line graph, bar chart, process diagram, pie charts and table, plus 5 Task 2 essays | Automatic checks (length, overview, position, paragraphing, linking, register) plus model answers. Optional **AI examiner** (through OpenRouter) scores all four criteria with instructions for each task type and gives corrections |
+| **Speaking** | 3 full tests: Part 1 interview (8 questions), Part 2 cue card with 1 minute to prepare and 2 minutes to speak, Part 3 discussion (5 questions). The examiner's questions are original recordings | Answers are recorded in the browser and saved to the account. The candidate listens back, gets a self-check, and can order an examiner check. With the **AI examiner** the test is face to face with an animated examiner who asks the questions and moves on when the candidate stops talking; afterwards the AI listens to every answer (fillers, pauses, pronunciation) and gives an estimated band for each criterion, transcripts and feedback |
 | **Examiner checks** | Students choose a human examiner (rated by other students) and pay per check: Writing 10,000 so'm, Speaking 20,000 so'm | The examiner marks the four official criteria (reading the essays or playing the recordings) with feedback; the student rates the examiner once |
 
 ### Free trial and the monthly plan
@@ -73,7 +73,8 @@ server.py                 Tornado app: static site + JSON API, rate limits, secu
 mockexam/
   content.py              test model: walking, validation, answer-free public views
   scoring.py              reading/listening marking and band conversion
-  writing.py              writing text analysis + Claude AI examiner
+  writing.py              writing text analysis + AI examiner (rubric for each task type)
+  ai.py                   AI models through OpenRouter (JSON answers, audio input)
   storage.py              LocalStore (JSON + SQLite) and SupabaseStore (REST)
   db.py                   table access for accounts/payments: SQLite locally, Supabase REST in production
   dbcache.py              short-lived read cache in front of db.py (the database can be far from the server)
@@ -82,6 +83,7 @@ mockexam/
   billing.py              prices, orders, Payme Merchant API, Click SHOP API, card transfers
   checks.py               examiner profiles, paid checks, marking, one review per check
   speaking.py             Speaking submissions, recorded answers, who may listen, clean-up of old recordings
+  speaking_ai.py          the AI Speaking examiner: measures pauses, listens to each answer, rates the test
   files.py                private file storage for recordings: a local folder, or a Supabase Storage bucket
   notify.py               email (Resend) and Telegram notifications for payments and checks
   api.py                  HTTP API for all of the above

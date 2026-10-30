@@ -12,6 +12,11 @@ Every question's "say" text (what the examiner says before the candidate
 answers) becomes public/audio/<test-id>/<question-key>.mp3, and so do the
 test's "prompts" (e.g. "start speaking now", "end of the test"). The file and
 its duration are recorded in the content file as "audio": {"src", "duration"}.
+
+    python scripts/build_speaking_audio.py --models ~/tts-models --phrases
+
+builds the short phrases the AI examiner uses between questions ("Thank you.")
+in every examiner's voice, as public/audio/examiners/<voice>/<phrase>.mp3.
 """
 
 import argparse
@@ -56,13 +61,36 @@ def build_clip(synth, test, key, text):
     return {"src": rel, "duration": round(len(samples) / SAMPLE_RATE, 2)}, size
 
 
+# What the AI examiner can say between questions, in every examiner's voice.
+EXAMINER_PHRASES = {
+    "thank-you": "Thank you.",
+    "more": "Can you tell me anything more about that?",
+}
+
+
+def build_phrases(synth):
+    voices = {}
+    for name in sorted(f for f in os.listdir(CONTENT_DIR) if f.endswith(".json")):
+        with open(os.path.join(CONTENT_DIR, name), encoding="utf-8") as f:
+            ex = json.load(f)["examiner"]
+        voices[ex["voice"]] = ex
+    for voice, ex in sorted(voices.items()):
+        for key, text in EXAMINER_PHRASES.items():
+            samples = np.concatenate([silence(0.1), level(synth.speak(text, voice, ex["lang"], ex.get("speed", 1.0))), silence(0.15)])
+            encode_mp3(samples, os.path.join(BASE_DIR, "public", "audio", "examiners", voice, f"{key}.mp3"))
+        print(f"✓ {voice}: {len(EXAMINER_PHRASES)} phrases")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--models", default=os.path.expanduser("~/tts-models"), help="folder with the Kokoro model files")
     parser.add_argument("--only", help="build a single test id, e.g. speaking-01")
+    parser.add_argument("--phrases", action="store_true", help="build only the AI examiner's phrases")
     args = parser.parse_args()
 
     synth = Synth(args.models)
+    if args.phrases:
+        return build_phrases(synth)
     for name in sorted(f for f in os.listdir(CONTENT_DIR) if f.endswith(".json")):
         path = os.path.join(CONTENT_DIR, name)
         with open(path, encoding="utf-8") as f:

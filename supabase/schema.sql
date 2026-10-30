@@ -453,14 +453,19 @@ create table if not exists public.speaking_submissions (
   user_id                uuid not null references public.profiles(id),
   test_id                text not null,
   candidate_name         text,
-  mode                   text check (mode in ('exam', 'practice')),
+  mode                   text check (mode in ('exam', 'practice', 'ai')),
   notes                  text,
   status                 text not null default 'recording' check (status in ('recording', 'completed')),
   time_spent_seconds     integer,
   created_at             timestamptz not null default now(),
   completed_at           timestamptz,
-  recordings_deleted_at  timestamptz
+  recordings_deleted_at  timestamptz,
+  ai_review              jsonb  -- the AI examiner's rating of a mode 'ai' test (mockexam/speaking_ai.py)
 );
+-- Added with the AI examiner: tests taken with it have mode 'ai' and an ai_review.
+alter table public.speaking_submissions add column if not exists ai_review jsonb;
+alter table public.speaking_submissions drop constraint if exists speaking_submissions_mode_check;
+alter table public.speaking_submissions add constraint speaking_submissions_mode_check check (mode in ('exam', 'practice', 'ai'));
 create index if not exists speaking_submissions_user_idx on public.speaking_submissions (user_id, created_at desc);
 create index if not exists speaking_submissions_status_idx on public.speaking_submissions (status, created_at);
 

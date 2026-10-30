@@ -1029,3 +1029,35 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 /* Tabular figures give this font full-width punctuation: keep them for whole-number columns only, not for bands (6.5) or dates. */
 .band-val, .history-table, .tile-value, .criterion-band, .score-stat-val, .offer-price, .stats-row strong, .stat-row strong,
 .test-row-band, .t-qnum, .review-card .question-number-badge { font-variant-numeric: normal; }
+
+/* The AI examiner's Speaking report (public/js/ai-examiner.js) -------------------------------- */
+.ai-report { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 24px; margin: 18px 0 28px; }
+.ai-report-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.ai-report-head .section-title { margin: 0 0 4px; }
+.ai-band { display: flex; flex-direction: column; align-items: center; min-width: 120px; padding: 10px 18px; border-radius: var(--radius); background: var(--ink); color: var(--ground); }
+.ai-band-val { font-size: var(--t-figure); font-weight: 650; line-height: 1.05; }
+.ai-band-lbl { font-size: 0.8em; color: var(--ink-soft); }
+.ai-sub { font-size: 1.1rem; font-weight: 650; margin: 24px 0 10px; }
+.ai-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: 10px; }
+.ai-stat { background: var(--ground); border-radius: var(--radius); padding: 10px 14px; display: flex; flex-direction: column; gap: 2px; }
+.ai-stat strong { font-size: 1.4em; font-weight: 650; }
+.ai-stat span { font-weight: 650; font-size: 0.9em; }
+.ai-stat small { color: var(--muted); font-size: 0.8em; }
+.ai-parts dt { font-weight: 650; margin-top: 10px; }
+.ai-parts dd { margin: 2px 0 0; color: var(--ink-2); }
+.ai-pron { margin-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.ai-foot { margin-top: 22px; font-size: 0.9em; }
+.ai-waiting { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 32px 24px; }
+.ai-waiting .section-title { margin: 6px 0 0; }
+.ai-progress { width: min(420px, 100%); height: 8px; background: var(--field); border-radius: 8px; overflow: hidden; }
+.ai-progress span { display: block; height: 100%; background: var(--ink); border-radius: 8px; transition: width 0.6s ease; }
+.ai-error .btn-secondary { margin-top: 10px; align-self: flex-start; }
+.ai-answer { margin-top: 8px; }
+.ai-transcript { line-height: 1.65; color: var(--ink-2); }
+.ai-transcript.is-empty { color: var(--muted); font-style: italic; }
+mark.ai-filler { background: #f1dfb4; color: inherit; border-radius: 3px; padding: 0 3px; }
+.ai-pause { display: inline-block; font-size: 0.75em; line-height: 1.5; padding: 0 7px; border-radius: 999px; border: 1px dashed var(--edge); color: var(--muted); vertical-align: 1px; }
+.ai-pause.is-long { border-style: solid; border-color: var(--bad); color: var(--bad); }
+.ai-unclear { color: var(--muted); font-style: italic; }
+.ai-answer-facts { font-size: 0.85em; color: var(--muted); margin-top: 4px; }
+@media (prefers-reduced-motion: reduce) { .ai-progress span { transition: none; } }
