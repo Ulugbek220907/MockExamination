@@ -1151,3 +1151,21 @@ mark.ai-filler { background: #f1dfb4; color: inherit; border-radius: 3px; paddin
 .ai-unclear { color: var(--muted); font-style: italic; }
 .ai-answer-facts { font-size: 0.85em; color: var(--muted); margin-top: 4px; }
 @media (prefers-reduced-motion: reduce) { .ai-progress span { transition: none; } }
+
+/* Phones: recent tests as two-line rows (test and result, then date and time) instead of a squeezed table */
+@media (max-width: 560px) {
+  #history-section .history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  #history-section .history-table, #history-section .history-table tbody { display: block; }
+  #history-section .history-table tr {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "test result" "date time";
+    gap: 2px 12px; padding: 12px 14px; border-bottom: 1px solid var(--rule);
+  }
+  #history-section .history-table td { padding: 0; border: 0; }
+  #history-section .history-table td:nth-child(1) { grid-area: date; font-size: 0.85em; color: var(--muted); }
+  #history-section .history-table td:nth-child(2) { grid-area: test; font-weight: 600; }
+  #history-section .history-table td:nth-child(3) { grid-area: result; text-align: right; }
+  #history-section .history-table td:nth-child(4) { grid-area: time; font-size: 0.85em; color: var(--muted); text-align: right; }
+}
+/* Taps answer at once and do not flash; scrolled areas keep their momentum without dragging the page. */
+html { -webkit-tap-highlight-color: transparent; }
+button, a, input, select, label, summary { touch-action: manipulation; }
