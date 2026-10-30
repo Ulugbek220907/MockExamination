@@ -422,7 +422,9 @@
   /* ================================================================ account */
   async function renderAccount(main) {
     document.title = `${t("My account")} – ${siteName()}`;
-    await refreshMe();
+    // Draw at once from the account this browser remembers; check with the server alongside.
+    const fresh = refreshMe();
+    if (!user()) await fresh;
     if (!user()) {
       main.innerHTML = `<section class="page"><h1>${t("My account")}</h1><p class="lead-text">${commerce() ? t("Sign in to see your pass, your examiner checks and your results.") : t("Sign in to see your results.")}</p>
         <button type="button" class="btn-primary btn-lg" data-action="signin">${t("Sign in")}</button></section>`;
@@ -430,12 +432,16 @@
     }
     const u = user();
     const plan = state.me.plan;
-    main.innerHTML = loading();
     const shop = commerce();
-    const [ordersRes, checksRes, progressRes] = await Promise.all([
+    // The progress chart and calendar draw from what this browser saw last time, then update.
+    const progressKey = `testday:progress:${u.id}`;
+    const seen = U.store.get(progressKey, null);
+    const progress = U.api("/api/progress").then((res) => { U.store.set(progressKey, res); return res; })
+      .catch(() => seen || { points: [], activity: [] });
+    if (shop) main.innerHTML = loading();
+    const [ordersRes, checksRes] = await Promise.all([
       shop ? U.api("/api/orders").catch(() => ({ orders: [] })) : { orders: [] },
       shop ? U.api("/api/checks").catch(() => ({ checks: [] })) : { checks: [] },
-      U.api("/api/progress").catch(() => ({ points: [] })),
     ]);
     const orders = ordersRes.orders || [];
     const waiting = orders.filter((o) => o.status === "awaiting_confirmation");
@@ -474,7 +480,8 @@
           </div>
         </div>
 
-        <section class="progress-section" id="progress-section"></section>
+        <section class="progress-section" id="progress-section">${seen ? "" : `<div class="skeleton" style="height:28px;width:min(280px,70%)"></div>
+          <div class="skeleton" style="height:120px;margin-top:14px"></div><div class="skeleton" style="height:240px;margin-top:14px"></div>`}</section>
 
         ${shop ? `<h2 class="section-title">${t("Examiner checks")}</h2>
         ${(checksRes.checks || []).length ? `
@@ -506,11 +513,16 @@
       renderAccountSlot();
       U.toast(t("Saved."));
     });
-    // The chart's code loads after the page is shown.
-    U.need("progress").then(() => {
+    // The chart's code loads after the page is shown; it draws twice if this browser had older data.
+    const draw = (res) => {
       const slot = main.querySelector("#progress-section");
-      if (slot) Progress.render(slot, progressRes.points || []);
+      if (slot && document.body.contains(slot)) Progress.render(slot, res.points || [], res.activity || []);
+    };
+    U.need("progress").then(() => {
+      if (seen) draw(seen);
+      return progress.then((res) => { if (!seen || JSON.stringify(res) !== JSON.stringify(seen)) draw(res); });
     }).catch(() => { /* U.need has shown a toast */ });
+    fresh.then(() => renderAccountSlot());
     if (window.app) window.app.loadHistory();
   }
 

@@ -418,7 +418,7 @@
     renderPartTabs() {
       const cur = this.steps[Math.min(this.step, this.steps.length - 1)].part.partNumber;
       $("exam-part-tabs").innerHTML = this.test.parts.map((p) => `
-        <span class="part-tab-btn speak-part-tab ${p.partNumber === cur ? "active" : ""} ${p.partNumber < cur ? "is-done" : ""}">Part ${p.partNumber}</span>`).join("");
+        <span class="part-tab-btn speak-part-tab ${p.partNumber === cur ? "active" : ""} ${p.partNumber < cur ? "is-done" : ""}"><span class="part-word">Part </span>${p.partNumber}</span>`).join("");
     }
 
     /* Cancellable waiting ---------------------------------------------------- */
