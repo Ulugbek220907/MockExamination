@@ -562,15 +562,15 @@ body.text-extra-large { --cd-base-font-size: 20px; }
 @media (prefers-reduced-motion: reduce) { .speak-ear { animation: none; } }
 
 /* Speaking with the AI examiner: a face-to-face room (public/js/ai-examiner.js) ------------- */
-#exam-screen.ai-speaking .cd-workspace .cd-pane-right { background: #0d121b; }
+#exam-screen.ai-speaking .cd-workspace .cd-pane-right { background: #0c0b0b; }
 .ai-room {
-  min-height: 100%; display: flex; flex-direction: column; gap: 14px; color: #e8ecf3;
+  min-height: 100%; display: flex; flex-direction: column; gap: 14px; color: #ece8e4;
   padding: 16px clamp(12px, 3vw, 32px) 28px;
-  background: radial-gradient(120% 90% at 50% 0%, #1f2a3d 0%, #121a27 55%, #0d121b 100%);
+  background: radial-gradient(120% 90% at 50% 0%, #1d1a18 0%, #121110 55%, #0c0b0b 100%);
 }
 .ai-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; min-height: 30px; }
 .ai-room .speak-part { color: #fff; }
-.ai-room .speak-part-title { color: #9fb0c8; }
+.ai-room .speak-part-title { color: #a89d93; }
 .ai-rec {
   display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.85em; color: #ffc9c9;
   background: rgba(220, 38, 38, 0.16); border: 1px solid rgba(248, 113, 113, 0.4); padding: 4px 12px; border-radius: 999px;
@@ -581,21 +581,22 @@ body.text-extra-large { --cd-base-font-size: 20px; }
   .ai-stage:has(.ai-side:not(:empty)) { grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.9fr); }
 }
 .ai-tile {
-  position: relative; margin: 0; width: min(100%, 540px); aspect-ratio: 5 / 4.4; border-radius: 18px; overflow: hidden;
-  background:
-    radial-gradient(70% 55% at 50% 42%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 70%),
-    linear-gradient(180deg, #cfd7e2 0%, #b4bfcd 58%, #8f9cad 100%);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); outline: 3px solid transparent; outline-offset: -3px;
-  transition: outline-color 0.25s ease;
+  position: relative; margin: 0; width: min(100%, 540px); aspect-ratio: 5 / 4.4; border-radius: 22px; overflow: hidden;
+  background: radial-gradient(60% 60% at 50% 46%, #1f1a17 0%, #141211 60%, #0f0e0d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
 }
-.ai-tile:has(.ai-face[data-state="speaking"]) { outline-color: #4ade80; }
-.ai-face { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; }
-.ai-face svg { width: 86%; height: auto; max-height: 100%; display: block; }
+.ai-face { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.ai-face svg { width: min(78%, 360px); height: auto; max-height: 92%; display: block; }
 .ai-nameplate {
   position: absolute; left: 12px; bottom: 12px; display: flex; flex-direction: column; line-height: 1.25;
-  background: rgba(13, 18, 27, 0.74); color: #fff; padding: 6px 12px; border-radius: 10px; font-size: 0.9em;
+  background: rgba(0, 0, 0, 0.55); color: #fff; padding: 6px 12px; border-radius: 10px; font-size: 0.9em;
 }
-.ai-nameplate span { color: #b8c4d6; font-size: 0.85em; }
+.ai-nameplate span { color: #c9bfb6; font-size: 0.85em; }
+.ai-face[data-state="speaking"] ~ .ai-nameplate span { color: #ffb27a; }
+/* The examiner bot in practice mode: the orb instead of a letter */
+.speak-avatar.bot { width: 112px; height: 112px; background: radial-gradient(circle, #1f1a17 0%, #141211 70%); border-radius: 50%; padding: 0; overflow: hidden; display: grid; place-items: center; }
+.speak-avatar.bot svg { position: absolute; left: 50%; top: 50%; width: 168px; height: 168px; transform: translate(-50%, -50%); }
+.speak-examiner.is-speaking .speak-avatar.bot::after { display: none; }
 .ai-side { width: 100%; max-width: 540px; }
 .ai-side:empty { display: none; }
 .ai-side .cue-card { color: #111; }

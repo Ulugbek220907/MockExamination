@@ -1190,6 +1190,9 @@ class AccountApiTests(AccountApiBase):
         r, data = self.call("GET", "/api/progress", cookie=cookie)
         # Practice is left out; writing without an AI or examiner band has no score yet.
         self.assertEqual([(p["module"], p["band"], p["source"]) for p in data["points"]], [("reading", 9.0, "auto")])
+        # The calendar has every finished attempt, practice and unscored ones too.
+        self.assertEqual(sorted((a["module"], a["mode"]) for a in data["activity"]),
+                         [("reading", "exam"), ("reading", "practice"), ("writing", "exam")])
         profile = accounts.find_profile_by_email(server.STORE.db, "progress@example.com")
         server.STORE.db.insert("checks", {"order_id": 990001, "kind": "writing", "student_id": profile["id"],
                                           "examiner_id": profile["id"], "submission_id": data["points"][0]["band"] and
@@ -1527,6 +1530,13 @@ class SpeakingAiTests(AccountApiBase):
             self.assertEqual(r.code, 429)
             # Without the AI examiner the test can still be taken.
             self.assertEqual(self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "exam"}, cookie=cookie)[0].code, 200)
+            # The Start button asks for the AI with a fallback: over the limit the test still starts, without a band.
+            r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai", "fallback": True}, cookie=cookie)
+            self.assertEqual((r.code, data["mode"]), (200, "exam"))
+            self.assertIn("without a band", data["notice"])
+        # No key at all: the fallback is silent.
+        r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai", "fallback": True}, cookie=cookie)
+        self.assertEqual((r.code, data["mode"], data["notice"]), (200, "exam", None))
 
 
 class NotificationTests(AccountApiBase):
@@ -2264,8 +2274,9 @@ class SecurityAndHardeningTests(AccountApiBase):
         with mock.patch.object(store, "list_history", return_value=[{
             "module": "writing", "id": 99999, "testId": "academic-writing-01", "createdAt": "2026-10-14T10:00:00Z"
         }]):
-            points = api.progress_points(store, db, user_id)
+            points, activity = api.progress_points(store, db, user_id)
             self.assertEqual(points, [])
+            self.assertEqual([(a["module"], a["band"]) for a in activity], [("writing", None)])  # still on the calendar
 
     def test_cross_site_top_level_navigation_allowed(self):
         r = self.fetch("/", method="GET",

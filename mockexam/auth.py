@@ -75,19 +75,33 @@ class SupabaseAuth:
         self.key = api_key
         self.timeout = timeout
         self._google = (False, 0.0)
+        self._refreshing = False
 
     def google_enabled(self):
-        """Whether the Google provider is switched on in Supabase (checked every 10 minutes)."""
+        """
+        Whether the Google provider is switched on in Supabase. After the first check it is
+        answered at once from what was last seen; every 10 minutes a background thread asks
+        Supabase again, so no page waits for it.
+        """
         value, checked = self._google
-        if time.time() - checked < self.SETTINGS_TTL:
-            return value
+        if not checked:  # never asked yet (the server warms this up when it starts)
+            self._refresh_google()
+            return self._google[0]
+        if time.time() - checked >= self.SETTINGS_TTL and not self._refreshing:
+            self._refreshing = True
+            threading.Thread(target=self._refresh_google, name="google-settings", daemon=True).start()
+        return value
+
+    def _refresh_google(self):
+        value = self._google[0]
         try:
             settings = self._call("GET", "/settings")
             value = bool((settings.get("external") or {}).get("google"))
         except AuthError:
             pass  # keep the last known value
-        self._google = (value, time.time())
-        return value
+        finally:
+            self._google = (value, time.time())
+            self._refreshing = False
 
     def _call(self, method, path, body=None, token=None, query=None, action="verify"):
         headers = {"apikey": self.key, "Content-Type": "application/json", "Accept": "application/json"}
@@ -170,38 +184,44 @@ class EmailCodeAuth:
 
     def send_code(self, email, redirect_to):
         from . import notify  # notify has no dependency on auth; imported here to keep auth light
+        from .dbcache import gather
 
         code = f"{secrets.randbelow(1_000_000):06d}"
         expires = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=self.TTL)
-        self.db.delete("login_codes", {"email": email})
-        self.db.insert("login_codes", {"email": email, "code_hash": self._hash(email, code),
-                                       "expires_at": expires.isoformat(timespec="seconds"), "attempts": 0})
-        try:
-            notify.send_login_code(email, code)
-        except urllib.error.HTTPError as e:
-            log.warning("Resend refused the sign-in email (%s): %s", e.code, e.read()[:300])
-            raise AuthError("We could not send the code. Please check the address and try again.", 503) from e
-        except Exception as e:
-            log.exception("Could not send the sign-in email")
-            raise AuthError("We could not send the code. Please try again in a minute.", 503) from e
+        row = {"email": email, "code_hash": self._hash(email, code),
+               "expires_at": expires.isoformat(timespec="seconds"), "attempts": 0}
+
+        def send():
+            try:
+                notify.send_login_code(email, code)
+            except urllib.error.HTTPError as e:
+                log.warning("Resend refused the sign-in email (%s): %s", e.code, e.read()[:300])
+                raise AuthError("We could not send the code. Please check the address and try again.", 503) from e
+            except Exception as e:
+                log.exception("Could not send the sign-in email")
+                raise AuthError("We could not send the code. Please try again in a minute.", 503) from e
+
+        # Storing the code (in the database, far away) and sending the email happen at the same time.
+        gather(lambda: self.db.upsert("login_codes", row, "email"), send)
         return None
 
     def verify_code(self, email, code):
         wrong = AuthError("That code is wrong or has expired. Request a new code.", 400)
-        rows = self.db.select("login_codes", {"email": email}, limit=1)
+        rows = self.db.take("login_codes", {"email": email})  # a code is used once, right or wrong
         if not rows:
             raise wrong
         row = rows[0]
         expires = datetime.datetime.fromisoformat(str(row["expires_at"]).replace("Z", "+00:00"))
         if expires.tzinfo is None:
             expires = expires.replace(tzinfo=datetime.timezone.utc)
-        if expires < datetime.datetime.now(datetime.timezone.utc) or int(row["attempts"] or 0) >= self.MAX_TRIES:
-            self.db.delete("login_codes", {"email": email})
+        tries = int(row["attempts"] or 0) + 1
+        if expires < datetime.datetime.now(datetime.timezone.utc) or tries > self.MAX_TRIES:
             raise wrong
         if not hmac.compare_digest(row["code_hash"], self._hash(email, code)):
-            self.db.update("login_codes", {"email": email}, {"attempts": int(row["attempts"] or 0) + 1})
+            if tries < self.MAX_TRIES:  # put it back for the next guess
+                self.db.insert("login_codes", {**{k: row[k] for k in ("email", "code_hash", "expires_at")}, "attempts": tries},
+                               ignore_conflict=True)
             raise wrong
-        self.db.delete("login_codes", {"email": email})
         # Existing accounts are found by email (accounts.upsert_profile), so this id is only used for new ones.
         return {"id": str(uuid.uuid4()), "email": email, "name": ""}
 

@@ -397,12 +397,9 @@
         return `<button type="button" class="btn-link" data-action="buy-plan" aria-label="${esc(t("Get the pass to open {name}", { name }))}">${t("Get the pass")}</button>`;
       }
       const start = facts.ride ? t("Take it again") : test.access === "free" ? t("Start free") : t("Start");
-      const ai = test.module === "speaking" && this.config.aiSpeaking;
       return `
           <button type="button" class="btn-secondary btn-sm" data-action="start" data-test="${esc(test.id)}" data-mode="practice"
             aria-label="${esc(t("Practice {name} without a timer", { name }))}">${t("Practice")}</button>
-          ${ai ? `<button type="button" class="btn-secondary btn-sm" data-action="start" data-test="${esc(test.id)}" data-mode="ai"
-            aria-label="${esc(t("Take {name} with the AI examiner", { name }))}">${t("AI examiner")}</button>` : ""}
           <button type="button" class="btn-primary btn-sm" data-action="start" data-test="${esc(test.id)}" data-mode="exam"
             aria-label="${esc(t("Start {name}, timed", { name }))}">${start}</button>`;
     }
@@ -572,8 +569,8 @@
       };
       try {
         const [test] = await Promise.all([U.api(`/api/tests/${encodeURIComponent(testId)}`), U.need("exam")]);
-        const ai = mode === "ai" && test.module === "speaking" && this.config.aiSpeaking;
-        this.pending = { test, mode: ai ? "ai" : mode === "practice" ? "practice" : "exam" };
+        // A timed Speaking test is always with the examiner bot ("ai" in older links means the same).
+        this.pending = { test, mode: mode === "practice" ? "practice" : "exam" };
         if (location.hash === "#/start") this.showVerification();
         else location.hash = "#/start";
         settle();
@@ -617,8 +614,9 @@
     showVerification() {
       const { test, mode } = this.pending;
       const module = test.module;
-      const timed = mode === "exam" || mode === "ai";
-      const withAi = mode === "ai";
+      const timed = mode === "exam";
+      const withAi = module === "speaking" && timed; // the examiner bot
+      const rated = withAi && this.config.aiSpeaking; // ...that also gives a band
       const progress = U.store.get(`mockexam:progress:${test.id}`);
       const canResume = progress && progress.mode === mode;
       const checkMinutes = test.checkMinutes || 2;
@@ -640,12 +638,14 @@
       const perDay = Number(this.config.aiSpeakingPerDay) || 3;
       const instructions = module === "speaking" && withAi
         ? [
-          `You talk with an <strong>AI examiner</strong>, face to face on screen, as in the real test. The examiner asks every question out loud; you answer by speaking. Like a real examiner, it does not reply to your answers.`,
+          `You talk with the <strong>examiner</strong>, face to face on screen, as in the real test. The examiner asks every question out loud; you answer by speaking. Like a real examiner, it does not reply to your answers.`,
           `<strong>Part 1:</strong> questions about familiar topics. <strong>Part 2:</strong> a topic card, <strong>1 minute</strong> to prepare and up to
             <strong>2 minutes</strong> to speak. <strong>Part 3:</strong> a discussion of wider questions. The test takes <strong>11–14 minutes</strong>.`,
           `Answer fully and naturally. When you stop talking for a few seconds the examiner moves on, so take a short breath to think if you need to, but do not stop for long. You may ask for a question to be repeated once.`,
-          `At the end the AI examiner listens to your whole test: fluency, pauses and hesitation ("um", "er"), vocabulary, grammar and pronunciation. You get an <strong>estimated band</strong> for each official criterion, with feedback, in about a minute.`,
-          `Use headphones in a quiet room, and test your microphone below. You can take ${perDay} tests with the AI examiner a day.`,
+          rated
+            ? `At the end the AI examiner listens to your whole test: fluency, pauses and hesitation ("um", "er"), vocabulary, grammar and pronunciation. You get an <strong>estimated band</strong> for each official criterion, with feedback, in about a minute. You can have ${perDay} tests rated a day.`
+            : `Your answers are recorded and saved to your account, so you can listen to them afterwards.`,
+          `Use headphones in a quiet room, and test your microphone below.`,
         ]
         : module === "speaking"
         ? [
@@ -691,7 +691,7 @@
       card.innerHTML = `
         <div class="verification-header">
           <div class="vh-title">${["listening", "speaking"].includes(module) ? MODULE_LABELS[module] : `Academic ${MODULE_LABELS[module]}`}</div>
-          <span class="vh-mode">${withAi ? "AI examiner" : timed ? "Timed test" : "Practice mode"}</span>
+          <span class="vh-mode">${rated ? "With the AI examiner" : timed ? "Timed test" : "Practice mode"}</span>
         </div>
         <form class="verification-body" id="verify-form">
           <h1 class="verify-title">${esc(test.title)}</h1>
@@ -779,7 +779,7 @@
       const summary = this.tests.find((x) => x.id === test.id);
       if (summary && summary.access === "free") U.track("free_test_started", { module: test.module, testId: test.id });
       this.showView("exam");
-      const Exam = test.module === "speaking" && mode === "ai" ? AiSpeakingExam
+      const Exam = test.module === "speaking" && mode !== "practice" ? AiSpeakingExam
         : { writing: WritingExam, listening: ListeningExam, speaking: SpeakingExam }[test.module] || ReadingExam;
       this.exam = new Exam({
         test, mode, saved,

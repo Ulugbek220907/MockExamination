@@ -726,12 +726,15 @@ def check_can_start(db, user_id):
     """Raise ReviewError when the AI examiner cannot take another test today."""
     if not configured():
         raise ReviewError("The AI examiner is not available on this site yet.", 503)
+    from .dbcache import gather
+
     since = iso(now() - datetime.timedelta(days=1))
-    mine = db.select("speaking_submissions", {"user_id": user_id, "mode": "ai", "created_at": ("gte", since)},
-                     limit=PER_USER_PER_DAY + 1)
+    mine, everyone = gather(
+        lambda: db.select("speaking_submissions", {"user_id": user_id, "mode": "ai", "created_at": ("gte", since)},
+                          limit=PER_USER_PER_DAY + 1),
+        lambda: db.select("speaking_submissions", {"mode": "ai", "created_at": ("gte", since)}, limit=DAILY_LIMIT + 1))
     if len(mine) >= PER_USER_PER_DAY:
-        raise ReviewError(f"You can take {PER_USER_PER_DAY} tests with the AI examiner a day. Please come back tomorrow, "
-                          "or take this test without the AI examiner.", 429)
-    everyone = db.select("speaking_submissions", {"mode": "ai", "created_at": ("gte", since)}, limit=DAILY_LIMIT + 1)
+        raise ReviewError(f"You have had {PER_USER_PER_DAY} tests rated by the AI examiner today. This test is recorded "
+                          "without a band; the AI examiner rates again tomorrow.", 429)
     if len(everyone) >= DAILY_LIMIT:
         raise ReviewError("The AI examiner is fully booked today. Please try again tomorrow.", 429)

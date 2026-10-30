@@ -360,13 +360,15 @@
             <div class="speak-count" id="sp-count"></div>
           </div>
           <div class="speak-examiner" id="sp-examiner">
-            <div class="speak-avatar" aria-hidden="true">${esc((ex.name || "E")[0])}</div>
+            <div class="speak-avatar" id="sp-avatar" aria-hidden="true">${esc((ex.name || "E")[0])}</div>
             <div class="speak-examiner-name"><strong>${esc(ex.name || "Examiner")}</strong><span id="sp-examiner-state">Examiner</span></div>
           </div>
           <div class="speak-question" id="sp-question"></div>
           <div class="speak-panel" id="sp-panel" aria-live="polite"></div>
           <div class="speak-saving" id="sp-saving"></div>
         </div>`;
+      // The examiner bot (ai-examiner.js) instead of a letter, when it has loaded.
+      if (window.AiExaminer) this.face = new AiExaminer.ExaminerFace($("sp-avatar"), ex, { mini: true });
       this.renderPartTabs();
       this.run();
     }
@@ -453,6 +455,7 @@
     setExaminer(state) {
       $("sp-examiner").classList.toggle("is-speaking", state === "speaking");
       $("sp-examiner-state").textContent = state === "speaking" ? "Speaking…" : "Examiner";
+      if (this.face) this.face.setState(state === "speaking" ? "speaking" : "idle");
     }
 
     showQuestion(step) {
@@ -626,6 +629,7 @@
       const notes = $("sp-notes");
       this.on(notes, "input", () => { this.notes = notes.value; this.saveProgressSoon(); });
       notes.focus();
+      if (this.face) this.face.setState("writing");
       let left = total;
       await this.wait((done) => {
         const t = setInterval(() => {
@@ -652,6 +656,10 @@
       for (;;) {
         const rec = new AnswerRecorder(this.stream, this.mime);
         rec.start();
+        if (this.face) {
+          this.face.listen = () => (this.meter ? this.meter.level : 0);
+          this.face.setState("listening");
+        }
         this.panel(`
           <div class="speak-rec">
             <div class="speak-rec-head"><span class="audio-live-dot" aria-hidden="true"></span><strong>Recording – speak now</strong>
@@ -687,6 +695,7 @@
           return () => { clearInterval(t); stop.removeEventListener("click", done); this.stopCurrent = null; };
         }).catch((err) => { rec.stop(); throw err; });
         const { blob, seconds } = await rec.stop();
+        if (this.face) this.face.setState("idle");
         if (this.mode !== "practice" || this.endingEarly) {
           this.uploader.add(q.key, blob, seconds);
           return;
@@ -829,6 +838,7 @@
       this.player.pause();
       this.player.removeAttribute("src");
       if (this.meter) this.meter.stop();
+      if (this.face) this.face.destroy();
       stopStream(this.stream);
       $("exam-screen").classList.remove("speaking-mode");
       $("btn-prev-q").hidden = false;

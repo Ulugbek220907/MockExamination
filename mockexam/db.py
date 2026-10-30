@@ -382,7 +382,7 @@ class SqliteDb:
             finally:
                 conn.close()
 
-    def update(self, table, where, values):
+    def update(self, table, where, values, invalidate=True):  # `invalidate` is for CachedDb
         _check_table(table)
         if not where:
             raise DbError("update without a filter")
@@ -416,6 +416,46 @@ class SqliteDb:
             try:
                 with conn:
                     return conn.execute(f'DELETE FROM "{table}"{sql_where}', params).rowcount
+            finally:
+                conn.close()
+
+    def take(self, table, where):
+        """Delete the matching rows and return them (one round trip on Supabase)."""
+        _check_table(table)
+        if not where:
+            raise DbError("delete without a filter")
+        sql_where, params = self._where_sql(table, where)
+        with self.lock:
+            conn = self._connect()
+            try:
+                with conn:
+                    rows = conn.execute(f'SELECT * FROM "{table}"{sql_where}', params).fetchall()
+                    conn.execute(f'DELETE FROM "{table}"{sql_where}', params)
+                    return [self._decode(table, r) for r in rows]
+            finally:
+                conn.close()
+
+    def upsert(self, table, row, on_conflict):
+        """Insert the row, or replace the one with the same `on_conflict` column."""
+        _check_table(table)
+        row = dict(row)
+        if table in TIMESTAMPED and not row.get("created_at"):
+            row["created_at"] = iso(now())
+        row = self._encode(table, row)
+        cols = list(row)
+        for c in cols + [on_conflict]:
+            if not str(c).replace("_", "").isalnum():
+                raise DbError(f"bad column {c!r}")
+        sets = ", ".join(f'"{c}" = excluded."{c}"' for c in cols if c != on_conflict)
+        sql = (f'INSERT INTO "{table}" ({",".join(chr(34) + c + chr(34) for c in cols)}) VALUES ({",".join("?" * len(cols))}) '
+               f'ON CONFLICT("{on_conflict}") DO UPDATE SET {sets}')
+        with self.lock:
+            conn = self._connect()
+            try:
+                with conn:
+                    conn.execute(sql, [row[c] for c in cols])
+                    got = conn.execute(f'SELECT * FROM "{table}" WHERE "{on_conflict}" = ?', (row[on_conflict],)).fetchone()
+                    return self._decode(table, got) if got else None
             finally:
                 conn.close()
 
@@ -530,7 +570,7 @@ class RestDb:
         rows = self._request("POST", table, query, body=row, prefer=prefer)
         return rows[0] if rows else None
 
-    def update(self, table, where, values):
+    def update(self, table, where, values, invalidate=True):  # `invalidate` is for CachedDb
         if not where:
             raise DbError("update without a filter")
         return self._request("PATCH", table, self._query(where), body=values, prefer="return=representation")
@@ -539,3 +579,15 @@ class RestDb:
         if not where:
             raise DbError("delete without a filter")
         return len(self._request("DELETE", table, self._query(where), prefer="return=representation"))
+
+    def take(self, table, where):
+        """Delete the matching rows and return them, in one round trip."""
+        if not where:
+            raise DbError("delete without a filter")
+        return self._request("DELETE", table, self._query(where), prefer="return=representation")
+
+    def upsert(self, table, row, on_conflict):
+        """Insert the row, or replace the one with the same `on_conflict` column, in one round trip."""
+        query = urllib.parse.urlencode([("on_conflict", on_conflict)])
+        rows = self._request("POST", table, query, body=row, prefer="return=representation,resolution=merge-duplicates")
+        return rows[0] if rows else None

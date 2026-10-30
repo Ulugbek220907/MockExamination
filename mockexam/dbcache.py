@@ -38,7 +38,7 @@ CACHED_TABLES = {
 
 MAX_ENTRIES = 20000
 
-_READERS = concurrent.futures.ThreadPoolExecutor(max_workers=8, thread_name_prefix="db-read")
+_READERS = concurrent.futures.ThreadPoolExecutor(max_workers=16, thread_name_prefix="db-read")
 
 
 def gather(*calls):
@@ -114,14 +114,35 @@ class CachedDb:
         finally:
             self.invalidate(table)
 
-    def update(self, table, where, values):
+    def update(self, table, where, values, invalidate=True):
+        """`invalidate=False` keeps the cached rows (for columns no page reads, such as last_login_at)."""
+        changed = True
         try:
-            return self.db.update(table, where, values)
+            rows = self.db.update(table, where, values)
+            changed = bool(rows)
+            return rows
+        finally:
+            if invalidate and changed:  # an update that matched nothing changed nothing
+                self.invalidate(table)
+
+    def delete(self, table, where):
+        changed = True
+        try:
+            n = self.db.delete(table, where)
+            changed = bool(n)
+            return n
+        finally:
+            if changed:
+                self.invalidate(table)
+
+    def take(self, table, where):
+        try:
+            return self.db.take(table, where)
         finally:
             self.invalidate(table)
 
-    def delete(self, table, where):
+    def upsert(self, table, row, on_conflict):
         try:
-            return self.db.delete(table, where)
+            return self.db.upsert(table, row, on_conflict)
         finally:
             self.invalidate(table)

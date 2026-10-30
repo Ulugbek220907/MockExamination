@@ -36,6 +36,7 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
   GET  /api/admin/users?q=, POST /api/admin/plan   find users / give plan days
 """
 
+import asyncio
 import logging
 import os
 import re
@@ -72,12 +73,13 @@ def clean_name(value):
 
 
 def claim_attempts(db, client_id, user_id):
-    """Attach the attempts this browser made before signing in to the account."""
-    for table in ("reading_attempts", "listening_attempts", "writing_submissions"):
+    """Attach the attempts this browser made before signing in to the account (the three tables at once)."""
+    def claim(table):
         try:
             db.update(table, {"client_id": client_id, "user_id": None}, {"user_id": user_id})
         except Exception:
             log.exception("Could not claim %s", table)
+    gather(*(lambda t=t: claim(t) for t in ("reading_attempts", "listening_attempts", "writing_submissions")))
 
 
 def account_payload(db, profile):
@@ -138,14 +140,15 @@ class AuthCodeHandler(BaseHandler):
 
 
 class SessionMixin:
-    async def finish_login(self, identity, client_id):
-        profile = await in_thread(accounts.upsert_profile, self.db, identity)
+    async def finish_login(self, identity, client_id, existing=accounts._MISSING):
+        profile = await in_thread(accounts.upsert_profile, self.db, identity, existing)
         if profile.pop("created_now", False):
             self.track("signup", client_id=client_id, user_id=profile["id"])
-        if client_id:
-            await in_thread(claim_attempts, self.db, client_id, profile["id"])
+        # The database is far away: claiming this browser's attempts and reading the plan go side by side.
+        claimed = in_thread(claim_attempts, self.db, client_id, profile["id"]) if client_id else asyncio.sleep(0)
+        _, payload = await asyncio.gather(claimed, in_thread(account_payload, self.db, profile))
         self.start_session(profile["id"])
-        self.send_json(await in_thread(account_payload, self.db, profile))
+        self.send_json(payload)
 
 
 class AuthVerifyHandler(SessionMixin, BaseHandler):
@@ -158,11 +161,18 @@ class AuthVerifyHandler(SessionMixin, BaseHandler):
             _raise(e)
         if not VERIFY_PER_EMAIL.allow(email) or not VERIFY_PER_IP.allow(self.client_ip()):
             raise ApiError(429, "Too many attempts. Please request a new code in a few minutes.")
+        # Checking the code and finding the account are independent: one round trip instead of two.
+        checked, existing = await asyncio.gather(
+            in_thread(self._verify, email, code), in_thread(accounts.find_profile_by_email, self.db, email))
+        if isinstance(checked, auth.AuthError):
+            _raise(checked)
+        await self.finish_login(checked, _uuid(body.get("clientId")), existing)
+
+    def _verify(self, email, code):
         try:
-            identity = await in_thread(self.auth.verify_code, email, code)
+            return self.auth.verify_code(email, code)
         except auth.AuthError as e:
-            _raise(e)
-        await self.finish_login(identity, _uuid(body.get("clientId")))
+            return e
 
 
 class AuthTokenHandler(SessionMixin, BaseHandler):
@@ -213,15 +223,17 @@ def progress_points(store, db, user_id):
     One point per scored attempt, oldest first: timed Listening and Reading
     tests, Writing (the examiner's band if a check was marked, otherwise the AI
     estimate) and Speaking (the examiner's band, otherwise the AI examiner's).
+    Also `activity`: every finished attempt (practice too), for the calendar.
+    The three reads go to the database side by side.
     """
-    items = store.list_history(None, 300, user_id=user_id) + speaking.history_items(db, user_id, 300)
-    marked = {c["submission_id"]: c for c in db.select("checks", {"student_id": user_id, "kind": "writing",
-                                                                  "status": "completed"}, limit=500)}
-    points = []
-    for i in items:
+    scored, spoken, writing_checks = gather(
+        lambda: store.list_history(None, 300, user_id=user_id),
+        lambda: speaking.history_items(db, user_id, 300, counts=False),
+        lambda: db.select("checks", {"student_id": user_id, "kind": "writing", "status": "completed"}, limit=500))
+    marked = {c["submission_id"]: c for c in writing_checks}
+    points, activity = [], []
+    for i in scored + spoken:
         band, source = i.get("bandScore"), "auto"
-        if i["module"] in ("reading", "listening") and i.get("mode") == "practice":
-            continue  # untimed practice would inflate the trend
         if i["module"] == "writing":
             if i["id"] in marked and marked[i["id"]].get("overall_band") is not None:
                 try:
@@ -234,19 +246,26 @@ def progress_points(store, db, user_id):
             source = "examiner"
             if band is None and i.get("aiBand") is not None:
                 band, source = i["aiBand"], "ai"
-        if band is None or not i.get("createdAt"):
+        if not i.get("createdAt"):
+            continue
+        activity.append({"module": i["module"], "date": i["createdAt"], "mode": i.get("mode") or "exam",
+                         "testId": i["testId"], "band": float(band) if band is not None else None})
+        if i["module"] in ("reading", "listening") and i.get("mode") == "practice":
+            continue  # untimed practice would inflate the trend
+        if band is None:
             continue
         points.append({"module": i["module"], "date": i["createdAt"], "band": float(band), "testId": i["testId"],
                        "source": source})
     points.sort(key=lambda p: p["date"])
-    return points
+    activity.sort(key=lambda p: p["date"])
+    return points, activity
 
 
 class ProgressHandler(BaseHandler):
     async def get(self):
         profile = await self.require_profile()
-        points = await in_thread(progress_points, self.store, self.db, profile["id"])
-        self.send_json({"points": points})
+        points, activity = await in_thread(progress_points, self.store, self.db, profile["id"])
+        self.send_json({"points": points, "activity": activity})
 
 
 # --------------------------------------------------------------------------
@@ -468,16 +487,24 @@ class SpeakingStartHandler(BaseHandler):
                 raise ApiError(402, "This test is part of the monthly plan.", "plan_required")
         body = self.body_json()
         mode = body.get("mode")
+        notice = None
 
         def start():
+            nonlocal mode, notice
             if mode == "ai":
-                speaking_ai.check_can_start(self.db, profile["id"])
+                try:
+                    speaking_ai.check_can_start(self.db, profile["id"])
+                except speaking_ai.ReviewError as e:
+                    if not body.get("fallback"):
+                        raise
+                    # The test goes ahead without the AI's band (not configured, or today's limit reached).
+                    mode, notice = "exam", (str(e) if e.status == 429 else None)
             return speaking.start_submission(self.db, profile["id"], test, clean_name(body.get("candidateName")), mode)
         try:
             sub = await in_thread(start)
         except (speaking.SpeakingError, speaking_ai.ReviewError) as e:
             _raise(e)
-        self.send_json({"submissionId": sub["id"], "mode": sub.get("mode")})
+        self.send_json({"submissionId": sub["id"], "mode": sub.get("mode"), "notice": notice})
 
 
 @tornado.web.stream_request_body
