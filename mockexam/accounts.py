@@ -10,11 +10,15 @@ each module). Everything else needs the plan. Admins and examiners can open
 every test.
 """
 
+import concurrent.futures
 import datetime
+import logging
 import os
 import threading
 
 from .db import iso, now, parse_time
+
+log = logging.getLogger("mockexam.accounts")
 
 ADMIN_EMAILS = {e.strip().lower() for e in os.environ.get("ADMIN_EMAILS", "").split(",") if e.strip()}
 _plan_lock = threading.Lock()
@@ -34,18 +38,25 @@ def profile_role(profile):
     return (profile or {}).get("role") or "student"
 
 
-def upsert_profile(db, identity):
-    """Find or create the profile for a verified identity {id, email, name}."""
+_MISSING = object()
+
+
+def upsert_profile(db, identity, existing=_MISSING):
+    """
+    Find or create the profile for a verified identity {id, email, name}. `existing` is the
+    profile row found by email (or None) when the caller has already looked it up.
+    """
     email = identity["email"].lower()
-    rows = db.select("profiles", {"email": email}, limit=1)
+    rows = db.select("profiles", {"email": email}, limit=1) if existing is _MISSING else ([existing] if existing else [])
     stamp = iso(now())
     if rows:
-        profile = rows[0]
-        values = {"last_login_at": stamp}
+        profile = dict(rows[0])
         if identity.get("name") and not profile.get("name"):
-            values["name"] = identity["name"][:80]
-        updated = db.update("profiles", {"id": profile["id"]}, values)
-        profile = updated[0] if updated else profile
+            profile["name"] = identity["name"][:80]
+            db.update("profiles", {"id": profile["id"]}, {"last_login_at": stamp, "name": profile["name"]})
+        else:
+            # Nothing on a page shows the last sign-in, so it is written after the answer has gone.
+            _later(lambda: db.update("profiles", {"id": profile["id"]}, {"last_login_at": stamp}, invalidate=False))
     else:
         created = db.insert("profiles", {
             "id": identity["id"], "email": email, "name": (identity.get("name") or "")[:80] or None,
@@ -59,6 +70,19 @@ def upsert_profile(db, identity):
         db.update("profiles", {"id": profile["id"]}, {"role": role})
         profile["role"] = role
     return profile
+
+
+_BACKGROUND = concurrent.futures.ThreadPoolExecutor(max_workers=2, thread_name_prefix="accounts")
+
+
+def _later(job):
+    """Run a write nobody waits for; a failure is logged, never shown."""
+    def run():
+        try:
+            job()
+        except Exception:
+            log.exception("Background account write failed")
+    _BACKGROUND.submit(run)
 
 
 def get_profile(db, user_id):

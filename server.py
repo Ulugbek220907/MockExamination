@@ -27,6 +27,7 @@ Configuration is entirely through environment variables – see .env.example.
 
 import asyncio
 import collections
+import concurrent.futures
 import datetime
 import hashlib
 import hmac
@@ -816,6 +817,11 @@ def main():
         # The database is far away: keep a few connections open so no visitor waits for a handshake.
         pool.keep_warm(STORE.db.ping_request)
     loop = tornado.ioloop.IOLoop.current()
+    # Every database call waits a long round trip in a thread: allow many at once, so one
+    # visitor's slow request never queues behind another's (the default is only a handful).
+    asyncio.get_event_loop().set_default_executor(
+        concurrent.futures.ThreadPoolExecutor(max_workers=int(os.environ.get("WORKER_THREADS", "48")), thread_name_prefix="io"))
+    threading.Thread(target=AUTH.google_enabled, name="google-settings", daemon=True).start()  # warm it up
     loop.call_later(60, clean_up_recordings)
     tornado.ioloop.PeriodicCallback(clean_up_recordings, 6 * 3600 * 1000).start()
     loop.start()
