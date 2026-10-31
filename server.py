@@ -361,6 +361,19 @@ async def require_test_access(handler, test):
     return profile
 
 
+async def refuse_retake(handler, test, profile):
+    """Raises 409 already_taken when a free test was finished before and this visitor cannot retake tests."""
+    if accounts.test_access(test) != "free":
+        return
+    plan = await in_thread(PLAN_CACHE.get, STORE.db, profile["id"]) if profile else None
+    if accounts.retakes_allowed(profile, plan):
+        return
+    client_id = None if profile else clean_client_id(handler.get_query_argument("clientId", ""))
+    taken = await in_thread(accounts.already_taken, STORE.db, test, profile["id"] if profile else None, client_id)
+    if taken:
+        raise api.ApiError(409, "You have already taken this test. Each free test can be taken once.", "already_taken")
+
+
 # --------------------------------------------------------------------------
 # Handlers
 # --------------------------------------------------------------------------
@@ -408,7 +421,8 @@ class TestHandler(BaseHandler):
         test = cat.by_id.get(test_id)
         if not test:
             return self.send_error_json(404, "Test not found")
-        await require_test_access(self, test)
+        profile = await require_test_access(self, test)
+        await refuse_retake(self, test, profile)
         send_cached_json(self, cat.public_json(test))
 
 

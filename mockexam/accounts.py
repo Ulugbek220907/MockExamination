@@ -283,6 +283,29 @@ def test_access(test):
     return "soon" if access == "premium" and not commerce_enabled() else access
 
 
+# Without the pass, each free test can be taken once; admins, examiners and pass holders may retake any test.
+ATTEMPT_TABLES = {"reading": "reading_attempts", "listening": "listening_attempts",
+                  "writing": "writing_submissions", "speaking": "speaking_submissions"}
+
+
+def retakes_allowed(profile, plan):
+    return profile_role(profile) in ("admin", "examiner") or bool(plan and plan.get("active"))
+
+
+def already_taken(db, test, user_id=None, client_id=None):
+    """True if this user (or, signed out, this browser) has finished the test before."""
+    table = ATTEMPT_TABLES.get(test.get("module"))
+    if not table or not (user_id or client_id):
+        return False
+    if test["module"] == "speaking":  # recorded under the account only; a test left unfinished does not count
+        if not user_id:
+            return False
+        where = {"test_id": test["id"], "user_id": user_id, "status": "completed"}
+    else:
+        where = {"test_id": test["id"], **({"user_id": user_id} if user_id else {"client_id": client_id})}
+    return bool(db.select(table, where, limit=1))
+
+
 def can_open_test(test, profile, plan):
     access = test_access(test)
     if access == "free":

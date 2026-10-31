@@ -171,6 +171,7 @@
     const slot = document.getElementById("account-slot");
     if (!slot) return;
     const u = user();
+    document.body.classList.toggle("signed-in", Boolean(u)); // the header drops "About" for signed-in students
     if (!u) {
       slot.innerHTML = `<button type="button" class="nav-signin" data-action="signin">${t("Sign in")}</button>`;
       return;
@@ -335,7 +336,8 @@
     U.store.set(ME_KEY, state.me);
     renderAccountSlot();
     U.toast(t("You are signed out."));
-    location.hash = "#/";
+    if (location.hash === "#/" || !location.hash) window.app && window.app.renderIfHome();
+    else location.hash = "#/";
   }
 
   /* ================================================================ plan, paywall, checkout */

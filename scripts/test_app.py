@@ -21,6 +21,7 @@ import tempfile
 import time
 import types
 import unittest
+import uuid
 import urllib.error
 from unittest import mock
 
@@ -1525,19 +1526,53 @@ class SpeakingAiTests(AccountApiBase):
             self.assertEqual(self.wait_for_review(cookie, sub_id)["status"], "done")
             r, data = self.call("POST", f"/api/speaking/submissions/{sub_id}/ai-review", {}, cookie=cookie)
             self.assertEqual(r.code, 409)  # already rated
-            for _ in range(speaking_ai.PER_USER_PER_DAY - 1):
-                self.assertEqual(self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai"}, cookie=cookie)[0].code, 200)
-            r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai"}, cookie=cookie)
+            # The finished test cannot be taken again (free tests are taken once), so the rest use other free tests.
+            self.assertEqual(self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai"}, cookie=cookie)[1]["code"], "already_taken")
+            others = [x for x in SPEAKING if accounts.test_access(x) == "free" and x["id"] != t["id"]]
+            for other in others[:speaking_ai.PER_USER_PER_DAY - 1]:
+                self.assertEqual(self.call("POST", f"/api/speaking/{other['id']}/start", {"mode": "ai"}, cookie=cookie)[0].code, 200)
+            last = others[speaking_ai.PER_USER_PER_DAY - 1]
+            r, data = self.call("POST", f"/api/speaking/{last['id']}/start", {"mode": "ai"}, cookie=cookie)
             self.assertEqual(r.code, 429)
             # Without the AI examiner the test can still be taken.
-            self.assertEqual(self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "exam"}, cookie=cookie)[0].code, 200)
+            self.assertEqual(self.call("POST", f"/api/speaking/{last['id']}/start", {"mode": "exam"}, cookie=cookie)[0].code, 200)
             # The Start button asks for the AI with a fallback: over the limit the test still starts, without a band.
-            r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai", "fallback": True}, cookie=cookie)
+            r, data = self.call("POST", f"/api/speaking/{last['id']}/start", {"mode": "ai", "fallback": True}, cookie=cookie)
             self.assertEqual((r.code, data["mode"]), (200, "exam"))
             self.assertIn("without a band", data["notice"])
         # No key at all: the fallback is silent.
-        r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai", "fallback": True}, cookie=cookie)
+        r, data = self.call("POST", f"/api/speaking/{last['id']}/start", {"mode": "ai", "fallback": True}, cookie=cookie)
         self.assertEqual((r.code, data["mode"], data["notice"]), (200, "exam", None))
+
+
+class FreeRetakeTests(AccountApiBase):
+    """Without the pass, each free test can be taken once; admins (and pass holders) may take it again."""
+
+    def submit(self, test, cookie=None, client_id=None):
+        body = {"answers": perfect_answers(test), "candidateName": "T", "timeSpentSeconds": 60, "mode": "exam"}
+        if client_id:
+            body["clientId"] = client_id
+        r, data = self.call("POST", f"/api/{test['module']}/{test['id']}/submit", body, cookie=cookie)
+        self.assertEqual(r.code, 200, data)
+
+    def test_signed_out_browser_takes_a_free_test_once(self):
+        t, me, other = READING[1], str(uuid.uuid4()), str(uuid.uuid4())
+        self.assertEqual(self.call("GET", f"/api/tests/{t['id']}?clientId={me}")[0].code, 200)
+        self.submit(t, client_id=me)
+        r, data = self.call("GET", f"/api/tests/{t['id']}?clientId={me}")
+        self.assertEqual((r.code, data["code"]), (409, "already_taken"))
+        self.assertEqual(self.call("GET", f"/api/tests/{t['id']}?clientId={other}")[0].code, 200)
+        self.assertEqual(self.call("GET", f"/api/tests/{READING[2]['id']}?clientId={me}")[0].code, 200)
+
+    def test_signed_in_student_takes_a_free_test_once_and_admin_retakes(self):
+        t = LISTENING[1]
+        cookie, _ = self.login("once@example.com")
+        self.submit(t, cookie=cookie)
+        r, data = self.call("GET", f"/api/tests/{t['id']}", cookie=cookie)
+        self.assertEqual((r.code, data["code"]), (409, "already_taken"))
+        owner, _ = self.login("owner@example.com")
+        self.submit(t, cookie=owner)
+        self.assertEqual(self.call("GET", f"/api/tests/{t['id']}", cookie=owner)[0].code, 200)
 
 
 class NotificationTests(AccountApiBase):

@@ -26,6 +26,7 @@
   const MODULES = ["listening", "reading", "writing", "speaking"];
 
   const ICON_BACK = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H4M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const ICON_CHECK = `<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const ICON_LOCK = `<svg width="10" height="11" viewBox="0 0 10 11" aria-hidden="true"><path fill="currentColor" d="M8 4.5V3.4a3 3 0 0 0-6 0v1.1H1v6h8v-6H8zM3.4 3.4a1.6 1.6 0 0 1 3.2 0v1.1H3.4V3.4z"/></svg>`;
 
   class App {
@@ -67,7 +68,7 @@
         // Only tests this visitor can open: a locked one would just be refused (401/402).
         const testId = target.dataset.test;
         const test = testId && this.tests.find((x) => x.id === testId);
-        if (test && this.canOpen(test)) U.api(`/api/tests/${encodeURIComponent(testId)}`).catch(() => {});
+        if (test && this.canOpen(test) && !this.usedUp(test)) U.api(this.testUrl(testId)).catch(() => {});
       };
       this.main.addEventListener("pointerover", onIntent, { passive: true });
       this.main.addEventListener("focusin", onIntent, { passive: true });
@@ -256,6 +257,7 @@
     /* Home: what TestDay is, the four modules, three numbers ------------------------ */
     renderHome() {
       document.title = `${this.config.siteName} – ${t("title.home")}`;
+      if (Account.user()) return this.renderDashboard();
       this.main.innerHTML = `
         <div class="home">
           <h1 class="home-title">${t("home.title")}</h1>
@@ -273,6 +275,73 @@
       this.renderFacts();
       this.loadHistory();
       this.loadPrices();
+    }
+
+    /* Home for a signed-in student: their goal, each module's next test, recent results ---- */
+    renderDashboard() {
+      const u = Account.user();
+      const hour = new Date().getHours();
+      const hello = hour < 12 ? t("Good morning") : hour < 18 ? t("Good afternoon") : t("Good evening");
+      this.main.innerHTML = `
+        <div class="dash">
+          <div class="dash-head">
+            <div>
+              <p class="dash-greet">${hello}</p>
+              <h1 class="dash-title">${esc(u.name || u.email.split("@")[0])}</h1>
+            </div>
+            <a class="btn-secondary" href="#/account">${t("Your progress")}</a>
+          </div>
+          <div class="home-notice" id="home-account-notes">${this.accountNotesHTML()}</div>
+          ${this.loadError ? `<div class="notice notice-warn">${t("Could not load the tests. Please refresh the page.")}</div>` : ""}
+          <h2 class="sr-only">${t("Tests")}</h2>
+          <ul class="dash-modules" id="dash-modules"></ul>
+          <section id="history-section" aria-label="${esc(t("Your recent tests"))}" hidden></section>
+        </div>`;
+      this.renderDashModules();
+      this.loadHistory();
+    }
+
+    /** A card per module: the last band, how many tests are taken, and the next one to start. */
+    renderDashModules() {
+      const list = document.getElementById("dash-modules");
+      if (!list) return;
+      const commerce = this.commerce();
+      list.innerHTML = MODULES.map((module) => {
+        const tests = this.testsOf(module);
+        if (!tests.length) return "";
+        const open = tests.filter((x) => this.canOpen(x));
+        const taken = open.filter((x) => this.ridden[x.id]).length;
+        const last = (this.history || []).find((i) => i.module === module && (i.bandScore != null || i.aiBand != null));
+        const lastBand = last ? (last.bandScore != null ? last.bandScore : last.aiBand) : null;
+        const label = MODULE_LABELS[module];
+        const next = this.nextToStart(module);
+        const pct = open.length ? Math.round((taken / open.length) * 100) : 0;
+        const counted = commerce && open.some((x) => x.access !== "free")
+          ? t("{n} of {total} tests taken", { n: taken, total: open.length })
+          : t("{n} of {total} free tests taken", { n: taken, total: open.length });
+        const action = next
+          ? `<button type="button" class="btn-primary" data-action="start" data-test="${esc(next.id)}" data-mode="exam"
+              aria-label="${esc(t("Start {name}", { name: `${label}, ${this.testName(next)}` }))}">${t("Start {name}", { name: esc(this.testName(next)) })}</button>`
+          : "";
+        const doneNote = next ? "" : `<p class="dash-done">${this.canRetake(open[0] || { access: "free" })
+          ? t("You have taken every test here.") : t("You have taken every free test here. More are coming soon.")}</p>`;
+        return `
+          <li class="dash-card">
+            <div class="dash-card-top">
+              <h3 class="dash-name"><a href="#/tests/${module}">${label}</a></h3>
+              ${lastBand != null ? `<p class="dash-band"><span>${t("Last band")}</span><strong>${esc(IeltsScoring.formatBand(lastBand))}</strong></p>` : ""}
+            </div>
+            <p class="dash-fmt">${esc(this.formatOf(module))}</p>
+            <div class="dash-meter" role="img" aria-label="${esc(counted)}"><span style="width:${pct}%"></span></div>
+            <p class="dash-count">${esc(counted)}</p>
+            ${doneNote}
+            <div class="dash-act">
+              ${action}
+              <a class="btn-secondary" href="#/tests/${module}">${t("All tests")}</a>
+            </div>
+            ${module === "reading" && this.testsOf("reading").length ? `<a class="dash-extra" href="#/practice" data-track="home_practice">${t("Practise one question type")}</a>` : ""}
+          </li>`;
+      }).join("");
     }
 
     /** For a signed-in student: the pass-ending notice and their goal (or an invitation to set one). */
@@ -383,6 +452,20 @@
       return t.access === "premium" && Account.planActive();
     }
 
+    /** Without the pass, each free test can be taken once (the server says the same). */
+    canRetake(t) {
+      return t.access !== "free" || Account.planActive() || ["admin", "examiner"].includes(Account.role());
+    }
+
+    /** A free test this visitor has finished and may not take again. */
+    usedUp(t) {
+      return Boolean(this.ridden[t.id]) && !this.canRetake(t);
+    }
+
+    testUrl(testId) {
+      return `/api/tests/${encodeURIComponent(testId)}${Account.user() ? "" : `?clientId=${encodeURIComponent(U.clientId())}`}`;
+    }
+
     testsOf(module) {
       return this.tests.filter((x) => x.module === module).sort((a, b) => (a.sortOrder - b.sortOrder) || a.id.localeCompare(b.id));
     }
@@ -423,6 +506,9 @@
       if (facts.soon) return "";
       if (facts.locked) {
         return `<button type="button" class="btn-link" data-action="buy-plan" aria-label="${esc(t("Get the pass to open {name}", { name }))}">${t("Get the pass")}</button>`;
+      }
+      if (this.usedUp(test)) {
+        return `<span class="test-taken">${ICON_CHECK} ${t("Taken")}</span>`;
       }
       const start = facts.ride ? t("Take it again") : test.access === "free" ? t("Start free") : t("Start");
       return `
@@ -539,6 +625,7 @@
       this.ridden = ridden;
       U.store.set("testday:ridden", ridden);
       if (changed && document.getElementById("ledger")) this.renderLedger();
+      if (document.getElementById("dash-modules")) this.renderDashModules();
       if (changed && document.getElementById("catalog-grid")) this.renderCatalogGrid();
       this.renderHistory(items);
     }
@@ -658,7 +745,7 @@
         if (button) { button.classList.remove("is-busy"); button.removeAttribute("aria-busy"); }
       };
       try {
-        const [test] = await Promise.all([U.api(`/api/tests/${encodeURIComponent(testId)}`), U.need("exam")]);
+        const [test] = await Promise.all([U.api(this.testUrl(testId)), U.need("exam")]);
         // A timed Speaking test is always with the examiner bot ("ai" in older links means the same).
         this.pending = { test, mode: mode === "practice" ? "practice" : "exam" };
         if (location.hash === "#/start") this.showVerification();
@@ -686,11 +773,24 @@
           U.modal({ title: t("Coming soon…"), bodyHTML: `<p>${t("This test is not open yet. Try one of the free tests in the meantime.")}</p>` });
           return;
         }
+        if (err.status === 409) return this.showUsedUp(testId);
         if (err.loadFailed) return; // U.need has already said so
         // A server answer carries its own message; with no answer at all it is the connection.
         const why = err.status ? err.message : t("Could not load this page. Check your connection and try again.");
         U.modal({ title: t("Could not load the test"), bodyHTML: `<p>${esc(why)}</p>` });
       }
+    }
+
+    showUsedUp(testId) {
+      const test = this.tests.find((x) => x.id === testId);
+      const next = test ? this.nextToStart(test.module) : null;
+      this.ridden[testId] = this.ridden[testId] || { band: null, module: test && test.module };
+      U.modal({
+        title: t("You have taken this test"),
+        bodyHTML: `<p>${t("Each free test can be taken once.")} ${next ? t("Try {name} next.", { name: esc(this.testName(next)) })
+          : this.commerce() ? t("Get the pass to take every test as often as you like.") : t("More tests are coming soon.")}</p>`,
+      });
+      this.renderIfHome();
     }
 
     /** Redraw the page if it shows tests (after sign-in, a payment or fresh data). */
@@ -920,6 +1020,7 @@
         commerce: this.commerce(),
         next: this.nextStopHTML(r.module, r.testId, r.typeBreakdown),
         checkPrice: this.prices && this.prices.writing_check ? U.money(this.prices.writing_check) : "",
+        canRetake: this.canRetake(this.tests.find((x) => x.id === r.testId) || { access: "free" }),
       };
       if (r.module === "writing") Results.renderWriting(r, this.main, extra);
       else if (r.module === "listening") Results.renderListening(r, this.main, extra);

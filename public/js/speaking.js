@@ -948,6 +948,12 @@
       </section>`;
   }
 
+  /** Free tests are taken once without the pass (the server refuses a second start). */
+  function canRetake(testId) {
+    const test = window.app && (window.app.tests || []).find((x) => x.id === testId);
+    return !test || window.app.canRetake(test);
+  }
+
   function selfCheckHTML() {
     return `
       <section class="speak-selfcheck">
@@ -1007,7 +1013,7 @@
                 ${sub.timeSpentSeconds ? ` · ${esc(U.formatDuration(sub.timeSpentSeconds))}` : ""}${sub.mode === "practice" ? ` · ${tr("practice")}` : sub.mode === "ai" ? ` · ${tr("with the AI examiner")}` : ""}</p>
             </div>
           </div>
-          <div class="results-actions"><button type="button" class="btn-secondary" data-action="start" data-test="${esc(sub.testId)}" data-mode="${["practice", "ai"].includes(sub.mode) ? sub.mode : "exam"}">${tr("Take it again")}</button></div>
+          ${canRetake(sub.testId) ? `<div class="results-actions"><button type="button" class="btn-secondary" data-action="start" data-test="${esc(sub.testId)}" data-mode="${["practice", "ai"].includes(sub.mode) ? sub.mode : "exam"}">${tr("Take it again")}</button></div>` : ""}
         </div>
         ${sub.status !== "completed" ? `<div class="notice notice-warn"><strong>${tr("This test was not finished.")}</strong><span>${tr("You can listen to the answers you recorded.")}</span></div>` : ""}
         <div id="ai-review"></div>
