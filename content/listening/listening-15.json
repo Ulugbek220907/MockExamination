@@ -1,0 +1,1213 @@
+{
+  "id": "listening-15",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 15",
+  "shortTitle": "Practice Test 15",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 15,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "tony": {
+      "name": "Tony",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "anna": {
+      "name": "Anna",
+      "voice": "af_river",
+      "lang": "en-us"
+    },
+    "helen": {
+      "name": "Helen",
+      "voice": "af_kore",
+      "lang": "en-us"
+    },
+    "kim": {
+      "name": "Kim",
+      "voice": "af_sky",
+      "lang": "en-us"
+    },
+    "reed": {
+      "name": "Dr Reed",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Moving house",
+      "context": "A woman phones a removals company for a quote.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman phoning a removals company to ask for a quote. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.39
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.39,
+          "end": 38.46
+        },
+        {
+          "speaker": "tony",
+          "text": "Morning, Swift Removals, Tony speaking.",
+          "start": 39.36,
+          "end": 42.13
+        },
+        {
+          "speaker": "anna",
+          "text": "Hello. I'm moving house next month and I'd like a quote, please. At the moment I live in a flat.",
+          "start": 42.63,
+          "end": 47.73
+        },
+        {
+          "speaker": "tony",
+          "text": "Right, a flat. Let me take some details.",
+          "start": 48.23,
+          "end": 51.04
+        },
+        {
+          "speaker": "narrator",
+          "text": "The woman lives in a flat, so 'flat' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 51.94,
+          "end": 66.51
+        },
+        {
+          "speaker": "tony",
+          "text": "Can I have your name, please?",
+          "start": 67.41,
+          "end": 68.95
+        },
+        {
+          "speaker": "anna",
+          "text": "Anna Whitfield. That's W-H-I-T-F-I-E-L-D.",
+          "start": 69.45,
+          "end": 76.88
+        },
+        {
+          "speaker": "tony",
+          "text": "Thanks, Anna. And where are you moving to?",
+          "start": 77.38,
+          "end": 79.83
+        },
+        {
+          "speaker": "anna",
+          "text": "My company wanted me to transfer to the York office, but in the end they agreed to Leeds, which is where my family is. So it's Leeds.",
+          "start": 80.33,
+          "end": 86.92
+        },
+        {
+          "speaker": "tony",
+          "text": "Leeds. And how big is the new place?",
+          "start": 87.42,
+          "end": 89.77
+        },
+        {
+          "speaker": "anna",
+          "text": "The flat I'm in now has two bedrooms, and the new house has three. So I'll have a lot more space.",
+          "start": 90.27,
+          "end": 95.13
+        },
+        {
+          "speaker": "tony",
+          "text": "Lucky you. Are there any very large or heavy items we should know about?",
+          "start": 95.63,
+          "end": 100.16
+        },
+        {
+          "speaker": "anna",
+          "text": "Well, there's a sofa. I did have a piano, but I've sold it. The real problem is an old oak bookcase that my grandfather made. It's enormous and very heavy, and I don't want it damaged.",
+          "start": 100.66,
+          "end": 110.06
+        },
+        {
+          "speaker": "tony",
+          "text": "We'll wrap it properly, don't worry. Is there anything about the new house that could make it difficult for us? Steps, parking, that kind of thing?",
+          "start": 110.56,
+          "end": 118.88
+        },
+        {
+          "speaker": "anna",
+          "text": "There's plenty of parking, but the lane leading up to the house is very narrow. I'm not sure a large lorry would get through.",
+          "start": 119.38,
+          "end": 125.29
+        },
+        {
+          "speaker": "tony",
+          "text": "In that case we'll send two smaller vans instead. Thanks for telling me.",
+          "start": 125.79,
+          "end": 130.29
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 131.19,
+          "end": 136.91
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 156.91,
+          "end": 160.24
+        },
+        {
+          "speaker": "tony",
+          "text": "Would you like us to do the packing for you?",
+          "start": 161.14,
+          "end": 163.44
+        },
+        {
+          "speaker": "anna",
+          "text": "I'll pack my books and clothes myself. But could you pack the kitchen? There are a lot of glasses and plates, and I always break something.",
+          "start": 163.94,
+          "end": 170.66
+        },
+        {
+          "speaker": "tony",
+          "text": "Of course, that's very common. Do you need any storage? Sometimes people can't move in straight away.",
+          "start": 171.16,
+          "end": 177.18
+        },
+        {
+          "speaker": "anna",
+          "text": "Actually, yes. The new house won't be ready for a while, so I'll need storage for about two weeks. No, wait, the builders said three weeks to be safe. Let's say three.",
+          "start": 177.68,
+          "end": 185.89
+        },
+        {
+          "speaker": "tony",
+          "text": "Three weeks. Fine. Now, before we can give you an exact price, someone has to come and look at your flat. Could we do that on Wednesday?",
+          "start": 186.39,
+          "end": 194.93
+        },
+        {
+          "speaker": "anna",
+          "text": "I'm working all day Wednesday. Thursday would be better.",
+          "start": 195.43,
+          "end": 198.58
+        },
+        {
+          "speaker": "tony",
+          "text": "Thursday's fine. Morning or afternoon?",
+          "start": 199.08,
+          "end": 201.9
+        },
+        {
+          "speaker": "anna",
+          "text": "Mornings are difficult, because I start early. Could it be in the afternoon, after two?",
+          "start": 202.4,
+          "end": 206.82
+        },
+        {
+          "speaker": "tony",
+          "text": "No problem, I'll put you down for Thursday afternoon. And then we'll send you the quote. Most people like it by email.",
+          "start": 207.32,
+          "end": 214.63
+        },
+        {
+          "speaker": "anna",
+          "text": "Normally I would, but my laptop's broken at the moment, so could you send it by post?",
+          "start": 215.13,
+          "end": 219.61
+        },
+        {
+          "speaker": "tony",
+          "text": "Of course. It'll be with you by the end of next week.",
+          "start": 220.11,
+          "end": 223.25
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 224.15,
+          "end": 228.67
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Swift Removals – quote request",
+          "content": [
+            "Example: Present home: **flat**",
+            "## Customer details",
+            "• Name: Anna {{1}}",
+            "• Moving to: {{2}}",
+            "• Number of bedrooms in new house: {{3}}",
+            "• Heavy item: an oak {{4}}",
+            "• Problem: a narrow {{5}} to the new house",
+            "## Services",
+            "• Company to pack the {{6}}",
+            "• Storage needed for {{7}} weeks",
+            "## Next steps",
+            "• Survey visit: {{8}}",
+            "• Time: in the {{9}}",
+            "• Quote to be sent by {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Whitfield"
+              ],
+              "explanation": "She spells her surname: ‘W-H-I-T-F-I-E-L-D’.",
+              "cue": "W-H-I-T-F-I-E-L-D"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Leeds"
+              ],
+              "explanation": "Her company wanted York, ‘but in the end they agreed to Leeds’.",
+              "cue": "So it's Leeds"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "Her flat has two bedrooms; ‘the new house has three’.",
+              "cue": "the new house has three"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "bookcase"
+              ],
+              "explanation": "The piano has been sold; ‘the real problem is an old oak bookcase’.",
+              "cue": "an old oak bookcase"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "lane"
+              ],
+              "explanation": "‘The lane leading up to the house is very narrow.’",
+              "cue": "the lane leading up to the house is very narrow"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "kitchen"
+              ],
+              "explanation": "She will pack books and clothes herself: ‘could you pack the kitchen?’",
+              "cue": "could you pack the kitchen"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "She first says two weeks, then: ‘the builders said three weeks to be safe’.",
+              "cue": "the builders said three weeks"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "Thursday"
+              ],
+              "explanation": "She is working on Wednesday: ‘Thursday would be better.’",
+              "cue": "Thursday would be better"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "afternoon"
+              ],
+              "explanation": "Mornings are difficult: ‘Could it be in the afternoon, after two?’",
+              "cue": "Could it be in the afternoon"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "post"
+              ],
+              "explanation": "Her laptop is broken, ‘so could you send it by post?’",
+              "cue": "could you send it by post"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-15/part1.mp3",
+        "duration": 259.47
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A science museum",
+      "context": "A guide welcomes a group of visitors to a science museum.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a guide welcoming a group of visitors to a science museum. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.22
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.22,
+          "end": 39.49
+        },
+        {
+          "speaker": "helen",
+          "text": "Hi, everyone, and welcome to the Discovery Science Museum. My name's Helen, and I'm going to give you a quick introduction before you explore on your own.",
+          "start": 40.39,
+          "end": 50.27
+        },
+        {
+          "speaker": "helen",
+          "text": "The museum opened in nineteen sixty-two in an old railway station, which is why the main hall has that wonderful glass roof. It was rebuilt ten years ago, and since then the number of visitors has more than doubled, mainly because almost everything is now hands-on. Our aim is that you learn by doing, not just by reading labels.",
+          "start": 50.62,
+          "end": 69.11
+        },
+        {
+          "speaker": "helen",
+          "text": "Entry to the main galleries is free, as you know. The only things you pay for are the planetarium shows, which cost four dollars. You can buy tickets at the information desk, but they often sell out by lunchtime, so I'd buy them now rather than later.",
+          "start": 69.46,
+          "end": 85.14
+        },
+        {
+          "speaker": "helen",
+          "text": "If you've brought your own food, you're welcome to eat it in the picnic room on the ground floor. Please don't eat in the galleries, though. The café on the top floor has great views, but it's quite small, and it gets very busy between twelve and two.",
+          "start": 85.49,
+          "end": 99.51
+        },
+        {
+          "speaker": "helen",
+          "text": "We also lend out a few things that you might find useful. Strollers can be borrowed free of charge from the cloakroom, and so can wheelchairs. We used to lend audio guides too, but they've been replaced by a free app, which you can download using the museum's wi-fi.",
+          "start": 99.86,
+          "end": 115.54
+        },
+        {
+          "speaker": "helen",
+          "text": "And one last thing: the museum closes at five, but the galleries start to close at a quarter to, so please make your way to the exit in good time.",
+          "start": 115.89,
+          "end": 124.91
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 125.81,
+          "end": 131.53
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 151.53,
+          "end": 155.41
+        },
+        {
+          "speaker": "helen",
+          "text": "Now, let me tell you a little about our three main galleries. On the first floor is the Space gallery. Everyone's favourite there is the moon-landing simulator, but it's popular, so expect a queue. The Space gallery is also where you'll find our new temporary exhibition, on the search for water on Mars. It's only here until the end of the month.",
+          "start": 156.31,
+          "end": 174.76
+        },
+        {
+          "speaker": "helen",
+          "text": "The Human Body gallery is on the second floor. It has a giant model of a heart that you can walk through, and lots of objects you're actually allowed to handle, including real bones and a human brain preserved in plastic. Don't worry, it's quite safe to touch.",
+          "start": 175.11,
+          "end": 190.43
+        },
+        {
+          "speaker": "helen",
+          "text": "The Energy gallery is next to it, on the same floor. There's a live science show there every hour, on the hour, where our staff do experiments with electricity. They're very noisy and very popular.",
+          "start": 190.78,
+          "end": 203.11
+        },
+        {
+          "speaker": "helen",
+          "text": "If you have small children, the Energy gallery also has a special section for under-fives, with water play and building blocks. It's the only gallery that has one, so it gets busy.",
+          "start": 203.46,
+          "end": 214.83
+        },
+        {
+          "speaker": "helen",
+          "text": "And finally, the Human Body gallery has just installed a new interactive game, where you race against the clock to deliver oxygen around the body. We'd love to know what you think of it, so there's a short feedback form beside it. Enjoy your visit.",
+          "start": 215.18,
+          "end": 230.29
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 231.19,
+          "end": 235.52
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "According to Helen, why have visitor numbers increased?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The building has a famous glass roof."
+                },
+                {
+                  "key": "B",
+                  "text": "Most exhibits are now hands-on."
+                },
+                {
+                  "key": "C",
+                  "text": "Entry to the museum became free."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Since the rebuild, visitor numbers have more than doubled, ‘mainly because almost everything is now hands-on’.",
+              "cue": "mainly because almost everything is now hands-on"
+            },
+            {
+              "number": 12,
+              "prompt": "What does Helen advise visitors to do about planetarium tickets?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "buy them straight away"
+                },
+                {
+                  "key": "B",
+                  "text": "buy them online"
+                },
+                {
+                  "key": "C",
+                  "text": "buy them after lunch"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Planetarium tickets ‘often sell out by lunchtime, so I'd buy them now’.",
+              "cue": "I'd buy them now rather than later"
+            },
+            {
+              "number": 13,
+              "prompt": "Where can visitors eat their own food?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in the galleries"
+                },
+                {
+                  "key": "B",
+                  "text": "in the café"
+                },
+                {
+                  "key": "C",
+                  "text": "in the picnic room"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Visitors may eat their own food ‘in the picnic room on the ground floor’, not in the galleries.",
+              "cue": "eat it in the picnic room on the ground floor"
+            },
+            {
+              "number": 14,
+              "prompt": "What is no longer lent out to visitors?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "strollers"
+                },
+                {
+                  "key": "B",
+                  "text": "audio guides"
+                },
+                {
+                  "key": "C",
+                  "text": "wheelchairs"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Audio guides ‘have been replaced by a free app’; strollers and wheelchairs are still lent out.",
+              "cue": "they've been replaced by a free app"
+            },
+            {
+              "number": 15,
+              "prompt": "When do the galleries begin to close?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at 4.45"
+                },
+                {
+                  "key": "B",
+                  "text": "at 5.00"
+                },
+                {
+                  "key": "C",
+                  "text": "at 5.15"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The museum closes at five, ‘but the galleries start to close at a quarter to’.",
+              "cue": "the galleries start to close at a quarter to"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Which gallery has each of the following? Choose the correct letter, **A, B or C**, next to Questions 16–20. You may choose any letter more than once.",
+          "optionsTitle": "Galleries",
+          "options": [
+            {
+              "key": "A",
+              "text": "the Space gallery"
+            },
+            {
+              "key": "B",
+              "text": "the Human Body gallery"
+            },
+            {
+              "key": "C",
+              "text": "the Energy gallery"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "a temporary exhibition",
+              "answer": "A",
+              "explanation": "‘The Space gallery is also where you'll find our new temporary exhibition.’",
+              "cue": "where you'll find our new temporary exhibition"
+            },
+            {
+              "number": 17,
+              "prompt": "objects that visitors can touch",
+              "answer": "B",
+              "explanation": "The Human Body gallery has ‘lots of objects you're actually allowed to handle’.",
+              "cue": "lots of objects you're actually allowed to handle"
+            },
+            {
+              "number": 18,
+              "prompt": "a show every hour",
+              "answer": "C",
+              "explanation": "In the Energy gallery, ‘there's a live science show there every hour’.",
+              "cue": "There's a live science show there every hour"
+            },
+            {
+              "number": 19,
+              "prompt": "an area for young children",
+              "answer": "C",
+              "explanation": "‘The Energy gallery also has a special section for under-fives.’",
+              "cue": "a special section for under-fives"
+            },
+            {
+              "number": 20,
+              "prompt": "a new game",
+              "answer": "B",
+              "explanation": "‘The Human Body gallery has just installed a new interactive game.’",
+              "cue": "has just installed a new interactive game"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-15/part2.mp3",
+        "duration": 266.32
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A dissertation on language apps",
+      "context": "A student discusses her dissertation on language-learning apps with her tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear a student, Kim, discussing her dissertation on language-learning apps with her tutor, Dr Reed. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.95
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.95,
+          "end": 42.67
+        },
+        {
+          "speaker": "reed",
+          "text": "Hi Kim, come in. How's the dissertation going?",
+          "start": 43.57,
+          "end": 46.92
+        },
+        {
+          "speaker": "kim",
+          "text": "Better than last time, I think. I've narrowed down my research question, like you suggested. I'm now looking only at adult beginners learning Spanish with apps.",
+          "start": 47.42,
+          "end": 56.55
+        },
+        {
+          "speaker": "reed",
+          "text": "Good. Why adult beginners in particular?",
+          "start": 57.05,
+          "end": 59.56
+        },
+        {
+          "speaker": "kim",
+          "text": "Partly because there's less research on adults than on schoolchildren. But mainly because when I looked at the app companies' own data, adult beginners were the group most likely to give up in the first month. I wanted to know why.",
+          "start": 60.06,
+          "end": 72.95
+        },
+        {
+          "speaker": "reed",
+          "text": "That's a strong reason. And how are you collecting your data?",
+          "start": 73.45,
+          "end": 76.97
+        },
+        {
+          "speaker": "kim",
+          "text": "I'd planned to do a big online survey, but I realised it wouldn't tell me why people give up. So instead I'm following twelve learners for eight weeks. They keep a short learning diary, and I interview them every fortnight.",
+          "start": 77.47,
+          "end": 89.69
+        },
+        {
+          "speaker": "reed",
+          "text": "Twelve is a small sample, but for this kind of study it's fine, as long as you explain that in your methodology. Now, I read your literature review. It's well organised, but it's mostly a list of what each study found. I'd like to see you comparing the studies and pointing out where they disagree.",
+          "start": 90.19,
+          "end": 108.97
+        },
+        {
+          "speaker": "kim",
+          "text": "OK, I'll work on that. I've had one practical problem too. Two of my learners have already dropped out of the study.",
+          "start": 109.47,
+          "end": 116.02
+        },
+        {
+          "speaker": "reed",
+          "text": "That happens. In fact, it's data in itself. Could you ask them why they stopped?",
+          "start": 116.52,
+          "end": 121.7
+        },
+        {
+          "speaker": "kim",
+          "text": "I hadn't thought of that. One of them said it was because of work, but I could ask them both for a short interview.",
+          "start": 122.2,
+          "end": 128.02
+        },
+        {
+          "speaker": "reed",
+          "text": "Do that. It might turn out to be the most interesting part of the whole project.",
+          "start": 128.52,
+          "end": 133.03
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 133.93,
+          "end": 140.07
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 160.07,
+          "end": 163.91
+        },
+        {
+          "speaker": "reed",
+          "text": "What have your learners said so far about the different features of the apps?",
+          "start": 164.81,
+          "end": 168.91
+        },
+        {
+          "speaker": "kim",
+          "text": "Quite a lot. The daily streak, where the app counts how many days in a row you've practised, came up in nearly every diary. People say it really keeps them going. One woman said she practised on her wedding day just so she didn't lose her streak.",
+          "start": 169.41,
+          "end": 182.44
+        },
+        {
+          "speaker": "reed",
+          "text": "And the speech recognition?",
+          "start": 182.94,
+          "end": 184.73
+        },
+        {
+          "speaker": "kim",
+          "text": "That was the biggest complaint. Several learners said the app accepted their pronunciation when it was obviously wrong, and then rejected it when it was fine. So they stopped trusting it.",
+          "start": 185.23,
+          "end": 195.43
+        },
+        {
+          "speaker": "reed",
+          "text": "What about the leaderboards, where you compete with other learners?",
+          "start": 195.93,
+          "end": 199.39
+        },
+        {
+          "speaker": "kim",
+          "text": "Interestingly, most of my learners said they made them feel nervous, especially when they dropped down the table. A couple of people switched them off completely.",
+          "start": 199.89,
+          "end": 208.23
+        },
+        {
+          "speaker": "reed",
+          "text": "And the new chat feature, where you talk to an artificial partner?",
+          "start": 208.73,
+          "end": 212.48
+        },
+        {
+          "speaker": "kim",
+          "text": "Hardly anyone has used it. It's hidden in a menu, and most people didn't even know it existed.",
+          "start": 212.98,
+          "end": 218.46
+        },
+        {
+          "speaker": "reed",
+          "text": "And finally, the flashcards.",
+          "start": 218.96,
+          "end": 220.91
+        },
+        {
+          "speaker": "kim",
+          "text": "Everyone agreed that the flashcard reviews were the best way to remember new words. Several said they'd learned more vocabulary that way than in any course they'd done before.",
+          "start": 221.41,
+          "end": 231.26
+        },
+        {
+          "speaker": "reed",
+          "text": "Very interesting. Write all that up, and send me a draft of the findings chapter next month.",
+          "start": 231.76,
+          "end": 237.41
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 238.31,
+          "end": 242.77
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did Kim decide to focus on adult beginners?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There are more of them than younger learners."
+                },
+                {
+                  "key": "B",
+                  "text": "Her tutor recommended it."
+                },
+                {
+                  "key": "C",
+                  "text": "They are the most likely to stop using the apps."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Less research on adults is a minor reason; ‘mainly because … adult beginners were the group most likely to give up in the first month’.",
+              "cue": "adult beginners were the group most likely to give up"
+            },
+            {
+              "number": 22,
+              "prompt": "How is Kim collecting her data?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "with an online survey"
+                },
+                {
+                  "key": "B",
+                  "text": "by studying a small group over time"
+                },
+                {
+                  "key": "C",
+                  "text": "by analysing app company data"
+                }
+              ],
+              "answer": "B",
+              "explanation": "A survey would not explain why people give up, so ‘I'm following twelve learners for eight weeks’.",
+              "cue": "I'm following twelve learners for eight weeks"
+            },
+            {
+              "number": 23,
+              "prompt": "What does Dr Reed say about the size of Kim's sample?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is acceptable if she explains it."
+                },
+                {
+                  "key": "B",
+                  "text": "It should be increased."
+                },
+                {
+                  "key": "C",
+                  "text": "It is too small to be useful."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Twelve is small ‘but for this kind of study it's fine, as long as you explain that in your methodology’.",
+              "cue": "for this kind of study it's fine"
+            },
+            {
+              "number": 24,
+              "prompt": "How should Kim improve her literature review?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by including more recent studies"
+                },
+                {
+                  "key": "B",
+                  "text": "by organising it more clearly"
+                },
+                {
+                  "key": "C",
+                  "text": "by comparing the studies more"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The review is ‘mostly a list of what each study found. I'd like to see you comparing the studies’.",
+              "cue": "I'd like to see you comparing the studies"
+            },
+            {
+              "number": 25,
+              "prompt": "What will Kim do about the learners who dropped out?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "replace them with new learners"
+                },
+                {
+                  "key": "B",
+                  "text": "interview them"
+                },
+                {
+                  "key": "C",
+                  "text": "leave them out of her results"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Dr Reed suggests asking the learners who dropped out why they stopped, and Kim ‘could ask them both for a short interview’.",
+              "cue": "I could ask them both for a short interview"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What do Kim's learners say about each feature of the apps? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It helps learners keep practising."
+            },
+            {
+              "key": "B",
+              "text": "Its feedback is unreliable."
+            },
+            {
+              "key": "C",
+              "text": "It makes learners anxious."
+            },
+            {
+              "key": "D",
+              "text": "It is the most useful for vocabulary."
+            },
+            {
+              "key": "E",
+              "text": "It encourages guessing."
+            },
+            {
+              "key": "F",
+              "text": "It is rarely used."
+            },
+            {
+              "key": "G",
+              "text": "It is too expensive."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "daily streaks",
+              "answer": "A",
+              "explanation": "The streak ‘really keeps them going’.",
+              "cue": "People say it really keeps them going"
+            },
+            {
+              "number": 27,
+              "prompt": "speech recognition",
+              "answer": "B",
+              "explanation": "It accepted wrong pronunciation and rejected correct pronunciation, ‘so they stopped trusting it’.",
+              "cue": "So they stopped trusting it"
+            },
+            {
+              "number": 28,
+              "prompt": "leaderboards",
+              "answer": "C",
+              "explanation": "‘Most of my learners said they made them feel nervous.’",
+              "cue": "they made them feel nervous"
+            },
+            {
+              "number": 29,
+              "prompt": "the chat feature",
+              "answer": "F",
+              "explanation": "‘Hardly anyone has used it.’",
+              "cue": "Hardly anyone has used it"
+            },
+            {
+              "number": 30,
+              "prompt": "flashcards",
+              "answer": "D",
+              "explanation": "‘The flashcard reviews were the best way to remember new words.’",
+              "cue": "the best way to remember new words"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-15/part3.mp3",
+        "duration": 273.57
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: desert locusts",
+      "context": "A lecture on desert locusts, how swarms form and how they are controlled.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about desert locusts. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.62
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.62,
+          "end": 43.04
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Today I'm going to talk about one of the most destructive pests in the world: the desert locust. For most of the time, desert locusts are harmless. They live alone, scattered across the deserts of North Africa, the Middle East and South Asia, and they avoid each other.",
+          "start": 43.94,
+          "end": 57.27
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Everything changes after heavy rain. Rain makes plants grow in the desert, the locusts breed rapidly, and then, as the plants dry up, large numbers of them are forced together on the few green areas that remain. That's when something remarkable happens.",
+          "start": 57.62,
+          "end": 71.44
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Experiments have shown that the trigger is touch. When a locust is repeatedly bumped on its back legs by other locusts, its body produces more of a chemical called serotonin. Within a few hours, its behaviour changes completely. Instead of avoiding other locusts, it starts to seek them out, and over a few generations even its colour changes, from green to yellow and black.",
+          "start": 71.79,
+          "end": 91.14
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Once they gather, they form swarms that can contain billions of insects. A swarm can travel 150 kilometres in a single day, carried by the wind. And each locust eats roughly its own weight in fresh food every day, so a swarm can strip a farmer's fields in a few hours.",
+          "start": 91.49,
+          "end": 106.94
+        },
+        {
+          "speaker": "lecturer",
+          "text": "How do countries fight back? For decades, the main method has been spraying pesticides, from planes and from vehicles. This works, but the chemicals don't only kill locusts. They also harm bees and other insects, as well as birds that eat the poisoned locusts.",
+          "start": 107.29,
+          "end": 120.88
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So scientists have developed alternatives. The most promising is a natural fungus that kills only locusts and grasshoppers and is harmless to other wildlife. Its weakness is that it is slow: it takes about a week to work, so it's best used early, before swarms form.",
+          "start": 121.23,
+          "end": 135.67
+        },
+        {
+          "speaker": "lecturer",
+          "text": "That's why early warning is so important. Satellites now detect patches of green vegetation in the desert after rain, which show where locusts are likely to breed. And on the ground, farmers and survey teams report sightings using a phone app, which sends the location straight to national control centres.",
+          "start": 136.02,
+          "end": 152.28
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, some people are looking at locusts as a resource rather than just a problem. Locusts are rich in protein, and in some countries they're collected and dried to be used as animal feed, or even eaten by people. Of course, this can only ever be part of the solution, but it shows how our view of a pest can change.",
+          "start": 152.63,
+          "end": 169.76
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 170.66,
+          "end": 175.05
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 205.05,
+          "end": 207.76
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Desert locusts",
+          "content": [
+            "## How swarms form",
+            "• Usually live alone in the desert",
+            "• After heavy {{31}}, they are forced together on green areas",
+            "• Trigger: being touched on the back {{32}}",
+            "• A swarm can travel {{33}} km in a day",
+            "• Each locust eats its own {{34}} in food daily",
+            "## Control",
+            "• Main method: spraying {{35}}",
+            "• Problem: they also kill bees and other {{36}}",
+            "• Alternative: a natural {{37}} that kills only locusts and grasshoppers",
+            "• Satellites detect green {{38}} after rain",
+            "• Sightings reported through a phone {{39}}",
+            "• Locusts can be dried and used as animal {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "rain"
+              ],
+              "explanation": "‘Everything changes after heavy rain.’",
+              "cue": "Everything changes after heavy rain"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "legs"
+              ],
+              "explanation": "The trigger is a locust being ‘repeatedly bumped on its back legs’.",
+              "cue": "bumped on its back legs"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "150"
+              ],
+              "explanation": "‘A swarm can travel 150 kilometres in a single day.’",
+              "cue": "travel 150 kilometres in a single day"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "weight"
+              ],
+              "explanation": "‘Each locust eats roughly its own weight in fresh food every day.’",
+              "cue": "eats roughly its own weight"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "pesticides"
+              ],
+              "explanation": "‘The main method has been spraying pesticides.’",
+              "cue": "the main method has been spraying pesticides"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "insects"
+              ],
+              "explanation": "‘They also harm bees and other insects.’",
+              "cue": "They also harm bees and other insects"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "fungus"
+              ],
+              "explanation": "‘The most promising is a natural fungus that kills only locusts and grasshoppers.’",
+              "cue": "a natural fungus that kills only locusts"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "vegetation"
+              ],
+              "explanation": "‘Satellites now detect patches of green vegetation in the desert after rain.’",
+              "cue": "patches of green vegetation"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "app"
+              ],
+              "explanation": "‘Survey teams report sightings using a phone app.’",
+              "cue": "report sightings using a phone app"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "feed"
+              ],
+              "explanation": "Locusts are ‘collected and dried to be used as animal feed’.",
+              "cue": "used as animal feed"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-15/part4.mp3",
+        "duration": 208.56
+      }
+    }
+  ],
+  "durationMinutes": 17
+}

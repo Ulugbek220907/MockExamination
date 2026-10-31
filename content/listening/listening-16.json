@@ -1,0 +1,1181 @@
+{
+  "id": "listening-16",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 16",
+  "shortTitle": "Practice Test 16",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 16,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "lucy": {
+      "name": "Lucy",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "raj": {
+      "name": "Raj",
+      "voice": "am_echo",
+      "lang": "en-us"
+    },
+    "owens": {
+      "name": "Mr Owens",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "nadia": {
+      "name": "Nadia",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "tom": {
+      "name": "Tom",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Joining a bike-share scheme",
+      "context": "A man phones to register for a city bike-share scheme.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning to join a city bike-share scheme. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 8.83
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 28.83,
+          "end": 37.9
+        },
+        {
+          "speaker": "lucy",
+          "text": "City Bikes, Lucy speaking. How can I help you?",
+          "start": 38.8,
+          "end": 41.45
+        },
+        {
+          "speaker": "raj",
+          "text": "Hi, I'd like to sign up for the bike scheme. I was thinking of the annual membership, but I'm only here until the summer, so I'll go for monthly.",
+          "start": 41.95,
+          "end": 49.54
+        },
+        {
+          "speaker": "lucy",
+          "text": "OK, monthly membership. I'll register you now.",
+          "start": 50.04,
+          "end": 52.96
+        },
+        {
+          "speaker": "narrator",
+          "text": "The man chooses monthly membership, so 'monthly' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.86,
+          "end": 69.18
+        },
+        {
+          "speaker": "lucy",
+          "text": "Can I take your full name?",
+          "start": 70.08,
+          "end": 71.77
+        },
+        {
+          "speaker": "raj",
+          "text": "Raj Desai. The surname is D-E-S-A-I.",
+          "start": 72.27,
+          "end": 78.02
+        },
+        {
+          "speaker": "lucy",
+          "text": "Thank you. And your address?",
+          "start": 78.52,
+          "end": 80.07
+        },
+        {
+          "speaker": "raj",
+          "text": "Flat six, Barton House, on Mill Lane.",
+          "start": 80.57,
+          "end": 83.37
+        },
+        {
+          "speaker": "lucy",
+          "text": "Barton House. Got it. And I need your date of birth, please.",
+          "start": 83.87,
+          "end": 87.24
+        },
+        {
+          "speaker": "raj",
+          "text": "The nineteenth of August, nineteen ninety-eight.",
+          "start": 87.74,
+          "end": 90.73
+        },
+        {
+          "speaker": "lucy",
+          "text": "Thanks. We ask everyone what they'll mainly use the bikes for. It helps us decide where to put new stations.",
+          "start": 91.23,
+          "end": 97.18
+        },
+        {
+          "speaker": "raj",
+          "text": "Well, I work from home, so not for work. Mainly to get to college. I do evening classes in the city centre three times a week.",
+          "start": 97.68,
+          "end": 105.08
+        },
+        {
+          "speaker": "lucy",
+          "text": "College. And just out of interest, how did you hear about us?",
+          "start": 105.58,
+          "end": 108.61
+        },
+        {
+          "speaker": "raj",
+          "text": "A friend of mine uses the bikes, but I'd never thought about it until I heard an advert on the radio last week.",
+          "start": 109.11,
+          "end": 115.43
+        },
+        {
+          "speaker": "lucy",
+          "text": "The radio. That's good to know, it's a new campaign.",
+          "start": 115.93,
+          "end": 118.59
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 119.49,
+          "end": 125.21
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 145.21,
+          "end": 148.54
+        },
+        {
+          "speaker": "raj",
+          "text": "So how much is the monthly membership?",
+          "start": 149.44,
+          "end": 152.15
+        },
+        {
+          "speaker": "lucy",
+          "text": "It's normally fifteen pounds a month, but we've got a launch offer at the moment, so for you it's twelve.",
+          "start": 152.65,
+          "end": 157.7
+        },
+        {
+          "speaker": "raj",
+          "text": "Great. And is there a charge each time I use a bike?",
+          "start": 158.2,
+          "end": 161.62
+        },
+        {
+          "speaker": "lucy",
+          "text": "The first thirty minutes of every ride are free. After that it's fifty pence for each extra half hour.",
+          "start": 162.12,
+          "end": 167.56
+        },
+        {
+          "speaker": "raj",
+          "text": "That's fine, most of my journeys are about twenty minutes. What if I leave the bike somewhere else, outside the college, say?",
+          "start": 168.06,
+          "end": 174.71
+        },
+        {
+          "speaker": "lucy",
+          "text": "You must always return it to a station. If you leave it anywhere else, there's an extra charge of twenty pounds, because we have to send someone to collect it.",
+          "start": 175.21,
+          "end": 183.51
+        },
+        {
+          "speaker": "raj",
+          "text": "Understood. And if something's wrong with a bike, a flat tyre for example?",
+          "start": 184.01,
+          "end": 188.43
+        },
+        {
+          "speaker": "lucy",
+          "text": "Every bike has a red button on the handlebars. Press it, and it reports the problem automatically, and that bike won't be given to anyone else until it's fixed.",
+          "start": 188.93,
+          "end": 197.74
+        },
+        {
+          "speaker": "raj",
+          "text": "Clever. So when can I start?",
+          "start": 198.24,
+          "end": 200.31
+        },
+        {
+          "speaker": "lucy",
+          "text": "We'll post you a membership card. It should arrive within five working days. Until then, you can use the code I'll send you by text.",
+          "start": 200.81,
+          "end": 208.19
+        },
+        {
+          "speaker": "raj",
+          "text": "Perfect. Thanks very much.",
+          "start": 208.69,
+          "end": 210.76
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 211.66,
+          "end": 216.18
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "City Bikes – registration",
+          "content": [
+            "Example: Membership: **monthly**",
+            "## Personal details",
+            "• Name: Raj {{1}}",
+            "• Address: Flat 6, {{2}} House, Mill Lane",
+            "• Date of birth: 19 {{3}} 1998",
+            "• Will mainly use bikes to get to {{4}}",
+            "• Heard about the scheme on the {{5}}",
+            "## Membership",
+            "• Cost per month: £{{6}}",
+            "• First {{7}} minutes of each ride are free",
+            "• £20 charge if a bike is not returned to a {{8}}",
+            "• Report problems with the red {{9}} on the handlebars",
+            "• Card will arrive within {{10}} working days"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Desai"
+              ],
+              "explanation": "He spells his surname: ‘D-E-S-A-I’.",
+              "cue": "D-E-S-A-I"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Barton"
+              ],
+              "explanation": "‘Flat six, Barton House, on Mill Lane.’",
+              "cue": "Flat six, Barton House"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "August"
+              ],
+              "explanation": "‘The nineteenth of August, nineteen ninety-eight.’",
+              "cue": "The nineteenth of August"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "college"
+              ],
+              "explanation": "He works from home, so ‘mainly to get to college’.",
+              "cue": "Mainly to get to college"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "radio"
+              ],
+              "explanation": "A friend uses the bikes, but he only thought about it after ‘I heard an advert on the radio’.",
+              "cue": "I heard an advert on the radio"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "12",
+                "twelve"
+              ],
+              "explanation": "It is normally fifteen pounds, but with the launch offer ‘for you it's twelve’.",
+              "cue": "so for you it's twelve"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "30",
+                "thirty"
+              ],
+              "explanation": "‘The first thirty minutes of every ride are free.’",
+              "cue": "The first thirty minutes of every ride are free"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "station"
+              ],
+              "explanation": "‘You must always return it to a station.’",
+              "cue": "You must always return it to a station"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "button"
+              ],
+              "explanation": "‘Every bike has a red button on the handlebars.’",
+              "cue": "Every bike has a red button on the handlebars"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "‘It should arrive within five working days.’",
+              "cue": "within five working days"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-16/part1.mp3",
+        "duration": 246.98
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "The new Central Library",
+      "context": "The head librarian talks about a city library that has reopened after building work.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the head librarian talking about the reopening of a city library. First, you have some time to look at questions 11 to 14.",
+          "start": 0.6,
+          "end": 10.43
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 14.",
+          "start": 35.43,
+          "end": 39.7
+        },
+        {
+          "speaker": "owens",
+          "text": "Good evening, everyone, and thank you for coming to the reopening of Central Library. I'm David Owens, the head librarian. As many of you know, the library has been closed for eighteen months. People often assumed we were just redecorating, but the real reason was that asbestos was found in the ceilings, and it had to be removed safely before anyone could use the building again. While we were closed, we took the opportunity to repair the roof as well.",
+          "start": 40.6,
+          "end": 66.73
+        },
+        {
+          "speaker": "owens",
+          "text": "There are a few changes to how borrowing works. You can still take out up to twelve books at a time, as before, and the self-service machines are where they've always been, by the entrance. What's new is that the loan period is now four weeks instead of three, so you'll have more time to finish that long novel.",
+          "start": 67.08,
+          "end": 84.9
+        },
+        {
+          "speaker": "owens",
+          "text": "And here's some news I think you'll like: from today, there are no more fines for returning books late, for anyone, adults included. Many libraries have found that fines simply put people off coming back, especially families.",
+          "start": 85.25,
+          "end": 99.05
+        },
+        {
+          "speaker": "owens",
+          "text": "You'll also notice that we now have a café. It isn't run by the council or by one of the big chains. It's run by a local charity that trains young people who are looking for work, so every coffee you buy helps someone get a job.",
+          "start": 99.4,
+          "end": 113.91
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 15 to 20.",
+          "start": 114.81,
+          "end": 120.38
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 15 to 20.",
+          "start": 140.38,
+          "end": 144.19
+        },
+        {
+          "speaker": "owens",
+          "text": "Let me explain where everything is now, because quite a lot has moved. The children's library used to be upstairs, but parents told us that carrying buggies up the stairs was a nightmare. So it's now on the ground floor, next to the café.",
+          "start": 145.09,
+          "end": 159.52
+        },
+        {
+          "speaker": "owens",
+          "text": "The quiet study room is at the very top of the building, on the second floor, as far as possible from the noise of the children and the café. It has forty desks, and you can book them online.",
+          "start": 159.87,
+          "end": 171.28
+        },
+        {
+          "speaker": "owens",
+          "text": "The public computers are on the first floor. There are twice as many as before, and staff are there to help if you need it.",
+          "start": 171.63,
+          "end": 178.71
+        },
+        {
+          "speaker": "owens",
+          "text": "The local history archive has stayed exactly where it was, on the first floor, so regular researchers won't have to learn a new route. You'll need to show your library card to go in.",
+          "start": 179.06,
+          "end": 190.45
+        },
+        {
+          "speaker": "owens",
+          "text": "One thing I'm especially excited about is our new recording studio, where anyone can record music or a podcast. It's on the second floor, and it's fully soundproofed, so it won't disturb the study room next door.",
+          "start": 190.8,
+          "end": 204.01
+        },
+        {
+          "speaker": "owens",
+          "text": "And finally, there's a new exhibition space on the ground floor, just inside the entrance. The first exhibition is of photographs of the city from the nineteen fifties. Do have a look on your way out.",
+          "start": 204.36,
+          "end": 216.9
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 217.8,
+          "end": 222.13
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Why was the library closed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to repair the roof"
+                },
+                {
+                  "key": "B",
+                  "text": "to remove a dangerous material"
+                },
+                {
+                  "key": "C",
+                  "text": "to redecorate it"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Not just redecorating: ‘the real reason was that asbestos was found in the ceilings’. The roof was repaired as well, but that was not the reason.",
+              "cue": "the real reason was that asbestos was found in the ceilings"
+            },
+            {
+              "number": 12,
+              "prompt": "What has changed about borrowing books?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Readers can borrow more books."
+                },
+                {
+                  "key": "B",
+                  "text": "There are self-service machines."
+                },
+                {
+                  "key": "C",
+                  "text": "Books can be kept for longer."
+                }
+              ],
+              "answer": "C",
+              "explanation": "The limit of twelve books and the self-service machines are unchanged: ‘the loan period is now four weeks instead of three’.",
+              "cue": "the loan period is now four weeks instead of three"
+            },
+            {
+              "number": 13,
+              "prompt": "What does Mr Owens say about fines?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They have been stopped for everyone."
+                },
+                {
+                  "key": "B",
+                  "text": "They have been stopped for children only."
+                },
+                {
+                  "key": "C",
+                  "text": "They have been reduced."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘There are no more fines for returning books late, for anyone, adults included.’",
+              "cue": "there are no more fines for returning books late, for anyone"
+            },
+            {
+              "number": 14,
+              "prompt": "Who runs the library café?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a charity"
+                },
+                {
+                  "key": "B",
+                  "text": "the city council"
+                },
+                {
+                  "key": "C",
+                  "text": "a chain of cafés"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Not the council or a chain: ‘It's run by a local charity that trains young people.’",
+              "cue": "It's run by a local charity"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "On which floor is each of the following? Choose the correct letter, **A, B or C**, next to Questions 15–20. You may choose any letter more than once.",
+          "optionsTitle": "Floors",
+          "options": [
+            {
+              "key": "A",
+              "text": "ground floor"
+            },
+            {
+              "key": "B",
+              "text": "first floor"
+            },
+            {
+              "key": "C",
+              "text": "second floor"
+            }
+          ],
+          "questions": [
+            {
+              "number": 15,
+              "prompt": "children's library",
+              "answer": "A",
+              "explanation": "It used to be upstairs, but ‘it's now on the ground floor, next to the café’.",
+              "cue": "it's now on the ground floor, next to the café"
+            },
+            {
+              "number": 16,
+              "prompt": "quiet study room",
+              "answer": "C",
+              "explanation": "‘The quiet study room is at the very top of the building, on the second floor.’",
+              "cue": "The quiet study room is at the very top of the building"
+            },
+            {
+              "number": 17,
+              "prompt": "public computers",
+              "answer": "B",
+              "explanation": "‘The public computers are on the first floor.’",
+              "cue": "The public computers are on the first floor"
+            },
+            {
+              "number": 18,
+              "prompt": "local history archive",
+              "answer": "B",
+              "explanation": "The archive ‘has stayed exactly where it was, on the first floor’.",
+              "cue": "has stayed exactly where it was, on the first floor"
+            },
+            {
+              "number": 19,
+              "prompt": "recording studio",
+              "answer": "C",
+              "explanation": "The recording studio is ‘on the second floor, and it's fully soundproofed’.",
+              "cue": "It's on the second floor, and it's fully soundproofed"
+            },
+            {
+              "number": 20,
+              "prompt": "exhibition space",
+              "answer": "A",
+              "explanation": "‘There's a new exhibition space on the ground floor, just inside the entrance.’",
+              "cue": "a new exhibition space on the ground floor"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-16/part2.mp3",
+        "duration": 252.93
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A river fieldwork report",
+      "context": "Two geography students discuss the method and results of their river fieldwork.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two geography students, Nadia and Tom, discussing the report on their river fieldwork. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.31
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.31,
+          "end": 42.03
+        },
+        {
+          "speaker": "nadia",
+          "text": "OK, Tom, let's get the method section finished. I think we should describe exactly what we did at each of the five sites, in order.",
+          "start": 42.93,
+          "end": 50.67
+        },
+        {
+          "speaker": "tom",
+          "text": "Fine. So the first thing we did at every site, before anyone stepped in the water, was take photographs of the river banks, so we could compare the shape of the channel.",
+          "start": 51.17,
+          "end": 59.66
+        },
+        {
+          "speaker": "nadia",
+          "text": "Right. Then we stretched a tape measure from one bank to the other to measure the width.",
+          "start": 60.16,
+          "end": 64.81
+        },
+        {
+          "speaker": "tom",
+          "text": "And after that, we used the metre stick to record the depth every fifty centimetres across the river. That took the longest.",
+          "start": 65.31,
+          "end": 71.93
+        },
+        {
+          "speaker": "nadia",
+          "text": "Then the speed of the water. We timed a float over ten metres, three times, and took the average.",
+          "start": 72.43,
+          "end": 77.97
+        },
+        {
+          "speaker": "tom",
+          "text": "We used an orange, didn't we? It floats just under the surface, so the wind doesn't affect it much. And finally, we picked up ten stones from the riverbed at random and measured how long each one was.",
+          "start": 78.47,
+          "end": 88.86
+        },
+        {
+          "speaker": "nadia",
+          "text": "That's it. We didn't take any water samples in the end, so we'll leave those out.",
+          "start": 89.36,
+          "end": 93.76
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 94.66,
+          "end": 100.8
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 120.8,
+          "end": 124.64
+        },
+        {
+          "speaker": "tom",
+          "text": "We should also mention the problem at site three.",
+          "start": 125.54,
+          "end": 128.12
+        },
+        {
+          "speaker": "nadia",
+          "text": "Yes, the fallen tree. The water was fine, and we didn't have any trouble with cows like at site one, but a tree had come down right across the river, so we had to move the site about fifty metres downstream.",
+          "start": 128.62,
+          "end": 139.57
+        },
+        {
+          "speaker": "tom",
+          "text": "Now, the results. Most of it matched the theory. The river got wider and deeper as we went downstream, and faster too.",
+          "start": 140.07,
+          "end": 146.36
+        },
+        {
+          "speaker": "nadia",
+          "text": "Except for the stones. They should get smaller downstream, but at site four they were much bigger than at site three.",
+          "start": 146.86,
+          "end": 153.02
+        },
+        {
+          "speaker": "tom",
+          "text": "I don't think we measured them wrongly, and there hadn't been a flood. I think it's the old quarry just above site four. Stones from the quarry must be washing into the river there.",
+          "start": 153.52,
+          "end": 162.27
+        },
+        {
+          "speaker": "nadia",
+          "text": "That makes sense. What should we do about site two, where we lost the depth measurements?",
+          "start": 162.77,
+          "end": 167.29
+        },
+        {
+          "speaker": "tom",
+          "text": "We could estimate them, but that's not very scientific, and we can't go back because the course finishes next week. I think we should just explain what happened and leave that site out of the depth results.",
+          "start": 167.79,
+          "end": 178.14
+        },
+        {
+          "speaker": "nadia",
+          "text": "Agreed. And how should we show the speed of the river?",
+          "start": 178.64,
+          "end": 181.8
+        },
+        {
+          "speaker": "tom",
+          "text": "A table's a bit dull, and a bar chart doesn't really show the change as you go downstream. A line graph would show the trend best.",
+          "start": 182.3,
+          "end": 189.66
+        },
+        {
+          "speaker": "nadia",
+          "text": "Good. And one last thing. I've reread the whole report, and I think the weakest part is the conclusion. It just repeats the results. It needs to link back to the theory we started with.",
+          "start": 190.16,
+          "end": 200.21
+        },
+        {
+          "speaker": "tom",
+          "text": "You're right. I'll rewrite it tonight.",
+          "start": 200.71,
+          "end": 202.8
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 203.7,
+          "end": 208.15
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 21–25.",
+          "title": "Method used at each site",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "width"
+            },
+            {
+              "key": "B",
+              "text": "depth"
+            },
+            {
+              "key": "C",
+              "text": "float"
+            },
+            {
+              "key": "D",
+              "text": "stones"
+            },
+            {
+              "key": "E",
+              "text": "photographs"
+            },
+            {
+              "key": "F",
+              "text": "map"
+            },
+            {
+              "key": "G",
+              "text": "samples"
+            }
+          ],
+          "content": [
+            "Take {{21}} of the river banks.",
+            "Stretch a tape across the river to measure its {{22}}.",
+            "Use a metre stick to record the {{23}} every 50 cm.",
+            "Time a {{24}} over ten metres to find the speed.",
+            "Measure the length of ten {{25}} from the riverbed."
+          ],
+          "questions": [
+            {
+              "number": 21,
+              "answer": "E",
+              "explanation": "The first thing at every site was to ‘take photographs of the river banks’.",
+              "cue": "take photographs of the river banks"
+            },
+            {
+              "number": 22,
+              "answer": "A",
+              "explanation": "‘We stretched a tape measure from one bank to the other to measure the width.’",
+              "cue": "to measure the width"
+            },
+            {
+              "number": 23,
+              "answer": "B",
+              "explanation": "‘We used the metre stick to record the depth every fifty centimetres.’",
+              "cue": "record the depth every fifty centimetres"
+            },
+            {
+              "number": 24,
+              "answer": "C",
+              "explanation": "‘We timed a float over ten metres.’",
+              "cue": "We timed a float over ten metres"
+            },
+            {
+              "number": 25,
+              "answer": "D",
+              "explanation": "‘We picked up ten stones from the riverbed at random.’",
+              "cue": "we picked up ten stones from the riverbed"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "What was the problem at site three?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The water was too deep."
+                },
+                {
+                  "key": "B",
+                  "text": "A tree was blocking the river."
+                },
+                {
+                  "key": "C",
+                  "text": "There were cows in the field."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The cows were at site one; at site three ‘a tree had come down right across the river’.",
+              "cue": "a tree had come down right across the river"
+            },
+            {
+              "number": 27,
+              "prompt": "Why does Tom think the stones at site four were larger than expected?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Material from a quarry entered the river."
+                },
+                {
+                  "key": "B",
+                  "text": "There had been a recent flood."
+                },
+                {
+                  "key": "C",
+                  "text": "They measured the stones incorrectly."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Not a measuring error or a flood: ‘I think it's the old quarry just above site four.’",
+              "cue": "it's the old quarry just above site four"
+            },
+            {
+              "number": 28,
+              "prompt": "What do the students decide to do about the missing data from site two?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "estimate the measurements"
+                },
+                {
+                  "key": "B",
+                  "text": "return to the site"
+                },
+                {
+                  "key": "C",
+                  "text": "leave it out of the results"
+                }
+              ],
+              "answer": "C",
+              "explanation": "They cannot go back, and estimating is not scientific, so they will ‘explain what happened and leave that site out’.",
+              "cue": "explain what happened and leave that site out"
+            },
+            {
+              "number": 29,
+              "prompt": "How will they present the speed of the river?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in a table"
+                },
+                {
+                  "key": "B",
+                  "text": "as a line graph"
+                },
+                {
+                  "key": "C",
+                  "text": "as a bar chart"
+                }
+              ],
+              "answer": "B",
+              "explanation": "A table is dull and a bar chart does not show the change: ‘A line graph would show the trend best.’",
+              "cue": "A line graph would show the trend best"
+            },
+            {
+              "number": 30,
+              "prompt": "Which part of the report does Nadia think is weakest?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the introduction"
+                },
+                {
+                  "key": "B",
+                  "text": "the conclusion"
+                },
+                {
+                  "key": "C",
+                  "text": "the method"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The weakest part is the conclusion. It just repeats the results.’",
+              "cue": "the weakest part is the conclusion"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-16/part3.mp3",
+        "duration": 238.95
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the history of paper money",
+      "context": "An economics lecture on how paper money began and how it has changed.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of paper money. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.03
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.03,
+          "end": 43.44
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today we're going to look at something most of us carry every day without a second thought: paper money. Its story begins in China, more than a thousand years ago.",
+          "start": 44.34,
+          "end": 54.33
+        },
+        {
+          "speaker": "lecturer",
+          "text": "At that time, Chinese coins were made of iron or bronze, and they had holes in the middle so they could be carried on strings. The trouble was that they were extremely heavy. A merchant travelling to buy goods might need thousands of them.",
+          "start": 54.68,
+          "end": 67.18
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So merchants began leaving their coins with a trusted merchant in one city and receiving a paper receipt, which they could exchange for coins in another city. These receipts were known as flying money, because they moved so easily.",
+          "start": 67.53,
+          "end": 80.05
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In the eleventh century, the government took control of printing these notes, mainly to prevent forgery, which had become a serious problem. It was the first true paper currency. But the government soon discovered how tempting it was to pay its bills simply by printing more notes, and the result was inflation: prices rose so fast that the notes became almost worthless.",
+          "start": 80.4,
+          "end": 101.39
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Europeans were astonished when they first heard about paper money. Marco Polo described how the emperor's notes were made from the inner bark of mulberry trees, and how people accepted them as if they were gold.",
+          "start": 101.74,
+          "end": 112.99
+        },
+        {
+          "speaker": "lecturer",
+          "text": "It took several more centuries for banknotes to appear in Europe. The first were issued in Sweden, in sixteen sixty-one. The reason was rather unusual. Sweden's coins were made of copper, and since copper is worth much less than silver, the coins had to be enormous. Some weighed nearly twenty kilos, so paper was a welcome alternative.",
+          "start": 113.34,
+          "end": 132.15
+        },
+        {
+          "speaker": "lecturer",
+          "text": "From the start, banknotes were a target for criminals, and the history of money is also a history of security features. Early notes used watermarks and complicated designs, and later, special ink that changes colour when the note is tilted.",
+          "start": 132.5,
+          "end": 146.33
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The biggest recent change is the material. Australia introduced notes made of polymer, a kind of plastic, in nineteen eighty-eight, and many countries have since followed. Polymer notes last much longer than paper ones, and they're far harder to copy, which has reduced forgery dramatically.",
+          "start": 146.68,
+          "end": 162.7
+        },
+        {
+          "speaker": "lecturer",
+          "text": "And what of the future? Cash is used less every year, and many central banks are now testing digital currencies, which would exist only electronically. Whether paper money will disappear completely, however, is a question we'll come back to next week.",
+          "start": 163.05,
+          "end": 177.02
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 177.92,
+          "end": 182.31
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 212.31,
+          "end": 215.02
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The history of paper money",
+          "content": [
+            "## China",
+            "• Coins were too {{31}} for merchants to carry far",
+            "• Merchants left coins with a trusted {{32}} and received a receipt",
+            "• 11th century: the government controlled printing to prevent {{33}}",
+            "• Printing too many notes caused {{34}}",
+            "• Marco Polo: notes made from the bark of {{35}} trees",
+            "## Europe",
+            "• First banknotes: Sweden, 1661",
+            "• Reason: Swedish coins were made of {{36}}, so they were very large",
+            "## Security",
+            "• Watermarks, and later {{37}} that changes colour",
+            "• Since 1988, notes made of {{38}} in Australia",
+            "• These notes are much harder to {{39}}",
+            "## The future",
+            "• Central banks are testing digital {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "heavy"
+              ],
+              "explanation": "‘The trouble was that they were extremely heavy.’",
+              "cue": "they were extremely heavy"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "merchant"
+              ],
+              "explanation": "Merchants began ‘leaving their coins with a trusted merchant in one city’.",
+              "cue": "leaving their coins with a trusted merchant"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "forgery"
+              ],
+              "explanation": "The government took control ‘mainly to prevent forgery’.",
+              "cue": "mainly to prevent forgery"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "inflation"
+              ],
+              "explanation": "Printing more notes led to ‘inflation: prices rose so fast’.",
+              "cue": "the result was inflation"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "mulberry"
+              ],
+              "explanation": "‘The emperor's notes were made from the inner bark of mulberry trees.’",
+              "cue": "the inner bark of mulberry trees"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "copper"
+              ],
+              "explanation": "‘Sweden's coins were made of copper.’",
+              "cue": "Sweden's coins were made of copper"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "ink"
+              ],
+              "explanation": "Later notes used ‘special ink that changes colour when the note is tilted’.",
+              "cue": "special ink that changes colour"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "polymer",
+                "plastic"
+              ],
+              "explanation": "‘Australia introduced notes made of polymer, a kind of plastic.’",
+              "cue": "notes made of polymer"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "copy"
+              ],
+              "explanation": "Polymer notes are ‘far harder to copy’.",
+              "cue": "far harder to copy"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "currencies"
+              ],
+              "explanation": "‘Many central banks are now testing digital currencies.’",
+              "cue": "testing digital currencies"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-16/part4.mp3",
+        "duration": 215.82
+      }
+    }
+  ],
+  "durationMinutes": 16
+}
