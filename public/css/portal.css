@@ -250,7 +250,7 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
   .site-tools { grid-column: 10 / 13; justify-self: end; }
   .home-title { grid-column: 5 / 13; grid-row: 1; line-height: 0.92; letter-spacing: -0.04em; }
   .hero-lead { grid-column: 1 / 5; grid-row: 1; margin-top: 0.55em; max-width: 22ch; }
-  .ledger, .facts, #history-section, .home-notice { grid-column: 5 / 13; }
+  .ledger, .facts, #history-section, .home-notice, .practice-line { grid-column: 5 / 13; }
   .ledger-row { min-height: 116px; column-gap: var(--gutter); }
   .ledger-facts { font-size: 1rem; line-height: 1.45; }
   .ledger-facts .fmt { display: block; font-size: var(--t-small); }
@@ -515,6 +515,23 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
 .fold summary { cursor: pointer; padding: 12px 16px; font-weight: 650; min-height: 44px; }
 .fold summary:hover { color: var(--ink); }
 .fold > *:not(summary) { padding: 0 18px 16px; }
+/* Speaking answers after a test: each question a numbered row inside its part */
+.speak-answers .cue-card { margin-bottom: 14px; }
+.speak-answer-list { list-style: none; margin: 0; padding: 0; counter-reset: q; display: flex; flex-direction: column; gap: 8px; }
+.speak-answer-list > li {
+  counter-increment: q; display: grid; grid-template-columns: 28px minmax(0, 1fr); column-gap: 12px; align-items: start;
+  padding: 12px 14px; background: var(--ground); border: 1px solid var(--rule-soft); border-radius: var(--radius);
+}
+.speak-answer-list > li::before {
+  content: counter(q); grid-row: 1 / span 9; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--ink); color: #fff; font-size: 0.85em; font-weight: 650;
+}
+.speak-answer-list > li > * { grid-column: 2; min-width: 0; }
+.speak-answer-q { margin: 3px 0 6px; font-weight: 600; color: var(--ink); line-height: 1.45; }
+.speak-no-answer { margin: 0; color: var(--muted); font-size: 0.9em; }
+.speak-answer-list .rec-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.speak-answer-list .speak-audio { max-width: 100%; height: 36px; }
+.speak-answer-list .rec-len { color: var(--muted); font-size: 0.85em; }
 .essay-text p { margin-bottom: 10px; }
 .model-answer { color: var(--ink-2); }
 
@@ -1239,3 +1256,46 @@ mark.ai-filler { background: #f1dfb4; color: inherit; border-radius: 3px; paddin
 /* Taps answer at once and do not flash; scrolled areas keep their momentum without dragging the page. */
 html { -webkit-tap-highlight-color: transparent; }
 button, a, input, select, label, summary { touch-action: manipulation; }
+
+/* Signed in: the header has no "About" (it stays in the footer) */
+body.signed-in .site-links [data-nav="about"] { display: none; }
+
+/* Home for a signed-in student ---------------------------------------------------------------- */
+.dash { padding-top: clamp(0.5rem, 0rem + 2vw, 1.5rem); }
+.dash-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.dash-greet { color: var(--muted); font-size: 1rem; }
+.dash-title { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem); font-weight: 650; letter-spacing: -0.025em; line-height: 1.05; overflow-wrap: anywhere; }
+.dash .home-notice { margin-top: 4px; }
+.dash-modules { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.dash-card {
+  display: flex; flex-direction: column; gap: 8px; background: var(--paper); border: 1px solid var(--rule);
+  border-radius: 14px; padding: 18px 20px 20px;
+}
+.dash-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.dash-name { font-size: 1.6rem; font-weight: 650; letter-spacing: -0.02em; line-height: 1.1; }
+.dash-name a { color: inherit; text-decoration: none; }
+.dash-name a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.dash-band { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.1; }
+.dash-band span { font-size: 0.78rem; color: var(--muted); }
+.dash-band strong { font-size: 1.6rem; font-weight: 650; }
+.dash-fmt { color: var(--muted); font-size: var(--t-small); }
+.dash-meter { height: 6px; border-radius: 6px; background: var(--field); overflow: hidden; margin-top: 6px; }
+.dash-meter span { display: block; height: 100%; background: var(--ink); border-radius: 6px; }
+.dash-count { font-size: var(--t-small); color: var(--ink-2); }
+.dash-done { font-size: var(--t-small); color: var(--muted); }
+.dash-act { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 8px; }
+.dash-act .btn-primary, .dash-act .btn-secondary { min-height: 44px; }
+.dash-extra { font-size: var(--t-small); font-weight: 550; color: var(--ink); align-self: flex-start; min-height: 32px; display: inline-flex; align-items: center; }
+.dash #history-section { margin-top: 40px; }
+@media (max-width: 720px) {
+  .dash-modules { grid-template-columns: 1fr; }
+  .dash-head .btn-secondary { display: none; }
+}
+
+/* A free test already taken (without the pass, each free test can be taken once) */
+.test-taken { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-small); font-weight: 600; color: var(--ok); min-height: 36px; }
+.pv-grid.is-base { stroke: var(--rule); }
+.speak-tips { list-style: disc; padding-left: 1.25em; margin: 16px 0 0; color: var(--ink-2); }
+.speak-tips li { margin-top: 4px; }
+.bc-stats { flex-wrap: wrap; gap: 6px 18px; }
+.bc-stats div { white-space: nowrap; }

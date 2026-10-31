@@ -17,7 +17,7 @@
     return total ? Math.round((correct / total) * 100) : 0;
   }
 
-  function header(kind, data, extra) {
+  function header(kind, data, extra, canRetake = true) {
     return `
       <div class="results-head">
         <div class="results-title">
@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="results-actions">
-          <button type="button" class="btn-secondary" data-action="retake">${tr("Try again")}</button>
+          ${canRetake ? `<button type="button" class="btn-secondary" data-action="retake">${tr("Try again")}</button>` : ""}
           <a class="btn-primary" href="#/">${tr("All tests")}</a>
         </div>
       </div>`;
@@ -143,7 +143,7 @@
   function renderReading(data, root, extra = {}) {
     root.innerHTML = `
       <section class="results-page">
-        ${header("Reading", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"))}
+        ${header("Reading", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"), extra.canRetake !== false)}
         ${scoreBanner(data)}
         <p class="score-note">${tr("results.note.reading")}</p>
         ${extra.next || ""}
@@ -210,7 +210,7 @@
 
     root.innerHTML = `
       <section class="results-page listening-results">
-        ${header("Listening", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"))}
+        ${header("Listening", data, data.mode === "practice" ? tr("Practice mode") : tr("Timed test"), extra.canRetake !== false)}
         ${scoreBanner(data)}
         <p class="score-note">${tr("results.note.listening")}</p>
         ${extra.next || ""}
@@ -447,7 +447,7 @@
     const t2 = a && a.tasks["2"];
     root.innerHTML = `
       <section class="results-page">
-        ${header("Writing", data, "Academic Writing")}
+        ${header("Writing", data, "Academic Writing", extra.canRetake !== false)}
         ${a ? `
           <div class="score-banner-card">
             ${bandCircle(a.overallBand, tr("Estimated band"))}

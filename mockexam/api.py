@@ -488,12 +488,14 @@ class SpeakingStartHandler(BaseHandler):
         profile = await self.load_profile()
         if not profile:
             raise ApiError(401, "Sign in to record your answers.", "login_required")
+        plan = await in_thread(accounts.plan_status, self.db, profile["id"])
         if accounts.test_access(test) != "free":
-            plan = await in_thread(accounts.plan_status, self.db, profile["id"])
             if not accounts.can_open_test(test, profile, plan):
                 if accounts.test_access(test) == "soon":
                     raise ApiError(403, "This test is coming soon.", "coming_soon")
                 raise ApiError(402, "This test is part of the monthly plan.", "plan_required")
+        elif not accounts.retakes_allowed(profile, plan) and await in_thread(accounts.already_taken, self.db, test, profile["id"]):
+            raise ApiError(409, "You have already taken this test. Each free test can be taken once.", "already_taken")
         body = self.body_json()
         mode = body.get("mode")
         notice = None
