@@ -33,7 +33,7 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 
 ## Capabilities and Constraints
 
-- Modules and content today: Listening 16 tests, Academic Reading 96, Academic Writing 35, Speaking 33. Each module has 5 free tests; the rest are "Coming soon" until selling starts.
+- Modules and content today: Listening 21 tests, Academic Reading 96, Academic Writing 35, Speaking 100. Each module has 5 free tests; the rest are "Coming soon" until selling starts.
 - Content status: Reading tests 1–6 are original. Most of the remaining Reading tests are practice material of mixed origin, repaired and checked but not original; they are to be replaced by original tests over time, and until then the site must not call its content original. Listening has 16 tests (about 16–20 minutes each, written for the site and voiced with open-licence text-to-speech; tests 12–16 were added as "Coming soon") and is the next thing to grow.
 - Results: estimated band, per-section and per-question-type breakdown, explanation for every answer, listening transcript with answers highlighted and "listen again".
 - Progress page with latest band per module and band over time; history of attempts.

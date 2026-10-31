@@ -1,0 +1,1321 @@
+{
+  "id": "listening-21",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 21",
+  "shortTitle": "Practice Test 21",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 21,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "ruth": {
+      "name": "Mrs Mallory",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "ben": {
+      "name": "Ben",
+      "voice": "am_puck",
+      "lang": "en-us"
+    },
+    "graham": {
+      "name": "Graham",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "owen": {
+      "name": "Owen",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lucia": {
+      "name": "Lucia",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "A part-time job at a garden centre",
+      "context": "A student phones a garden centre about a weekend job.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a student phoning a garden centre about a part-time job. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.86
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.86,
+          "end": 38.93
+        },
+        {
+          "speaker": "ruth",
+          "text": "Greenacre Garden Centre, Ruth speaking.",
+          "start": 39.83,
+          "end": 42.47
+        },
+        {
+          "speaker": "ben",
+          "text": "Hello, my name's Ben. I saw your advert for a weekend job, and I'd like to find out more.",
+          "start": 42.97,
+          "end": 48.62
+        },
+        {
+          "speaker": "ruth",
+          "text": "Thanks for calling, Ben. The job is in our plants department, looking after the plants and helping customers choose them.",
+          "start": 49.12,
+          "end": 55.67
+        },
+        {
+          "speaker": "narrator",
+          "text": "The job is in the plants department, so 'plants' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 56.57,
+          "end": 71.7
+        },
+        {
+          "speaker": "ben",
+          "text": "How many hours would it be?",
+          "start": 72.6,
+          "end": 74.01
+        },
+        {
+          "speaker": "ruth",
+          "text": "It's eight hours on Saturday and eight on Sunday, so sixteen hours a week.",
+          "start": 74.51,
+          "end": 78.82
+        },
+        {
+          "speaker": "ben",
+          "text": "That's fine. I'm at college during the week. And what's the pay?",
+          "start": 79.32,
+          "end": 82.45
+        },
+        {
+          "speaker": "ruth",
+          "text": "For staff under eighteen it's a bit less, but how old are you?",
+          "start": 82.95,
+          "end": 86.43
+        },
+        {
+          "speaker": "ben",
+          "text": "Nineteen.",
+          "start": 86.93,
+          "end": 87.74
+        },
+        {
+          "speaker": "ruth",
+          "text": "Then it's thirteen pounds an hour. And all staff get a discount of twenty percent on anything in the shop, which is popular with people who have gardens.",
+          "start": 88.24,
+          "end": 96.73
+        },
+        {
+          "speaker": "ben",
+          "text": "Is there a uniform?",
+          "start": 97.23,
+          "end": 98.38
+        },
+        {
+          "speaker": "ruth",
+          "text": "We give you a green shirt and a fleece. You need to wear strong boots, because you'll be moving heavy pots, and we can't let you work in trainers.",
+          "start": 98.88,
+          "end": 106.29
+        },
+        {
+          "speaker": "ben",
+          "text": "I've got some. When would the job start?",
+          "start": 106.79,
+          "end": 108.9
+        },
+        {
+          "speaker": "ruth",
+          "text": "We need people from the beginning of May. That's when the summer plants arrive and we get really busy.",
+          "start": 109.4,
+          "end": 114.92
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 115.82,
+          "end": 121.54
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 141.54,
+          "end": 144.87
+        },
+        {
+          "speaker": "ben",
+          "text": "How do I apply?",
+          "start": 145.77,
+          "end": 146.77
+        },
+        {
+          "speaker": "ruth",
+          "text": "Just email me. I'm Ruth Mallory, that's M-A-L-L-O-R-Y, and my address is on our website.",
+          "start": 147.27,
+          "end": 156.56
+        },
+        {
+          "speaker": "ben",
+          "text": "Got it. And when are the interviews?",
+          "start": 157.06,
+          "end": 158.77
+        },
+        {
+          "speaker": "ruth",
+          "text": "The advert says Tuesdays, but that's a mistake. The interviews are on Thursday afternoons.",
+          "start": 159.27,
+          "end": 164.47
+        },
+        {
+          "speaker": "ben",
+          "text": "Do I need to bring anything?",
+          "start": 164.97,
+          "end": 166.34
+        },
+        {
+          "speaker": "ruth",
+          "text": "Just the names of two referees. A teacher would be fine, or a previous employer.",
+          "start": 166.84,
+          "end": 171.53
+        },
+        {
+          "speaker": "ben",
+          "text": "Is it a normal interview?",
+          "start": 172.03,
+          "end": 173.33
+        },
+        {
+          "speaker": "ruth",
+          "text": "Mostly, but there's also a short practical test. We'll ask you to move a plant into a bigger pot, so we can see how carefully you work.",
+          "start": 173.83,
+          "end": 181.23
+        },
+        {
+          "speaker": "ben",
+          "text": "That sounds fun. And is there any training?",
+          "start": 181.73,
+          "end": 184.0
+        },
+        {
+          "speaker": "ruth",
+          "text": "Yes. On your first day, everyone does a safety course, mainly about lifting heavy things and using the machines. After that you'll work alongside one of our experienced staff.",
+          "start": 184.5,
+          "end": 194.39
+        },
+        {
+          "speaker": "ben",
+          "text": "Great. I'll send my email today. Thanks.",
+          "start": 194.89,
+          "end": 197.11
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 198.01,
+          "end": 202.54
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Greenacre Garden Centre – weekend job",
+          "content": [
+            "Example: Department: **plants**",
+            "## The job",
+            "• Hours: {{1}} a week",
+            "• Pay: £{{2}} an hour",
+            "• Staff discount: {{3}}%",
+            "• Staff must wear strong {{4}}",
+            "• Start: the beginning of {{5}}",
+            "## Applying",
+            "• Email the application to Ruth {{6}}",
+            "• Interviews are on {{7}} afternoons",
+            "• Bring the names of {{8}} referees",
+            "• The interview includes a short practical {{9}}",
+            "• First day: a {{10}} course"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "16",
+                "sixteen"
+              ],
+              "explanation": "Eight hours on each day of the weekend, ‘so sixteen hours a week’.",
+              "cue": "so sixteen hours a week"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "13",
+                "thirteen"
+              ],
+              "explanation": "He is nineteen, so ‘it's thirteen pounds an hour’.",
+              "cue": "Then it's thirteen pounds an hour"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "20",
+                "twenty"
+              ],
+              "explanation": "‘All staff get a discount of twenty percent.’",
+              "cue": "all staff get a discount of twenty percent"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "boots"
+              ],
+              "explanation": "‘You need to wear strong boots.’",
+              "cue": "You need to wear strong boots"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "May"
+              ],
+              "explanation": "‘We need people from the beginning of May.’",
+              "cue": "We need people from the beginning of May"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "Mallory"
+              ],
+              "explanation": "She spells her surname: ‘M-A-L-L-O-R-Y’.",
+              "cue": "M-A-L-L-O-R-Y"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "Thursday"
+              ],
+              "explanation": "The advert says Tuesdays by mistake: ‘The interviews are on Thursday afternoons.’",
+              "cue": "The interviews are on Thursday afternoons"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "2",
+                "two"
+              ],
+              "explanation": "‘Just the names of two referees.’",
+              "cue": "Just the names of two referees"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "test"
+              ],
+              "explanation": "‘There's also a short practical test.’",
+              "cue": "there's also a short practical test"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "safety"
+              ],
+              "explanation": "‘On your first day, everyone does a safety course.’",
+              "cue": "everyone does a safety course"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-21/part1.mp3",
+        "duration": 233.34
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A harbour museum and its sailing ship",
+      "context": "A guide welcomes visitors to a harbour museum with a restored sailing ship.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a guide welcoming visitors to a harbour museum. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 9.45
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 34.45,
+          "end": 38.72
+        },
+        {
+          "speaker": "graham",
+          "text": "Good morning, and welcome to Westport Harbour Museum. My name's Graham. Let me show you around the site using the map in your guide. We're at the entrance, at the bottom of the map, and the visitor centre, on your right, is where you bought your tickets.",
+          "start": 39.62,
+          "end": 52.23
+        },
+        {
+          "speaker": "graham",
+          "text": "Directly opposite the visitor centre, on the left of the path, is the café. It does a very good fish soup, if you're hungry later.",
+          "start": 52.58,
+          "end": 60.02
+        },
+        {
+          "speaker": "graham",
+          "text": "As you walk up the main path towards the harbour, about halfway along on your left, you'll pass the boat-building workshop, where our volunteers still build small wooden boats by hand.",
+          "start": 60.37,
+          "end": 70.02
+        },
+        {
+          "speaker": "graham",
+          "text": "When you reach the quayside, turn left and walk right to the end. The long, narrow building there is the rope-making shed. Ropes had to be made in one piece, so the building is over a hundred metres long.",
+          "start": 70.37,
+          "end": 81.14
+        },
+        {
+          "speaker": "graham",
+          "text": "If you turn right on the quayside instead, at the far end you'll find the children's play ship, which is very popular with younger visitors.",
+          "start": 81.49,
+          "end": 88.89
+        },
+        {
+          "speaker": "graham",
+          "text": "And to go on board the Northern Star herself, use the gangway at the edge of the quay, straight ahead of you at the top of the main path.",
+          "start": 89.24,
+          "end": 96.13
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 97.03,
+          "end": 102.75
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 127.75,
+          "end": 131.63
+        },
+        {
+          "speaker": "graham",
+          "text": "A little about the ship. The Northern Star was built in eighteen seventy. She sometimes carried a few passengers, but she was designed to transport coal along the coast, and she did that for almost fifty years.",
+          "start": 132.53,
+          "end": 143.88
+        },
+        {
+          "speaker": "graham",
+          "text": "The restoration took twelve years. Raising the money was actually the easy part, thanks to a large grant. The real difficulty was finding oak trees big enough to replace the original timbers. Some of the wood came from three different countries.",
+          "start": 144.23,
+          "end": 157.39
+        },
+        {
+          "speaker": "graham",
+          "text": "When you go on board, do visit the lower deck. That's where the sailors slept, and you're welcome to lie in one of the hammocks to see how uncomfortable it was. The ship's wheel is upstairs, but it's a copy, and please don't try to turn it.",
+          "start": 157.74,
+          "end": 169.39
+        },
+        {
+          "speaker": "graham",
+          "text": "You can take photographs anywhere on the site and on board, but please don't use a flash inside the ship, because the light damages the old paintwork.",
+          "start": 169.74,
+          "end": 177.91
+        },
+        {
+          "speaker": "graham",
+          "text": "And you've chosen a good week to visit. Children always get in free, of course, and there's a new exhibition opening next month. But this week, for the first time in a hundred years, our volunteers will raise the sails, at three o'clock every afternoon. It's quite a sight.",
+          "start": 178.26,
+          "end": 192.32
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 193.22,
+          "end": 197.55
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Westport Harbour Museum",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "rect",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 118,
+                "style": "water",
+                "label": "Harbour",
+                "ly": -38
+              },
+              {
+                "type": "rect",
+                "x": 170,
+                "y": 52,
+                "w": 300,
+                "h": 44,
+                "style": "building",
+                "label": "The Northern Star"
+              },
+              {
+                "type": "line",
+                "x1": 40,
+                "y1": 152,
+                "x2": 600,
+                "y2": 152,
+                "style": "path",
+                "label": "Quayside",
+                "lx": 150,
+                "ly": 26
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 430,
+                "x2": 320,
+                "y2": 152,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 362,
+                "y": 318,
+                "w": 150,
+                "h": 62,
+                "style": "building",
+                "label": "Visitor centre"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 430,
+                "label": "Entrance"
+              },
+              {
+                "type": "compass",
+                "x": 590,
+                "y": 395
+              },
+              {
+                "type": "letter",
+                "x": 228,
+                "y": 362,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 70,
+                "y": 190,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 570,
+                "y": 190,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 452,
+                "y": 236,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 228,
+                "y": 262,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 118,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 110,
+                "y": 392,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Café",
+              "answer": "A",
+              "explanation": "‘Directly opposite the visitor centre, on the left of the path, is the café.’",
+              "cue": "Directly opposite the visitor centre, on the left of the path, is the café"
+            },
+            {
+              "number": 12,
+              "prompt": "Boat-building workshop",
+              "answer": "E",
+              "explanation": "‘About halfway along on your left, you'll pass the boat-building workshop.’",
+              "cue": "about halfway along on your left, you'll pass the boat-building workshop"
+            },
+            {
+              "number": 13,
+              "prompt": "Rope-making shed",
+              "answer": "B",
+              "explanation": "Turn left on the quayside and walk to the end: ‘The long, narrow building there is the rope-making shed.’",
+              "cue": "The long, narrow building there is the rope-making shed"
+            },
+            {
+              "number": 14,
+              "prompt": "Children's play ship",
+              "answer": "C",
+              "explanation": "Turn right on the quayside: ‘at the far end you'll find the children's play ship’.",
+              "cue": "at the far end you'll find the children's play ship"
+            },
+            {
+              "number": 15,
+              "prompt": "Gangway to the ship",
+              "answer": "F",
+              "explanation": "‘Use the gangway at the edge of the quay, straight ahead of you at the top of the main path.’",
+              "cue": "use the gangway at the edge of the quay"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "What was the Northern Star mainly used for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "carrying passengers"
+                },
+                {
+                  "key": "B",
+                  "text": "transporting coal"
+                },
+                {
+                  "key": "C",
+                  "text": "fishing"
+                }
+              ],
+              "answer": "B",
+              "explanation": "She carried a few passengers, ‘but she was designed to transport coal along the coast’.",
+              "cue": "she was designed to transport coal along the coast"
+            },
+            {
+              "number": 17,
+              "prompt": "What was the biggest problem during the restoration?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "raising enough money"
+                },
+                {
+                  "key": "B",
+                  "text": "finding suitable wood"
+                },
+                {
+                  "key": "C",
+                  "text": "finding skilled workers"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Money was easy: ‘The real difficulty was finding oak trees big enough.’",
+              "cue": "The real difficulty was finding oak trees big enough"
+            },
+            {
+              "number": 18,
+              "prompt": "What can visitors do on the lower deck?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "lie in a sailor's bed"
+                },
+                {
+                  "key": "B",
+                  "text": "turn the ship's wheel"
+                },
+                {
+                  "key": "C",
+                  "text": "taste sailors' food"
+                }
+              ],
+              "answer": "A",
+              "explanation": "On the lower deck ‘you're welcome to lie in one of the hammocks’. The wheel is a copy and must not be turned.",
+              "cue": "you're welcome to lie in one of the hammocks"
+            },
+            {
+              "number": 19,
+              "prompt": "What does Graham say about photography?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is not allowed on board."
+                },
+                {
+                  "key": "B",
+                  "text": "Flash must not be used inside the ship."
+                },
+                {
+                  "key": "C",
+                  "text": "Visitors must pay extra for it."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Photographs are allowed, ‘but please don't use a flash inside the ship’.",
+              "cue": "please don't use a flash inside the ship"
+            },
+            {
+              "number": 20,
+              "prompt": "What is special about this week?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Children can visit for free."
+                },
+                {
+                  "key": "B",
+                  "text": "A new exhibition opens."
+                },
+                {
+                  "key": "C",
+                  "text": "The ship's sails will be raised."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Children always go free and the exhibition is next month, ‘but this week … our volunteers will raise the sails’.",
+              "cue": "this week, for the first time in a hundred years, our volunteers will raise the sails"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-21/part2.mp3",
+        "duration": 228.35
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A field trip to a wind farm",
+      "context": "Two environmental science students talk about a field trip to a wind farm.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two environmental science students, Owen and Lucia, talking about a field trip to a wind farm. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 13.06
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 38.06,
+          "end": 42.77
+        },
+        {
+          "speaker": "owen",
+          "text": "So, Lucia, what did you think of the wind farm?",
+          "start": 43.67,
+          "end": 46.19
+        },
+        {
+          "speaker": "lucia",
+          "text": "I'd seen so many photos that I knew the turbines would be huge. And they were much quieter than I expected. But the most interesting part for me was the control room. Just one person was watching all forty turbines on a screen.",
+          "start": 46.69,
+          "end": 59.0
+        },
+        {
+          "speaker": "owen",
+          "text": "That was impressive. Did you hear what the guide said about the colour?",
+          "start": 59.5,
+          "end": 62.98
+        },
+        {
+          "speaker": "lucia",
+          "text": "That they're painted that pale grey so they blend in with the sky, and don't stand out so much in the landscape.",
+          "start": 63.48,
+          "end": 69.62
+        },
+        {
+          "speaker": "owen",
+          "text": "Yes. I'd assumed it was so that pilots could see them. Anyway, what was the worst part of the trip, in your opinion?",
+          "start": 70.12,
+          "end": 75.92
+        },
+        {
+          "speaker": "lucia",
+          "text": "Not the guide, she was excellent, and lunch was fine. It was the coach. Four hours there and back for a two-hour visit.",
+          "start": 76.42,
+          "end": 83.1
+        },
+        {
+          "speaker": "owen",
+          "text": "Agreed. Now, the report. What should we focus on? Most of the other groups are writing about the effect on birds.",
+          "start": 83.6,
+          "end": 89.49
+        },
+        {
+          "speaker": "lucia",
+          "text": "And we couldn't get any real figures on the cost of the electricity. But we did interview people in the village. Why don't we focus on what local people think?",
+          "start": 89.99,
+          "end": 98.42
+        },
+        {
+          "speaker": "owen",
+          "text": "Good idea. How should we present their opinions? A pie chart of who's for and against?",
+          "start": 98.92,
+          "end": 103.46
+        },
+        {
+          "speaker": "lucia",
+          "text": "That loses all the detail. I'd rather use quotations from the interviews, in their own words.",
+          "start": 103.96,
+          "end": 109.59
+        },
+        {
+          "speaker": "owen",
+          "text": "Fine, quotations it is.",
+          "start": 110.09,
+          "end": 112.01
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 112.91,
+          "end": 119.06
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 139.06,
+          "end": 142.9
+        },
+        {
+          "speaker": "owen",
+          "text": "So, the farmer first. He rents some of his land to the company, and he said the payments are the only reason he can keep the farm going. He also said his sheep don't even notice the turbines.",
+          "start": 143.8,
+          "end": 153.99
+        },
+        {
+          "speaker": "lucia",
+          "text": "Then the woman who runs the village shop. She said the engineers come in every day, and she's had to take on two extra staff.",
+          "start": 154.49,
+          "end": 161.51
+        },
+        {
+          "speaker": "owen",
+          "text": "The retired teacher was the most negative. She said the turbines have ruined the view from the hill where she's walked for forty years.",
+          "start": 162.01,
+          "end": 168.86
+        },
+        {
+          "speaker": "lucia",
+          "text": "And the young mother. She was against the wind farm at first, because she was worried about noise at night. But now she says she hardly notices it, and she's in favour.",
+          "start": 169.36,
+          "end": 177.89
+        },
+        {
+          "speaker": "owen",
+          "text": "And the man who runs the pub said he doesn't mind wind power at all, but they should have built the turbines out at sea, where nobody would see them.",
+          "start": 178.39,
+          "end": 185.82
+        },
+        {
+          "speaker": "lucia",
+          "text": "That's a good range of views. Let's start writing.",
+          "start": 186.32,
+          "end": 189.41
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 190.31,
+          "end": 194.77
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What did Lucia find most interesting on the visit?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the size of the turbines"
+                },
+                {
+                  "key": "B",
+                  "text": "the control room"
+                },
+                {
+                  "key": "C",
+                  "text": "the noise of the turbines"
+                }
+              ],
+              "answer": "B",
+              "explanation": "She knew the turbines would be huge, ‘but the most interesting part for me was the control room’.",
+              "cue": "the most interesting part for me was the control room"
+            },
+            {
+              "number": 22,
+              "prompt": "Why are the turbines painted pale grey?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "so that they are less noticeable"
+                },
+                {
+                  "key": "B",
+                  "text": "so that pilots can see them"
+                },
+                {
+                  "key": "C",
+                  "text": "to protect them from the weather"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘They're painted that pale grey so they blend in with the sky.’",
+              "cue": "so they blend in with the sky"
+            },
+            {
+              "number": 23,
+              "prompt": "What was the worst part of the trip, according to Lucia?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the journey"
+                },
+                {
+                  "key": "B",
+                  "text": "the lunch"
+                },
+                {
+                  "key": "C",
+                  "text": "the guide's talk"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The guide and lunch were fine: ‘It was the coach. Four hours there and back.’",
+              "cue": "It was the coach"
+            },
+            {
+              "number": 24,
+              "prompt": "What will the students' report focus on?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the effect on birds"
+                },
+                {
+                  "key": "B",
+                  "text": "the cost of the electricity"
+                },
+                {
+                  "key": "C",
+                  "text": "the views of local people"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Others are writing about birds and there are no cost figures: ‘Why don't we focus on what local people think?’",
+              "cue": "Why don't we focus on what local people think"
+            },
+            {
+              "number": 25,
+              "prompt": "How will the students present people's opinions?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in a pie chart"
+                },
+                {
+                  "key": "B",
+                  "text": "using quotations"
+                },
+                {
+                  "key": "C",
+                  "text": "in a table"
+                }
+              ],
+              "answer": "B",
+              "explanation": "A pie chart loses detail: ‘I'd rather use quotations from the interviews.’",
+              "cue": "I'd rather use quotations from the interviews"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What did each person say about the wind farm? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Opinions",
+          "options": [
+            {
+              "key": "A",
+              "text": "It provides a useful income."
+            },
+            {
+              "key": "B",
+              "text": "It spoils the view."
+            },
+            {
+              "key": "C",
+              "text": "It is too noisy at night."
+            },
+            {
+              "key": "D",
+              "text": "It has created jobs."
+            },
+            {
+              "key": "E",
+              "text": "It should have been built at sea."
+            },
+            {
+              "key": "F",
+              "text": "Their opinion of it has changed."
+            },
+            {
+              "key": "G",
+              "text": "It frightens farm animals."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "the farmer",
+              "answer": "A",
+              "explanation": "‘The payments are the only reason he can keep the farm going.’ His sheep don't notice the turbines.",
+              "cue": "the payments are the only reason he can keep the farm going"
+            },
+            {
+              "number": 27,
+              "prompt": "the shop owner",
+              "answer": "D",
+              "explanation": "‘She's had to take on two extra staff.’",
+              "cue": "she's had to take on two extra staff"
+            },
+            {
+              "number": 28,
+              "prompt": "the retired teacher",
+              "answer": "B",
+              "explanation": "‘The turbines have ruined the view from the hill.’",
+              "cue": "the turbines have ruined the view from the hill"
+            },
+            {
+              "number": 29,
+              "prompt": "the young mother",
+              "answer": "F",
+              "explanation": "She was against it at first, ‘but now she says she hardly notices it, and she's in favour’.",
+              "cue": "now she says she hardly notices it"
+            },
+            {
+              "number": 30,
+              "prompt": "the pub owner",
+              "answer": "E",
+              "explanation": "‘They should have built the turbines out at sea.’",
+              "cue": "they should have built the turbines out at sea"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-21/part3.mp3",
+        "duration": 225.57
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: earthworms and the soil",
+      "context": "A biology lecture about earthworms, from Darwin's research to their spread in North America.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about earthworms. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.05
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.05,
+          "end": 42.46
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today's lecture is about an animal most people never think about, unless they're gardeners: the earthworm.",
+          "start": 43.36,
+          "end": 50.02
+        },
+        {
+          "speaker": "lecturer",
+          "text": "One person who thought about them a great deal was Charles Darwin. His very last book, published in eighteen eighty-one, was entirely about earthworms, and he studied them for more than forty years.",
+          "start": 50.37,
+          "end": 60.84
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Some of his experiments were rather charming. To find out whether worms could hear, he kept them in pots and played the piano to them. They showed no reaction at all. But when he put the pots on top of the piano itself, they reacted immediately, because they could feel the vibrations.",
+          "start": 61.19,
+          "end": 76.19
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Darwin also measured how quickly objects lying on the surface of a field were gradually buried, as worms brought fresh soil up from below. He found that stones could disappear under the soil in just a few decades.",
+          "start": 76.54,
+          "end": 87.87
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So how do worms help the soil? First, you need to know that worms have no lungs. They breathe through their skin, which is why it must always stay moist.",
+          "start": 88.22,
+          "end": 96.3
+        },
+        {
+          "speaker": "lecturer",
+          "text": "They feed by pulling dead leaves down into their burrows, which brings organic material deep into the soil. At the same time, their tunnels let air and water into the ground, which helps plant roots to grow.",
+          "start": 96.65,
+          "end": 107.87
+        },
+        {
+          "speaker": "lecturer",
+          "text": "And what comes out of the other end, the small piles called casts, is extremely rich in nutrients, far richer than the soil around it.",
+          "start": 108.22,
+          "end": 115.56
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Worms are very sensitive to vibration, and some birds take advantage of this. Gulls, for example, can be seen tapping their feet on wet grass. It's thought that this copies the vibrations of rain, which makes the worms come up to the surface.",
+          "start": 115.91,
+          "end": 129.33
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, a surprise. In much of northern North America, earthworms are not native at all. The original worms were wiped out by the ice that covered the region in the last Ice Age. Today's worms arrived with European settlers, in soil and in the roots of plants they brought with them.",
+          "start": 129.68,
+          "end": 145.32
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In forests, these new worms eat the thick layer of fallen leaves on the ground, which harms wildflowers that depend on it. And they are still spreading, often because people who go fishing throw away their unused bait.",
+          "start": 145.67,
+          "end": 157.68
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 158.58,
+          "end": 162.97
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 192.97,
+          "end": 195.68
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Earthworms and the soil",
+          "content": [
+            "## Darwin's research",
+            "• His last book (1881) was about earthworms",
+            "• He played the {{31}} to test their hearing",
+            "• He measured how fast objects on the surface were {{32}}",
+            "## How worms help the soil",
+            "• They breathe through their {{33}}",
+            "• They pull dead {{34}} into their burrows",
+            "• Their tunnels let {{35}} and water into the soil",
+            "• Their casts are rich in {{36}}",
+            "• Gulls tap the grass to copy the vibrations of {{37}}",
+            "## North America",
+            "• Native worms were wiped out by {{38}} in the last Ice Age",
+            "• Worms arrived in soil and the roots of {{39}}",
+            "• They are spread by people who throw away fishing {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "piano"
+              ],
+              "explanation": "‘He kept them in pots and played the piano to them.’",
+              "cue": "played the piano to them"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "buried"
+              ],
+              "explanation": "He ‘measured how quickly objects lying on the surface of a field were gradually buried’.",
+              "cue": "were gradually buried"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "skin"
+              ],
+              "explanation": "‘They breathe through their skin.’",
+              "cue": "They breathe through their skin"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "leaves"
+              ],
+              "explanation": "‘They feed by pulling dead leaves down into their burrows.’",
+              "cue": "pulling dead leaves down into their burrows"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "air"
+              ],
+              "explanation": "‘Their tunnels let air and water into the ground.’",
+              "cue": "their tunnels let air and water into the ground"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "nutrients"
+              ],
+              "explanation": "Casts are ‘extremely rich in nutrients’.",
+              "cue": "is extremely rich in nutrients"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "rain"
+              ],
+              "explanation": "Tapping ‘copies the vibrations of rain’.",
+              "cue": "this copies the vibrations of rain"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "ice"
+              ],
+              "explanation": "‘The original worms were wiped out by the ice.’",
+              "cue": "The original worms were wiped out by the ice"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "plants"
+              ],
+              "explanation": "They arrived ‘in soil and in the roots of plants they brought with them’.",
+              "cue": "in the roots of plants they brought with them"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "bait"
+              ],
+              "explanation": "‘People who go fishing throw away their unused bait.’",
+              "cue": "throw away their unused bait"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-21/part4.mp3",
+        "duration": 196.48
+      }
+    }
+  ],
+  "durationMinutes": 15
+}
