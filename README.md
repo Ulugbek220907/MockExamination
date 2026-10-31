@@ -22,9 +22,13 @@
 - The plan costs 39,000 so'm a month (configurable). The first payment gives two months, and nothing renews automatically.
 - Sign-in uses a 6-digit email code or Google (Supabase Auth). Attempts made before signing in are added to the account.
 - Payments: Payme and Click (merchant APIs built in, switched on by environment variables), or a card transfer confirmed by an admin.
-- Admin panel for confirming payments, refunds, adding examiners and giving plan days.
+- Admin panel for confirming payments, refunds, adding examiners and giving plan days, with revenue for the last 7 and 30 days (pass vs. examiner checks), passes active now and passes ending within 7 days.
 - Progress page: the latest band per module with the change since the previous test, and a chart of band scores over time (timed Listening/Reading, marked Writing/Speaking), with a table view.
-- Notifications (optional): emails through Resend to students, examiners and admins, and Telegram messages to the owner for payments and new checks. Menu counters show payments to confirm and checks to mark.
+- Study goal: a target band and exam date, shown on the home page (days to the exam), on the progress tiles and as a dashed line on the chart.
+- Practice by question type (`#/practice`): one Reading passage with only one type of question, weakest types first, no timer, no band and nothing saved. The results page links to the weakest type.
+- The pass: a notice in its last 5 days and a reminder email 3 days before it ends (unless another month is already bought).
+- Installable on phones and computers (`manifest.webmanifest`).
+- Notifications (optional): emails through Resend to students, examiners and admins, and Telegram messages to the owner for payments, new checks and server errors (each error at most once per 15 minutes). Menu counters show payments to confirm and checks to mark.
 
 **All content is original** and written for this project. The recordings are voiced with the open-source Kokoro text-to-speech model (Apache 2.0). The previous Cambridge IELTS 17–19 material has been withdrawn because it is copyrighted (see [CONTENT_GUIDE.md](CONTENT_GUIDE.md)).
 

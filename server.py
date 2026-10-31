@@ -48,6 +48,7 @@ import tornado.web
 mimetypes.add_type("font/woff2", ".woff2")
 mimetypes.add_type("font/woff", ".woff")
 mimetypes.add_type("image/svg+xml", ".svg")
+mimetypes.add_type("application/manifest+json", ".webmanifest")
 
 
 def load_dotenv(path):
@@ -65,7 +66,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, ai, analytics, api, auth, content, content_sync, notify, pool, scoring, speaking, speaking_ai, storage, writing  # noqa: E402
+from mockexam import accounts, ai, analytics, api, auth, billing, content, content_sync, notify, pool, practice, scoring, speaking, speaking_ai, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -583,6 +584,77 @@ class WritingSubmitHandler(BaseHandler):
                    module="writing", test_id=test["id"])
 
 
+async def openable_tests(handler, tests):
+    """The tests this visitor may open (free tests, or every test with the pass)."""
+    profile = await handler.load_profile()
+    plan = await in_thread(PLAN_CACHE.get, STORE.db, profile["id"]) if profile else None
+    return [t for t in tests if accounts.can_open_test(t, profile, plan)]
+
+
+class PracticeTypesHandler(BaseHandler):
+    """GET /api/practice: every Reading question type, weakest first for this student."""
+
+    async def get(self):
+        cat = await catalog()
+        user_id = self.current_user
+        client_id = clean_client_id(self.get_query_argument("clientId", ""))
+        where = {"user_id": user_id} if user_id else {"client_id": client_id} if client_id else None
+        rows = []
+        if where:
+            try:
+                rows = await in_thread(lambda: STORE.db.select("reading_attempts", where, order=[("created_at", "desc")], limit=100))
+            except Exception:
+                log.exception("Could not load attempts for practice")
+        types = practice.types_overview(await openable_tests(self, cat.tests), rows)
+        self.send_json({"types": types})
+
+
+async def practice_set(handler, gtype, test_id=None, index=None, number=0):
+    """(test, passage index, count) of one set the visitor may open; raises 404 if there is none."""
+    if gtype not in scoring.TYPE_LABELS:
+        raise api.ApiError(404, "Unknown question type.")
+    cat = await catalog()
+    sets = practice.sets_for(await openable_tests(handler, cat.tests), gtype)
+    if test_id is not None:
+        sets = [s for s in sets if s[0]["id"] == test_id and s[1] == index]
+        number = 0
+    if not sets:
+        raise api.ApiError(404, "There are no questions of this type to practise.")
+    test, i = sets[number % len(sets)]
+    return test, i, len(sets)
+
+
+class PracticeSetHandler(BaseHandler):
+    """GET /api/practice/<type>?set=<n>: one passage with only that type of question, without answers."""
+
+    async def get(self, gtype):
+        try:
+            number = max(0, int(self.get_query_argument("set", "0")))
+        except ValueError:
+            number = 0
+        test, index, count = await practice_set(self, gtype.replace("-", "_"), number=number)
+        drill = content.public_test(practice.build_set(test, index, gtype.replace("-", "_")))
+        self.send_json({"test": drill, "set": number % count, "sets": count})
+
+
+class PracticeCheckHandler(BaseHandler):
+    """POST /api/practice/<type>/check: mark a set. Nothing is saved."""
+
+    async def post(self, gtype):
+        gtype = gtype.replace("-", "_")
+        body = self.body_json()
+        try:
+            index = int(body.get("passage"))
+        except (TypeError, ValueError):
+            raise api.ApiError(400, "Missing passage.")
+        test, index, _ = await practice_set(self, gtype, str(body.get("testId") or ""), index)
+        raw = body.get("answers") if isinstance(body.get("answers"), dict) else {}
+        answers = {str(int(k)): v.strip()[:100] for k, v in raw.items() if str(k).isdigit() and isinstance(v, str) and v.strip()}
+        result = practice.mark_set(test, index, gtype, answers)
+        result["timeSpentSeconds"] = clean_seconds(body.get("timeSpentSeconds"))
+        self.send_json(result)
+
+
 class HistoryHandler(BaseHandler):
     async def get(self):
         user_id = self.current_user
@@ -622,6 +694,15 @@ class AdminStatsHandler(api.AdminHandler):
         except Exception:
             log.exception("Could not count funnel events")
             stats["funnel"] = None
+        try:
+            week, month, passes = await asyncio.gather(in_thread(billing.revenue, STORE.db, 7),
+                                                       in_thread(billing.revenue, STORE.db, 30),
+                                                       in_thread(accounts.pass_counts, STORE.db))
+            stats["revenue"] = {"7": week, "30": month}
+            stats["passes"] = passes
+        except Exception:
+            log.exception("Could not count revenue")
+            stats["revenue"] = stats["passes"] = None
         self.send_json(stats)
 
 
@@ -769,6 +850,9 @@ def make_app():
             (rf"/api/listening/{TEST_ID_PATTERN}/submit", ListeningSubmitHandler),
             (rf"/api/writing/{TEST_ID_PATTERN}/submit", WritingSubmitHandler),
             (r"/api/history", HistoryHandler),
+            (r"/api/practice", PracticeTypesHandler),
+            (r"/api/practice/([a-z][a-z\-]{1,40})", PracticeSetHandler),
+            (r"/api/practice/([a-z][a-z\-]{1,40})/check", PracticeCheckHandler),
             (r"/api/admin/stats", AdminStatsHandler),
             (r"/api/admin/refresh", AdminRefreshHandler),
             (r"/api/admin/sync-content", AdminSyncContentHandler),
@@ -797,8 +881,21 @@ async def clean_up_recordings():
         log.exception("Speaking clean-up failed")
 
 
+async def send_plan_reminders():
+    """Emails students whose pass ends within 3 days (see accounts.send_plan_reminders); runs every hour."""
+    if not notify.email_enabled():
+        return
+    try:
+        sent = await in_thread(accounts.send_plan_reminders, STORE.db, notify.plan_ending)
+        if sent:
+            log.info("Sent %d pass reminders", sent)
+    except Exception:
+        log.exception("Pass reminders failed")
+
+
 def main():
     global _CATALOG
+    logging.getLogger().addHandler(notify.ErrorAlerts())  # errors reach the owner on Telegram (if configured)
     tests = STORE.list_tests()
     # Build the API responses and asset hashes before taking traffic.
     _CATALOG = Catalog(tests)
@@ -828,6 +925,8 @@ def main():
                          name="publish-new-tests", daemon=True).start()
     loop.call_later(60, clean_up_recordings)
     tornado.ioloop.PeriodicCallback(clean_up_recordings, 6 * 3600 * 1000).start()
+    loop.call_later(120, send_plan_reminders)
+    tornado.ioloop.PeriodicCallback(send_plan_reminders, 3600 * 1000).start()
     loop.start()
 
 

@@ -226,7 +226,7 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
   align-items: center; column-gap: 16px; min-height: 96px; padding: 12px 0; border-top: 1px solid var(--rule);
 }
 .ledger-row:last-child { border-bottom: 1px solid var(--rule); }
-.ledger-name { grid-area: name; font-size: var(--t-figure); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; }
+.ledger-name { grid-area: name; min-width: 0; font-size: var(--t-figure); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; }
 .ledger-facts { grid-area: facts; font-size: var(--t-small); color: var(--muted); line-height: 1.4; }
 .ledger-facts .fmt { display: none; color: var(--muted); }
 .ledger-facts a { color: var(--ink); font-weight: 500; display: inline-block; padding: 10px 0; margin: -10px 0; }
@@ -251,12 +251,17 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
   .home-title { grid-column: 5 / 13; grid-row: 1; line-height: 0.92; letter-spacing: -0.04em; }
   .hero-lead { grid-column: 1 / 5; grid-row: 1; margin-top: 0.55em; max-width: 22ch; }
   .ledger, .facts, #history-section, .home-notice { grid-column: 5 / 13; }
-  .ledger-row { grid-template-columns: minmax(0, 1fr) 270px 170px; grid-template-areas: "name facts act"; min-height: 116px; column-gap: var(--gutter); }
+  .ledger-row { min-height: 116px; column-gap: var(--gutter); }
   .ledger-facts { font-size: 1rem; line-height: 1.45; }
   .ledger-facts .fmt { display: block; font-size: var(--t-small); }
   .ledger-act { justify-self: end; }
   .footer-top .col-a { grid-column: 1 / 5; }
   .footer-top .col-b { grid-column: 5 / 13; }
+}
+/* Name, facts and button side by side only where the module name fits beside the facts
+   (below about 1200px the name column is narrower than "Listening" and the two overlapped). */
+@media (min-width: 1280px) {
+  .ledger-row { grid-template-columns: minmax(0, 1fr) 270px 170px; grid-template-areas: "name facts act"; }
 }
 @media (hover: hover) and (pointer: fine) {
   .ledger-row { transition: color 0.16s; }
@@ -791,6 +796,8 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .tile-delta.is-down { color: var(--pv-down); }
 .tile-delta.is-flat { color: var(--pv-muted); font-weight: 500; }
 .tile-sub { font-size: 0.8em; color: var(--pv-muted); margin-top: 2px; }
+.tile-goal { font-size: 0.8em; color: var(--pv-ink-2); margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--pv-grid); }
+.tile-goal.is-met { color: var(--pv-up); font-weight: 600; }
 .progress-viz { background: var(--pv-surface); border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 16px 18px 8px; }
 .pv-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.88em; color: var(--pv-ink-2); margin-bottom: 4px; }
 .pv-legend-item { display: inline-flex; align-items: center; gap: 6px; }
@@ -799,6 +806,8 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .pv-svg:focus { outline: 2px solid var(--ink); outline-offset: 4px; border-radius: 4px; }
 .pv-grid { stroke: var(--pv-grid); stroke-width: 1; }
 .pv-tick { fill: var(--pv-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.pv-goal { stroke: var(--pv-ink-2); stroke-width: 1.5; stroke-dasharray: 6 5; }
+.pv-goal-label { fill: var(--pv-ink-2); font-size: 12px; font-weight: 600; }
 .pv-end { fill: var(--pv-ink-2); font-size: 12px; font-weight: 600; }
 .pv-dot { stroke: var(--pv-surface); stroke-width: 2; }
 .pv-cross { stroke: var(--pv-muted); stroke-width: 1; }
@@ -1145,6 +1154,42 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .band-val, .history-table, .tile-value, .criterion-band, .score-stat-val, .offer-price, .stats-row strong, .stat-row strong,
 .test-row-band, .t-qnum, .review-card .question-number-badge { font-variant-numeric: normal; }
 
+/* Study goal, pass ending, practice by question type, admin revenue -------------------- */
+.goal-strip { font-size: var(--t-small); color: var(--ink-2); margin: 16px 0 0; line-height: 1.45; }
+.goal-strip a { font-weight: 550; color: var(--ink); }
+.home-notice:empty { display: none; }
+.plan-ending { margin: 16px 0 24px; }
+.home-notice .plan-ending { margin-bottom: 0; }
+.plan-ending span { display: block; }
+.plan-ending .btn-sm { margin-top: 8px; }
+.goal-form { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: flex-end; margin-top: 4px; }
+.goal-form label { display: flex; flex-direction: column; gap: 4px; font-size: var(--t-small); color: var(--muted); }
+.goal-form select, .goal-form input[type="date"] {
+  min-height: 44px; padding: 8px 10px; border: 1px solid var(--edge); border-radius: var(--radius);
+  background: var(--paper); color: var(--ink); font: inherit; font-size: 1rem;
+}
+.goal-form select:focus, .goal-form input[type="date"]:focus { border-color: var(--ink); outline: 2px solid var(--ink); outline-offset: 1px; }
+.account-card .goal-form .btn-secondary { margin-top: 0; }
+.goal-form .form-error { flex-basis: 100%; }
+.practice-line { margin-top: 20px; color: var(--muted); font-size: var(--t-small); }
+.practice-line a { color: var(--ink); font-weight: 550; margin-left: 4px; display: inline-flex; min-height: 44px; align-items: center; }
+.practice-score { display: inline-flex; align-items: center; gap: 10px; }
+.practice-score .passage-progress-bar { width: 96px; flex: none; }
+.practice-row .test-row-topics { -webkit-line-clamp: unset; }
+.practice-banner .score-details-grid { width: 100%; }
+.admin-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 12px; margin: 8px 0 16px; }
+.admin-kpi { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.admin-kpi-val { font-size: 1.5rem; font-weight: 650; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.admin-kpi-lbl { font-size: var(--t-small); color: var(--muted); }
+/* Question-type names are longer than "Test 12": give them the wide column and a smaller size. */
+.practice-row .test-row-name { font-size: clamp(1.2rem, 1rem + 0.7vw, 1.6rem); }
+@media (min-width: 720px) {
+  .practice-row { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) 6rem auto; grid-template-areas: "name topics tag act"; gap: 0 24px; padding: 14px 0; }
+  .practice-row .test-row-tag { justify-self: start; }
+  .practice-row .test-row-act { justify-content: flex-end; }
+}
+.revenue-note { margin-bottom: 32px; }
+.practice-page .empty-note { text-align: left; padding-left: 0; }
 /* The AI examiner's Speaking report (public/js/ai-examiner.js) -------------------------------- */
 .ai-report { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 24px; margin: 18px 0 28px; }
 .ai-report-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }

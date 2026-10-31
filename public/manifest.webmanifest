@@ -1,0 +1,19 @@
+{
+  "name": "TestDay – IELTS practice tests",
+  "short_name": "TestDay",
+  "description": "Timed IELTS Listening, Reading, Writing and Speaking practice on a screen like test day.",
+  "id": "/",
+  "start_url": "/?source=app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#e9e8e2",
+  "theme_color": "#e9e8e2",
+  "lang": "en",
+  "categories": ["education"],
+  "icons": [
+    { "src": "img/logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "img/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "img/logo-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

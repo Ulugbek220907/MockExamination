@@ -154,6 +154,34 @@
     bindReview(root, data, (r) => reviewCard(r, `Passage ${r.passageNumber}`));
   }
 
+  /* -------------------------------------------------------- practice sets */
+  /** One question type on one passage: how many were right and why, with no band. */
+  function renderPractice(data, root) {
+    const next = Number(U.store.get(`testday:practiceSet:${data.type}`, 0)) || 0;
+    root.innerHTML = `
+      <section class="results-page practice-results">
+        <div class="results-head">
+          <div class="results-title"><div>
+            <h1>${esc(tr("Practise: {type}", { type: data.title }))}</h1>
+            <p class="muted-text results-sub"><span>${esc(tr("practice.result", { n: data.rawScore, total: data.totalQuestions }))}</span> · <span>${esc(tr("Time used: {time}", { time: U.formatDuration(data.timeSpentSeconds) }))}</span></p>
+          </div></div>
+          <div class="results-actions">
+            <button type="button" class="btn-primary" data-action="practice-type" data-type="${esc(data.type)}" data-set="${next}">${tr("Another set")}</button>
+            <a class="btn-secondary" href="#/practice">${tr("All question types")}</a>
+          </div>
+        </div>
+        <div class="score-banner-card practice-banner">
+          <div class="score-details-grid">
+            <div class="score-stat-box"><div class="score-stat-val">${data.rawScore} / ${data.totalQuestions}</div><div class="score-stat-lbl">${tr("Correct answers")}</div></div>
+            <div class="score-stat-box"><div class="score-stat-val">${pct(data.rawScore, data.totalQuestions)}%</div><div class="score-stat-lbl">${esc(data.title)}</div></div>
+          </div>
+        </div>
+        <p class="score-note">${esc(tr(`tip.${data.type}`))} ${tr("practice.note")}</p>
+        ${reviewHTML(data)}
+      </section>`;
+    bindReview(root, data, (r) => reviewCard(r, `Passage ${r.passageNumber}`));
+  }
+
   /* -------------------------------------------------------------- listening */
   const CHECK_OK = `<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const CHECK_BAD = `<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 2.5v4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="6" cy="9.3" r="1.1" fill="currentColor"/></svg>`;
@@ -461,7 +489,7 @@
   }
 
   window.Results = {
-    renderReading, renderListening, renderWriting,
+    renderReading, renderListening, renderWriting, renderPractice,
     // Shared with the examiner check pages.
     parts: { bandCircle, criteriaHTML, listBlock, correctionsHTML },
   };

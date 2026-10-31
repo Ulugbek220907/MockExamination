@@ -22,6 +22,11 @@
   <meta name="twitter:image" content="%SITE_URL%/img/og.png" />
   <link rel="canonical" href="%SITE_URL%/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <!-- Install as an app on phones and computers (home screen icon, opens without the browser bar). -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="TestDay" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <link rel="preload" href="fonts/schibsted-grotesk-core.woff2?v=1" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/portal.css" />
   <!-- The data the home page needs is requested now, while the scripts download, instead of after they have run. -->

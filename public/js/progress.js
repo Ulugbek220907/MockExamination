@@ -12,9 +12,10 @@
  *   - an activity calendar: a month at a time, each day filled by how many tests
  *     were taken, with streaks and the day's tests on tap.
  *
- * Progress.render(el, points, activity) – from GET /api/progress:
+ * Progress.render(el, points, activity, opts) – from GET /api/progress:
  *   points   [{module, date, band, testId, source}] oldest first (scored tests)
  *   activity [{module, date, mode, testId, band}] oldest first (every finished test)
+ *   opts.goal the student's target band (or null): a dashed line on the charts and a note on the tiles
  */
 (function () {
   "use strict";
@@ -128,7 +129,15 @@
     }, animate);
   }
 
-  function tiles(points) {
+  function goalLine(last, goal) {
+    if (!goal || !last) return "";
+    const gap = goal - last.band;
+    return gap <= 0
+      ? `<div class="tile-goal is-met">${t("Goal {band} reached", { band: band(goal) })}</div>`
+      : `<div class="tile-goal">${t("{gap} to your goal of {band}", { gap: band(gap), band: band(goal) })}</div>`;
+  }
+
+  function tiles(points, goal) {
     return `<div class="progress-tiles">${SERIES.map(([key, label, color]) => {
       const pts = points.filter((p) => p.module === key);
       const last = pts[pts.length - 1];
@@ -148,12 +157,13 @@
           <div class="tile-main"><div class="tile-value">${last ? band(last.band) : "–"}</div>${pts.length ? `<div class="tile-spark-host" data-module="${key}"></div>` : ""}</div>
           ${delta}
           <div class="tile-sub">${pts.length ? `${t("Best {band}", { band: band(best) })} · ${plural(pts.length, "{n} test", "{n} tests")}` : "&nbsp;"}</div>
+          ${goalLine(last, goal)}
         </div>`;
     }).join("")}</div>`;
   }
 
   /** Scales for a chart drawn at its real pixel width, so text stays 12px on every screen. */
-  function layout(points, width) {
+  function layout(points, width, goal) {
     const W = Math.max(280, Math.round(width));
     const H = W < 520 ? 220 : 280;
     const right = W < 520 ? 16 : M.right; // no room for end labels on a phone
@@ -161,10 +171,11 @@
     let x0 = Math.min(...times);
     let x1 = Math.max(...times);
     if (x1 - x0 < DAY) { x0 -= DAY; x1 += DAY; }
-    const y0 = Math.min(Math.max(0, Math.floor(Math.min(...points.map((p) => p.band))) - 1), 8);
+    const lowest = Math.min(...points.map((p) => p.band), goal || 9);
+    const y0 = Math.min(Math.max(0, Math.floor(lowest) - 1), 8);
     const y1 = 9;
     return {
-      W, H, right, x0, x1, y0, y1, narrow: W < 520,
+      W, H, right, x0, x1, y0, y1, narrow: W < 520, goal,
       X: (t) => M.left + ((t - x0) / (x1 - x0)) * (W - M.left - right),
       Y: (b) => M.top + (1 - (b - y0) / (y1 - y0)) * (H - M.top - M.bottom),
     };
@@ -179,10 +190,19 @@
       grid.push(`<line x1="${M.left}" x2="${W - R}" y1="${Y(b)}" y2="${Y(b)}" class="pv-grid"/>
         <text x="${M.left - 8}" y="${Y(b) + 4}" text-anchor="end" class="pv-tick">${b}</text>`);
     }
-    const ticks = g.narrow ? 2 : 4;
+    // Never more date labels than days in the range, and never the same date twice.
+    const ticks = Math.max(1, Math.min(g.narrow ? 2 : 4, Math.floor((x1 - x0) / DAY)));
+    const seen = new Set();
     for (let i = 0; i <= ticks; i++) {
       const t = x0 + ((x1 - x0) * i) / ticks;
-      grid.push(`<text x="${X(t)}" y="${H - 8}" text-anchor="${i === 0 ? "start" : i === ticks ? "end" : "middle"}" class="pv-tick">${esc(shortDate(t))}</text>`);
+      const label = shortDate(t);
+      if (seen.has(label)) continue;
+      seen.add(label);
+      grid.push(`<text x="${X(t)}" y="${H - 8}" text-anchor="${i === 0 ? "start" : i === ticks ? "end" : "middle"}" class="pv-tick">${esc(label)}</text>`);
+    }
+    if (g.goal) {
+      grid.push(`<line x1="${M.left}" x2="${W - R}" y1="${Y(g.goal)}" y2="${Y(g.goal)}" class="pv-goal"/>
+        <text x="${M.left + 6}" y="${Y(g.goal) - 6}" class="pv-goal-label">${esc(t("Goal {band}", { band: band(g.goal) }))}</text>`);
     }
 
     const present = SERIES.filter(([key]) => points.some((p) => p.module === key));
@@ -399,7 +419,7 @@
   }
 
   /** Draws the line at the plot's real width; the chosen test is marked on both axes like a crosshair. */
-  function mountBandChart(card, key, label, color, pts, animate) {
+  function mountBandChart(card, key, label, color, pts, animate, goal) {
     const plot = card.querySelector(".bc-plot");
     const readout = card.querySelector(".bc-readout");
     const value = card.querySelector(".bc-value");
@@ -411,7 +431,7 @@
     const T = 14;
     const B = 34;
     const bands = pts.map((p) => p.band);
-    const lo = Math.max(0, Math.min(Math.floor(Math.min(...bands)) - 1, 7));
+    const lo = Math.max(0, Math.min(Math.floor(Math.min(...bands, goal || 9)) - 1, 7));
     const step = 9 - lo > 6 ? 2 : 1;
     const x0 = L + 8;
     const x1 = W - R - 14;
@@ -426,6 +446,10 @@
         <text x="${W - R + 10}" y="${Y(b) + 4}" class="pv-tick">${b}</text>`);
     }
     if ((9 - lo) % step) grid.push(`<line x1="${L}" x2="${W - R}" y1="${floor}" y2="${floor}" class="pv-grid"/>`);
+    if (goal) {
+      grid.push(`<line x1="${L}" x2="${W - R}" y1="${Y(goal)}" y2="${Y(goal)}" class="pv-goal"/>
+        <text x="${L + 6}" y="${Y(goal) - 6}" class="pv-goal-label">${esc(t("Goal {band}", { band: band(goal) }))}</text>`);
+    }
     const labelled = pts.length < 3 ? [...new Set([0, pts.length - 1])]
       : W < 520 ? [0, Math.round((pts.length - 1) / 2), pts.length - 1]
         : [0, Math.round((pts.length - 1) / 3), Math.round((2 * (pts.length - 1)) / 3), pts.length - 1];
@@ -535,7 +559,7 @@
     }, animate);
   }
 
-  function bindBandCard(root, points, animate) {
+  function bindBandCard(root, points, animate, goal) {
     const card = root.querySelector(".band-card");
     if (!card) return;
     const plot = card.querySelector(".bc-plot");
@@ -547,7 +571,7 @@
       card.querySelector(".bc-head").innerHTML = bandHeadHTML(key, label, pts);
       card.querySelector(".bc-stats").innerHTML = bandStatsHTML(pts);
       width = plot.clientWidth;
-      mountBandChart(card, key, t(label), color, pts, play);
+      mountBandChart(card, key, t(label), color, pts, play, goal);
     };
     card.querySelectorAll(".seg-btn").forEach((btn) => btn.addEventListener("click", () => {
       if (btn.dataset.series === key) return;
@@ -724,6 +748,7 @@
   function render(el, points, activity = [], opts = {}) {
     if (!el) return;
     const animate = opts.animate !== false;
+    const goal = opts.goal || null;
     const calendar = `<section class="activity-section" aria-labelledby="activity-title"></section>`;
     if (!points.length) {
       el.innerHTML = `
@@ -738,7 +763,7 @@
       <h2 class="section-title">${t("Your progress")}</h2>
       <p class="muted-text section-sub">${t("Timed Listening and Reading tests, and marked Writing and Speaking tests.")}</p>
       ${overallHTML(points)}
-      ${tiles(points)}
+      ${tiles(points, goal)}
       ${bandCardHTML(points)}
       <h3 class="sub-title">${t("All modules over time")}</h3>
       <div class="progress-viz">
@@ -748,7 +773,7 @@
         ${table(points)}
       </div>
       ${calendar}`;
-    bindBandCard(el, points, animate);
+    bindBandCard(el, points, animate, goal);
     el.querySelectorAll(".tile-spark-host").forEach((host) => {
       const [, , color] = SERIES.find((s) => s[0] === host.dataset.module);
       sparkline(host, points.filter((p) => p.module === host.dataset.module).map((p) => p.band), color, animate);
@@ -761,7 +786,7 @@
       if (!width || width === lastWidth) return;
       const first = !lastWidth;
       lastWidth = width;
-      const g = layout(points, width);
+      const g = layout(points, width, goal);
       plot.innerHTML = chart(points, g);
       riseLines(plot, g, animate && first);
       bindHover(plot, points, g);

@@ -64,7 +64,8 @@ def _uuid(value):
 
 
 def _public_user(profile):
-    return {"id": profile["id"], "email": profile["email"], "name": profile.get("name") or "", "role": profile["role"]}
+    return {"id": profile["id"], "email": profile["email"], "name": profile.get("name") or "", "role": profile["role"],
+            "goal": accounts.public_goal(profile)}
 
 
 def clean_name(value):
@@ -211,10 +212,18 @@ class MeHandler(BaseHandler):
         self.send_json(await in_thread(account_payload, self.db, profile))
 
     async def post(self):
+        """Change the name and/or the study goal (only the fields sent)."""
         profile = await self.require_profile()
-        name = re.sub(r"\s+", " ", str(self.body_json().get("name") or "")).strip()[:80]
-        await in_thread(self.db.update, "profiles", {"id": profile["id"]}, {"name": name or None})
-        profile["name"] = name
+        body = self.body_json()
+        try:
+            values = accounts.clean_goal(body)
+        except accounts.GoalError as e:
+            _raise(e)
+        if "name" in body:
+            values["name"] = re.sub(r"\s+", " ", str(body.get("name") or "")).strip()[:80] or None
+        if values:
+            await in_thread(self.db.update, "profiles", {"id": profile["id"]}, values)
+            profile.update(values)
         self.send_json(await in_thread(account_payload, self.db, profile))
 
 

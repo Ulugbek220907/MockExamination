@@ -14,16 +14,23 @@ Events
   order_paid        payment received (Payme, Click or confirmed) -> the student; admins for Payme/Click
   check_assigned    a paid check is in an examiner's queue       -> the examiner; admins
   check_completed   the examiner sent the marks                  -> the student
+  plan_ending       the pass ends in 3 days and is not renewed   -> the student
+
+Server errors (anything logged at ERROR level) also go to the owner on
+Telegram, at most once per 15 minutes for the same error (ErrorAlerts).
 
 Messages are sent from a small background pool, so no request waits for
 them, and a failed send is only logged.
 """
 
 import concurrent.futures
+import datetime
 import html
 import json
 import logging
 import os
+import threading
+import time
 import urllib.error
 import urllib.request
 
@@ -128,6 +135,46 @@ def _to_admins(subject, text, button=None):
 
 
 # --------------------------------------------------------------------------
+# Server errors -> Telegram
+# --------------------------------------------------------------------------
+
+class ErrorAlerts(logging.Handler):
+    """
+    A logging handler that sends ERROR records to the owner's Telegram. The same
+    error (logger and message) is sent at most once per `quiet` seconds, so a
+    failing database cannot flood the chat. Failures to send are never re-reported.
+    """
+
+    def __init__(self, quiet=15 * 60, clock=time.monotonic):
+        super().__init__(level=logging.ERROR)
+        self.quiet = quiet
+        self.clock = clock
+        self.sent = {}
+        self.sent_lock = threading.Lock()  # not `lock`: logging.Handler holds its own lock around emit()
+
+    def emit(self, record):
+        if record.name.startswith(log.name) or not telegram_enabled():
+            return  # never report our own failed sends
+        try:
+            message = record.getMessage()
+        except Exception:  # noqa: BLE001 – a bad log call must not break logging
+            message = str(record.msg)
+        key = (record.name, message[:200])
+        at = self.clock()
+        with self.sent_lock:
+            if at - self.sent.get(key, -self.quiet - 1) < self.quiet:
+                return
+            if len(self.sent) > 500:
+                self.sent = {k: v for k, v in self.sent.items() if at - v < self.quiet}
+            self.sent[key] = at
+        detail = ""
+        if record.exc_info and record.exc_info[1] is not None:
+            exc = record.exc_info[1]
+            detail = f"\n{type(exc).__name__}: {exc}"[:600]
+        _run(send_telegram, f"Server error on {site_name()}\n{record.name}: {message[:1500]}{detail}")
+
+
+# --------------------------------------------------------------------------
 # Events
 # --------------------------------------------------------------------------
 
@@ -179,6 +226,19 @@ def check_completed(db, check):
                    "See the feedback on each criterion, and rate your examiner once you have read it.",
                    ("See your result", f"{site_url()}/#/check/{check['id']}"))
     _run(job)
+
+
+def plan_ending(db, user_id, ends_at):
+    """Sent while the reminder job runs (already in the background), so it sends at once."""
+    try:
+        dt = datetime.datetime.fromisoformat(str(ends_at).replace("Z", "+00:00"))
+        day = f"{dt.day} {dt:%B %Y}"
+    except ValueError:
+        day = str(ends_at)[:10]
+    send_email(_email_of(db, user_id), f"Your {site_name()} pass ends on {day}",
+               f"Your monthly pass ends on {day}. After that, only the free tests stay open.\n\n"
+               "Nothing renews automatically. If you are still preparing, add another month to keep every test open.",
+               ("Add another month", f"{site_url()}/#/pricing"))
 
 
 # --------------------------------------------------------------------------
