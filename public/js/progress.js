@@ -1,10 +1,14 @@
 /**
  * Progress on the account page:
- *   - an estimated overall band and a stat tile per module (latest band and the
- *     change since the previous test);
- *   - a band chart for each module (every test as a dot, with average and best);
+ *   - an estimated overall band and a stat tile per module (latest band, the
+ *     change since the previous test and a sparkline);
+ *   - the band card: one smooth line of bands, the overall band or one module at
+ *     a time, with the chosen test marked on both axes (latest by default; hover,
+ *     drag or arrow keys to read the others);
  *   - a line chart of all four modules over time, with a hover/keyboard readout,
  *     a legend, direct end labels and a table view;
+ *   - every line starts flat on the floor and rises to its bands when it first
+ *     comes into view (at once with reduced motion);
  *   - an activity calendar: a month at a time, each day filled by how many tests
  *     were taken, with streaks and the day's tests on tap.
  *
@@ -37,6 +41,93 @@
     return t ? t.shortTitle : id;
   };
 
+  /* ---------------------------------------------------------------- drawing */
+  const reduceMotion = () => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const ease = (k) => 1 - Math.pow(1 - k, 3);
+  const f1 = (v) => v.toFixed(1);
+  let gradients = 0;
+
+  /** A smooth path through [x, y] points that never overshoots them (monotone cubic, like d3's curveMonotoneX). */
+  function smoothPath(pts) {
+    const n = pts.length;
+    if (!n) return "";
+    let d = `M${f1(pts[0][0])},${f1(pts[0][1])}`;
+    if (n === 2) return `${d}L${f1(pts[1][0])},${f1(pts[1][1])}`;
+    const dx = [];
+    const m = [];
+    for (let i = 0; i < n - 1; i++) {
+      dx[i] = pts[i + 1][0] - pts[i][0];
+      m[i] = dx[i] ? (pts[i + 1][1] - pts[i][1]) / dx[i] : 0;
+    }
+    const tan = [m[0]];
+    for (let i = 1; i < n - 1; i++) {
+      tan[i] = m[i - 1] * m[i] <= 0 ? 0 : (3 * (dx[i - 1] + dx[i])) / ((2 * dx[i] + dx[i - 1]) / m[i - 1] + (dx[i] + 2 * dx[i - 1]) / m[i]);
+    }
+    tan[n - 1] = m[n - 2];
+    for (let i = 0; i < n - 1; i++) {
+      const h = dx[i] / 3;
+      d += `C${f1(pts[i][0] + h)},${f1(pts[i][1] + tan[i] * h)},${f1(pts[i + 1][0] - h)},${f1(pts[i + 1][1] - tan[i + 1] * h)},${f1(pts[i + 1][0])},${f1(pts[i + 1][1])}`;
+    }
+    return d;
+  }
+
+  const areaPath = (pts, floor) => (pts.length < 2 ? ""
+    : `${smoothPath(pts)}L${f1(pts[pts.length - 1][0])},${f1(floor)}L${f1(pts[0][0])},${f1(floor)}Z`);
+
+  const gradient = (id, color) => `<linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" style="stop-color:${color};stop-opacity:0.26"/><stop offset="1" style="stop-color:${color};stop-opacity:0"/></linearGradient>`;
+
+  /**
+   * Calls frame(k) with k easing from 0 to 1 once `el` comes into view, so a line starts flat on the floor and
+   * rises to its bands. Without animate, or with reduced motion, it draws the end state at once.
+   */
+  function rise(el, frame, animate, ms = 1100) {
+    if (!animate || reduceMotion()) {
+      frame(1);
+      return;
+    }
+    frame(0);
+    const run = () => {
+      const start = performance.now();
+      const step = (now) => {
+        const k = Math.min(1, (now - start) / ms);
+        frame(ease(k));
+        if (k < 1 && el.isConnected) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if (!window.IntersectionObserver) return run();
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        io.disconnect();
+        run();
+      }
+    }, { threshold: 0.3 });
+    io.observe(el);
+  }
+
+  function sparkline(host, bands, color, animate) {
+    const W = 88;
+    const H = 32;
+    const P = 3;
+    const lo = Math.max(0, Math.min(...bands) - 0.5);
+    const hi = Math.min(9, Math.max(...bands) + 0.5);
+    const vals = bands.length === 1 ? [bands[0], bands[0]] : bands;
+    const X = (i) => P + (i / (vals.length - 1)) * (W - 2 * P);
+    const Y = (b) => P + (1 - (b - lo) / (hi - lo || 1)) * (H - 2 * P);
+    const id = `pvg-${++gradients}`;
+    host.innerHTML = `<svg class="tile-spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true">
+      <defs>${gradient(id, color)}</defs><path fill="url(#${id})"/>
+      <path fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+    const [area, line] = host.querySelectorAll("path");
+    const floor = H - 1;
+    rise(host, (k) => {
+      const pts = vals.map((b, i) => [X(i), floor + (Y(b) - floor) * k]);
+      line.setAttribute("d", smoothPath(pts));
+      area.setAttribute("d", areaPath(pts, floor));
+    }, animate);
+  }
+
   function tiles(points) {
     return `<div class="progress-tiles">${SERIES.map(([key, label, color]) => {
       const pts = points.filter((p) => p.module === key);
@@ -54,7 +145,7 @@
       return `
         <div class="progress-tile">
           <div class="tile-label"><span class="line-key" style="background:${color}" aria-hidden="true"></span>${label}</div>
-          <div class="tile-value">${last ? band(last.band) : "–"}</div>
+          <div class="tile-main"><div class="tile-value">${last ? band(last.band) : "–"}</div>${pts.length ? `<div class="tile-spark-host" data-module="${key}"></div>` : ""}</div>
           ${delta}
           <div class="tile-sub">${pts.length ? `${t("Best {band}", { band: band(best) })} · ${plural(pts.length, "{n} test", "{n} tests")}` : "&nbsp;"}</div>
         </div>`;
@@ -95,13 +186,20 @@
     }
 
     const present = SERIES.filter(([key]) => points.some((p) => p.module === key));
-    const lines = present.map(([key, , color]) => {
-      const pts = points.filter((p) => p.module === key).map((p) => [X(new Date(p.date).getTime()), Y(p.band)]);
-      const d = pts.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join("");
-      // A thin line with a dot at every test.
-      return `<path d="${d}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-        ${pts.map(([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4" fill="${color}" stroke="var(--pv-surface)" stroke-width="2"/>`).join("")}`;
-    }).join("");
+    // Each module's tests as [x, y]; the paths and dots are filled in by riseLines (they start on the floor).
+    g.lines = present.map(([key]) => {
+      const pts = [];
+      points.filter((p) => p.module === key).forEach((p) => {
+        const x = X(new Date(p.date).getTime());
+        pts.push([pts.length ? Math.max(x, pts[pts.length - 1][0] + 0.5) : x, Y(p.band)]);
+      });
+      return { key, pts };
+    });
+    g.floor = Y(y0);
+    const lines = present.map(([key, , color], s) =>
+      // A smooth line with a dot at every test.
+      `<path class="pv-line" data-s="${s}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        ${g.lines[s].pts.map((_, i) => `<circle class="pv-pt" data-s="${s}" data-i="${i}" r="4" fill="${color}" stroke="var(--pv-surface)" stroke-width="2"/>`).join("")}`).join("");
 
     // Direct labels at each line's end – only when none of them collide (the legend and table always remain).
     const ends = present.map(([key, label]) => {
@@ -110,7 +208,7 @@
       return { x: X(new Date(p.date).getTime()) + 8, y: Y(p.band) + 4, text: `${label} ${band(p.band)}` };
     });
     const collide = g.narrow || ends.some((a, i) => ends.some((b, j) => j > i && Math.abs(a.y - b.y) < 14 && Math.abs(a.x - b.x) < 90));
-    const labels = collide ? "" : ends.map((e) => `<text x="${e.x}" y="${e.y}" class="pv-end">${esc(e.text)}</text>`).join("");
+    const labels = collide ? "" : ends.map((e) => `<text x="${e.x}" y="${e.y}" class="pv-end" opacity="0">${esc(e.text)}</text>`).join("");
 
     return `
       <svg class="pv-svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" tabindex="0"
@@ -121,6 +219,23 @@
         <rect class="pv-hit" x="${M.left}" y="${M.top}" width="${W - M.left - R}" height="${H - M.top - M.bottom}" fill="transparent"/>
       </svg>
       <div class="pv-tip" role="status" hidden></div>`;
+  }
+
+  function riseLines(root, g, animate) {
+    const svg = root.querySelector(".pv-svg");
+    const paths = svg.querySelectorAll(".pv-line");
+    const dots = svg.querySelectorAll(".pv-pt");
+    const ends = svg.querySelectorAll(".pv-end");
+    rise(svg, (k) => {
+      const at = g.lines.map(({ pts }) => pts.map(([x, y]) => [x, g.floor + (y - g.floor) * k]));
+      paths.forEach((p) => p.setAttribute("d", smoothPath(at[p.dataset.s])));
+      dots.forEach((c) => {
+        const [x, y] = at[c.dataset.s][c.dataset.i];
+        c.setAttribute("cx", f1(x));
+        c.setAttribute("cy", f1(y));
+      });
+      ends.forEach((e) => e.setAttribute("opacity", k < 0.85 ? 0 : (k - 0.85) / 0.15));
+    }, animate);
   }
 
   function table(points) {
@@ -208,13 +323,17 @@
   }
 
   /* ---------------------------------------------------------------- overall */
+  /** The mean of the module bands, rounded to a whole or half band as in the real test. */
+  function roundOverall(mean) {
+    const whole = Math.floor(mean);
+    const frac = mean - whole;
+    return frac < 0.25 ? whole : frac < 0.75 ? whole + 0.5 : whole + 1;
+  }
+
   function overallHTML(points) {
     const latest = SERIES.map(([key]) => points.filter((p) => p.module === key).pop()).filter(Boolean);
     if (!latest.length) return "";
-    const mean = latest.reduce((a, p) => a + p.band, 0) / latest.length;
-    const whole = Math.floor(mean);
-    const frac = mean - whole;
-    const overall = frac < 0.25 ? whole : frac < 0.75 ? whole + 0.5 : whole + 1;
+    const overall = roundOverall(latest.reduce((a, p) => a + p.band, 0) / latest.length);
     const all = latest.length === 4;
     return `
       <div class="overall-band">
@@ -227,105 +346,222 @@
       </div>`;
   }
 
-  /* ---------------------------------------------------------- module charts */
-  function moduleChart(pts, color, W) {
-    const H = 132;
-    const L = 26;
-    const R = 10;
-    const T = 10;
-    const B = 22;
-    const lo = Math.max(0, Math.min(Math.floor(Math.min(...pts.map((p) => p.band))) - 1, 7));
-    const X = (i) => (pts.length === 1 ? (L + W - R) / 2 : L + (i / (pts.length - 1)) * (W - L - R));
-    const Y = (b) => T + (1 - (b - lo) / (9 - lo)) * (H - T - B);
-    const grid = [];
-    for (let b = lo; b <= 9; b++) {
-      if ((9 - b) % (9 - lo > 5 ? 2 : 1)) continue;
-      grid.push(`<line x1="${L}" x2="${W - R}" y1="${Y(b)}" y2="${Y(b)}" class="pv-grid"/><text x="${L - 6}" y="${Y(b) + 4}" text-anchor="end" class="pv-tick">${b}</text>`);
-    }
-    const avg = pts.reduce((a, p) => a + p.band, 0) / pts.length;
-    const line = pts.map((p, i) => `${i ? "L" : "M"}${X(i).toFixed(1)},${Y(p.band).toFixed(1)}`).join("");
-    const first = shortDate(new Date(pts[0].date).getTime());
-    const last = shortDate(new Date(pts[pts.length - 1].date).getTime());
-    return `
-      <svg class="mc-svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true">
-        ${grid.join("")}
-        <line x1="${L}" x2="${W - R}" y1="${Y(avg)}" y2="${Y(avg)}" class="mc-avg"/>
-        ${pts.length > 1 ? `<path d="${line}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>` : ""}
-        ${pts.map((p, i) => `<circle cx="${X(i).toFixed(1)}" cy="${Y(p.band).toFixed(1)}" r="${i === pts.length - 1 ? 5 : 4}" fill="${color}" stroke="var(--pv-surface)" stroke-width="2" data-i="${i}"/>`).join("")}
-        <text x="${L}" y="${H - 5}" class="pv-tick">${esc(first)}</text>
-        ${pts.length > 1 ? `<text x="${W - R}" y="${H - 5}" text-anchor="end" class="pv-tick">${esc(last)}</text>` : ""}
-      </svg>`;
-  }
+  /* -------------------------------------------------------------- band card */
+  // One smooth line of bands: the overall band, or one module at a time.
+  const OVERALL = ["overall", "Overall", "var(--series-0)"];
 
-  function moduleCardsHTML(points) {
-    return `<div class="module-charts">${SERIES.map(([key, label, color]) => {
-      const pts = points.filter((p) => p.module === key);
-      if (!pts.length) {
-        return `<div class="module-chart is-empty"><div class="mc-head"><span class="mc-name"><span class="line-key" style="background:${color}" aria-hidden="true"></span>${label}</span></div>
-          <p class="muted-text">${t("No {module} band yet.", { module: label })}</p></div>`;
-      }
-      const bands = pts.map((p) => p.band);
-      const avg = bands.reduce((a, b) => a + b, 0) / bands.length;
-      const summary = t("{module}: {n} tests, latest {latest}, best {best}, average {avg}.", {
-        module: label, n: pts.length, latest: band(bands[bands.length - 1]), best: band(Math.max(...bands)), avg: avg.toFixed(1) });
-      return `
-        <div class="module-chart" data-module="${key}" role="group" aria-label="${esc(summary)}">
-          <div class="mc-head">
-            <span class="mc-name"><span class="line-key" style="background:${color}" aria-hidden="true"></span>${label}</span>
-            <span class="mc-latest">${band(bands[bands.length - 1])}</span>
-          </div>
-          <div class="mc-plot"></div>
-          <dl class="mc-stats">
-            <div><dt>${t("Best")}</dt><dd>${band(Math.max(...bands))}</dd></div>
-            <div><dt>${t("Average")}</dt><dd>${avg.toFixed(1)}</dd></div>
-            <div><dt>${t("Tests")}</dt><dd>${pts.length}</dd></div>
-          </dl>
-          <div class="pv-tip mc-tip" role="status" hidden></div>
-        </div>`;
-    }).join("")}</div>`;
-  }
-
-  function drawModuleCharts(root, points) {
-    root.querySelectorAll(".module-chart[data-module]").forEach((card) => {
-      const key = card.dataset.module;
-      const [, label, color] = SERIES.find((s) => s[0] === key);
-      const pts = points.filter((p) => p.module === key);
-      const plot = card.querySelector(".mc-plot");
-      const tip = card.querySelector(".mc-tip");
-      let lastWidth = 0;
-      const draw = () => {
-        const W = Math.round(plot.clientWidth);
-        if (!W || W === lastWidth) return;
-        lastWidth = W;
-        plot.innerHTML = moduleChart(pts, color, W);
-        const svg = plot.querySelector("svg");
-        const near = (e) => {
-          const box = svg.getBoundingClientRect();
-          const x = ((e.clientX - box.left) / box.width) * W;
-          let best = null;
-          svg.querySelectorAll("circle").forEach((c) => {
-            const d = Math.abs(Number(c.getAttribute("cx")) - x);
-            if (!best || d < best.d) best = { d, c };
-          });
-          return best && best.c;
-        };
-        svg.addEventListener("pointermove", (e) => {
-          const c = near(e);
-          if (!c) return;
-          const p = pts[Number(c.dataset.i)];
-          tip.innerHTML = `<div class="pv-tip-date">${esc(new Date(p.date).toLocaleDateString(loc(), { day: "numeric", month: "long", year: "numeric" }))}</div>
-            <div class="pv-tip-row"><span class="line-key" style="background:${color}"></span><strong>${band(p.band)}</strong><span>${esc(label)} · ${esc(titleOf(p.testId))}</span></div>`;
-          tip.hidden = false;
-          const box = svg.getBoundingClientRect();
-          const cx = (Number(c.getAttribute("cx")) / W) * box.width;
-          tip.style.left = `${Math.min(Math.max(0, cx - tip.offsetWidth / 2), box.width - tip.offsetWidth)}px`;
-          tip.style.top = `${plot.offsetTop - 4}px`;
-        });
-        svg.addEventListener("pointerleave", () => { tip.hidden = true; });
-      };
-      draw();
-      if (window.ResizeObserver) new ResizeObserver(() => requestAnimationFrame(draw)).observe(plot);
+  /** The estimated overall band after each test: the mean of the latest band in each module so far. */
+  function overallSeries(points) {
+    const latest = {};
+    return points.map((p) => {
+      latest[p.module] = p.band;
+      const bands = Object.values(latest);
+      return { ...p, band: roundOverall(bands.reduce((a, b) => a + b, 0) / bands.length) };
     });
+  }
+
+  const seriesOf = (points, key) => (key === "overall" ? overallSeries(points) : points.filter((p) => p.module === key));
+
+  function bandCardHTML(points) {
+    const choices = [OVERALL, ...SERIES.filter(([key]) => points.some((p) => p.module === key))];
+    return `
+      <div class="band-card">
+        <div class="seg" role="group" aria-label="${esc(t("Show the band for"))}">
+          ${choices.map(([key, label], i) => `<button type="button" class="seg-btn" data-series="${key}" aria-pressed="${i === 0}">${esc(t(label))}</button>`).join("")}
+        </div>
+        <div class="bc-head"></div>
+        <div class="bc-readout"></div>
+        <div class="bc-plot"></div>
+        <dl class="mc-stats bc-stats"></dl>
+      </div>`;
+  }
+
+  function bandHeadHTML(key, label, pts) {
+    const last = pts[pts.length - 1];
+    const prev = pts[pts.length - 2];
+    let delta = "";
+    if (prev) {
+      const d = last.band - prev.band;
+      delta = d === 0 ? `<span class="tile-delta is-flat">${t("Same as last time")}</span>`
+        : `<span class="tile-delta ${d > 0 ? "is-up" : "is-down"}">${ARROW(d > 0)}${d > 0 ? "+" : "−"}${band(Math.abs(d))}</span>`;
+    }
+    return `
+      <div class="bc-title"><strong>${t("Band score")}</strong> <span>${key === "overall" ? esc(t("(overall, estimated)")) : `(${esc(label)})`}</span></div>
+      <div class="bc-figure"><span class="bc-value">${band(last.band)}</span>${delta}</div>`;
+  }
+
+  function bandStatsHTML(pts) {
+    const bands = pts.map((p) => p.band);
+    const avg = bands.reduce((a, b) => a + b, 0) / bands.length;
+    return `<div><dt>${t("Best")}</dt><dd>${band(Math.max(...bands))}</dd></div>
+      <div><dt>${t("Average")}</dt><dd>${avg.toFixed(1)}</dd></div>
+      <div><dt>${t("Tests")}</dt><dd>${pts.length}</dd></div>`;
+  }
+
+  /** Draws the line at the plot's real width; the chosen test is marked on both axes like a crosshair. */
+  function mountBandChart(card, key, label, color, pts, animate) {
+    const plot = card.querySelector(".bc-plot");
+    const readout = card.querySelector(".bc-readout");
+    const value = card.querySelector(".bc-value");
+    const W = Math.round(plot.clientWidth);
+    if (!W) return;
+    const H = W < 520 ? 230 : 280;
+    const L = 4;
+    const R = 46;
+    const T = 14;
+    const B = 34;
+    const bands = pts.map((p) => p.band);
+    const lo = Math.max(0, Math.min(Math.floor(Math.min(...bands)) - 1, 7));
+    const step = 9 - lo > 6 ? 2 : 1;
+    const x0 = L + 8;
+    const x1 = W - R - 14;
+    const X = (i) => (pts.length === 1 ? x1 : x0 + (i / (pts.length - 1)) * (x1 - x0));
+    const Y = (b) => T + (1 - (b - lo) / (9 - lo)) * (H - T - B);
+    const floor = Y(lo);
+    const id = `pvg-${++gradients}`;
+
+    const grid = [];
+    for (let b = 9; b >= lo; b -= step) {
+      grid.push(`<line x1="${L}" x2="${W - R}" y1="${Y(b)}" y2="${Y(b)}" class="pv-grid"/>
+        <text x="${W - R + 10}" y="${Y(b) + 4}" class="pv-tick">${b}</text>`);
+    }
+    if ((9 - lo) % step) grid.push(`<line x1="${L}" x2="${W - R}" y1="${floor}" y2="${floor}" class="pv-grid"/>`);
+    const labelled = pts.length < 3 ? [...new Set([0, pts.length - 1])]
+      : W < 520 ? [0, Math.round((pts.length - 1) / 2), pts.length - 1]
+        : [0, Math.round((pts.length - 1) / 3), Math.round((2 * (pts.length - 1)) / 3), pts.length - 1];
+    const xLabels = [...new Set(labelled)].map((i) => `<text class="pv-tick bc-xl" data-i="${i}" x="${X(i)}" y="${H - 11}"
+      text-anchor="${pts.length > 1 && i === 0 ? "start" : i === pts.length - 1 ? "end" : "middle"}">${esc(shortDate(new Date(pts[i].date).getTime()))}</text>`).join("");
+
+    plot.innerHTML = `
+      <svg class="bc-svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" tabindex="0"
+        aria-label="${esc(t("{module} band after each test. Use the left and right arrow keys to read each test.", { module: label }))}">
+        <defs>${gradient(id, color)}</defs>
+        ${grid.join("")}
+        <path class="bc-area" fill="url(#${id})"/>
+        <path class="bc-line" fill="none" stroke="${color}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+        <line class="bc-vx" y1="${T - 8}" y2="${H - B}"/>
+        <line class="bc-hy" x1="${L}" x2="${W - R}"/>
+        <g>${pts.length <= 40 ? pts.map(() => `<circle class="bc-dot" r="3" fill="${color}"/>`).join("") : ""}</g>
+        <circle class="bc-sel" r="7" fill="${color}" stroke="var(--pv-surface)" stroke-width="3"/>
+        <g class="bc-badge"><rect x="${W - R + 3}" width="${R - 4}" height="22" rx="6"/><text x="${W - R + 3 + (R - 4) / 2}" text-anchor="middle"></text></g>
+        ${xLabels}
+        <g class="bc-pill"><rect height="22" rx="6" y="${H - 27}"/><text y="${H - 11}" text-anchor="middle"></text></g>
+        <rect x="0" y="0" width="${W - R}" height="${H}" fill="transparent"/>
+      </svg>`;
+    const svg = plot.querySelector("svg");
+    const $ = (sel) => svg.querySelector(sel);
+    const line = $(".bc-line");
+    const area = $(".bc-area");
+    const dots = svg.querySelectorAll(".bc-dot");
+    const sel = $(".bc-sel");
+    const vx = $(".bc-vx");
+    const hy = $(".bc-hy");
+    const badgeRect = $(".bc-badge rect");
+    const badgeText = $(".bc-badge text");
+    const pillRect = $(".bc-pill rect");
+    const pillText = $(".bc-pill text");
+    const xls = svg.querySelectorAll(".bc-xl");
+    let k = 0;
+    let current = pts.length - 1;
+
+    const paint = () => {
+      const at = pts.map((p, i) => [X(i), floor + (Y(p.band) - floor) * k]);
+      line.setAttribute("d", pts.length > 1 ? smoothPath(at) : "");
+      area.setAttribute("d", areaPath(at, floor));
+      dots.forEach((c, i) => {
+        c.setAttribute("cx", f1(at[i][0]));
+        c.setAttribute("cy", f1(at[i][1]));
+      });
+      const [sx, sy] = at[current];
+      sel.setAttribute("cx", f1(sx));
+      sel.setAttribute("cy", f1(sy));
+      vx.setAttribute("x1", f1(sx));
+      vx.setAttribute("x2", f1(sx));
+      hy.setAttribute("y1", f1(sy));
+      hy.setAttribute("y2", f1(sy));
+      // The numbers count up with the line: the band where the point is now.
+      const shown = k === 1 ? band(bands[current]) : (lo + (bands[current] - lo) * k).toFixed(1);
+      badgeRect.setAttribute("y", f1(sy - 11));
+      badgeText.setAttribute("y", f1(sy + 4));
+      badgeText.textContent = shown;
+      if (value && current === pts.length - 1) value.textContent = shown;
+    };
+
+    const select = (i) => {
+      current = i;
+      const p = pts[i];
+      pillText.textContent = shortDate(new Date(p.date).getTime());
+      pillText.setAttribute("x", f1(X(i)));
+      const w = pillText.getComputedTextLength() + 16;
+      const px = Math.min(Math.max(0, X(i) - w / 2), W - w);
+      pillRect.setAttribute("x", f1(px));
+      pillRect.setAttribute("width", f1(w));
+      pillText.setAttribute("x", f1(px + w / 2));
+      xls.forEach((el) => {
+        const ex = Number(el.getAttribute("x"));
+        const anchor = el.getAttribute("text-anchor");
+        const width = el.getComputedTextLength();
+        const left = anchor === "start" ? ex : anchor === "end" ? ex - width : ex - width / 2;
+        el.setAttribute("visibility", left + width + 6 > px && left - 6 < px + w ? "hidden" : "visible");
+      });
+      const from = key === "overall" ? `${(SERIES.find((s) => s[0] === p.module) || [, ""])[1]} · ` : "";
+      readout.innerHTML = `<span class="bc-date">${esc(new Date(p.date).toLocaleDateString(loc(), { day: "numeric", month: "short", year: "numeric" }))}</span>
+        <span class="bc-key"><span class="line-key" style="background:${color}" aria-hidden="true"></span>${t("Band")} <strong>${band(p.band)}</strong></span>
+        <span class="bc-test">${esc(from + titleOf(p.testId))}</span>`;
+      paint();
+    };
+
+    const nearest = (clientX) => {
+      const box = svg.getBoundingClientRect();
+      const x = ((clientX - box.left) / box.width) * W;
+      let best = 0;
+      pts.forEach((_, i) => { if (Math.abs(X(i) - x) < Math.abs(X(best) - x)) best = i; });
+      return best;
+    };
+    const pick = (e) => { if (k === 1) select(nearest(e.clientX)); };
+    svg.addEventListener("pointermove", pick);
+    svg.addEventListener("pointerdown", pick);
+    svg.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse" && k === 1) select(pts.length - 1); });
+    svg.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      e.preventDefault();
+      select(Math.max(0, Math.min(pts.length - 1, current + (e.key === "ArrowLeft" ? -1 : 1))));
+    });
+
+    select(current);
+    rise(svg, (v) => {
+      k = v;
+      paint();
+    }, animate);
+  }
+
+  function bindBandCard(root, points, animate) {
+    const card = root.querySelector(".band-card");
+    if (!card) return;
+    const plot = card.querySelector(".bc-plot");
+    let key = "overall";
+    let width = 0;
+    const show = (play) => {
+      const [, label, color] = key === "overall" ? OVERALL : SERIES.find((s) => s[0] === key);
+      const pts = seriesOf(points, key);
+      card.querySelector(".bc-head").innerHTML = bandHeadHTML(key, label, pts);
+      card.querySelector(".bc-stats").innerHTML = bandStatsHTML(pts);
+      width = plot.clientWidth;
+      mountBandChart(card, key, t(label), color, pts, play);
+    };
+    card.querySelectorAll(".seg-btn").forEach((btn) => btn.addEventListener("click", () => {
+      if (btn.dataset.series === key) return;
+      key = btn.dataset.series;
+      card.querySelectorAll(".seg-btn").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      btn.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reduceMotion() ? "auto" : "smooth" });
+      show(true);
+    }));
+    show(animate);
+    if (window.ResizeObserver) {
+      new ResizeObserver(() => requestAnimationFrame(() => {
+        if (plot.clientWidth && plot.clientWidth !== width) show(false);
+      })).observe(plot);
+    }
   }
 
   /* ---------------------------------------------------------------- calendar */
@@ -484,8 +720,10 @@
     if (days.has(todayKey)) detail.innerHTML = dayDetailHTML(todayKey, days.get(todayKey));
   }
 
-  function render(el, points, activity = []) {
+  /** opts.animate (default on): the lines rise from the floor as they come into view. */
+  function render(el, points, activity = [], opts = {}) {
     if (!el) return;
+    const animate = opts.animate !== false;
     const calendar = `<section class="activity-section" aria-labelledby="activity-title"></section>`;
     if (!points.length) {
       el.innerHTML = `
@@ -501,8 +739,7 @@
       <p class="muted-text section-sub">${t("Timed Listening and Reading tests, and marked Writing and Speaking tests.")}</p>
       ${overallHTML(points)}
       ${tiles(points)}
-      <h3 class="sub-title">${t("Band by module")}</h3>
-      ${moduleCardsHTML(points)}
+      ${bandCardHTML(points)}
       <h3 class="sub-title">${t("All modules over time")}</h3>
       <div class="progress-viz">
         <div class="pv-legend">${present.map(([, label, color]) =>
@@ -511,16 +748,22 @@
         ${table(points)}
       </div>
       ${calendar}`;
-    drawModuleCharts(el, points);
+    bindBandCard(el, points, animate);
+    el.querySelectorAll(".tile-spark-host").forEach((host) => {
+      const [, , color] = SERIES.find((s) => s[0] === host.dataset.module);
+      sparkline(host, points.filter((p) => p.module === host.dataset.module).map((p) => p.band), color, animate);
+    });
     renderCalendar(el.querySelector(".activity-section"), activity);
     const plot = el.querySelector(".pv-plot");
     let lastWidth = 0;
     const draw = () => {
       const width = plot.clientWidth;
       if (!width || width === lastWidth) return;
+      const first = !lastWidth;
       lastWidth = width;
       const g = layout(points, width);
       plot.innerHTML = chart(points, g);
+      riseLines(plot, g, animate && first);
       bindHover(plot, points, g);
     };
     draw();

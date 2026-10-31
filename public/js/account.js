@@ -514,13 +514,16 @@
       U.toast(t("Saved."));
     });
     // The chart's code loads after the page is shown; it draws twice if this browser had older data.
-    const draw = (res) => {
+    // The lines rise on the first drawing only, so a second one with newer data does not replay it.
+    const draw = (res, animate) => {
       const slot = main.querySelector("#progress-section");
-      if (slot && document.body.contains(slot)) Progress.render(slot, res.points || [], res.activity || []);
+      if (slot && document.body.contains(slot)) Progress.render(slot, res.points || [], res.activity || [], { animate });
     };
     U.need("progress").then(() => {
-      if (seen) draw(seen);
-      return progress.then((res) => { if (!seen || JSON.stringify(res) !== JSON.stringify(seen)) draw(res); });
+      if (seen) draw(seen, true);
+      return progress.then((res) => {
+        if (!seen || JSON.stringify(res) !== JSON.stringify(seen)) draw(res, !seen || !(seen.points || []).length);
+      });
     }).catch(() => { /* U.need has shown a toast */ });
     fresh.then(() => renderAccountSlot());
     if (window.app) window.app.loadHistory();
