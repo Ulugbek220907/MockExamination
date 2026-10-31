@@ -822,6 +822,10 @@ def main():
     asyncio.get_event_loop().set_default_executor(
         concurrent.futures.ThreadPoolExecutor(max_workers=int(os.environ.get("WORKER_THREADS", "48")), thread_name_prefix="io"))
     threading.Thread(target=AUTH.google_enabled, name="google-settings", daemon=True).start()  # warm it up
+    if STORE.name == "supabase" and os.environ.get("AUTO_PUBLISH_NEW_TESTS", "1") != "0":
+        # Tests added to content/ in this deploy go to Supabase; existing ones are never overwritten.
+        threading.Thread(target=lambda: log.info("New tests: %s", content_sync.start(STORE, only_new=True)["message"]),
+                         name="publish-new-tests", daemon=True).start()
     loop.call_later(60, clean_up_recordings)
     tornado.ioloop.PeriodicCallback(clean_up_recordings, 6 * 3600 * 1000).start()
     loop.start()

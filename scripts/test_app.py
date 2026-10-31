@@ -2065,9 +2065,9 @@ class ContentSyncTests(unittest.TestCase):
         def upsert_test(self, test):
             self.uploaded.append(test["id"])
 
-    def run_sync(self, store, local):
+    def run_sync(self, store, local, only_new=False):
         from mockexam import content_sync
-        content_sync.start(store, local_tests=local, public_dir=PUBLIC_DIR)
+        content_sync.start(store, local_tests=local, public_dir=PUBLIC_DIR, only_new=only_new)
         for _ in range(100):
             s = content_sync.status()
             if not s["running"]:
@@ -2084,6 +2084,16 @@ class ContentSyncTests(unittest.TestCase):
         self.assertEqual(sorted(store.uploaded), sorted([local[1]["id"], local[2]["id"]]))
         self.assertEqual((status["total"], status["done"], status["failed"]), (2, 2, []))
         self.assertGreaterEqual(store.refreshed, 2)  # before comparing and after uploading
+
+    def test_on_start_only_missing_tests_are_published(self):
+        # The server publishes the tests a deploy adds, but never overwrites one that was edited in Supabase.
+        local = [t for t in TESTS if t["module"] == "listening"][:3]
+        edited = json.loads(json.dumps(local[1]))
+        edited["access"] = "free"
+        store = self.FakeStore([local[0], edited])
+        status = self.run_sync(store, local, only_new=True)
+        self.assertEqual(store.uploaded, [local[2]["id"]])
+        self.assertEqual(status["total"], 1)
 
     def test_nothing_is_uploaded_when_a_file_is_invalid(self):
         local = json.loads(json.dumps([t for t in TESTS if t["module"] == "reading"][:2]))
