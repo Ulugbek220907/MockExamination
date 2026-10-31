@@ -1,0 +1,268 @@
+{
+  "id": "speaking-56",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 56",
+  "shortTitle": "Practice Test 56",
+  "durationMinutes": 14,
+  "sortOrder": 56,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lily",
+    "voice": "bf_lily",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-56/p2-start.mp3",
+        "duration": 10.5
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-56/end.mp3",
+        "duration": 3.42
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Clothes",
+        "Plants"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Can you describe the place where you live?",
+          "say": "Good evening. My name is Lily, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Can you describe the place where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-1.mp3",
+            "duration": 16.41
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Would you like to live somewhere else in the future?",
+          "say": "Would you like to live somewhere else in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-2.mp3",
+            "duration": 3.27
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "What would you change about your home if you could?",
+          "say": "What would you change about your home if you could?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-3.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Did you help to choose your home?",
+          "say": "Did you help to choose your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-4.mp3",
+            "duration": 2.57
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Clothes",
+          "text": "What kind of clothes do you usually wear?",
+          "say": "Now let's move on to talk about clothes. What kind of clothes do you usually wear?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-5.mp3",
+            "duration": 6.08
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Clothes",
+          "text": "Do you wear different clothes at the weekend?",
+          "say": "Do you wear different clothes at the weekend?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-6.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Clothes",
+          "text": "Where do you usually buy your clothes?",
+          "say": "Where do you usually buy your clothes?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-7.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Plants",
+          "text": "Do you have any plants at home?",
+          "say": "Now let's move on to talk about plants. Do you have any plants at home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-8.mp3",
+            "duration": 5.48
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Plants",
+          "text": "Do you know how to look after plants?",
+          "say": "Do you know how to look after plants?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-9.mp3",
+            "duration": 2.7
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Plants",
+          "text": "Did your family grow plants when you were a child?",
+          "say": "Did your family grow plants when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p1-10.mp3",
+            "duration": 3.47
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a crowded place you have been to.",
+        "points": [
+          "where it was",
+          "when you went there",
+          "why it was so crowded"
+        ],
+        "explain": "and explain how you felt about being in this place."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a crowded place you have been to.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a crowded place you have been to. You should say: where it was; when you went there; why it was so crowded; and explain how you felt about being in this place.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-56/p2-talk.mp3",
+            "duration": 24.98
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you go back to this place at a busy time?",
+          "say": "Thank you. Would you go back to this place at a busy time?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-56/p2-follow.mp3",
+            "duration": 3.76
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Crowds",
+        "Population"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Crowds",
+          "text": "Why do some people enjoy being in crowded places?",
+          "say": "Thank you. We've been talking about a crowded place you have been to, and I'd like to discuss with you some more general questions related to this. Let's consider first of all crowds. Why do some people enjoy being in crowded places?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-56/p3-1.mp3",
+            "duration": 15.37
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Crowds",
+          "text": "What can be done to make crowded places such as stations safer?",
+          "say": "What can be done to make crowded places such as stations safer?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-56/p3-2.mp3",
+            "duration": 4.25
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Crowds",
+          "text": "Are cities in your country more crowded than they were twenty years ago?",
+          "say": "Are cities in your country more crowded than they were twenty years ago?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-56/p3-3.mp3",
+            "duration": 4.77
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Population",
+          "text": "What problems can a fast-growing population cause in a city?",
+          "say": "Now let's talk about population. What problems can a fast-growing population cause in a city?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-56/p3-4.mp3",
+            "duration": 7.04
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Population",
+          "text": "Why do many young people move from villages to big cities?",
+          "say": "Why do many young people move from villages to big cities?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-56/p3-5.mp3",
+            "duration": 4.08
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Population",
+          "text": "How could governments encourage people to live outside big cities?",
+          "say": "How could governments encourage people to live outside big cities?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-56/p3-6.mp3",
+            "duration": 4.53
+          }
+        }
+      ]
+    }
+  ]
+}

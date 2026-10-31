@@ -1,0 +1,268 @@
+{
+  "id": "speaking-35",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 35",
+  "shortTitle": "Practice Test 35",
+  "durationMinutes": 14,
+  "sortOrder": 35,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lily",
+    "voice": "bf_lily",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-35/p2-start.mp3",
+        "duration": 10.5
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-35/end.mp3",
+        "duration": 3.42
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Shoes",
+        "Rain"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Do you live in a house or a flat?",
+          "say": "Good evening. My name is Lily, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Do you live in a house or a flat?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-1.mp3",
+            "duration": 16.34
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What do you like most about your home?",
+          "say": "What do you like most about your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-2.mp3",
+            "duration": 2.83
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "What is the area around your home like?",
+          "say": "What is the area around your home like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-3.mp3",
+            "duration": 3.06
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Do you often invite friends to your home?",
+          "say": "Do you often invite friends to your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-4.mp3",
+            "duration": 2.97
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Shoes",
+          "text": "Do you prefer comfortable shoes or fashionable ones?",
+          "say": "Now let's move on to talk about shoes. Do you prefer comfortable shoes or fashionable ones?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-5.mp3",
+            "duration": 6.74
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Shoes",
+          "text": "How often do you buy new shoes?",
+          "say": "How often do you buy new shoes?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-6.mp3",
+            "duration": 2.85
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Shoes",
+          "text": "Have you ever bought shoes online?",
+          "say": "Have you ever bought shoes online?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-7.mp3",
+            "duration": 2.83
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Rain",
+          "text": "Does it rain much where you live?",
+          "say": "Now let's move on to talk about rain. Does it rain much where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-8.mp3",
+            "duration": 5.56
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Rain",
+          "text": "Do you like rainy days? Why or why not?",
+          "say": "Do you like rainy days? Why or why not?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-9.mp3",
+            "duration": 3.12
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Rain",
+          "text": "What do you usually do when it rains?",
+          "say": "What do you usually do when it rains?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p1-10.mp3",
+            "duration": 2.89
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe an older person you admire.",
+        "points": [
+          "who this person is",
+          "how you know them",
+          "what they are like"
+        ],
+        "explain": "and explain why you admire this person."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe an older person you admire.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe an older person you admire. You should say: who this person is; how you know them; what they are like; and explain why you admire this person.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-35/p2-talk.mp3",
+            "duration": 24.71
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think you will be like this person when you are older?",
+          "say": "Thank you. Do you think you will be like this person when you are older?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-35/p2-follow.mp3",
+            "duration": 4.13
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Old age",
+        "Generations"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Old age",
+          "text": "What can older people teach younger people?",
+          "say": "Thank you. We've been talking about an older person you admire, and I'd like to discuss with you some more general questions related to this. Let's consider first of all old age. What can older people teach younger people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-35/p3-1.mp3",
+            "duration": 14.73
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Old age",
+          "text": "Do older people in your country usually live with their families?",
+          "say": "Do older people in your country usually live with their families?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-35/p3-2.mp3",
+            "duration": 4.34
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Old age",
+          "text": "What are the advantages of working after the normal age of retirement?",
+          "say": "What are the advantages of working after the normal age of retirement?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-35/p3-3.mp3",
+            "duration": 4.57
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Generations",
+          "text": "Why do young people and older people sometimes disagree?",
+          "say": "Now let's talk about generations. Why do young people and older people sometimes disagree?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-35/p3-4.mp3",
+            "duration": 6.99
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Generations",
+          "text": "How is life for young people today different from life for their grandparents?",
+          "say": "How is life for young people today different from life for their grandparents?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-35/p3-5.mp3",
+            "duration": 4.62
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Generations",
+          "text": "What could be done to help different generations understand each other better?",
+          "say": "What could be done to help different generations understand each other better?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-35/p3-6.mp3",
+            "duration": 4.79
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-89",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 89",
+  "shortTitle": "Practice Test 89",
+  "durationMinutes": 14,
+  "sortOrder": 89,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Isabella",
+    "voice": "bf_isabella",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-89/p2-start.mp3",
+        "duration": 9.82
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-89/end.mp3",
+        "duration": 3.29
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Libraries",
+        "Getting lost"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Who do you live with?",
+          "say": "Good evening. My name is Isabella, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Who do you live with?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-1.mp3",
+            "duration": 14.55
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What makes a home comfortable, in your opinion?",
+          "say": "What makes a home comfortable, in your opinion?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-2.mp3",
+            "duration": 3.08
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Do you know many people in your building or street?",
+          "say": "Do you know many people in your building or street?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-3.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Do you have a view from your window?",
+          "say": "Do you have a view from your window?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-4.mp3",
+            "duration": 2.42
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Libraries",
+          "text": "Do you often go to libraries?",
+          "say": "Now let's move on to talk about libraries. Do you often go to libraries?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-5.mp3",
+            "duration": 5.37
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Libraries",
+          "text": "Did you use a library when you were a child?",
+          "say": "Did you use a library when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-6.mp3",
+            "duration": 2.87
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Libraries",
+          "text": "Do you think libraries are still important today?",
+          "say": "Do you think libraries are still important today?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-7.mp3",
+            "duration": 3.21
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Getting lost",
+          "text": "Have you ever got lost?",
+          "say": "Now let's move on to talk about getting lost. Have you ever got lost?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-8.mp3",
+            "duration": 5.22
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Getting lost",
+          "text": "What do you do if you get lost in a new place?",
+          "say": "What do you do if you get lost in a new place?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-9.mp3",
+            "duration": 3.06
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Getting lost",
+          "text": "Do you use your phone to find your way?",
+          "say": "Do you use your phone to find your way?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p1-10.mp3",
+            "duration": 2.74
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a TV programme or series you enjoy watching.",
+        "points": [
+          "what it is called",
+          "what it is about",
+          "when and where you watch it"
+        ],
+        "explain": "and explain why you enjoy watching it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a TV programme or series you enjoy watching.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a TV programme or series you enjoy watching. You should say: what it is called; what it is about; when and where you watch it; and explain why you enjoy watching it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-89/p2-talk.mp3",
+            "duration": 24.71
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you watch it alone or with other people?",
+          "say": "Thank you. Do you watch it alone or with other people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-89/p2-follow.mp3",
+            "duration": 3.36
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Television",
+        "Streaming"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Television",
+          "text": "What kinds of television programmes are popular in your country?",
+          "say": "Thank you. We've been talking about a TV programme or series you enjoy watching, and I'd like to discuss with you some more general questions related to this. Let's consider first of all television. What kinds of television programmes are popular in your country?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-89/p3-1.mp3",
+            "duration": 16.05
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Television",
+          "text": "Do you think there is too much advertising on television?",
+          "say": "Do you think there is too much advertising on television?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-89/p3-2.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Television",
+          "text": "Should television programmes for children be educational?",
+          "say": "Should television programmes for children be educational?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-89/p3-3.mp3",
+            "duration": 3.83
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Streaming",
+          "text": "Why do many people now prefer streaming services to ordinary television?",
+          "say": "Now let's talk about streaming. Why do many people now prefer streaming services to ordinary television?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-89/p3-4.mp3",
+            "duration": 7.16
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Streaming",
+          "text": "Is it a problem when people watch a whole series in one day?",
+          "say": "Is it a problem when people watch a whole series in one day?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-89/p3-5.mp3",
+            "duration": 4.02
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Streaming",
+          "text": "Do you think traditional television channels will disappear?",
+          "say": "Do you think traditional television channels will disappear?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-89/p3-6.mp3",
+            "duration": 3.72
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-99",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 99",
+  "shortTitle": "Practice Test 99",
+  "durationMinutes": 14,
+  "sortOrder": 99,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-99/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-99/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Online shopping",
+        "Films"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Can you tell me a little about your hometown?",
+          "say": "Good morning. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Can you tell me a little about your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-1.mp3",
+            "duration": 14.74
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What are the people in your hometown like?",
+          "say": "What are the people in your hometown like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-2.mp3",
+            "duration": 2.51
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "How has your hometown changed since you were a child?",
+          "say": "How has your hometown changed since you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-3.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Do you go back to your hometown often?",
+          "say": "Do you go back to your hometown often?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-4.mp3",
+            "duration": 2.57
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Online shopping",
+          "text": "Do you often buy things online?",
+          "say": "Now let's move on to talk about online shopping. Do you often buy things online?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-5.mp3",
+            "duration": 5.39
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Online shopping",
+          "text": "What was the last thing you bought online?",
+          "say": "What was the last thing you bought online?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-6.mp3",
+            "duration": 2.55
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Online shopping",
+          "text": "Do you think online shopping will replace shops one day?",
+          "say": "Do you think online shopping will replace shops one day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-7.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Films",
+          "text": "How often do you watch films?",
+          "say": "Now let's move on to talk about films. How often do you watch films?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-8.mp3",
+            "duration": 4.95
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Films",
+          "text": "Do you prefer watching films at home or at the cinema?",
+          "say": "Do you prefer watching films at home or at the cinema?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-9.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Films",
+          "text": "What kind of films did you like as a child?",
+          "say": "What kind of films did you like as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p1-10.mp3",
+            "duration": 2.76
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you spoke in front of a group of people.",
+        "points": [
+          "when and where it was",
+          "who was listening",
+          "what you talked about"
+        ],
+        "explain": "and explain how you felt while you were speaking."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you spoke in front of a group of people.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you spoke in front of a group of people. You should say: when and where it was; who was listening; what you talked about; and explain how you felt while you were speaking.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-99/p2-talk.mp3",
+            "duration": 24.09
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you feel the same if you had to do it again?",
+          "say": "Thank you. Would you feel the same if you had to do it again?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-99/p2-follow.mp3",
+            "duration": 3.38
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Public speaking",
+        "Communication skills"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Public speaking",
+          "text": "Why are many people nervous about speaking in public?",
+          "say": "Thank you. We've been talking about a time when you spoke in front of a group of people, and I'd like to discuss with you some more general questions related to this. Let's consider first of all public speaking. Why are many people nervous about speaking in public?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-99/p3-1.mp3",
+            "duration": 14.7
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Public speaking",
+          "text": "Should students practise giving talks at school?",
+          "say": "Should students practise giving talks at school?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-99/p3-2.mp3",
+            "duration": 3.02
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Public speaking",
+          "text": "Which jobs need good public speaking skills?",
+          "say": "Which jobs need good public speaking skills?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-99/p3-3.mp3",
+            "duration": 3.08
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Communication skills",
+          "text": "Is it more important to be a good speaker or a good listener?",
+          "say": "Now let's talk about communication skills. Is it more important to be a good speaker or a good listener?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-99/p3-4.mp3",
+            "duration": 6.52
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Communication skills",
+          "text": "Have mobile phones and the internet made people worse at speaking face to face?",
+          "say": "Have mobile phones and the internet made people worse at speaking face to face?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-99/p3-5.mp3",
+            "duration": 4.81
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Communication skills",
+          "text": "How can people improve their communication skills?",
+          "say": "How can people improve their communication skills?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-99/p3-6.mp3",
+            "duration": 3.32
+          }
+        }
+      ]
+    }
+  ]
+}

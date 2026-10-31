@@ -1,0 +1,268 @@
+{
+  "id": "speaking-74",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 74",
+  "shortTitle": "Practice Test 74",
+  "durationMinutes": 14,
+  "sortOrder": 74,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "George",
+    "voice": "bm_george",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-74/p2-start.mp3",
+        "duration": 11.03
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-74/end.mp3",
+        "duration": 3.85
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Taxis",
+        "Flying"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Who do you live with?",
+          "say": "Good evening. My name is George, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Who do you live with?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-1.mp3",
+            "duration": 15.92
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Do you plan to live in a house or a flat in the future?",
+          "say": "Do you plan to live in a house or a flat in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-2.mp3",
+            "duration": 4.19
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Are there good shops near your home?",
+          "say": "Are there good shops near your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-3.mp3",
+            "duration": 2.89
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Do you know many people in your building or street?",
+          "say": "Do you know many people in your building or street?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-4.mp3",
+            "duration": 3.76
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Taxis",
+          "text": "Do you often take taxis?",
+          "say": "Now let's move on to talk about taxis. Do you often take taxis?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-5.mp3",
+            "duration": 5.48
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Taxis",
+          "text": "Do you prefer taxis or public transport?",
+          "say": "Do you prefer taxis or public transport?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-6.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Taxis",
+          "text": "Have you ever had an interesting conversation with a taxi driver?",
+          "say": "Have you ever had an interesting conversation with a taxi driver?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-7.mp3",
+            "duration": 5.04
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Flying",
+          "text": "Do you like flying?",
+          "say": "Now let's move on to talk about flying. Do you like flying?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-8.mp3",
+            "duration": 4.88
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Flying",
+          "text": "What do you do on a long flight?",
+          "say": "What do you do on a long flight?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-9.mp3",
+            "duration": 2.87
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Flying",
+          "text": "Have you ever had a problem at an airport?",
+          "say": "Have you ever had a problem at an airport?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p1-10.mp3",
+            "duration": 3.21
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you did volunteer work.",
+        "points": [
+          "what you did",
+          "when and where you did it",
+          "who you worked with"
+        ],
+        "explain": "and explain how you felt about doing this work."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you did volunteer work.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you did volunteer work. You should say: what you did; when and where you did it; who you worked with; and explain how you felt about doing this work.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-74/p2-talk.mp3",
+            "duration": 27.91
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you encourage your friends to do the same kind of work?",
+          "say": "Thank you. Would you encourage your friends to do the same kind of work?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-74/p2-follow.mp3",
+            "duration": 4.89
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Volunteering",
+        "Charities"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Volunteering",
+          "text": "Why do people do volunteer work without being paid?",
+          "say": "Thank you. We've been talking about a time when you did volunteer work, and I'd like to discuss with you some more general questions related to this. Let's consider first of all volunteering. Why do people do volunteer work without being paid?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-74/p3-1.mp3",
+            "duration": 17.46
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Volunteering",
+          "text": "Should students have to do volunteer work as part of their education?",
+          "say": "Should students have to do volunteer work as part of their education?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-74/p3-2.mp3",
+            "duration": 5.28
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Volunteering",
+          "text": "What kinds of volunteer work are most useful to a community?",
+          "say": "What kinds of volunteer work are most useful to a community?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-74/p3-3.mp3",
+            "duration": 4.53
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Charities",
+          "text": "Why do people give money to charities?",
+          "say": "Now let's talk about charities. Why do people give money to charities?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-74/p3-4.mp3",
+            "duration": 5.54
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Charities",
+          "text": "Is it better to give money or time to a charity?",
+          "say": "Is it better to give money or time to a charity?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-74/p3-5.mp3",
+            "duration": 3.85
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Charities",
+          "text": "Should charities do the work that governments ought to do?",
+          "say": "Should charities do the work that governments ought to do?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-74/p3-6.mp3",
+            "duration": 4.11
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1302 @@
+{
+  "id": "listening-19",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 19",
+  "shortTitle": "Practice Test 19",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 19,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "grace": {
+      "name": "Grace",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "martin": {
+      "name": "Martin",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "dan": {
+      "name": "Dan",
+      "voice": "am_echo",
+      "lang": "en-us"
+    },
+    "ella": {
+      "name": "Ella",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "noah": {
+      "name": "Noah",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "am_michael",
+      "lang": "en-us"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Joining a community choir",
+      "context": "A woman phones the secretary of a community choir to ask about joining.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman phoning the secretary of a community choir. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.3
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.3,
+          "end": 38.37
+        },
+        {
+          "speaker": "martin",
+          "text": "Hello, Northfield Choir, Martin speaking.",
+          "start": 39.27,
+          "end": 42.41
+        },
+        {
+          "speaker": "grace",
+          "text": "Hi, I saw your poster in the library, and I'd like to know more about joining the choir. When do you meet?",
+          "start": 42.91,
+          "end": 48.54
+        },
+        {
+          "speaker": "martin",
+          "text": "We rehearse every Tuesday evening, all year except August.",
+          "start": 49.04,
+          "end": 52.94
+        },
+        {
+          "speaker": "narrator",
+          "text": "The choir rehearses on Tuesdays, so 'Tuesday' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.84,
+          "end": 69.27
+        },
+        {
+          "speaker": "grace",
+          "text": "And where are the rehearsals?",
+          "start": 70.17,
+          "end": 71.79
+        },
+        {
+          "speaker": "martin",
+          "text": "In the hall at Saint Anne's School, on Park Road. We perform in Saint Anne's Church, which is next door, so people sometimes get confused, but rehearsals are always in the school.",
+          "start": 72.29,
+          "end": 81.95
+        },
+        {
+          "speaker": "grace",
+          "text": "And how long do they last?",
+          "start": 82.45,
+          "end": 84.09
+        },
+        {
+          "speaker": "martin",
+          "text": "We start at half past seven and finish at half past nine, so two hours, with a short break for tea in the middle.",
+          "start": 84.59,
+          "end": 91.08
+        },
+        {
+          "speaker": "grace",
+          "text": "Is there a fee?",
+          "start": 91.58,
+          "end": 92.75
+        },
+        {
+          "speaker": "martin",
+          "text": "It's sixty pounds a term. Students pay half, so thirty.",
+          "start": 93.25,
+          "end": 97.46
+        },
+        {
+          "speaker": "grace",
+          "text": "I'm not a student, I'm a nurse, so sixty. That's fine. Now, I'm a bit worried, because I've never read music.",
+          "start": 97.96,
+          "end": 104.25
+        },
+        {
+          "speaker": "martin",
+          "text": "Oh, don't worry about that. You don't need to be able to read music at all. Most of our members learn the songs by ear.",
+          "start": 104.75,
+          "end": 111.28
+        },
+        {
+          "speaker": "grace",
+          "text": "That's a relief. Is there an audition?",
+          "start": 111.78,
+          "end": 113.83
+        },
+        {
+          "speaker": "martin",
+          "text": "Not really. It's just a short chat with the conductor, so she can find out which part suits your voice.",
+          "start": 114.33,
+          "end": 120.0
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 120.9,
+          "end": 126.62
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 146.62,
+          "end": 149.95
+        },
+        {
+          "speaker": "grace",
+          "text": "What's the conductor's name?",
+          "start": 150.85,
+          "end": 152.45
+        },
+        {
+          "speaker": "martin",
+          "text": "Delia Hartwell. That's H-A-R-T-W-E-L-L. She's been with us for ten years.",
+          "start": 152.95,
+          "end": 161.53
+        },
+        {
+          "speaker": "grace",
+          "text": "And when's your next concert?",
+          "start": 162.03,
+          "end": 163.72
+        },
+        {
+          "speaker": "martin",
+          "text": "We usually have one in November, but this year the cathedral was booked, so the next concert is in December. It'll be a Christmas programme.",
+          "start": 164.22,
+          "end": 171.85
+        },
+        {
+          "speaker": "grace",
+          "text": "Lovely. Do I need to buy anything?",
+          "start": 172.35,
+          "end": 174.25
+        },
+        {
+          "speaker": "martin",
+          "text": "Everyone uses a black folder for their music, so that the choir looks neat on stage. You can buy one from us for five pounds.",
+          "start": 174.75,
+          "end": 182.11
+        },
+        {
+          "speaker": "grace",
+          "text": "OK. Anything I should bring each week?",
+          "start": 182.61,
+          "end": 184.77
+        },
+        {
+          "speaker": "martin",
+          "text": "Always bring a pencil. Delia makes a lot of changes, and you'll need to mark them in your music.",
+          "start": 185.27,
+          "end": 190.9
+        },
+        {
+          "speaker": "grace",
+          "text": "And is there parking at the school?",
+          "start": 191.4,
+          "end": 193.13
+        },
+        {
+          "speaker": "martin",
+          "text": "Not much, I'm afraid. Most people park in the supermarket car park opposite. It's free after six.",
+          "start": 193.63,
+          "end": 199.79
+        },
+        {
+          "speaker": "grace",
+          "text": "Perfect. I'll see you on Tuesday, then.",
+          "start": 200.29,
+          "end": 202.38
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 203.28,
+          "end": 207.81
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Northfield Community Choir",
+          "content": [
+            "Example: Rehearsals every **Tuesday**",
+            "• Rehearsals take place at Saint Anne's {{1}}",
+            "• Each rehearsal lasts {{2}} hours",
+            "• Fee: £{{3}} a term",
+            "• Members do not need to read {{4}}",
+            "• New members have a short {{5}} with the conductor",
+            "• Conductor: Delia {{6}}",
+            "• Next concert: in {{7}}",
+            "• Members must buy a black {{8}}",
+            "• Bring a {{9}} to every rehearsal",
+            "• Parking: in the {{10}} car park"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "School"
+              ],
+              "explanation": "They perform in the church, but ‘rehearsals are always in the school’.",
+              "cue": "In the hall at Saint Anne's School"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "2",
+                "two"
+              ],
+              "explanation": "From half past seven to half past nine, ‘so two hours’.",
+              "cue": "so two hours"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "60",
+                "sixty"
+              ],
+              "explanation": "Students pay thirty, but Grace is a nurse: ‘It's sixty pounds a term.’",
+              "cue": "It's sixty pounds a term"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "music"
+              ],
+              "explanation": "‘You don't need to be able to read music at all.’",
+              "cue": "You don't need to be able to read music at all"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "chat"
+              ],
+              "explanation": "Not really an audition: ‘It's just a short chat with the conductor.’",
+              "cue": "It's just a short chat with the conductor"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "Hartwell"
+              ],
+              "explanation": "He spells it: ‘H-A-R-T-W-E-L-L’.",
+              "cue": "H-A-R-T-W-E-L-L"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "December"
+              ],
+              "explanation": "They usually sing in November, but ‘this year … the next concert is in December’.",
+              "cue": "the next concert is in December"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "folder"
+              ],
+              "explanation": "‘Everyone uses a black folder for their music.’",
+              "cue": "Everyone uses a black folder for their music"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "pencil"
+              ],
+              "explanation": "‘Always bring a pencil.’",
+              "cue": "Always bring a pencil"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "supermarket"
+              ],
+              "explanation": "‘Most people park in the supermarket car park opposite.’",
+              "cue": "Most people park in the supermarket car park opposite"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-19/part1.mp3",
+        "duration": 238.61
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Volunteering at a wildlife rescue centre",
+      "context": "The manager of a wildlife rescue centre talks to a group of new volunteers.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the manager of a wildlife rescue centre talking to new volunteers. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.99
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.99,
+          "end": 40.26
+        },
+        {
+          "speaker": "dan",
+          "text": "Hi, everyone, and welcome to Hollybrook Wildlife Rescue. I'm Dan, the manager. Let's start with a quick look at the map, so you know your way around. We're standing at the entrance, at the bottom of the map, and Reception is the building on your right.",
+          "start": 41.16,
+          "end": 53.59
+        },
+        {
+          "speaker": "dan",
+          "text": "Immediately on your left as you come in is the food store. That's where you'll collect the food for each animal at the start of your shift, so you'll be visiting it a lot.",
+          "start": 53.94,
+          "end": 62.35
+        },
+        {
+          "speaker": "dan",
+          "text": "If you walk up the main path to the crossroads and turn right, then right at the far end of that path is the hedgehog unit. It's kept well away from the entrance because hedgehogs are easily stressed by noise.",
+          "start": 62.7,
+          "end": 73.54
+        },
+        {
+          "speaker": "dan",
+          "text": "If you turn left at the crossroads instead, and keep going past the pond, you'll come to the bird hospital, right at the end of the path.",
+          "start": 73.89,
+          "end": 80.95
+        },
+        {
+          "speaker": "dan",
+          "text": "Going straight on at the crossroads, the first building on your right, just before the woodland, is the owl barn. Please keep your voice down when you go past.",
+          "start": 81.3,
+          "end": 89.51
+        },
+        {
+          "speaker": "dan",
+          "text": "And where the main path ends, at the very top of the map, are the release pens. That's where animals spend their last few days, getting used to life outside before we set them free.",
+          "start": 89.86,
+          "end": 99.03
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 99.93,
+          "end": 105.65
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 130.65,
+          "end": 134.53
+        },
+        {
+          "speaker": "dan",
+          "text": "Now, some rules. People often think the hardest rule is not giving the animals names, and it is hard. But the one rule that matters most is washing your hands before and after you touch any animal. Some of their diseases can pass to people, and the other way round.",
+          "start": 135.43,
+          "end": 149.6
+        },
+        {
+          "speaker": "dan",
+          "text": "You might expect us to be full of foxes, and in spring we do get a lot of baby birds. But over the whole year, hedgehogs are by far our most common patients.",
+          "start": 149.95,
+          "end": 158.8
+        },
+        {
+          "speaker": "dan",
+          "text": "On your first day, you won't handle any animals or prepare their food. You'll be cleaning out the enclosures with an experienced volunteer, which is a great way to learn how everything works.",
+          "start": 159.15,
+          "end": 169.03
+        },
+        {
+          "speaker": "dan",
+          "text": "Why do we need so many new volunteers this year? We always lose a few to university in the autumn, but that's normal. The real reason is that we're now taking in almost twice as many animals as we did five years ago.",
+          "start": 169.38,
+          "end": 180.79
+        },
+        {
+          "speaker": "dan",
+          "text": "And finally, if a member of the public arrives with an injured animal, please don't take it from them yourself. Ask them to fill in a form at Reception, so we know exactly where the animal was found. We always try to release animals back in the place they came from.",
+          "start": 181.14,
+          "end": 194.9
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 195.8,
+          "end": 200.13
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Hollybrook Wildlife Rescue",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "ellipse",
+                "cx": 170,
+                "cy": 120,
+                "rx": 85,
+                "ry": 50,
+                "style": "water",
+                "label": "Pond"
+              },
+              {
+                "type": "trees",
+                "x": 400,
+                "y": 30,
+                "w": 210,
+                "h": 120,
+                "label": "Woodland"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 430,
+                "x2": 320,
+                "y2": 60,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 80,
+                "y1": 240,
+                "x2": 565,
+                "y2": 240,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 360,
+                "y": 320,
+                "w": 140,
+                "h": 64,
+                "style": "building",
+                "label": "Reception"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 430,
+                "label": "Entrance"
+              },
+              {
+                "type": "compass",
+                "x": 55,
+                "y": 395
+              },
+              {
+                "type": "letter",
+                "x": 230,
+                "y": 360,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 85,
+                "y": 210,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 255,
+                "y": 175,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 40,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 588,
+                "y": 240,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 565,
+                "y": 395,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 385,
+                "y": 200,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Food store",
+              "answer": "A",
+              "explanation": "‘Immediately on your left as you come in is the food store.’",
+              "cue": "Immediately on your left as you come in is the food store"
+            },
+            {
+              "number": 12,
+              "prompt": "Hedgehog unit",
+              "answer": "E",
+              "explanation": "Turn right at the crossroads: ‘right at the far end of that path is the hedgehog unit’.",
+              "cue": "right at the far end of that path is the hedgehog unit"
+            },
+            {
+              "number": 13,
+              "prompt": "Bird hospital",
+              "answer": "B",
+              "explanation": "Turn left and go past the pond: ‘you'll come to the bird hospital, right at the end of the path’.",
+              "cue": "you'll come to the bird hospital"
+            },
+            {
+              "number": 14,
+              "prompt": "Owl barn",
+              "answer": "G",
+              "explanation": "Straight on at the crossroads, ‘the first building on your right, just before the woodland, is the owl barn’.",
+              "cue": "just before the woodland, is the owl barn"
+            },
+            {
+              "number": 15,
+              "prompt": "Release pens",
+              "answer": "D",
+              "explanation": "‘Where the main path ends, at the very top of the map, are the release pens.’",
+              "cue": "at the very top of the map, are the release pens"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Which rule does Dan say is the most important?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "washing your hands"
+                },
+                {
+                  "key": "B",
+                  "text": "not giving the animals names"
+                },
+                {
+                  "key": "C",
+                  "text": "wearing gloves"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Not naming animals is hard, ‘but the one rule that matters most is washing your hands’.",
+              "cue": "the one rule that matters most is washing your hands"
+            },
+            {
+              "number": 17,
+              "prompt": "Which animals does the centre receive most often?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "foxes"
+                },
+                {
+                  "key": "B",
+                  "text": "birds"
+                },
+                {
+                  "key": "C",
+                  "text": "hedgehogs"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Foxes are expected and there are many baby birds in spring, but ‘hedgehogs are by far our most common patients’.",
+              "cue": "hedgehogs are by far our most common patients"
+            },
+            {
+              "number": 18,
+              "prompt": "What will new volunteers do on their first day?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "prepare food for the animals"
+                },
+                {
+                  "key": "B",
+                  "text": "clean the animals' living areas"
+                },
+                {
+                  "key": "C",
+                  "text": "help to release animals"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘You'll be cleaning out the enclosures with an experienced volunteer.’",
+              "cue": "You'll be cleaning out the enclosures"
+            },
+            {
+              "number": 19,
+              "prompt": "Why does the centre need more volunteers this year?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Several volunteers have gone to university."
+                },
+                {
+                  "key": "B",
+                  "text": "A new building has opened."
+                },
+                {
+                  "key": "C",
+                  "text": "The number of animals has increased."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Losing volunteers to university is normal: ‘The real reason is that we're now taking in almost twice as many animals.’",
+              "cue": "we're now taking in almost twice as many animals"
+            },
+            {
+              "number": 20,
+              "prompt": "What should volunteers do when someone brings in an injured animal?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "take the animal to the hospital"
+                },
+                {
+                  "key": "B",
+                  "text": "ask the person to complete a form"
+                },
+                {
+                  "key": "C",
+                  "text": "phone the manager"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Ask them to fill in a form at Reception, so we know exactly where the animal was found.’",
+              "cue": "Ask them to fill in a form at Reception"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-19/part2.mp3",
+        "duration": 230.93
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A presentation on fast fashion",
+      "context": "Two students prepare a presentation about the environmental cost of cheap clothing.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two students, Ella and Noah, preparing a presentation about fast fashion. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 11.74
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 36.74,
+          "end": 41.45
+        },
+        {
+          "speaker": "noah",
+          "text": "So, Ella, why did you want to do fast fashion? Is it because you work in a clothes shop?",
+          "start": 42.35,
+          "end": 46.96
+        },
+        {
+          "speaker": "ella",
+          "text": "I do work in one on Saturdays, but that's not really why. It was when I sorted out my wardrobe and realised how many things I'd only worn once. I wanted to change my own habits, and I thought the research would help.",
+          "start": 47.46,
+          "end": 59.79
+        },
+        {
+          "speaker": "noah",
+          "text": "Fair enough. Now, sources. I like the charity's website, it's very clear.",
+          "start": 60.29,
+          "end": 64.24
+        },
+        {
+          "speaker": "ella",
+          "text": "It is, but it's quite one-sided. And the government report is six years old. I think the university study should be our main source. It's the most recent, and they explain exactly how they collected the data.",
+          "start": 64.74,
+          "end": 76.43
+        },
+        {
+          "speaker": "noah",
+          "text": "Agreed. You know, I knew that making clothes uses a lot of water. What really shocked me was that less than one percent of old clothing is recycled into new clothes.",
+          "start": 76.93,
+          "end": 85.65
+        },
+        {
+          "speaker": "ella",
+          "text": "I know, it's terrible. What about the practical part? We said we'd do a survey of our class.",
+          "start": 86.15,
+          "end": 90.95
+        },
+        {
+          "speaker": "noah",
+          "text": "Two other groups are already doing surveys. Why don't we organise a clothes swap instead? People bring things they don't wear, and take something new home.",
+          "start": 91.45,
+          "end": 99.39
+        },
+        {
+          "speaker": "ella",
+          "text": "I love that. Let's do it. And one more thing. I looked at our draft slides again last night, and they've got far too much text. People will read instead of listening to us.",
+          "start": 99.89,
+          "end": 109.08
+        },
+        {
+          "speaker": "noah",
+          "text": "True. Let's cut them down to a few words each and use more pictures.",
+          "start": 109.58,
+          "end": 112.95
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 113.85,
+          "end": 120.0
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 140.0,
+          "end": 143.84
+        },
+        {
+          "speaker": "ella",
+          "text": "We should end with some possible solutions. Buying second-hand clothes, first.",
+          "start": 144.74,
+          "end": 149.41
+        },
+        {
+          "speaker": "noah",
+          "text": "That's already really popular with people our age. The selling apps have made it so easy.",
+          "start": 149.91,
+          "end": 154.62
+        },
+        {
+          "speaker": "ella",
+          "text": "Then renting clothes. It's a nice idea, but the prices mean only quite rich people can actually do it.",
+          "start": 155.12,
+          "end": 161.33
+        },
+        {
+          "speaker": "noah",
+          "text": "Repairing clothes is good, but most people don't even know how to sew on a button any more. That should be taught in schools again.",
+          "start": 161.83,
+          "end": 168.34
+        },
+        {
+          "speaker": "ella",
+          "text": "What about a tax on fast fashion?",
+          "start": 168.84,
+          "end": 171.16
+        },
+        {
+          "speaker": "noah",
+          "text": "People would hate it, but honestly, I think it would change people's behaviour more than anything else on our list.",
+          "start": 171.66,
+          "end": 177.19
+        },
+        {
+          "speaker": "ella",
+          "text": "And labels showing the environmental cost of each item? It sounds simple, but measuring the impact of every single item would be very hard to actually do.",
+          "start": 177.69,
+          "end": 186.88
+        },
+        {
+          "speaker": "noah",
+          "text": "Good. That gives us a strong ending.",
+          "start": 187.38,
+          "end": 189.39
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 190.29,
+          "end": 194.75
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did Ella choose fast fashion as a topic?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She works in a clothes shop."
+                },
+                {
+                  "key": "B",
+                  "text": "She read an interesting article."
+                },
+                {
+                  "key": "C",
+                  "text": "She wanted to change the way she buys clothes."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Not her job: ‘I wanted to change my own habits.’",
+              "cue": "I wanted to change my own habits"
+            },
+            {
+              "number": 22,
+              "prompt": "Which source do the students agree to use most?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a government report"
+                },
+                {
+                  "key": "B",
+                  "text": "a university study"
+                },
+                {
+                  "key": "C",
+                  "text": "a charity's website"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The charity is one-sided and the report is old: ‘the university study should be our main source’.",
+              "cue": "the university study should be our main source"
+            },
+            {
+              "number": 23,
+              "prompt": "What shocked Noah?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "how much water is used to make clothes"
+                },
+                {
+                  "key": "B",
+                  "text": "how little clothing is recycled"
+                },
+                {
+                  "key": "C",
+                  "text": "how cheap clothes have become"
+                }
+              ],
+              "answer": "B",
+              "explanation": "He knew about the water: ‘What really shocked me was that less than one percent of old clothing is recycled into new clothes.’",
+              "cue": "less than one percent of old clothing is recycled"
+            },
+            {
+              "number": 24,
+              "prompt": "What will the students do for the practical part of the project?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "survey their classmates"
+                },
+                {
+                  "key": "B",
+                  "text": "visit a charity shop"
+                },
+                {
+                  "key": "C",
+                  "text": "hold a clothes swap"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Other groups are doing surveys: ‘Why don't we organise a clothes swap instead?’",
+              "cue": "Why don't we organise a clothes swap instead"
+            },
+            {
+              "number": 25,
+              "prompt": "What problem does Ella see with their slides?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They contain too many words."
+                },
+                {
+                  "key": "B",
+                  "text": "They have too many pictures."
+                },
+                {
+                  "key": "C",
+                  "text": "They do not include enough data."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘They've got far too much text.’",
+              "cue": "they've got far too much text"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What do the students say about each solution? Choose **FIVE** answers from the box and write the correct letter, **A–F**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is too expensive for most people."
+            },
+            {
+              "key": "B",
+              "text": "It is already popular."
+            },
+            {
+              "key": "C",
+              "text": "It would be difficult to put into practice."
+            },
+            {
+              "key": "D",
+              "text": "It should be taught at school."
+            },
+            {
+              "key": "E",
+              "text": "It would have the greatest effect."
+            },
+            {
+              "key": "F",
+              "text": "Young people are not interested in it."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "buying second-hand clothes",
+              "answer": "B",
+              "explanation": "‘That's already really popular with people our age.’",
+              "cue": "That's already really popular with people our age"
+            },
+            {
+              "number": 27,
+              "prompt": "renting clothes",
+              "answer": "A",
+              "explanation": "‘The prices mean only quite rich people can actually do it.’",
+              "cue": "only quite rich people can actually do it"
+            },
+            {
+              "number": 28,
+              "prompt": "repairing clothes",
+              "answer": "D",
+              "explanation": "‘That should be taught in schools again.’",
+              "cue": "That should be taught in schools again"
+            },
+            {
+              "number": 29,
+              "prompt": "a tax on fast fashion",
+              "answer": "E",
+              "explanation": "‘It would change people's behaviour more than anything else on our list.’",
+              "cue": "it would change people's behaviour more than anything else"
+            },
+            {
+              "number": 30,
+              "prompt": "environmental labels on clothes",
+              "answer": "C",
+              "explanation": "‘Measuring the impact of every single item would be very hard to actually do.’",
+              "cue": "would be very hard to actually do"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-19/part3.mp3",
+        "duration": 225.55
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the science of concert hall acoustics",
+      "context": "A lecture on how scientists learned to design rooms where music sounds good.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the acoustics of concert halls. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.3
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.3,
+          "end": 43.72
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today we're looking at acoustics, the science of how sound behaves in a room, and in particular how it changed the design of concert halls.",
+          "start": 44.62,
+          "end": 54.67
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Our story begins in eighteen ninety-five at Harvard University, which had just opened a new lecture hall. There was a serious problem: students could not understand the lecturers, because every word echoed around the room. In fact, a single word could be heard for more than five seconds.",
+          "start": 55.02,
+          "end": 73.96
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The university asked a young physicist, Wallace Sabine, to solve the problem. He needed a material that would soak up sound, so, late at night, he and his assistants borrowed hundreds of seat cushions from a theatre nearby, carried them into the hall, and measured how each extra cushion changed the sound. Every morning, they had to return the cushions before the theatre opened.",
+          "start": 74.31,
+          "end": 98.46
+        },
+        {
+          "speaker": "lecturer",
+          "text": "After years of measurements, Sabine discovered a simple rule. How long a sound lasts in a room depends on two things: the volume of the room, and how much sound its surfaces absorb. For the first time, architects could predict how a room would sound before it was built.",
+          "start": 98.81,
+          "end": 116.71
+        },
+        {
+          "speaker": "lecturer",
+          "text": "His great test came with Symphony Hall in Boston, which opened in nineteen hundred. It was the first concert hall in the world to be designed using science rather than guesswork, and it's still considered one of the best.",
+          "start": 117.06,
+          "end": 130.59
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Symphony Hall is long, high and narrow, a design that's often called a shoebox. Narrow halls work well because sound bounces off the side walls and reaches the audience from both sides, which listeners find very pleasing.",
+          "start": 130.94,
+          "end": 146.08
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Even the decoration has a job to do. The statues and carvings on the walls scatter the sound in many directions, so that it spreads evenly around the hall.",
+          "start": 146.43,
+          "end": 156.61
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In nineteen sixty-three, the Philharmonie in Berlin broke with tradition. Instead of putting the orchestra at one end, the architect placed the orchestra in the middle, with the audience sitting all around it on terraces, rather like a vineyard on a hillside.",
+          "start": 156.96,
+          "end": 173.3
+        },
+        {
+          "speaker": "lecturer",
+          "text": "And modern halls go further still. Many can change their acoustics for different kinds of music, using moving panels in the ceiling and heavy curtains that can be lowered to absorb more sound.",
+          "start": 173.65,
+          "end": 185.92
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 186.82,
+          "end": 191.21
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 221.21,
+          "end": 223.92
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Concert hall acoustics",
+          "content": [
+            "## Wallace Sabine",
+            "• In a new Harvard hall, students could not understand the {{31}}",
+            "• Each word could be heard for more than {{32}} seconds",
+            "• Sabine borrowed seat {{33}} from a theatre to test",
+            "• The length of a sound depends on a room's volume and how much its surfaces {{34}}",
+            "## Symphony Hall, Boston (1900)",
+            "• The first concert hall designed using {{35}}",
+            "• Its shape is often called a {{36}}",
+            "• Sound reflects off the side {{37}} towards the audience",
+            "• Statues on the walls {{38}} the sound",
+            "## Later halls",
+            "• Berlin, 1963: the {{39}} sits in the middle",
+            "• Modern halls use moving panels and {{40}} to change the sound"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "lecturers"
+              ],
+              "explanation": "‘Students could not understand the lecturers, because every word echoed.’",
+              "cue": "students could not understand the lecturers"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "five",
+                "5"
+              ],
+              "explanation": "‘A single word could be heard for more than five seconds.’",
+              "cue": "for more than five seconds"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "cushions"
+              ],
+              "explanation": "‘They borrowed hundreds of seat cushions from a theatre nearby.’",
+              "cue": "borrowed hundreds of seat cushions"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "absorb"
+              ],
+              "explanation": "It depends on ‘the volume of the room, and how much sound its surfaces absorb’.",
+              "cue": "how much sound its surfaces absorb"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "science"
+              ],
+              "explanation": "‘The first concert hall in the world to be designed using science rather than guesswork.’",
+              "cue": "designed using science rather than guesswork"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "shoebox"
+              ],
+              "explanation": "‘A design that's often called a shoebox.’",
+              "cue": "a design that's often called a shoebox"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "walls"
+              ],
+              "explanation": "‘Sound bounces off the side walls and reaches the audience from both sides.’",
+              "cue": "sound bounces off the side walls"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "scatter"
+              ],
+              "explanation": "‘The statues and carvings on the walls scatter the sound in many directions.’",
+              "cue": "The statues and carvings on the walls scatter the sound"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "orchestra"
+              ],
+              "explanation": "‘The architect placed the orchestra in the middle.’",
+              "cue": "placed the orchestra in the middle"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "curtains"
+              ],
+              "explanation": "‘Moving panels in the ceiling and heavy curtains that can be lowered.’",
+              "cue": "heavy curtains that can be lowered"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-19/part4.mp3",
+        "duration": 224.72
+      }
+    }
+  ],
+  "durationMinutes": 15
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-80",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 80",
+  "shortTitle": "Practice Test 80",
+  "durationMinutes": 14,
+  "sortOrder": 80,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-80/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-80/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Radio",
+        "Cartoons"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Do you live in a house or a flat?",
+          "say": "Good evening. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Do you live in a house or a flat?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-1.mp3",
+            "duration": 15.85
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Did you help to choose your home?",
+          "say": "Did you help to choose your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-2.mp3",
+            "duration": 2.61
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "What makes a home comfortable, in your opinion?",
+          "say": "What makes a home comfortable, in your opinion?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-3.mp3",
+            "duration": 3.21
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Which room do you spend the most time in? Why?",
+          "say": "Which room do you spend the most time in? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-4.mp3",
+            "duration": 4.18
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Radio",
+          "text": "Do you listen to the radio?",
+          "say": "Now let's move on to talk about radio. Do you listen to the radio?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-5.mp3",
+            "duration": 5.48
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Radio",
+          "text": "When do you usually listen to it?",
+          "say": "When do you usually listen to it?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-6.mp3",
+            "duration": 2.59
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Radio",
+          "text": "Did your family listen to the radio when you were young?",
+          "say": "Did your family listen to the radio when you were young?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-7.mp3",
+            "duration": 3.76
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Cartoons",
+          "text": "Did you watch cartoons as a child?",
+          "say": "Now let's move on to talk about cartoons. Did you watch cartoons as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-8.mp3",
+            "duration": 6.06
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Cartoons",
+          "text": "Do you still watch cartoons?",
+          "say": "Do you still watch cartoons?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-9.mp3",
+            "duration": 2.59
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Cartoons",
+          "text": "Do you think cartoons are only for children?",
+          "say": "Do you think cartoons are only for children?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p1-10.mp3",
+            "duration": 3.25
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you enjoyed being alone.",
+        "points": [
+          "when it was",
+          "where you were",
+          "what you did"
+        ],
+        "explain": "and explain why you enjoyed being alone at that time."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you enjoyed being alone.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you enjoyed being alone. You should say: when it was; where you were; what you did; and explain why you enjoyed being alone at that time.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-80/p2-talk.mp3",
+            "duration": 25.11
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "How often do you spend time on your own?",
+          "say": "Thank you. How often do you spend time on your own?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-80/p2-follow.mp3",
+            "duration": 3.49
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Being alone",
+        "Free time"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Being alone",
+          "text": "Why do some people like spending time alone?",
+          "say": "Thank you. We've been talking about a time when you enjoyed being alone, and I'd like to discuss with you some more general questions related to this. Let's consider first of all being alone. Why do some people like spending time alone?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-80/p3-1.mp3",
+            "duration": 15.43
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Being alone",
+          "text": "Is it good for children to spend some time alone?",
+          "say": "Is it good for children to spend some time alone?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-80/p3-2.mp3",
+            "duration": 3.51
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Being alone",
+          "text": "Do you think people today feel lonelier than in the past?",
+          "say": "Do you think people today feel lonelier than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-80/p3-3.mp3",
+            "duration": 3.83
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Free time",
+          "text": "How do people in your country usually spend their free time?",
+          "say": "Now let's talk about free time. How do people in your country usually spend their free time?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-80/p3-4.mp3",
+            "duration": 6.84
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Free time",
+          "text": "Do people have more free time now than they did in the past?",
+          "say": "Do people have more free time now than they did in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-80/p3-5.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Free time",
+          "text": "Is it better to spend free time doing something active or something relaxing?",
+          "say": "Is it better to spend free time doing something active or something relaxing?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-80/p3-6.mp3",
+            "duration": 5.07
+          }
+        }
+      ]
+    }
+  ]
+}

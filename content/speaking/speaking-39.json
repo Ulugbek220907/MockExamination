@@ -1,0 +1,268 @@
+{
+  "id": "speaking-39",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 39",
+  "shortTitle": "Practice Test 39",
+  "durationMinutes": 14,
+  "sortOrder": 39,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "George",
+    "voice": "bm_george",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-39/p2-start.mp3",
+        "duration": 11.03
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-39/end.mp3",
+        "duration": 3.85
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Snacks",
+        "Watches"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Can you tell me a little about your hometown?",
+          "say": "Good morning. My name is George, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Can you tell me a little about your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-1.mp3",
+            "duration": 17.84
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "Is there anything you dislike about it?",
+          "say": "Is there anything you dislike about it?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-2.mp3",
+            "duration": 3.36
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is your hometown a good place for tourists to visit?",
+          "say": "Is your hometown a good place for tourists to visit?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-3.mp3",
+            "duration": 3.98
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Would you like to raise a family in your hometown?",
+          "say": "Would you like to raise a family in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-4.mp3",
+            "duration": 3.64
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Snacks",
+          "text": "What snacks do you like?",
+          "say": "Now let's move on to talk about snacks. What snacks do you like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-5.mp3",
+            "duration": 5.07
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Snacks",
+          "text": "Do you often eat between meals?",
+          "say": "Do you often eat between meals?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-6.mp3",
+            "duration": 2.7
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Snacks",
+          "text": "Did you eat the same snacks when you were a child?",
+          "say": "Did you eat the same snacks when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-7.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Watches",
+          "text": "Do you wear a watch?",
+          "say": "Now let's move on to talk about watches. Do you wear a watch?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-8.mp3",
+            "duration": 5.12
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Watches",
+          "text": "Have you ever been given a watch as a present?",
+          "say": "Have you ever been given a watch as a present?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-9.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Watches",
+          "text": "Do you think watches are still useful today?",
+          "say": "Do you think watches are still useful today?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p1-10.mp3",
+            "duration": 3.57
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a family member you spend a lot of time with.",
+        "points": [
+          "who this person is",
+          "what you usually do together",
+          "how often you see each other"
+        ],
+        "explain": "and explain why you spend so much time with this person."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a family member you spend a lot of time with.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a family member you spend a lot of time with. You should say: who this person is; what you usually do together; how often you see each other; and explain why you spend so much time with this person.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-39/p2-talk.mp3",
+            "duration": 30.51
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Did you spend as much time with this person when you were younger?",
+          "say": "Thank you. Did you spend as much time with this person when you were younger?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-39/p2-follow.mp3",
+            "duration": 4.89
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Family life",
+        "Families today"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Family life",
+          "text": "What kinds of things do families in your country like to do together?",
+          "say": "Thank you. We've been talking about a family member you spend a lot of time with, and I'd like to discuss with you some more general questions related to this. Let's consider first of all family life. What kinds of things do families in your country like to do together?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-39/p3-1.mp3",
+            "duration": 18.2
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Family life",
+          "text": "Why do some families spend less time together than in the past?",
+          "say": "Why do some families spend less time together than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-39/p3-2.mp3",
+            "duration": 4.57
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Family life",
+          "text": "Is it important for families to eat together? Why?",
+          "say": "Is it important for families to eat together? Why?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-39/p3-3.mp3",
+            "duration": 4.67
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Families today",
+          "text": "How have families in your country changed over the last fifty years?",
+          "say": "Now let's talk about families today. How have families in your country changed over the last fifty years?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-39/p3-4.mp3",
+            "duration": 7.98
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Families today",
+          "text": "Are large families better than small families?",
+          "say": "Are large families better than small families?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-39/p3-5.mp3",
+            "duration": 3.76
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Families today",
+          "text": "Who should look after older family members, the family or the state?",
+          "say": "Who should look after older family members, the family or the state?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-39/p3-6.mp3",
+            "duration": 4.92
+          }
+        }
+      ]
+    }
+  ]
+}

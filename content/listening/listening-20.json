@@ -1,0 +1,1197 @@
+{
+  "id": "listening-20",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 20",
+  "shortTitle": "Practice Test 20",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 20,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "sophie": {
+      "name": "Sophie",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "fenwick": {
+      "name": "Mr Fenwick",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "rachel": {
+      "name": "Rachel",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "hannah": {
+      "name": "Hannah",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "patel": {
+      "name": "Dr Patel",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Hiring a car",
+      "context": "A man phones a car hire company to book a car for a family holiday.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a car hire company. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 8.15
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 28.15,
+          "end": 37.22
+        },
+        {
+          "speaker": "sophie",
+          "text": "Good afternoon, Coastline Car Hire, Sophie speaking. How can I help?",
+          "start": 38.12,
+          "end": 42.21
+        },
+        {
+          "speaker": "fenwick",
+          "text": "Hello. I'd like to hire a car for a family holiday next month. We're flying in, so could we pick it up at the airport?",
+          "start": 42.71,
+          "end": 49.75
+        },
+        {
+          "speaker": "sophie",
+          "text": "Of course. We have a desk at the airport.",
+          "start": 50.25,
+          "end": 52.39
+        },
+        {
+          "speaker": "narrator",
+          "text": "The man wants to collect the car at the airport, so 'airport' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.29,
+          "end": 69.01
+        },
+        {
+          "speaker": "sophie",
+          "text": "Can I have your surname, please?",
+          "start": 69.91,
+          "end": 71.49
+        },
+        {
+          "speaker": "fenwick",
+          "text": "It's Fenwick. F-E-N-W-I-C-K.",
+          "start": 71.99,
+          "end": 77.54
+        },
+        {
+          "speaker": "sophie",
+          "text": "Thank you, Mr Fenwick. And how long will you need the car?",
+          "start": 78.04,
+          "end": 81.13
+        },
+        {
+          "speaker": "fenwick",
+          "text": "We arrive on the third of August, and we fly home a week later, so seven days.",
+          "start": 81.63,
+          "end": 86.73
+        },
+        {
+          "speaker": "sophie",
+          "text": "Seven days. What kind of car were you thinking of?",
+          "start": 87.23,
+          "end": 89.94
+        },
+        {
+          "speaker": "fenwick",
+          "text": "I was going to book something small to keep the cost down, but we're bringing our bikes, so I think we'd better have an estate car. They've got more room at the back.",
+          "start": 90.44,
+          "end": 99.36
+        },
+        {
+          "speaker": "sophie",
+          "text": "An estate. Will you need any extras?",
+          "start": 99.86,
+          "end": 101.97
+        },
+        {
+          "speaker": "fenwick",
+          "text": "Yes, a child seat, please. Our daughter's four.",
+          "start": 102.47,
+          "end": 105.39
+        },
+        {
+          "speaker": "sophie",
+          "text": "No problem. And will anyone else be driving?",
+          "start": 105.89,
+          "end": 108.5
+        },
+        {
+          "speaker": "fenwick",
+          "text": "My wife will drive as well, so please add her to the booking.",
+          "start": 109.0,
+          "end": 112.64
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 113.54,
+          "end": 119.26
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 139.26,
+          "end": 142.59
+        },
+        {
+          "speaker": "fenwick",
+          "text": "How much will it cost?",
+          "start": 143.49,
+          "end": 144.94
+        },
+        {
+          "speaker": "sophie",
+          "text": "An estate is normally forty-five pounds a day, but because you're booking a whole week, it comes down to thirty-eight pounds a day.",
+          "start": 145.44,
+          "end": 152.61
+        },
+        {
+          "speaker": "fenwick",
+          "text": "That's good. What about insurance?",
+          "start": 153.11,
+          "end": 155.2
+        },
+        {
+          "speaker": "sophie",
+          "text": "Basic insurance is included, but if there's any damage you pay the first thousand pounds. Most families choose full cover, which means you pay nothing at all.",
+          "start": 155.7,
+          "end": 165.28
+        },
+        {
+          "speaker": "fenwick",
+          "text": "With two children in the back, I think we'd better have the full cover.",
+          "start": 165.78,
+          "end": 169.57
+        },
+        {
+          "speaker": "sophie",
+          "text": "Very sensible. The car will have a full tank when you collect it, and you need to bring it back with a full tank too, or there's a refuelling charge.",
+          "start": 170.07,
+          "end": 178.27
+        },
+        {
+          "speaker": "fenwick",
+          "text": "OK. Where exactly is your desk?",
+          "start": 178.77,
+          "end": 181.09
+        },
+        {
+          "speaker": "sophie",
+          "text": "It's in the arrivals hall, opposite the coffee shop. You can't miss it.",
+          "start": 181.59,
+          "end": 185.37
+        },
+        {
+          "speaker": "fenwick",
+          "text": "And what do I need to bring?",
+          "start": 185.87,
+          "end": 187.62
+        },
+        {
+          "speaker": "sophie",
+          "text": "Your driving licence, of course, and your passport. We can't give you the car without both.",
+          "start": 188.12,
+          "end": 192.98
+        },
+        {
+          "speaker": "fenwick",
+          "text": "Great. Thanks for your help.",
+          "start": 193.48,
+          "end": 195.17
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 196.07,
+          "end": 200.59
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Coastline Car Hire – booking",
+          "content": [
+            "Example: Collect the car at the **airport**",
+            "• Customer's surname: {{1}}",
+            "• Number of days: {{2}}",
+            "• Type of car: {{3}}",
+            "• Extra: a child {{4}}",
+            "• Second driver: the customer's {{5}}",
+            "• Price: £{{6}} per day",
+            "• Insurance: {{7}} cover",
+            "• Return the car with a full {{8}}",
+            "• Desk is in the {{9}} hall",
+            "• Bring a driving licence and a {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Fenwick"
+              ],
+              "explanation": "He spells it: ‘F-E-N-W-I-C-K’.",
+              "cue": "F-E-N-W-I-C-K"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "7",
+                "seven"
+              ],
+              "explanation": "They arrive on the third and fly home a week later, ‘so seven days’.",
+              "cue": "so seven days"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "estate"
+              ],
+              "explanation": "Not something small, because of the bikes: ‘we'd better have an estate car’.",
+              "cue": "we'd better have an estate car"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "seat"
+              ],
+              "explanation": "‘Yes, a child seat, please.’",
+              "cue": "Yes, a child seat, please"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "wife"
+              ],
+              "explanation": "‘My wife will drive as well.’",
+              "cue": "My wife will drive as well"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "38",
+                "thirty-eight"
+              ],
+              "explanation": "Normally forty-five, but for a week ‘it comes down to thirty-eight pounds a day’.",
+              "cue": "it comes down to thirty-eight pounds a day"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "full"
+              ],
+              "explanation": "‘I think we'd better have the full cover.’",
+              "cue": "I think we'd better have the full cover"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "tank"
+              ],
+              "explanation": "‘You need to bring it back with a full tank too.’",
+              "cue": "you need to bring it back with a full tank too"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "arrivals"
+              ],
+              "explanation": "‘It's in the arrivals hall, opposite the coffee shop.’",
+              "cue": "It's in the arrivals hall"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "passport"
+              ],
+              "explanation": "‘Your driving licence, of course, and your passport.’",
+              "cue": "and your passport"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-20/part1.mp3",
+        "duration": 231.39
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Summer jobs at an adventure park",
+      "context": "The manager of an adventure park welcomes new summer staff.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the manager of an adventure park talking to new summer staff. First, you have some time to look at questions 11 to 14.",
+          "start": 0.6,
+          "end": 10.35
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 14.",
+          "start": 35.35,
+          "end": 39.62
+        },
+        {
+          "speaker": "rachel",
+          "text": "Good morning, everyone, and welcome to Treetop Adventure Park. I'm Rachel, the operations manager. I know it's your first day, so I'll keep this short.",
+          "start": 40.52,
+          "end": 48.79
+        },
+        {
+          "speaker": "rachel",
+          "text": "We want you to be friendly with our visitors, and of course we expect you to be on time for every shift. But nothing, absolutely nothing, matters more than the safety checks. Every harness and every rope must be checked before each group starts, even if you checked it ten minutes earlier.",
+          "start": 49.14,
+          "end": 64.31
+        },
+        {
+          "speaker": "rachel",
+          "text": "You'll each receive two T-shirts and a jacket. The uniform is free, and you can keep it at the end of the summer. But please don't wear your own jackets over it, because visitors need to be able to see who works here.",
+          "start": 64.66,
+          "end": 75.86
+        },
+        {
+          "speaker": "rachel",
+          "text": "You'll be paid every two weeks, on a Friday, straight into your bank account. Your first payment will be on the twentieth of June.",
+          "start": 76.21,
+          "end": 82.5
+        },
+        {
+          "speaker": "rachel",
+          "text": "And the weather. We don't close for rain. Visitors come prepared. But if there's thunder or lightning, the high ropes course closes immediately, and the staff from that area will help out in the rest of the park until the storm has passed.",
+          "start": 82.85,
+          "end": 95.19
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 15 to 20.",
+          "start": 96.09,
+          "end": 101.65
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 15 to 20.",
+          "start": 126.65,
+          "end": 130.47
+        },
+        {
+          "speaker": "rachel",
+          "text": "Now, where you'll be working for the first two weeks. Amir, you've worked with children before, so you'll be in the children's play zone.",
+          "start": 131.37,
+          "end": 137.77
+        },
+        {
+          "speaker": "rachel",
+          "text": "Bella, I know you asked for the climbing wall, but you need the instructor's certificate first, and the next course isn't until July. So for now, you'll be in the ticket office.",
+          "start": 138.12,
+          "end": 147.55
+        },
+        {
+          "speaker": "rachel",
+          "text": "Chris already has his climbing instructor qualification, so he'll be running the climbing wall.",
+          "start": 147.9,
+          "end": 152.7
+        },
+        {
+          "speaker": "rachel",
+          "text": "Dina, you'll be on the zip wire. It's our most popular ride, and it needs someone calm and confident, which you clearly are.",
+          "start": 153.05,
+          "end": 159.3
+        },
+        {
+          "speaker": "rachel",
+          "text": "Ethan, you'll start in the café. It gets very busy at lunchtime, so be ready.",
+          "start": 159.65,
+          "end": 164.2
+        },
+        {
+          "speaker": "rachel",
+          "text": "And Fiona, you'll be directing traffic in the car park in the mornings, and helping wherever you're needed in the afternoons. There's also a first-aid room, but only our qualified nurses work in there, so none of you will be based there.",
+          "start": 164.55,
+          "end": 177.18
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 178.08,
+          "end": 182.41
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "According to Rachel, what is the most important part of the job?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "being friendly to visitors"
+                },
+                {
+                  "key": "B",
+                  "text": "doing the safety checks"
+                },
+                {
+                  "key": "C",
+                  "text": "arriving on time"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Friendliness and punctuality matter, ‘but nothing, absolutely nothing, matters more than the safety checks’.",
+              "cue": "nothing, absolutely nothing, matters more than the safety checks"
+            },
+            {
+              "number": 12,
+              "prompt": "What does Rachel say about the uniform?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Staff must pay for it."
+                },
+                {
+                  "key": "B",
+                  "text": "Staff can keep it after the summer."
+                },
+                {
+                  "key": "C",
+                  "text": "Staff may wear their own jackets over it."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The uniform is free, and you can keep it at the end of the summer.’",
+              "cue": "you can keep it at the end of the summer"
+            },
+            {
+              "number": 13,
+              "prompt": "How often will staff be paid?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "every week"
+                },
+                {
+                  "key": "B",
+                  "text": "every two weeks"
+                },
+                {
+                  "key": "C",
+                  "text": "every month"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘You'll be paid every two weeks, on a Friday.’",
+              "cue": "You'll be paid every two weeks"
+            },
+            {
+              "number": 14,
+              "prompt": "What happens when there is a thunderstorm?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The whole park closes."
+                },
+                {
+                  "key": "B",
+                  "text": "Staff are sent home."
+                },
+                {
+                  "key": "C",
+                  "text": "One of the activities stops."
+                }
+              ],
+              "answer": "C",
+              "explanation": "The park does not close for rain, but in a storm ‘the high ropes course closes immediately’.",
+              "cue": "the high ropes course closes immediately"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Where will each person work for the first two weeks? Choose **SIX** answers from the box and write the correct letter, **A–G**, next to Questions 15–20.",
+          "optionsTitle": "Areas of the park",
+          "options": [
+            {
+              "key": "A",
+              "text": "zip wire"
+            },
+            {
+              "key": "B",
+              "text": "climbing wall"
+            },
+            {
+              "key": "C",
+              "text": "children's play zone"
+            },
+            {
+              "key": "D",
+              "text": "café"
+            },
+            {
+              "key": "E",
+              "text": "ticket office"
+            },
+            {
+              "key": "F",
+              "text": "car park"
+            },
+            {
+              "key": "G",
+              "text": "first-aid room"
+            }
+          ],
+          "questions": [
+            {
+              "number": 15,
+              "prompt": "Amir",
+              "answer": "C",
+              "explanation": "‘You've worked with children before, so you'll be in the children's play zone.’",
+              "cue": "so you'll be in the children's play zone"
+            },
+            {
+              "number": 16,
+              "prompt": "Bella",
+              "answer": "E",
+              "explanation": "She asked for the climbing wall, but needs a certificate: ‘for now, you'll be in the ticket office’.",
+              "cue": "for now, you'll be in the ticket office"
+            },
+            {
+              "number": 17,
+              "prompt": "Chris",
+              "answer": "B",
+              "explanation": "‘He'll be running the climbing wall.’",
+              "cue": "he'll be running the climbing wall"
+            },
+            {
+              "number": 18,
+              "prompt": "Dina",
+              "answer": "A",
+              "explanation": "‘Dina, you'll be on the zip wire.’",
+              "cue": "Dina, you'll be on the zip wire"
+            },
+            {
+              "number": 19,
+              "prompt": "Ethan",
+              "answer": "D",
+              "explanation": "‘Ethan, you'll start in the café.’",
+              "cue": "Ethan, you'll start in the café"
+            },
+            {
+              "number": 20,
+              "prompt": "Fiona",
+              "answer": "F",
+              "explanation": "‘You'll be directing traffic in the car park in the mornings.’",
+              "cue": "directing traffic in the car park"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-20/part2.mp3",
+        "duration": 213.21
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A dissertation on remote working",
+      "context": "A student discusses her dissertation on working from home with her tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear a business student, Hannah, talking to her tutor, Dr Patel, about her dissertation on remote working. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 13.61
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 38.61,
+          "end": 43.33
+        },
+        {
+          "speaker": "patel",
+          "text": "Come in, Hannah. So, talk me through your research method from the beginning.",
+          "start": 44.23,
+          "end": 48.03
+        },
+        {
+          "speaker": "hannah",
+          "text": "Well, first I read all the previous studies I could find on remote working, so that I knew what questions hadn't been answered yet.",
+          "start": 48.53,
+          "end": 55.93
+        },
+        {
+          "speaker": "patel",
+          "text": "Good. And then?",
+          "start": 56.43,
+          "end": 57.73
+        },
+        {
+          "speaker": "hannah",
+          "text": "Then I designed a questionnaire for employees, about their working hours, their productivity and how they felt about working from home.",
+          "start": 58.23,
+          "end": 66.04
+        },
+        {
+          "speaker": "patel",
+          "text": "Did you test it before you sent it out?",
+          "start": 66.54,
+          "end": 68.78
+        },
+        {
+          "speaker": "hannah",
+          "text": "Yes, I ran a pilot with a small group of ten people first, and I changed three questions that people found confusing.",
+          "start": 69.28,
+          "end": 76.53
+        },
+        {
+          "speaker": "patel",
+          "text": "Very sensible. And the interviews?",
+          "start": 77.03,
+          "end": 79.27
+        },
+        {
+          "speaker": "hannah",
+          "text": "After the questionnaire, I interviewed managers at three different companies, to get the employers' point of view.",
+          "start": 79.77,
+          "end": 85.81
+        },
+        {
+          "speaker": "patel",
+          "text": "And how are you going to put your results in context?",
+          "start": 86.31,
+          "end": 89.12
+        },
+        {
+          "speaker": "hannah",
+          "text": "I'm going to compare them with data from before the pandemic, when hardly anyone worked from home.",
+          "start": 89.62,
+          "end": 95.26
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 96.16,
+          "end": 102.3
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 122.3,
+          "end": 126.14
+        },
+        {
+          "speaker": "hannah",
+          "text": "I was worried that two hundred responses wasn't enough.",
+          "start": 127.04,
+          "end": 130.28
+        },
+        {
+          "speaker": "patel",
+          "text": "For a dissertation at this level, two hundred is perfectly adequate. You don't need any more.",
+          "start": 130.78,
+          "end": 135.71
+        },
+        {
+          "speaker": "hannah",
+          "text": "That's a relief. The results were interesting. I expected people to say they felt lonely, and some did. But what surprised me was that people working from home actually worked about an hour longer each day than in the office.",
+          "start": 136.21,
+          "end": 148.95
+        },
+        {
+          "speaker": "patel",
+          "text": "That matches some recent research. Now, your literature review. At the moment you go through the studies one by one, in date order. It would be much stronger if you organised it by theme instead.",
+          "start": 149.45,
+          "end": 159.73
+        },
+        {
+          "speaker": "hannah",
+          "text": "OK, I'll do that. To be honest, the part I'm finding hardest is the statistics. I'm fine with writing, but analysing the numbers takes me forever.",
+          "start": 160.23,
+          "end": 169.04
+        },
+        {
+          "speaker": "patel",
+          "text": "The maths support centre runs drop-in sessions on Wednesdays. I'd go along. So, when can I see the next draft? By this Friday?",
+          "start": 169.54,
+          "end": 176.43
+        },
+        {
+          "speaker": "hannah",
+          "text": "I've got two exams this week. Could I give it to you next Monday?",
+          "start": 176.93,
+          "end": 180.79
+        },
+        {
+          "speaker": "patel",
+          "text": "Monday's fine.",
+          "start": 181.29,
+          "end": 182.66
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 183.56,
+          "end": 188.02
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 21–25.",
+          "title": "Hannah's research method",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "studies"
+            },
+            {
+              "key": "B",
+              "text": "questionnaire"
+            },
+            {
+              "key": "C",
+              "text": "pilot"
+            },
+            {
+              "key": "D",
+              "text": "managers"
+            },
+            {
+              "key": "E",
+              "text": "pandemic"
+            },
+            {
+              "key": "F",
+              "text": "experiment"
+            },
+            {
+              "key": "G",
+              "text": "website"
+            }
+          ],
+          "content": [
+            "Read previous {{21}} on remote working.",
+            "Design a {{22}} for employees.",
+            "Run a {{23}} with ten people.",
+            "Interview {{24}} at three companies.",
+            "Compare the results with data from before the {{25}}."
+          ],
+          "questions": [
+            {
+              "number": 21,
+              "answer": "A",
+              "explanation": "‘First I read all the previous studies I could find.’",
+              "cue": "first I read all the previous studies"
+            },
+            {
+              "number": 22,
+              "answer": "B",
+              "explanation": "‘Then I designed a questionnaire for employees.’",
+              "cue": "Then I designed a questionnaire for employees"
+            },
+            {
+              "number": 23,
+              "answer": "C",
+              "explanation": "‘I ran a pilot with a small group of ten people first.’",
+              "cue": "I ran a pilot with a small group"
+            },
+            {
+              "number": 24,
+              "answer": "D",
+              "explanation": "‘I interviewed managers at three different companies.’",
+              "cue": "I interviewed managers at three different companies"
+            },
+            {
+              "number": 25,
+              "answer": "E",
+              "explanation": "‘Compare them with data from before the pandemic.’",
+              "cue": "data from before the pandemic"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "What does Dr Patel say about the number of responses?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is too small."
+                },
+                {
+                  "key": "B",
+                  "text": "It is larger than necessary."
+                },
+                {
+                  "key": "C",
+                  "text": "It is enough."
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘For a dissertation at this level, two hundred is perfectly adequate.’",
+              "cue": "two hundred is perfectly adequate"
+            },
+            {
+              "number": 27,
+              "prompt": "What surprised Hannah in her results?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "People at home worked longer hours."
+                },
+                {
+                  "key": "B",
+                  "text": "People at home felt lonely."
+                },
+                {
+                  "key": "C",
+                  "text": "People at home were less productive."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Some felt lonely, as expected, ‘but what surprised me was that people working from home actually worked about an hour longer each day’.",
+              "cue": "worked about an hour longer each day"
+            },
+            {
+              "number": 28,
+              "prompt": "What does Dr Patel suggest for the literature review?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "making it shorter"
+                },
+                {
+                  "key": "B",
+                  "text": "adding more recent studies"
+                },
+                {
+                  "key": "C",
+                  "text": "organising it by topic"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘It would be much stronger if you organised it by theme instead.’",
+              "cue": "if you organised it by theme instead"
+            },
+            {
+              "number": 29,
+              "prompt": "Which part of the dissertation does Hannah find most difficult?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the writing"
+                },
+                {
+                  "key": "B",
+                  "text": "analysing the data"
+                },
+                {
+                  "key": "C",
+                  "text": "meeting deadlines"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The part I'm finding hardest is the statistics.’",
+              "cue": "the part I'm finding hardest is the statistics"
+            },
+            {
+              "number": 30,
+              "prompt": "When will Hannah hand in her next draft?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "this Friday"
+                },
+                {
+                  "key": "B",
+                  "text": "next Monday"
+                },
+                {
+                  "key": "C",
+                  "text": "next Wednesday"
+                }
+              ],
+              "answer": "B",
+              "explanation": "She has exams this week: ‘Could I give it to you next Monday?’ ‘Monday's fine.’",
+              "cue": "Could I give it to you next Monday"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-20/part3.mp3",
+        "duration": 218.82
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: mangrove forests",
+      "context": "An environmental science lecture about mangrove forests and why they matter.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about mangrove forests. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.62
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.62,
+          "end": 43.04
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today's topic is one of the most unusual ecosystems on the planet: mangrove forests.",
+          "start": 43.94,
+          "end": 49.97
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Mangroves are trees and shrubs that grow along tropical and subtropical coasts, in the zone between high and low tide. That means that twice a day their roots are under the sea, and twice a day they're out in the air.",
+          "start": 50.32,
+          "end": 62.02
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Very few trees can live in salt water, but mangroves have found ways to cope. Many species filter the salt out through their roots, and others get rid of it through their leaves, where you can sometimes see tiny salt crystals.",
+          "start": 62.37,
+          "end": 74.59
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Mud on the coast contains very little oxygen, so some mangroves grow special roots that point upwards, out of the mud, like snorkels. These roots take in oxygen from the air.",
+          "start": 74.94,
+          "end": 84.97
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Their seeds are unusual too. They start to grow while they are still on the tree, so when they drop into the water, they are already young plants, ready to take root.",
+          "start": 85.32,
+          "end": 93.47
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Why do mangroves matter? First, their thick roots slow down waves, so they protect the coast from storms and reduce erosion. Villages behind healthy mangroves have suffered far less damage from storms than villages without them.",
+          "start": 93.82,
+          "end": 106.72
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Second, the calm water among the roots is a nursery for young fish, which later move out to the open sea. Many fishing communities depend on this.",
+          "start": 107.07,
+          "end": 115.52
+        },
+        {
+          "speaker": "lecturer",
+          "text": "And third, mangroves store huge amounts of carbon, most of it in the mud beneath them, which helps to slow climate change.",
+          "start": 115.87,
+          "end": 122.4
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Sadly, large areas of mangrove have been lost, and one of the biggest causes has been clearing them to make shrimp farms.",
+          "start": 122.75,
+          "end": 129.04
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The good news is that many communities are now restoring them by planting seedlings. But planting alone isn't enough. Projects only succeed when the seedlings are planted in places where the water can flow in and out naturally, with the tide. Where that has been blocked, the young trees simply die.",
+          "start": 129.39,
+          "end": 144.9
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 145.8,
+          "end": 150.2
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 180.2,
+          "end": 182.9
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Mangrove forests",
+          "content": [
+            "## How mangroves survive",
+            "• They grow between high and low {{31}}",
+            "• Many species filter out the {{32}} through their roots",
+            "• Some roots point upwards to take in {{33}}",
+            "• Seeds begin to grow while still on the {{34}}",
+            "## Why they matter",
+            "• Roots slow waves and reduce {{35}}",
+            "• Calm water among the roots is a nursery for young {{36}}",
+            "• They store large amounts of {{37}}",
+            "## Threats and restoration",
+            "• Many have been cleared to make shrimp {{38}}",
+            "• Communities are planting {{39}}",
+            "• Success depends on the {{40}} being able to flow in and out"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "tide"
+              ],
+              "explanation": "They grow ‘in the zone between high and low tide’.",
+              "cue": "in the zone between high and low tide"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "salt"
+              ],
+              "explanation": "‘Many species filter the salt out through their roots.’",
+              "cue": "Many species filter the salt out through their roots"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "oxygen"
+              ],
+              "explanation": "‘These roots take in oxygen from the air.’",
+              "cue": "These roots take in oxygen from the air"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "tree"
+              ],
+              "explanation": "‘They start to grow while they are still on the tree.’",
+              "cue": "while they are still on the tree"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "erosion"
+              ],
+              "explanation": "‘They protect the coast from storms and reduce erosion.’",
+              "cue": "reduce erosion"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "fish"
+              ],
+              "explanation": "‘The calm water among the roots is a nursery for young fish.’",
+              "cue": "a nursery for young fish"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "carbon"
+              ],
+              "explanation": "‘Mangroves store huge amounts of carbon.’",
+              "cue": "mangroves store huge amounts of carbon"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "farms"
+              ],
+              "explanation": "‘Clearing them to make shrimp farms.’",
+              "cue": "clearing them to make shrimp farms"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "seedlings"
+              ],
+              "explanation": "‘Many communities are now restoring them by planting seedlings.’",
+              "cue": "restoring them by planting seedlings"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "water"
+              ],
+              "explanation": "Projects succeed ‘in places where the water can flow in and out naturally’.",
+              "cue": "where the water can flow in and out naturally"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-20/part4.mp3",
+        "duration": 183.7
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

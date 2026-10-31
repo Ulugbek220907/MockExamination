@@ -1,0 +1,268 @@
+{
+  "id": "speaking-91",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 91",
+  "shortTitle": "Practice Test 91",
+  "durationMinutes": 14,
+  "sortOrder": 91,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lily",
+    "voice": "bf_lily",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-91/p2-start.mp3",
+        "duration": 10.5
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-91/end.mp3",
+        "duration": 3.42
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Holidays",
+        "Spending money"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Can you tell me what you do?",
+          "say": "Good afternoon. My name is Lily, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about what you do. Can you tell me what you do?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-1.mp3",
+            "duration": 16.24
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "Have your plans for work or study changed recently?",
+          "say": "Have your plans for work or study changed recently?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-2.mp3",
+            "duration": 3.79
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "Do you prefer a busy day or a quiet day at work or school?",
+          "say": "Do you prefer a busy day or a quiet day at work or school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-3.mp3",
+            "duration": 4.08
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "Do you prefer to work or study in the morning or in the evening?",
+          "say": "Do you prefer to work or study in the morning or in the evening?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-4.mp3",
+            "duration": 4.11
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Holidays",
+          "text": "Where did you go on your last holiday?",
+          "say": "Now let's move on to talk about holidays. Where did you go on your last holiday?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-5.mp3",
+            "duration": 5.97
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Holidays",
+          "text": "Do you prefer short holidays or long ones?",
+          "say": "Do you prefer short holidays or long ones?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-6.mp3",
+            "duration": 3.27
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Holidays",
+          "text": "Do you like to plan your holidays carefully?",
+          "say": "Do you like to plan your holidays carefully?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-7.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Spending money",
+          "text": "What do you usually spend your money on?",
+          "say": "Now let's move on to talk about spending money. What do you usually spend your money on?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-8.mp3",
+            "duration": 6.03
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Spending money",
+          "text": "Do you find it easy to save money?",
+          "say": "Do you find it easy to save money?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-9.mp3",
+            "duration": 2.95
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Spending money",
+          "text": "Did you spend your pocket money quickly as a child?",
+          "say": "Did you spend your pocket money quickly as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p1-10.mp3",
+            "duration": 3.72
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe something you made yourself.",
+        "points": [
+          "what you made",
+          "how you made it",
+          "how long it took you"
+        ],
+        "explain": "and explain how you felt about making it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe something you made yourself.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe something you made yourself. You should say: what you made; how you made it; how long it took you; and explain how you felt about making it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-91/p2-talk.mp3",
+            "duration": 24.09
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you like to make something similar again?",
+          "say": "Thank you. Would you like to make something similar again?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-91/p2-follow.mp3",
+            "duration": 3.59
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Making things",
+        "Handmade and mass-produced goods"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Making things",
+          "text": "Why do some people enjoy making things by hand?",
+          "say": "Thank you. We've been talking about something you made yourself, and I'd like to discuss with you some more general questions related to this. Let's consider first of all making things. Why do some people enjoy making things by hand?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-91/p3-1.mp3",
+            "duration": 15.26
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Making things",
+          "text": "Should children learn practical skills like sewing and woodwork at school?",
+          "say": "Should children learn practical skills like sewing and woodwork at school?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-91/p3-2.mp3",
+            "duration": 4.55
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Making things",
+          "text": "Are fewer people able to make or repair things than in the past?",
+          "say": "Are fewer people able to make or repair things than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-91/p3-3.mp3",
+            "duration": 4.36
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Handmade and mass-produced goods",
+          "text": "Why are handmade products often more expensive than factory-made ones?",
+          "say": "Now let's talk about handmade and mass-produced goods. Why are handmade products often more expensive than factory-made ones?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-91/p3-4.mp3",
+            "duration": 8.36
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Handmade and mass-produced goods",
+          "text": "Is it better to buy things made in your own country?",
+          "say": "Is it better to buy things made in your own country?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-91/p3-5.mp3",
+            "duration": 3.89
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Handmade and mass-produced goods",
+          "text": "Do you think there will be a market for handmade goods in the future?",
+          "say": "Do you think there will be a market for handmade goods in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-91/p3-6.mp3",
+            "duration": 4.04
+          }
+        }
+      ]
+    }
+  ]
+}

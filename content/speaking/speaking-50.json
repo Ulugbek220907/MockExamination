@@ -1,0 +1,268 @@
+{
+  "id": "speaking-50",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 50",
+  "shortTitle": "Practice Test 50",
+  "durationMinutes": 14,
+  "sortOrder": 50,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-50/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-50/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Texting",
+        "Mirrors"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Do you live in a house or a flat?",
+          "say": "Good evening. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Do you live in a house or a flat?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-1.mp3",
+            "duration": 14.27
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "How have you decorated your room?",
+          "say": "How have you decorated your room?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-2.mp3",
+            "duration": 2.4
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Do you often invite friends to your home?",
+          "say": "Do you often invite friends to your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-3.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Do you plan to live in a house or a flat in the future?",
+          "say": "Do you plan to live in a house or a flat in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-4.mp3",
+            "duration": 3.38
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Texting",
+          "text": "Do you send a lot of text messages?",
+          "say": "Now let's move on to talk about texting. Do you send a lot of text messages?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-5.mp3",
+            "duration": 5.07
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Texting",
+          "text": "Do you prefer texting or phoning?",
+          "say": "Do you prefer texting or phoning?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-6.mp3",
+            "duration": 2.44
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Texting",
+          "text": "Do you use emojis in your messages?",
+          "say": "Do you use emojis in your messages?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-7.mp3",
+            "duration": 2.61
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Mirrors",
+          "text": "Do you look in the mirror often?",
+          "say": "Now let's move on to talk about mirrors. Do you look in the mirror often?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-8.mp3",
+            "duration": 4.75
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Mirrors",
+          "text": "Are there many mirrors in your home?",
+          "say": "Are there many mirrors in your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-9.mp3",
+            "duration": 2.38
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Mirrors",
+          "text": "Have you ever bought a mirror?",
+          "say": "Have you ever bought a mirror?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p1-10.mp3",
+            "duration": 2.12
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a school you went to when you were younger.",
+        "points": [
+          "where it was",
+          "what it looked like",
+          "what you did there"
+        ],
+        "explain": "and explain how you feel about this school now."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a school you went to when you were younger.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a school you went to when you were younger. You should say: where it was; what it looked like; what you did there; and explain how you feel about this school now.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-50/p2-talk.mp3",
+            "duration": 23.02
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Are you still in contact with anyone from this school?",
+          "say": "Thank you. Are you still in contact with anyone from this school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-50/p2-follow.mp3",
+            "duration": 3.64
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Schools",
+        "School rules"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Schools",
+          "text": "What makes a school a good school?",
+          "say": "Thank you. We've been talking about a school you went to when you were younger, and I'd like to discuss with you some more general questions related to this. Let's consider first of all schools. What makes a school a good school?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-50/p3-1.mp3",
+            "duration": 12.55
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Schools",
+          "text": "Should schools spend more time on practical skills and less on academic subjects?",
+          "say": "Should schools spend more time on practical skills and less on academic subjects?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-50/p3-2.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Schools",
+          "text": "How are schools today different from schools in the past?",
+          "say": "How are schools today different from schools in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-50/p3-3.mp3",
+            "duration": 3.27
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "School rules",
+          "text": "Why do schools need rules?",
+          "say": "Now let's talk about school rules. Why do schools need rules?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-50/p3-4.mp3",
+            "duration": 4.65
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "School rules",
+          "text": "Should students wear a school uniform? Why or why not?",
+          "say": "Should students wear a school uniform? Why or why not?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-50/p3-5.mp3",
+            "duration": 4.43
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "School rules",
+          "text": "Should students be allowed to use their phones at school?",
+          "say": "Should students be allowed to use their phones at school?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-50/p3-6.mp3",
+            "duration": 3.23
+          }
+        }
+      ]
+    }
+  ]
+}
