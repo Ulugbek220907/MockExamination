@@ -1,0 +1,268 @@
+{
+  "id": "speaking-81",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 81",
+  "shortTitle": "Practice Test 81",
+  "durationMinutes": 14,
+  "sortOrder": 81,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "George",
+    "voice": "bm_george",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-81/p2-start.mp3",
+        "duration": 11.03
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-81/end.mp3",
+        "duration": 3.85
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Weddings",
+        "Names"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where is your hometown?",
+          "say": "Good morning. My name is George, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-1.mp3",
+            "duration": 16.79
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "Do you think your hometown will grow in the future?",
+          "say": "Do you think your hometown will grow in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-2.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "What did you enjoy doing in your hometown as a child?",
+          "say": "What did you enjoy doing in your hometown as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-3.mp3",
+            "duration": 4.08
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Is there anything you dislike about it?",
+          "say": "Is there anything you dislike about it?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-4.mp3",
+            "duration": 3.36
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Weddings",
+          "text": "Have you been to a wedding recently?",
+          "say": "Now let's move on to talk about weddings. Have you been to a wedding recently?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-5.mp3",
+            "duration": 6.08
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Weddings",
+          "text": "What are weddings like in your country?",
+          "say": "What are weddings like in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-6.mp3",
+            "duration": 2.97
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Weddings",
+          "text": "Do you prefer big weddings or small ones?",
+          "say": "Do you prefer big weddings or small ones?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-7.mp3",
+            "duration": 3.42
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Names",
+          "text": "Does your name have a special meaning?",
+          "say": "Now let's move on to talk about names. Does your name have a special meaning?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-8.mp3",
+            "duration": 5.97
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Names",
+          "text": "Who chose your name?",
+          "say": "Who chose your name?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-9.mp3",
+            "duration": 2.1
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Names",
+          "text": "Would you like to change your name?",
+          "say": "Would you like to change your name?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p1-10.mp3",
+            "duration": 2.7
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a live performance you watched.",
+        "points": [
+          "what the performance was",
+          "where and when you watched it",
+          "who you watched it with"
+        ],
+        "explain": "and explain why you enjoyed it, or why you did not."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a live performance you watched.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a live performance you watched. You should say: what the performance was; where and when you watched it; who you watched it with; and explain why you enjoyed it, or why you did not.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-81/p2-talk.mp3",
+            "duration": 28.78
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you like to see the same performers again?",
+          "say": "Thank you. Would you like to see the same performers again?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-81/p2-follow.mp3",
+            "duration": 3.83
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Live performances",
+        "Traditional arts"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Live performances",
+          "text": "Why do people still go to concerts and plays when they can watch them online?",
+          "say": "Thank you. We've been talking about a live performance you watched, and I'd like to discuss with you some more general questions related to this. Let's consider first of all live performances. Why do people still go to concerts and plays when they can watch them online?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-81/p3-1.mp3",
+            "duration": 18.42
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Live performances",
+          "text": "Should tickets for live performances be cheaper?",
+          "say": "Should tickets for live performances be cheaper?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-81/p3-2.mp3",
+            "duration": 3.55
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Live performances",
+          "text": "Is it a good idea for young children to go to the theatre?",
+          "say": "Is it a good idea for young children to go to the theatre?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-81/p3-3.mp3",
+            "duration": 4.3
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Traditional arts",
+          "text": "Are traditional music and dance still popular in your country?",
+          "say": "Now let's talk about traditional arts. Are traditional music and dance still popular in your country?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-81/p3-4.mp3",
+            "duration": 7.98
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Traditional arts",
+          "text": "Should the government help to keep traditional arts alive?",
+          "say": "Should the government help to keep traditional arts alive?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-81/p3-5.mp3",
+            "duration": 4.08
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Traditional arts",
+          "text": "How can traditional arts be made more interesting to young people?",
+          "say": "How can traditional arts be made more interesting to young people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-81/p3-6.mp3",
+            "duration": 4.83
+          }
+        }
+      ]
+    }
+  ]
+}

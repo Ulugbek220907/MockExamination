@@ -1,0 +1,1190 @@
+{
+  "id": "listening-17",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 17",
+  "shortTitle": "Practice Test 17",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 17,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "sam": {
+      "name": "Sam",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "helen": {
+      "name": "Helen",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "clare": {
+      "name": "Clare",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "mia": {
+      "name": "Mia",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "jack": {
+      "name": "Jack",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Ordering a birthday cake",
+      "context": "A woman phones a bakery to order a cake for her mother's birthday party.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman phoning a bakery to order a cake. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 8.43
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 28.43,
+          "end": 37.5
+        },
+        {
+          "speaker": "sam",
+          "text": "Good morning, Hilltop Bakery, Sam speaking.",
+          "start": 38.4,
+          "end": 41.04
+        },
+        {
+          "speaker": "helen",
+          "text": "Oh, hello. I'd like to order a cake for my mother's birthday party. She's going to be eighty.",
+          "start": 41.54,
+          "end": 46.64
+        },
+        {
+          "speaker": "sam",
+          "text": "Eighty, how lovely. Let me take some details.",
+          "start": 47.14,
+          "end": 49.93
+        },
+        {
+          "speaker": "narrator",
+          "text": "The woman's mother will be eighty, so 'eightieth birthday' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 50.83,
+          "end": 66.3
+        },
+        {
+          "speaker": "sam",
+          "text": "Could I have your name, please?",
+          "start": 67.2,
+          "end": 69.01
+        },
+        {
+          "speaker": "helen",
+          "text": "Helen Prentice. That's P-R-E-N-T-I-C-E.",
+          "start": 69.51,
+          "end": 76.51
+        },
+        {
+          "speaker": "sam",
+          "text": "Thank you, Mrs Prentice. Will you collect the cake, or would you like us to deliver it?",
+          "start": 77.01,
+          "end": 81.51
+        },
+        {
+          "speaker": "helen",
+          "text": "Delivery, please. The party's at my house, which is fourteen Orchard Road. Not Orchard Lane, people often mix them up. It's the road just behind the station.",
+          "start": 82.01,
+          "end": 91.15
+        },
+        {
+          "speaker": "sam",
+          "text": "Fourteen Orchard Road. And when is the party?",
+          "start": 91.65,
+          "end": 94.4
+        },
+        {
+          "speaker": "helen",
+          "text": "It's on Saturday the twelfth of June. Her actual birthday is on the fifth, but my brother can't come until the following weekend.",
+          "start": 94.9,
+          "end": 102.11
+        },
+        {
+          "speaker": "sam",
+          "text": "And how many people will the cake need to serve?",
+          "start": 102.61,
+          "end": 105.13
+        },
+        {
+          "speaker": "helen",
+          "text": "We've invited about twenty-five, but my cousins have just told me they're bringing their children, so let's say thirty to be safe.",
+          "start": 105.63,
+          "end": 112.96
+        },
+        {
+          "speaker": "sam",
+          "text": "Thirty. And if we have any questions, what's the best way to contact you? By email?",
+          "start": 113.46,
+          "end": 117.99
+        },
+        {
+          "speaker": "helen",
+          "text": "I'd rather you sent me a text. I hardly ever check my emails at the weekend.",
+          "start": 118.49,
+          "end": 123.14
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 124.04,
+          "end": 129.75
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 149.75,
+          "end": 153.08
+        },
+        {
+          "speaker": "sam",
+          "text": "Now, the cake itself. Most people choose chocolate for a big family party.",
+          "start": 153.98,
+          "end": 158.44
+        },
+        {
+          "speaker": "helen",
+          "text": "I know, and the children would love that, but it has to be lemon. It's my mother's favourite, and it's her day.",
+          "start": 158.94,
+          "end": 164.68
+        },
+        {
+          "speaker": "sam",
+          "text": "Lemon it is. Are there any allergies we should know about?",
+          "start": 165.18,
+          "end": 168.36
+        },
+        {
+          "speaker": "helen",
+          "text": "Yes, one of my nephews is allergic to nuts, so there mustn't be any nuts at all, not even in the decoration. Eggs and milk are fine.",
+          "start": 168.86,
+          "end": 176.62
+        },
+        {
+          "speaker": "sam",
+          "text": "No nuts. We can promise that. And how would you like it decorated?",
+          "start": 177.12,
+          "end": 180.75
+        },
+        {
+          "speaker": "helen",
+          "text": "My mother has grown flowers all her life, especially roses, so I thought some roses made of sugar on the top would be perfect. Pink ones, if possible.",
+          "start": 181.25,
+          "end": 190.23
+        },
+        {
+          "speaker": "sam",
+          "text": "That will look beautiful. So, the price. A lemon cake for thirty people is seventy pounds, the sugar decoration is another five, and delivery is ten pounds, so that comes to eighty-five pounds altogether.",
+          "start": 190.73,
+          "end": 201.91
+        },
+        {
+          "speaker": "helen",
+          "text": "That's fine. Do I pay it all now?",
+          "start": 202.41,
+          "end": 204.61
+        },
+        {
+          "speaker": "sam",
+          "text": "We just ask for a deposit of twenty pounds now, and you pay the rest when the cake is delivered.",
+          "start": 205.11,
+          "end": 210.25
+        },
+        {
+          "speaker": "helen",
+          "text": "Lovely. Can I pay that by card over the phone?",
+          "start": 210.75,
+          "end": 213.57
+        },
+        {
+          "speaker": "sam",
+          "text": "Of course. I'll take the card details now.",
+          "start": 214.07,
+          "end": 216.48
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 217.38,
+          "end": 221.9
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Hilltop Bakery – cake order",
+          "content": [
+            "Example: Occasion: **80th birthday**",
+            "## Customer",
+            "• Name: Helen {{1}}",
+            "• Delivery address: 14 {{2}} Road",
+            "• Date of party: Saturday 12 {{3}}",
+            "• Cake must serve {{4}} people",
+            "• Contact the customer by {{5}}",
+            "## The cake",
+            "• Flavour: {{6}}",
+            "• Must not contain any {{7}}",
+            "• Decoration: pink sugar {{8}} on top",
+            "• Total price: £{{9}}",
+            "• Pay a {{10}} of £20 now"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Prentice"
+              ],
+              "explanation": "She spells her surname: ‘P-R-E-N-T-I-C-E’.",
+              "cue": "P-R-E-N-T-I-C-E"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Orchard"
+              ],
+              "explanation": "‘Fourteen Orchard Road. Not Orchard Lane.’",
+              "cue": "which is fourteen Orchard Road"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "June"
+              ],
+              "explanation": "Her birthday is on the fifth, but the party is ‘on Saturday the twelfth of June’.",
+              "cue": "Saturday the twelfth of June"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "30",
+                "thirty"
+              ],
+              "explanation": "About twenty-five were invited, but with the cousins' children, ‘let's say thirty to be safe’.",
+              "cue": "let's say thirty to be safe"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "text"
+              ],
+              "explanation": "Not email: ‘I'd rather you sent me a text.’",
+              "cue": "I'd rather you sent me a text"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "lemon"
+              ],
+              "explanation": "Most people choose chocolate, ‘but it has to be lemon’.",
+              "cue": "it has to be lemon"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "nuts"
+              ],
+              "explanation": "A nephew is allergic, ‘so there mustn't be any nuts at all’.",
+              "cue": "there mustn't be any nuts at all"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "roses"
+              ],
+              "explanation": "‘Some roses made of sugar on the top would be perfect. Pink ones.’",
+              "cue": "some roses made of sugar"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "85",
+                "eighty-five"
+              ],
+              "explanation": "Seventy for the cake, five for the decoration and ten for delivery: ‘that comes to eighty-five pounds altogether’.",
+              "cue": "that comes to eighty-five pounds altogether"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "deposit"
+              ],
+              "explanation": "‘We just ask for a deposit of twenty pounds now.’",
+              "cue": "We just ask for a deposit of twenty pounds now"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-17/part1.mp3",
+        "duration": 252.7
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A walking tour of an old harbour town",
+      "context": "A guide introduces a walking tour of the old town of Wenham.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a tour guide talking to a group of visitors at the start of a walking tour. First, you have some time to look at questions 11 to 14.",
+          "start": 0.6,
+          "end": 11.22
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 14.",
+          "start": 36.22,
+          "end": 40.49
+        },
+        {
+          "speaker": "clare",
+          "text": "Good morning, everyone, and welcome to Wenham. My name's Clare, and I'll be your guide this morning. Before we set off, a few practical things. The leaflet says this walk takes an hour, but with all the stops it's usually closer to two hours, so I hope you're wearing comfortable shoes.",
+          "start": 41.39,
+          "end": 56.73
+        },
+        {
+          "speaker": "clare",
+          "text": "The streets in the old town are narrow and busy, so it's easy to lose the group. If that happens, please don't try to phone me, because I keep my phone switched off during the tour. And please don't go back to the start. Just make your way to the next stop on your map and wait for us there.",
+          "start": 57.08,
+          "end": 71.97
+        },
+        {
+          "speaker": "clare",
+          "text": "Now, a little history. Most visitors assume that Wenham grew rich from fishing, as it's on the coast, and there was certainly some fishing here. But the real wealth came from salt, which was produced in shallow pools along the shore and sold all over the country. Wool came later, and it was never as important.",
+          "start": 72.32,
+          "end": 88.75
+        },
+        {
+          "speaker": "clare",
+          "text": "You'll notice there are very few cars in the old town. Last month the council voted to ban cars from the old town completely, starting next spring. They had considered building a new car park outside the town walls, but in the end it was too expensive.",
+          "start": 89.1,
+          "end": 103.5
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 15 to 20.",
+          "start": 104.4,
+          "end": 109.96
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 15 to 20.",
+          "start": 129.96,
+          "end": 133.78
+        },
+        {
+          "speaker": "clare",
+          "text": "Let me tell you about the places we'll visit. Our first stop is the Salt House, where the salt was stored before it was sold. It's now a small museum, but I'm afraid it's shut until the end of the month while the roof is being repaired, so we'll only see it from the outside.",
+          "start": 134.68,
+          "end": 149.34
+        },
+        {
+          "speaker": "clare",
+          "text": "Next is Saint Peter's Church. A lot of people think the castle ruins are older, but in fact the church tower is the oldest building in the town. It dates from around the year eleven hundred.",
+          "start": 149.69,
+          "end": 161.1
+        },
+        {
+          "speaker": "clare",
+          "text": "Then we come to the Guildhall, where the merchants used to meet. Some guidebooks say it was designed by a famous London architect, but there's actually no evidence for that. What we do know is that in the eighteenth century the cellars underneath were used to lock up smugglers and thieves, and you can still see the iron rings in the walls.",
+          "start": 161.45,
+          "end": 179.24
+        },
+        {
+          "speaker": "clare",
+          "text": "After that, we'll climb the hill to the Watch Tower, where guards looked out for ships. There are a hundred and twelve steps, but if you can manage them, you're welcome to climb right to the top. The view is the best in Wenham.",
+          "start": 179.59,
+          "end": 191.05
+        },
+        {
+          "speaker": "clare",
+          "text": "On the way down, we'll pass the Market Cross. It didn't always stand here. It was originally at the bottom of the hill, and in eighteen ninety it was taken down stone by stone and rebuilt in this square, when the road was widened.",
+          "start": 191.4,
+          "end": 203.75
+        },
+        {
+          "speaker": "clare",
+          "text": "And our last stop is the Fishermen's Hall, which is now a café. They bake a traditional salt bread there, and you can taste some for free with any drink. It's the perfect place to finish.",
+          "start": 204.1,
+          "end": 214.45
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 215.35,
+          "end": 219.68
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "How long does the walk usually take?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one hour"
+                },
+                {
+                  "key": "B",
+                  "text": "an hour and a half"
+                },
+                {
+                  "key": "C",
+                  "text": "two hours"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The leaflet says an hour, but ‘with all the stops it's usually closer to two hours’.",
+              "cue": "it's usually closer to two hours"
+            },
+            {
+              "number": 12,
+              "prompt": "What should visitors do if they lose the group?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "phone the guide"
+                },
+                {
+                  "key": "B",
+                  "text": "go to the next stop on the tour"
+                },
+                {
+                  "key": "C",
+                  "text": "return to the starting point"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Don't phone or go back to the start: ‘make your way to the next stop on your map and wait for us there’.",
+              "cue": "make your way to the next stop on your map"
+            },
+            {
+              "number": 13,
+              "prompt": "Where did the town's wealth mainly come from?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "wool"
+                },
+                {
+                  "key": "B",
+                  "text": "fishing"
+                },
+                {
+                  "key": "C",
+                  "text": "salt"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Not fishing or wool: ‘the real wealth came from salt’.",
+              "cue": "the real wealth came from salt"
+            },
+            {
+              "number": 14,
+              "prompt": "What has the council recently decided to do?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "stop cars from entering the old town"
+                },
+                {
+                  "key": "B",
+                  "text": "build a car park outside the walls"
+                },
+                {
+                  "key": "C",
+                  "text": "repair the town walls"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The council ‘voted to ban cars from the old town completely’. A car park was too expensive.",
+              "cue": "voted to ban cars from the old town completely"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What does the guide say about each place? Choose **SIX** answers from the box and write the correct letter, **A–G**, next to Questions 15–20.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is closed at the moment."
+            },
+            {
+              "key": "B",
+              "text": "Visitors can go up to the top."
+            },
+            {
+              "key": "C",
+              "text": "It is the oldest building in the town."
+            },
+            {
+              "key": "D",
+              "text": "It was once used as a prison."
+            },
+            {
+              "key": "E",
+              "text": "Visitors can try some local food there."
+            },
+            {
+              "key": "F",
+              "text": "It was moved from another site."
+            },
+            {
+              "key": "G",
+              "text": "It was designed by a famous architect."
+            }
+          ],
+          "questions": [
+            {
+              "number": 15,
+              "prompt": "the Salt House",
+              "answer": "A",
+              "explanation": "The museum is ‘shut until the end of the month while the roof is being repaired’.",
+              "cue": "it's shut until the end of the month"
+            },
+            {
+              "number": 16,
+              "prompt": "Saint Peter's Church",
+              "answer": "C",
+              "explanation": "‘The church tower is the oldest building in the town.’",
+              "cue": "the church tower is the oldest building in the town"
+            },
+            {
+              "number": 17,
+              "prompt": "the Guildhall",
+              "answer": "D",
+              "explanation": "There is no evidence for the famous architect, but ‘the cellars underneath were used to lock up smugglers and thieves’.",
+              "cue": "the cellars underneath were used to lock up smugglers"
+            },
+            {
+              "number": 18,
+              "prompt": "the Watch Tower",
+              "answer": "B",
+              "explanation": "‘You're welcome to climb right to the top.’",
+              "cue": "you're welcome to climb right to the top"
+            },
+            {
+              "number": 19,
+              "prompt": "the Market Cross",
+              "answer": "F",
+              "explanation": "‘It was originally at the bottom of the hill … rebuilt in this square.’",
+              "cue": "It was originally at the bottom of the hill"
+            },
+            {
+              "number": 20,
+              "prompt": "the Fishermen's Hall",
+              "answer": "E",
+              "explanation": "They bake salt bread ‘and you can taste some for free with any drink’.",
+              "cue": "you can taste some for free with any drink"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-17/part2.mp3",
+        "duration": 250.48
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A presentation on vertical farming",
+      "context": "Two agriculture students plan a presentation about a vertical farm they visited.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two agriculture students, Mia and Jack, planning a presentation about a vertical farm they visited. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 13.55
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 38.55,
+          "end": 43.26
+        },
+        {
+          "speaker": "jack",
+          "text": "So, Mia, the presentation on the vertical farm. What did you think of the visit?",
+          "start": 44.16,
+          "end": 49.05
+        },
+        {
+          "speaker": "mia",
+          "text": "I loved it. I expected the speed of growth to be the big story, and it was impressive. But what really surprised me was the water. The manager said they use about ninety-five percent less water than a farm in a field.",
+          "start": 49.55,
+          "end": 62.8
+        },
+        {
+          "speaker": "jack",
+          "text": "Yes, because it's all recycled. OK, how should we start? You suggested a video.",
+          "start": 63.3,
+          "end": 68.61
+        },
+        {
+          "speaker": "mia",
+          "text": "I did, but after the problems we had with the projector last time, I'd rather not risk it. And we can define vertical farming later.",
+          "start": 69.11,
+          "end": 76.9
+        },
+        {
+          "speaker": "jack",
+          "text": "Then let's open with a few figures about how much more food the world will need by twenty fifty. That gets people's attention.",
+          "start": 77.4,
+          "end": 85.25
+        },
+        {
+          "speaker": "mia",
+          "text": "Agreed. Then the disadvantages. The obvious one is that you can't grow everything indoors.",
+          "start": 85.75,
+          "end": 91.27
+        },
+        {
+          "speaker": "jack",
+          "text": "True, the range of crops is limited, but the real problem is the electricity. The lights are on for sixteen hours a day, and that's where most of their money goes.",
+          "start": 91.77,
+          "end": 101.76
+        },
+        {
+          "speaker": "mia",
+          "text": "And what about their plans? The manager said they'd tried selling to supermarkets, but the prices were too low.",
+          "start": 102.26,
+          "end": 108.38
+        },
+        {
+          "speaker": "jack",
+          "text": "Right. So next year they're going to sell straight to restaurants in the city. She said school visits might come later, but not yet.",
+          "start": 108.88,
+          "end": 116.41
+        },
+        {
+          "speaker": "mia",
+          "text": "Now, how shall we share the work? I could do all the slides, since I enjoy design.",
+          "start": 116.91,
+          "end": 121.54
+        },
+        {
+          "speaker": "jack",
+          "text": "That's a lot for you. Why don't we each make the slides for the sections we researched, and present those sections ourselves? That seems fairer.",
+          "start": 122.04,
+          "end": 130.32
+        },
+        {
+          "speaker": "mia",
+          "text": "Fine by me.",
+          "start": 130.82,
+          "end": 131.8
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 132.7,
+          "end": 138.84
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 158.84,
+          "end": 162.68
+        },
+        {
+          "speaker": "mia",
+          "text": "We should also go through the crops they grow. Lettuce first. That's where they started. It was the very first thing they grew, and it's still their biggest crop by weight.",
+          "start": 163.58,
+          "end": 172.78
+        },
+        {
+          "speaker": "jack",
+          "text": "Then basil. That earns them the most money per kilo, because restaurants pay a lot for fresh herbs.",
+          "start": 173.28,
+          "end": 179.33
+        },
+        {
+          "speaker": "mia",
+          "text": "And the microgreens, the tiny young plants. They're ready in about ten days, faster than anything else on the farm.",
+          "start": 179.83,
+          "end": 186.49
+        },
+        {
+          "speaker": "jack",
+          "text": "Tomatoes were the interesting one. There are no bees indoors, so the staff have to pollinate every flower by hand with a little brush.",
+          "start": 186.99,
+          "end": 194.99
+        },
+        {
+          "speaker": "mia",
+          "text": "And the mushrooms. They don't need any light at all, so they're grown on the bottom shelves, in the dark.",
+          "start": 195.49,
+          "end": 200.82
+        },
+        {
+          "speaker": "jack",
+          "text": "People used to say customers wouldn't buy vegetables grown indoors, but the manager said that hasn't been a problem with any of them.",
+          "start": 201.32,
+          "end": 209.11
+        },
+        {
+          "speaker": "mia",
+          "text": "Good point. Let's mention that at the end.",
+          "start": 209.61,
+          "end": 211.7
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 212.6,
+          "end": 217.06
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What surprised Mia most about the vertical farm?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "how little water it used"
+                },
+                {
+                  "key": "B",
+                  "text": "how few people worked there"
+                },
+                {
+                  "key": "C",
+                  "text": "how fast the plants grew"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The speed of growth was impressive, ‘but what really surprised me was the water’.",
+              "cue": "what really surprised me was the water"
+            },
+            {
+              "number": 22,
+              "prompt": "How will the students begin their presentation?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "with a short video"
+                },
+                {
+                  "key": "B",
+                  "text": "with a definition of vertical farming"
+                },
+                {
+                  "key": "C",
+                  "text": "with some statistics about food"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Not the video, because of the projector, and the definition comes later: ‘let's open with a few figures’.",
+              "cue": "let's open with a few figures"
+            },
+            {
+              "number": 23,
+              "prompt": "What does Jack think is the main disadvantage of vertical farms?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Only some crops can be grown."
+                },
+                {
+                  "key": "B",
+                  "text": "They use a lot of energy."
+                },
+                {
+                  "key": "C",
+                  "text": "The prices are too low."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The range of crops is limited, ‘but the real problem is the electricity’.",
+              "cue": "the real problem is the electricity"
+            },
+            {
+              "number": 24,
+              "prompt": "What does the farm plan to do next year?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "start selling to supermarkets"
+                },
+                {
+                  "key": "B",
+                  "text": "sell its produce to restaurants"
+                },
+                {
+                  "key": "C",
+                  "text": "invite school groups to visit"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Supermarkets paid too little, so ‘next year they're going to sell straight to restaurants’. School visits are not planned yet.",
+              "cue": "they're going to sell straight to restaurants"
+            },
+            {
+              "number": 25,
+              "prompt": "How will the students share the work?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Mia will make all the slides."
+                },
+                {
+                  "key": "B",
+                  "text": "Jack will give the whole talk."
+                },
+                {
+                  "key": "C",
+                  "text": "Each will prepare and present their own sections."
+                }
+              ],
+              "answer": "C",
+              "explanation": "Jack suggests that they ‘each make the slides for the sections we researched, and present those sections ourselves’.",
+              "cue": "each make the slides for the sections we researched"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What do the students say about each crop? Choose **FIVE** answers from the box and write the correct letter, **A–F**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It grows without light."
+            },
+            {
+              "key": "B",
+              "text": "It earns the most money per kilo."
+            },
+            {
+              "key": "C",
+              "text": "It was the first crop the farm grew."
+            },
+            {
+              "key": "D",
+              "text": "It has to be pollinated by hand."
+            },
+            {
+              "key": "E",
+              "text": "It grows the fastest."
+            },
+            {
+              "key": "F",
+              "text": "Customers did not want to buy it."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "lettuce",
+              "answer": "C",
+              "explanation": "‘It was the very first thing they grew.’",
+              "cue": "It was the very first thing they grew"
+            },
+            {
+              "number": 27,
+              "prompt": "basil",
+              "answer": "B",
+              "explanation": "‘That earns them the most money per kilo.’",
+              "cue": "That earns them the most money per kilo"
+            },
+            {
+              "number": 28,
+              "prompt": "microgreens",
+              "answer": "E",
+              "explanation": "‘They're ready in about ten days, faster than anything else on the farm.’",
+              "cue": "faster than anything else on the farm"
+            },
+            {
+              "number": 29,
+              "prompt": "tomatoes",
+              "answer": "D",
+              "explanation": "‘The staff have to pollinate every flower by hand.’",
+              "cue": "the staff have to pollinate every flower by hand"
+            },
+            {
+              "number": 30,
+              "prompt": "mushrooms",
+              "answer": "A",
+              "explanation": "‘They don't need any light at all.’",
+              "cue": "They don't need any light at all"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-17/part3.mp3",
+        "duration": 247.86
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the Inca road network",
+      "context": "A history lecture about the roads built by the Inca Empire in South America.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the road network of the Inca Empire. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.88
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.88,
+          "end": 44.3
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today I want to look at one of the great engineering achievements of the ancient world, the road network of the Inca Empire, which stretched along the Andes mountains of South America in the fifteenth and early sixteenth centuries.",
+          "start": 45.2,
+          "end": 57.78
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The scale is extraordinary. The network covered around thirty thousand kilometres, through deserts, rainforest and some of the highest mountains on Earth. And it was built without the wheel. The Incas knew about circular objects, of course, but wheeled carts would have been useless on such steep ground.",
+          "start": 58.13,
+          "end": 73.09
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So everything travelled on foot. Goods were carried by people and by llamas, which can carry about thirty kilos each over long distances.",
+          "start": 73.44,
+          "end": 81.57
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The roads were also the empire's communication system. Messages were carried by teams of runners, who passed them on from one to the next, like a relay race. In this way, news could travel hundreds of kilometres in a single day.",
+          "start": 81.92,
+          "end": 94.65
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The Incas had no writing as we know it. Instead, information such as population figures and taxes was recorded using knots tied in string, in different colours and positions.",
+          "start": 95.0,
+          "end": 105.41
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The engineering varied with the landscape. On the steepest mountain slopes, the builders cut steps into the rock, sometimes hundreds of them in a row. Where the roads crossed deep river valleys, they built suspension bridges made of woven grass.",
+          "start": 105.76,
+          "end": 118.69
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Remarkably, one of these bridges still exists. Every year, local communities gather to weave a new one from fresh grass and take down the old one, a tradition that has continued for over five hundred years.",
+          "start": 119.04,
+          "end": 130.3
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Along the roads, about every twenty to thirty kilometres, there were way stations. Travellers on official business could rest there, and the stations held stores of food, as well as clothing and weapons for the army.",
+          "start": 130.65,
+          "end": 142.13
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In twenty fourteen, the road network became a World Heritage Site, shared by six countries. But much of it has been lost. In many places, the old roads now lie under modern highways, which often follow exactly the same routes, because the Inca engineers had already found the best way through the mountains.",
+          "start": 142.48,
+          "end": 158.69
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 159.59,
+          "end": 163.99
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 193.99,
+          "end": 196.7
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "The Inca road network",
+          "content": [
+            "## Scale",
+            "• About 30,000 km long, built without the {{31}}",
+            "• Goods were carried by people and by {{32}}",
+            "## Communication",
+            "• Messages were passed between teams of {{33}}",
+            "• Information was recorded with knots in {{34}}",
+            "## Engineering",
+            "• {{35}} were cut into the rock on steep slopes",
+            "• Bridges were made of woven {{36}}",
+            "• One bridge is still rebuilt every {{37}}",
+            "## Way stations",
+            "• Held stores of {{38}}, clothing and weapons",
+            "## Today",
+            "• Became a World Heritage Site in 2014, shared by {{39}} countries",
+            "• Many sections now lie under modern {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "wheel"
+              ],
+              "explanation": "‘It was built without the wheel.’",
+              "cue": "it was built without the wheel"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "llamas"
+              ],
+              "explanation": "‘Goods were carried by people and by llamas.’",
+              "cue": "Goods were carried by people and by llamas"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "runners"
+              ],
+              "explanation": "‘Messages were carried by teams of runners.’",
+              "cue": "Messages were carried by teams of runners"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "string"
+              ],
+              "explanation": "Information ‘was recorded using knots tied in string’.",
+              "cue": "recorded using knots tied in string"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "steps",
+                "Steps"
+              ],
+              "explanation": "‘The builders cut steps into the rock.’",
+              "cue": "the builders cut steps into the rock"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "grass"
+              ],
+              "explanation": "‘Suspension bridges made of woven grass.’",
+              "cue": "suspension bridges made of woven grass"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "year"
+              ],
+              "explanation": "‘Every year, local communities gather to weave a new one.’",
+              "cue": "Every year, local communities gather to weave a new one"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "food"
+              ],
+              "explanation": "‘The stations held stores of food, as well as clothing and weapons.’",
+              "cue": "the stations held stores of food"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "It ‘became a World Heritage Site, shared by six countries’.",
+              "cue": "shared by six countries"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "highways"
+              ],
+              "explanation": "‘In many places, the old roads now lie under modern highways.’",
+              "cue": "the old roads now lie under modern highways"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-17/part4.mp3",
+        "duration": 197.5
+      }
+    }
+  ],
+  "durationMinutes": 16
+}

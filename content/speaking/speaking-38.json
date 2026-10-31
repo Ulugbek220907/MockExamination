@@ -1,0 +1,268 @@
+{
+  "id": "speaking-38",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 38",
+  "shortTitle": "Practice Test 38",
+  "durationMinutes": 14,
+  "sortOrder": 38,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-38/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-38/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Dancing",
+        "Sunny days"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "What kind of home do you live in?",
+          "say": "Good evening. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. What kind of home do you live in?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-1.mp3",
+            "duration": 15.4
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Which room do you spend the most time in? Why?",
+          "say": "Which room do you spend the most time in? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-2.mp3",
+            "duration": 4.18
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Do you have a view from your window?",
+          "say": "Do you have a view from your window?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-3.mp3",
+            "duration": 2.61
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Is your home quiet or noisy?",
+          "say": "Is your home quiet or noisy?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-4.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Dancing",
+          "text": "Do you like dancing?",
+          "say": "Now let's move on to talk about dancing. Do you like dancing?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-5.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Dancing",
+          "text": "Did you learn to dance when you were a child?",
+          "say": "Did you learn to dance when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-6.mp3",
+            "duration": 3.12
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Dancing",
+          "text": "Is dancing popular in your country?",
+          "say": "Is dancing popular in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-7.mp3",
+            "duration": 2.95
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Sunny days",
+          "text": "Do you like sunny days?",
+          "say": "Now let's move on to talk about sunny days. Do you like sunny days?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-8.mp3",
+            "duration": 5.56
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Sunny days",
+          "text": "What do you like to do when the weather is sunny?",
+          "say": "What do you like to do when the weather is sunny?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-9.mp3",
+            "duration": 3.06
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Sunny days",
+          "text": "Are there many sunny days where you live?",
+          "say": "Are there many sunny days where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p1-10.mp3",
+            "duration": 3.04
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a person who does an important job in your community.",
+        "points": [
+          "who this person is",
+          "what their job is",
+          "what they do every day"
+        ],
+        "explain": "and explain why you think their job is important."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a person who does an important job in your community.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a person who does an important job in your community. You should say: who this person is; what their job is; what they do every day; and explain why you think their job is important.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-38/p2-talk.mp3",
+            "duration": 27.27
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you like to do this kind of job yourself?",
+          "say": "Thank you. Would you like to do this kind of job yourself?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-38/p2-follow.mp3",
+            "duration": 3.76
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Important jobs",
+        "Job satisfaction"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Important jobs",
+          "text": "Which jobs do you think are the most important in society?",
+          "say": "Thank you. We've been talking about a person who does an important job in your community, and I'd like to discuss with you some more general questions related to this. Let's consider first of all important jobs. Which jobs do you think are the most important in society?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-38/p3-1.mp3",
+            "duration": 17.73
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Important jobs",
+          "text": "Why are some important jobs, such as nursing, not very well paid?",
+          "say": "Why are some important jobs, such as nursing, not very well paid?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-38/p3-2.mp3",
+            "duration": 4.49
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Important jobs",
+          "text": "Should people who do dangerous jobs be paid more?",
+          "say": "Should people who do dangerous jobs be paid more?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-38/p3-3.mp3",
+            "duration": 3.66
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Job satisfaction",
+          "text": "What makes people happy in their jobs?",
+          "say": "Now let's talk about job satisfaction. What makes people happy in their jobs?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-38/p3-4.mp3",
+            "duration": 5.99
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Job satisfaction",
+          "text": "Is a high salary more important than enjoying your work?",
+          "say": "Is a high salary more important than enjoying your work?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-38/p3-5.mp3",
+            "duration": 4.06
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Job satisfaction",
+          "text": "Why do some people change their careers several times?",
+          "say": "Why do some people change their careers several times?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-38/p3-6.mp3",
+            "duration": 3.93
+          }
+        }
+      ]
+    }
+  ]
+}

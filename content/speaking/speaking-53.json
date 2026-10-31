@@ -1,0 +1,268 @@
+{
+  "id": "speaking-53",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 53",
+  "shortTitle": "Practice Test 53",
+  "durationMinutes": 14,
+  "sortOrder": 53,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "George",
+    "voice": "bm_george",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-53/p2-start.mp3",
+        "duration": 11.03
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-53/end.mp3",
+        "duration": 3.85
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Driving",
+        "Friends"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "What kind of home do you live in?",
+          "say": "Good evening. My name is George, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. What kind of home do you live in?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-1.mp3",
+            "duration": 16.77
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Is your home a good place to study or work?",
+          "say": "Is your home a good place to study or work?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-2.mp3",
+            "duration": 3.36
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Is your home quiet or noisy?",
+          "say": "Is your home quiet or noisy?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-3.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "What is your favourite thing to do at home?",
+          "say": "What is your favourite thing to do at home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-4.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Driving",
+          "text": "Can you drive?",
+          "say": "Now let's move on to talk about driving. Can you drive?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-5.mp3",
+            "duration": 4.92
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Driving",
+          "text": "Is it easy to learn to drive in your country?",
+          "say": "Is it easy to learn to drive in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-6.mp3",
+            "duration": 3.59
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Driving",
+          "text": "Do you enjoy being a passenger on long journeys?",
+          "say": "Do you enjoy being a passenger on long journeys?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-7.mp3",
+            "duration": 3.96
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Friends",
+          "text": "Do you have a lot of friends?",
+          "say": "Now let's move on to talk about friends. Do you have a lot of friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-8.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Friends",
+          "text": "Where do you usually meet your friends?",
+          "say": "Where do you usually meet your friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-9.mp3",
+            "duration": 2.76
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Friends",
+          "text": "Do you prefer having one close friend or many friends?",
+          "say": "Do you prefer having one close friend or many friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p1-10.mp3",
+            "duration": 4.28
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a house or apartment you would like to live in.",
+        "points": [
+          "where it would be",
+          "what it would look like",
+          "who you would live there with"
+        ],
+        "explain": "and explain why you would like to live there."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a house or apartment you would like to live in.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a house or apartment you would like to live in. You should say: where it would be; what it would look like; who you would live there with; and explain why you would like to live there.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-53/p2-talk.mp3",
+            "duration": 27.97
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think you will be able to live in a home like this one day?",
+          "say": "Thank you. Do you think you will be able to live in a home like this one day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-53/p2-follow.mp3",
+            "duration": 4.83
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Homes and design",
+        "Living arrangements"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Homes and design",
+          "text": "What makes a home comfortable to live in?",
+          "say": "Thank you. We've been talking about a house or apartment you would like to live in, and I'd like to discuss with you some more general questions related to this. Let's consider first of all homes and design. What makes a home comfortable to live in?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-53/p3-1.mp3",
+            "duration": 16.94
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Homes and design",
+          "text": "Why do some people spend a lot of money on decorating their homes?",
+          "say": "Why do some people spend a lot of money on decorating their homes?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-53/p3-2.mp3",
+            "duration": 4.79
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Homes and design",
+          "text": "How are new homes different from homes built fifty years ago?",
+          "say": "How are new homes different from homes built fifty years ago?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-53/p3-3.mp3",
+            "duration": 4.51
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Living arrangements",
+          "text": "Is it better for young adults to live with their parents or on their own?",
+          "say": "Now let's talk about living arrangements. Is it better for young adults to live with their parents or on their own?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-53/p3-4.mp3",
+            "duration": 8.12
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Living arrangements",
+          "text": "Why do more people live alone today than in the past?",
+          "say": "Why do more people live alone today than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-53/p3-5.mp3",
+            "duration": 4.19
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Living arrangements",
+          "text": "What are the advantages and disadvantages of sharing a flat with friends?",
+          "say": "What are the advantages and disadvantages of sharing a flat with friends?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-53/p3-6.mp3",
+            "duration": 5.53
+          }
+        }
+      ]
+    }
+  ]
+}

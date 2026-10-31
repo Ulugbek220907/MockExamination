@@ -1,0 +1,268 @@
+{
+  "id": "speaking-73",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 73",
+  "shortTitle": "Practice Test 73",
+  "durationMinutes": 14,
+  "sortOrder": 73,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-73/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-73/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Board games",
+        "Hot weather"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Do you have a job, or are you studying?",
+          "say": "Good afternoon. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about what you do. Do you have a job, or are you studying?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-1.mp3",
+            "duration": 16.41
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "Is there a skill you need to improve for your work or studies?",
+          "say": "Is there a skill you need to improve for your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-2.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "What kind of people do you meet in your work or studies?",
+          "say": "What kind of people do you meet in your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-3.mp3",
+            "duration": 3.57
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "What was your favourite subject at school, and is it useful to you now?",
+          "say": "What was your favourite subject at school, and is it useful to you now?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-4.mp3",
+            "duration": 4.6
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Board games",
+          "text": "Do you like playing board games?",
+          "say": "Now let's move on to talk about board games. Do you like playing board games?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-5.mp3",
+            "duration": 5.71
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Board games",
+          "text": "Who did you play board games with as a child?",
+          "say": "Who did you play board games with as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-6.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Board games",
+          "text": "Are board games still popular in your country?",
+          "say": "Are board games still popular in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-7.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Hot weather",
+          "text": "Do you like hot weather?",
+          "say": "Now let's move on to talk about hot weather. Do you like hot weather?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-8.mp3",
+            "duration": 5.27
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Hot weather",
+          "text": "What do you do to keep cool in summer?",
+          "say": "What do you do to keep cool in summer?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-9.mp3",
+            "duration": 2.74
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Hot weather",
+          "text": "Have summers changed where you live?",
+          "say": "Have summers changed where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p1-10.mp3",
+            "duration": 2.78
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you felt bored.",
+        "points": [
+          "when it was",
+          "where you were",
+          "why you felt bored"
+        ],
+        "explain": "and explain what you did to make the time pass."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you felt bored.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you felt bored. You should say: when it was; where you were; why you felt bored; and explain what you did to make the time pass.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-73/p2-talk.mp3",
+            "duration": 24.3
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you often feel bored?",
+          "say": "Thank you. Do you often feel bored?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-73/p2-follow.mp3",
+            "duration": 2.76
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Boredom",
+        "Entertainment and attention"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Boredom",
+          "text": "What kinds of jobs do people find boring?",
+          "say": "Thank you. We've been talking about a time when you felt bored, and I'd like to discuss with you some more general questions related to this. Let's consider first of all boredom. What kinds of jobs do people find boring?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-73/p3-1.mp3",
+            "duration": 14.73
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Boredom",
+          "text": "Can being bored ever be a good thing?",
+          "say": "Can being bored ever be a good thing?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-73/p3-2.mp3",
+            "duration": 2.87
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Boredom",
+          "text": "Why do some children say they are bored even when they have a lot of toys?",
+          "say": "Why do some children say they are bored even when they have a lot of toys?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-73/p3-3.mp3",
+            "duration": 4.72
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Entertainment and attention",
+          "text": "Do you think people today have shorter attention spans than in the past?",
+          "say": "Now let's talk about entertainment and attention. Do you think people today have shorter attention spans than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-73/p3-4.mp3",
+            "duration": 8.04
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Entertainment and attention",
+          "text": "Why do people prefer short videos to long films or books?",
+          "say": "Why do people prefer short videos to long films or books?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-73/p3-5.mp3",
+            "duration": 4.32
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Entertainment and attention",
+          "text": "How has entertainment changed in your country over the last twenty years?",
+          "say": "How has entertainment changed in your country over the last twenty years?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-73/p3-6.mp3",
+            "duration": 4.79
+          }
+        }
+      ]
+    }
+  ]
+}

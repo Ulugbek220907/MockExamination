@@ -1,0 +1,268 @@
+{
+  "id": "speaking-71",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 71",
+  "shortTitle": "Practice Test 71",
+  "durationMinutes": 14,
+  "sortOrder": 71,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-71/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-71/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Letters",
+        "Gardening"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Can you describe the place where you live?",
+          "say": "Good evening. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Can you describe the place where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-1.mp3",
+            "duration": 14.36
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "How long does it take you to get from your home to the city centre?",
+          "say": "How long does it take you to get from your home to the city centre?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-2.mp3",
+            "duration": 3.74
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Did you help to choose your home?",
+          "say": "Did you help to choose your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-3.mp3",
+            "duration": 2.29
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "What did your home look like when you were a child?",
+          "say": "What did your home look like when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-4.mp3",
+            "duration": 2.91
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Letters",
+          "text": "Do you ever write letters by hand?",
+          "say": "Now let's move on to talk about letters. Do you ever write letters by hand?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-5.mp3",
+            "duration": 5.12
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Letters",
+          "text": "When did you last receive a letter?",
+          "say": "When did you last receive a letter?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-6.mp3",
+            "duration": 2.42
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Letters",
+          "text": "Do you think people will still send letters in the future?",
+          "say": "Do you think people will still send letters in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-7.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Gardening",
+          "text": "Do you enjoy gardening?",
+          "say": "Now let's move on to talk about gardening. Do you enjoy gardening?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-8.mp3",
+            "duration": 4.69
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Gardening",
+          "text": "Did anyone in your family grow vegetables or flowers?",
+          "say": "Did anyone in your family grow vegetables or flowers?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-9.mp3",
+            "duration": 3.68
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Gardening",
+          "text": "Would you like to have a garden in the future?",
+          "say": "Would you like to have a garden in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p1-10.mp3",
+            "duration": 2.7
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a competition you took part in.",
+        "points": [
+          "what kind of competition it was",
+          "when and where it took place",
+          "how you prepared for it"
+        ],
+        "explain": "and explain how you felt about taking part."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a competition you took part in.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a competition you took part in. You should say: what kind of competition it was; when and where it took place; how you prepared for it; and explain how you felt about taking part.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-71/p2-talk.mp3",
+            "duration": 25.09
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you like to take part in a competition like this again?",
+          "say": "Thank you. Would you like to take part in a competition like this again?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-71/p2-follow.mp3",
+            "duration": 4.0
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Competitions",
+        "Competition in education"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Competitions",
+          "text": "Why do people enjoy competitions?",
+          "say": "Thank you. We've been talking about a competition you took part in, and I'd like to discuss with you some more general questions related to this. Let's consider first of all competitions. Why do people enjoy competitions?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-71/p3-1.mp3",
+            "duration": 13.42
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Competitions",
+          "text": "Do you think competitions on television are good entertainment?",
+          "say": "Do you think competitions on television are good entertainment?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-71/p3-2.mp3",
+            "duration": 3.87
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Competitions",
+          "text": "Is it more important to win or to take part?",
+          "say": "Is it more important to win or to take part?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-71/p3-3.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Competition in education",
+          "text": "Is competition between students good or bad for learning?",
+          "say": "Now let's talk about competition in education. Is competition between students good or bad for learning?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-71/p3-4.mp3",
+            "duration": 6.72
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Competition in education",
+          "text": "Should schools give prizes to the best students?",
+          "say": "Should schools give prizes to the best students?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-71/p3-5.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Competition in education",
+          "text": "Why do some parents put a lot of pressure on their children to win?",
+          "say": "Why do some parents put a lot of pressure on their children to win?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-71/p3-6.mp3",
+            "duration": 3.81
+          }
+        }
+      ]
+    }
+  ]
+}

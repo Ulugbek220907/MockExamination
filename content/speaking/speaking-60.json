@@ -1,0 +1,268 @@
+{
+  "id": "speaking-60",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 60",
+  "shortTitle": "Practice Test 60",
+  "durationMinutes": 14,
+  "sortOrder": 60,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "George",
+    "voice": "bm_george",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-60/p2-start.mp3",
+        "duration": 11.03
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-60/end.mp3",
+        "duration": 3.85
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Chocolate",
+        "Stars and space"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "What kind of place is your hometown?",
+          "say": "Good morning. My name is George, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. What kind of place is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-1.mp3",
+            "duration": 17.49
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What jobs do most people in your hometown do?",
+          "say": "What jobs do most people in your hometown do?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-2.mp3",
+            "duration": 3.47
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "What is the weather like in your hometown?",
+          "say": "What is the weather like in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-3.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Are there any parks or green spaces there?",
+          "say": "Are there any parks or green spaces there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-4.mp3",
+            "duration": 3.49
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Chocolate",
+          "text": "Do you like chocolate?",
+          "say": "Now let's move on to talk about chocolate. Do you like chocolate?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-5.mp3",
+            "duration": 5.05
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Chocolate",
+          "text": "How often do you eat it?",
+          "say": "How often do you eat it?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-6.mp3",
+            "duration": 2.23
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Chocolate",
+          "text": "Did you eat a lot of chocolate as a child?",
+          "say": "Did you eat a lot of chocolate as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-7.mp3",
+            "duration": 3.42
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Stars and space",
+          "text": "Are you interested in space?",
+          "say": "Now let's move on to talk about stars and space. Are you interested in space?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-8.mp3",
+            "duration": 6.29
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Stars and space",
+          "text": "Have you ever looked at the stars through a telescope?",
+          "say": "Have you ever looked at the stars through a telescope?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-9.mp3",
+            "duration": 3.59
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Stars and space",
+          "text": "Would you like to travel into space one day?",
+          "say": "Would you like to travel into space one day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p1-10.mp3",
+            "duration": 3.53
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when bad weather affected your plans.",
+        "points": [
+          "when it happened",
+          "what you had planned to do",
+          "what the weather was like"
+        ],
+        "explain": "and explain what you did instead."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when bad weather affected your plans.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when bad weather affected your plans. You should say: when it happened; what you had planned to do; what the weather was like; and explain what you did instead.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-60/p2-talk.mp3",
+            "duration": 27.86
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you usually check the weather forecast before you go out?",
+          "say": "Thank you. Do you usually check the weather forecast before you go out?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-60/p2-follow.mp3",
+            "duration": 4.45
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Weather",
+        "Climate and the future"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Weather",
+          "text": "How does the weather affect people's moods?",
+          "say": "Thank you. We've been talking about a time when bad weather affected your plans, and I'd like to discuss with you some more general questions related to this. Let's consider first of all weather. How does the weather affect people's moods?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-60/p3-1.mp3",
+            "duration": 16.35
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Weather",
+          "text": "Which jobs are most affected by the weather?",
+          "say": "Which jobs are most affected by the weather?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-60/p3-2.mp3",
+            "duration": 3.55
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Weather",
+          "text": "How accurate are weather forecasts in your country?",
+          "say": "How accurate are weather forecasts in your country?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-60/p3-3.mp3",
+            "duration": 3.93
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Climate and the future",
+          "text": "Has the weather in your country changed in recent years?",
+          "say": "Now let's talk about climate and the future. Has the weather in your country changed in recent years?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-60/p3-4.mp3",
+            "duration": 7.76
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Climate and the future",
+          "text": "What can ordinary people do to reduce climate change?",
+          "say": "What can ordinary people do to reduce climate change?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-60/p3-5.mp3",
+            "duration": 4.32
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Climate and the future",
+          "text": "How will changes in the climate affect the way people live in the future?",
+          "say": "How will changes in the climate affect the way people live in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-60/p3-6.mp3",
+            "duration": 5.34
+          }
+        }
+      ]
+    }
+  ]
+}

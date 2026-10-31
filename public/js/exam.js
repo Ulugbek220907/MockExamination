@@ -34,7 +34,8 @@
     constructor(opts) {
       this.test = opts.test;
       this.candidateName = opts.candidateName || "Candidate";
-      this.mode = opts.mode === "practice" ? "practice" : "exam";
+      // "ai" is the Speaking test with the AI examiner; it runs like a timed test.
+      this.mode = opts.mode === "practice" || opts.mode === "ai" ? opts.mode : "exam";
       this.onFinish = opts.onFinish || (() => {});
       this.saved = opts.saved || null;
       this.duration = (this.test.durationMinutes || 60) * 60;
@@ -59,6 +60,17 @@
       $("exam-pane-right").style.flex = "";
       $("exam-pane-left").dataset.rendered = "";
 
+      // Phones: the four tools sit behind one "Tools" button, so the test keeps the screen.
+      const header = document.querySelector(".cd-header");
+      const tools = $("btn-tools");
+      const closeTools = () => { header.classList.remove("tools-open"); tools.setAttribute("aria-expanded", "false"); };
+      this.on(tools, "click", () => {
+        const open = !header.classList.contains("tools-open");
+        header.classList.toggle("tools-open", open);
+        tools.setAttribute("aria-expanded", String(open));
+      });
+      this.on(document, "click", (e) => { if (!e.target.closest(".cd-header")) closeTools(); });
+      ["btn-contrast", "btn-text-size", "btn-hide", "btn-help"].forEach((id) => this.on($(id), "click", closeTools));
       this.on($("btn-contrast"), "click", () => this.cycle(CONTRAST_THEMES, "mockexam:contrast"));
       this.on($("btn-text-size"), "click", () => this.cycle(TEXT_SIZES, "mockexam:textSize"));
       this.on($("btn-help"), "click", () => this.showHelp());
@@ -509,7 +521,7 @@
           const nums = this.numbers.filter((n) => this.qToPassage[n] === i);
           const done = nums.filter((n) => this.answers[n]).length;
           return `<button type="button" class="part-tab-btn ${i === this.passageIdx ? "active" : ""}" data-p="${i}">
-            Part ${p.passageNumber || p.partNumber} <span class="part-count">${done} of ${nums.length}</span></button>`;
+            <span class="part-word">Part </span>${p.passageNumber || p.partNumber} <span class="part-count">${done} of ${nums.length}</span></button>`;
         })
         .join("");
       this.numbers.forEach((n) => {
@@ -1352,7 +1364,7 @@
     renderTabs() {
       $("exam-part-tabs").innerHTML = this.test.tasks
         .map((t, i) => `<button type="button" class="part-tab-btn ${i === this.taskIdx ? "active" : ""}" data-t="${i}">
-            Part ${t.taskNumber} <span class="part-count">${U.countWords(this.responses[t.taskNumber])} words</span></button>`)
+            <span class="part-word">Part </span>${t.taskNumber} <span class="part-count">${U.countWords(this.responses[t.taskNumber])} words</span></button>`)
         .join("");
     }
 

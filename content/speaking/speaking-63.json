@@ -1,0 +1,268 @@
+{
+  "id": "speaking-63",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 63",
+  "shortTitle": "Practice Test 63",
+  "durationMinutes": 14,
+  "sortOrder": 63,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lily",
+    "voice": "bf_lily",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-63/p2-start.mp3",
+        "duration": 10.5
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-63/end.mp3",
+        "duration": 3.42
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Online videos",
+        "Birds"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where are you from?",
+          "say": "Good morning. My name is Lily, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where are you from?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-1.mp3",
+            "duration": 15.85
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "Would you like to raise a family in your hometown?",
+          "say": "Would you like to raise a family in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-2.mp3",
+            "duration": 3.47
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is there a special food from your hometown?",
+          "say": "Is there a special food from your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-3.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Is it expensive to live in your hometown?",
+          "say": "Is it expensive to live in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-4.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Online videos",
+          "text": "Do you watch videos online?",
+          "say": "Now let's move on to talk about online videos. Do you watch videos online?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-5.mp3",
+            "duration": 6.1
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Online videos",
+          "text": "What kind of videos do you like?",
+          "say": "What kind of videos do you like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-6.mp3",
+            "duration": 2.55
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Online videos",
+          "text": "Have you ever made a video yourself?",
+          "say": "Have you ever made a video yourself?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-7.mp3",
+            "duration": 2.91
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Birds",
+          "text": "Are there many birds where you live?",
+          "say": "Now let's move on to talk about birds. Are there many birds where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-8.mp3",
+            "duration": 5.78
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Birds",
+          "text": "Do you like listening to birds singing?",
+          "say": "Do you like listening to birds singing?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-9.mp3",
+            "duration": 2.83
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Birds",
+          "text": "Have you ever kept a bird as a pet?",
+          "say": "Have you ever kept a bird as a pet?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p1-10.mp3",
+            "duration": 3.02
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you tried something for the first time.",
+        "points": [
+          "what you tried",
+          "when and where you tried it",
+          "who you were with"
+        ],
+        "explain": "and explain how you felt about trying this new thing."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you tried something for the first time.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you tried something for the first time. You should say: what you tried; when and where you tried it; who you were with; and explain how you felt about trying this new thing.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-63/p2-talk.mp3",
+            "duration": 26.24
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Have you done it again since then?",
+          "say": "Thank you. Have you done it again since then?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-63/p2-follow.mp3",
+            "duration": 3.02
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "New experiences",
+        "Taking risks"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "New experiences",
+          "text": "Why do some people enjoy trying new things while others don't?",
+          "say": "Thank you. We've been talking about a time when you tried something new, and I'd like to discuss with you some more general questions related to this. Let's consider first of all new experiences. Why do some people enjoy trying new things while others don't?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-63/p3-1.mp3",
+            "duration": 16.47
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "New experiences",
+          "text": "Is it easier for young people to try new things than for older people?",
+          "say": "Is it easier for young people to try new things than for older people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-63/p3-2.mp3",
+            "duration": 4.68
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "New experiences",
+          "text": "How do new experiences help people to develop?",
+          "say": "How do new experiences help people to develop?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-63/p3-3.mp3",
+            "duration": 3.66
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Taking risks",
+          "text": "In what situations is it a good idea to take a risk?",
+          "say": "Now let's talk about taking risks. In what situations is it a good idea to take a risk?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-63/p3-4.mp3",
+            "duration": 6.93
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Taking risks",
+          "text": "Do you think people take fewer risks as they get older?",
+          "say": "Do you think people take fewer risks as they get older?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-63/p3-5.mp3",
+            "duration": 3.81
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Taking risks",
+          "text": "Should parents let their children take risks?",
+          "say": "Should parents let their children take risks?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-63/p3-6.mp3",
+            "duration": 3.29
+          }
+        }
+      ]
+    }
+  ]
+}

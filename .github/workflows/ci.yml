@@ -29,3 +29,25 @@ jobs:
 
       - name: Browser scripts parse
         run: for f in public/js/*.js; do node --check "$f" || exit 1; done
+
+  # The social poster is a separate service in social-poster/ (its own requirements and Render blueprint).
+  social-poster:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: social-poster
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: social-poster/requirements.txt
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Tests
+        run: python -m unittest discover -s tests -t .

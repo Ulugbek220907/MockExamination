@@ -26,7 +26,8 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
 
   POST /api/speaking/<test>/start     start a Speaking test (signed in)
   POST /api/speaking/submissions/<id>/answers/<key>   upload one recorded answer (raw audio body)
-  POST /api/speaking/submissions/<id>/complete        finish the test
+  POST /api/speaking/submissions/<id>/complete        finish the test (an AI-examiner test is then rated)
+  POST /api/speaking/submissions/<id>/ai-review       rate an AI-examiner test again after a failure
   GET  /api/speaking/submissions/<id> the questions and recordings (owner, its examiner, admin)
   GET  /api/speaking/recordings/<id>  play one recording (same people)
 
@@ -35,13 +36,14 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
   GET  /api/admin/users?q=, POST /api/admin/plan   find users / give plan days
 """
 
+import asyncio
 import logging
 import os
 import re
 
 import tornado.web
 
-from . import accounts, analytics, auth, billing, checks, notify, speaking
+from . import accounts, analytics, auth, billing, checks, notify, speaking, speaking_ai
 from .dbcache import gather
 from .web import BaseHandler, in_thread
 
@@ -72,12 +74,13 @@ def clean_name(value):
 
 
 def claim_attempts(db, client_id, user_id):
-    """Attach the attempts this browser made before signing in to the account."""
-    for table in ("reading_attempts", "listening_attempts", "writing_submissions"):
+    """Attach the attempts this browser made before signing in to the account (the three tables at once)."""
+    def claim(table):
         try:
             db.update(table, {"client_id": client_id, "user_id": None}, {"user_id": user_id})
         except Exception:
             log.exception("Could not claim %s", table)
+    gather(*(lambda t=t: claim(t) for t in ("reading_attempts", "listening_attempts", "writing_submissions")))
 
 
 def account_payload(db, profile):
@@ -138,14 +141,15 @@ class AuthCodeHandler(BaseHandler):
 
 
 class SessionMixin:
-    async def finish_login(self, identity, client_id):
-        profile = await in_thread(accounts.upsert_profile, self.db, identity)
+    async def finish_login(self, identity, client_id, existing=accounts._MISSING):
+        profile = await in_thread(accounts.upsert_profile, self.db, identity, existing)
         if profile.pop("created_now", False):
             self.track("signup", client_id=client_id, user_id=profile["id"])
-        if client_id:
-            await in_thread(claim_attempts, self.db, client_id, profile["id"])
+        # The database is far away: claiming this browser's attempts and reading the plan go side by side.
+        claimed = in_thread(claim_attempts, self.db, client_id, profile["id"]) if client_id else asyncio.sleep(0)
+        _, payload = await asyncio.gather(claimed, in_thread(account_payload, self.db, profile))
         self.start_session(profile["id"])
-        self.send_json(await in_thread(account_payload, self.db, profile))
+        self.send_json(payload)
 
 
 class AuthVerifyHandler(SessionMixin, BaseHandler):
@@ -158,11 +162,18 @@ class AuthVerifyHandler(SessionMixin, BaseHandler):
             _raise(e)
         if not VERIFY_PER_EMAIL.allow(email) or not VERIFY_PER_IP.allow(self.client_ip()):
             raise ApiError(429, "Too many attempts. Please request a new code in a few minutes.")
+        # Checking the code and finding the account are independent: one round trip instead of two.
+        checked, existing = await asyncio.gather(
+            in_thread(self._verify, email, code), in_thread(accounts.find_profile_by_email, self.db, email))
+        if isinstance(checked, auth.AuthError):
+            _raise(checked)
+        await self.finish_login(checked, _uuid(body.get("clientId")), existing)
+
+    def _verify(self, email, code):
         try:
-            identity = await in_thread(self.auth.verify_code, email, code)
+            return self.auth.verify_code(email, code)
         except auth.AuthError as e:
-            _raise(e)
-        await self.finish_login(identity, _uuid(body.get("clientId")))
+            return e
 
 
 class AuthTokenHandler(SessionMixin, BaseHandler):
@@ -220,16 +231,18 @@ def progress_points(store, db, user_id):
     """
     One point per scored attempt, oldest first: timed Listening and Reading
     tests, Writing (the examiner's band if a check was marked, otherwise the AI
-    estimate) and Speaking tests marked by an examiner.
+    estimate) and Speaking (the examiner's band, otherwise the AI examiner's).
+    Also `activity`: every finished attempt (practice too), for the calendar.
+    The three reads go to the database side by side.
     """
-    items = store.list_history(None, 300, user_id=user_id) + speaking.history_items(db, user_id, 300)
-    marked = {c["submission_id"]: c for c in db.select("checks", {"student_id": user_id, "kind": "writing",
-                                                                  "status": "completed"}, limit=500)}
-    points = []
-    for i in items:
+    scored, spoken, writing_checks = gather(
+        lambda: store.list_history(None, 300, user_id=user_id),
+        lambda: speaking.history_items(db, user_id, 300, counts=False),
+        lambda: db.select("checks", {"student_id": user_id, "kind": "writing", "status": "completed"}, limit=500))
+    marked = {c["submission_id"]: c for c in writing_checks}
+    points, activity = [], []
+    for i in scored + spoken:
         band, source = i.get("bandScore"), "auto"
-        if i["module"] in ("reading", "listening") and i.get("mode") == "practice":
-            continue  # untimed practice would inflate the trend
         if i["module"] == "writing":
             if i["id"] in marked and marked[i["id"]].get("overall_band") is not None:
                 try:
@@ -240,19 +253,28 @@ def progress_points(store, db, user_id):
                 source = "ai"
         elif i["module"] == "speaking":
             source = "examiner"
-        if band is None or not i.get("createdAt"):
+            if band is None and i.get("aiBand") is not None:
+                band, source = i["aiBand"], "ai"
+        if not i.get("createdAt"):
+            continue
+        activity.append({"module": i["module"], "date": i["createdAt"], "mode": i.get("mode") or "exam",
+                         "testId": i["testId"], "band": float(band) if band is not None else None})
+        if i["module"] in ("reading", "listening") and i.get("mode") == "practice":
+            continue  # untimed practice would inflate the trend
+        if band is None:
             continue
         points.append({"module": i["module"], "date": i["createdAt"], "band": float(band), "testId": i["testId"],
                        "source": source})
     points.sort(key=lambda p: p["date"])
-    return points
+    activity.sort(key=lambda p: p["date"])
+    return points, activity
 
 
 class ProgressHandler(BaseHandler):
     async def get(self):
         profile = await self.require_profile()
-        points = await in_thread(progress_points, self.store, self.db, profile["id"])
-        self.send_json({"points": points})
+        points, activity = await in_thread(progress_points, self.store, self.db, profile["id"])
+        self.send_json({"points": points, "activity": activity})
 
 
 # --------------------------------------------------------------------------
@@ -261,7 +283,9 @@ class ProgressHandler(BaseHandler):
 
 class BillingConfigHandler(BaseHandler):
     def get(self):
-        self.send_json(billing.public_config())
+        if not accounts.commerce_enabled():
+            return self.send_json({"enabled": False, "prices": {}, "providers": []})
+        self.send_json({"enabled": True, **billing.public_config()})
 
 
 async def _own_order(handler, order_id):
@@ -463,18 +487,33 @@ class SpeakingStartHandler(BaseHandler):
             raise ApiError(404, "Speaking test not found.")
         profile = await self.load_profile()
         if not profile:
-            raise ApiError(401, "Sign in to record your answers. Speaking Test 1 is free.", "login_required")
+            raise ApiError(401, "Sign in to record your answers.", "login_required")
         if accounts.test_access(test) != "free":
             plan = await in_thread(accounts.plan_status, self.db, profile["id"])
             if not accounts.can_open_test(test, profile, plan):
+                if accounts.test_access(test) == "soon":
+                    raise ApiError(403, "This test is coming soon.", "coming_soon")
                 raise ApiError(402, "This test is part of the monthly plan.", "plan_required")
         body = self.body_json()
+        mode = body.get("mode")
+        notice = None
+
+        def start():
+            nonlocal mode, notice
+            if mode == "ai":
+                try:
+                    speaking_ai.check_can_start(self.db, profile["id"])
+                except speaking_ai.ReviewError as e:
+                    if not body.get("fallback"):
+                        raise
+                    # The test goes ahead without the AI's band (not configured, or today's limit reached).
+                    mode, notice = "exam", (str(e) if e.status == 429 else None)
+            return speaking.start_submission(self.db, profile["id"], test, clean_name(body.get("candidateName")), mode)
         try:
-            sub = await in_thread(speaking.start_submission, self.db, profile["id"], test,
-                                  clean_name(body.get("candidateName")), body.get("mode"))
-        except speaking.SpeakingError as e:
+            sub = await in_thread(start)
+        except (speaking.SpeakingError, speaking_ai.ReviewError) as e:
             _raise(e)
-        self.send_json({"submissionId": sub["id"]})
+        self.send_json({"submissionId": sub["id"], "mode": sub.get("mode"), "notice": notice})
 
 
 @tornado.web.stream_request_body
@@ -533,7 +572,11 @@ class SpeakingCompleteHandler(BaseHandler):
         def complete():
             sub = speaking.own_submission(self.db, submission_id, profile["id"])
             sub = speaking.complete_submission(self.db, sub, body.get("notes"), seconds)
-            return speaking.submission_view(self.db, self.store, sub)
+            if sub.get("mode") == "ai":
+                sub["ai_review"] = speaking_ai.start_review(self.db, self.store.files, self.store, sub)
+            view = speaking.submission_view(self.db, self.store, sub)
+            view["aiReview"] = speaking_ai.public_review(sub)
+            return view
         try:
             view = await in_thread(complete)
         except speaking.SpeakingError as e:
@@ -553,6 +596,8 @@ class SpeakingSubmissionHandler(BaseHandler):
                 raise speaking.SpeakingError("Speaking test not found.", 404)
             view = speaking.submission_view(self.db, self.store, sub)
             view["viewerRole"] = role
+            # The examiner marking a check does not see the AI's band, so it cannot sway theirs.
+            view["aiReview"] = speaking_ai.public_review(sub) if role in ("owner", "admin") else None
             if role == "owner":
                 check = speaking.checks_by_submission(self.db, profile["id"]).get(sub["id"])
                 view["check"] = checks.public_check(check, include_result=False) if check else None
@@ -562,6 +607,25 @@ class SpeakingSubmissionHandler(BaseHandler):
         except speaking.SpeakingError as e:
             _raise(e)
         self.send_json({"submission": view})
+
+
+class SpeakingAiReviewHandler(BaseHandler):
+    """Rate an AI-examiner test again after the first review failed."""
+
+    async def post(self, submission_id):
+        profile = await self.require_profile()
+
+        def retry():
+            sub = speaking.own_submission(self.db, submission_id, profile["id"])
+            if sub["status"] != "completed":
+                raise speaking.SpeakingError("Finish the test first.", 409)
+            speaking_ai.retry_review(self.db, self.store.files, self.store, sub)
+            return speaking_ai.public_review(speaking.get_submission(self.db, sub["id"]))
+        try:
+            review = await in_thread(retry)
+        except (speaking.SpeakingError, speaking_ai.ReviewError) as e:
+            _raise(e)
+        self.send_json({"aiReview": review})
 
 
 class RecordingHandler(BaseHandler):
@@ -773,6 +837,20 @@ class AdminPlanHandler(AdminHandler):
         self.send_json({"plan": await in_thread(accounts.plan_status, self.db, profile["id"])})
 
 
+def commerce_only(handler_class):
+    """The same handler, but answering 404 while the site sells nothing (COMMERCE_ENABLED is off)."""
+    class Gated(handler_class):
+        async def prepare(self):
+            if not accounts.commerce_enabled():
+                raise ApiError(404, "Not available.")
+            result = super().prepare()
+            if result is not None:
+                await result
+
+    Gated.__name__ = handler_class.__name__
+    return Gated
+
+
 def routes():
     return [
         (r"/api/auth/code", AuthCodeHandler),
@@ -783,21 +861,22 @@ def routes():
         (r"/api/me", MeHandler),
         (r"/api/progress", ProgressHandler),
         (r"/api/billing", BillingConfigHandler),
-        (r"/api/orders", OrdersHandler),
-        (r"/api/orders/(\d+)/pay", OrderPayHandler),
-        (r"/api/orders/(\d+)/manual-paid", OrderManualPaidHandler),
-        (r"/api/pay/payme", PaymeHandler),
-        (r"/api/pay/click/(prepare|complete)", ClickHandler),
-        (r"/api/examiners", ExaminersHandler),
-        (r"/api/examiners/([0-9a-f\-]{36})", ExaminerDetailHandler),
-        (r"/api/checks", MyChecksHandler),
-        (r"/api/checks/(\d+)", CheckHandler),
-        (r"/api/checks/(\d+)/rate", CheckRateHandler),
-        (r"/api/examiner/me", ExaminerMeHandler),
-        (r"/api/examiner/checks/(\d+)/(start|result)", ExaminerCheckActionHandler),
+        (r"/api/orders", commerce_only(OrdersHandler)),
+        (r"/api/orders/(\d+)/pay", commerce_only(OrderPayHandler)),
+        (r"/api/orders/(\d+)/manual-paid", commerce_only(OrderManualPaidHandler)),
+        (r"/api/pay/payme", commerce_only(PaymeHandler)),
+        (r"/api/pay/click/(prepare|complete)", commerce_only(ClickHandler)),
+        (r"/api/examiners", commerce_only(ExaminersHandler)),
+        (r"/api/examiners/([0-9a-f\-]{36})", commerce_only(ExaminerDetailHandler)),
+        (r"/api/checks", commerce_only(MyChecksHandler)),
+        (r"/api/checks/(\d+)", commerce_only(CheckHandler)),
+        (r"/api/checks/(\d+)/rate", commerce_only(CheckRateHandler)),
+        (r"/api/examiner/me", commerce_only(ExaminerMeHandler)),
+        (r"/api/examiner/checks/(\d+)/(start|result)", commerce_only(ExaminerCheckActionHandler)),
         (r"/api/speaking/([a-z0-9][a-z0-9\-]{0,80})/start", SpeakingStartHandler),
         (r"/api/speaking/submissions/(\d+)/answers/([a-z0-9][a-z0-9\-]{0,30})", SpeakingAnswerHandler),
         (r"/api/speaking/submissions/(\d+)/complete", SpeakingCompleteHandler),
+        (r"/api/speaking/submissions/(\d+)/ai-review", SpeakingAiReviewHandler),
         (r"/api/speaking/submissions/(\d+)", SpeakingSubmissionHandler),
         (r"/api/speaking/recordings/([0-9a-f\-]{36})", RecordingHandler),
         (r"/api/admin/orders", AdminOrdersHandler),

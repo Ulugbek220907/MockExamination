@@ -1,0 +1,268 @@
+{
+  "id": "speaking-77",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 77",
+  "shortTitle": "Practice Test 77",
+  "durationMinutes": 14,
+  "sortOrder": 77,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lily",
+    "voice": "bf_lily",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-77/p2-start.mp3",
+        "duration": 10.5
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-77/end.mp3",
+        "duration": 3.42
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Alarm clocks",
+        "Your city at night"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "How long have you lived in your present home?",
+          "say": "Good evening. My name is Lily, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. How long have you lived in your present home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-1.mp3",
+            "duration": 16.66
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What is your favourite thing to do at home?",
+          "say": "What is your favourite thing to do at home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-2.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Do you prefer living alone or with other people?",
+          "say": "Do you prefer living alone or with other people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-3.mp3",
+            "duration": 3.38
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "What do you like most about your home?",
+          "say": "What do you like most about your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-4.mp3",
+            "duration": 2.83
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Alarm clocks",
+          "text": "Do you use an alarm clock?",
+          "say": "Now let's move on to talk about alarm clocks. Do you use an alarm clock?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-5.mp3",
+            "duration": 5.95
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Alarm clocks",
+          "text": "Do you find it easy to get up when the alarm goes off?",
+          "say": "Do you find it easy to get up when the alarm goes off?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-6.mp3",
+            "duration": 3.76
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Alarm clocks",
+          "text": "Did you use an alarm clock as a child?",
+          "say": "Did you use an alarm clock as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-7.mp3",
+            "duration": 3.27
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Your city at night",
+          "text": "Do you like going out at night in your city?",
+          "say": "Now let's move on to talk about your city at night. Do you like going out at night in your city?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-8.mp3",
+            "duration": 6.63
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Your city at night",
+          "text": "Is your city lively at night?",
+          "say": "Is your city lively at night?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-9.mp3",
+            "duration": 2.76
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Your city at night",
+          "text": "Do you prefer your city during the day or at night?",
+          "say": "Do you prefer your city during the day or at night?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p1-10.mp3",
+            "duration": 3.57
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you had to be very polite.",
+        "points": [
+          "when it was",
+          "where you were",
+          "who you were with"
+        ],
+        "explain": "and explain why you had to be so polite."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you had to be very polite.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you had to be very polite. You should say: when it was; where you were; who you were with; and explain why you had to be so polite.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-77/p2-talk.mp3",
+            "duration": 24.24
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Was it easy for you to be polite in that situation?",
+          "say": "Thank you. Was it easy for you to be polite in that situation?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-77/p2-follow.mp3",
+            "duration": 4.17
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Manners",
+        "Politeness in society"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Manners",
+          "text": "Who should teach children good manners, parents or teachers?",
+          "say": "Thank you. We've been talking about a time when you had to be very polite, and I'd like to discuss with you some more general questions related to this. Let's consider first of all manners. Who should teach children good manners, parents or teachers?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-77/p3-1.mp3",
+            "duration": 15.49
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Manners",
+          "text": "Are good manners the same in every country?",
+          "say": "Are good manners the same in every country?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-77/p3-2.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Manners",
+          "text": "Do you think young people today are less polite than in the past?",
+          "say": "Do you think young people today are less polite than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-77/p3-3.mp3",
+            "duration": 4.11
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Politeness in society",
+          "text": "Why is politeness important at work?",
+          "say": "Now let's talk about politeness in society. Why is politeness important at work?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-77/p3-4.mp3",
+            "duration": 6.48
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Politeness in society",
+          "text": "Are people more polite in small towns than in big cities?",
+          "say": "Are people more polite in small towns than in big cities?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-77/p3-5.mp3",
+            "duration": 4.04
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Politeness in society",
+          "text": "Do people behave less politely online than face to face? Why?",
+          "say": "Do people behave less politely online than face to face? Why?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-77/p3-6.mp3",
+            "duration": 5.35
+          }
+        }
+      ]
+    }
+  ]
+}

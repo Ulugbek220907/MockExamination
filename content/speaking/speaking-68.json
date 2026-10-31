@@ -1,0 +1,268 @@
+{
+  "id": "speaking-68",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 68",
+  "shortTitle": "Practice Test 68",
+  "durationMinutes": 14,
+  "sortOrder": 68,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Isabella",
+    "voice": "bf_isabella",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-68/p2-start.mp3",
+        "duration": 9.82
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-68/end.mp3",
+        "duration": 3.29
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Vegetables",
+        "Public holidays"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "What kind of home do you live in?",
+          "say": "Good evening. My name is Isabella, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. What kind of home do you live in?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-1.mp3",
+            "duration": 15.02
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Is there a garden or a balcony where you live?",
+          "say": "Is there a garden or a balcony where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-2.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "What is your favourite thing to do at home?",
+          "say": "What is your favourite thing to do at home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-3.mp3",
+            "duration": 2.83
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Is it expensive to live in your area?",
+          "say": "Is it expensive to live in your area?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-4.mp3",
+            "duration": 2.93
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Vegetables",
+          "text": "Do you like vegetables?",
+          "say": "Now let's move on to talk about vegetables. Do you like vegetables?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-5.mp3",
+            "duration": 5.2
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Vegetables",
+          "text": "Which vegetables did you dislike as a child?",
+          "say": "Which vegetables did you dislike as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-6.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Vegetables",
+          "text": "Do you think people eat enough vegetables?",
+          "say": "Do you think people eat enough vegetables?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-7.mp3",
+            "duration": 2.97
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Public holidays",
+          "text": "What do you usually do on public holidays?",
+          "say": "Now let's move on to talk about public holidays. What do you usually do on public holidays?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-8.mp3",
+            "duration": 6.29
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Public holidays",
+          "text": "Which public holiday do you like most?",
+          "say": "Which public holiday do you like most?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-9.mp3",
+            "duration": 2.87
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Public holidays",
+          "text": "Do you prefer to stay at home or travel on public holidays?",
+          "say": "Do you prefer to stay at home or travel on public holidays?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p1-10.mp3",
+            "duration": 3.96
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you got up very early.",
+        "points": [
+          "when it was",
+          "why you got up so early",
+          "what you did that day"
+        ],
+        "explain": "and explain how you felt about getting up early."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you got up very early.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you got up very early. You should say: when it was; why you got up so early; what you did that day; and explain how you felt about getting up early.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-68/p2-talk.mp3",
+            "duration": 24.36
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you usually get up early at the weekend too?",
+          "say": "Thank you. Do you usually get up early at the weekend too?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-68/p2-follow.mp3",
+            "duration": 3.59
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Daily routines",
+        "Working hours"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Daily routines",
+          "text": "Is it better to get up early or to stay up late?",
+          "say": "Thank you. We've been talking about a time when you got up very early, and I'd like to discuss with you some more general questions related to this. Let's consider first of all daily routines. Is it better to get up early or to stay up late?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-68/p3-1.mp3",
+            "duration": 14.49
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Daily routines",
+          "text": "Why is it important for children to have a regular routine?",
+          "say": "Why is it important for children to have a regular routine?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-68/p3-2.mp3",
+            "duration": 4.06
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Daily routines",
+          "text": "How have people's daily routines changed in recent years?",
+          "say": "How have people's daily routines changed in recent years?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-68/p3-3.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Working hours",
+          "text": "Should people be allowed to choose their own working hours?",
+          "say": "Now let's talk about working hours. Should people be allowed to choose their own working hours?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-68/p3-4.mp3",
+            "duration": 6.18
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Working hours",
+          "text": "Why do some people have to work at night?",
+          "say": "Why do some people have to work at night?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-68/p3-5.mp3",
+            "duration": 2.91
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Working hours",
+          "text": "Do you think a four-day working week is a good idea?",
+          "say": "Do you think a four-day working week is a good idea?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-68/p3-6.mp3",
+            "duration": 3.51
+          }
+        }
+      ]
+    }
+  ]
+}

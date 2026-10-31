@@ -1,0 +1,1375 @@
+{
+  "id": "listening-14",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 14",
+  "shortTitle": "Practice Test 14",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 14,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "ruth": {
+      "name": "Ruth",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "sam": {
+      "name": "Sam",
+      "voice": "am_onyx",
+      "lang": "en-us"
+    },
+    "claire": {
+      "name": "Claire",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "jamal": {
+      "name": "Jamal",
+      "voice": "am_puck",
+      "lang": "en-us"
+    },
+    "erin": {
+      "name": "Erin",
+      "voice": "af_jessica",
+      "lang": "en-us"
+    },
+    "hughes": {
+      "name": "Dr Hughes",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "af_heart",
+      "lang": "en-us"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Joining a conservation group",
+      "context": "A man phones a conservation group to ask about volunteering.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a conservation group to ask about volunteering. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.86
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.86,
+          "end": 38.93
+        },
+        {
+          "speaker": "ruth",
+          "text": "Greenway Conservation Volunteers, Ruth speaking.",
+          "start": 39.83,
+          "end": 42.96
+        },
+        {
+          "speaker": "sam",
+          "text": "Hi, my name's Sam. I've just moved to the area and I'd like to do some volunteering outdoors at weekends.",
+          "start": 43.46,
+          "end": 49.86
+        },
+        {
+          "speaker": "ruth",
+          "text": "Wonderful. Let me tell you about this month's activities. On Saturday we're doing hedge laying.",
+          "start": 50.36,
+          "end": 55.59
+        },
+        {
+          "speaker": "narrator",
+          "text": "The first activity is hedge laying, so 'hedge laying' has been written in the table. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 56.49,
+          "end": 72.17
+        },
+        {
+          "speaker": "sam",
+          "text": "Hedge laying? What does that involve?",
+          "start": 73.07,
+          "end": 75.59
+        },
+        {
+          "speaker": "ruth",
+          "text": "You cut the stems partly through and bend them over, so the hedge grows thicker and gives birds somewhere to nest. We meet in the car park at Holloway Farm. That's H-O-L-L-O-W-A-Y.",
+          "start": 76.09,
+          "end": 89.93
+        },
+        {
+          "speaker": "sam",
+          "text": "Got it. Do I need any special clothing?",
+          "start": 90.43,
+          "end": 93.16
+        },
+        {
+          "speaker": "ruth",
+          "text": "Old clothes, and you'll definitely need a pair of thick gloves. The hawthorn has very sharp thorns. We lend out the tools, so you don't need to worry about those.",
+          "start": 93.66,
+          "end": 102.41
+        },
+        {
+          "speaker": "sam",
+          "text": "And the pond clearing I saw on your website? Is that on Saturday too?",
+          "start": 102.91,
+          "end": 107.28
+        },
+        {
+          "speaker": "ruth",
+          "text": "The website says Saturday, but it's been moved to Sunday, because the farmer needs the field on Saturday. For that one we meet outside the village church, and you'll need boots, of course, wellingtons if you have them.",
+          "start": 107.78,
+          "end": 119.13
+        },
+        {
+          "speaker": "sam",
+          "text": "Fine. And is there anything for people who'd rather not get muddy?",
+          "start": 119.63,
+          "end": 123.62
+        },
+        {
+          "speaker": "ruth",
+          "text": "There's the bird survey, also on Sunday. That starts from the visitor centre. You walk a set route and count the birds you see. Bring a pair of binoculars if you have some. If not, we have a few you can borrow.",
+          "start": 124.12,
+          "end": 135.6
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 136.5,
+          "end": 142.21
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 162.21,
+          "end": 165.54
+        },
+        {
+          "speaker": "sam",
+          "text": "That all sounds great. Is there an age limit? My son is fifteen and he's keen to come along.",
+          "start": 166.44,
+          "end": 171.86
+        },
+        {
+          "speaker": "ruth",
+          "text": "I'm afraid volunteers have to be at least sixteen, because of the tools we use. He'd be very welcome next year, though.",
+          "start": 172.36,
+          "end": 178.93
+        },
+        {
+          "speaker": "sam",
+          "text": "OK. And how do people get there? I don't have a car at the moment.",
+          "start": 179.43,
+          "end": 183.53
+        },
+        {
+          "speaker": "ruth",
+          "text": "We run a minibus. It leaves from the station at half past eight, and it brings everyone back at about four.",
+          "start": 184.03,
+          "end": 189.87
+        },
+        {
+          "speaker": "sam",
+          "text": "And what about food?",
+          "start": 190.37,
+          "end": 191.89
+        },
+        {
+          "speaker": "ruth",
+          "text": "Bring your own packed lunch. We do provide hot soup at lunchtime, which is very welcome in winter. Tea and coffee too, of course.",
+          "start": 192.39,
+          "end": 199.55
+        },
+        {
+          "speaker": "sam",
+          "text": "Lovely. Is there any paperwork?",
+          "start": 200.05,
+          "end": 202.53
+        },
+        {
+          "speaker": "ruth",
+          "text": "Just one form. You don't need any references, but for insurance reasons every volunteer has to fill in a health form before their first day, so we know about any medical conditions.",
+          "start": 203.03,
+          "end": 213.31
+        },
+        {
+          "speaker": "sam",
+          "text": "No problem. Can I just turn up this weekend?",
+          "start": 213.81,
+          "end": 216.95
+        },
+        {
+          "speaker": "ruth",
+          "text": "New volunteers need to come to an induction day first, where we cover safety. The next one is on the third of March. I'll email you the details.",
+          "start": 217.45,
+          "end": 225.7
+        },
+        {
+          "speaker": "sam",
+          "text": "The third of March. Great, thank you.",
+          "start": 226.2,
+          "end": 228.85
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 229.75,
+          "end": 234.27
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Greenway Conservation Volunteers – weekend activities",
+          "content": {
+            "headers": [
+              "Activity",
+              "Day",
+              "Meeting point",
+              "Bring"
+            ],
+            "rows": [
+              [
+                "Example: **hedge laying**",
+                "Saturday",
+                "car park at {{1}} Farm",
+                "thick {{2}}"
+              ],
+              [
+                "pond clearing",
+                "{{3}}",
+                "outside the village {{4}}",
+                "boots"
+              ],
+              [
+                "bird survey",
+                "Sunday",
+                "visitor centre",
+                "{{5}} (if possible)"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Holloway"
+              ],
+              "explanation": "‘We meet in the car park at Holloway Farm. That's H-O-L-L-O-W-A-Y.’",
+              "cue": "H-O-L-L-O-W-A-Y"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "gloves"
+              ],
+              "explanation": "‘You'll definitely need a pair of thick gloves.’ Tools are lent out.",
+              "cue": "a pair of thick gloves"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "Sunday"
+              ],
+              "explanation": "The website says Saturday, ‘but it's been moved to Sunday’.",
+              "cue": "it's been moved to Sunday"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "church"
+              ],
+              "explanation": "‘For that one we meet outside the village church.’",
+              "cue": "we meet outside the village church"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "binoculars"
+              ],
+              "explanation": "‘Bring a pair of binoculars if you have some.’",
+              "cue": "Bring a pair of binoculars"
+            }
+          ]
+        },
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Other information",
+          "content": [
+            "• Minimum age of volunteers: {{6}}",
+            "• Minibus leaves from the {{7}} at 8.30 am",
+            "• Lunch: bring your own; hot {{8}} is provided",
+            "• Every volunteer must complete a {{9}} form",
+            "• Next induction day: 3rd {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "16",
+                "sixteen"
+              ],
+              "explanation": "His son is fifteen, but ‘volunteers have to be at least sixteen’.",
+              "cue": "volunteers have to be at least sixteen"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "station"
+              ],
+              "explanation": "‘It leaves from the station at half past eight.’",
+              "cue": "It leaves from the station"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "soup"
+              ],
+              "explanation": "‘We do provide hot soup at lunchtime.’",
+              "cue": "We do provide hot soup"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "health"
+              ],
+              "explanation": "No references are needed, but ‘every volunteer has to fill in a health form’.",
+              "cue": "fill in a health form"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "March"
+              ],
+              "explanation": "‘The next one is on the third of March.’",
+              "cue": "the third of March"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-14/part1.mp3",
+        "duration": 265.07
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Starting work at a hotel",
+      "context": "A hotel manager talks to new members of staff on their first day.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a hotel manager talking to new members of staff on their first day. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.63
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.63,
+          "end": 39.89
+        },
+        {
+          "speaker": "claire",
+          "text": "Good morning, and welcome to the Lakeside Hotel. I'm Claire, the general manager. Before we start the tour, take a look at the plan of the ground floor, because you'll be finding your way around it all day.",
+          "start": 40.79,
+          "end": 51.8
+        },
+        {
+          "speaker": "claire",
+          "text": "We're standing at the main entrance, at the bottom of the plan. Reception is on your right as you come in, and the lifts are on your left.",
+          "start": 52.15,
+          "end": 59.49
+        },
+        {
+          "speaker": "claire",
+          "text": "The first room you need to know is the staff room, because that's where your lockers are. Walk straight ahead from the entrance until you reach the corridor. Directly opposite you, on the other side of the corridor, is the staff room.",
+          "start": 59.84,
+          "end": 71.79
+        },
+        {
+          "speaker": "claire",
+          "text": "Guests often arrive before their rooms are ready, so they leave their bags with us. The luggage room is just past reception, on the right, in the corner of the building. It's always kept locked, and the key is at the reception desk.",
+          "start": 72.14,
+          "end": 84.55
+        },
+        {
+          "speaker": "claire",
+          "text": "Housekeeping staff will spend a lot of time in the laundry. To get there, turn left along the corridor and go all the way to the end, past the restaurant. The laundry is the last room at that end, on the left.",
+          "start": 84.9,
+          "end": 96.42
+        },
+        {
+          "speaker": "claire",
+          "text": "My own office is at the other end. Turn right along the corridor, and it's the last door on the left, in the corner next to the fire exit. My door is always open, so come and find me if you have a problem.",
+          "start": 96.77,
+          "end": 108.02
+        },
+        {
+          "speaker": "claire",
+          "text": "And finally, the gym. Guests ask about it all the time. It's just to the left of the lifts, so you can see it from the entrance, and it's open from six in the morning until ten at night.",
+          "start": 108.37,
+          "end": 119.03
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 119.93,
+          "end": 125.65
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 145.65,
+          "end": 149.53
+        },
+        {
+          "speaker": "claire",
+          "text": "Now, a few things about your shifts. You'll be able to check the rota online before you come in, so there's no need to look for it here. When you arrive, please don't sign in at reception. That used to be the system, but now you scan your staff card in the staff room. After that, pick up a radio from the charging station, so we can always reach you, and read the notice board, because there's always something new on it, like a large group arriving or a room out of use. You're welcome to arrive already in uniform if you prefer.",
+          "start": 150.43,
+          "end": 179.55
+        },
+        {
+          "speaker": "claire",
+          "text": "As for benefits, meals during your shift are free, in the staff canteen behind the kitchen. I'm afraid the gym is for guests only, so staff can't use it. But you get thirty per cent off rooms for your friends and family, which is very popular. Parking isn't free, but there is a reduced rate in the hotel car park. And holidays are the standard amount for the first two years.",
+          "start": 179.9,
+          "end": 199.69
+        },
+        {
+          "speaker": "claire",
+          "text": "Finally, complaints. Every hotel gets them. If a guest complains to you, please don't send them off to find a supervisor. Try to solve the problem yourself, there and then. You're allowed to offer a free drink or a later checkout, for example. Most guests just want to feel that someone is listening. Only call a supervisor if you really can't sort it out. Right, let's start the tour.",
+          "start": 200.04,
+          "end": 219.71
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 220.61,
+          "end": 224.94
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the plan below. Choose the correct letter, **A–H**, next to Questions 11–15.",
+          "map": {
+            "title": "Lakeside Hotel – ground floor",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "sand"
+              },
+              {
+                "type": "line",
+                "x1": 40,
+                "y1": 230,
+                "x2": 600,
+                "y2": 230,
+                "style": "path",
+                "label": "Corridor",
+                "lx": -150,
+                "ly": 5
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 425,
+                "x2": 320,
+                "y2": 230,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 40,
+                "w": 220,
+                "h": 140,
+                "style": "building",
+                "label": "Restaurant"
+              },
+              {
+                "type": "rect",
+                "x": 360,
+                "y": 320,
+                "w": 150,
+                "h": 64,
+                "style": "building",
+                "label": "Reception"
+              },
+              {
+                "type": "rect",
+                "x": 215,
+                "y": 320,
+                "w": 70,
+                "h": 64,
+                "style": "parking",
+                "label": "Lifts"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Main entrance"
+              },
+              {
+                "type": "letter",
+                "x": 90,
+                "y": 330,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 160,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 440,
+                "y": 120,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 570,
+                "y": 120,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 565,
+                "y": 352,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 600,
+                "y": 270,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 50,
+                "y": 265,
+                "letter": "G"
+              },
+              {
+                "type": "letter",
+                "x": 175,
+                "y": 352,
+                "letter": "H"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            },
+            {
+              "key": "H",
+              "text": "H"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Staff room",
+              "answer": "B",
+              "explanation": "Walk straight ahead to the corridor: ‘Directly opposite you, on the other side of the corridor, is the staff room.’",
+              "cue": "Directly opposite you, on the other side of the corridor, is the staff room"
+            },
+            {
+              "number": 12,
+              "prompt": "Luggage room",
+              "answer": "E",
+              "explanation": "‘The luggage room is just past reception, on the right, in the corner of the building.’",
+              "cue": "The luggage room is just past reception"
+            },
+            {
+              "number": 13,
+              "prompt": "Laundry",
+              "answer": "G",
+              "explanation": "Turn left and go ‘all the way to the end, past the restaurant. The laundry is the last room at that end’.",
+              "cue": "The laundry is the last room at that end"
+            },
+            {
+              "number": 14,
+              "prompt": "Manager's office",
+              "answer": "D",
+              "explanation": "Turn right: ‘it's the last door on the left, in the corner next to the fire exit’.",
+              "cue": "it's the last door on the left, in the corner next to the fire exit"
+            },
+            {
+              "number": 15,
+              "prompt": "Gym",
+              "answer": "H",
+              "explanation": "‘It's just to the left of the lifts, so you can see it from the entrance.’",
+              "cue": "It's just to the left of the lifts"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO things must staff do at the start of every shift?",
+          "options": [
+            {
+              "key": "A",
+              "text": "sign in at reception"
+            },
+            {
+              "key": "B",
+              "text": "collect a radio"
+            },
+            {
+              "key": "C",
+              "text": "check the rota"
+            },
+            {
+              "key": "D",
+              "text": "change into uniform"
+            },
+            {
+              "key": "E",
+              "text": "read the notice board"
+            }
+          ],
+          "answer": [
+            "B",
+            "E"
+          ],
+          "explanation": "Staff scan their card instead of signing in at reception; they ‘pick up a radio’ (B) and ‘read the notice board’ (E). The rota is checked online at home, and they may arrive in uniform.",
+          "questions": [
+            {
+              "number": 16,
+              "cue": "pick up a radio from the charging station"
+            },
+            {
+              "number": 17,
+              "cue": "read the notice board"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO benefits do staff receive?",
+          "options": [
+            {
+              "key": "A",
+              "text": "free meals during shifts"
+            },
+            {
+              "key": "B",
+              "text": "use of the gym"
+            },
+            {
+              "key": "C",
+              "text": "cheaper rooms for family and friends"
+            },
+            {
+              "key": "D",
+              "text": "free parking"
+            },
+            {
+              "key": "E",
+              "text": "extra holiday"
+            }
+          ],
+          "answer": [
+            "A",
+            "C"
+          ],
+          "explanation": "‘Meals during your shift are free’ (A) and staff get ‘thirty per cent off rooms for your friends and family’ (C). The gym is for guests only, parking is reduced but not free, and holidays are standard.",
+          "questions": [
+            {
+              "number": 18,
+              "cue": "meals during your shift are free"
+            },
+            {
+              "number": 19,
+              "cue": "thirty per cent off rooms for your friends and family"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 20,
+              "prompt": "What does Claire tell staff to do when a guest complains?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "deal with the problem themselves"
+                },
+                {
+                  "key": "B",
+                  "text": "send the guest to a supervisor"
+                },
+                {
+                  "key": "C",
+                  "text": "write the complaint down"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Try to solve the problem yourself, there and then.’ A supervisor is only called if staff really can't sort it out.",
+              "cue": "Try to solve the problem yourself"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-14/part2.mp3",
+        "duration": 255.74
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A presentation on bioplastics",
+      "context": "Two environmental science students discuss their presentation on bioplastics with their tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two environmental science students, Jamal and Erin, discussing their presentation on bioplastics with their tutor, Dr Hughes. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 15.77
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 40.77,
+          "end": 45.48
+        },
+        {
+          "speaker": "hughes",
+          "text": "So, bioplastics. I seem to remember suggesting packaging as a topic. Was that what made you choose it?",
+          "start": 46.38,
+          "end": 52.83
+        },
+        {
+          "speaker": "erin",
+          "text": "You did suggest packaging in general, and I'd read an article about plastic in the oceans. But what really decided it was Jamal's internship.",
+          "start": 53.33,
+          "end": 61.15
+        },
+        {
+          "speaker": "jamal",
+          "text": "Yes, I spent the summer at a company that makes food packaging, and they were testing plant-based plastics. So I already knew quite a lot, and I had contacts there.",
+          "start": 61.65,
+          "end": 71.38
+        },
+        {
+          "speaker": "hughes",
+          "text": "Useful. How have you found the research?",
+          "start": 71.88,
+          "end": 74.59
+        },
+        {
+          "speaker": "erin",
+          "text": "There's plenty of it, and most of it is recent, which is good. The problem is that a lot of what we found online was written by companies that make bioplastics, so of course it's very positive. We've had to look hard for independent studies.",
+          "start": 75.09,
+          "end": 87.85
+        },
+        {
+          "speaker": "hughes",
+          "text": "That's an important point to mention in the presentation itself. Now, I think the presentation would be more memorable with a case study. Something real and local.",
+          "start": 88.35,
+          "end": 97.48
+        },
+        {
+          "speaker": "jamal",
+          "text": "What about the café on campus? They switched to compostable cups last year.",
+          "start": 97.98,
+          "end": 102.27
+        },
+        {
+          "speaker": "hughes",
+          "text": "Perfect. You could find out how it's gone.",
+          "start": 102.77,
+          "end": 105.63
+        },
+        {
+          "speaker": "erin",
+          "text": "The other thing is length. We ran through it yesterday and it was nearly twenty-five minutes, and we only have fifteen.",
+          "start": 106.13,
+          "end": 111.87
+        },
+        {
+          "speaker": "hughes",
+          "text": "Where could you save time?",
+          "start": 112.37,
+          "end": 114.56
+        },
+        {
+          "speaker": "jamal",
+          "text": "The slides are fine, and the conclusion is already short. I think the history section is the obvious thing to cut. It's interesting, but it's not really what the presentation is about.",
+          "start": 115.06,
+          "end": 126.28
+        },
+        {
+          "speaker": "hughes",
+          "text": "I agree. So what's the plan for this week?",
+          "start": 126.78,
+          "end": 129.62
+        },
+        {
+          "speaker": "erin",
+          "text": "I'll contact the café owner to ask if we can use them as our case study, and whether they'll share their figures.",
+          "start": 130.12,
+          "end": 135.82
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 136.72,
+          "end": 142.86
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 162.86,
+          "end": 166.7
+        },
+        {
+          "speaker": "hughes",
+          "text": "Let's go through the materials you're covering. Start with PLA.",
+          "start": 167.6,
+          "end": 171.89
+        },
+        {
+          "speaker": "jamal",
+          "text": "PLA is made from corn starch, and it's probably the best-known bioplastic. But people think it just rots away in the garden, and it doesn't. It only breaks down in industrial composting plants, at high temperatures, and most towns don't have one.",
+          "start": 172.39,
+          "end": 187.66
+        },
+        {
+          "speaker": "hughes",
+          "text": "And the seaweed film?",
+          "start": 188.16,
+          "end": 190.15
+        },
+        {
+          "speaker": "erin",
+          "text": "That's my favourite. It can even be eaten. But at the moment it costs about four times as much as ordinary plastic, so companies just won't pay for it.",
+          "start": 190.65,
+          "end": 199.01
+        },
+        {
+          "speaker": "hughes",
+          "text": "The packaging made from mushrooms?",
+          "start": 199.51,
+          "end": 202.09
+        },
+        {
+          "speaker": "jamal",
+          "text": "That's grown from mushroom roots on farm waste. It's a lovely idea, but it's really still in the lab. Only a couple of small companies have tried it so far.",
+          "start": 202.59,
+          "end": 212.32
+        },
+        {
+          "speaker": "hughes",
+          "text": "Sugarcane plastic?",
+          "start": 212.82,
+          "end": 214.68
+        },
+        {
+          "speaker": "erin",
+          "text": "It performs very well, and it can be recycled with normal plastic. Our concern is that it uses crops grown on land that could produce food, which is a big issue in some countries.",
+          "start": 215.18,
+          "end": 224.95
+        },
+        {
+          "speaker": "hughes",
+          "text": "And finally, starch-based bags.",
+          "start": 225.45,
+          "end": 228.24
+        },
+        {
+          "speaker": "jamal",
+          "text": "Those are already everywhere. Most supermarkets in this country use them for fruit and vegetables, so the audience will know them.",
+          "start": 228.74,
+          "end": 236.14
+        },
+        {
+          "speaker": "hughes",
+          "text": "Good. It sounds like you're in good shape.",
+          "start": 236.64,
+          "end": 239.27
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 240.17,
+          "end": 244.63
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did the students choose bioplastics as their topic?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Their tutor suggested it."
+                },
+                {
+                  "key": "B",
+                  "text": "Erin read an article about it."
+                },
+                {
+                  "key": "C",
+                  "text": "It is linked to Jamal's work experience."
+                }
+              ],
+              "answer": "C",
+              "explanation": "The tutor suggested packaging and Erin read an article, but ‘what really decided it was Jamal's internship’.",
+              "cue": "what really decided it was Jamal's internship"
+            },
+            {
+              "number": 22,
+              "prompt": "What problem did the students have with their sources?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Many of them were out of date."
+                },
+                {
+                  "key": "B",
+                  "text": "They were too technical."
+                },
+                {
+                  "key": "C",
+                  "text": "Many were written by manufacturers."
+                }
+              ],
+              "answer": "C",
+              "explanation": "The sources are recent, but ‘a lot of what we found online was written by companies that make bioplastics’.",
+              "cue": "written by companies that make bioplastics"
+            },
+            {
+              "number": 23,
+              "prompt": "Dr Hughes suggests that the presentation should include",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a demonstration."
+                },
+                {
+                  "key": "B",
+                  "text": "a case study."
+                },
+                {
+                  "key": "C",
+                  "text": "a comparison table."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The presentation would be more memorable with a case study.’",
+              "cue": "more memorable with a case study"
+            },
+            {
+              "number": 24,
+              "prompt": "How will the students shorten the presentation?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by removing the history section"
+                },
+                {
+                  "key": "B",
+                  "text": "by using fewer slides"
+                },
+                {
+                  "key": "C",
+                  "text": "by shortening the conclusion"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The slides and conclusion are fine: ‘the history section is the obvious thing to cut’.",
+              "cue": "the history section is the obvious thing to cut"
+            },
+            {
+              "number": 25,
+              "prompt": "What will Erin do this week?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "contact a business"
+                },
+                {
+                  "key": "B",
+                  "text": "rehearse on her own"
+                },
+                {
+                  "key": "C",
+                  "text": "design a handout"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I'll contact the café owner to ask if we can use them as our case study.’",
+              "cue": "I'll contact the café owner"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What comment do the students make about each material? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is too expensive at present."
+            },
+            {
+              "key": "B",
+              "text": "It needs industrial composting."
+            },
+            {
+              "key": "C",
+              "text": "It uses land needed for food."
+            },
+            {
+              "key": "D",
+              "text": "It is already widely used."
+            },
+            {
+              "key": "E",
+              "text": "It is still at the experimental stage."
+            },
+            {
+              "key": "F",
+              "text": "It is made from waste plastic."
+            },
+            {
+              "key": "G",
+              "text": "It cannot be recycled."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "PLA",
+              "answer": "B",
+              "explanation": "‘It only breaks down in industrial composting plants.’",
+              "cue": "It only breaks down in industrial composting plants"
+            },
+            {
+              "number": 27,
+              "prompt": "seaweed film",
+              "answer": "A",
+              "explanation": "‘At the moment it costs about four times as much as ordinary plastic.’",
+              "cue": "it costs about four times as much as ordinary plastic"
+            },
+            {
+              "number": 28,
+              "prompt": "mushroom packaging",
+              "answer": "E",
+              "explanation": "‘It's really still in the lab.’",
+              "cue": "it's really still in the lab"
+            },
+            {
+              "number": 29,
+              "prompt": "sugarcane plastic",
+              "answer": "C",
+              "explanation": "‘It uses crops grown on land that could produce food.’ It can be recycled, so not G.",
+              "cue": "it uses crops grown on land that could produce food"
+            },
+            {
+              "number": 30,
+              "prompt": "starch-based bags",
+              "answer": "D",
+              "explanation": "‘Those are already everywhere.’",
+              "cue": "Those are already everywhere"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-14/part3.mp3",
+        "duration": 275.43
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how habits work",
+      "context": "A psychology lecture on how habits form and how they can be changed.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how habits form and how they can be changed. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 10.37
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 40.37,
+          "end": 44.79
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today we're looking at habits: the things we do without thinking. Psychologists define a habit as a behavior that is performed automatically in response to a cue, such as a time of day, a place or a feeling.",
+          "start": 45.69,
+          "end": 59.4
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Habits make up a surprisingly large part of our lives. One well-known study asked people to record what they were doing every hour, and found that forty-three per cent of their daily actions were habits, carried out while they were thinking about something else.",
+          "start": 59.75,
+          "end": 74.11
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Researchers often describe a habit as a loop with three stages. First comes the cue. Then comes the routine, which is the behavior itself. And finally there's the reward, the pleasant feeling that makes the brain want to repeat the loop next time. Without a reward, a habit is very unlikely to form.",
+          "start": 74.46,
+          "end": 93.21
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Brain scans show that as a behavior becomes a habit, activity moves away from the parts of the brain involved in decision-making, towards a deeper structure called the basal ganglia. This is why habits feel effortless, and also why they're so hard to stop.",
+          "start": 93.56,
+          "end": 109.44
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So how long does it take to form a new habit? You may have heard that it takes twenty-one days, but there's no real evidence for that. When researchers in London followed volunteers trying to build new habits, the average was sixty-six days, although it varied enormously from person to person.",
+          "start": 109.79,
+          "end": 126.83
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The same study had some encouraging news. Missing a single day made no real difference to whether the habit formed, so people don't need to give up after one slip. What did help was linking the new behavior to an existing habit. For example, someone who wants to floss their teeth might do it straight after brushing them, because brushing acts as the cue.",
+          "start": 127.18,
+          "end": 147.43
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Breaking a bad habit is harder. Willpower alone rarely works, because the habit is triggered automatically. A more effective approach is to change the environment where the habit happens. People who move house, for example, often find it easier to give up smoking, because the old cues are gone.",
+          "start": 147.78,
+          "end": 165.29
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Another strategy is to add friction, that is, to make the unwanted behavior less convenient. Putting your phone in another room at night is a simple example. Even a few extra seconds of effort can be enough to break the automatic chain.",
+          "start": 165.64,
+          "end": 180.02
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, we shouldn't forget that habits are social. Studies have found that people are more likely to take up exercise, or to give up smoking, if others in their social network do the same. So one of the best ways to change a habit may be to change who we spend our time with.",
+          "start": 180.37,
+          "end": 196.37
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 197.27,
+          "end": 201.66
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 231.66,
+          "end": 234.37
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "How habits work",
+          "content": [
+            "## What is a habit?",
+            "• Behaviour performed automatically in response to a {{31}}",
+            "• About {{32}}% of daily actions are habits",
+            "## The habit loop",
+            "• cue → routine → {{33}}",
+            "• Activity moves to the basal {{34}} in the brain",
+            "## Forming habits",
+            "• Average time in the London study: {{35}} days",
+            "• Missing one {{36}} makes little difference",
+            "• Link the new behaviour to an existing {{37}}",
+            "## Breaking habits",
+            "• Change the {{38}} where the habit happens",
+            "• Add {{39}} to make the behaviour less convenient",
+            "• People are influenced by others in their social {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "cue"
+              ],
+              "explanation": "A habit is ‘performed automatically in response to a cue’.",
+              "cue": "performed automatically in response to a cue"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "43",
+                "forty-three"
+              ],
+              "explanation": "‘Forty-three per cent of their daily actions were habits.’",
+              "cue": "forty-three per cent of their daily actions"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "reward"
+              ],
+              "explanation": "‘And finally there's the reward.’",
+              "cue": "And finally there's the reward"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "ganglia"
+              ],
+              "explanation": "Activity moves ‘towards a deeper structure called the basal ganglia’.",
+              "cue": "a deeper structure called the basal ganglia"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "66",
+                "sixty-six"
+              ],
+              "explanation": "Not twenty-one days: ‘the average was sixty-six days’.",
+              "cue": "the average was sixty-six days"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "day"
+              ],
+              "explanation": "‘Missing a single day made no real difference.’",
+              "cue": "Missing a single day made no real difference"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "habit"
+              ],
+              "explanation": "‘What did help was linking the new behavior to an existing habit.’",
+              "cue": "linking the new behavior to an existing habit"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "environment"
+              ],
+              "explanation": "‘A more effective approach is to change the environment where the habit happens.’",
+              "cue": "change the environment where the habit happens"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "friction"
+              ],
+              "explanation": "‘Another strategy is to add friction.’",
+              "cue": "Another strategy is to add friction"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "network"
+              ],
+              "explanation": "People change ‘if others in their social network do the same’.",
+              "cue": "others in their social network"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-14/part4.mp3",
+        "duration": 235.17
+      }
+    }
+  ],
+  "durationMinutes": 17
+}

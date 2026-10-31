@@ -8,7 +8,8 @@ Choose which tests of one module are free, and number the module's tests in that
 
 What it does, for the module's files in content/<module>/:
   * the tests you list become free ("access": "free") and come first, in the order you give;
-  * every other test becomes "premium" and follows, in its current order;
+  * every other test becomes "premium" and follows, in its current order (the site shows "premium" tests as
+    "Coming soon…" until COMMERCE_ENABLED is on; the launch keeps five tests free per module);
   * `sortOrder` is renumbered 1, 2, 3 ... in that order, and a trailing number in `title` and
     `shortTitle` ("Academic Reading Practice Test 12") is renumbered to match, so the list page
     ("Test 5") and the exam screen agree. Ids never change: attempts and payments refer to them.

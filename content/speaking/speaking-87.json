@@ -1,0 +1,268 @@
+{
+  "id": "speaking-87",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 87",
+  "shortTitle": "Practice Test 87",
+  "durationMinutes": 14,
+  "sortOrder": 87,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-87/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-87/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Bridges",
+        "Supermarkets"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where did you grow up?",
+          "say": "Good morning. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where did you grow up?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-1.mp3",
+            "duration": 15.45
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "Is it expensive to live in your hometown?",
+          "say": "Is it expensive to live in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-2.mp3",
+            "duration": 3.21
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Has the population of your hometown changed recently?",
+          "say": "Has the population of your hometown changed recently?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-3.mp3",
+            "duration": 3.91
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "What is there for young people to do there?",
+          "say": "What is there for young people to do there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-4.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Bridges",
+          "text": "Are there any bridges in your town?",
+          "say": "Now let's move on to talk about bridges. Are there any bridges in your town?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-5.mp3",
+            "duration": 5.99
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Bridges",
+          "text": "Do you like walking across bridges?",
+          "say": "Do you like walking across bridges?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-6.mp3",
+            "duration": 2.85
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Bridges",
+          "text": "Is there a famous bridge in your country?",
+          "say": "Is there a famous bridge in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-7.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Supermarkets",
+          "text": "How often do you go to the supermarket?",
+          "say": "Now let's move on to talk about supermarkets. How often do you go to the supermarket?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-8.mp3",
+            "duration": 6.33
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Supermarkets",
+          "text": "Do you write a shopping list first?",
+          "say": "Do you write a shopping list first?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-9.mp3",
+            "duration": 2.76
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Supermarkets",
+          "text": "Do you prefer supermarkets or small shops?",
+          "say": "Do you prefer supermarkets or small shops?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p1-10.mp3",
+            "duration": 3.29
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a toy you liked when you were a child.",
+        "points": [
+          "what the toy was",
+          "who gave it to you",
+          "how you played with it"
+        ],
+        "explain": "and explain why you liked this toy."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a toy you liked when you were a child.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a toy you liked when you were a child. You should say: what the toy was; who gave it to you; how you played with it; and explain why you liked this toy.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-87/p2-talk.mp3",
+            "duration": 24.85
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you still have this toy?",
+          "say": "Thank you. Do you still have this toy?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-87/p2-follow.mp3",
+            "duration": 2.85
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Toys and play",
+        "Play and technology"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Toys and play",
+          "text": "What can children learn from playing with toys?",
+          "say": "Thank you. We've been talking about a toy you liked when you were a child, and I'd like to discuss with you some more general questions related to this. Let's consider first of all toys and play. What can children learn from playing with toys?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-87/p3-1.mp3",
+            "duration": 15.37
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Toys and play",
+          "text": "Are expensive toys better for children than cheap ones?",
+          "say": "Are expensive toys better for children than cheap ones?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-87/p3-2.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Toys and play",
+          "text": "Should boys and girls play with the same kinds of toys?",
+          "say": "Should boys and girls play with the same kinds of toys?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-87/p3-3.mp3",
+            "duration": 3.87
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Play and technology",
+          "text": "How have children's games changed since you were young?",
+          "say": "Now let's talk about play and technology. How have children's games changed since you were young?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-87/p3-4.mp3",
+            "duration": 6.59
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Play and technology",
+          "text": "Is it better for children to play outside or with electronic games?",
+          "say": "Is it better for children to play outside or with electronic games?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-87/p3-5.mp3",
+            "duration": 4.68
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Play and technology",
+          "text": "Do children today have less freedom to play outside than in the past?",
+          "say": "Do children today have less freedom to play outside than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-87/p3-6.mp3",
+            "duration": 4.57
+          }
+        }
+      ]
+    }
+  ]
+}

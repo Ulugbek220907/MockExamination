@@ -8,6 +8,10 @@ services:
     plan: free
     branch: main
     autoDeploy: true
+    # The social poster (social-poster/) is a separate service: changes there do not redeploy the website.
+    buildFilter:
+      ignoredPaths:
+        - social-poster/**
     buildCommand: pip install -r requirements.txt
     startCommand: python server.py
     healthCheckPath: /api/health
@@ -16,8 +20,13 @@ services:
         value: 3.11.9
       - key: SITE_NAME
         value: TestDay
-      - key: ANTHROPIC_MODEL
-        value: claude-sonnet-5-5
+      # Launch setting: five free tests per module, the rest "Coming soon…", no prices, pass, refunds or
+      # examiner checks. Set to 1 when the site starts selling.
+      - key: COMMERCE_ENABLED
+        value: "0"
+      # The AI examiner (Writing marking and Speaking with the AI examiner), through OpenRouter.
+      - key: AI_MODEL
+        value: google/gemini-3.8-flash
       - key: AI_PER_IP_PER_HOUR
         value: "6"
       - key: AI_DAILY_LIMIT
@@ -31,7 +40,7 @@ services:
         sync: false
       - key: SUPABASE_APP_SECRET
         sync: false
-      - key: ANTHROPIC_API_KEY
+      - key: OPENROUTER_API_KEY
         sync: false
       - key: CONTACT_EMAIL
         sync: false

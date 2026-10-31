@@ -35,7 +35,8 @@
       "title": "Introduction and interview",
       "topics": [
         "Work or studies",
-        "Music"
+        "Music",
+        "Bookshops"
       ],
       "questions": [
         {
@@ -124,6 +125,28 @@
           "audio": {
             "src": "audio/speaking-02/p1-8.mp3",
             "duration": 3.0
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Bookshops",
+          "text": "Do you often go to bookshops?",
+          "say": "Now let's move on to talk about bookshops. Do you often go to bookshops?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-9.mp3",
+            "duration": 5.27
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Bookshops",
+          "text": "Do you prefer buying books in a shop or online?",
+          "say": "Do you prefer buying books in a shop or online?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-02/p1-10.mp3",
+            "duration": 3.42
           }
         }
       ]

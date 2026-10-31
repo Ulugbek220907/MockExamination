@@ -360,13 +360,15 @@
             <div class="speak-count" id="sp-count"></div>
           </div>
           <div class="speak-examiner" id="sp-examiner">
-            <div class="speak-avatar" aria-hidden="true">${esc((ex.name || "E")[0])}</div>
+            <div class="speak-avatar" id="sp-avatar" aria-hidden="true">${esc((ex.name || "E")[0])}</div>
             <div class="speak-examiner-name"><strong>${esc(ex.name || "Examiner")}</strong><span id="sp-examiner-state">Examiner</span></div>
           </div>
           <div class="speak-question" id="sp-question"></div>
           <div class="speak-panel" id="sp-panel" aria-live="polite"></div>
           <div class="speak-saving" id="sp-saving"></div>
         </div>`;
+      // The examiner bot (ai-examiner.js) instead of a letter, when it has loaded.
+      if (window.AiExaminer) this.face = new AiExaminer.ExaminerFace($("sp-avatar"), ex, { mini: true });
       this.renderPartTabs();
       this.run();
     }
@@ -416,7 +418,7 @@
     renderPartTabs() {
       const cur = this.steps[Math.min(this.step, this.steps.length - 1)].part.partNumber;
       $("exam-part-tabs").innerHTML = this.test.parts.map((p) => `
-        <span class="part-tab-btn speak-part-tab ${p.partNumber === cur ? "active" : ""} ${p.partNumber < cur ? "is-done" : ""}">Part ${p.partNumber}</span>`).join("");
+        <span class="part-tab-btn speak-part-tab ${p.partNumber === cur ? "active" : ""} ${p.partNumber < cur ? "is-done" : ""}"><span class="part-word">Part </span>${p.partNumber}</span>`).join("");
     }
 
     /* Cancellable waiting ---------------------------------------------------- */
@@ -453,6 +455,7 @@
     setExaminer(state) {
       $("sp-examiner").classList.toggle("is-speaking", state === "speaking");
       $("sp-examiner-state").textContent = state === "speaking" ? "Speaking…" : "Examiner";
+      if (this.face) this.face.setState(state === "speaking" ? "speaking" : "idle");
     }
 
     showQuestion(step) {
@@ -626,6 +629,7 @@
       const notes = $("sp-notes");
       this.on(notes, "input", () => { this.notes = notes.value; this.saveProgressSoon(); });
       notes.focus();
+      if (this.face) this.face.setState("writing");
       let left = total;
       await this.wait((done) => {
         const t = setInterval(() => {
@@ -652,6 +656,10 @@
       for (;;) {
         const rec = new AnswerRecorder(this.stream, this.mime);
         rec.start();
+        if (this.face) {
+          this.face.listen = () => (this.meter ? this.meter.level : 0);
+          this.face.setState("listening");
+        }
         this.panel(`
           <div class="speak-rec">
             <div class="speak-rec-head"><span class="audio-live-dot" aria-hidden="true"></span><strong>Recording – speak now</strong>
@@ -687,6 +695,7 @@
           return () => { clearInterval(t); stop.removeEventListener("click", done); this.stopCurrent = null; };
         }).catch((err) => { rec.stop(); throw err; });
         const { blob, seconds } = await rec.stop();
+        if (this.face) this.face.setState("idle");
         if (this.mode !== "practice" || this.endingEarly) {
           this.uploader.add(q.key, blob, seconds);
           return;
@@ -829,6 +838,7 @@
       this.player.pause();
       this.player.removeAttribute("src");
       if (this.meter) this.meter.stop();
+      if (this.face) this.face.destroy();
       stopStream(this.stream);
       $("exam-screen").classList.remove("speaking-mode");
       $("btn-prev-q").hidden = false;
@@ -920,7 +930,8 @@
           <ol class="speak-answer-list">
             ${p.questions.map((q) => `
               <li><p class="speak-answer-q">${q.type === "long_turn" ? "<strong>Long turn</strong> (up to 2 minutes)" : esc(q.text)}</p>
-                ${recordingHTML(q.recording)}</li>`).join("")}
+                ${recordingHTML(q.recording)}
+                ${opts.ai && opts.ai[q.key] && window.AiExaminer ? AiExaminer.answerExtrasHTML(opts.ai[q.key]) : ""}</li>`).join("")}
           </ol>
         </div>
       </details>`).join("");
@@ -964,14 +975,18 @@
         ${err.status === 401 ? `<button type="button" class="btn-primary" data-action="signin">${tr("Sign in")}</button>` : ""}</section>`;
       return;
     }
-    const b = await Account.billing().catch(() => ({ prices: {} }));
+    const review = sub.aiReview;
+    const aiAnswers = review && review.status === "done"
+      ? Object.fromEntries((review.answers || []).map((a) => [a.key, a])) : null;
+    const shop = Account.commerce();
+    const b = shop ? await Account.billing().catch(() => ({ prices: {} })) : { prices: {} };
     const check = sub.check;
     const offer = check
       ? `<div class="notice ${check.status === "completed" ? "notice-success" : "notice-info"}">
           <strong>${check.status === "completed" ? tr("Your examiner's band: {band}", { band: IeltsScoring.formatBand(check.overallBand) }) : tr("An examiner is marking this test.")}</strong>
           <span>${check.status === "completed" ? tr("See the feedback on every criterion.") : tr("Most checks are finished within 48 hours.")}
             <a href="#/check/${check.id}">${tr("Open the check")}</a></span></div>`
-      : sub.recordingsDeleted ? "" : `
+      : sub.recordingsDeleted || !shop ? "" : `
         <div class="examiner-offer speak-offer">
           <div>
             <h2>${tr("Get your Speaking band from an examiner")}</h2>
@@ -989,20 +1004,22 @@
             <div>
               <h1>${esc(sub.title)}</h1>
               <p class="muted-text">${esc(U.formatDate(sub.completedAt || sub.createdAt))} · ${esc(tr("{n} of {total} questions answered", { n: sub.answered, total: sub.totalQuestions }))}
-                ${sub.timeSpentSeconds ? ` · ${esc(U.formatDuration(sub.timeSpentSeconds))}` : ""}${sub.mode === "practice" ? ` · ${tr("practice")}` : ""}</p>
+                ${sub.timeSpentSeconds ? ` · ${esc(U.formatDuration(sub.timeSpentSeconds))}` : ""}${sub.mode === "practice" ? ` · ${tr("practice")}` : sub.mode === "ai" ? ` · ${tr("with the AI examiner")}` : ""}</p>
             </div>
           </div>
-          <div class="results-actions"><button type="button" class="btn-secondary" data-action="start" data-test="${esc(sub.testId)}" data-mode="${sub.mode === "practice" ? "practice" : "exam"}">${tr("Take it again")}</button></div>
+          <div class="results-actions"><button type="button" class="btn-secondary" data-action="start" data-test="${esc(sub.testId)}" data-mode="${["practice", "ai"].includes(sub.mode) ? sub.mode : "exam"}">${tr("Take it again")}</button></div>
         </div>
         ${sub.status !== "completed" ? `<div class="notice notice-warn"><strong>${tr("This test was not finished.")}</strong><span>${tr("You can listen to the answers you recorded.")}</span></div>` : ""}
+        <div id="ai-review"></div>
         ${offer}
         ${window.app ? window.app.nextStopHTML("speaking", sub.testId, null) : ""}
         <h2 class="section-title">${tr("Listen to your answers")}</h2>
         <p class="muted-text section-sub">${check ? tr("Only you and your examiner can play these recordings. They are kept for {days} days.", { days: sub.keepDays })
           : tr("Only you can play these recordings. They are kept for {days} days.", { days: sub.keepDays })}</p>
-        ${submissionHTML(sub, { open: true })}
-        ${selfCheckHTML()}
+        ${submissionHTML(sub, { open: true, ai: aiAnswers })}
+        ${review && review.status === "done" ? "" : selfCheckHTML()}
       </section>`;
+    if (review && window.AiExaminer) AiExaminer.mountReview(main.querySelector("#ai-review"), sub, () => renderResult(main, id));
   }
 
   /** The examiner's marking form for a Speaking check (four criteria, like the public descriptors). */
@@ -1093,5 +1110,7 @@
   window.SpeakingExam = SpeakingExam;
   window.Speaking = {
     CRITERIA, bindMicCheck, renderResult, submissionHTML, resultHTML, markForm, fixWebmDuration, micSupported,
+    // For the AI examiner (ai-examiner.js), which builds on this test.
+    CANCELLED, Uploader, openMic, stopStream, micErrorMessage,
   };
 })();

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-96",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 96",
+  "shortTitle": "Practice Test 96",
+  "durationMinutes": 14,
+  "sortOrder": 96,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Isabella",
+    "voice": "bf_isabella",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-96/p2-start.mp3",
+        "duration": 9.82
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-96/end.mp3",
+        "duration": 3.29
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Visiting relatives",
+        "Doing nothing"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where is your hometown?",
+          "say": "Good morning. My name is Isabella, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-1.mp3",
+            "duration": 15.25
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "Has the population of your hometown changed recently?",
+          "say": "Has the population of your hometown changed recently?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-2.mp3",
+            "duration": 3.81
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is there anything you dislike about it?",
+          "say": "Is there anything you dislike about it?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-3.mp3",
+            "duration": 3.02
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Is your hometown well known in your country? Why?",
+          "say": "Is your hometown well known in your country? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-4.mp3",
+            "duration": 4.39
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Visiting relatives",
+          "text": "How often do you visit your relatives?",
+          "say": "Now let's move on to talk about visiting relatives. How often do you visit your relatives?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-5.mp3",
+            "duration": 6.14
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Visiting relatives",
+          "text": "Which of your relatives do you see most often?",
+          "say": "Which of your relatives do you see most often?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-6.mp3",
+            "duration": 3.06
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Visiting relatives",
+          "text": "Do you prefer visiting relatives or having them visit you?",
+          "say": "Do you prefer visiting relatives or having them visit you?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-7.mp3",
+            "duration": 3.74
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Doing nothing",
+          "text": "Do you ever spend a day doing nothing?",
+          "say": "Now let's move on to talk about doing nothing. Do you ever spend a day doing nothing?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-8.mp3",
+            "duration": 5.61
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Doing nothing",
+          "text": "How do you feel when you have nothing to do?",
+          "say": "How do you feel when you have nothing to do?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-9.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Doing nothing",
+          "text": "Do you think people today are too busy to do nothing?",
+          "say": "Do you think people today are too busy to do nothing?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p1-10.mp3",
+            "duration": 3.4
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a hobby you would like to take up.",
+        "points": [
+          "what the hobby is",
+          "how you found out about it",
+          "what you would need to start it"
+        ],
+        "explain": "and explain why you would like to take up this hobby."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a hobby you would like to take up.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a hobby you would like to take up. You should say: what the hobby is; how you found out about it; what you would need to start it; and explain why you would like to take up this hobby.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-96/p2-talk.mp3",
+            "duration": 25.13
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think you will start this hobby soon?",
+          "say": "Thank you. Do you think you will start this hobby soon?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-96/p2-follow.mp3",
+            "duration": 3.27
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Hobbies",
+        "Leisure time"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Hobbies",
+          "text": "Why is it important for people to have hobbies?",
+          "say": "Thank you. We've been talking about a hobby you would like to take up, and I'd like to discuss with you some more general questions related to this. Let's consider first of all hobbies. Why is it important for people to have hobbies?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-96/p3-1.mp3",
+            "duration": 13.77
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Hobbies",
+          "text": "Do men and women usually have different hobbies?",
+          "say": "Do men and women usually have different hobbies?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-96/p3-2.mp3",
+            "duration": 3.21
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Hobbies",
+          "text": "Can a hobby become a good job?",
+          "say": "Can a hobby become a good job?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-96/p3-3.mp3",
+            "duration": 2.63
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Leisure time",
+          "text": "Do people in your country have enough leisure time?",
+          "say": "Now let's talk about leisure time. Do people in your country have enough leisure time?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-96/p3-4.mp3",
+            "duration": 5.84
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Leisure time",
+          "text": "How has technology changed the way people spend their leisure time?",
+          "say": "How has technology changed the way people spend their leisure time?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-96/p3-5.mp3",
+            "duration": 4.13
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Leisure time",
+          "text": "Should companies give their workers more holidays?",
+          "say": "Should companies give their workers more holidays?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-96/p3-6.mp3",
+            "duration": 3.32
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-78",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 78",
+  "shortTitle": "Practice Test 78",
+  "durationMinutes": 14,
+  "sortOrder": 78,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-78/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-78/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Hiking",
+        "Pens and pencils"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where are you from?",
+          "say": "Good morning. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where are you from?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-1.mp3",
+            "duration": 13.78
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What would you show a visitor in your hometown?",
+          "say": "What would you show a visitor in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-2.mp3",
+            "duration": 2.76
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is it expensive to live in your hometown?",
+          "say": "Is it expensive to live in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-3.mp3",
+            "duration": 2.85
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "What do you like most about your hometown?",
+          "say": "What do you like most about your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-4.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Hiking",
+          "text": "Have you ever been hiking?",
+          "say": "Now let's move on to talk about hiking. Have you ever been hiking?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-5.mp3",
+            "duration": 4.67
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Hiking",
+          "text": "Where do people go hiking in your country?",
+          "say": "Where do people go hiking in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-6.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Hiking",
+          "text": "Would you like to go hiking more often?",
+          "say": "Would you like to go hiking more often?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-7.mp3",
+            "duration": 2.59
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Pens and pencils",
+          "text": "Do you prefer to write with a pen or a pencil?",
+          "say": "Now let's move on to talk about pens and pencils. Do you prefer to write with a pen or a pencil?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-8.mp3",
+            "duration": 6.16
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Pens and pencils",
+          "text": "Do you always carry a pen with you?",
+          "say": "Do you always carry a pen with you?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-9.mp3",
+            "duration": 2.29
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Pens and pencils",
+          "text": "Have you ever been given a special pen?",
+          "say": "Have you ever been given a special pen?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p1-10.mp3",
+            "duration": 2.63
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you saved money for something.",
+        "points": [
+          "what you saved for",
+          "how long it took you",
+          "how you saved the money"
+        ],
+        "explain": "and explain how you felt when you finally had enough money."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you saved money for something.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you saved money for something. You should say: what you saved for; how long it took you; how you saved the money; and explain how you felt when you finally had enough money.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-78/p2-talk.mp3",
+            "duration": 24.9
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Are you good at saving money now?",
+          "say": "Thank you. Are you good at saving money now?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-78/p2-follow.mp3",
+            "duration": 2.76
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Saving money",
+        "Money and young people"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Saving money",
+          "text": "Why do some people find it hard to save money?",
+          "say": "Thank you. We've been talking about a time when you saved money for something, and I'd like to discuss with you some more general questions related to this. Let's consider first of all saving money. Why do some people find it hard to save money?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-78/p3-1.mp3",
+            "duration": 13.91
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Saving money",
+          "text": "Should parents give their children pocket money? Why or why not?",
+          "say": "Should parents give their children pocket money? Why or why not?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-78/p3-2.mp3",
+            "duration": 4.75
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Saving money",
+          "text": "Is it better to save money or to enjoy it while you are young?",
+          "say": "Is it better to save money or to enjoy it while you are young?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-78/p3-3.mp3",
+            "duration": 3.66
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Money and young people",
+          "text": "Should schools teach students how to manage money?",
+          "say": "Now let's talk about money and young people. Should schools teach students how to manage money?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-78/p3-4.mp3",
+            "duration": 5.82
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Money and young people",
+          "text": "Why do some young people get into debt?",
+          "say": "Why do some young people get into debt?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-78/p3-5.mp3",
+            "duration": 2.63
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Money and young people",
+          "text": "How has online shopping changed the way young people spend money?",
+          "say": "How has online shopping changed the way young people spend money?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-78/p3-6.mp3",
+            "duration": 3.89
+          }
+        }
+      ]
+    }
+  ]
+}

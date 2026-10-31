@@ -1,0 +1,6 @@
+# The TestDay social poster: a small web service that posts once a day.
+tornado>=6.4          # web server, admin page, scheduler
+requests>=2.32        # calls to the platforms' APIs
+Pillow>=10.4          # draws the post card and the video scenes
+imageio-ffmpeg>=0.5.1 # ships an ffmpeg binary, so no system package is needed to make the video
+tzdata                # time zones (the posting time is in Tashkent time by default)

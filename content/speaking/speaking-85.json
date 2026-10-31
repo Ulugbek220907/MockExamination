@@ -1,0 +1,268 @@
+{
+  "id": "speaking-85",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 85",
+  "shortTitle": "Practice Test 85",
+  "durationMinutes": 14,
+  "sortOrder": 85,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-85/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-85/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Meeting new people",
+        "Musical instruments"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Are you working or studying at the moment?",
+          "say": "Good afternoon. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about what you do. Are you working or studying at the moment?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-1.mp3",
+            "duration": 14.74
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "Do you use English in your work or studies?",
+          "say": "Do you use English in your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-2.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "Do you have enough free time with your work or studies?",
+          "say": "Do you have enough free time with your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-3.mp3",
+            "duration": 3.19
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "How many hours a day do you usually spend working or studying?",
+          "say": "How many hours a day do you usually spend working or studying?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-4.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Meeting new people",
+          "text": "Do you like meeting new people?",
+          "say": "Now let's move on to talk about meeting new people. Do you like meeting new people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-5.mp3",
+            "duration": 5.35
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Meeting new people",
+          "text": "Where do you usually meet new people?",
+          "say": "Where do you usually meet new people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-6.mp3",
+            "duration": 2.48
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Meeting new people",
+          "text": "Is it easy for you to remember people's names?",
+          "say": "Is it easy for you to remember people's names?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-7.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Musical instruments",
+          "text": "Can you play a musical instrument?",
+          "say": "Now let's move on to talk about musical instruments. Can you play a musical instrument?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-8.mp3",
+            "duration": 5.52
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Musical instruments",
+          "text": "Which instrument would you like to learn?",
+          "say": "Which instrument would you like to learn?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-9.mp3",
+            "duration": 2.57
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Musical instruments",
+          "text": "Do many children in your country learn an instrument?",
+          "say": "Do many children in your country learn an instrument?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p1-10.mp3",
+            "duration": 3.12
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe something expensive that you would like to own.",
+        "points": [
+          "what it is",
+          "how much it costs",
+          "where you could buy it"
+        ],
+        "explain": "and explain why you would like to own it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe something expensive that you would like to own.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe something expensive that you would like to own. You should say: what it is; how much it costs; where you could buy it; and explain why you would like to own it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-85/p2-talk.mp3",
+            "duration": 23.45
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think you will buy it one day?",
+          "say": "Thank you. Do you think you will buy it one day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-85/p2-follow.mp3",
+            "duration": 2.76
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Expensive things",
+        "Luxury and consumerism"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Expensive things",
+          "text": "Why do some people buy expensive brands?",
+          "say": "Thank you. We've been talking about something expensive that you would like to own, and I'd like to discuss with you some more general questions related to this. Let's consider first of all expensive things. Why do some people buy expensive brands?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-85/p3-1.mp3",
+            "duration": 14.43
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Expensive things",
+          "text": "Are expensive products always better than cheap ones?",
+          "say": "Are expensive products always better than cheap ones?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-85/p3-2.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Expensive things",
+          "text": "Do people in your country show their wealth by what they buy?",
+          "say": "Do people in your country show their wealth by what they buy?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-85/p3-3.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Luxury and consumerism",
+          "text": "Do people today buy more than they really need?",
+          "say": "Now let's talk about luxury and consumerism. Do people today buy more than they really need?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-85/p3-4.mp3",
+            "duration": 6.14
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Luxury and consumerism",
+          "text": "How does advertising encourage people to buy things they don't need?",
+          "say": "How does advertising encourage people to buy things they don't need?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-85/p3-5.mp3",
+            "duration": 4.08
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Luxury and consumerism",
+          "text": "Will people buy fewer things in the future to protect the environment?",
+          "say": "Will people buy fewer things in the future to protect the environment?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-85/p3-6.mp3",
+            "duration": 4.3
+          }
+        }
+      ]
+    }
+  ]
+}

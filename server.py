@@ -27,6 +27,7 @@ Configuration is entirely through environment variables – see .env.example.
 
 import asyncio
 import collections
+import concurrent.futures
 import datetime
 import hashlib
 import hmac
@@ -65,7 +66,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, analytics, api, auth, billing, content, content_sync, notify, pool, practice, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, ai, analytics, api, auth, billing, content, content_sync, notify, pool, practice, scoring, speaking, speaking_ai, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -334,8 +335,13 @@ async def catalog():
 
 async def allowed_to_open(test, profile):
     """(ok, error_status, error_code) for a signed-in (or anonymous) user and a test."""
-    if accounts.test_access(test) == "free":
+    access = accounts.test_access(test)
+    if access == "free":
         return True, None, None
+    if access == "soon":  # not open yet: only admins and examiners may preview it, and signing in does not help
+        if profile and accounts.profile_role(profile) in ("admin", "examiner"):
+            return True, None, None
+        return False, 403, "coming_soon"
     if not profile:
         return False, 401, "login_required"
     plan = await in_thread(PLAN_CACHE.get, STORE.db, profile["id"])
@@ -349,7 +355,8 @@ async def require_test_access(handler, test):
     profile = await handler.load_profile()
     ok, status, code = await allowed_to_open(test, profile)
     if not ok:
-        message = "Sign in to open this test." if code == "login_required" else "This test is part of the monthly plan."
+        message = {"login_required": "Sign in to open this test.",
+                   "coming_soon": "This test is coming soon."}.get(code, "This test is part of the monthly plan.")
         raise api.ApiError(status, message, code)
     return profile
 
@@ -372,11 +379,14 @@ class ConfigHandler(BaseHandler):
         self.send_json({
             "siteName": SITE_NAME,
             "aiMarking": writing.ai_configured(),
+            "aiSpeaking": speaking_ai.configured(),
+            "aiSpeakingPerDay": speaking_ai.PER_USER_PER_DAY,
             "contactEmail": CONTACT_EMAIL,
             "social": SOCIAL_LINKS,
             "storage": STORE.name,
             "auth": {"email": True, "google": await in_thread(AUTH.google_enabled), "dev": AUTH.name == "dev"},
             "speakingKeepDays": speaking.KEEP_DAYS,
+            "commerce": accounts.commerce_enabled(),
         })
 
 
@@ -517,7 +527,7 @@ class WritingSubmitHandler(BaseHandler):
                 else:
                     try:
                         async with AI_SEMAPHORE:
-                            assessment = await writing.assess_with_claude(test, responses, analyses)
+                            assessment = await writing.assess_with_ai(test, responses, analyses)
                         status = "complete"
                     except writing.AssessmentUnavailable as e:
                         status, message = "error", str(e)
@@ -736,7 +746,7 @@ class IndexHandler(BaseHandler):
     # Their hashed addresses go into the page as data for its loader.
     LAZY_ASSETS = (
         "css/cd-ielts.css", "js/highlighter.js", "js/charts.js", "js/exam.js", "js/results.js", "js/speaking.js",
-        "js/progress.js",
+        "js/ai-examiner.js", "js/pcm-worklet.js", "js/progress.js",
     )
     ASSET_SLOT = '<script type="application/json" id="asset-versions">{}</script>'
 
@@ -897,13 +907,22 @@ def main():
     server_max_body = max(MAX_BODY_BYTES, speaking.MAX_RECORDING_BYTES + 64 * 1024)
     app.listen(PORT, address="0.0.0.0", max_body_size=server_max_body)
     log.info("%s running on http://0.0.0.0:%d (storage=%s, sign-in=%s, AI marking=%s)",
-             SITE_NAME, PORT, STORE.name, AUTH.name, "on" if writing.ai_configured() else "off")
+             SITE_NAME, PORT, STORE.name, AUTH.name, f"on ({ai.model_name()})" if writing.ai_configured() else "off")
     log.info("Loaded %d reading, %d listening, %d writing and %d speaking tests",
              counts["reading"], counts["listening"], counts["writing"], counts["speaking"])
     if STORE.name == "supabase" and os.environ.get("DB_KEEP_WARM", "1") != "0":
         # The database is far away: keep a few connections open so no visitor waits for a handshake.
         pool.keep_warm(STORE.db.ping_request)
     loop = tornado.ioloop.IOLoop.current()
+    # Every database call waits a long round trip in a thread: allow many at once, so one
+    # visitor's slow request never queues behind another's (the default is only a handful).
+    asyncio.get_event_loop().set_default_executor(
+        concurrent.futures.ThreadPoolExecutor(max_workers=int(os.environ.get("WORKER_THREADS", "48")), thread_name_prefix="io"))
+    threading.Thread(target=AUTH.google_enabled, name="google-settings", daemon=True).start()  # warm it up
+    if STORE.name == "supabase" and os.environ.get("AUTO_PUBLISH_NEW_TESTS", "1") != "0":
+        # Tests added to content/ in this deploy go to Supabase; existing ones are never overwritten.
+        threading.Thread(target=lambda: log.info("New tests: %s", content_sync.start(STORE, only_new=True)["message"]),
+                         name="publish-new-tests", daemon=True).start()
     loop.call_later(60, clean_up_recordings)
     tornado.ioloop.PeriodicCallback(clean_up_recordings, 6 * 3600 * 1000).start()
     loop.call_later(120, send_plan_reminders)

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-48",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 48",
+  "shortTitle": "Practice Test 48",
+  "durationMinutes": 14,
+  "sortOrder": 48,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lewis",
+    "voice": "bm_lewis",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-48/p2-start.mp3",
+        "duration": 10.44
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-48/end.mp3",
+        "duration": 3.51
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Daydreaming",
+        "Boats"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where are you from?",
+          "say": "Good morning. My name is Lewis, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where are you from?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-1.mp3",
+            "duration": 15.38
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "Is your hometown a good place for tourists to visit?",
+          "say": "Is your hometown a good place for tourists to visit?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-2.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Do you go back to your hometown often?",
+          "say": "Do you go back to your hometown often?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-3.mp3",
+            "duration": 2.68
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Is there a special food from your hometown?",
+          "say": "Is there a special food from your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-4.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Daydreaming",
+          "text": "Do you often daydream?",
+          "say": "Now let's move on to talk about daydreaming. Do you often daydream?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-5.mp3",
+            "duration": 4.86
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Daydreaming",
+          "text": "What do you daydream about?",
+          "say": "What do you daydream about?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-6.mp3",
+            "duration": 2.19
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Daydreaming",
+          "text": "Do you think daydreaming is a waste of time?",
+          "say": "Do you think daydreaming is a waste of time?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-7.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Boats",
+          "text": "Have you ever travelled by boat?",
+          "say": "Now let's move on to talk about boats. Have you ever travelled by boat?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-8.mp3",
+            "duration": 5.12
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Boats",
+          "text": "Do you like being on the water?",
+          "say": "Do you like being on the water?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-9.mp3",
+            "duration": 2.23
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Boats",
+          "text": "Would you like to go on a long boat trip?",
+          "say": "Would you like to go on a long boat trip?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p1-10.mp3",
+            "duration": 2.72
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a small business in your area that you like.",
+        "points": [
+          "what kind of business it is",
+          "where it is",
+          "what it sells or does"
+        ],
+        "explain": "and explain why you like this business."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a small business in your area that you like.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a small business in your area that you like. You should say: what kind of business it is; where it is; what it sells or does; and explain why you like this business.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-48/p2-talk.mp3",
+            "duration": 27.5
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you know the people who run this business?",
+          "say": "Thank you. Do you know the people who run this business?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-48/p2-follow.mp3",
+            "duration": 3.42
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Small businesses",
+        "Big companies"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Small businesses",
+          "text": "Why do some people prefer to shop at small local businesses?",
+          "say": "Thank you. We've been talking about a small business in your area that you like, and I'd like to discuss with you some more general questions related to this. Let's consider first of all small businesses. Why do some people prefer to shop at small local businesses?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-48/p3-1.mp3",
+            "duration": 16.75
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Small businesses",
+          "text": "What problems do small businesses face today?",
+          "say": "What problems do small businesses face today?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-48/p3-2.mp3",
+            "duration": 3.47
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Small businesses",
+          "text": "How can local people support small businesses in their area?",
+          "say": "How can local people support small businesses in their area?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-48/p3-3.mp3",
+            "duration": 4.28
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Big companies",
+          "text": "What are the advantages of working for a large international company?",
+          "say": "Now let's talk about big companies. What are the advantages of working for a large international company?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-48/p3-4.mp3",
+            "duration": 6.93
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Big companies",
+          "text": "Do big companies have too much power nowadays?",
+          "say": "Do big companies have too much power nowadays?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-48/p3-5.mp3",
+            "duration": 3.49
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Big companies",
+          "text": "Should large companies pay for projects in the communities where they work?",
+          "say": "Should large companies pay for projects in the communities where they work?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-48/p3-6.mp3",
+            "duration": 4.81
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -27,7 +27,7 @@ import urllib.request
 
 # Reuse a connection only while it is fresh; servers close idle ones after a while.
 MAX_IDLE_SECONDS = 50
-MAX_IDLE_PER_HOST = 8
+MAX_IDLE_PER_HOST = 24
 
 _lock = threading.Lock()
 _idle = {}  # (scheme, netloc, timeout) -> [(connection, last used)], most recent last

@@ -1,0 +1,63 @@
+# TestDay social poster: a separate Render web service from the TestDay website.
+#
+# In Render: New + → Blueprint → pick this repository → set "Blueprint Path" to social-poster/render.yaml.
+# The service builds from the social-poster/ folder only, so the website is not rebuilt by changes here.
+#
+# It must stay awake to post on time, and it keeps its records on a disk, so it needs a paid instance
+# (Starter). A free instance sleeps after 15 minutes; see README.md for a workaround.
+services:
+  - type: web
+    name: testday-social
+    runtime: python
+    rootDir: social-poster
+    region: frankfurt
+    plan: starter
+    branch: main
+    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /healthz
+    disk:
+      name: social-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DATA_DIR
+        value: /var/data
+      - key: TIMEZONE
+        value: Asia/Tashkent
+      - key: POST_TIME
+        value: "10:00"
+      - key: SITE_URL
+        value: https://www.testday.uz
+      # Leave off until you have tried "Dry run" on every platform on the admin page.
+      - key: POSTING_ENABLED
+        value: "0"
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CRON_TOKEN
+        generateValue: true
+      # This service's own public address, e.g. https://testday-social.onrender.com (needed by Instagram, Threads and Connect).
+      - key: PUBLIC_URL
+        sync: false
+      # The apps you register with each platform (see README.md). Leave any you do not use empty.
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: TIKTOK_CLIENT_KEY
+        sync: false
+      - key: TIKTOK_CLIENT_SECRET
+        sync: false
+      - key: THREADS_APP_ID
+        sync: false
+      - key: THREADS_APP_SECRET
+        sync: false
+      - key: META_APP_ID
+        sync: false
+      - key: META_APP_SECRET
+        sync: false

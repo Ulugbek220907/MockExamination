@@ -1,0 +1,268 @@
+{
+  "id": "speaking-44",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 44",
+  "shortTitle": "Practice Test 44",
+  "durationMinutes": 14,
+  "sortOrder": 44,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-44/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-44/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Robots",
+        "Staying up late"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Who do you live with?",
+          "say": "Good evening. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Who do you live with?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-1.mp3",
+            "duration": 14.53
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What is the area around your home like?",
+          "say": "What is the area around your home like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-2.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Is your home a good place to study or work?",
+          "say": "Is your home a good place to study or work?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-3.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Is there a garden or a balcony where you live?",
+          "say": "Is there a garden or a balcony where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-4.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Robots",
+          "text": "Have you ever seen a robot?",
+          "say": "Now let's move on to talk about robots. Have you ever seen a robot?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-5.mp3",
+            "duration": 5.35
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Robots",
+          "text": "Would you like to have a robot at home?",
+          "say": "Would you like to have a robot at home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-6.mp3",
+            "duration": 2.7
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Robots",
+          "text": "Do you think robots will do more jobs in the future?",
+          "say": "Do you think robots will do more jobs in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-7.mp3",
+            "duration": 3.47
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Staying up late",
+          "text": "Do you often stay up late?",
+          "say": "Now let's move on to talk about staying up late. Do you often stay up late?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-8.mp3",
+            "duration": 5.44
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Staying up late",
+          "text": "What do you usually do when you stay up late?",
+          "say": "What do you usually do when you stay up late?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-9.mp3",
+            "duration": 3.0
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Staying up late",
+          "text": "Did your parents let you stay up late when you were a child?",
+          "say": "Did your parents let you stay up late when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p1-10.mp3",
+            "duration": 3.72
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a café or restaurant you like to go to.",
+        "points": [
+          "where it is",
+          "what kind of food or drink it serves",
+          "who you usually go there with"
+        ],
+        "explain": "and explain why you like going there."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a café or restaurant you like to go to.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a café or restaurant you like to go to. You should say: where it is; what kind of food or drink it serves; who you usually go there with; and explain why you like going there.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-44/p2-talk.mp3",
+            "duration": 25.2
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you recommend this place to a visitor to your town?",
+          "say": "Thank you. Would you recommend this place to a visitor to your town?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-44/p2-follow.mp3",
+            "duration": 4.13
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Eating out",
+        "Food trends"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Eating out",
+          "text": "Why do people choose to eat out rather than eat at home?",
+          "say": "Thank you. We've been talking about a café or restaurant you like to go to, and I'd like to discuss with you some more general questions related to this. Let's consider first of all eating out. Why do people choose to eat out rather than eat at home?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-44/p3-1.mp3",
+            "duration": 15.22
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Eating out",
+          "text": "Is eating out more popular now than it was in the past?",
+          "say": "Is eating out more popular now than it was in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-44/p3-2.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Eating out",
+          "text": "What makes a restaurant successful?",
+          "say": "What makes a restaurant successful?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-44/p3-3.mp3",
+            "duration": 2.57
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Food trends",
+          "text": "Why is food from other countries so popular in many cities?",
+          "say": "Now let's talk about food trends. Why is food from other countries so popular in many cities?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-44/p3-4.mp3",
+            "duration": 6.82
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Food trends",
+          "text": "Do you think social media has changed the way people choose where to eat?",
+          "say": "Do you think social media has changed the way people choose where to eat?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-44/p3-5.mp3",
+            "duration": 4.72
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Food trends",
+          "text": "How do you think people's eating habits will change in the future?",
+          "say": "How do you think people's eating habits will change in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-44/p3-6.mp3",
+            "duration": 3.96
+          }
+        }
+      ]
+    }
+  ]
+}

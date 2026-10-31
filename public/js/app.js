@@ -20,7 +20,7 @@
   const CATALOG_PAGE = 24;
   // The test list and settings from the last visit (see init); bump the version when their shape changes.
   const BOOT_KEY = "testday:boot";
-  const BOOT_VERSION = 2;
+  const BOOT_VERSION = 3;
 
   // The four modules, in the order of the real test day.
   const MODULES = ["listening", "reading", "writing", "speaking"];
@@ -30,7 +30,7 @@
 
   class App {
     constructor() {
-      this.config = { siteName: "TestDay", aiMarking: false, contactEmail: SUPPORT_EMAIL };
+      this.config = { siteName: "TestDay", aiMarking: false, contactEmail: SUPPORT_EMAIL, commerce: false };
       this.tests = [];
       this.exam = null;
       this.pending = null;
@@ -111,8 +111,20 @@
       this.modules = data.modules || {};
       this.loadError = false;
       Account.setConfig(this.config);
+      this.applyCommerce();
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
       this.renderFooter();
+    }
+
+    /** True once the site sells the pass and examiner checks. Until then visitors only take tests and sign in. */
+    commerce() {
+      return Boolean(this.config.commerce);
+    }
+
+    /** Price, Examiners and Refunds links are in the page but hidden until commerce is on. */
+    applyCommerce() {
+      const on = this.commerce();
+      document.querySelectorAll("[data-commerce]").forEach((el) => { el.hidden = !on; });
     }
 
     /** The footer is the end of every page: the contact email, the social links the owner has set, and the year. */
@@ -179,6 +191,7 @@
       this.setNav(hash);
       const [path, query] = hash.slice(1).split("?");
       const params = new URLSearchParams(query || "");
+      if (!this.commerce() && /^\/(pricing|refunds|examiners?|check\/\d+)$/.test(path)) return location.replace("#/");
       const check = path.match(/^\/check\/(\d+)$/);
       const spoken = path.match(/^\/speaking\/(\d+)$/);
       window.scrollTo(0, 0);
@@ -285,6 +298,7 @@
     leadText() {
       if (!this.tests.length) return t("home.lead.empty");
       const free = this.tests.filter((x) => x.access === "free").length;
+      if (!this.commerce()) return t("home.lead.free", { free: esc(U.number(free)) });
       return t("home.lead", { total: esc(U.number(this.tests.length)), free: esc(U.number(free)) });
     }
 
@@ -300,11 +314,14 @@
     renderLedger() {
       const list = document.getElementById("ledger");
       if (!list) return;
-      const everything = Account.planActive() || ["admin", "examiner"].includes(Account.role());
+      const commerce = this.commerce();
+      const everything = commerce && (Account.planActive() || ["admin", "examiner"].includes(Account.role()));
       list.innerHTML = MODULES.map((module) => {
         const tests = this.testsOf(module);
         if (!tests.length) return "";
         const free = tests.filter((x) => x.access === "free").length;
+        const count = commerce ? plural(tests.length, "{n} test", "{n} tests") : plural(free, "{n} free test", "{n} free tests");
+        const rest = commerce ? (everything ? t("all open") : t("{n} free", { n: free })) : (free < tests.length ? t("more coming soon") : "");
         const label = MODULE_LABELS[module];
         const start = this.nextToStart(module);
         const taken = tests.some((x) => this.ridden[x.id]);
@@ -315,7 +332,7 @@
         return `
           <li class="ledger-row">
             <h3 class="ledger-name">${label}</h3>
-            <p class="ledger-facts"><a href="#/tests/${module}" aria-label="${esc(t("All {n} {module} tests", { n: tests.length, module: label }))}">${plural(tests.length, "{n} test", "{n} tests")}</a>, ${everything ? t("all open") : t("{n} free", { n: free })}<span class="fmt">${esc(this.formatOf(module))}</span></p>
+            <p class="ledger-facts"><a href="#/tests/${module}" aria-label="${esc(t("All {n} {module} tests", { n: tests.length, module: label }))}">${count}</a>${rest ? `, ${rest}` : ""}<span class="fmt">${esc(this.formatOf(module))}</span></p>
             <div class="ledger-act">${action}</div>
           </li>`;
       }).join("");
@@ -325,6 +342,8 @@
     renderFacts() {
       const box = document.getElementById("facts");
       if (!box) return;
+      box.hidden = !this.commerce();
+      if (!this.commerce()) { box.innerHTML = ""; return; }
       const reading = this.testsOf("reading")[0];
       const questions = reading ? reading.totalQuestions : 40;
       const minutes = reading ? reading.durationMinutes : 60;
@@ -346,7 +365,7 @@
     }
 
     async loadPrices() {
-      if (this.prices) return;
+      if (this.prices || !this.commerce()) return;
       try {
         const b = await Account.billing();
         this.prices = b.prices || null;
@@ -360,7 +379,8 @@
     }
 
     canOpen(t) {
-      return t.access === "free" || Account.planActive() || ["admin", "examiner"].includes(Account.role());
+      if (t.access === "free" || ["admin", "examiner"].includes(Account.role())) return true;
+      return t.access === "premium" && Account.planActive();
     }
 
     testsOf(module) {
@@ -385,19 +405,22 @@
             : t("{min} minutes · {q} questions", { min: test.durationMinutes, q: test.totalQuestions });
       const locked = !this.canOpen(test);
       const band = ride && ride.band !== null && ride.band !== undefined ? IeltsScoring.formatBand(ride.band) : "";
+      const soon = test.access === "soon";
       const tag = test.access === "free" ? `<span class="test-tag is-free">${t("Free")}</span>`
-        : !locked ? `<span class="test-tag">${t("In your pass")}</span>`
-          : `<span class="test-tag is-locked">${ICON_LOCK} ${t("Pass")}</span>`;
+        : soon ? `<span class="test-tag is-soon">${locked ? t("Coming soon…") : t("Not public yet")}</span>`
+          : !locked ? `<span class="test-tag">${t("In your pass")}</span>`
+            : `<span class="test-tag is-locked">${ICON_LOCK} ${t("Pass")}</span>`;
       const extra = [
         this.hasProgress(test.id) ? t("Unfinished attempt saved") : "",
         band ? t("Your last band: {band}", { band }) : "",
       ].filter(Boolean).join(" · ");
-      return { ride, items, meta, locked, band, tag, extra };
+      return { ride, items, meta, locked, soon: soon && locked, band, tag, extra };
     }
 
     /** The buttons of a test row. A locked test has one quiet action: the pass. */
     testActionsHTML(test, facts) {
       const name = `${MODULE_LABELS[test.module]}, ${this.testName(test)}`;
+      if (facts.soon) return "";
       if (facts.locked) {
         return `<button type="button" class="btn-link" data-action="buy-plan" aria-label="${esc(t("Get the pass to open {name}", { name }))}">${t("Get the pass")}</button>`;
       }
@@ -424,13 +447,14 @@
       document.title = `${title} – ${this.config.siteName}`;
       const done = tests.filter((x) => this.ridden[x.id]).length;
       const free = tests.filter((x) => x.access === "free").length;
-      const filters = [["all", t("All"), tests.length], ["free", t("Free"), free], ["open", t("Not taken yet"), tests.length - done], ["done", t("Taken"), done]];
+      const openable = tests.filter((x) => this.canOpen(x));
+      const filters = [["all", t("All"), tests.length], ["free", t("Free"), free], ["open", t("Not taken yet"), openable.filter((x) => !this.ridden[x.id]).length], ["done", t("Taken"), done]];
       this.main.innerHTML = `
         <section class="page catalog" aria-labelledby="catalog-title">
           <a class="back-link" href="#/">${ICON_BACK} ${t("Home")}</a>
           <div class="catalog-head">
             <h1 id="catalog-title">${esc(title)}</h1>
-            <p>${esc(t("catalog.sub", { format: this.formatOf(module), n: tests.length, free }))}</p>
+            <p>${esc(this.commerce() ? t("catalog.sub", { format: this.formatOf(module), n: tests.length, free }) : t("catalog.sub.free", { format: this.formatOf(module), free }))}</p>
           </div>
           <div class="catalog-tools">
             <div class="chip-row" role="group" aria-label="${esc(t("Show"))}">
@@ -464,7 +488,7 @@
       const words = st.q.toLowerCase().split(/\s+/).filter(Boolean);
       const list = this.testsOf(module).filter((test) => {
         const taken = Boolean(this.ridden[test.id]);
-        if ((st.filter === "open" && taken) || (st.filter === "done" && !taken) || (st.filter === "free" && test.access !== "free")) return false;
+        if ((st.filter === "open" && (taken || !this.canOpen(test))) || (st.filter === "done" && !taken) || (st.filter === "free" && test.access !== "free")) return false;
         if (!words.length) return true;
         const hay = [this.testName(test), ...this.testFacts(test).items.map(([, v]) => v)].join(" ").toLowerCase();
         return words.every((w) => hay.includes(w));
@@ -482,6 +506,17 @@
       const f = this.testFacts(test);
       const topics = f.items.map(([, v]) => v).filter(Boolean).join(" / ");
       const notes = [f.band ? t("Band {band}", { band: f.band }) : "", this.hasProgress(test.id) ? t("In progress") : ""].filter(Boolean);
+      // A test that is not open yet is shown blurred, with "Coming soon…" over it. The blurred text is hidden from
+      // screen readers, which hear the test's name and "Coming soon…" instead.
+      if (f.soon) {
+        return `
+        <li class="test-row is-soon">
+          <h2 class="test-row-name" aria-hidden="true">${esc(this.testName(test))}</h2>
+          <p class="test-row-topics" aria-hidden="true">${esc(topics)}</p>
+          <div class="test-row-tag" aria-hidden="true">${f.tag}</div>
+          <p class="soon-label"><span class="sr-only">${esc(this.testName(test))}: </span>${t("Coming soon…")}</p>
+        </li>`;
+      }
       return `
         <li class="test-row">
           <h2 class="test-row-name">${esc(this.testName(test))}${notes.map((n) => `<span class="test-row-band">${esc(n)}</span>`).join("")}</h2>
@@ -537,7 +572,8 @@
     }
 
     speakingHistoryCell(i) {
-      const band = i.bandScore !== null && i.bandScore !== undefined ? `<strong>${t("Band {band}", { band: IeltsScoring.formatBand(i.bandScore) })}</strong> ` : "";
+      const band = i.bandScore !== null && i.bandScore !== undefined ? `<strong>${t("Band {band}", { band: IeltsScoring.formatBand(i.bandScore) })}</strong> `
+        : i.aiBand !== null && i.aiBand !== undefined ? `<strong>${t("Band {band}", { band: IeltsScoring.formatBand(i.aiBand) })}</strong> <span class="muted-text">${t("(AI examiner)")}</span> ` : "";
       const status = i.checkStatus && i.checkStatus !== "completed" ? `<span class="muted-text">${t("Examiner marking")}</span> ` : "";
       return `${band}${status}<a href="#/speaking/${Number(i.id)}">${t("Listen ({n} answers)", { n: i.answered })}</a>`;
     }
@@ -623,6 +659,7 @@
       };
       try {
         const [test] = await Promise.all([U.api(`/api/tests/${encodeURIComponent(testId)}`), U.need("exam")]);
+        // A timed Speaking test is always with the examiner bot ("ai" in older links means the same).
         this.pending = { test, mode: mode === "practice" ? "practice" : "exam" };
         if (location.hash === "#/start") this.showVerification();
         else location.hash = "#/start";
@@ -645,6 +682,10 @@
           }
           return;
         }
+        if (err.status === 403) {
+          U.modal({ title: t("Coming soon…"), bodyHTML: `<p>${t("This test is not open yet. Try one of the free tests in the meantime.")}</p>` });
+          return;
+        }
         if (err.loadFailed) return; // U.need has already said so
         // A server answer carries its own message; with no answer at all it is the connection.
         const why = err.status ? err.message : t("Could not load this page. Check your connection and try again.");
@@ -664,6 +705,8 @@
       const { test, mode } = this.pending;
       const module = test.module;
       const timed = mode === "exam";
+      const withAi = module === "speaking" && timed; // the examiner bot
+      const rated = withAi && this.config.aiSpeaking; // ...that also gives a band
       const progress = U.store.get(`mockexam:progress:${test.id}`);
       const canResume = progress && progress.mode === mode;
       const checkMinutes = test.checkMinutes || 2;
@@ -682,7 +725,19 @@
           a.src = test.parts[0].questions[0].audio.src;
         } catch (e) {}
       }
-      const instructions = module === "speaking"
+      const perDay = Number(this.config.aiSpeakingPerDay) || 3;
+      const instructions = module === "speaking" && withAi
+        ? [
+          `You talk with the <strong>examiner</strong>, face to face on screen, as in the real test. The examiner asks every question out loud; you answer by speaking. Like a real examiner, it does not reply to your answers.`,
+          `<strong>Part 1:</strong> questions about familiar topics. <strong>Part 2:</strong> a topic card, <strong>1 minute</strong> to prepare and up to
+            <strong>2 minutes</strong> to speak. <strong>Part 3:</strong> a discussion of wider questions. The test takes <strong>11–14 minutes</strong>.`,
+          `Answer fully and naturally. When you stop talking for a few seconds the examiner moves on, so take a short breath to think if you need to, but do not stop for long. You may ask for a question to be repeated once.`,
+          rated
+            ? `At the end the AI examiner listens to your whole test: fluency, pauses and hesitation ("um", "er"), vocabulary, grammar and pronunciation. You get an <strong>estimated band</strong> for each official criterion, with feedback, in about a minute. You can have ${perDay} tests rated a day.`
+            : `Your answers are recorded and saved to your account, so you can listen to them afterwards.`,
+          `Use headphones in a quiet room, and test your microphone below.`,
+        ]
+        : module === "speaking"
         ? [
           `There are <strong>3 parts</strong> and the test takes <strong>11–14 minutes</strong>. The examiner asks the questions; your answers are recorded.`,
           `<strong>Part 1:</strong> questions about familiar topics. <strong>Part 2:</strong> a topic card, <strong>1 minute</strong> to prepare and up to
@@ -691,7 +746,7 @@
             ? `Recording starts automatically after each question and stops when the answer time is up. Press <strong>Finish answer</strong> when you have finished.`
             : `Practice mode shows each question, and lets you listen to your answer and record it again before you move on.`,
           `Use headphones in a quiet room, and test your microphone below.`,
-          `Only you can listen to your recordings, and an examiner if you order a check.`,
+          this.commerce() ? `Only you can listen to your recordings, and an examiner if you order a check.` : `Only you can listen to your recordings.`,
         ]
         : module === "listening"
         ? [
@@ -726,7 +781,7 @@
       card.innerHTML = `
         <div class="verification-header">
           <div class="vh-title">${["listening", "speaking"].includes(module) ? MODULE_LABELS[module] : `Academic ${MODULE_LABELS[module]}`}</div>
-          <span class="vh-mode">${timed ? "Timed test" : "Practice mode"}</span>
+          <span class="vh-mode">${rated ? "With the AI examiner" : timed ? "Timed test" : "Practice mode"}</span>
         </div>
         <form class="verification-body" id="verify-form">
           <h1 class="verify-title">${esc(test.title)}</h1>
@@ -814,7 +869,8 @@
       const summary = !test.practice && this.tests.find((x) => x.id === test.id);
       if (summary && summary.access === "free") U.track("free_test_started", { module: test.module, testId: test.id });
       this.showView("exam");
-      const Exam = { writing: WritingExam, listening: ListeningExam, speaking: SpeakingExam }[test.module] || ReadingExam;
+      const Exam = test.module === "speaking" && mode !== "practice" ? AiSpeakingExam
+        : { writing: WritingExam, listening: ListeningExam, speaking: SpeakingExam }[test.module] || ReadingExam;
       this.exam = new Exam({
         test, mode, saved,
         candidateName: name,
@@ -861,6 +917,7 @@
       if (r.module === "practice") return Results.renderPractice(r, this.main);
       await this.loadPrices();
       const extra = {
+        commerce: this.commerce(),
         next: this.nextStopHTML(r.module, r.testId, r.typeBreakdown),
         checkPrice: this.prices && this.prices.writing_check ? U.money(this.prices.writing_check) : "",
       };
@@ -875,8 +932,11 @@
         .sort(([, a], [, b]) => (a.correct / a.total - b.correct / b.total) || (b.total - a.total))[0];
       const tests = this.testsOf(module);
       const at = tests.findIndex((x) => x.id === testId);
-      const next = tests.slice(at + 1).concat(tests.slice(0, Math.max(at, 0))).find((x) => !this.ridden[x.id]);
-      if (!weak && !next) return "";
+      const commerce = this.commerce();
+      const others = tests.slice(at + 1).concat(tests.slice(0, Math.max(at, 0)));
+      const next = others.filter((x) => commerce || this.canOpen(x)).find((x) => !this.ridden[x.id]);
+      const waiting = !commerce && !next && others.some((x) => !this.canOpen(x));
+      if (!weak && !next && !waiting) return "";
       // Reading types can be practised on their own; the practice sets are Reading passages.
       const drill = weak && module === "reading" && this.testsOf("reading").length;
       const focus = weak ? `
@@ -899,6 +959,11 @@
             : `<p>${price ? t("next.locked", { price: `<strong>${esc(price)}</strong>` }) : t("next.locked.noprice")}</p>
               <div class="next-actions"><button type="button" class="btn-primary" data-action="buy-plan" data-track="next_test_pass">${t("Get the pass")}</button>
                 <a class="btn-secondary" href="#/pricing">${t("Price")}</a></div>`}
+        </div>` : waiting ? `
+        <div class="next-card">
+          <h3>${esc(MODULE_LABELS[module])}</h3>
+          <p>${t("soon.next", { module: esc(MODULE_LABELS[module]) })}</p>
+          <div class="next-actions"><a class="btn-secondary" href="#/tests/${module}">${t("All tests")}</a></div>
         </div>` : "";
       return `
         <section class="next-stop" aria-labelledby="next-stop-title">
@@ -981,39 +1046,41 @@
       const days = Number(this.config.speakingKeepDays) || 60;
       const p = this.prices || {};
       const price = (n) => (n ? esc(U.money(n)) : "…");
-      const section = (key, vars) => `<h2>${t(`${key}.h`, { name })}</h2><p>${t(key, { name, ...vars })}</p>`;
+      const commerce = this.commerce();
+      const v = (key) => (commerce ? key : `${key}.free`); // the wording for a site that sells nothing yet
+      const section = (key, vars, bodyKey = key) => `<h2>${t(`${key}.h`, { name })}</h2><p>${t(bodyKey, { name, ...vars })}</p>`;
       const pages = {
         terms: [t("Terms of use"), `
-          <p class="lead-text">${t("terms.lead", { name })}</p>
+          <p class="lead-text">${t(v("terms.lead"), { name })}</p>
           ${section("terms.service")}
-          ${section("terms.account")}
-          ${section("terms.pass", { price: price(p.plan) })}
+          ${section("terms.account", {}, v("terms.account"))}
+          ${commerce ? `${section("terms.pass", { price: price(p.plan) })}
           ${section("terms.checks", { writing: price(p.writing_check), speaking: price(p.speaking_check) })}
           ${section("terms.payment")}
-          ${section("terms.refunds")}
-          ${section("terms.use")}
-          ${section("terms.work", { days })}
-          ${section("terms.availability")}
-          ${section("terms.liability")}
+          ${section("terms.refunds")}` : ""}
+          ${section("terms.use", {}, v("terms.use"))}
+          ${section("terms.work", { days }, v("terms.work"))}
+          ${section("terms.availability", {}, v("terms.availability"))}
+          ${section("terms.liability", {}, v("terms.liability"))}
           ${section("terms.law")}`],
         privacy: [t("Privacy policy"), `
           <p class="lead-text">${t("privacy.lead", { name })}</p>
           <h2>${t("privacy.collect.h")}</h2>
           <ul>
             <li>${t("about.privacy.1")}</li>
-            <li>${t("about.privacy.2")}</li>
-            <li>${t("about.privacy.3", { days })}</li>
-            <li>${t("about.privacy.4")}</li>
-            <li>${t("about.privacy.5")}</li>
+            <li>${t(v("about.privacy.2"))}</li>
+            <li>${t(v("about.privacy.3"), { days })}</li>
+            ${commerce ? `<li>${t("about.privacy.4")}</li>
+            <li>${t("about.privacy.5")}</li>` : ""}
             ${this.config.aiMarking ? `<li>${t("about.privacy.ai")}</li>` : ""}
-            <li>${t("privacy.analytics")}</li>
+            <li>${t(v("privacy.analytics"))}</li>
             <li>${t("privacy.feedback")}</li>
             <li>${t("about.privacy.6")}</li>
             <li>${t("privacy.cookies")}</li>
           </ul>
-          <h2>${t("privacy.where.h")}</h2><p>${t("privacy.where")}</p>
-          <h2>${t("privacy.keep.h")}</h2><p>${t("privacy.keep", { days })}</p>
-          <h2>${t("privacy.rights.h")}</h2><p>${t("privacy.rights", { contact })}</p>
+          <h2>${t("privacy.where.h")}</h2><p>${t(v("privacy.where"))}</p>
+          <h2>${t("privacy.keep.h")}</h2><p>${t(v("privacy.keep"), { days })}</p>
+          <h2>${t("privacy.rights.h")}</h2><p>${t(v("privacy.rights"), { contact })}</p>
           <p>${t("privacy.children", { name })}</p>`],
         refunds: [t("Refund policy"), `
           <p class="lead-text">${t("refund.lead")}</p>
@@ -1057,18 +1124,18 @@
           <ul>
             <li>${t("about.scores.lr")}</li>
             <li>${this.config.aiMarking ? t("about.scores.writing.ai") : t("about.scores.writing")}</li>
-            <li>${t("about.scores.speaking")}</li>
+            <li>${t(this.commerce() ? "about.scores.speaking" : "about.scores.speaking.free")}</li>
           </ul>
 
           <h2>${t("Independent website")}</h2>
           <p>${t("about.independent", { name })}</p>
 
-          <h2>${t("Privacy, terms and refunds")}</h2>
-          <p>${t("about.legal", { name })}</p>
+          <h2>${this.commerce() ? t("Privacy, terms and refunds") : t("Privacy and terms")}</h2>
+          <p>${t(this.commerce() ? "about.legal" : "about.legal.free", { name })}</p>
           <ul class="legal-links">
             <li><a href="#/privacy">${t("Privacy policy")}</a></li>
             <li><a href="#/terms">${t("Terms of use")}</a></li>
-            <li><a href="#/refunds">${t("Refund policy")}</a></li>
+            ${this.commerce() ? `<li><a href="#/refunds">${t("Refund policy")}</a></li>` : ""}
           </ul>
           <h2>${t("Contact")}</h2>
           <p>${this.contactHTML()}</p>

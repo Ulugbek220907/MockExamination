@@ -35,7 +35,8 @@
       "title": "Introduction and interview",
       "topics": [
         "Where you live",
-        "Weekends"
+        "Weekends",
+        "Fireworks"
       ],
       "questions": [
         {
@@ -124,6 +125,28 @@
           "audio": {
             "src": "audio/speaking-01/p1-8.mp3",
             "duration": 3.87
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Fireworks",
+          "text": "Do you like fireworks?",
+          "say": "Now let's move on to talk about fireworks. Do you like fireworks?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-9.mp3",
+            "duration": 4.67
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Fireworks",
+          "text": "When do people in your country usually have fireworks?",
+          "say": "When do people in your country usually have fireworks?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-01/p1-10.mp3",
+            "duration": 3.47
           }
         }
       ]

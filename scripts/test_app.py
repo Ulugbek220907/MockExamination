@@ -7,7 +7,7 @@ assessment, storage and the HTTP API.
     python -m unittest scripts.test_app   # same, via unittest
 
 Uses only the standard library plus tornado (already a dependency).
-The AI examiner is tested against a fake Claude client, so no API key is needed.
+The AI examiner is tested against a fake OpenRouter, so no API key is needed.
 """
 
 import asyncio
@@ -31,13 +31,16 @@ sys.path.insert(0, BASE_DIR)
 _TMP = tempfile.mkdtemp()
 os.environ["SQLITE_PATH"] = os.path.join(_TMP, "test.sqlite3")
 os.environ["ADMIN_TOKEN"] = "test-admin-token"
-for var in ("SUPABASE_URL", "SUPABASE_KEY", "SUPABASE_SERVICE_ROLE_KEY", "SUPABASE_APP_SECRET", "ANTHROPIC_API_KEY",
+for var in ("SUPABASE_URL", "SUPABASE_KEY", "SUPABASE_SERVICE_ROLE_KEY", "SUPABASE_APP_SECRET", "OPENROUTER_API_KEY", "AI_MODEL",
             "PAYME_MERCHANT_ID", "PAYME_KEY", "CLICK_SERVICE_ID", "CLICK_MERCHANT_ID", "CLICK_SECRET_KEY"):
     os.environ.pop(var, None)
 # Accounts: development sign-in codes, one admin, and card-transfer payments switched on.
 os.environ["AUTH_DEV_CODES"] = "1"
 os.environ["ADMIN_EMAILS"] = "owner@example.com"
 os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
+# Most tests cover buying the pass and examiner checks, which the live site hides until COMMERCE_ENABLED is on.
+# CommerceOffTests below switches it off to check the launch setting.
+os.environ["COMMERCE_ENABLED"] = "1"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
@@ -154,8 +157,8 @@ class InterfaceTextTests(unittest.TestCase):
 
 class ContentTests(unittest.TestCase):
     def test_free_tests_come_first_in_every_module(self):
-        """15 Reading tests and one of each other module are free, and they are numbered first (Test 1, 2, ...)."""
-        expected = {"reading": 15, "listening": 1, "writing": 1, "speaking": 1}
+        """The first five tests of every module are free, and they are numbered first (Test 1, 2, ...)."""
+        expected = {"reading": 5, "listening": 5, "writing": 5, "speaking": 5}
         for module, count in expected.items():
             tests = sorted(content.load_json_dir(os.path.join(BASE_DIR, "content", module)), key=lambda t: t["sortOrder"])
             free = [t["sortOrder"] for t in tests if accounts.test_access(t) == "free"]
@@ -361,11 +364,11 @@ class WritingTests(unittest.TestCase):
                 failed = [c["text"] for c in a["checks"] if not c["ok"]]
                 self.assertEqual(failed, [], f"{t['id']} task {task['taskNumber']}")
 
-    def test_ai_assessment_with_fake_client(self):
+    def test_ai_assessment_with_fake_openrouter(self):
         t = WRITING[0]
         payload = {
             "criteria": {k: {"band": b, "feedback": f"{k} feedback"} for k, b in
-                         (("task", 6), ("coherence_cohesion", 7), ("lexical_resource", 6), ("grammar", 6))},
+                         (("task", 6), ("coherence_cohesion", 7), ("lexical_resource", 6), ("grammar", 12))},
             "summary": "Solid response.",
             "strengths": ["Clear overview"],
             "improvements": ["Add more data"],
@@ -373,65 +376,120 @@ class WritingTests(unittest.TestCase):
         }
         calls = []
 
-        class FakeMessages:
-            async def create(self, **kwargs):
-                calls.append(kwargs)
-                return types.SimpleNamespace(
-                    stop_reason="end_turn", model="claude-opus-5",
-                    content=[types.SimpleNamespace(type="thinking", thinking=""),
-                             types.SimpleNamespace(type="text", text=json.dumps(payload))])
-
-        class FakeClient:
-            def __init__(self, **kwargs):
-                self.beta = types.SimpleNamespace(messages=FakeMessages())
-
-            async def __aenter__(self):
-                return self
-
-            async def __aexit__(self, *exc):
-                return False
+        def fake_post(body, timeout):
+            calls.append(body)
+            return {"model": "google/gemini-3.8-flash", "usage": {"prompt_tokens": 10},
+                    "choices": [{"finish_reason": "stop", "message": {"content": "```json\n" + json.dumps(payload) + "\n```"}}]}
 
         essay = "word " * 300
         responses = {1: essay, 2: essay}
         analyses = {n: writing.analyse_text(responses[n], n, 150 if n == 1 else 250) for n in (1, 2)}
-        with mock.patch.dict(os.environ, {"ANTHROPIC_API_KEY": "sk-test"}), \
-                mock.patch("anthropic.AsyncAnthropic", FakeClient):
-            result = asyncio.run(writing.assess_with_claude(t, responses, analyses))
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", fake_post):
+            result = asyncio.run(writing.assess_with_ai(t, responses, analyses))
 
         self.assertEqual(len(calls), 2)
-        self.assertEqual(calls[0]["fallbacks"], "default")
-        self.assertEqual(calls[0]["output_config"]["format"]["type"], "json_schema")
-        self.assertIn("RESPONSE>>>", calls[0]["messages"][0]["content"])
-        self.assertEqual(result["tasks"]["1"]["band"], 6.5)  # (6+7+6+6)/4 = 6.25 → 6.5
-        self.assertEqual(result["overallBand"], 6.5)
+        body = next(c for c in calls if "Task 1" in c["messages"][1]["content"])
+        self.assertEqual(body["model"], "google/gemini-3.8-flash")
+        self.assertEqual(body["response_format"]["type"], "json_schema")
+        self.assertTrue(body["response_format"]["json_schema"]["strict"])
+        self.assertTrue(body["reasoning"]["exclude"])
+        self.assertIn("RESPONSE>>>", body["messages"][1]["content"])
+        self.assertIn("Line graph", body["messages"][1]["content"])  # the per-visual instructions
+        self.assertIn("TASK 1 (Academic)", body["messages"][0]["content"])
+        # 6, 7, 6 and 12 clamped to 9: 7.0
+        self.assertEqual(result["tasks"]["1"]["band"], 7.0)
+        self.assertEqual(result["overallBand"], 7.0)
         self.assertEqual(result["tasks"]["2"]["criteria"]["task"]["label"], "Task Response")
+        self.assertEqual(result["tasks"]["1"]["model"], "google/gemini-3.8-flash")
+
+    def test_task2_guide_follows_essay_type(self):
+        for essay_type in writing.TASK2_TYPE_GUIDE:
+            self.assertIn(writing.TASK2_TYPE_GUIDE[essay_type], writing.type_guide({"taskNumber": 2, "essayType": essay_type}))
+        kinds = {(task.get("visual") or {}).get("type") for t in WRITING for task in t["tasks"] if task["taskNumber"] == 1}
+        self.assertLessEqual(kinds, set(writing.TASK1_TYPE_GUIDE))
+        types_used = {task.get("essayType") for t in WRITING for task in t["tasks"] if task["taskNumber"] == 2}
+        self.assertLessEqual(types_used, set(writing.TASK2_TYPE_GUIDE))
 
     def test_ai_refusal_raises(self):
-        class FakeMessages:
-            async def create(self, **kwargs):
-                return types.SimpleNamespace(stop_reason="refusal", model="x", content=[])
-
-        class FakeClient:
-            def __init__(self, **kwargs):
-                self.beta = types.SimpleNamespace(messages=FakeMessages())
-
-            async def __aenter__(self):
-                return self
-
-            async def __aexit__(self, *exc):
-                return False
+        def fake_post(body, timeout):
+            return {"choices": [{"finish_reason": "content_filter", "message": {"content": ""}}]}
 
         t = WRITING[0]
         essay = "word " * 300
         analyses = {n: writing.analyse_text(essay, n, 150) for n in (1, 2)}
-        with mock.patch.dict(os.environ, {"ANTHROPIC_API_KEY": "sk-test"}), \
-                mock.patch("anthropic.AsyncAnthropic", FakeClient):
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", fake_post):
             with self.assertRaises(writing.AssessmentUnavailable):
-                asyncio.run(writing.assess_with_claude(t, {1: essay, 2: essay}, analyses))
+                asyncio.run(writing.assess_with_ai(t, {1: essay, 2: essay}, analyses))
+
+    def test_ai_retries_a_busy_model(self):
+        from mockexam import ai
+        answers = [ai.AiError("busy", retryable=True),
+                   {"choices": [{"finish_reason": "stop", "message": {"content": [{"type": "text", "text": '{"ok": true}'}]}}]}]
+
+        def fake_post(body, timeout):
+            answer = answers.pop(0)
+            if isinstance(answer, Exception):
+                raise answer
+            return answer
+
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), \
+                mock.patch("mockexam.ai._post", fake_post), mock.patch("mockexam.ai.time.sleep"):
+            data, meta = ai.complete_json("s", "u", {"type": "object"}, "t")
+        self.assertEqual(data, {"ok": True})
+        self.assertEqual(answers, [])
+
+    def test_ai_client_over_http(self):
+        """The real HTTP call, against a local stand-in for OpenRouter."""
+        import http.server
+        import threading
+        from mockexam import ai
+        seen = {}
+
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def do_POST(self):
+                seen["path"] = self.path
+                seen["auth"] = self.headers.get("Authorization")
+                seen["body"] = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+                if seen.get("fail") is None:
+                    seen["fail"] = True
+                    self.send_response(503)
+                    self.end_headers()
+                    return
+                out = json.dumps({"model": "m", "choices": [{"finish_reason": "stop", "message": {"content": '{"band": 6}'}}]}).encode()
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(out)))
+                self.end_headers()
+                self.wfile.write(out)
+
+            def log_message(self, *args):
+                pass
+
+        httpd = http.server.HTTPServer(("127.0.0.1", 0), Handler)
+        threading.Thread(target=httpd.serve_forever, daemon=True).start()
+        try:
+            env = {"OPENROUTER_API_KEY": "sk-or-test", "OPENROUTER_BASE_URL": f"http://127.0.0.1:{httpd.server_port}/api/v1"}
+            with mock.patch.dict(os.environ, env), mock.patch("mockexam.ai.time.sleep"):
+                data, meta = ai.complete_json("s", [ai.text_part("u"), ai.audio_part(b"RIFF", "audio/wav")], {"type": "object"}, "t")
+        finally:
+            httpd.shutdown()
+            httpd.server_close()
+        self.assertEqual(data, {"band": 6})
+        self.assertEqual(seen["path"], "/api/v1/chat/completions")
+        self.assertEqual(seen["auth"], "Bearer sk-or-test")
+        self.assertEqual(seen["body"]["messages"][1]["content"][1]["input_audio"]["format"], "wav")
+
+    def test_ai_needs_a_key(self):
+        from mockexam import ai
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": ""}):
+            self.assertFalse(writing.ai_configured())
+            with self.assertRaises(ai.AiError):
+                ai.complete_json("s", "u", {}, "t")
 
     def test_blank_task_not_sent_to_ai(self):
-        result = asyncio.run(writing._not_attempted(1, 0))
-        self.assertEqual(result["band"], 0.0)
+        self.assertEqual(writing._not_attempted(1, 0)["band"], 0.0)
+        self.assertEqual(writing._not_attempted(2, 20)["band"], 1.0)
+        self.assertEqual(writing.MIN_WORDS_FOR_AI, 21)  # 20 words or fewer are band 1
 
     def test_rate_limiter(self):
         limiter = server.AiLimiter(per_ip_per_hour=2, daily_limit=3)
@@ -893,7 +951,7 @@ class ApiTests(AsyncHTTPTestCase):
         footer = footer[:footer.index("</nav>")]
         self.assertIn('href="#/pricing"', footer)
         self.assertNotIn("#/resources", footer)
-        # The top of the page names only what matters: Price and About (and the account).
+        # The top of the page has Price (hidden until the site sells something), About and the account.
         header = page[page.index('<nav class="site-links"'):]
         header = header[:header.index("</nav>")]
         self.assertIn('href="#/pricing"', header)
@@ -917,14 +975,8 @@ class ApiTests(AsyncHTTPTestCase):
             self.assertIn(tag, page)
         self.assertEqual(self.fetch("/img/og.png").code, 200)
         blocks = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', page)]
-        self.assertEqual({b["@type"] for b in blocks}, {"WebSite", "Organization", "FAQPage"})
-        # The FAQ for search engines says exactly what the Prices page says.
-        with open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8") as f:
-            strings = f.read()
-        faq = next(b for b in blocks if b["@type"] == "FAQPage")["mainEntity"]
-        for key, item in zip(("faq.renew", "faq.check", "faq.checkfree", "faq.refund"), faq):
-            m = re.search(rf'^\s+"{re.escape(key)}":\s*("(?:[^"\\]|\\.)*"),?$', strings, re.M)
-            self.assertEqual(item["acceptedAnswer"]["text"], json.loads(m.group(1)), key)
+        # No FAQ about the pass, prices or refunds while the site sells nothing.
+        self.assertEqual({b["@type"] for b in blocks}, {"WebSite", "Organization"})
 
     def test_contact_email_is_never_blank(self):
         r = self.fetch("/api/config")
@@ -933,8 +985,11 @@ class ApiTests(AsyncHTTPTestCase):
         page = self.fetch("/").body.decode()
         footer = page[page.index('<nav class="footer-nav"'):]
         footer = footer[:footer.index("</nav>")]
-        for link in ("#/terms", "#/privacy", "#/refunds"):
+        for link in ("#/terms", "#/privacy"):
             self.assertIn(link, footer)
+        # Price, Examiners and Refunds are in the page but hidden until the site sells something.
+        for link in ("#/pricing", "#/examiners", "#/refunds"):
+            self.assertRegex(footer, rf'<a href="{re.escape(link)}" data-commerce hidden>')
 
     def test_sitemap_and_robots(self):
         r = self.fetch("/sitemap.xml")
@@ -1017,6 +1072,7 @@ class AccountApiBase(AsyncHTTPTestCase):
     def login(self, email, client_id=None):
         api.CODE_PER_IP.hits.clear()  # every test signs in from 127.0.0.1
         api.CODE_PER_EMAIL.hits.clear()  # and the owner signs in from many tests
+        api.VERIFY_PER_IP.hits.clear()
         r, data = self.call("POST", "/api/auth/code", {"email": email})
         self.assertEqual(r.code, 200, data)
         r, data = self.call("POST", "/api/auth/verify", {"email": email, "code": data["devCode"], "clientId": client_id})
@@ -1056,17 +1112,17 @@ class AccountApiTests(AccountApiBase):
     def test_premium_tests_and_audio_are_locked(self):
         r, data = self.call("GET", "/api/tests")
         access = {t["id"]: t["access"] for t in data["tests"]}
-        self.assertEqual((access["academic-reading-01"], access["academic-reading-36"], access["academic-reading-08"]), ("free", "free", "premium"))
+        self.assertEqual((access["academic-reading-01"], access["academic-reading-36"], access["academic-reading-08"]), ("free", "premium", "premium"))
         r, data = self.call("GET", "/api/tests/academic-reading-08")
         self.assertEqual((r.code, data["code"]), (401, "login_required"))
-        self.assertEqual(self.fetch("/audio/listening-02/part1.mp3").code, 401)
+        self.assertEqual(self.fetch("/audio/listening-06/part1.mp3").code, 401)
         self.assertEqual(self.fetch("/audio/listening-01/part1.mp3", headers={"Range": "bytes=0-9"}).code, 206)
         cookie, _ = self.login("nopay@example.com")
         r, data = self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)
         self.assertEqual((r.code, data["code"]), (402, "plan_required"))
         r, data = self.call("POST", "/api/reading/academic-reading-08/submit", {"answers": {}}, cookie=cookie)
         self.assertEqual(r.code, 402)
-        self.assertEqual(self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie}).code, 402)
+        self.assertEqual(self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": cookie}).code, 402)
 
     def test_sync_content_endpoint_is_for_admins_only(self):
         r, _ = self.call("GET", "/api/admin/sync-content")
@@ -1109,7 +1165,7 @@ class AccountApiTests(AccountApiBase):
         self.assertTrue(data["plan"]["active"])
         r, _ = self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)
         self.assertEqual(r.code, 200)
-        self.assertEqual(self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code, 206)
+        self.assertEqual(self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code, 206)
         # Admin can also give plan days directly.
         r, data = self.call("POST", "/api/admin/plan", {"email": "other@example.com", "days": 7}, cookie=admin)
         self.assertTrue(data["plan"]["active"])
@@ -1135,6 +1191,9 @@ class AccountApiTests(AccountApiBase):
         r, data = self.call("GET", "/api/progress", cookie=cookie)
         # Practice is left out; writing without an AI or examiner band has no score yet.
         self.assertEqual([(p["module"], p["band"], p["source"]) for p in data["points"]], [("reading", 9.0, "auto")])
+        # The calendar has every finished attempt, practice and unscored ones too.
+        self.assertEqual(sorted((a["module"], a["mode"]) for a in data["activity"]),
+                         [("reading", "exam"), ("reading", "practice"), ("writing", "exam")])
         profile = accounts.find_profile_by_email(server.STORE.db, "progress@example.com")
         server.STORE.db.insert("checks", {"order_id": 990001, "kind": "writing", "student_id": profile["id"],
                                           "examiner_id": profile["id"], "submission_id": data["points"][0]["band"] and
@@ -1230,9 +1289,9 @@ class SpeakingApiTests(AccountApiBase):
         r, data = self.call("POST", f"/api/speaking/{SPEAKING[0]['id']}/start", {})
         self.assertEqual((r.code, data["code"]), (401, "login_required"))
         cookie, _ = self.login("speaker.free@example.com")
-        r, data = self.call("POST", f"/api/speaking/{SPEAKING[1]['id']}/start", {}, cookie=cookie)
+        r, data = self.call("POST", f"/api/speaking/{SPEAKING[5]['id']}/start", {}, cookie=cookie)
         self.assertEqual((r.code, data["code"]), (402, "plan_required"))
-        self.assertEqual(self.fetch(f"/audio/{SPEAKING[1]['id']}/p1-1.mp3", headers={"Cookie": cookie}).code, 402)
+        self.assertEqual(self.fetch(f"/audio/{SPEAKING[5]['id']}/p1-1.mp3", headers={"Cookie": cookie}).code, 402)
         self.assertEqual(self.fetch(f"/audio/{SPEAKING[0]['id']}/p1-1.mp3").code, 200)
         r, data = self.call("POST", "/api/speaking/academic-reading-01/start", {}, cookie=cookie)
         self.assertEqual(r.code, 404)
@@ -1320,6 +1379,165 @@ class SpeakingApiTests(AccountApiBase):
         self.assertEqual((item["bandScore"], item["checkId"]), (6.5, check_id))
         r, data = self.call("GET", f"/api/checks/{check_id}", cookie=student)
         self.assertEqual(data["check"]["result"]["criteria"]["pronunciation"]["band"], 7)
+
+
+def make_wav(segments, rate=16000):
+    """16-bit mono WAV from [(seconds, is_speech)]: a tone for speech, faint noise for silence."""
+    import array as _array
+    import math as _math
+    import random as _random
+    import wave as _wave
+    rnd = _random.Random(7)
+    samples = _array.array("h")
+    t = 0
+    for seconds, speech in segments:
+        for _ in range(int(seconds * rate)):
+            t += 1
+            v = 9000 * _math.sin(2 * _math.pi * 220 * t / rate) if speech else rnd.randint(-40, 40)
+            samples.append(int(v))
+    out = io.BytesIO()
+    with _wave.open(out, "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(rate)
+        w.writeframes(samples.tobytes())
+    return out.getvalue()
+
+
+class SpeakingAiTests(AccountApiBase):
+    """The AI examiner: measuring the audio, listening to each answer, and rating the whole test."""
+
+    LISTEN = {"transcript": "Um I live in a flat (pause) near the city centre, er, with my family.", "english": True,
+              "relevance": "answers the question", "soundsMemorised": False, "fluency": "Some hesitation.",
+              "lexis": "Simple but accurate.", "grammar": "Mostly simple sentences.", "pronunciation": "Clear.",
+              "pronunciationWords": [{"word": "centre", "issue": "stress"}],
+              "bands": {"fluency_coherence": 6, "lexical_resource": 6, "grammar": 5, "pronunciation": 7}}
+    MARK = {"criteria": {"fluency_coherence": {"band": 6, "feedback": "You keep going."},
+                         "lexical_resource": {"band": 6, "feedback": "Enough words."},
+                         "grammar": {"band": 5, "feedback": "Use more complex sentences."},
+                         "pronunciation": {"band": 7, "feedback": "Easy to understand."}},
+            "summary": "A solid performance.", "strengths": ["Clear speech"], "improvements": ["Extend answers"],
+            "parts": [{"part": 1, "comment": "Short answers."}],
+            "corrections": [{"original": "with my family", "corrected": "with my family", "explanation": ""},
+                            {"original": "", "corrected": "x", "explanation": "dropped"}],
+            "vocabulary": [{"original": "near", "better": "close to", "why": "more natural"}],
+            "pronunciation": [{"word": "centre", "tip": "Stress the first syllable."}]}
+
+    def setUp(self):
+        super().setUp()
+        self.calls = []
+        self.fail_with = None
+
+    def fake_post(self, body, timeout):
+        self.calls.append(body)
+        if self.fail_with:
+            raise self.fail_with
+        name = body["response_format"]["json_schema"]["name"]
+        payload = self.LISTEN if name == "speaking_answer" else self.MARK
+        return {"model": "google/gemini-3.8-flash", "choices": [{"finish_reason": "stop", "message": {"content": json.dumps(payload)}}]}
+
+    def upload(self, cookie, sub_id, key, body):
+        r = self.fetch(f"/api/speaking/submissions/{sub_id}/answers/{key}", method="POST", body=body,
+                       headers={"Content-Type": "audio/wav", "X-Duration": "8", "Cookie": cookie})
+        self.assertEqual(r.code, 200, r.body)
+
+    def wait_for_review(self, cookie, sub_id):
+        for _ in range(100):
+            r, data = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=cookie)
+            review = data["submission"]["aiReview"]
+            if review["status"] in ("done", "error"):
+                return review
+            time.sleep(0.05)
+        self.fail("the review did not finish")
+
+    def test_measure_wav(self):
+        from mockexam import speaking_ai
+        m = speaking_ai.measure_wav(make_wav([(1.0, False), (2.0, True), (2.5, False), (1.5, True), (0.2, False),
+                                              (1.0, True), (1.0, False)]))
+        self.assertAlmostEqual(m["latency"], 1.0, delta=0.1)
+        self.assertAlmostEqual(m["span"], 7.2, delta=0.15)
+        self.assertAlmostEqual(m["longestPause"], 2.5, delta=0.1)
+        self.assertEqual((m["runs"], len(m["pauses"])), (2, 1))  # the 0.2 s gap is between words, not a pause
+        self.assertIsNone(speaking_ai.measure_wav(FAKE_AUDIO))
+        self.assertEqual(speaking_ai.measure_wav(make_wav([(2.0, False)]))["speech"], 0.0)
+        stats = speaking_ai.answer_stats(m, "Um I live (pause) in a flat, er, yes [unclear].")
+        self.assertEqual((stats["words"], stats["fillers"]), (6, 2))
+
+    def test_ai_examiner_test_is_rated(self):
+        t = SPEAKING[0]
+        cookie, _ = self.login("ai.speaker@example.com")
+        r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai"}, cookie=cookie)
+        self.assertEqual(r.code, 503)  # no API key: the AI examiner is off
+        speech = make_wav([(0.8, False), (3.0, True), (1.5, False), (2.0, True), (0.5, False)])
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post):
+            r, data = self.call("GET", "/api/config")
+            self.assertTrue(data["aiSpeaking"])
+            r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai"}, cookie=cookie)
+            self.assertEqual((r.code, data["mode"]), (200, "ai"))
+            sub_id = data["submissionId"]
+            self.upload(cookie, sub_id, "p1-1", speech)
+            self.upload(cookie, sub_id, "p1-2", make_wav([(3.0, False)]))  # silence: not sent to the model
+            self.upload(cookie, sub_id, "p2-talk", speech)
+            r, data = self.call("POST", f"/api/speaking/submissions/{sub_id}/complete", {"timeSpentSeconds": 600}, cookie=cookie)
+            self.assertEqual(r.code, 200, data)
+            self.assertIn(data["submission"]["aiReview"]["status"], ("queued", "running", "done"))
+            review = self.wait_for_review(cookie, sub_id)
+
+        self.assertEqual(review["status"], "done", review)
+        self.assertEqual(review["overallBand"], 6.0)  # (6 + 6 + 5 + 7) / 4
+        self.assertEqual(review["criteria"]["grammar"]["label"], "Grammatical Range and Accuracy")
+        self.assertEqual(len(review["corrections"]), 1)
+        listened = [c for c in self.calls if c["response_format"]["json_schema"]["name"] == "speaking_answer"]
+        marked = [c for c in self.calls if c["response_format"]["json_schema"]["name"] == "speaking_assessment"]
+        self.assertEqual((len(listened), len(marked)), (2, 1))
+        self.assertEqual(listened[0]["messages"][1]["content"][1]["input_audio"]["format"], "wav")
+        self.assertIn("Silent pauses of 1 s or more: 1.5 s", listened[0]["messages"][1]["content"][0]["text"])
+        message = marked[0]["messages"][1]["content"]
+        self.assertIn("Part 2 long turn: spoke for", message)
+        self.assertIn("(no answer was recorded)", message)
+        answers = {a["key"]: a for a in review["answers"]}
+        self.assertEqual(answers["p1-2"]["transcript"], "")
+        self.assertEqual(answers["p1-1"]["stats"]["words"], 12)
+        self.assertEqual(answers["p1-1"]["stats"]["fillers"], 2)
+        self.assertEqual(review["stats"]["answered"], 2)
+        r, data = self.call("GET", "/api/history", cookie=cookie)
+        item = next(i for i in data["items"] if i["module"] == "speaking")
+        self.assertEqual((item["mode"], item["aiBand"]), ("ai", 6.0))
+        r, data = self.call("GET", "/api/progress", cookie=cookie)
+        self.assertIn(("speaking", 6.0, "ai"), [(p["module"], p["band"], p["source"]) for p in data["points"]])
+
+    def test_failed_review_can_be_retried_and_daily_limit(self):
+        from mockexam import ai, speaking_ai
+        t = SPEAKING[1]
+        cookie, _ = self.login("ai.retry@example.com")
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post):
+            r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai"}, cookie=cookie)
+            sub_id = data["submissionId"]
+            self.upload(cookie, sub_id, "p1-1", make_wav([(0.5, False), (2.0, True)]))
+            self.fail_with = ai.AiError("AI marking is paused: the site's AI credit has run out.")
+            self.call("POST", f"/api/speaking/submissions/{sub_id}/complete", {}, cookie=cookie)
+            review = self.wait_for_review(cookie, sub_id)
+            self.assertEqual((review["status"], review["canRetry"]), ("error", True))
+            self.assertIn("credit", review["message"])
+            self.fail_with = None
+            r, data = self.call("POST", f"/api/speaking/submissions/{sub_id}/ai-review", {}, cookie=cookie)
+            self.assertEqual(r.code, 200, data)
+            self.assertEqual(self.wait_for_review(cookie, sub_id)["status"], "done")
+            r, data = self.call("POST", f"/api/speaking/submissions/{sub_id}/ai-review", {}, cookie=cookie)
+            self.assertEqual(r.code, 409)  # already rated
+            for _ in range(speaking_ai.PER_USER_PER_DAY - 1):
+                self.assertEqual(self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai"}, cookie=cookie)[0].code, 200)
+            r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai"}, cookie=cookie)
+            self.assertEqual(r.code, 429)
+            # Without the AI examiner the test can still be taken.
+            self.assertEqual(self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "exam"}, cookie=cookie)[0].code, 200)
+            # The Start button asks for the AI with a fallback: over the limit the test still starts, without a band.
+            r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai", "fallback": True}, cookie=cookie)
+            self.assertEqual((r.code, data["mode"]), (200, "exam"))
+            self.assertIn("without a band", data["notice"])
+        # No key at all: the fallback is silent.
+        r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai", "fallback": True}, cookie=cookie)
+        self.assertEqual((r.code, data["mode"], data["notice"]), (200, "exam", None))
 
 
 class NotificationTests(AccountApiBase):
@@ -1762,6 +1980,74 @@ class PaymentHardeningTests(unittest.TestCase):
         self.assertEqual(billing.get_order(db, order["id"])["status"], "refunded")
 
 
+class CommerceOffTests(AccountApiBase):
+    """The launch setting: five free tests per module, the rest "coming soon", nothing for sale."""
+
+    def setUp(self):
+        super().setUp()
+        patcher = mock.patch.dict(os.environ, {"COMMERCE_ENABLED": "0"})
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        # The server builds its test list (with each test's access) once; build it again under this setting, and after.
+        server._CATALOG = server.Catalog([])
+        self.addCleanup(lambda: setattr(server, "_CATALOG", server.Catalog([])))
+
+    def test_config_says_nothing_is_for_sale_and_prices_are_empty(self):
+        self.assertFalse(json.loads(self.fetch("/api/config").body)["commerce"])
+        r, data = self.call("GET", "/api/billing")
+        self.assertEqual((r.code, data), (200, {"enabled": False, "prices": {}, "providers": []}))
+        with mock.patch.dict(os.environ, {"COMMERCE_ENABLED": "1"}):
+            self.assertTrue(json.loads(self.fetch("/api/config").body)["commerce"])
+
+    def test_five_tests_are_free_and_the_rest_are_coming_soon(self):
+        r, data = self.call("GET", "/api/tests")
+        by_module = {}
+        for t in data["tests"]:
+            by_module.setdefault(t["module"], []).append(t)
+        self.assertEqual(sorted(by_module), ["listening", "reading", "speaking", "writing"])
+        for module, tests in by_module.items():
+            tests.sort(key=lambda t: t["sortOrder"])
+            self.assertEqual([t["access"] for t in tests[:5]], ["free"] * 5, module)
+            self.assertEqual({t["access"] for t in tests[5:]}, {"soon"}, module)
+
+    def test_coming_soon_tests_are_refused_to_everyone_but_admins(self):
+        student, _ = self.login("soon.student@example.com")
+        owner, _ = self.login("owner@example.com")
+        for cookie in (None, student):
+            r, data = self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)
+            self.assertEqual((r.code, data["code"]), (403, "coming_soon"))
+            r, data = self.call("POST", "/api/reading/academic-reading-08/submit", {"answers": {}}, cookie=cookie)
+            self.assertEqual(r.code, 403)
+            self.assertEqual(self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": cookie} if cookie else {}).code, 403)
+        r, data = self.call("POST", f"/api/speaking/{SPEAKING[5]['id']}/start", {}, cookie=student)
+        self.assertEqual((r.code, data["code"]), (403, "coming_soon"))
+        # an admin can still preview the test
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-08", cookie=owner)[0].code, 200)
+        self.assertEqual(self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": owner, "Range": "bytes=0-9"}).code, 206)
+        # the free tests stay open without signing in
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-01")[0].code, 200)
+        self.assertEqual(self.fetch("/audio/listening-01/part1.mp3", headers={"Range": "bytes=0-9"}).code, 206)
+
+    def test_a_paid_pass_does_not_open_a_coming_soon_test(self):
+        student, data = self.login("had.pass@example.com")
+        accounts.grant_plan_period(server.STORE.db, data["user"]["id"], 30, "admin", None, "test")
+        self.assertEqual(self.call("GET", "/api/tests/academic-reading-08", cookie=student)[1]["code"], "coming_soon")
+
+    def test_orders_payments_examiners_and_checks_are_closed(self):
+        cookie, _ = self.login("shopper@example.com")
+        for method, path, body in (("GET", "/api/orders", None), ("POST", "/api/orders", {"kind": "plan"}),
+                                   ("GET", "/api/examiners?kind=writing", None), ("GET", "/api/checks", None),
+                                   ("POST", "/api/pay/payme", {}), ("GET", "/api/examiner/me", None)):
+            r, data = self.call(method, path, body, cookie=cookie)
+            self.assertEqual(r.code, 404, f"{method} {path}")
+
+    def test_the_site_shell_hides_price_and_refund_links_until_commerce_is_on(self):
+        page = self.fetch("/").body.decode()
+        self.assertRegex(page, r'<a href="#/pricing" data-nav="pricing" data-commerce hidden>')
+        js = open(os.path.join(PUBLIC_DIR, "js", "app.js"), encoding="utf-8").read()
+        self.assertIn("applyCommerce", js)
+
+
 class ContentSyncTests(unittest.TestCase):
     """Production reads tests from Supabase; the sync uploads only what is new or changed, and only if every file is valid."""
 
@@ -1780,9 +2066,9 @@ class ContentSyncTests(unittest.TestCase):
         def upsert_test(self, test):
             self.uploaded.append(test["id"])
 
-    def run_sync(self, store, local):
+    def run_sync(self, store, local, only_new=False):
         from mockexam import content_sync
-        content_sync.start(store, local_tests=local, public_dir=PUBLIC_DIR)
+        content_sync.start(store, local_tests=local, public_dir=PUBLIC_DIR, only_new=only_new)
         for _ in range(100):
             s = content_sync.status()
             if not s["running"]:
@@ -1799,6 +2085,16 @@ class ContentSyncTests(unittest.TestCase):
         self.assertEqual(sorted(store.uploaded), sorted([local[1]["id"], local[2]["id"]]))
         self.assertEqual((status["total"], status["done"], status["failed"]), (2, 2, []))
         self.assertGreaterEqual(store.refreshed, 2)  # before comparing and after uploading
+
+    def test_on_start_only_missing_tests_are_published(self):
+        # The server publishes the tests a deploy adds, but never overwrites one that was edited in Supabase.
+        local = [t for t in TESTS if t["module"] == "listening"][:3]
+        edited = json.loads(json.dumps(local[1]))
+        edited["access"] = "free"
+        store = self.FakeStore([local[0], edited])
+        status = self.run_sync(store, local, only_new=True)
+        self.assertEqual(store.uploaded, [local[2]["id"]])
+        self.assertEqual(status["total"], 1)
 
     def test_nothing_is_uploaded_when_a_file_is_invalid(self):
         local = json.loads(json.dumps([t for t in TESTS if t["module"] == "reading"][:2]))
@@ -1821,7 +2117,7 @@ class PaymentAccessTests(AccountApiBase):
         cookie, data = self.login("unlock@example.com")
         db = self._app.settings["store"].db
         uid = data["user"]["id"]
-        audio = lambda: self.fetch("/audio/listening-02/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code
+        audio = lambda: self.fetch("/audio/listening-06/part1.mp3", headers={"Cookie": cookie, "Range": "bytes=0-9"}).code
         self.assertEqual(self.call("GET", "/api/tests/academic-reading-08", cookie=cookie)[0].code, 402)
         self.assertEqual(audio(), 402)
         order = billing.create_order(db, uid, "plan")
@@ -1989,8 +2285,9 @@ class SecurityAndHardeningTests(AccountApiBase):
         with mock.patch.object(store, "list_history", return_value=[{
             "module": "writing", "id": 99999, "testId": "academic-writing-01", "createdAt": "2026-10-14T10:00:00Z"
         }]):
-            points = api.progress_points(store, db, user_id)
+            points, activity = api.progress_points(store, db, user_id)
             self.assertEqual(points, [])
+            self.assertEqual([(a["module"], a["band"]) for a in activity], [("writing", None)])  # still on the calendar
 
     def test_cross_site_top_level_navigation_allowed(self):
         r = self.fetch("/", method="GET",

@@ -156,7 +156,13 @@
     return state.me;
   }
 
+  /** True once the site sells the pass and examiner checks (COMMERCE_ENABLED on the server). */
+  function commerce() {
+    return Boolean(state.config && state.config.commerce);
+  }
+
   async function billing() {
+    if (!commerce()) return { prices: {}, providers: [] };
     if (!state.billing) state.billing = await U.api("/api/billing");
     return state.billing;
   }
@@ -172,7 +178,7 @@
     const todo = state.me.todo || {};
     const count = (n, what) => (n ? ` <span class="nav-count" title="${n} ${what}">${n > 99 ? "99+" : n}</span>` : "");
     slot.innerHTML = `
-      ${u.role === "examiner" || u.role === "admin" ? `<a href="#/examiner" class="nav-extra" data-nav="examiner">Examiner${count(todo.checks, "checks to mark")}</a>` : ""}
+      ${commerce() && (u.role === "examiner" || u.role === "admin") ? `<a href="#/examiner" class="nav-extra" data-nav="examiner">Examiner${count(todo.checks, "checks to mark")}</a>` : ""}
       ${u.role === "admin" ? `<a href="#/admin" class="nav-extra" data-nav="admin">Admin${count(todo.payments, "payments to confirm")}</a>` : ""}
       <a href="#/account" class="nav-account" data-nav="account" title="${esc(u.email)}" aria-label="${esc(t("My account"))}">
         <span class="avatar" aria-hidden="true">${esc(initials(u.name || u.email))}</span>
@@ -200,7 +206,7 @@
       const google = state.config.auth && state.config.auth.google;
       const el = overlay(t("signin.title"), `
         <div class="auth-step" data-step="email">
-          <p class="auth-lead">${esc(reason || t("signin.default"))}</p>
+          <p class="auth-lead">${esc(reason || t(commerce() ? "signin.default" : "signin.default.free"))}</p>
           ${google ? `<button type="button" class="btn-google" data-google>
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.7-.06-1.37-.18-2.02H12v3.83h5.38a4.6 4.6 0 0 1-2 3.02v2.5h3.24c1.9-1.75 2.98-4.32 2.98-7.33z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.43l-3.24-2.5c-.9.6-2.04.95-3.38.95-2.6 0-4.8-1.75-5.59-4.1H3.07v2.58A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.41 13.92a6 6 0 0 1 0-3.84V7.5H3.07a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 5.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.93 5.5l3.34 2.58C7.2 7.73 9.4 5.98 12 5.98z"/></svg>
               ${t("Continue with Google")}</button>
@@ -483,19 +489,26 @@
   /* ================================================================ account */
   async function renderAccount(main) {
     document.title = `${t("My account")} – ${siteName()}`;
-    await refreshMe();
+    // Draw at once from the account this browser remembers; check with the server alongside.
+    const fresh = refreshMe();
+    if (!user()) await fresh;
     if (!user()) {
-      main.innerHTML = `<section class="page"><h1>${t("My account")}</h1><p class="lead-text">${t("Sign in to see your pass, your examiner checks and your results.")}</p>
+      main.innerHTML = `<section class="page"><h1>${t("My account")}</h1><p class="lead-text">${commerce() ? t("Sign in to see your pass, your examiner checks and your results.") : t("Sign in to see your results.")}</p>
         <button type="button" class="btn-primary btn-lg" data-action="signin">${t("Sign in")}</button></section>`;
       return;
     }
     const u = user();
     const plan = state.me.plan;
-    main.innerHTML = loading();
-    const [ordersRes, checksRes, progressRes] = await Promise.all([
-      U.api("/api/orders").catch(() => ({ orders: [] })),
-      U.api("/api/checks").catch(() => ({ checks: [] })),
-      U.api("/api/progress").catch(() => ({ points: [] })),
+    const shop = commerce();
+    // The progress chart and calendar draw from what this browser saw last time, then update.
+    const progressKey = `testday:progress:${u.id}`;
+    const seen = U.store.get(progressKey, null);
+    const progress = U.api("/api/progress").then((res) => { U.store.set(progressKey, res); return res; })
+      .catch(() => seen || { points: [], activity: [] });
+    if (shop) main.innerHTML = loading();
+    const [ordersRes, checksRes] = await Promise.all([
+      shop ? U.api("/api/orders").catch(() => ({ orders: [] })) : { orders: [] },
+      shop ? U.api("/api/checks").catch(() => ({ checks: [] })) : { checks: [] },
     ]);
     const orders = ordersRes.orders || [];
     const waiting = orders.filter((o) => o.status === "awaiting_confirmation");
@@ -510,11 +523,11 @@
           <button type="button" class="btn-secondary" data-action="signout">${t("Sign out")}</button>
         </div>
         ${planEndingHTML()}
-        ${waiting.length ? `<div class="notice notice-info"><strong>${t("We are checking your payment.")}</strong>
+        ${shop && waiting.length ? `<div class="notice notice-info"><strong>${t("We are checking your payment.")}</strong>
           <span>${t("payment.waiting", { orders: waiting.map((o) => `#MX${o.id} (${esc(money(o.amount))})`).join(", ") })}</span></div>` : ""}
 
         <div class="account-grid">
-          <div class="account-card">
+          ${shop ? `<div class="account-card">
             <h2>${t("Your pass")}</h2>
             ${plan && plan.active
               ? `<p class="plan-active">${t("Active until {date}", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>
@@ -523,7 +536,7 @@
               : `<p>${t("You are using the free tests.")}</p>
                  <p class="muted-text">${plan && plan.hadPaidPlan ? t("Your pass has ended.") : t("Your first payment gives you two months")}</p>
                  <button type="button" class="btn-primary" data-action="buy-plan">${t("Get the pass")}</button>`}
-          </div>
+          </div>` : ""}
           <div class="account-card">
             <h2>${t("Your name")}</h2>
             <form id="name-form" class="inline-form">
@@ -531,7 +544,7 @@
               <input id="acc-name" maxlength="80" value="${esc(u.name || "")}" placeholder="${esc(t("Your name"))}" autocomplete="name" />
               <button type="submit" class="btn-secondary">${t("Save")}</button>
             </form>
-            <p class="muted-text small-text">${t("Examiners see this name on your checks.")}</p>
+            ${shop ? `<p class="muted-text small-text">${t("Examiners see this name on your checks.")}</p>` : ""}
           </div>
           <div class="account-card" id="goal-card">
             <h2>${t("Your goal")}</h2>
@@ -540,9 +553,10 @@
           </div>
         </div>
 
-        <section class="progress-section" id="progress-section"></section>
+        <section class="progress-section" id="progress-section">${seen ? "" : `<div class="skeleton" style="height:28px;width:min(280px,70%)"></div>
+          <div class="skeleton" style="height:120px;margin-top:14px"></div><div class="skeleton" style="height:240px;margin-top:14px"></div>`}</section>
 
-        <h2 class="section-title">${t("Examiner checks")}</h2>
+        ${shop ? `<h2 class="section-title">${t("Examiner checks")}</h2>
         ${(checksRes.checks || []).length ? `
           <div class="table-scroll"><table class="history-table">
             <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Check")}</th><th scope="col">${t("Examiner")}</th><th scope="col">${t("Status")}</th><th scope="col"><span class="sr-only">${t("Open")}</span></th></tr></thead>
@@ -552,11 +566,11 @@
                 <td>${statusBadge(c.status)}${c.overallBand != null ? ` <strong>${t("Band {band}", { band: IeltsScoring.formatBand(c.overallBand) })}</strong>` : ""}</td>
                 <td><a href="#/check/${c.id}">${t("Open")}</a></td></tr>`).join("")}</tbody>
           </table></div>`
-          : `<p class="empty-inline">${t("checks.empty")}</p>`}
+          : `<p class="empty-inline">${t("checks.empty")}</p>`}` : ""}
 
         <section id="history-section" hidden></section>
 
-        <h2 class="section-title">${t("Payments")}</h2>
+        ${shop ? `<h2 class="section-title">${t("Payments")}</h2>
         ${orders.length ? `
           <div class="table-scroll"><table class="history-table">
             <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Order")}</th><th scope="col">${t("Item")}</th><th scope="col">${t("Amount")}</th><th scope="col">${t("Status")}</th><th scope="col"><span class="sr-only">${t("Receipt")}</span></th></tr></thead>
@@ -564,7 +578,7 @@
               <tr><td>${esc(U.formatDate(o.createdAt))}</td><td>#MX${o.id}</td><td>${esc(o.title)}</td>
                 <td>${esc(money(o.amount))}</td><td>${statusBadge(o.status)}</td>
                 <td>${o.status === "paid" ? `<button type="button" class="btn-link" data-action="receipt" data-order="${o.id}">${t("Receipt")}</button>` : ""}</td></tr>`).join("")}</tbody>
-          </table></div>` : `<p class="empty-inline">${t("No payments yet.")}</p>`}
+          </table></div>` : `<p class="empty-inline">${t("No payments yet.")}</p>`}` : ""}
       </section>`;
     main.querySelector("#name-form").addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -572,15 +586,20 @@
       renderAccountSlot();
       U.toast(t("Saved."));
     });
-    // The chart's code loads after the page is shown.
+    // The chart's code loads after the page is shown; it draws twice if this browser had older data.
+    // The lines rise on the first drawing only, so a second one with newer data does not replay it.
+    const draw = (res, animate) => {
+      const slot = main.querySelector("#progress-section");
+      if (slot && document.body.contains(slot)) Progress.render(slot, res.points || [], res.activity || [], { animate, goal: goal().targetBand });
+    };
     U.need("progress").then(() => {
-      const slot = main.querySelector("#progress-section");
-      if (slot) Progress.render(slot, progressRes.points || [], goal().targetBand);
+      if (seen) draw(seen, true);
+      return progress.then((res) => {
+        if (!seen || JSON.stringify(res) !== JSON.stringify(seen)) draw(res, !seen || !(seen.points || []).length);
+      });
     }).catch(() => { /* U.need has shown a toast */ });
-    bindGoalForm(main, () => {
-      const slot = main.querySelector("#progress-section");
-      if (slot && window.Progress) Progress.render(slot, progressRes.points || [], goal().targetBand);
-    });
+    bindGoalForm(main, () => progress.then((res) => draw(res, false)));
+    fresh.then(() => renderAccountSlot());
     if (window.app) window.app.loadHistory();
   }
 
@@ -1290,7 +1309,7 @@
   }
 
   window.Account = {
-    state, refreshMe, primeMe, user, planActive, role, goal, daysUntil, planEndingHTML, goalFormHTML, bindGoalForm, login, logout, paywall, buy, billing, money, onClick, renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
+    state, commerce, refreshMe, primeMe, user, planActive, role, goal, daysUntil, planEndingHTML, goalFormHTML, bindGoalForm, login, logout, paywall, buy, billing, money, onClick, renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
     setConfig(config) { state.config = config || {}; },
   };
 })();

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-59",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 59",
+  "shortTitle": "Practice Test 59",
+  "durationMinutes": 14,
+  "sortOrder": 59,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-59/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-59/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Going out",
+        "Perfume"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Who do you live with?",
+          "say": "Good evening. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Who do you live with?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-1.mp3",
+            "duration": 14.96
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Do you often invite friends to your home?",
+          "say": "Do you often invite friends to your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-2.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Is there a garden or a balcony where you live?",
+          "say": "Is there a garden or a balcony where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-3.mp3",
+            "duration": 3.57
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "Are there good shops near your home?",
+          "say": "Are there good shops near your home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-4.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Going out",
+          "text": "How often do you go out with friends?",
+          "say": "Now let's move on to talk about going out. How often do you go out with friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-5.mp3",
+            "duration": 5.84
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Going out",
+          "text": "Where do you usually go?",
+          "say": "Where do you usually go?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-6.mp3",
+            "duration": 2.4
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Going out",
+          "text": "Do young people in your country go out more than older people?",
+          "say": "Do young people in your country go out more than older people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-7.mp3",
+            "duration": 4.11
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Perfume",
+          "text": "Do you wear perfume?",
+          "say": "Now let's move on to talk about perfume. Do you wear perfume?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-8.mp3",
+            "duration": 5.31
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Perfume",
+          "text": "Have you ever given perfume as a gift?",
+          "say": "Have you ever given perfume as a gift?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-9.mp3",
+            "duration": 3.08
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Perfume",
+          "text": "Are there any smells you particularly like?",
+          "say": "Are there any smells you particularly like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p1-10.mp3",
+            "duration": 3.19
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you were late for something.",
+        "points": [
+          "what you were late for",
+          "why you were late",
+          "what happened as a result"
+        ],
+        "explain": "and explain how you felt about being late."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you were late for something.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you were late for something. You should say: what you were late for; why you were late; what happened as a result; and explain how you felt about being late.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-59/p2-talk.mp3",
+            "duration": 25.22
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Are you usually on time for things?",
+          "say": "Thank you. Are you usually on time for things?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-59/p2-follow.mp3",
+            "duration": 3.23
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Punctuality",
+        "Time and technology"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Punctuality",
+          "text": "Why is it important to be on time at work?",
+          "say": "Thank you. We've been talking about a time when you were late for something, and I'd like to discuss with you some more general questions related to this. Let's consider first of all punctuality. Why is it important to be on time at work?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-59/p3-1.mp3",
+            "duration": 15.45
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Punctuality",
+          "text": "Are people in your country usually punctual?",
+          "say": "Are people in your country usually punctual?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-59/p3-2.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Punctuality",
+          "text": "In what situations is it acceptable to be late?",
+          "say": "In what situations is it acceptable to be late?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-59/p3-3.mp3",
+            "duration": 3.85
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Time and technology",
+          "text": "Has technology helped people to manage their time better?",
+          "say": "Now let's talk about time and technology. Has technology helped people to manage their time better?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-59/p3-4.mp3",
+            "duration": 7.23
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Time and technology",
+          "text": "Why do people today often feel they don't have enough time?",
+          "say": "Why do people today often feel they don't have enough time?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-59/p3-5.mp3",
+            "duration": 4.11
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Time and technology",
+          "text": "Do you think people will have more free time in the future?",
+          "say": "Do you think people will have more free time in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-59/p3-6.mp3",
+            "duration": 3.85
+          }
+        }
+      ]
+    }
+  ]
+}

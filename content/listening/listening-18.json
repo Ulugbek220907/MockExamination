@@ -1,0 +1,1223 @@
+{
+  "id": "listening-18",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 18",
+  "shortTitle": "Practice Test 18",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 18,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "kate": {
+      "name": "Kate",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "dawson": {
+      "name": "Mr Dawson",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "presenter": {
+      "name": "Presenter",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "leo": {
+      "name": "Leo",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "priya": {
+      "name": "Priya",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {
+    "lead": "lˈɛd"
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Renting a stall at a craft market",
+      "context": "A woman who makes candles phones the organiser of a craft market.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman phoning the organiser of a craft market about renting a stall. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.8
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.8,
+          "end": 39.86
+        },
+        {
+          "speaker": "dawson",
+          "text": "Riverside Craft Market, John Dawson speaking.",
+          "start": 40.76,
+          "end": 43.9
+        },
+        {
+          "speaker": "kate",
+          "text": "Hello. I make candles, and I'm interested in having a stall at the market. Could you tell me what kinds of stall you have?",
+          "start": 44.4,
+          "end": 50.67
+        },
+        {
+          "speaker": "dawson",
+          "text": "Of course. There are three kinds. The standard stall is two metres wide.",
+          "start": 51.17,
+          "end": 55.55
+        },
+        {
+          "speaker": "narrator",
+          "text": "A standard stall is two metres wide, so '2 metres wide' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 56.45,
+          "end": 72.59
+        },
+        {
+          "speaker": "dawson",
+          "text": "The standard stall costs twenty-five pounds a day, and that includes the use of one table. Most people find that's enough.",
+          "start": 73.49,
+          "end": 80.98
+        },
+        {
+          "speaker": "kate",
+          "text": "And the bigger ones?",
+          "start": 81.48,
+          "end": 82.91
+        },
+        {
+          "speaker": "dawson",
+          "text": "The large stall is four metres wide, and it's forty pounds. As well as a table, you get electricity, which is useful if you want to put up lights.",
+          "start": 83.41,
+          "end": 92.29
+        },
+        {
+          "speaker": "kate",
+          "text": "Hmm, lights might show off the candles nicely. And the third kind?",
+          "start": 92.79,
+          "end": 96.54
+        },
+        {
+          "speaker": "dawson",
+          "text": "That's the covered stall. It's three metres wide, inside the old market hall, so you're out of the rain. That one's thirty-five pounds.",
+          "start": 97.04,
+          "end": 105.4
+        },
+        {
+          "speaker": "kate",
+          "text": "I see. I think I'll go for the covered one. Candles don't like getting wet.",
+          "start": 105.9,
+          "end": 109.85
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 110.75,
+          "end": 116.47
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 136.47,
+          "end": 139.8
+        },
+        {
+          "speaker": "kate",
+          "text": "When is the market held?",
+          "start": 140.7,
+          "end": 142.36
+        },
+        {
+          "speaker": "dawson",
+          "text": "On the first Sunday of every month. It used to be on Saturdays, but we moved it so that it doesn't clash with the farmers' market.",
+          "start": 142.86,
+          "end": 150.18
+        },
+        {
+          "speaker": "kate",
+          "text": "And what time do I need to be there?",
+          "start": 150.68,
+          "end": 152.73
+        },
+        {
+          "speaker": "dawson",
+          "text": "The market opens to the public at nine, but stallholders must arrive by seven, so that everything is ready in time.",
+          "start": 153.23,
+          "end": 160.63
+        },
+        {
+          "speaker": "kate",
+          "text": "Can I park next to my stall?",
+          "start": 161.13,
+          "end": 163.09
+        },
+        {
+          "speaker": "dawson",
+          "text": "You can unload there, but after that, all cars have to be moved to the car park behind the library. It's free on Sundays.",
+          "start": 163.59,
+          "end": 171.29
+        },
+        {
+          "speaker": "kate",
+          "text": "That's fine. Is there anything else I need?",
+          "start": 171.79,
+          "end": 174.25
+        },
+        {
+          "speaker": "dawson",
+          "text": "Yes, every stallholder needs public liability insurance. We can't let you trade without it, I'm afraid.",
+          "start": 174.75,
+          "end": 181.34
+        },
+        {
+          "speaker": "kate",
+          "text": "I already have that. How do I apply?",
+          "start": 181.84,
+          "end": 184.14
+        },
+        {
+          "speaker": "dawson",
+          "text": "Just fill in the form on our website. We like to keep a good mix of crafts, so we also ask everyone to email some photographs of what they make.",
+          "start": 184.64,
+          "end": 192.96
+        },
+        {
+          "speaker": "kate",
+          "text": "No problem. I'll do that this evening. Thank you.",
+          "start": 193.46,
+          "end": 196.23
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 197.13,
+          "end": 201.66
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Riverside Craft Market – stalls",
+          "content": {
+            "headers": [
+              "Stall",
+              "Size",
+              "Price per day",
+              "Includes"
+            ],
+            "rows": [
+              [
+                "standard",
+                "Example: **2 metres wide**",
+                "£{{1}}",
+                "one {{2}}"
+              ],
+              [
+                "large",
+                "{{3}} metres wide",
+                "£40",
+                "a table and {{4}}"
+              ],
+              [
+                "covered",
+                "3 metres wide",
+                "£{{5}}",
+                "space in the market hall"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "25",
+                "twenty-five"
+              ],
+              "explanation": "‘The standard stall costs twenty-five pounds a day.’",
+              "cue": "The standard stall costs twenty-five pounds a day"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "table"
+              ],
+              "explanation": "‘That includes the use of one table.’",
+              "cue": "that includes the use of one table"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "4",
+                "four"
+              ],
+              "explanation": "‘The large stall is four metres wide.’",
+              "cue": "The large stall is four metres wide"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "electricity"
+              ],
+              "explanation": "‘As well as a table, you get electricity.’",
+              "cue": "As well as a table, you get electricity"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "35",
+                "thirty-five"
+              ],
+              "explanation": "The covered stall: ‘That one's thirty-five pounds.’",
+              "cue": "That one's thirty-five pounds"
+            }
+          ]
+        },
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Other information",
+          "content": [
+            "• The market is on the first {{6}} of every month",
+            "• Stallholders must arrive by {{7}} am",
+            "• Cars must be parked behind the {{8}}",
+            "• Stallholders need public liability {{9}}",
+            "• Apply online and email some {{10}} of your work"
+          ],
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "Sunday"
+              ],
+              "explanation": "It used to be on Saturdays, but now it is ‘on the first Sunday of every month’.",
+              "cue": "On the first Sunday of every month"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "7",
+                "seven"
+              ],
+              "explanation": "The public come at nine, but ‘stallholders must arrive by seven’.",
+              "cue": "stallholders must arrive by seven"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "library"
+              ],
+              "explanation": "‘All cars have to be moved to the car park behind the library.’",
+              "cue": "the car park behind the library"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "insurance"
+              ],
+              "explanation": "‘Every stallholder needs public liability insurance.’",
+              "cue": "every stallholder needs public liability insurance"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "photographs",
+                "photos"
+              ],
+              "explanation": "‘We also ask everyone to email some photographs of what they make.’",
+              "cue": "email some photographs of what they make"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-18/part1.mp3",
+        "duration": 232.46
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Changes to household waste collection",
+      "context": "A local radio presenter explains a town's new system for collecting household waste.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a local radio presenter talking about changes to household waste collection. First, you have some time to look at questions 11 to 14.",
+          "start": 0.6,
+          "end": 11.57
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 14.",
+          "start": 36.57,
+          "end": 40.83
+        },
+        {
+          "speaker": "presenter",
+          "text": "Good morning. Many of you have been asking about the new waste collection scheme here in Harbridge, so I've been finding out the details. The scheme was supposed to start on the first of March, but delivery of the new bins was delayed, so it'll now begin on the first of April.",
+          "start": 41.73,
+          "end": 56.35
+        },
+        {
+          "speaker": "presenter",
+          "text": "Why is it happening? Some people think it's just about saving money, and the council admits it will save a little. But the main reason is that the government has set a national target for recycling, and at the moment Harbridge is a long way below it.",
+          "start": 56.7,
+          "end": 70.16
+        },
+        {
+          "speaker": "presenter",
+          "text": "So how will collections work? Food waste will be collected every week, and recycling every two weeks, as now. But general waste, that's the black bin, will only be collected every three weeks.",
+          "start": 70.51,
+          "end": 80.79
+        },
+        {
+          "speaker": "presenter",
+          "text": "And what about your old bins? Please don't take them to the recycling centre yourself. Just put a sticker on them and leave them out on your usual collection day, and they'll be taken away.",
+          "start": 81.14,
+          "end": 90.61
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 15 to 20.",
+          "start": 91.51,
+          "end": 97.08
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 15 to 20.",
+          "start": 122.08,
+          "end": 125.9
+        },
+        {
+          "speaker": "presenter",
+          "text": "There's good news about what you can recycle. From April, you can put drink cartons and plastic food trays in the blue bin. Glass bottles could always go in, of course. Plastic bags still can't, I'm afraid, and batteries must never go in any of your bins, because they can start fires in the lorries.",
+          "start": 126.8,
+          "end": 142.84
+        },
+        {
+          "speaker": "presenter",
+          "text": "Every home will also get a small food caddy for the kitchen. The caddies are free, and you can buy special bags to line them, though wrapping food in newspaper works just as well. You can put in all kinds of food, cooked or raw, including meat, bones and even pet food.",
+          "start": 143.19,
+          "end": 157.78
+        },
+        {
+          "speaker": "presenter",
+          "text": "If you'd like more information, there is a phone line, but it's going to be very busy for the first few weeks. The easiest way is to use the council website, where you can type in your postcode and see your collection days.",
+          "start": 158.13,
+          "end": 169.97
+        },
+        {
+          "speaker": "presenter",
+          "text": "And finally, what happens if you put the wrong things in your bin? Nobody will be fined, at least not at first. But if the crew find the wrong items, your bin won't be emptied, and they'll attach a tag explaining why.",
+          "start": 170.32,
+          "end": 181.78
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 182.68,
+          "end": 187.01
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "When will the new scheme begin?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "1 March"
+                },
+                {
+                  "key": "B",
+                  "text": "1 April"
+                },
+                {
+                  "key": "C",
+                  "text": "1 May"
+                }
+              ],
+              "answer": "B",
+              "explanation": "It was supposed to start in March, but ‘it'll now begin on the first of April’.",
+              "cue": "it'll now begin on the first of April"
+            },
+            {
+              "number": 12,
+              "prompt": "What is the main reason for the new scheme?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to save the council money"
+                },
+                {
+                  "key": "B",
+                  "text": "to meet a national recycling target"
+                },
+                {
+                  "key": "C",
+                  "text": "because residents complained"
+                }
+              ],
+              "answer": "B",
+              "explanation": "It will save a little money, ‘but the main reason is that the government has set a national target for recycling’.",
+              "cue": "the main reason is that the government has set a national target"
+            },
+            {
+              "number": 13,
+              "prompt": "How often will general waste be collected?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "every week"
+                },
+                {
+                  "key": "B",
+                  "text": "every two weeks"
+                },
+                {
+                  "key": "C",
+                  "text": "every three weeks"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘General waste … will only be collected every three weeks.’",
+              "cue": "will only be collected every three weeks"
+            },
+            {
+              "number": 14,
+              "prompt": "What should residents do with their old bins?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "leave them out to be collected"
+                },
+                {
+                  "key": "B",
+                  "text": "take them to the recycling centre"
+                },
+                {
+                  "key": "C",
+                  "text": "keep them for garden waste"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Leave them out on your usual collection day, and they'll be taken away.’",
+              "cue": "leave them out on your usual collection day"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO items can be put in the blue bin for the first time?",
+          "options": [
+            {
+              "key": "A",
+              "text": "plastic bags"
+            },
+            {
+              "key": "B",
+              "text": "drink cartons"
+            },
+            {
+              "key": "C",
+              "text": "glass bottles"
+            },
+            {
+              "key": "D",
+              "text": "batteries"
+            },
+            {
+              "key": "E",
+              "text": "plastic food trays"
+            }
+          ],
+          "answer": [
+            "B",
+            "E"
+          ],
+          "explanation": "‘From April, you can put drink cartons and plastic food trays in the blue bin.’ Glass bottles could always go in; plastic bags and batteries cannot.",
+          "questions": [
+            {
+              "number": 15,
+              "cue": "you can put drink cartons and plastic food trays in the blue bin"
+            },
+            {
+              "number": 16,
+              "cue": "you can put drink cartons and plastic food trays"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO things does the presenter say about the food waste service?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The kitchen caddies are free."
+            },
+            {
+              "key": "B",
+              "text": "Food must be wrapped in newspaper."
+            },
+            {
+              "key": "C",
+              "text": "Cooked food can be included."
+            },
+            {
+              "key": "D",
+              "text": "Pet food is not accepted."
+            },
+            {
+              "key": "E",
+              "text": "Special bags must be bought."
+            }
+          ],
+          "answer": [
+            "A",
+            "C"
+          ],
+          "explanation": "‘The caddies are free’ (A) and ‘you can put in all kinds of food, cooked or raw’ (C). Bags and newspaper are both optional, and pet food is accepted.",
+          "questions": [
+            {
+              "number": 17,
+              "cue": "The caddies are free"
+            },
+            {
+              "number": 18,
+              "cue": "cooked or raw"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 19,
+              "prompt": "What does the presenter recommend for finding out more?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "using the council website"
+                },
+                {
+                  "key": "B",
+                  "text": "phoning the council"
+                },
+                {
+                  "key": "C",
+                  "text": "visiting the library"
+                }
+              ],
+              "answer": "A",
+              "explanation": "The phone line will be busy: ‘The easiest way is to use the council website.’",
+              "cue": "The easiest way is to use the council website"
+            },
+            {
+              "number": 20,
+              "prompt": "What will happen if people put the wrong items in a bin?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They will have to pay a fine."
+                },
+                {
+                  "key": "B",
+                  "text": "The bin will not be emptied."
+                },
+                {
+                  "key": "C",
+                  "text": "They will receive a letter."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Nobody will be fined at first, but ‘your bin won't be emptied’.",
+              "cue": "your bin won't be emptied"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-18/part2.mp3",
+        "duration": 217.81
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A survey of commuters",
+      "context": "Two students discuss the results of their survey on how people travel to work.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two students, Leo and Priya, discussing a survey they did on how people travel to work. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.48
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.48,
+          "end": 42.2
+        },
+        {
+          "speaker": "priya",
+          "text": "Leo, I think the survey went really well. I'm glad we did it face to face in the town centre and not online.",
+          "start": 43.1,
+          "end": 49.43
+        },
+        {
+          "speaker": "leo",
+          "text": "Me too. Online, we'd mostly have reached students like us. In the town centre we got a much wider range of ages, including a lot of older people.",
+          "start": 49.93,
+          "end": 60.09
+        },
+        {
+          "speaker": "priya",
+          "text": "And people were so friendly. I thought lots of them would refuse to stop, but hardly anyone did.",
+          "start": 60.59,
+          "end": 66.39
+        },
+        {
+          "speaker": "leo",
+          "text": "The rain on the first day wasn't a problem either, because we stood under the shopping centre roof. The only real problem was on the second morning, when we ran out of question sheets and had to go back and print more.",
+          "start": 66.89,
+          "end": 80.37
+        },
+        {
+          "speaker": "priya",
+          "text": "Yes, that was annoying. Now, the results. We asked people why they chose their way of travelling. I really expected cost to be the top reason.",
+          "start": 80.87,
+          "end": 88.79
+        },
+        {
+          "speaker": "leo",
+          "text": "So did I, and speed came second. But the number one answer was reliability. People just want to know they'll arrive on time.",
+          "start": 89.29,
+          "end": 97.86
+        },
+        {
+          "speaker": "priya",
+          "text": "And then the cyclists. Most of them were under thirty, which is what we expected. What we didn't expect was that they had the longest journeys of all, more than eight kilometres on average.",
+          "start": 98.36,
+          "end": 108.03
+        },
+        {
+          "speaker": "leo",
+          "text": "And they weren't any happier than bus users, which also surprised me.",
+          "start": 108.53,
+          "end": 112.71
+        },
+        {
+          "speaker": "priya",
+          "text": "So what should we recommend in the report? More bike lanes?",
+          "start": 113.21,
+          "end": 116.9
+        },
+        {
+          "speaker": "leo",
+          "text": "They're already planned, and bus fares are set by the bus company, not the council. I think the most useful thing the council could actually do is put screens at bus stops showing when the next bus is coming.",
+          "start": 117.4,
+          "end": 130.41
+        },
+        {
+          "speaker": "priya",
+          "text": "Good. Let's make that our main recommendation.",
+          "start": 130.91,
+          "end": 133.96
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 134.86,
+          "end": 141.01
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 161.01,
+          "end": 164.85
+        },
+        {
+          "speaker": "priya",
+          "text": "Let's go through the findings for each kind of transport. The bus was the most popular with people over sixty, mainly because they can travel free.",
+          "start": 165.75,
+          "end": 173.92
+        },
+        {
+          "speaker": "leo",
+          "text": "And the train was delayed most often, about one journey in four, according to the people we asked.",
+          "start": 174.42,
+          "end": 180.86
+        },
+        {
+          "speaker": "priya",
+          "text": "The drivers spent the most money each month, mostly on parking in the town centre.",
+          "start": 181.36,
+          "end": 186.12
+        },
+        {
+          "speaker": "leo",
+          "text": "The people who walked to work said they mainly did it for their health. Lots of them had been told to by their doctor.",
+          "start": 186.62,
+          "end": 193.34
+        },
+        {
+          "speaker": "priya",
+          "text": "And the number of people cycling has doubled since the last survey five years ago, so it's growing faster than anything else.",
+          "start": 193.84,
+          "end": 200.58
+        },
+        {
+          "speaker": "leo",
+          "text": "Right. Let's put all that in a table.",
+          "start": 201.08,
+          "end": 203.17
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 204.07,
+          "end": 208.53
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did the students do their survey in the town centre?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to get more responses"
+                },
+                {
+                  "key": "B",
+                  "text": "to include people of different ages"
+                },
+                {
+                  "key": "C",
+                  "text": "because it was cheaper"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘In the town centre we got a much wider range of ages, including a lot of older people.’",
+              "cue": "we got a much wider range of ages"
+            },
+            {
+              "number": 22,
+              "prompt": "What problem did the students have during the survey?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Many people refused to take part."
+                },
+                {
+                  "key": "B",
+                  "text": "Bad weather stopped the survey."
+                },
+                {
+                  "key": "C",
+                  "text": "They did not have enough forms."
+                }
+              ],
+              "answer": "C",
+              "explanation": "People did not refuse, and the rain was not a problem: ‘we ran out of question sheets’.",
+              "cue": "we ran out of question sheets"
+            },
+            {
+              "number": 23,
+              "prompt": "What was the main reason people gave for choosing how they travel?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "cost"
+                },
+                {
+                  "key": "B",
+                  "text": "speed"
+                },
+                {
+                  "key": "C",
+                  "text": "reliability"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Cost was expected and speed came second, ‘but the number one answer was reliability’.",
+              "cue": "the number one answer was reliability"
+            },
+            {
+              "number": 24,
+              "prompt": "What surprised the students about the cyclists?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They travelled the furthest."
+                },
+                {
+                  "key": "B",
+                  "text": "Most of them were young."
+                },
+                {
+                  "key": "C",
+                  "text": "They were the happiest commuters."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘What we didn't expect was that they had the longest journeys of all.’",
+              "cue": "they had the longest journeys of all"
+            },
+            {
+              "number": 25,
+              "prompt": "What will the students recommend in their report?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "more bike lanes"
+                },
+                {
+                  "key": "B",
+                  "text": "cheaper bus fares"
+                },
+                {
+                  "key": "C",
+                  "text": "information screens at bus stops"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Bike lanes are planned and fares are not set by the council: ‘put screens at bus stops showing when the next bus is coming’.",
+              "cue": "put screens at bus stops"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Which form of transport does each finding refer to? Choose the correct letter, **A–E**, next to Questions 26–30.",
+          "optionsTitle": "Transport",
+          "options": [
+            {
+              "key": "A",
+              "text": "car"
+            },
+            {
+              "key": "B",
+              "text": "bus"
+            },
+            {
+              "key": "C",
+              "text": "train"
+            },
+            {
+              "key": "D",
+              "text": "bicycle"
+            },
+            {
+              "key": "E",
+              "text": "walking"
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "most popular with people over sixty",
+              "answer": "B",
+              "explanation": "‘The bus was the most popular with people over sixty.’",
+              "cue": "The bus was the most popular with people over sixty"
+            },
+            {
+              "number": 27,
+              "prompt": "delayed most often",
+              "answer": "C",
+              "explanation": "‘The train was delayed most often.’",
+              "cue": "the train was delayed most often"
+            },
+            {
+              "number": 28,
+              "prompt": "cost users the most each month",
+              "answer": "A",
+              "explanation": "‘The drivers spent the most money each month, mostly on parking.’",
+              "cue": "The drivers spent the most money each month"
+            },
+            {
+              "number": 29,
+              "prompt": "chosen mainly for health reasons",
+              "answer": "E",
+              "explanation": "‘The people who walked to work said they mainly did it for their health.’",
+              "cue": "they mainly did it for their health"
+            },
+            {
+              "number": 30,
+              "prompt": "growing fastest in popularity",
+              "answer": "D",
+              "explanation": "‘The number of people cycling has doubled … it's growing faster than anything else.’",
+              "cue": "the number of people cycling has doubled"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-18/part3.mp3",
+        "duration": 239.33
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the invention of the tin can",
+      "context": "A lecture on the history of preserving food in cans.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of the tin can. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.07
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.07,
+          "end": 43.49
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today's lecture is about an invention that changed how the whole world eats, but that most of us never think about: the tin can.",
+          "start": 44.39,
+          "end": 52.83
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The story starts in France at the end of the eighteenth century. France was at war, and keeping soldiers fed far from home was a huge problem, so the government offered a prize for a new way to preserve food for the army.",
+          "start": 53.18,
+          "end": 65.75
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The winner was a cook and sweet-maker called Nicolas Appert. After years of experiments, he found that if he sealed food in glass bottles and then heated them in boiling water, the food stayed fresh for months. Nobody, including Appert, understood why it worked.",
+          "start": 66.1,
+          "end": 80.86
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The method had one big weakness. Glass is heavy, and on long journeys the containers often broke.",
+          "start": 81.21,
+          "end": 87.08
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The solution came from England. In eighteen ten, a merchant called Peter Durand was given a patent for a container made of iron coated with tin. Within a few years, a factory in London was supplying canned meat and vegetables to the navy and to explorers.",
+          "start": 87.43,
+          "end": 102.68
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Strangely, nobody had invented a way to open them. Early cans were so thick that the instructions told people to cut round the top with a hammer and chisel. Soldiers sometimes used their bayonets, or even shot them open. The can opener was only invented almost fifty years later, once cans had become thinner.",
+          "start": 103.03,
+          "end": 120.95
+        },
+        {
+          "speaker": "lecturer",
+          "text": "It was the French scientist Louis Pasteur who finally explained why canning worked. In the eighteen sixties he showed that food goes bad because of tiny living organisms, which we now call bacteria. Heating kills them, and the sealed can stops new ones getting in.",
+          "start": 121.3,
+          "end": 136.38
+        },
+        {
+          "speaker": "lecturer",
+          "text": "There were dangers too. The seams of early cans were sealed with lead, which could slowly poison the people eating from them, and some historians believe this harmed polar explorers who lived on canned food for years.",
+          "start": 136.73,
+          "end": 149.09
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Today's cans are made of steel or aluminium, and the inside is usually lined with a very thin layer of plastic, so that the metal doesn't affect the taste of the food. And they are among the most recycled packaging in the world.",
+          "start": 149.44,
+          "end": 163.03
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 163.93,
+          "end": 168.32
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 198.32,
+          "end": 201.03
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The history of the tin can",
+          "content": [
+            "## France",
+            "• The government offered a prize for a way to preserve food for the {{31}}",
+            "• Nicolas Appert sealed food in glass {{32}}",
+            "• He then heated them in boiling {{33}}",
+            "• Problem: the containers often {{34}} on long journeys",
+            "## England",
+            "• 1810: Peter Durand's container was made of iron coated with {{35}}",
+            "• Early cans were opened with a hammer and {{36}}",
+            "• The can opener appeared nearly {{37}} years later",
+            "## Science and safety",
+            "• Pasteur showed that {{38}} make food go bad",
+            "• Early cans were sealed with {{39}}, which could poison people",
+            "## Today",
+            "• Cans are lined with a thin layer of {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "army"
+              ],
+              "explanation": "The government ‘offered a prize for a new way to preserve food for the army’.",
+              "cue": "preserve food for the army"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "bottles"
+              ],
+              "explanation": "‘He sealed food in glass bottles.’",
+              "cue": "he sealed food in glass bottles"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "water"
+              ],
+              "explanation": "He ‘heated them in boiling water’.",
+              "cue": "heated them in boiling water"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "broke"
+              ],
+              "explanation": "‘On long journeys the containers often broke.’",
+              "cue": "the containers often broke"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "tin"
+              ],
+              "explanation": "‘A container made of iron coated with tin.’",
+              "cue": "a container made of iron coated with tin"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "chisel"
+              ],
+              "explanation": "‘Cut round the top with a hammer and chisel.’",
+              "cue": "cut round the top with a hammer and chisel"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "50",
+                "fifty"
+              ],
+              "explanation": "‘The can opener was only invented almost fifty years later.’",
+              "cue": "almost fifty years later"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "bacteria",
+                "organisms"
+              ],
+              "explanation": "Food goes bad ‘because of tiny living organisms, which we now call bacteria’.",
+              "cue": "which we now call bacteria"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "lead"
+              ],
+              "explanation": "‘The seams of early cans were sealed with lead.’",
+              "cue": "The seams of early cans were sealed with lead"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "plastic"
+              ],
+              "explanation": "‘The inside is usually lined with a very thin layer of plastic.’",
+              "cue": "a very thin layer of plastic"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-18/part4.mp3",
+        "duration": 201.83
+      }
+    }
+  ],
+  "durationMinutes": 15
+}

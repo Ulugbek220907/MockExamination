@@ -111,6 +111,8 @@ class BaseHandler(tornado.web.RequestHandler):
         self.set_status(status)
         self.set_header("Content-Type", "application/json; charset=utf-8")
         self.set_header("Cache-Control", "no-store")
+        # How long the server took (visible in the browser's network panel), to spot slow requests.
+        self.set_header("Server-Timing", f"app;dur={self.request.request_time() * 1000:.0f}")
         self.finish(json.dumps(payload, ensure_ascii=False, default=str))
 
     def send_error_json(self, status, message, code=None):

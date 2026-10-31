@@ -66,10 +66,11 @@ def start_submission(db, user_id, test, candidate_name, mode):
     recent = db.select("speaking_submissions", {"user_id": user_id, "created_at": ("gte", iso(since))}, limit=STARTS_PER_DAY + 1)
     if len(recent) >= STARTS_PER_DAY:
         raise SpeakingError(f"You can start {STARTS_PER_DAY} Speaking tests a day. Please come back tomorrow.", 429)
-    return db.insert("speaking_submissions", {
-        "user_id": user_id, "test_id": test["id"], "candidate_name": candidate_name,
-        "mode": "practice" if mode == "practice" else "exam", "status": "recording",
-    })
+    row = {"user_id": user_id, "test_id": test["id"], "candidate_name": candidate_name,
+           "mode": mode if mode in ("practice", "ai") else "exam", "status": "recording"}
+    if mode == "ai":
+        row["ai_review"] = {"status": "recording"}
+    return db.insert("speaking_submissions", row)
 
 
 def get_submission(db, submission_id):
@@ -102,8 +103,13 @@ def save_recording(db, files, sub, test, key, data, mime, duration):
         raise SpeakingError("The recording is empty. Check your microphone.", 400)
     if len(data) > MAX_RECORDING_BYTES:
         raise SpeakingError("The recording is too long.", 413)
+    from .dbcache import gather
+
     since = iso(now() - datetime.timedelta(days=1))
-    used = sum(r["size"] for r in db.select("recordings", {"user_id": sub["user_id"], "created_at": ("gte", since)}, limit=2000))
+    today, old = gather(  # side by side: the database is far away
+        lambda: db.select("recordings", {"user_id": sub["user_id"], "created_at": ("gte", since)}, limit=2000),
+        lambda: db.select("recordings", {"submission_id": sub["id"], "question_key": key}, limit=1))
+    used = sum(r["size"] for r in today)
     if used + len(data) > UPLOAD_BYTES_PER_DAY:
         raise SpeakingError("You have reached today's recording limit. Please come back tomorrow.", 429)
     try:
@@ -114,7 +120,6 @@ def save_recording(db, files, sub, test, key, data, mime, duration):
     rec_id = str(uuid.uuid4())
     path = f"{sub['user_id']}/{sub['id']}/{key}-{rec_id}.{AUDIO_TYPES[mime]}"
     files.put(path, data, mime)
-    old = db.select("recordings", {"submission_id": sub["id"], "question_key": key}, limit=1)
     if old:
         db.delete("recordings", {"id": old[0]["id"]})
     try:
@@ -210,23 +215,31 @@ def checks_by_submission(db, user_id):
     return out
 
 
-def history_items(db, user_id, limit=20):
-    subs = db.select("speaking_submissions", {"user_id": user_id, "status": "completed"},
-                     order=[("created_at", "desc")], limit=limit)
+def history_items(db, user_id, limit=20, counts=True):
+    """The user's finished Speaking tests, newest first. `counts` adds how many answers each has."""
+    from .dbcache import gather
+
+    subs, checks = gather(
+        lambda: db.select("speaking_submissions", {"user_id": user_id, "status": "completed"},
+                          order=[("created_at", "desc")], limit=limit),
+        lambda: checks_by_submission(db, user_id))
     if not subs:
         return []
-    counts = {}
-    for r in db.select("recordings", {"submission_id": ("in", [s["id"] for s in subs])}, limit=2000):
-        counts[r["submission_id"]] = counts.get(r["submission_id"], 0) + 1
-    checks = checks_by_submission(db, user_id)
+    answered = {}
+    if counts:
+        for r in db.select("recordings", {"submission_id": ("in", [s["id"] for s in subs])}, limit=2000):
+            answered[r["submission_id"]] = answered.get(r["submission_id"], 0) + 1
     items = []
     for s in subs:
         c = checks.get(s["id"])
+        review = s.get("ai_review") if isinstance(s.get("ai_review"), dict) else {}
+        ai_band = review.get("overallBand") if review.get("status") == "done" else None
         items.append({
             "module": "speaking", "id": s["id"], "testId": s["test_id"], "createdAt": s["created_at"],
-            "timeSpentSeconds": s.get("time_spent_seconds"), "mode": s.get("mode"), "answered": counts.get(s["id"], 0),
+            "timeSpentSeconds": s.get("time_spent_seconds"), "mode": s.get("mode"), "answered": answered.get(s["id"], 0),
             "bandScore": float(c["overall_band"]) if c and c.get("overall_band") is not None else None,
             "checkId": c["id"] if c else None, "checkStatus": c["status"] if c else None,
+            "aiBand": float(ai_band) if ai_band is not None else None,
         })
     return items
 
