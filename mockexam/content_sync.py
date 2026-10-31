@@ -64,8 +64,12 @@ def _run(store, changed):
                              if failed else f"Done: {_state['total']} tests uploaded and the site reloaded them.")
 
 
-def start(store, local_tests=None, public_dir=PUBLIC_DIR):
-    """Check the files and start the upload. Returns the status; never raises."""
+def start(store, local_tests=None, public_dir=PUBLIC_DIR, only_new=False):
+    """
+    Check the files and start the upload. Returns the status; never raises.
+    `only_new` uploads only tests Supabase does not have yet (the server does this when it starts,
+    so a deploy that adds tests publishes them); tests that exist are left as they are there.
+    """
     if getattr(store, "name", "") != "supabase":
         with _lock:
             _state.update(running=False, total=0, done=0, failed=[], problems=[],
@@ -77,6 +81,9 @@ def start(store, local_tests=None, public_dir=PUBLIC_DIR):
     try:
         store.refresh()  # compare with what Supabase holds now, not with a cache up to five minutes old
         problems, changed = plan(store, local_tests, public_dir)
+        if only_new:
+            have = {t["id"] for t in store.list_tests()}
+            changed = [t for t in changed if t["id"] not in have]
     except Exception as e:  # noqa: BLE001
         log.exception("Could not compare the tests")
         with _lock:
