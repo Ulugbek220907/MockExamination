@@ -61,6 +61,7 @@
   --series-2: #cf3a2c;
   --series-3: #1e7c42;
   --series-4: #b87900;
+  --series-0: #0b7285;    /* the overall band: one line at a time, never beside the modules */
   --star: #b87900;
 
   --radius: 6px;
@@ -821,16 +822,41 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .overall-band strong { font-size: 1.05rem; }
 .overall-band p { margin-top: 2px; font-size: 0.9em; max-width: 52ch; }
 
-/* A band chart per module */
-.module-charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.module-chart { position: relative; background: var(--pv-surface); border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 14px 16px 12px; }
-.module-chart.is-empty { display: flex; flex-direction: column; gap: 6px; justify-content: center; }
-.mc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-.mc-name { display: inline-flex; align-items: center; gap: 8px; font-weight: 650; color: var(--pv-ink-2); }
-.mc-latest { font-size: 1.6rem; font-weight: 650; color: var(--pv-ink); }
-.mc-plot { margin-top: 6px; touch-action: pan-y; }
-.mc-svg { display: block; overflow: visible; }
-.mc-avg { stroke: var(--pv-muted); stroke-width: 1; stroke-dasharray: 3 4; }
+/* The band card: one smooth line of bands, the chosen test marked on both axes */
+.band-card { position: relative; background: var(--pv-surface); border: 1px solid var(--rule); border-radius: 14px; padding: 14px 18px 14px; margin-bottom: 4px; }
+.seg {
+  display: flex; gap: 4px; padding: 4px; margin-bottom: 14px; background: var(--ground); border: 1px solid var(--rule-soft);
+  border-radius: 999px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.seg::-webkit-scrollbar { display: none; }
+.seg-btn {
+  flex: 1 0 auto; border: 0; background: transparent; color: var(--pv-ink-2); font: inherit; font-weight: 600; font-size: 0.95em;
+  padding: 9px 14px; border-radius: 999px; cursor: pointer; touch-action: manipulation; white-space: nowrap;
+  transition: background-color 0.25s var(--ease-out), color 0.25s var(--ease-out);
+}
+.seg-btn:hover { color: var(--pv-ink); }
+.seg-btn[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.seg-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.bc-title { color: var(--pv-muted); font-size: 0.95em; }
+.bc-title strong { color: var(--pv-ink); font-size: 1.15rem; margin-right: 2px; }
+.bc-figure { display: flex; align-items: baseline; gap: 12px; margin-top: 2px; }
+.bc-value { font-size: 2.7rem; font-weight: 700; color: var(--pv-ink); line-height: 1.1; letter-spacing: -0.02em; }
+.bc-figure .tile-delta { display: inline-flex; align-items: center; gap: 5px; font-size: 1.05rem; }
+.bc-readout { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 14px; margin: 12px 0 6px; font-size: 0.92em; color: var(--pv-ink-2); min-height: 1.5em; }
+.bc-date { font-weight: 700; color: var(--pv-ink); }
+.bc-key { display: inline-flex; align-items: center; gap: 7px; }
+.bc-key strong { color: var(--pv-ink); }
+.bc-test { color: var(--pv-muted); }
+.bc-plot { position: relative; touch-action: pan-y; }
+.bc-svg { display: block; overflow: visible; -webkit-tap-highlight-color: transparent; cursor: crosshair; }
+.bc-svg:focus { outline: none; }
+.bc-svg:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; border-radius: 4px; }
+.bc-vx, .bc-hy { stroke: var(--pv-muted); stroke-width: 1.25; stroke-dasharray: 4 4; }
+.bc-badge rect, .bc-pill rect { fill: var(--field); }
+.bc-badge text, .bc-pill text { fill: var(--pv-ink); font-size: 12px; font-weight: 650; }
+.bc-stats { margin-top: 12px; }
+.tile-main { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
+.tile-spark { display: block; flex-shrink: 1; max-width: 100%; height: auto; margin-bottom: 6px; }
 .mc-stats { display: flex; gap: 18px; margin-top: 6px; font-size: 0.85em; }
 .mc-stats div { display: flex; gap: 6px; align-items: baseline; }
 .mc-stats dt { color: var(--pv-muted); }
@@ -894,7 +920,6 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
   .cal-day:not(.lv-0) button:hover { outline: 2px solid var(--ink-2); outline-offset: 1px; }
 }
 @media (max-width: 720px) {
-  .module-charts { grid-template-columns: 1fr; }
   .cal-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cal-card { padding: 10px 8px 12px; }
   .cal-table { border-spacing: 3px; }
