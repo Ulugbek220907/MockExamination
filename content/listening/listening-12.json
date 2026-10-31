@@ -1,0 +1,1379 @@
+{
+  "id": "listening-12",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 12",
+  "shortTitle": "Practice Test 12",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 12,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "jess": {
+      "name": "Jess",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "daniel": {
+      "name": "Daniel",
+      "voice": "am_adam",
+      "lang": "en-us"
+    },
+    "peter": {
+      "name": "Peter",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "maya": {
+      "name": "Maya",
+      "voice": "af_sarah",
+      "lang": "en-us"
+    },
+    "omar": {
+      "name": "Omar",
+      "voice": "am_eric",
+      "lang": "en-us"
+    },
+    "clarke": {
+      "name": "Dr Clarke",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a pottery course",
+      "context": "A man phones a pottery studio to book a course.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a pottery studio to book a course. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 8.94
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 28.94,
+          "end": 38.01
+        },
+        {
+          "speaker": "jess",
+          "text": "Good afternoon, Clayworks Studio. Jess speaking. How can I help?",
+          "start": 38.91,
+          "end": 42.62
+        },
+        {
+          "speaker": "daniel",
+          "text": "Hi. I'd like to book a place on one of your pottery courses, please. I've never done any pottery before.",
+          "start": 43.12,
+          "end": 48.65
+        },
+        {
+          "speaker": "jess",
+          "text": "Lovely. In that case you'll want our beginners' course, which is all about learning to use the wheel.",
+          "start": 49.15,
+          "end": 53.65
+        },
+        {
+          "speaker": "narrator",
+          "text": "The man has never done pottery before, so 'beginners' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 54.55,
+          "end": 70.01
+        },
+        {
+          "speaker": "jess",
+          "text": "Let me take a few details first. Could I have your name, please?",
+          "start": 70.91,
+          "end": 74.43
+        },
+        {
+          "speaker": "daniel",
+          "text": "Yes, it's Daniel Okafor.",
+          "start": 74.93,
+          "end": 76.6
+        },
+        {
+          "speaker": "jess",
+          "text": "And could you spell your surname for me?",
+          "start": 77.1,
+          "end": 79.02
+        },
+        {
+          "speaker": "daniel",
+          "text": "Sure. O-K-A-F-O-R.",
+          "start": 79.52,
+          "end": 83.51
+        },
+        {
+          "speaker": "jess",
+          "text": "Thanks, Daniel. Now, the beginners' course runs on two different evenings. There's a Monday group and a Tuesday group, both from seven till nine.",
+          "start": 84.01,
+          "end": 91.69
+        },
+        {
+          "speaker": "daniel",
+          "text": "Monday would suit me best, actually.",
+          "start": 92.19,
+          "end": 94.11
+        },
+        {
+          "speaker": "jess",
+          "text": "I'm afraid the Monday group is completely full now. But there are still a few places on Tuesday.",
+          "start": 94.61,
+          "end": 99.75
+        },
+        {
+          "speaker": "daniel",
+          "text": "Oh well. Tuesday is fine, I can make that work.",
+          "start": 100.25,
+          "end": 102.79
+        },
+        {
+          "speaker": "jess",
+          "text": "Great. The next Tuesday course was supposed to start on the seventh of October, but our tutor is away that week, so the first session will now be on the fourteenth.",
+          "start": 103.29,
+          "end": 111.93
+        },
+        {
+          "speaker": "daniel",
+          "text": "The fourteenth. OK, I'll put that in my diary. And how long does the course last?",
+          "start": 112.43,
+          "end": 117.01
+        },
+        {
+          "speaker": "jess",
+          "text": "Most of our courses are six weeks, but the beginners' one is a bit longer, because it takes a while to get the hang of the wheel. It's eight weeks altogether.",
+          "start": 117.51,
+          "end": 125.77
+        },
+        {
+          "speaker": "daniel",
+          "text": "Right. And what does the price cover? I saw on your website that it's a hundred and sixty pounds.",
+          "start": 126.27,
+          "end": 131.22
+        },
+        {
+          "speaker": "jess",
+          "text": "That's right. It covers all your clay, and also the firing, which is when we bake your pieces in the kiln. The only thing that's extra is glaze, if you want your pots to be coloured. There's a small charge for each piece.",
+          "start": 131.72,
+          "end": 143.15
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 144.05,
+          "end": 149.77
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 169.77,
+          "end": 173.1
+        },
+        {
+          "speaker": "daniel",
+          "text": "Is there anything I need to bring with me?",
+          "start": 174.0,
+          "end": 176.13
+        },
+        {
+          "speaker": "jess",
+          "text": "Not much. Clay is very messy, so you'll need an apron. If you haven't got one, an old shirt will do.",
+          "start": 176.63,
+          "end": 181.94
+        },
+        {
+          "speaker": "daniel",
+          "text": "OK. Do I need my own tools?",
+          "start": 182.44,
+          "end": 184.28
+        },
+        {
+          "speaker": "jess",
+          "text": "No, we provide all the tools. But it's a good idea to bring a small box, so you can take your finished pieces home safely. Plastic bags aren't really good enough, and things get broken.",
+          "start": 184.78,
+          "end": 194.57
+        },
+        {
+          "speaker": "daniel",
+          "text": "That makes sense. And is there anywhere to park? I'll be coming straight from work.",
+          "start": 195.07,
+          "end": 199.17
+        },
+        {
+          "speaker": "jess",
+          "text": "The street outside has double yellow lines, so please don't park there. There's a car park behind the library, just round the corner, and it's free after six.",
+          "start": 199.67,
+          "end": 208.09
+        },
+        {
+          "speaker": "daniel",
+          "text": "Perfect. Oh, one more thing. Do you offer any discounts? I'm training to be a nurse, so I'm still a student.",
+          "start": 208.59,
+          "end": 214.42
+        },
+        {
+          "speaker": "jess",
+          "text": "We do. We don't have a special rate for health workers, but students get ten per cent off. You'll just need to show your student card at the first session.",
+          "start": 214.92,
+          "end": 222.81
+        },
+        {
+          "speaker": "daniel",
+          "text": "Brilliant. So how do I pay?",
+          "start": 223.31,
+          "end": 224.85
+        },
+        {
+          "speaker": "jess",
+          "text": "We ask for a deposit to hold your place. It's normally fifty pounds, but with the student discount it comes down to forty. You pay the rest at the first session.",
+          "start": 225.35,
+          "end": 234.05
+        },
+        {
+          "speaker": "daniel",
+          "text": "OK. I'll pay the forty pounds now by card, then.",
+          "start": 234.55,
+          "end": 237.34
+        },
+        {
+          "speaker": "jess",
+          "text": "Lovely. Let me just get the card machine.",
+          "start": 237.84,
+          "end": 240.0
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 240.9,
+          "end": 245.42
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the form below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Clayworks Studio – course booking",
+          "content": [
+            "Example: Level: **beginners**",
+            "## Booking details",
+            "• Name: Daniel {{1}}",
+            "• Course runs on {{2}} evenings, 7–9 pm",
+            "• First session: {{3}} October",
+            "• Length of course: {{4}} weeks",
+            "• Price (£160) includes all clay and {{5}}",
+            "## What to bring",
+            "• An {{6}} or an old shirt",
+            "• A small {{7}} to take pieces home",
+            "## Other information",
+            "• Free parking behind the {{8}} after 6 pm",
+            "• 10% discount for {{9}}",
+            "• Deposit paid today: £{{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Okafor"
+              ],
+              "explanation": "Daniel spells his surname: ‘O-K-A-F-O-R’.",
+              "cue": "O-K-A-F-O-R"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Tuesday"
+              ],
+              "explanation": "He would prefer Monday, but that group is full, so he says ‘Tuesday is fine’.",
+              "cue": "Tuesday is fine"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "14",
+                "14th",
+                "fourteenth"
+              ],
+              "explanation": "The course was going to start on the seventh, but ‘the first session will now be on the fourteenth’.",
+              "cue": "the first session will now be on the fourteenth"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "8",
+                "eight"
+              ],
+              "explanation": "Most courses are six weeks, but the beginners' course is longer: ‘It's eight weeks altogether.’",
+              "cue": "It's eight weeks altogether"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "firing"
+              ],
+              "explanation": "The price ‘covers all your clay, and also the firing’. Glaze is extra.",
+              "cue": "and also the firing"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "apron"
+              ],
+              "explanation": "‘You'll need an apron. If you haven't got one, an old shirt will do.’",
+              "cue": "you'll need an apron"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "box"
+              ],
+              "explanation": "Tools are provided, but ‘it's a good idea to bring a small box’ for finished pieces.",
+              "cue": "bring a small box"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "library"
+              ],
+              "explanation": "Not the street outside: ‘There's a car park behind the library’.",
+              "cue": "There's a car park behind the library"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "students"
+              ],
+              "explanation": "There is no rate for health workers, but ‘students get ten per cent off’.",
+              "cue": "students get ten per cent off"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "40",
+                "forty"
+              ],
+              "explanation": "The deposit is normally £50, but ‘with the student discount it comes down to forty’.",
+              "cue": "it comes down to forty"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-12/part1.mp3",
+        "duration": 276.22
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A community garden",
+      "context": "The manager of a community garden welcomes new volunteers.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the manager of a community garden talking to a group of new volunteers. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.93
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.93,
+          "end": 40.19
+        },
+        {
+          "speaker": "peter",
+          "text": "Good morning, everyone, and welcome to Riverside Community Garden. I'm Peter Hale, and I manage the garden with a team of about forty volunteers. Before you start work, I'd like to show you how the garden is laid out, so have a look at the map I've given you.",
+          "start": 41.09,
+          "end": 54.94
+        },
+        {
+          "speaker": "peter",
+          "text": "We're standing just inside the main entrance, at the bottom of the map. As you come through the gate, the first thing on your left is the tool shed. It used to be over by the greenhouse, but we moved it here last year, so that nobody has to carry heavy tools all the way across the garden.",
+          "start": 55.29,
+          "end": 69.64
+        },
+        {
+          "speaker": "peter",
+          "text": "Walk up the main path and, before you reach the crossroads, you'll see the children's garden on your left. Local schools visit every week, and each class has its own little bed there.",
+          "start": 69.99,
+          "end": 79.66
+        },
+        {
+          "speaker": "peter",
+          "text": "When you get to the crossroads, turn left and keep going right to the end of that path, past the pond. That's where you'll find the compost bins. We used to have them at the other end, on the east side, but the neighbours there complained about the smell, so we moved them as far from the houses as we could.",
+          "start": 80.01,
+          "end": 94.22
+        },
+        {
+          "speaker": "peter",
+          "text": "If you go straight on at the crossroads instead, the first thing on your right is the herb garden, just in front of the orchard. Feel free to pick a few leaves for your tea at break time. That's what it's there for.",
+          "start": 94.57,
+          "end": 104.89
+        },
+        {
+          "speaker": "peter",
+          "text": "And right at the top of the main path, where it meets the fence, are our bee hives. Please don't go any closer than the sign, and if you're allergic to stings, do tell me today.",
+          "start": 105.24,
+          "end": 113.88
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 114.78,
+          "end": 120.5
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 140.5,
+          "end": 144.38
+        },
+        {
+          "speaker": "peter",
+          "text": "Now, a few practical things. First, watering. People often think the evening is the best time to water, but here it just encourages slugs, so please water before eleven in the morning. The beds by the pond might look damp, but the soil there is sandy and dries out faster than anywhere else. And we try not to use the mains tap at all: everything comes from the rain barrels along the fence, which are hardly ever empty.",
+          "start": 145.28,
+          "end": 165.14
+        },
+        {
+          "speaker": "peter",
+          "text": "Second, please always sign the book in the shed when you arrive. It's not about keeping an eye on you, and our insurance covers you whether you sign in or not. The reason is that our grant from the council depends on showing how many volunteer hours we put in each year, so every hour counts.",
+          "start": 165.49,
+          "end": 180.41
+        },
+        {
+          "speaker": "peter",
+          "text": "Some of you have asked what happens to everything we grow. We don't have a shop or a café, so nothing is sold. Volunteers can take a small bag of whatever is spare at the end of a session, but most of it, around three quarters of the harvest, goes to the food bank in the town centre.",
+          "start": 180.76,
+          "end": 195.37
+        },
+        {
+          "speaker": "peter",
+          "text": "This month, the priority for new volunteers is the raised beds. The wooden sides on several of them have rotted, and we need to replace them before spring planting. The paths need weeding too, but the Saturday group is doing that, and the new fruit trees won't arrive until November.",
+          "start": 195.72,
+          "end": 210.52
+        },
+        {
+          "speaker": "peter",
+          "text": "Finally, rain. A bit of drizzle doesn't stop us. But if there's heavy rain, please don't just go home. The greenhouse is far too full of seedlings to work in, so we all squeeze into the shed and sort seeds for next year. It's surprisingly sociable.",
+          "start": 210.87,
+          "end": 223.78
+        },
+        {
+          "speaker": "peter",
+          "text": "Right. Any questions before we start?",
+          "start": 224.13,
+          "end": 226.41
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 227.31,
+          "end": 231.64
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–H**, next to Questions 11–15.",
+          "map": {
+            "title": "Riverside Community Garden",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "ellipse",
+                "cx": 170,
+                "cy": 125,
+                "rx": 90,
+                "ry": 52,
+                "style": "water",
+                "label": "Pond"
+              },
+              {
+                "type": "trees",
+                "x": 400,
+                "y": 40,
+                "w": 200,
+                "h": 130,
+                "label": "Orchard"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 430,
+                "x2": 320,
+                "y2": 70,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 80,
+                "y1": 245,
+                "x2": 565,
+                "y2": 245,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 385,
+                "y": 300,
+                "w": 150,
+                "h": 62,
+                "style": "building",
+                "label": "Greenhouse"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 430,
+                "label": "Main entrance"
+              },
+              {
+                "type": "compass",
+                "x": 55,
+                "y": 395
+              },
+              {
+                "type": "letter",
+                "x": 215,
+                "y": 330,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 85,
+                "y": 215,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 255,
+                "y": 175,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 40,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 585,
+                "y": 245,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 560,
+                "y": 395,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 255,
+                "y": 405,
+                "letter": "G"
+              },
+              {
+                "type": "letter",
+                "x": 380,
+                "y": 205,
+                "letter": "H"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            },
+            {
+              "key": "H",
+              "text": "H"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Tool shed",
+              "answer": "G",
+              "explanation": "‘As you come through the gate, the first thing on your left is the tool shed.’ It used to be by the greenhouse.",
+              "cue": "the first thing on your left is the tool shed"
+            },
+            {
+              "number": 12,
+              "prompt": "Compost bins",
+              "answer": "B",
+              "explanation": "Turn left at the crossroads and go ‘right to the end of that path, past the pond’. They used to be at the east end.",
+              "cue": "That's where you'll find the compost bins"
+            },
+            {
+              "number": 13,
+              "prompt": "Children's garden",
+              "answer": "A",
+              "explanation": "On the main path, ‘before you reach the crossroads, you'll see the children's garden on your left’.",
+              "cue": "you'll see the children's garden on your left"
+            },
+            {
+              "number": 14,
+              "prompt": "Bee hives",
+              "answer": "D",
+              "explanation": "‘Right at the top of the main path, where it meets the fence, are our bee hives.’",
+              "cue": "where it meets the fence, are our bee hives"
+            },
+            {
+              "number": 15,
+              "prompt": "Herb garden",
+              "answer": "H",
+              "explanation": "Straight on at the crossroads, ‘the first thing on your right is the herb garden, just in front of the orchard’.",
+              "cue": "the first thing on your right is the herb garden"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "What does Peter say about watering?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Volunteers should only use water from the rain barrels."
+                },
+                {
+                  "key": "B",
+                  "text": "It is best done in the evening."
+                },
+                {
+                  "key": "C",
+                  "text": "The beds near the pond need less water."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Everything comes from the rain barrels along the fence.’ Evening watering encourages slugs, and the beds by the pond dry out fastest.",
+              "cue": "everything comes from the rain barrels"
+            },
+            {
+              "number": 17,
+              "prompt": "Why must volunteers sign in each time?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "so that the garden can keep its funding"
+                },
+                {
+                  "key": "B",
+                  "text": "for insurance reasons"
+                },
+                {
+                  "key": "C",
+                  "text": "to record which jobs have been done"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Not for insurance: ‘our grant from the council depends on showing how many volunteer hours we put in’.",
+              "cue": "our grant from the council depends on"
+            },
+            {
+              "number": 18,
+              "prompt": "Where does most of the produce go?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to the volunteers"
+                },
+                {
+                  "key": "B",
+                  "text": "to a café"
+                },
+                {
+                  "key": "C",
+                  "text": "to a food bank"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Nothing is sold; volunteers take a little, but ‘most of it … goes to the food bank in the town centre’.",
+              "cue": "goes to the food bank in the town centre"
+            },
+            {
+              "number": 19,
+              "prompt": "What is the main job for new volunteers this month?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "planting fruit trees"
+                },
+                {
+                  "key": "B",
+                  "text": "weeding the paths"
+                },
+                {
+                  "key": "C",
+                  "text": "repairing raised beds"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘The priority for new volunteers is the raised beds.’ The Saturday group is weeding, and the trees arrive in November.",
+              "cue": "the priority for new volunteers is the raised beds"
+            },
+            {
+              "number": 20,
+              "prompt": "What should volunteers do if it rains heavily?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "go home"
+                },
+                {
+                  "key": "B",
+                  "text": "work in the greenhouse"
+                },
+                {
+                  "key": "C",
+                  "text": "sort seeds in the shed"
+                }
+              ],
+              "answer": "C",
+              "explanation": "Volunteers should not go home, and the greenhouse is too full: ‘we all squeeze into the shed and sort seeds’.",
+              "cue": "we all squeeze into the shed and sort seeds"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-12/part2.mp3",
+        "duration": 262.44
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Marketing a museum",
+      "context": "Two business students discuss a marketing project for a local museum with their tutor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two business students, Maya and Omar, discussing their marketing project for a local museum with their tutor, Dr Clarke. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 14.72
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 39.72,
+          "end": 44.44
+        },
+        {
+          "speaker": "clarke",
+          "text": "Come in, both of you. So, how is the museum project going?",
+          "start": 45.34,
+          "end": 48.69
+        },
+        {
+          "speaker": "maya",
+          "text": "Pretty well, I think. We've chosen the Harbour Museum, in the old customs house.",
+          "start": 49.19,
+          "end": 53.62
+        },
+        {
+          "speaker": "clarke",
+          "text": "Because it's so close to the university, I suppose?",
+          "start": 54.12,
+          "end": 57.15
+        },
+        {
+          "speaker": "maya",
+          "text": "People keep saying that, but it wasn't really the reason. Omar's cousin volunteers there, which helped us get permission, but the main reason was that visitor numbers have dropped by about a third in five years. We wanted a real problem to solve.",
+          "start": 57.65,
+          "end": 71.97
+        },
+        {
+          "speaker": "clarke",
+          "text": "Good. And have you looked at their visitor survey?",
+          "start": 72.47,
+          "end": 74.86
+        },
+        {
+          "speaker": "omar",
+          "text": "Yes. We expected it to show that most visitors were tourists, but they're only about a quarter. And price isn't an issue, because entry's free. What really stood out was that hardly anyone under thirty visits. It's almost all families with young children and retired people.",
+          "start": 75.36,
+          "end": 88.82
+        },
+        {
+          "speaker": "clarke",
+          "text": "That's a useful finding. Now, I've read your draft report. The data section is excellent, and the length is about right. What's missing is a clear set of recommendations at the end. At the moment, the reader has to work them out from the data.",
+          "start": 89.32,
+          "end": 102.48
+        },
+        {
+          "speaker": "maya",
+          "text": "OK, we can fix that. We've also looked at their website, and that's a real problem.",
+          "start": 102.98,
+          "end": 107.8
+        },
+        {
+          "speaker": "clarke",
+          "text": "In what way?",
+          "start": 108.3,
+          "end": 109.45
+        },
+        {
+          "speaker": "maya",
+          "text": "The information is fine, the opening times are right and so on, and it looks good on a laptop. But on a phone the menu disappears completely, so you can't get to any of the pages. And that's how most young people would find it.",
+          "start": 109.95,
+          "end": 123.29
+        },
+        {
+          "speaker": "clarke",
+          "text": "And what's your next step?",
+          "start": 123.79,
+          "end": 125.37
+        },
+        {
+          "speaker": "omar",
+          "text": "We wanted to interview the director, but she's away until the end of the month. So next week we're going to run a focus group with eight students who've never been to the museum, to find out what would get them through the door.",
+          "start": 125.87,
+          "end": 136.47
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 137.37,
+          "end": 143.51
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 163.51,
+          "end": 167.35
+        },
+        {
+          "speaker": "clarke",
+          "text": "Let's talk about the ideas in your plan. You suggested posters on buses.",
+          "start": 168.25,
+          "end": 172.56
+        },
+        {
+          "speaker": "omar",
+          "text": "We did, but when we got the prices, a month of bus adverts would cost more than the museum's whole marketing budget for the year. So we've dropped that one.",
+          "start": 173.06,
+          "end": 180.64
+        },
+        {
+          "speaker": "clarke",
+          "text": "Fair enough. What about the podcast?",
+          "start": 181.14,
+          "end": 183.29
+        },
+        {
+          "speaker": "maya",
+          "text": "We still like it, but we don't know if anyone would listen. So we're going to make one pilot episode and see how many downloads it gets before we suggest a whole series.",
+          "start": 183.79,
+          "end": 193.37
+        },
+        {
+          "speaker": "clarke",
+          "text": "Sensible. And school visits?",
+          "start": 193.87,
+          "end": 195.83
+        },
+        {
+          "speaker": "omar",
+          "text": "That's the easiest one. The museum already has an education room that's hardly used, and two local teachers have said they're interested. So the museum could start straight away.",
+          "start": 196.33,
+          "end": 205.48
+        },
+        {
+          "speaker": "clarke",
+          "text": "Discount vouchers for the café?",
+          "start": 205.98,
+          "end": 208.18
+        },
+        {
+          "speaker": "maya",
+          "text": "We looked into that, but the café is run by an outside company, so the museum can't offer discounts there. We've taken it out of the plan.",
+          "start": 208.68,
+          "end": 216.92
+        },
+        {
+          "speaker": "clarke",
+          "text": "And finally, the online quiz about the town's history.",
+          "start": 217.42,
+          "end": 220.49
+        },
+        {
+          "speaker": "omar",
+          "text": "We think it could work on social media, but it might be too long. So we'll try it out with a small group of the museum's followers first, and shorten it if people give up halfway.",
+          "start": 220.99,
+          "end": 229.88
+        },
+        {
+          "speaker": "clarke",
+          "text": "Good. Send me the revised report by Friday.",
+          "start": 230.38,
+          "end": 233.14
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 234.04,
+          "end": 238.49
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did the students choose the Harbour Museum?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is near the university."
+                },
+                {
+                  "key": "B",
+                  "text": "Its visitor numbers had fallen."
+                },
+                {
+                  "key": "C",
+                  "text": "One of them had worked there."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Not the location, and the cousin only helped with permission: ‘the main reason was that visitor numbers have dropped by about a third’.",
+              "cue": "the main reason was that visitor numbers have dropped"
+            },
+            {
+              "number": 22,
+              "prompt": "What did the museum's visitor survey show?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Most visitors were tourists."
+                },
+                {
+                  "key": "B",
+                  "text": "Few visitors were young adults."
+                },
+                {
+                  "key": "C",
+                  "text": "Visitors thought tickets were too expensive."
+                }
+              ],
+              "answer": "B",
+              "explanation": "Tourists are only a quarter and entry is free: ‘hardly anyone under thirty visits’.",
+              "cue": "hardly anyone under thirty visits"
+            },
+            {
+              "number": 23,
+              "prompt": "What does Dr Clarke say about the draft report?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It contains too much data."
+                },
+                {
+                  "key": "B",
+                  "text": "It needs clearer recommendations."
+                },
+                {
+                  "key": "C",
+                  "text": "It is too short."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The data and length are fine: ‘What's missing is a clear set of recommendations at the end.’",
+              "cue": "What's missing is a clear set of recommendations"
+            },
+            {
+              "number": 24,
+              "prompt": "What problem do the students find with the museum's website?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It does not work properly on phones."
+                },
+                {
+                  "key": "B",
+                  "text": "The opening times are wrong."
+                },
+                {
+                  "key": "C",
+                  "text": "Events are hard to find."
+                }
+              ],
+              "answer": "A",
+              "explanation": "The information is correct, but ‘on a phone the menu disappears completely’.",
+              "cue": "on a phone the menu disappears completely"
+            },
+            {
+              "number": 25,
+              "prompt": "What will the students do next week?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "interview the museum director"
+                },
+                {
+                  "key": "B",
+                  "text": "visit another museum"
+                },
+                {
+                  "key": "C",
+                  "text": "hold a focus group"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The director is away, so ‘next week we're going to run a focus group’.",
+              "cue": "next week we're going to run a focus group"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What do the students decide about each of the following ideas? Choose the correct letter, **A, B or C**, next to Questions 26–30.",
+          "optionsTitle": "Decisions",
+          "options": [
+            {
+              "key": "A",
+              "text": "suggest it straight away"
+            },
+            {
+              "key": "B",
+              "text": "test it first"
+            },
+            {
+              "key": "C",
+              "text": "drop it"
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "posters on buses",
+              "answer": "C",
+              "explanation": "Bus adverts ‘would cost more than the museum's whole marketing budget … So we've dropped that one.’",
+              "cue": "So we've dropped that one"
+            },
+            {
+              "number": 27,
+              "prompt": "a podcast",
+              "answer": "B",
+              "explanation": "‘We're going to make one pilot episode and see how many downloads it gets.’",
+              "cue": "make one pilot episode"
+            },
+            {
+              "number": 28,
+              "prompt": "school visits",
+              "answer": "A",
+              "explanation": "‘The museum could start straight away.’",
+              "cue": "the museum could start straight away"
+            },
+            {
+              "number": 29,
+              "prompt": "café vouchers",
+              "answer": "C",
+              "explanation": "The café is run by an outside company: ‘We've taken it out of the plan.’",
+              "cue": "We've taken it out of the plan"
+            },
+            {
+              "number": 30,
+              "prompt": "an online quiz",
+              "answer": "B",
+              "explanation": "‘We'll try it out with a small group of the museum's followers first.’",
+              "cue": "try it out with a small group"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-12/part3.mp3",
+        "duration": 269.29
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the story of glass",
+      "context": "A lecture on the history of glass and how it is made.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of glass. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.69
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.69,
+          "end": 43.1
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today I want to look at a material we take completely for granted: glass. It's in our windows, our phones and our kitchens, but its history goes back thousands of years.",
+          "start": 44.0,
+          "end": 55.33
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Long before people learned to make glass, they used a natural glass called obsidian, which forms when lava from a volcano cools very quickly. Obsidian breaks with extremely sharp edges, so it was ideal for making blades, and some surgeons still use obsidian scalpels today.",
+          "start": 55.68,
+          "end": 73.09
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The first glass made by people appeared about four and a half thousand years ago, probably in Mesopotamia. It was difficult to make and very expensive, so it wasn't used for anything practical at first. The earliest glass objects we've found are beads, worn as jewellery by the wealthy, and they were often traded as if they were precious stones.",
+          "start": 73.44,
+          "end": 93.68
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The real turning point came around two thousand years ago, when craftsmen in Syria discovered that they could blow air into molten glass through a hollow pipe. Glassblowing was much faster than the older methods, and suddenly glass became cheap enough for everyday containers, like bottles and jars for oil and wine.",
+          "start": 94.03,
+          "end": 113.0
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The Romans spread glassblowing across their empire, and they were also the first to put glass in windows. However, it was thick and cloudy, and it was mainly found in public baths, where it kept the heat in while still letting in some light. Most private houses had to wait more than a thousand years for glass windows.",
+          "start": 113.35,
+          "end": 132.48
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In medieval Europe, glass took on a new role in the great cathedrals. Most people at that time couldn't read, so the coloured windows were used to tell stories from religious texts in pictures. Making them was slow and skilled work, and a single large window could take years to complete.",
+          "start": 132.83,
+          "end": 150.11
+        },
+        {
+          "speaker": "lecturer",
+          "text": "For centuries, making flat glass for windows remained a problem. Glassmakers had to blow a large bubble or cylinder and then flatten it, which left the glass uneven. The breakthrough came in the nineteen fifties with the float glass process. Molten glass is poured onto a bath of liquid tin, and because the tin is perfectly flat, the glass spreads out into a perfectly flat sheet. This meant that the glass no longer needed polishing, which had been the slowest and most expensive part of the process. Almost all window glass is still made this way.",
+          "start": 150.46,
+          "end": 184.68
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Glass has also become central to modern communication. Fibre-optic cables, made from extremely pure glass, carry data as pulses of light under the oceans and across continents. Without them, the internet as we know it simply wouldn't exist.",
+          "start": 185.03,
+          "end": 201.03
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, researchers are now developing new kinds of glass with remarkable properties. Some can change colour to block sunlight, and one team in Japan has produced a glass that will actually repair itself: if it cracks, the broken surfaces will join together again when pressed. In the next lecture, we'll look at how glass is recycled.",
+          "start": 201.38,
+          "end": 222.05
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 222.95,
+          "end": 227.34
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 257.34,
+          "end": 260.05
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The history of glass",
+          "content": [
+            "## Before manufactured glass",
+            "• Obsidian, a natural glass, was used to make {{31}}",
+            "## Early glass",
+            "• First made about 4,500 years ago",
+            "• Earliest objects were {{32}}, worn as jewellery",
+            "## Glassblowing",
+            "• Discovered about 2,000 years ago in {{33}}",
+            "• Made glass cheap enough for everyday {{34}}",
+            "• Romans used cloudy window glass, mainly in public {{35}}",
+            "## Coloured glass",
+            "• Cathedral windows told {{36}} to people who could not read",
+            "## Float glass (1950s)",
+            "• Molten glass is poured onto liquid {{37}}",
+            "• Produces flat sheets that do not need {{38}}",
+            "## Today and tomorrow",
+            "• Fibre-optic cables carry {{39}} as pulses of light",
+            "• New glass can {{40}} itself when it cracks"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "blades"
+              ],
+              "explanation": "Obsidian breaks with sharp edges, ‘so it was ideal for making blades’.",
+              "cue": "it was ideal for making blades"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "beads"
+              ],
+              "explanation": "‘The earliest glass objects we've found are beads, worn as jewellery.’",
+              "cue": "The earliest glass objects we've found are beads"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "Syria"
+              ],
+              "explanation": "‘Craftsmen in Syria discovered that they could blow air into molten glass.’",
+              "cue": "craftsmen in Syria"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "containers"
+              ],
+              "explanation": "Glass ‘became cheap enough for everyday containers, like bottles and jars’.",
+              "cue": "cheap enough for everyday containers"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "baths"
+              ],
+              "explanation": "Roman window glass ‘was mainly found in public baths’.",
+              "cue": "mainly found in public baths"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "stories"
+              ],
+              "explanation": "‘The coloured windows were used to tell stories … in pictures.’",
+              "cue": "used to tell stories"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "tin"
+              ],
+              "explanation": "‘Molten glass is poured onto a bath of liquid tin.’",
+              "cue": "a bath of liquid tin"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "polishing"
+              ],
+              "explanation": "‘The glass no longer needed polishing.’",
+              "cue": "no longer needed polishing"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "data"
+              ],
+              "explanation": "Fibre-optic cables ‘carry data as pulses of light’.",
+              "cue": "carry data as pulses of light"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "repair"
+              ],
+              "explanation": "A team in Japan has produced ‘a glass that will actually repair itself’.",
+              "cue": "will actually repair itself"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-12/part4.mp3",
+        "duration": 260.85
+      }
+    }
+  ],
+  "durationMinutes": 18
+}
