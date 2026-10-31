@@ -1,0 +1,268 @@
+{
+  "id": "speaking-52",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 52",
+  "shortTitle": "Practice Test 52",
+  "durationMinutes": 14,
+  "sortOrder": 52,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-52/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-52/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Dictionaries",
+        "Helping others"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "What do you do? Do you work or study?",
+          "say": "Good afternoon. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about what you do. What do you do? Do you work or study?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-1.mp3",
+            "duration": 16.21
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "Who do you usually ask for help with your work or studies?",
+          "say": "Who do you usually ask for help with your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-2.mp3",
+            "duration": 3.87
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "Do you take work or study home with you?",
+          "say": "Do you take work or study home with you?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-3.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "Would you recommend your job or subject to a friend? Why?",
+          "say": "Would you recommend your job or subject to a friend? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-4.mp3",
+            "duration": 5.05
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Dictionaries",
+          "text": "Do you use a dictionary?",
+          "say": "Now let's move on to talk about dictionaries. Do you use a dictionary?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-5.mp3",
+            "duration": 5.48
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Dictionaries",
+          "text": "Do you prefer paper dictionaries or online ones?",
+          "say": "Do you prefer paper dictionaries or online ones?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-6.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Dictionaries",
+          "text": "Did you use a dictionary when you were at school?",
+          "say": "Did you use a dictionary when you were at school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-7.mp3",
+            "duration": 3.21
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Helping others",
+          "text": "Do you like helping other people?",
+          "say": "Now let's move on to talk about helping others. Do you like helping other people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-8.mp3",
+            "duration": 5.76
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Helping others",
+          "text": "How do you usually help your friends?",
+          "say": "How do you usually help your friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-9.mp3",
+            "duration": 2.83
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Helping others",
+          "text": "Did your parents teach you to help others?",
+          "say": "Did your parents teach you to help others?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p1-10.mp3",
+            "duration": 3.04
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a place where you go to keep fit.",
+        "points": [
+          "where it is",
+          "how often you go there",
+          "what you do there"
+        ],
+        "explain": "and explain why you choose this place to keep fit."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a place where you go to keep fit.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a place where you go to keep fit. You should say: where it is; how often you go there; what you do there; and explain why you choose this place to keep fit.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-52/p2-talk.mp3",
+            "duration": 25.35
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you usually go there with friends or alone?",
+          "say": "Thank you. Do you usually go there with friends or alone?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-52/p2-follow.mp3",
+            "duration": 3.66
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Fitness",
+        "Public health"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Fitness",
+          "text": "Why do people today pay more attention to fitness than in the past?",
+          "say": "Thank you. We've been talking about a place where you go to keep fit, and I'd like to discuss with you some more general questions related to this. Let's consider first of all fitness. Why do people today pay more attention to fitness than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-52/p3-1.mp3",
+            "duration": 16.3
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Fitness",
+          "text": "Is it better to exercise in a gym or outdoors?",
+          "say": "Is it better to exercise in a gym or outdoors?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-52/p3-2.mp3",
+            "duration": 3.96
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Fitness",
+          "text": "Why do many people stop going to the gym after a few weeks?",
+          "say": "Why do many people stop going to the gym after a few weeks?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-52/p3-3.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Public health",
+          "text": "What are the main health problems in your country today?",
+          "say": "Now let's talk about public health. What are the main health problems in your country today?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-52/p3-4.mp3",
+            "duration": 6.23
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Public health",
+          "text": "Should governments spend money on sports facilities for the public?",
+          "say": "Should governments spend money on sports facilities for the public?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-52/p3-5.mp3",
+            "duration": 4.3
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Public health",
+          "text": "Is it the government's responsibility to make sure people stay healthy?",
+          "say": "Is it the government's responsibility to make sure people stay healthy?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-52/p3-6.mp3",
+            "duration": 4.79
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -35,7 +35,8 @@
       "title": "Introduction and interview",
       "topics": [
         "Food and cooking",
-        "Phones and technology"
+        "Phones and technology",
+        "Mountains"
       ],
       "questions": [
         {
@@ -124,6 +125,28 @@
           "audio": {
             "src": "audio/speaking-03/p1-8.mp3",
             "duration": 3.76
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Mountains",
+          "text": "Have you ever been to the mountains?",
+          "say": "Now let's move on to talk about mountains. Have you ever been to the mountains?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-9.mp3",
+            "duration": 5.82
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Mountains",
+          "text": "Would you like to live near mountains? Why or why not?",
+          "say": "Would you like to live near mountains? Why or why not?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-03/p1-10.mp3",
+            "duration": 4.6
           }
         }
       ]

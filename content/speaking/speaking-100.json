@@ -1,0 +1,268 @@
+{
+  "id": "speaking-100",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 100",
+  "shortTitle": "Practice Test 100",
+  "durationMinutes": 14,
+  "sortOrder": 100,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-100/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-100/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Learning new things",
+        "Rules"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Are you working or studying at the moment?",
+          "say": "Good afternoon. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about what you do. Are you working or studying at the moment?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-1.mp3",
+            "duration": 16.04
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "Do you prefer a busy day or a quiet day at work or school?",
+          "say": "Do you prefer a busy day or a quiet day at work or school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-2.mp3",
+            "duration": 3.96
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "How many hours a day do you usually spend working or studying?",
+          "say": "How many hours a day do you usually spend working or studying?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-3.mp3",
+            "duration": 3.98
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "Who do you usually ask for help with your work or studies?",
+          "say": "Who do you usually ask for help with your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-4.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Learning new things",
+          "text": "Do you enjoy learning new things?",
+          "say": "Now let's move on to talk about learning new things. Do you enjoy learning new things?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-5.mp3",
+            "duration": 5.88
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Learning new things",
+          "text": "What was the last new thing you learned?",
+          "say": "What was the last new thing you learned?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-6.mp3",
+            "duration": 2.74
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Learning new things",
+          "text": "Do you prefer learning alone or in a group?",
+          "say": "Do you prefer learning alone or in a group?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-7.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Rules",
+          "text": "Did you have many rules at home when you were a child?",
+          "say": "Now let's move on to talk about rules. Did you have many rules at home when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-8.mp3",
+            "duration": 6.25
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Rules",
+          "text": "Was there a rule at your school that you didn't like?",
+          "say": "Was there a rule at your school that you didn't like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-9.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Rules",
+          "text": "Do you usually follow rules?",
+          "say": "Do you usually follow rules?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p1-10.mp3",
+            "duration": 2.48
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe an exciting activity you would like to try.",
+        "points": [
+          "what the activity is",
+          "where you could do it",
+          "who you would like to do it with"
+        ],
+        "explain": "and explain why you would like to try it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe an exciting activity you would like to try.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe an exciting activity you would like to try. You should say: what the activity is; where you could do it; who you would like to do it with; and explain why you would like to try it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-100/p2-talk.mp3",
+            "duration": 25.05
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you think your family would be happy for you to try it?",
+          "say": "Thank you. Do you think your family would be happy for you to try it?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-100/p2-follow.mp3",
+            "duration": 3.87
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Adventure",
+        "Risk and safety"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Adventure",
+          "text": "Why do some people enjoy dangerous sports and activities?",
+          "say": "Thank you. We've been talking about an exciting activity you would like to try, and I'd like to discuss with you some more general questions related to this. Let's consider first of all adventure. Why do some people enjoy dangerous sports and activities?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-100/p3-1.mp3",
+            "duration": 15.58
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Adventure",
+          "text": "Are young people today more adventurous than in the past?",
+          "say": "Are young people today more adventurous than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-100/p3-2.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Adventure",
+          "text": "Is adventure tourism popular in your country?",
+          "say": "Is adventure tourism popular in your country?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-100/p3-3.mp3",
+            "duration": 3.51
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Risk and safety",
+          "text": "Should people who do dangerous sports pay for their own rescue if something goes wrong?",
+          "say": "Now let's talk about risk and safety. Should people who do dangerous sports pay for their own rescue if something goes wrong?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-100/p3-4.mp3",
+            "duration": 8.12
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Risk and safety",
+          "text": "Are there too many safety rules in modern life?",
+          "say": "Are there too many safety rules in modern life?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-100/p3-5.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Risk and safety",
+          "text": "How can parents keep their children safe without stopping them from having fun?",
+          "say": "How can parents keep their children safe without stopping them from having fun?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-100/p3-6.mp3",
+            "duration": 4.72
+          }
+        }
+      ]
+    }
+  ]
+}

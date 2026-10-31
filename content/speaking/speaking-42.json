@@ -1,0 +1,268 @@
+{
+  "id": "speaking-42",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 42",
+  "shortTitle": "Practice Test 42",
+  "durationMinutes": 14,
+  "sortOrder": 42,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Lily",
+    "voice": "bf_lily",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-42/p2-start.mp3",
+        "duration": 10.5
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-42/end.mp3",
+        "duration": 3.42
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Breakfast",
+        "Collecting things"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where did you grow up?",
+          "say": "Good morning. My name is Lily, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where did you grow up?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-1.mp3",
+            "duration": 15.92
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "How has your hometown changed since you were a child?",
+          "say": "How has your hometown changed since you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-2.mp3",
+            "duration": 3.64
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "What is the best way to travel around your hometown?",
+          "say": "What is the best way to travel around your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-3.mp3",
+            "duration": 3.64
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Is your hometown a quiet place or a busy one?",
+          "say": "Is your hometown a quiet place or a busy one?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-4.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Breakfast",
+          "text": "What do you usually have for breakfast?",
+          "say": "Now let's move on to talk about breakfast. What do you usually have for breakfast?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-5.mp3",
+            "duration": 5.8
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Breakfast",
+          "text": "Is breakfast an important meal for you? Why?",
+          "say": "Is breakfast an important meal for you? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-6.mp3",
+            "duration": 4.41
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Breakfast",
+          "text": "Do you eat the same breakfast at the weekend?",
+          "say": "Do you eat the same breakfast at the weekend?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-7.mp3",
+            "duration": 3.19
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Collecting things",
+          "text": "Do you collect anything?",
+          "say": "Now let's move on to talk about collecting things. Do you collect anything?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-8.mp3",
+            "duration": 5.59
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Collecting things",
+          "text": "Did you collect anything when you were younger?",
+          "say": "Did you collect anything when you were younger?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-9.mp3",
+            "duration": 3.21
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Collecting things",
+          "text": "Why do you think people like collecting things?",
+          "say": "Why do you think people like collecting things?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p1-10.mp3",
+            "duration": 3.25
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a sportsperson you admire.",
+        "points": [
+          "who this person is",
+          "what sport they play",
+          "what they have achieved"
+        ],
+        "explain": "and explain why you admire this sportsperson."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a sportsperson you admire.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a sportsperson you admire. You should say: who this person is; what sport they play; what they have achieved; and explain why you admire this sportsperson.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-42/p2-talk.mp3",
+            "duration": 25.45
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Have you ever watched this person compete?",
+          "say": "Thank you. Have you ever watched this person compete?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-42/p2-follow.mp3",
+            "duration": 3.38
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Sports stars",
+        "Sport and young people"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Sports stars",
+          "text": "Why are top sportspeople paid so much money?",
+          "say": "Thank you. We've been talking about a sportsperson you admire, and I'd like to discuss with you some more general questions related to this. Let's consider first of all sports stars. Why are top sportspeople paid so much money?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-42/p3-1.mp3",
+            "duration": 15.05
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Sports stars",
+          "text": "Are sports stars good role models for young people?",
+          "say": "Are sports stars good role models for young people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-42/p3-2.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Sports stars",
+          "text": "What kind of pressure do professional sportspeople face?",
+          "say": "What kind of pressure do professional sportspeople face?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-42/p3-3.mp3",
+            "duration": 3.81
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Sport and young people",
+          "text": "Why do many children stop doing sport when they become teenagers?",
+          "say": "Now let's talk about sport and young people. Why do many children stop doing sport when they become teenagers?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-42/p3-4.mp3",
+            "duration": 7.4
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Sport and young people",
+          "text": "Should sport be a compulsory subject at school?",
+          "say": "Should sport be a compulsory subject at school?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-42/p3-5.mp3",
+            "duration": 3.38
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Sport and young people",
+          "text": "How can parents encourage their children to be more active?",
+          "say": "How can parents encourage their children to be more active?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-42/p3-6.mp3",
+            "duration": 4.02
+          }
+        }
+      ]
+    }
+  ]
+}

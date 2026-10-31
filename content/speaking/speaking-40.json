@@ -1,0 +1,268 @@
+{
+  "id": "speaking-40",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 40",
+  "shortTitle": "Practice Test 40",
+  "durationMinutes": 14,
+  "sortOrder": 40,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Isabella",
+    "voice": "bf_isabella",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-40/p2-start.mp3",
+        "duration": 9.82
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-40/end.mp3",
+        "duration": 3.29
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Chatting",
+        "Recycling"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Are you working or studying at the moment?",
+          "say": "Good afternoon. My name is Isabella, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about what you do. Are you working or studying at the moment?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-1.mp3",
+            "duration": 16.0
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "What did you want to be when you were a child?",
+          "say": "What did you want to be when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-2.mp3",
+            "duration": 2.87
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "What is the hardest part of your work or studies?",
+          "say": "What is the hardest part of your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-3.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "What would you change about your work or studies if you could?",
+          "say": "What would you change about your work or studies if you could?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-4.mp3",
+            "duration": 3.51
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Chatting",
+          "text": "Do you prefer chatting with friends face to face or online?",
+          "say": "Now let's move on to talk about chatting. Do you prefer chatting with friends face to face or online?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-5.mp3",
+            "duration": 6.57
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Chatting",
+          "text": "What do you usually chat about with your friends?",
+          "say": "What do you usually chat about with your friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-6.mp3",
+            "duration": 3.12
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Chatting",
+          "text": "Do you enjoy chatting with people you have just met?",
+          "say": "Do you enjoy chatting with people you have just met?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-7.mp3",
+            "duration": 3.36
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Recycling",
+          "text": "Do you recycle things at home?",
+          "say": "Now let's move on to talk about recycling. Do you recycle things at home?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-8.mp3",
+            "duration": 5.54
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Recycling",
+          "text": "Is recycling easy where you live?",
+          "say": "Is recycling easy where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-9.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Recycling",
+          "text": "Did you learn about recycling at school?",
+          "say": "Did you learn about recycling at school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p1-10.mp3",
+            "duration": 2.85
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a leader you admire.",
+        "points": [
+          "who this person is",
+          "what kind of group or organisation they lead",
+          "what they have done"
+        ],
+        "explain": "and explain why you think they are a good leader."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a leader you admire.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a leader you admire. You should say: who this person is; what kind of group or organisation they lead; what they have done; and explain why you think they are a good leader.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-40/p2-talk.mp3",
+            "duration": 25.45
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you like to be a leader yourself one day?",
+          "say": "Thank you. Would you like to be a leader yourself one day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-40/p2-follow.mp3",
+            "duration": 3.55
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Leadership",
+        "Leaders in society"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Leadership",
+          "text": "What qualities does a good leader need?",
+          "say": "Thank you. We've been talking about a leader you admire, and I'd like to discuss with you some more general questions related to this. Let's consider first of all leadership. What qualities does a good leader need?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-40/p3-1.mp3",
+            "duration": 13.13
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Leadership",
+          "text": "Are leaders born, or can people learn to lead?",
+          "say": "Are leaders born, or can people learn to lead?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-40/p3-2.mp3",
+            "duration": 3.27
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Leadership",
+          "text": "Should children be taught leadership skills at school?",
+          "say": "Should children be taught leadership skills at school?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-40/p3-3.mp3",
+            "duration": 3.34
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Leaders in society",
+          "text": "Why do people sometimes lose trust in their leaders?",
+          "say": "Now let's talk about leaders in society. Why do people sometimes lose trust in their leaders?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-40/p3-4.mp3",
+            "duration": 6.61
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Leaders in society",
+          "text": "Is it better for a country to have young leaders or older ones?",
+          "say": "Is it better for a country to have young leaders or older ones?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-40/p3-5.mp3",
+            "duration": 3.89
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Leaders in society",
+          "text": "How has social media changed the way leaders communicate with people?",
+          "say": "How has social media changed the way leaders communicate with people?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-40/p3-6.mp3",
+            "duration": 4.45
+          }
+        }
+      ]
+    }
+  ]
+}

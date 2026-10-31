@@ -1,0 +1,268 @@
+{
+  "id": "speaking-45",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 45",
+  "shortTitle": "Practice Test 45",
+  "durationMinutes": 14,
+  "sortOrder": 45,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Alice",
+    "voice": "bf_alice",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-45/p2-start.mp3",
+        "duration": 10.35
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-45/end.mp3",
+        "duration": 3.32
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Desserts and cakes",
+        "Smiling"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "What kind of place is your hometown?",
+          "say": "Good morning. My name is Alice, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. What kind of place is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-1.mp3",
+            "duration": 16.15
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What is there for young people to do there?",
+          "say": "What is there for young people to do there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-2.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is your hometown well known in your country? Why?",
+          "say": "Is your hometown well known in your country? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-3.mp3",
+            "duration": 4.48
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "What is the weather like in your hometown?",
+          "say": "What is the weather like in your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-4.mp3",
+            "duration": 3.02
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Desserts and cakes",
+          "text": "Do you like desserts?",
+          "say": "Now let's move on to talk about desserts and cakes. Do you like desserts?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-5.mp3",
+            "duration": 5.65
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Desserts and cakes",
+          "text": "Do you eat cake on special occasions?",
+          "say": "Do you eat cake on special occasions?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-6.mp3",
+            "duration": 3.1
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Desserts and cakes",
+          "text": "Have you ever made a cake yourself?",
+          "say": "Have you ever made a cake yourself?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-7.mp3",
+            "duration": 2.83
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Smiling",
+          "text": "Do you smile a lot?",
+          "say": "Now let's move on to talk about smiling. Do you smile a lot?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-8.mp3",
+            "duration": 5.16
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Smiling",
+          "text": "What kind of things make you smile?",
+          "say": "What kind of things make you smile?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-9.mp3",
+            "duration": 2.7
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Smiling",
+          "text": "Do you think people smile less when they are busy?",
+          "say": "Do you think people smile less when they are busy?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p1-10.mp3",
+            "duration": 3.38
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a quiet place you like to go to.",
+        "points": [
+          "where it is",
+          "how often you go there",
+          "what you do there"
+        ],
+        "explain": "and explain why you like going to this quiet place."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a quiet place you like to go to.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a quiet place you like to go to. You should say: where it is; how often you go there; what you do there; and explain why you like going to this quiet place.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-45/p2-talk.mp3",
+            "duration": 25.56
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you usually go there alone or with someone else?",
+          "say": "Thank you. Do you usually go there alone or with someone else?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-45/p2-follow.mp3",
+            "duration": 4.04
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Peace and quiet",
+        "Noise"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Peace and quiet",
+          "text": "Why do some people find it difficult to be in a quiet place?",
+          "say": "Thank you. We've been talking about a quiet place you like to go to, and I'd like to discuss with you some more general questions related to this. Let's consider first of all peace and quiet. Why do some people find it difficult to be in a quiet place?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-45/p3-1.mp3",
+            "duration": 16.2
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Peace and quiet",
+          "text": "Is it harder to find quiet places in cities than it used to be?",
+          "say": "Is it harder to find quiet places in cities than it used to be?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-45/p3-2.mp3",
+            "duration": 4.6
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Peace and quiet",
+          "text": "Do young people and old people need different amounts of peace and quiet?",
+          "say": "Do young people and old people need different amounts of peace and quiet?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-45/p3-3.mp3",
+            "duration": 4.77
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Noise",
+          "text": "What are the main causes of noise in modern cities?",
+          "say": "Now let's talk about noise. What are the main causes of noise in modern cities?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-45/p3-4.mp3",
+            "duration": 6.12
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Noise",
+          "text": "How can noise affect people's health?",
+          "say": "How can noise affect people's health?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-45/p3-5.mp3",
+            "duration": 3.0
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Noise",
+          "text": "Should there be stricter laws about noise in residential areas?",
+          "say": "Should there be stricter laws about noise in residential areas?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-45/p3-6.mp3",
+            "duration": 4.49
+          }
+        }
+      ]
+    }
+  ]
+}

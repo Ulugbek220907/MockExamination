@@ -1,0 +1,268 @@
+{
+  "id": "speaking-51",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 51",
+  "shortTitle": "Practice Test 51",
+  "durationMinutes": 14,
+  "sortOrder": 51,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-51/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-51/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Running",
+        "Plastic"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where is your hometown?",
+          "say": "Good morning. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-1.mp3",
+            "duration": 15.34
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What is the best way to travel around your hometown?",
+          "say": "What is the best way to travel around your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-2.mp3",
+            "duration": 3.42
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "What jobs do most people in your hometown do?",
+          "say": "What jobs do most people in your hometown do?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-3.mp3",
+            "duration": 3.23
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Where do people in your hometown meet their friends?",
+          "say": "Where do people in your hometown meet their friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-4.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Running",
+          "text": "Do you like running?",
+          "say": "Now let's move on to talk about running. Do you like running?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-5.mp3",
+            "duration": 4.69
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Running",
+          "text": "Where do people go running in your town?",
+          "say": "Where do people go running in your town?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-6.mp3",
+            "duration": 2.91
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Running",
+          "text": "Do you think running is a good way to keep fit?",
+          "say": "Do you think running is a good way to keep fit?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-7.mp3",
+            "duration": 3.23
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Plastic",
+          "text": "Do you use a lot of plastic in your daily life?",
+          "say": "Now let's move on to talk about plastic. Do you use a lot of plastic in your daily life?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-8.mp3",
+            "duration": 6.14
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Plastic",
+          "text": "Do you try to use less plastic?",
+          "say": "Do you try to use less plastic?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-9.mp3",
+            "duration": 2.57
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Plastic",
+          "text": "Is plastic recycled where you live?",
+          "say": "Is plastic recycled where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p1-10.mp3",
+            "duration": 2.89
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a street you like in your town or city.",
+        "points": [
+          "where it is",
+          "what you can see there",
+          "how often you go there"
+        ],
+        "explain": "and explain why you like this street."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a street you like in your town or city.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a street you like in your town or city. You should say: where it is; what you can see there; how often you go there; and explain why you like this street.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-51/p2-talk.mp3",
+            "duration": 24.0
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Is this street busy at the weekend?",
+          "say": "Thank you. Is this street busy at the weekend?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-51/p2-follow.mp3",
+            "duration": 3.17
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Streets and neighbourhoods",
+        "Town planning"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Streets and neighbourhoods",
+          "text": "What makes a street a pleasant place to walk along?",
+          "say": "Thank you. We've been talking about a street you like in your town or city, and I'd like to discuss with you some more general questions related to this. Let's consider first of all streets and neighbourhoods. What makes a street a pleasant place to walk along?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-51/p3-1.mp3",
+            "duration": 15.17
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Streets and neighbourhoods",
+          "text": "Should some city streets be closed to cars?",
+          "say": "Should some city streets be closed to cars?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-51/p3-2.mp3",
+            "duration": 3.17
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Streets and neighbourhoods",
+          "text": "Why do some neighbourhoods become more popular than others?",
+          "say": "Why do some neighbourhoods become more popular than others?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-51/p3-3.mp3",
+            "duration": 3.64
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Town planning",
+          "text": "What should town planners think about when they design a new area?",
+          "say": "Now let's talk about town planning. What should town planners think about when they design a new area?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-51/p3-4.mp3",
+            "duration": 6.57
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Town planning",
+          "text": "Is it better to repair old buildings or to build new ones?",
+          "say": "Is it better to repair old buildings or to build new ones?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-51/p3-5.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Town planning",
+          "text": "How do you think towns and cities will look in the future?",
+          "say": "How do you think towns and cities will look in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-51/p3-6.mp3",
+            "duration": 3.61
+          }
+        }
+      ]
+    }
+  ]
+}

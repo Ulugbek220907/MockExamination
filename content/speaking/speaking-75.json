@@ -1,0 +1,268 @@
+{
+  "id": "speaking-75",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 75",
+  "shortTitle": "Practice Test 75",
+  "durationMinutes": 14,
+  "sortOrder": 75,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Isabella",
+    "voice": "bf_isabella",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-75/p2-start.mp3",
+        "duration": 9.82
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-75/end.mp3",
+        "duration": 3.29
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Cafés",
+        "Lunchtime"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "What kind of place is your hometown?",
+          "say": "Good morning. My name is Isabella, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. What kind of place is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-1.mp3",
+            "duration": 15.7
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "Where do people in your hometown meet their friends?",
+          "say": "Where do people in your hometown meet their friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-2.mp3",
+            "duration": 3.29
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Are there any parks or green spaces there?",
+          "say": "Are there any parks or green spaces there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-3.mp3",
+            "duration": 3.08
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "What are the people in your hometown like?",
+          "say": "What are the people in your hometown like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-4.mp3",
+            "duration": 2.7
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Cafés",
+          "text": "Do you often go to cafés?",
+          "say": "Now let's move on to talk about cafés. Do you often go to cafés?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-5.mp3",
+            "duration": 5.33
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Cafés",
+          "text": "What do you usually order?",
+          "say": "What do you usually order?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-6.mp3",
+            "duration": 2.16
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Cafés",
+          "text": "Do people in your country like to work or study in cafés?",
+          "say": "Do people in your country like to work or study in cafés?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-7.mp3",
+            "duration": 4.04
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Lunchtime",
+          "text": "What do you usually do at lunchtime?",
+          "say": "Now let's move on to talk about lunchtime. What do you usually do at lunchtime?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-8.mp3",
+            "duration": 5.54
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Lunchtime",
+          "text": "Do you prefer a big lunch or a light one?",
+          "say": "Do you prefer a big lunch or a light one?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-9.mp3",
+            "duration": 3.0
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Lunchtime",
+          "text": "Do you eat lunch at the same time every day?",
+          "say": "Do you eat lunch at the same time every day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p1-10.mp3",
+            "duration": 3.1
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you shared something with other people.",
+        "points": [
+          "what you shared",
+          "who you shared it with",
+          "why you shared it"
+        ],
+        "explain": "and explain how you felt about sharing it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you shared something with other people.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you shared something with other people. You should say: what you shared; who you shared it with; why you shared it; and explain how you felt about sharing it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-75/p2-talk.mp3",
+            "duration": 23.85
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Did anyone share anything with you in return?",
+          "say": "Thank you. Did anyone share anything with you in return?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-75/p2-follow.mp3",
+            "duration": 3.57
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Sharing",
+        "The sharing economy"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Sharing",
+          "text": "Why is it important for children to learn to share?",
+          "say": "Thank you. We've been talking about a time when you shared something with other people, and I'd like to discuss with you some more general questions related to this. Let's consider first of all sharing. Why is it important for children to learn to share?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-75/p3-1.mp3",
+            "duration": 14.68
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Sharing",
+          "text": "What kinds of things do people usually not like to share?",
+          "say": "What kinds of things do people usually not like to share?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-75/p3-2.mp3",
+            "duration": 3.68
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Sharing",
+          "text": "Are people in your country generous with their neighbours?",
+          "say": "Are people in your country generous with their neighbours?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-75/p3-3.mp3",
+            "duration": 3.36
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "The sharing economy",
+          "text": "Why are services for sharing cars, bikes and homes becoming popular?",
+          "say": "Now let's talk about the sharing economy. Why are services for sharing cars, bikes and homes becoming popular?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-75/p3-4.mp3",
+            "duration": 7.34
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "The sharing economy",
+          "text": "What are the risks of renting a stranger's home on holiday?",
+          "say": "What are the risks of renting a stranger's home on holiday?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-75/p3-5.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "The sharing economy",
+          "text": "Do you think people will own fewer things in the future?",
+          "say": "Do you think people will own fewer things in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-75/p3-6.mp3",
+            "duration": 3.42
+          }
+        }
+      ]
+    }
+  ]
+}

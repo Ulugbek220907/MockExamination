@@ -1,0 +1,268 @@
+{
+  "id": "speaking-36",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 36",
+  "shortTitle": "Practice Test 36",
+  "durationMinutes": 14,
+  "sortOrder": 36,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-36/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-36/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Coffee and tea",
+        "Trees"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where is your hometown?",
+          "say": "Good morning. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where is your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-1.mp3",
+            "duration": 14.1
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "What do you like most about your hometown?",
+          "say": "What do you like most about your hometown?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-2.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "What is there for young people to do there?",
+          "say": "What is there for young people to do there?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-3.mp3",
+            "duration": 2.65
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "What jobs do most people in your hometown do?",
+          "say": "What jobs do most people in your hometown do?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-4.mp3",
+            "duration": 3.0
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Coffee and tea",
+          "text": "Do you prefer coffee or tea?",
+          "say": "Now let's move on to talk about coffee and tea. Do you prefer coffee or tea?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-5.mp3",
+            "duration": 5.16
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Coffee and tea",
+          "text": "When do you usually have a cup of coffee or tea?",
+          "say": "When do you usually have a cup of coffee or tea?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-6.mp3",
+            "duration": 2.91
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Coffee and tea",
+          "text": "Is tea or coffee more popular in your country?",
+          "say": "Is tea or coffee more popular in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-7.mp3",
+            "duration": 3.12
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Trees",
+          "text": "Are there many trees where you live?",
+          "say": "Now let's move on to talk about trees. Are there many trees where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-8.mp3",
+            "duration": 5.05
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Trees",
+          "text": "Have you ever planted a tree?",
+          "say": "Have you ever planted a tree?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-9.mp3",
+            "duration": 2.23
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Trees",
+          "text": "Do you think cities need more trees? Why?",
+          "say": "Do you think cities need more trees? Why?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p1-10.mp3",
+            "duration": 3.64
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a child you know well.",
+        "points": [
+          "who the child is",
+          "how you know them",
+          "what this child likes doing"
+        ],
+        "explain": "and explain how you feel about this child."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a child you know well.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a child you know well. You should say: who the child is; how you know them; what this child likes doing; and explain how you feel about this child.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-36/p2-talk.mp3",
+            "duration": 22.93
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you enjoy spending time with children in general?",
+          "say": "Thank you. Do you enjoy spending time with children in general?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-36/p2-follow.mp3",
+            "duration": 3.72
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Childhood",
+        "Raising children"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Childhood",
+          "text": "Is childhood today happier than it was in the past?",
+          "say": "Thank you. We've been talking about a child you know well, and I'd like to discuss with you some more general questions related to this. Let's consider first of all childhood. Is childhood today happier than it was in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-36/p3-1.mp3",
+            "duration": 13.02
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Childhood",
+          "text": "What are the most important things children learn from their parents?",
+          "say": "What are the most important things children learn from their parents?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-36/p3-2.mp3",
+            "duration": 3.74
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Childhood",
+          "text": "Do children today have enough time to play?",
+          "say": "Do children today have enough time to play?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-36/p3-3.mp3",
+            "duration": 2.89
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Raising children",
+          "text": "Is it better for children to grow up in a city or in the countryside?",
+          "say": "Now let's talk about raising children. Is it better for children to grow up in a city or in the countryside?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-36/p3-4.mp3",
+            "duration": 6.78
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Raising children",
+          "text": "How much should parents control what their children watch online?",
+          "say": "How much should parents control what their children watch online?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-36/p3-5.mp3",
+            "duration": 3.74
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Raising children",
+          "text": "Should grandparents help to look after children? Why or why not?",
+          "say": "Should grandparents help to look after children? Why or why not?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-36/p3-6.mp3",
+            "duration": 4.73
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-86",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 86",
+  "shortTitle": "Practice Test 86",
+  "durationMinutes": 14,
+  "sortOrder": 86,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-86/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-86/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Poetry",
+        "Hotels"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Can you describe the place where you live?",
+          "say": "Good evening. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Can you describe the place where you live?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-1.mp3",
+            "duration": 15.49
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "Do you prefer living alone or with other people?",
+          "say": "Do you prefer living alone or with other people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-2.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "What did your home look like when you were a child?",
+          "say": "What did your home look like when you were a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-3.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "What is the area around your home like?",
+          "say": "What is the area around your home like?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-4.mp3",
+            "duration": 2.8
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Poetry",
+          "text": "Do you like poetry?",
+          "say": "Now let's move on to talk about poetry. Do you like poetry?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-5.mp3",
+            "duration": 4.88
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Poetry",
+          "text": "Did you learn poems at school?",
+          "say": "Did you learn poems at school?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-6.mp3",
+            "duration": 2.53
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Poetry",
+          "text": "Is poetry popular in your country?",
+          "say": "Is poetry popular in your country?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-7.mp3",
+            "duration": 2.93
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Hotels",
+          "text": "Have you ever stayed in a hotel?",
+          "say": "Now let's move on to talk about hotels. Have you ever stayed in a hotel?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-8.mp3",
+            "duration": 5.56
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Hotels",
+          "text": "What makes a good hotel, in your opinion?",
+          "say": "What makes a good hotel, in your opinion?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-9.mp3",
+            "duration": 2.95
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Hotels",
+          "text": "Do you prefer staying in hotels or with friends?",
+          "say": "Do you prefer staying in hotels or with friends?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p1-10.mp3",
+            "duration": 3.36
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe an old object that your family has kept for a long time.",
+        "points": [
+          "what it is",
+          "where it came from",
+          "where it is kept now"
+        ],
+        "explain": "and explain why your family has kept it."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe an old object that your family has kept for a long time.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe an old object that your family has kept for a long time. You should say: what it is; where it came from; where it is kept now; and explain why your family has kept it.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-86/p2-talk.mp3",
+            "duration": 24.83
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you like to keep this object yourself one day?",
+          "say": "Thank you. Would you like to keep this object yourself one day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-86/p2-follow.mp3",
+            "duration": 3.74
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Family history",
+        "Keeping things"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Family history",
+          "text": "Why are some people interested in their family history?",
+          "say": "Thank you. We've been talking about an old object that your family has kept for a long time, and I'd like to discuss with you some more general questions related to this. Let's consider first of all family history. Why are some people interested in their family history?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-86/p3-1.mp3",
+            "duration": 16.22
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Family history",
+          "text": "How do families in your country pass their history on to children?",
+          "say": "How do families in your country pass their history on to children?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-86/p3-2.mp3",
+            "duration": 4.38
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Family history",
+          "text": "Is it important for young people to know about their grandparents' lives?",
+          "say": "Is it important for young people to know about their grandparents' lives?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-86/p3-3.mp3",
+            "duration": 4.32
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Keeping things",
+          "text": "Why do some people keep things they no longer use?",
+          "say": "Now let's talk about keeping things. Why do some people keep things they no longer use?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-86/p3-4.mp3",
+            "duration": 6.08
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Keeping things",
+          "text": "Do people today keep fewer things than in the past?",
+          "say": "Do people today keep fewer things than in the past?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-86/p3-5.mp3",
+            "duration": 3.64
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Keeping things",
+          "text": "Should museums collect everyday objects as well as valuable ones?",
+          "say": "Should museums collect everyday objects as well as valuable ones?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-86/p3-6.mp3",
+            "duration": 4.47
+          }
+        }
+      ]
+    }
+  ]
+}

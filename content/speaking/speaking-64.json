@@ -1,0 +1,268 @@
+{
+  "id": "speaking-64",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 64",
+  "shortTitle": "Practice Test 64",
+  "durationMinutes": 14,
+  "sortOrder": 64,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-64/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-64/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Writing",
+        "Naps"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Do you work, or are you a student?",
+          "say": "Good afternoon. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about what you do. Do you work, or are you a student?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-1.mp3",
+            "duration": 14.36
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "What would you change about your work or studies if you could?",
+          "say": "What would you change about your work or studies if you could?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-2.mp3",
+            "duration": 3.36
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "Is there a skill you need to improve for your work or studies?",
+          "say": "Is there a skill you need to improve for your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-3.mp3",
+            "duration": 3.47
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "What is a normal working or study day like for you?",
+          "say": "What is a normal working or study day like for you?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-4.mp3",
+            "duration": 3.27
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Writing",
+          "text": "Do you write much by hand these days?",
+          "say": "Now let's move on to talk about writing. Do you write much by hand these days?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-5.mp3",
+            "duration": 5.2
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Writing",
+          "text": "What kind of things do you write?",
+          "say": "What kind of things do you write?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-6.mp3",
+            "duration": 2.27
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Writing",
+          "text": "Did you like writing stories as a child?",
+          "say": "Did you like writing stories as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-7.mp3",
+            "duration": 2.78
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Naps",
+          "text": "Do you ever take a nap during the day?",
+          "say": "Now let's move on to talk about naps. Do you ever take a nap during the day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-8.mp3",
+            "duration": 5.1
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Naps",
+          "text": "Where do you usually take a nap?",
+          "say": "Where do you usually take a nap?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-9.mp3",
+            "duration": 2.27
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Naps",
+          "text": "Do you feel better after a short sleep in the afternoon?",
+          "say": "Do you feel better after a short sleep in the afternoon?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p1-10.mp3",
+            "duration": 3.32
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you worked in a team.",
+        "points": [
+          "what the team had to do",
+          "who was in the team",
+          "what your role was"
+        ],
+        "explain": "and explain how you felt about working in this team."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you worked in a team.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you worked in a team. You should say: what the team had to do; who was in the team; what your role was; and explain how you felt about working in this team.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-64/p2-talk.mp3",
+            "duration": 23.87
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you like to work with the same people again?",
+          "say": "Thank you. Would you like to work with the same people again?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-64/p2-follow.mp3",
+            "duration": 3.47
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Teamwork at school",
+        "Teamwork at work"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Teamwork at school",
+          "text": "Why do teachers often ask students to work in groups?",
+          "say": "Thank you. We've been talking about a time when you worked in a team, and I'd like to discuss with you some more general questions related to this. Let's consider first of all teamwork at school. Why do teachers often ask students to work in groups?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-64/p3-1.mp3",
+            "duration": 13.96
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Teamwork at school",
+          "text": "What problems can happen when students work in a group?",
+          "say": "What problems can happen when students work in a group?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-64/p3-2.mp3",
+            "duration": 3.27
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Teamwork at school",
+          "text": "Is it better for children to learn in teams or on their own?",
+          "say": "Is it better for children to learn in teams or on their own?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-64/p3-3.mp3",
+            "duration": 3.64
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Teamwork at work",
+          "text": "What makes a team successful at work?",
+          "say": "Now let's talk about teamwork at work. What makes a team successful at work?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-64/p3-4.mp3",
+            "duration": 5.05
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Teamwork at work",
+          "text": "Is it important for colleagues to be friends?",
+          "say": "Is it important for colleagues to be friends?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-64/p3-5.mp3",
+            "duration": 2.93
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Teamwork at work",
+          "text": "Do you think people will work in teams more or less in the future?",
+          "say": "Do you think people will work in teams more or less in the future?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-64/p3-6.mp3",
+            "duration": 3.59
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "speaking-57",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 57",
+  "shortTitle": "Practice Test 57",
+  "durationMinutes": 14,
+  "sortOrder": 57,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Emma",
+    "voice": "bf_emma",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-57/p2-start.mp3",
+        "duration": 9.41
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-57/end.mp3",
+        "duration": 3.06
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your hometown",
+        "Childhood",
+        "Typing"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your hometown",
+          "text": "Where did you grow up?",
+          "say": "Good morning. My name is Emma, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your hometown. Where did you grow up?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-1.mp3",
+            "duration": 14.0
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your hometown",
+          "text": "Do you go back to your hometown often?",
+          "say": "Do you go back to your hometown often?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-2.mp3",
+            "duration": 2.57
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your hometown",
+          "text": "Is your hometown a quiet place or a busy one?",
+          "say": "Is your hometown a quiet place or a busy one?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-3.mp3",
+            "duration": 3.06
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your hometown",
+          "text": "Do you think your hometown will grow in the future?",
+          "say": "Do you think your hometown will grow in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-4.mp3",
+            "duration": 2.95
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Childhood",
+          "text": "Where did you spend your childhood?",
+          "say": "Now let's move on to talk about childhood. Where did you spend your childhood?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-5.mp3",
+            "duration": 5.03
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Childhood",
+          "text": "Did you enjoy your childhood?",
+          "say": "Did you enjoy your childhood?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-6.mp3",
+            "duration": 2.27
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Childhood",
+          "text": "What did you like to do as a child?",
+          "say": "What did you like to do as a child?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-7.mp3",
+            "duration": 2.42
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Typing",
+          "text": "Do you type a lot?",
+          "say": "Now let's move on to talk about typing. Do you type a lot?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-8.mp3",
+            "duration": 4.39
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Typing",
+          "text": "Are you good at typing?",
+          "say": "Are you good at typing?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-9.mp3",
+            "duration": 1.91
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Typing",
+          "text": "Do you prefer typing or writing by hand?",
+          "say": "Do you prefer typing or writing by hand?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p1-10.mp3",
+            "duration": 2.97
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe an art gallery or exhibition you have visited.",
+        "points": [
+          "where it was",
+          "what you saw there",
+          "who you went with"
+        ],
+        "explain": "and explain what you thought of this gallery or exhibition."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe an art gallery or exhibition you have visited.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe an art gallery or exhibition you have visited. You should say: where it was; what you saw there; who you went with; and explain what you thought of this gallery or exhibition.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-57/p2-talk.mp3",
+            "duration": 24.41
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Do you often visit galleries or exhibitions?",
+          "say": "Thank you. Do you often visit galleries or exhibitions?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-57/p2-follow.mp3",
+            "duration": 3.38
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Art",
+        "Art education"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Art",
+          "text": "Why do some people pay a lot of money for works of art?",
+          "say": "Thank you. We've been talking about an art gallery or exhibition you have visited, and I'd like to discuss with you some more general questions related to this. Let's consider first of all art. Why do some people pay a lot of money for works of art?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-57/p3-1.mp3",
+            "duration": 14.51
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Art",
+          "text": "Do you think modern art is as valuable as traditional art?",
+          "say": "Do you think modern art is as valuable as traditional art?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-57/p3-2.mp3",
+            "duration": 3.79
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Art",
+          "text": "Why do some people say they don't understand art?",
+          "say": "Why do some people say they don't understand art?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-57/p3-3.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Art education",
+          "text": "Should art be a compulsory subject at school?",
+          "say": "Now let's talk about art education. Should art be a compulsory subject at school?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-57/p3-4.mp3",
+            "duration": 5.59
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Art education",
+          "text": "What do children learn from painting and drawing?",
+          "say": "What do children learn from painting and drawing?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-57/p3-5.mp3",
+            "duration": 3.06
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Art education",
+          "text": "Is it possible to make a good living as an artist today?",
+          "say": "Is it possible to make a good living as an artist today?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-57/p3-6.mp3",
+            "duration": 3.51
+          }
+        }
+      ]
+    }
+  ]
+}

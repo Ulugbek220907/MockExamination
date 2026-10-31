@@ -1,0 +1,268 @@
+{
+  "id": "speaking-65",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 65",
+  "shortTitle": "Practice Test 65",
+  "durationMinutes": 14,
+  "sortOrder": 65,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-65/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-65/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Your home",
+        "Jewellery",
+        "Cars"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Your home",
+          "text": "Do you live in a house or a flat?",
+          "say": "Good evening. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about your home. Do you live in a house or a flat?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-1.mp3",
+            "duration": 15.32
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Your home",
+          "text": "What would you change about your home if you could?",
+          "say": "What would you change about your home if you could?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-2.mp3",
+            "duration": 3.04
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Your home",
+          "text": "Do you plan to live in a house or a flat in the future?",
+          "say": "Do you plan to live in a house or a flat in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-3.mp3",
+            "duration": 3.61
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Your home",
+          "text": "What makes a home comfortable, in your opinion?",
+          "say": "What makes a home comfortable, in your opinion?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-4.mp3",
+            "duration": 3.15
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Jewellery",
+          "text": "Do you wear any jewellery?",
+          "say": "Now let's move on to talk about jewellery. Do you wear any jewellery?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-5.mp3",
+            "duration": 5.07
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Jewellery",
+          "text": "Have you ever given jewellery as a present?",
+          "say": "Have you ever given jewellery as a present?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-6.mp3",
+            "duration": 3.0
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Jewellery",
+          "text": "Is jewellery important in your culture?",
+          "say": "Is jewellery important in your culture?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-7.mp3",
+            "duration": 2.97
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Cars",
+          "text": "Are you interested in cars?",
+          "say": "Now let's move on to talk about cars. Are you interested in cars?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-8.mp3",
+            "duration": 5.42
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Cars",
+          "text": "Does your family have a car?",
+          "say": "Does your family have a car?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-9.mp3",
+            "duration": 2.46
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Cars",
+          "text": "What kind of car would you like to have?",
+          "say": "What kind of car would you like to have?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p1-10.mp3",
+            "duration": 2.7
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe a time when you could not use your phone.",
+        "points": [
+          "when it happened",
+          "why you could not use it",
+          "what you did instead"
+        ],
+        "explain": "and explain how you felt without your phone."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe a time when you could not use your phone.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe a time when you could not use your phone. You should say: when it happened; why you could not use it; what you did instead; and explain how you felt without your phone.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-65/p2-talk.mp3",
+            "duration": 24.53
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you like to spend a whole day without your phone?",
+          "say": "Thank you. Would you like to spend a whole day without your phone?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-65/p2-follow.mp3",
+            "duration": 3.68
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Phones",
+        "Living without technology"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Phones",
+          "text": "Why do people find it so hard to put their phones down?",
+          "say": "Thank you. We've been talking about a time when you could not use your phone, and I'd like to discuss with you some more general questions related to this. Let's consider first of all phones. Why do people find it so hard to put their phones down?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-65/p3-1.mp3",
+            "duration": 14.81
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Phones",
+          "text": "At what age should children have their own phone?",
+          "say": "At what age should children have their own phone?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-65/p3-2.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Phones",
+          "text": "Have phones made people better or worse at communicating face to face?",
+          "say": "Have phones made people better or worse at communicating face to face?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-65/p3-3.mp3",
+            "duration": 4.94
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Living without technology",
+          "text": "Why do some people choose to have a break from technology?",
+          "say": "Now let's talk about living without technology. Why do some people choose to have a break from technology?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-65/p3-4.mp3",
+            "duration": 6.76
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Living without technology",
+          "text": "Could people today live the way their grandparents lived, without modern technology?",
+          "say": "Could people today live the way their grandparents lived, without modern technology?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-65/p3-5.mp3",
+            "duration": 5.39
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Living without technology",
+          "text": "Should schools teach students how to use technology in a healthy way?",
+          "say": "Should schools teach students how to use technology in a healthy way?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-65/p3-6.mp3",
+            "duration": 4.4
+          }
+        }
+      ]
+    }
+  ]
+}

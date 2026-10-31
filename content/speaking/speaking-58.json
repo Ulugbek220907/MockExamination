@@ -1,0 +1,268 @@
+{
+  "id": "speaking-58",
+  "module": "speaking",
+  "variant": "academic",
+  "title": "Speaking Practice Test 58",
+  "shortTitle": "Practice Test 58",
+  "durationMinutes": 14,
+  "sortOrder": 58,
+  "license": "Original work written for this project. Examiner audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "examiner": {
+    "name": "Daniel",
+    "voice": "bm_daniel",
+    "lang": "en-gb",
+    "speed": 0.95
+  },
+  "prompts": {
+    "p2-start": {
+      "say": "All right? Remember, you have one to two minutes for this, so don't worry if I stop you. I'll tell you when the time is up. Can you start speaking now, please?",
+      "audio": {
+        "src": "audio/speaking-58/p2-start.mp3",
+        "duration": 9.97
+      }
+    },
+    "end": {
+      "say": "Thank you. That is the end of the Speaking test.",
+      "audio": {
+        "src": "audio/speaking-58/end.mp3",
+        "duration": 3.21
+      }
+    }
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Introduction and interview",
+      "topics": [
+        "Work or studies",
+        "Headphones",
+        "Gifts"
+      ],
+      "questions": [
+        {
+          "key": "p1-1",
+          "topic": "Work or studies",
+          "text": "Do you have a job, or are you studying?",
+          "say": "Good afternoon. My name is Daniel, and I'm your examiner today. This is the Speaking test. In this first part, I'd like to ask you some questions about yourself. Let's talk about what you do. Do you have a job, or are you studying?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-1.mp3",
+            "duration": 15.79
+          }
+        },
+        {
+          "key": "p1-2",
+          "topic": "Work or studies",
+          "text": "How did you feel on your first day?",
+          "say": "How did you feel on your first day?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-2.mp3",
+            "duration": 2.76
+          }
+        },
+        {
+          "key": "p1-3",
+          "topic": "Work or studies",
+          "text": "Do you usually work or study alone, or with other people?",
+          "say": "Do you usually work or study alone, or with other people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-3.mp3",
+            "duration": 3.79
+          }
+        },
+        {
+          "key": "p1-4",
+          "topic": "Work or studies",
+          "text": "What kind of people do you meet in your work or studies?",
+          "say": "What kind of people do you meet in your work or studies?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-4.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p1-5",
+          "topic": "Headphones",
+          "text": "Do you often wear headphones?",
+          "say": "Now let's move on to talk about headphones. Do you often wear headphones?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-5.mp3",
+            "duration": 5.39
+          }
+        },
+        {
+          "key": "p1-6",
+          "topic": "Headphones",
+          "text": "What do you listen to with headphones?",
+          "say": "What do you listen to with headphones?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-6.mp3",
+            "duration": 2.61
+          }
+        },
+        {
+          "key": "p1-7",
+          "topic": "Headphones",
+          "text": "Is it rude to wear headphones when you are with other people?",
+          "say": "Is it rude to wear headphones when you are with other people?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-7.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p1-8",
+          "topic": "Gifts",
+          "text": "Do you like giving gifts?",
+          "say": "Now let's move on to talk about gifts. Do you like giving gifts?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-8.mp3",
+            "duration": 5.01
+          }
+        },
+        {
+          "key": "p1-9",
+          "topic": "Gifts",
+          "text": "What was the last gift you received?",
+          "say": "What was the last gift you received?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-9.mp3",
+            "duration": 2.74
+          }
+        },
+        {
+          "key": "p1-10",
+          "topic": "Gifts",
+          "text": "Do you prefer to buy gifts or to make them?",
+          "say": "Do you prefer to buy gifts or to make them?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p1-10.mp3",
+            "duration": 3.19
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 2,
+      "title": "Individual long turn",
+      "cueCard": {
+        "topic": "Describe an online course or video that helped you learn something.",
+        "points": [
+          "what it was about",
+          "how you found it",
+          "what you learned from it"
+        ],
+        "explain": "and explain why it was helpful for you."
+      },
+      "questions": [
+        {
+          "key": "p2-talk",
+          "type": "long_turn",
+          "text": "Describe an online course or video that helped you learn something.",
+          "say": "Thank you. Now, in Part 2, I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. Before you talk, you'll have one minute to think about what you're going to say. You can make some notes if you wish. Here is your topic. Describe an online course or video that helped you learn something. You should say: what it was about; how you found it; what you learned from it; and explain why it was helpful for you.",
+          "prepSeconds": 60,
+          "answerSeconds": 120,
+          "audio": {
+            "src": "audio/speaking-58/p2-talk.mp3",
+            "duration": 24.77
+          }
+        },
+        {
+          "key": "p2-follow",
+          "text": "Would you pay for a course like this in the future?",
+          "say": "Thank you. Would you pay for a course like this in the future?",
+          "answerSeconds": 30,
+          "audio": {
+            "src": "audio/speaking-58/p2-follow.mp3",
+            "duration": 3.57
+          }
+        }
+      ]
+    },
+    {
+      "partNumber": 3,
+      "title": "Discussion",
+      "topics": [
+        "Online learning",
+        "Education and technology"
+      ],
+      "questions": [
+        {
+          "key": "p3-1",
+          "topic": "Online learning",
+          "text": "What are the advantages of learning online?",
+          "say": "Thank you. We've been talking about an online course or video that helped you learn something, and I'd like to discuss with you some more general questions related to this. Let's consider first of all online learning. What are the advantages of learning online?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-58/p3-1.mp3",
+            "duration": 15.62
+          }
+        },
+        {
+          "key": "p3-2",
+          "topic": "Online learning",
+          "text": "Why do some people give up online courses before they finish?",
+          "say": "Why do some people give up online courses before they finish?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-58/p3-2.mp3",
+            "duration": 4.11
+          }
+        },
+        {
+          "key": "p3-3",
+          "topic": "Online learning",
+          "text": "Can online courses ever replace teachers in a classroom?",
+          "say": "Can online courses ever replace teachers in a classroom?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-58/p3-3.mp3",
+            "duration": 4.17
+          }
+        },
+        {
+          "key": "p3-4",
+          "topic": "Education and technology",
+          "text": "How has technology changed the way children learn at school?",
+          "say": "Now let's talk about education and technology. How has technology changed the way children learn at school?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-58/p3-4.mp3",
+            "duration": 7.19
+          }
+        },
+        {
+          "key": "p3-5",
+          "topic": "Education and technology",
+          "text": "Should young children be allowed to use tablets in class?",
+          "say": "Should young children be allowed to use tablets in class?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-58/p3-5.mp3",
+            "duration": 3.53
+          }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Education and technology",
+          "text": "What skills will students need in a world with more and more technology?",
+          "say": "What skills will students need in a world with more and more technology?",
+          "answerSeconds": 60,
+          "audio": {
+            "src": "audio/speaking-58/p3-6.mp3",
+            "duration": 4.55
+          }
+        }
+      ]
+    }
+  ]
+}
