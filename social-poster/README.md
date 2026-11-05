@@ -4,8 +4,9 @@ A small web service, **separate from the testday.uz website**, that posts one Te
 **YouTube (Shorts), TikTok, Instagram (Reels), Threads and Facebook (Reels)**. It makes the post itself:
 a picture and a short vertical video in TestDay's look, with a caption that ends with a link to testday.uz.
 
-It lives in the `social-poster/` folder of this repository and deploys to Render as its own service.
-Nothing in it is used by the website, and the website's deploy ignores it.
+It lives in the `social-poster/` folder of this repository and deploys to Render as its own service
+(`testday-social`, declared in the repository's `render.yaml`). Nothing in it is used by the website, and the
+website's deploy ignores it.
 
 ## What it posts
 
@@ -25,15 +26,33 @@ commit the new `data/bank.json`.
 
 ## Put it on Render
 
-1. In Render choose **New + → Blueprint**, pick this repository, and set the blueprint path to
-   `social-poster/render.yaml`. This creates the service `testday-social` (Starter plan, with a 1 GB disk).
-   Render asks for the settings marked `sync: false`; you can leave the platform keys empty for now.
-2. When it has deployed, copy its address (for example `https://testday-social.onrender.com`) into the
-   setting **PUBLIC_URL**. Instagram and Threads fetch the picture and video from this address, and the
-   Connect buttons need it.
-3. Open the address. The user name is anything; the password is the **ADMIN_PASSWORD** that Render generated
-   (Environment tab).
-4. Connect each platform (next section), try **Dry run** and then **Post now** on each, and when you are
+The service is described in the repository's `render.yaml`, next to the website, as `testday-social`
+(Starter plan with a 1 GB disk). It is **not** created by pushing to GitHub: Render creates a service only
+when you tell it to, once. Pick the way that matches how the website was set up:
+
+**A. The website was created from the repository's `render.yaml` (a Blueprint).** In Render open
+*Blueprints* in the left menu and open the one for this repository. It lists `testday-social` as a new
+service; press *Manual sync* (or *Apply*), enter or leave empty the settings it asks for, and confirm.
+Render then builds and starts it, and from then on it redeploys when `social-poster/` changes.
+
+**B. The website was created by hand, or no Blueprint is listed.** Create the poster by hand, once:
+
+1. *New + → Web Service*, choose this repository, branch `main`.
+2. **Root Directory** `social-poster`, **Runtime** Python 3, **Build Command** `pip install -r requirements.txt`,
+   **Start Command** `python app.py`, **Instance type** Starter, **Health Check Path** `/healthz`.
+3. *Advanced → Add Disk*: name `social-data`, mount path `/var/data`, size 1 GB.
+4. Environment: `DATA_DIR=/var/data`, `PYTHON_VERSION=3.11.9`, `ADMIN_PASSWORD` (choose a long one),
+   `SECRET_KEY` and `CRON_TOKEN` (any long random text). Leave `POSTING_ENABLED` unset for now.
+
+Do **not** create a second Blueprint from the repository's `render.yaml` if the website was created by
+hand: it would try to create the website a second time.
+
+Either way, when it is running:
+
+1. Open the service's address (shown at the top of its page, `https://testday-social.onrender.com` or
+   similar). The user name is anything; the password is **ADMIN_PASSWORD** (under *Environment*; Render
+   generated it for route A). Render tells the service its own address, so `PUBLIC_URL` needs no setting.
+2. Connect each platform (next section), try **Dry run** and then **Post now** on each, and when you are
    happy set **POSTING_ENABLED=1**. From then on the service posts every day at `POST_TIME` (10:00 Tashkent
    time) and, if it was asleep or a platform was down at that time, catches up later the same day.
 
@@ -82,7 +101,7 @@ If you would rather not use the Connect buttons, a platform also accepts its key
 | `POSTING_ENABLED` | `0` | The daily schedule posts only when this is `1`. The buttons on the admin page always work. |
 | `POST_TIME`, `TIMEZONE` | `10:00`, `Asia/Tashkent` | When the day's post goes out. |
 | `PLATFORMS` | all five | Comma-separated list, for example `youtube,threads`. |
-| `PUBLIC_URL` | (none) | This service's address. Needed for Instagram, Threads and Connect. |
+| `PUBLIC_URL` | Render's own address | This service's address; Render supplies it. Set it only to use another address. Needed for Instagram, Threads and Connect. |
 | `SITE_URL` | `https://www.testday.uz` | The link in every caption (tagged with the platform, so the site's visits show where they came from). |
 | `ADMIN_PASSWORD` | (none) | Without it nobody can open the admin page. |
 | `CRON_TOKEN` | (none) | Lets an outside timer call `/api/run-daily?token=…`. |

@@ -689,6 +689,12 @@ class ConfigTests(unittest.TestCase):
         self.assertEqual(set(cfg.platforms), {"youtube", "tiktok", "instagram", "threads", "facebook"})
         self.assertEqual(cfg.admin_password, "")
 
+    def test_the_public_address_defaults_to_the_one_render_gives_the_service(self):
+        with mock.patch.dict(os.environ, {"RENDER_EXTERNAL_URL": "https://testday-social.onrender.com"}, clear=True):
+            self.assertEqual(Config.from_env().public_url, "https://testday-social.onrender.com")
+        with mock.patch.dict(os.environ, {"RENDER_EXTERNAL_URL": "https://a.onrender.com", "PUBLIC_URL": "https://social.testday.uz/"}, clear=True):
+            self.assertEqual(Config.from_env().public_url, "https://social.testday.uz")
+
     def test_settings_come_from_the_environment(self):
         env = {"POSTING_ENABLED": "1", "PLATFORMS": "threads, youtube, nonsense", "POST_TIME": "08:30", "PUBLIC_URL": "https://x.example/",
                "EXTRA_HASHTAGS": "#Uzbekistan, Tashkent"}

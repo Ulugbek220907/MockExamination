@@ -4,7 +4,7 @@
 
 > **Independent site.** TestDay is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press & Assessment. "IELTS" is a registered trademark of its owners and is used only to describe the exam this site helps people prepare for.
 
-> **Also in this repository:** `social-poster/` is a separate small service that posts a TestDay post every day to YouTube, TikTok, Instagram, Threads and Facebook. It has its own `render.yaml`, requirements and tests and is not part of the website; see [social-poster/README.md](social-poster/README.md).
+> **Also in this repository:** `social-poster/` is a separate small service that posts a TestDay post every day to YouTube, TikTok, Instagram, Threads and Facebook. It is a second service in the repository's `render.yaml` (`testday-social`), with its own requirements and tests, and is not part of the website; see [social-poster/README.md](social-poster/README.md) for how to create it in Render (it is not created by a push).
 
 ## What's inside
 
