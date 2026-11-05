@@ -7,6 +7,7 @@
  *   public/img/logo-maskable-512.png   512 x 512, the app icon for phones that cut it into a circle or a squircle
  *   public/img/apple-touch-icon.png    180 x 180, the icon on an iPhone home screen (iOS rounds the corners itself)
  *   public/img/email-logo.png           96 x 96, the logo at the top of the emails
+ *   social-poster/assets/mark-ink.png   512 x 512, the mark alone in ink, and mark-gold.png in gold, for the posters
  *
  * Run after changing the brand colours, the mark or the wording:
  *   python scripts/make_ornaments.py
@@ -27,6 +28,7 @@ const root = path.join(__dirname, "..");
 const read = (...p) => fs.readFileSync(path.join(root, "public", ...p));
 const font = read("fonts", "schibsted-grotesk-core.woff2").toString("base64");
 const img = (name) => path.join(root, "public", "img", name);
+const poster = (name) => path.join(root, "social-poster", "assets", name);
 
 // The brand (see DESIGN.md): a warm ground, one deep ink, and gold for the ornament on ink.
 const C = { ground: "#e9e8e2", ink: "#0f1a30", lift: "#1d2a45", soft: "#aeb8cb", gold: "#e0a93b" };
@@ -65,6 +67,10 @@ const tile = (size, { round, scale }) => `<!doctype html><html><head><style>html
   <g transform="scale(${scale})">${mark(C.gold)}</g>
 </svg></body></html>`;
 
+// The mark alone on a transparent ground (the social poster pastes it into its pictures).
+const markOnly = (size, colour) => `<!doctype html><html><head><style>html, body { margin: 0; background: transparent; } svg { display: block; }</style></head><body>
+<svg width="${size}" height="${size}" viewBox="-1.12 -1.12 2.24 2.24" xmlns="http://www.w3.org/2000/svg">${mark(colour)}</svg></body></html>`;
+
 async function draw(browser, html, w, h, file, transparent) {
   const page = await browser.newPage({ viewport: { width: w, height: h } });
   await page.setContent(html, { waitUntil: "load" });
@@ -87,5 +93,7 @@ async function draw(browser, html, w, h, file, transparent) {
   // Maskable: everything that matters stays inside the central 80 % circle, so the mark is smaller.
   await draw(browser, tile(512, { round: false, scale: 0.7 }), 512, 512, img("logo-maskable-512.png"));
   await draw(browser, tile(96, { round: true, scale: 0.96 }), 96, 96, img("email-logo.png"), true);
+  await draw(browser, markOnly(512, C.ink), 512, 512, poster("mark-ink.png"), true);
+  await draw(browser, markOnly(512, C.gold), 512, 512, poster("mark-gold.png"), true);
   await browser.close();
 })();
