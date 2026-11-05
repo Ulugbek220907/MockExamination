@@ -186,6 +186,8 @@ CREATE TABLE IF NOT EXISTS product_events (
     created_at TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_events_name_time ON product_events(name, created_at);
+CREATE INDEX IF NOT EXISTS idx_profiles_created ON profiles(created_at);
+CREATE INDEX IF NOT EXISTS idx_orders_paid ON orders(paid_at) WHERE status = 'paid';
 CREATE TABLE IF NOT EXISTS feedback (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     message TEXT NOT NULL,

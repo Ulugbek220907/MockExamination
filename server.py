@@ -696,28 +696,59 @@ class HistoryHandler(BaseHandler):
         self.send_json({"items": items[:20]})
 
 
+ADMIN_STATS_SECONDS = float(os.environ.get("ADMIN_STATS_SECONDS", "60"))
+_ADMIN_STATS = {"at": 0.0, "value": None}
+_ADMIN_STATS_LOCK = threading.Lock()
+
+
+def build_admin_stats():
+    """
+    Everything the Admin insights tab shows. Every database read runs side by side: the database may be far
+    away, and fifteen reads in a row take fifteen round trips where side by side they take about one.
+    """
+    jobs = {
+        "stats": lambda: STORE.stats(),
+        "funnel": lambda: analytics.funnels(STORE.db, (7, 30)),
+        "revenue": lambda: billing.revenues(STORE.db, (7, 30)),
+        "passes": lambda: accounts.pass_counts(STORE.db),
+    }
+    results = {}
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(jobs)) as workers:
+        futures = {name: workers.submit(job) for name, job in jobs.items()}
+        for name, future in futures.items():
+            try:
+                results[name] = future.result()
+            except Exception:  # noqa: BLE001 - one failing count must not hide the others
+                log.exception("Admin stats: could not read %s", name)
+    stats = dict(results.get("stats") or {})
+    stats["storage"] = STORE.name
+    stats["tests"] = len(STORE.list_tests())
+    stats["funnel"] = ({"7": results["funnel"][7], "30": results["funnel"][30], "steps": list(analytics.FUNNEL)}
+                       if "funnel" in results else None)
+    if "revenue" in results and "passes" in results:
+        stats["revenue"] = {"7": results["revenue"][7], "30": results["revenue"][30]}
+        stats["passes"] = results["passes"]
+    else:
+        stats["revenue"] = stats["passes"] = None
+    return stats
+
+
 class AdminStatsHandler(api.AdminHandler):
+    """The insights numbers. Kept for a minute (they are counts, not payments to confirm), so reopening the tab is instant."""
+
     async def get(self):
         await self.require_admin()
-        stats = await in_thread(STORE.stats)
-        stats["storage"] = STORE.name
-        stats["tests"] = len(await in_thread(STORE.list_tests))
-        try:
-            week, month = await asyncio.gather(in_thread(analytics.funnel, STORE.db, 7), in_thread(analytics.funnel, STORE.db, 30))
-            stats["funnel"] = {"7": week, "30": month, "steps": list(analytics.FUNNEL)}
-        except Exception:
-            log.exception("Could not count funnel events")
-            stats["funnel"] = None
-        try:
-            week, month, passes = await asyncio.gather(in_thread(billing.revenue, STORE.db, 7),
-                                                       in_thread(billing.revenue, STORE.db, 30),
-                                                       in_thread(accounts.pass_counts, STORE.db))
-            stats["revenue"] = {"7": week, "30": month}
-            stats["passes"] = passes
-        except Exception:
-            log.exception("Could not count revenue")
-            stats["revenue"] = stats["passes"] = None
-        self.send_json(stats)
+        force = self.get_query_argument("refresh", "") == "1"
+
+        def load():
+            with _ADMIN_STATS_LOCK:  # one reader at a time: a second tab waits for the first instead of repeating its reads
+                cached = _ADMIN_STATS["value"]
+                if cached is not None and not force and time.monotonic() - _ADMIN_STATS["at"] < ADMIN_STATS_SECONDS:
+                    return cached
+                value = build_admin_stats()
+                _ADMIN_STATS.update(at=time.monotonic(), value=value)
+                return value
+        self.send_json(await in_thread(load))
 
 
 class AdminRefreshHandler(api.AdminHandler):
@@ -729,15 +760,20 @@ class AdminRefreshHandler(api.AdminHandler):
 
 
 class AdminSyncContentHandler(api.AdminHandler):
-    """Upload new and changed tests from content/ to Supabase (see mockexam/content_sync.py)."""
+    """The Admin "Tests" tab: what the site is serving, and (only if the tests live in Supabase) the upload."""
+
+    def describe(self, status):
+        reads = content_sync.reads_tests_from_supabase(STORE)
+        counts = collections.Counter(t["module"] for t in STORE.list_tests())
+        return dict(status, source="supabase" if reads else "files", counts=dict(counts))
 
     async def get(self):
         await self.require_admin()
-        self.send_json(content_sync.status())
+        self.send_json(await in_thread(lambda: self.describe(content_sync.status())))
 
     async def post(self):
         await self.require_admin()
-        self.send_json(await in_thread(content_sync.start, STORE))
+        self.send_json(await in_thread(lambda: self.describe(content_sync.start(STORE))))
 
 
 class ApiNotFoundHandler(BaseHandler):
@@ -933,8 +969,8 @@ def main():
     asyncio.get_event_loop().set_default_executor(
         concurrent.futures.ThreadPoolExecutor(max_workers=int(os.environ.get("WORKER_THREADS", "48")), thread_name_prefix="io"))
     threading.Thread(target=AUTH.google_enabled, name="google-settings", daemon=True).start()  # warm it up
-    if STORE.name == "supabase" and os.environ.get("AUTO_PUBLISH_NEW_TESTS", "1") != "0":
-        # Tests added to content/ in this deploy go to Supabase; existing ones are never overwritten.
+    if content_sync.reads_tests_from_supabase(STORE) and os.environ.get("AUTO_PUBLISH_NEW_TESTS", "1") != "0":
+        # Only when TESTS_SOURCE=supabase: tests added to content/ in this deploy go to Supabase; existing ones are never overwritten.
         threading.Thread(target=lambda: log.info("New tests: %s", content_sync.start(STORE, only_new=True)["message"]),
                          name="publish-new-tests", daemon=True).start()
     loop.call_later(60, clean_up_recordings)

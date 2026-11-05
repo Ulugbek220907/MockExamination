@@ -42,10 +42,12 @@ os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
 # Most tests cover buying the pass and examiner checks, which the live site hides until COMMERCE_ENABLED is on.
 # CommerceOffTests below switches it off to check the launch setting.
 os.environ["COMMERCE_ENABLED"] = "1"
+# The admin insights are kept for a minute; the tests that count things need them read afresh each time.
+os.environ["ADMIN_STATS_SECONDS"] = "0"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import accounts, api, auth, billing, checks, content, notify, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, analytics, api, auth, billing, checks, content, notify, scoring, speaking, storage, writing  # noqa: E402
 from mockexam.db import SqliteDb, iso, now, parse_time  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
@@ -553,11 +555,29 @@ class SupabaseStoreTests(unittest.TestCase):
         cls.httpd = http.server.HTTPServer(("127.0.0.1", 0), Handler)
         threading.Thread(target=cls.httpd.serve_forever, daemon=True).start()
         cls.base = f"http://127.0.0.1:{cls.httpd.server_port}"
+        # These tests are about reading the tests from Supabase, which is the opt-in mode (the default reads the files).
+        patcher = mock.patch.dict(os.environ, {"TESTS_SOURCE": "supabase"})
+        patcher.start()
+        cls.addClassCleanup(patcher.stop)
         cls.store = storage.SupabaseStore(cls.base, "sb_publishable_test", cls.SECRET)
 
     @classmethod
     def tearDownClass(cls):
         cls.httpd.shutdown()
+
+    def test_by_default_the_tests_are_the_bundled_files_and_supabase_is_not_asked_for_them(self):
+        with mock.patch.dict(os.environ, {"TESTS_SOURCE": ""}):
+            store = storage.SupabaseStore(self.base, "k", self.SECRET)
+        before = sum(r["fn"] == "app_list_tests" for r in self.requests)
+        first = store.list_tests()
+        self.assertEqual(len(first), len(TESTS))
+        self.assertIs(store.list_tests(), first)  # read once and kept
+        self.assertEqual(sum(r["fn"] == "app_list_tests" for r in self.requests), before)
+        store.refresh()
+        self.assertIsNot(store.list_tests(), first)  # refresh() reads the files again
+        self.assertEqual(sum(r["fn"] == "app_list_tests" for r in self.requests), before)
+        with mock.patch.dict(os.environ, {"TESTS_SOURCE": "nonsense"}):
+            self.assertEqual(storage.SupabaseStore(self.base, "k", self.SECRET).tests_source, "files")
 
     def test_rpc_calls(self):
         tests = self.store.list_tests()
@@ -1073,6 +1093,8 @@ class AccountApiBase(AsyncHTTPTestCase):
     def login(self, email, client_id=None):
         api.CODE_PER_IP.hits.clear()  # every test signs in from 127.0.0.1
         api.CODE_PER_EMAIL.hits.clear()  # and the owner signs in from many tests
+        api.VERIFY_PER_IP.hits.clear()  # and a test that signs many people in must not use up everyone else's attempts
+        api.VERIFY_PER_EMAIL.hits.clear()
         api.VERIFY_PER_IP.hits.clear()
         r, data = self.call("POST", "/api/auth/code", {"email": email})
         self.assertEqual(r.code, 200, data)
@@ -1135,6 +1157,10 @@ class AccountApiTests(AccountApiBase):
         r, data = self.call("POST", "/api/admin/sync-content", {}, cookie=admin)
         self.assertEqual(r.code, 200)
         self.assertIn("nothing to upload", data["message"])  # these tests run on local content, so there is nothing to send
+        self.assertEqual(data["source"], "files")
+        self.assertEqual(data["counts"], {m: len([t for t in TESTS if t["module"] == m]) for m in ("reading", "listening", "writing", "speaking")})
+        r, data = self.call("GET", "/api/admin/sync-content", cookie=admin)
+        self.assertEqual((r.code, data["source"]), (200, "files"))
 
     def test_buy_plan_by_card_transfer(self):
         cookie, _ = self.login("buyer@example.com")
@@ -2144,6 +2170,37 @@ class ContentSyncTests(unittest.TestCase):
         local_store = types.SimpleNamespace(name="local")
         self.assertIn("nothing to upload", content_sync.start(local_store)["message"])
 
+    def test_supabase_holding_only_accounts_has_nothing_to_upload_either(self):
+        # The default: Supabase for accounts and results, the tests from the files of each deploy.
+        from mockexam import content_sync
+        store = self.FakeStore([])
+        store.tests_source = "files"
+        status = content_sync.start(store, local_tests=[t for t in TESTS if t["module"] == "reading"][:2])
+        self.assertEqual((status["running"], store.uploaded, store.refreshed), (False, [], 0))
+        self.assertIn("ship with each deploy", status["message"])
+
+    def test_start_answers_at_once_and_the_slow_part_runs_in_the_background(self):
+        from mockexam import content_sync
+
+        class SlowStore(self.FakeStore):
+            def list_tests(self):
+                time.sleep(0.4)  # the download of every test from a far-away database
+                return super().list_tests()
+
+        local = [t for t in TESTS if t["module"] == "reading"][:2]
+        store = SlowStore([])
+        began = time.time()
+        status = content_sync.start(store, local_tests=local, public_dir=PUBLIC_DIR)
+        self.assertLess(time.time() - began, 0.3)  # the button's request does not wait for Supabase
+        self.assertTrue(status["running"])
+        self.assertIn(status["phase"], ("checking", "reading"))
+        for _ in range(100):
+            if not content_sync.status()["running"]:
+                break
+            time.sleep(0.05)
+        self.assertEqual(sorted(store.uploaded), sorted(t["id"] for t in local))
+        self.assertEqual(content_sync.status()["phase"], "")
+
 
 class PaymentAccessTests(AccountApiBase):
     """The server unlocks paid tests and their audio the moment an order is fulfilled, and locks them on refund."""
@@ -2536,6 +2593,88 @@ class AdminRevenueTests(AccountApiBase):
         self.assertEqual(set(data["revenue"]), {"7", "30"})
         self.assertIn("plan", data["revenue"]["30"])
         self.assertIn("endingIn7Days", data["passes"])
+
+
+class AdminDatabaseLoadTests(AccountApiBase):
+    """The admin pages ask the database a few things side by side, never once per row."""
+
+    def test_plan_statuses_match_plan_status_and_cost_one_query(self):
+        db = _fresh_db()
+        users = [_profile(db, f"plan{i}@example.com") for i in range(6)]
+        accounts.grant_plan_period(db, users[0]["id"], 30, "admin")
+        db.insert("subscription_periods", {"user_id": users[1]["id"], "starts_at": iso(now() - datetime.timedelta(days=40)),
+                                           "ends_at": iso(now() - datetime.timedelta(days=10)), "source": "payment"})
+        db.insert("subscription_periods", {"user_id": users[2]["id"], "starts_at": iso(now() + datetime.timedelta(days=5)),
+                                           "ends_at": iso(now() + datetime.timedelta(days=35)), "source": "admin"})
+        ids = [u["id"] for u in users]
+        queries = []
+        original = db.select
+        db.select = lambda table, *a, **k: (queries.append(table), original(table, *a, **k))[1]
+        batch = accounts.plan_statuses(db, ids)
+        self.assertEqual(queries, ["subscription_periods"])  # one query for six users
+        db.select = original
+        for u in users:
+            self.assertEqual(batch[u["id"]], accounts.plan_status(db, u["id"]), u["email"])
+        self.assertTrue(batch[ids[0]]["active"])
+        self.assertTrue(batch[ids[1]]["hadPaidPlan"] and not batch[ids[1]]["active"])
+        self.assertEqual(accounts.plan_statuses(db, []), {})
+
+    def test_admin_users_list_is_not_a_query_per_user(self):
+        admin, _ = self.login("owner@example.com")
+        for i in range(8):
+            self.login(f"listed{i}@example.com")
+        db = self._app.settings["store"].db
+        queries = []
+        original = db.db.select
+        db.db.select = lambda table, *a, **k: (queries.append(table), original(table, *a, **k))[1]
+        try:
+            db.clear()
+            r, data = self.call("GET", "/api/admin/users", cookie=admin)
+        finally:
+            db.db.select = original
+        self.assertEqual(r.code, 200)
+        self.assertGreaterEqual(len(data["users"]), 9)
+        self.assertEqual(queries.count("subscription_periods"), 1)
+
+    def test_funnels_and_revenues_match_the_one_window_versions(self):
+        db = _fresh_db()
+        buyer = _profile(db, "windows@example.com")
+        for name, days_ago in (("visit", 1), ("visit", 12), ("signup", 3), ("visit", 40)):
+            db.insert("product_events", {"name": name, "day": "2026-01-01", "created_at": iso(now() - datetime.timedelta(days=days_ago))})
+        for kind, amount, days_ago in (("plan", 39000, 2), ("writing_check", 10000, 20), ("plan", 39000, 45)):
+            db.insert("orders", {"user_id": buyer["id"], "kind": kind, "amount": amount, "status": "paid",
+                                 "paid_at": iso(now() - datetime.timedelta(days=days_ago))})
+        both = analytics.funnels(db, (7, 30))
+        self.assertEqual(both[7], analytics.funnel(db, 7))
+        self.assertEqual(both[30], analytics.funnel(db, 30))
+        self.assertEqual((both[7]["visit"], both[30]["visit"], both[30]["signup"]), (1, 2, 1))
+        money = billing.revenues(db, (7, 30))
+        self.assertEqual(money[7], billing.revenue(db, 7))
+        self.assertEqual(money[30], billing.revenue(db, 30))
+        self.assertEqual((money[7]["total"], money[30]["total"]), (39000, 49000))
+
+    def test_admin_stats_are_kept_for_a_minute_unless_refresh_is_asked_for(self):
+        admin, _ = self.login("owner@example.com")
+        reads = []
+        real = server.build_admin_stats
+        with mock.patch.object(server, "ADMIN_STATS_SECONDS", 60), \
+                mock.patch.object(server, "build_admin_stats", lambda: (reads.append(1), real())[1]):
+            server._ADMIN_STATS.update(at=0.0, value=None)
+            self.assertEqual(self.call("GET", "/api/admin/stats", cookie=admin)[0].code, 200)
+            self.assertEqual(self.call("GET", "/api/admin/stats", cookie=admin)[0].code, 200)
+            self.assertEqual(len(reads), 1)  # the second look was free
+            self.assertEqual(self.call("GET", "/api/admin/stats?refresh=1", cookie=admin)[0].code, 200)
+            self.assertEqual(len(reads), 2)
+        server._ADMIN_STATS.update(at=0.0, value=None)
+
+    def test_one_failing_count_does_not_hide_the_rest_of_the_stats(self):
+        admin, _ = self.login("owner@example.com")
+        with mock.patch.object(billing, "revenues", side_effect=RuntimeError("db down")), \
+                mock.patch.object(server, "ADMIN_STATS_SECONDS", 0):
+            r, data = self.call("GET", "/api/admin/stats?refresh=1", cookie=admin)
+        self.assertEqual(r.code, 200)
+        self.assertIsNone(data["revenue"])
+        self.assertIn("visit", data["funnel"]["7"])
 
 
 class ErrorAlertTests(unittest.TestCase):

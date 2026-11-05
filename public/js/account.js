@@ -1066,14 +1066,15 @@
   /* ================================================================ admin */
   async function renderAdmin(main, params) {
     document.title = `Admin – ${siteName()}`;
-    await refreshMe();
-    if (role() !== "admin") {
-      main.innerHTML = `<section class="page"><h1>Admin only</h1><p>Sign in with an admin email to see this page.</p></section>`;
-      return;
-    }
+    // Draw from what this browser already knows about the account and refresh it alongside the tab's data:
+    // waiting for /api/me first put another round trip to the database in front of everything.
+    const meReady = refreshMe();
+    const adminOnly = () => { main.innerHTML = `<section class="page"><h1>Admin only</h1><p>Sign in with an admin email to see this page.</p></section>`; };
+    if (role() !== "admin") await meReady;
+    if (role() !== "admin") return adminOnly();
     const tab = params.get("tab") || "payments";
-    const waiting = (state.me.todo || {}).payments || 0;
-    const tabs = [["payments", `Payments to confirm${waiting ? ` (${waiting})` : ""}`], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"],
+    const paymentsLabel = () => { const n = (state.me.todo || {}).payments || 0; return `Payments to confirm${n ? ` (${n})` : ""}`; };
+    const tabs = [["payments", paymentsLabel()], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"],
       ["insights", "Revenue, funnel & feedback"], ["tests", "Tests"]];
     main.innerHTML = `
       <section class="page admin-page">
@@ -1082,6 +1083,11 @@
         <div id="admin-body"><p class="muted-text">Loading…</p></div>
       </section>`;
     const body = main.querySelector("#admin-body");
+    meReady.then(() => {
+      if (role() !== "admin") return adminOnly(); // the session ended while the page was open
+      const link = main.querySelector('a[href="#/admin?tab=payments"]');
+      if (link) link.textContent = paymentsLabel();
+    });
     const act = async (path, label) => {
       try {
         await U.api(path, { method: "POST", body: "{}" });
@@ -1095,11 +1101,25 @@
 
     if (tab === "tests") {
       const show = (s) => {
+        if (s.source === "files") {
+          const counts = s.counts || {};
+          const total = Object.values(counts).reduce((a, b) => a + b, 0);
+          body.innerHTML = `
+            <p class="lead-text">The site reads its tests from the files that ship with each deploy, so there is nothing to upload: a new test is live as soon as the deploy that adds it is.
+              Supabase keeps accounts, results and recordings only.</p>
+            <div class="table-scroll"><table class="history-table funnel-table">
+              <thead><tr><th scope="col">Tests on the site now</th><th scope="col">Number</th></tr></thead>
+              <tbody>${["reading", "listening", "writing", "speaking"].map((m) => `<tr><th scope="row">${esc(m.charAt(0).toUpperCase() + m.slice(1))}</th><td>${U.number(counts[m] || 0)}</td></tr>`).join("")}
+                <tr><th scope="row">All</th><td>${U.number(total)}</td></tr></tbody>
+            </table></div>`;
+          return;
+        }
+        const step = { checking: "Checking the test files", reading: "Reading which tests Supabase holds", uploading: "Uploading" }[s.phase] || "";
         body.innerHTML = `
-          <p class="lead-text">The live site reads its tests from Supabase. After new tests are added to the site files, upload them here.
+          <p class="lead-text">The live site reads its tests from Supabase (TESTS_SOURCE=supabase). After new tests are added to the site files, upload them here.
             Only new and changed tests are sent, and nothing is sent if a test file is invalid.</p>
           <div class="btn-row"><button type="button" class="btn-primary" id="sync-tests" ${s.running ? "disabled" : ""}>Upload new and changed tests</button></div>
-          <p class="muted-text" id="sync-msg" role="status" style="margin-top:16px">${esc(s.message || "")}${s.running ? ` (${s.done} of ${s.total})` : ""}</p>
+          <p class="muted-text" id="sync-msg" role="status" style="margin-top:16px">${esc(s.message || "")}${s.running && s.total ? ` (${s.done} of ${s.total})` : s.running && step ? ` ${esc(step)}…` : ""}</p>
           ${s.problems && s.problems.length ? `<ul class="help-list">${s.problems.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>` : ""}
           ${s.failed && s.failed.length ? `<p class="warn-text">Failed: ${esc(s.failed.join(", "))}</p>` : ""}`;
         const btn = body.querySelector("#sync-tests");
@@ -1180,8 +1200,10 @@
         } catch (err) { U.toast(err.message, "warn"); }
       });
     } else if (tab === "insights") {
-      const [stats, { feedback }] = await Promise.all([U.api("/api/admin/stats", { fresh: true }), U.api("/api/admin/feedback")]);
-      body.innerHTML = `${revenueHTML(stats.revenue, stats.passes)}${funnelHTML(stats.funnel)}
+      const [stats, { feedback }] = await Promise.all([
+        U.api(`/api/admin/stats${params.get("r") ? "?refresh=1" : ""}`, { fresh: true }), U.api("/api/admin/feedback")]);
+      body.innerHTML = `<p class="muted-text small-text">These numbers are kept for a minute. <a href="#/admin?tab=insights&r=${Date.now()}">Read them again</a></p>
+        ${revenueHTML(stats.revenue, stats.passes)}${funnelHTML(stats.funnel)}
         <h2 class="section-title">Feedback</h2>
         ${feedback.length ? `<div class="feedback-list">${feedback.map((f) => `
           <article class="feedback-item">

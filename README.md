@@ -117,7 +117,7 @@ public/
 supabase/schema.sql       database schema (run once in Supabase)
 scripts/
   validate_content.py     content checker
-  seed_supabase.py        upload content/ to Supabase
+  seed_supabase.py        upload content/ to Supabase (only for TESTS_SOURCE=supabase)
   build_listening_audio.py  generate listening MP3s from the scripts (Kokoro TTS)
   build_speaking_audio.py   generate the Speaking examiner's questions (Kokoro TTS)
   check_listening_audio.py  transcribe the MP3s with Whisper and check every answer is heard

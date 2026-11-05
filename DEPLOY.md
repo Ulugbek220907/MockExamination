@@ -34,22 +34,11 @@ Total time: about 30 minutes.
    ```
 
 4. Open **Project Settings → API** and copy the **Project URL** (`SUPABASE_URL`) and the **publishable** key (`SUPABASE_KEY`). The publishable key is safe to expose. On its own it can read nothing, because every function also requires the server secret. You never need the `service_role` key.
-5. Upload the tests:
+5. **The tests need no upload.** They are the files in `content/` (and the recordings in `public/audio/`) that ship with each deploy, so a new test is live as soon as the deploy that adds it is. Supabase keeps only what changes while the site runs: accounts, results, payments and Speaking recordings.
 
-   ```bash
-   SUPABASE_URL=https://xxxx.supabase.co \
-   SUPABASE_KEY=sb_publishable_... \
-   SUPABASE_APP_SECRET=your-secret \
-   python scripts/seed_supabase.py
-   ```
+   Until November 2026 the site kept a second copy of every test in Supabase and downloaded all of it (about 4.6 MB) every five minutes, and again after every deploy and every upload. That was most of the database traffic, it stalled visitors each time it reloaded, and the copy added nothing, so it is no longer read. The admin **Tests** tab now only shows how many tests the site has.
 
-   The script validates every test first and refuses to upload broken content. Run it again whenever you add or edit a test, then call `POST /api/admin/refresh` (or wait 5 minutes) for the live site to pick up the change.
-
-New tests publish themselves: when the server starts after a deploy, it uploads every test in `content/` that Supabase does not have yet (and only if every test file is valid). Tests that already exist in Supabase are never overwritten this way; set `AUTO_PUBLISH_NEW_TESTS=0` to turn this off.
-
-To update the tests later without a laptop: after a deploy that adds or changes test files, sign in with an admin email and open **Account → Admin → Tests**, then press **Upload new and changed tests**. The site compares its files with Supabase, uploads only the tests that differ (and none at all if a file is invalid), and reloads them. Recordings are part of the deploy itself and need no upload. `POST /api/admin/sync-content` with the `ADMIN_TOKEN` does the same from a script.
-
-If Supabase is ever unreachable, the site keeps working using the bundled `content/` files.
+   If you ever want the old behaviour (tests edited in Supabase without a deploy), set `TESTS_SOURCE=supabase`. Then `python scripts/seed_supabase.py` (or **Account → Admin → Tests → Upload new and changed tests**) uploads the files, new tests are published when the server starts (`AUTO_PUBLISH_NEW_TESTS=0` turns that off), and the site reloads them every five minutes.
 
 ## 2. AI examiner for Writing and Speaking (OpenRouter)
 
@@ -124,7 +113,7 @@ On Render, set `ADMIN_EMAILS` to your own email address. After you sign in with 
 
 > **Launch setting.** While `COMMERCE_ENABLED` is `0` (the default, and what `render.yaml` sets), nothing below is visible: five tests per module are free, the others show "Coming soon…", and prices, the pass, refunds and examiner checks are hidden in the site and closed on the server. Everything in section 4 keeps working in the code; set `COMMERCE_ENABLED=1` on Render when you are ready to sell, and set the paid tests' `"access"` back to `"premium"` if you had set any to `"soon"`.
 >
-> After this update, open **Account → Admin → Tests** and press **Upload new and changed tests**: the five-free-per-module setting changes ten Reading tests (6 to 15 are no longer free) in Supabase.
+> The tests come from the site's own files, so the five-free-per-module setting takes effect with the deploy; there is nothing to upload.
 
 ### 4.2 Prices
 

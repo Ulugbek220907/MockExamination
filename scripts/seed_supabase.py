@@ -2,6 +2,9 @@
 """
 Upload (insert or update) every test in content/ to the Supabase `tests` table.
 
+Only needed when the site is set to read its tests from Supabase (TESTS_SOURCE=supabase). By default the
+tests are the files that ship with each deploy and this table is not read.
+
 Run supabase/schema.sql first (and store the hash of your server secret, see
 the comment in that file), then:
 

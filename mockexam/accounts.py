@@ -151,9 +151,7 @@ def public_goal(profile):
 # The monthly plan
 # --------------------------------------------------------------------------
 
-def plan_status(db, user_id, at=None):
-    at = at or now()
-    periods = db.select("subscription_periods", {"user_id": user_id}, order=[("ends_at", "desc")], limit=50)
+def _plan_from_periods(periods, at):
     active = any(parse_time(p["starts_at"]) <= at < parse_time(p["ends_at"]) for p in periods)
     ends = max((parse_time(p["ends_at"]) for p in periods), default=None)
     return {
@@ -162,6 +160,25 @@ def plan_status(db, user_id, at=None):
         "hadPlan": bool(periods),
         "hadPaidPlan": any(p["source"] == "payment" for p in periods),
     }
+
+
+def plan_status(db, user_id, at=None):
+    at = at or now()
+    periods = db.select("subscription_periods", {"user_id": user_id}, order=[("ends_at", "desc")], limit=50)
+    return _plan_from_periods(periods, at)
+
+
+def plan_statuses(db, user_ids, at=None):
+    """{user id: plan status} for many users with ONE query (a list of users must not cost a query each)."""
+    at = at or now()
+    ids = list(dict.fromkeys(user_ids))
+    grouped = {u: [] for u in ids}
+    if ids:
+        rows = db.select("subscription_periods", {"user_id": ("in", ids)}, order=[("ends_at", "desc")], limit=max(100, 20 * len(ids)))
+        for p in rows:
+            if p["user_id"] in grouped and len(grouped[p["user_id"]]) < 50:
+                grouped[p["user_id"]].append(p)
+    return {u: _plan_from_periods(grouped[u], at) for u in ids}
 
 
 def grant_plan_period(db, user_id, days, source, order_id=None, note=None):
