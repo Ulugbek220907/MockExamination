@@ -1,0 +1,1381 @@
+{
+  "id": "listening-24",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 24",
+  "shortTitle": "Practice Test 24",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 24,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "greg": {
+      "name": "Greg",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "delaney": {
+      "name": "Ms Delaney",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "farley": {
+      "name": "Ms Farley",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "emma": {
+      "name": "Emma",
+      "voice": "af_sarah",
+      "lang": "en-us"
+    },
+    "ravi": {
+      "name": "Ravi",
+      "voice": "am_adam",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a school trip to a farm",
+      "context": "A teacher phones a farm to book a school visit.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a teacher phoning a farm to book a school visit. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 8.9
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 28.9,
+          "end": 37.97
+        },
+        {
+          "speaker": "greg",
+          "text": "Good morning, Oakfield Farm, Greg speaking.",
+          "start": 38.87,
+          "end": 41.64
+        },
+        {
+          "speaker": "delaney",
+          "text": "Good morning. I'm a teacher at a primary school, and I'd like to bring my class to see the farm. Do you do school visits?",
+          "start": 42.14,
+          "end": 48.43
+        },
+        {
+          "speaker": "greg",
+          "text": "We do, and they're very popular. Let me take some details and then I'll tell you what we offer.",
+          "start": 48.93,
+          "end": 54.5
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller is from a primary school, so 'primary' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 55.4,
+          "end": 70.63
+        },
+        {
+          "speaker": "greg",
+          "text": "Could I have your name, please?",
+          "start": 71.53,
+          "end": 73.09
+        },
+        {
+          "speaker": "delaney",
+          "text": "It's Rosie Delaney, that's D-E-L-A-N-E-Y.",
+          "start": 73.59,
+          "end": 79.5
+        },
+        {
+          "speaker": "greg",
+          "text": "Thank you, Ms Delaney. How many children are you bringing?",
+          "start": 80.0,
+          "end": 83.58
+        },
+        {
+          "speaker": "delaney",
+          "text": "There are thirty-five in the class, but three of them will be away on a family trip that week, so thirty-two.",
+          "start": 84.08,
+          "end": 89.8
+        },
+        {
+          "speaker": "greg",
+          "text": "Fine. We have two possible dates in May. Would the Thursday the twenty-second suit you?",
+          "start": 90.3,
+          "end": 95.48
+        },
+        {
+          "speaker": "delaney",
+          "text": "Yes, that would be perfect. The twenty-ninth is half-term, so I couldn't have done that one.",
+          "start": 95.98,
+          "end": 100.66
+        },
+        {
+          "speaker": "greg",
+          "text": "Good. We open at nine, but most schools arrive at ten, so that the children don't have to get up too early. Is ten all right?",
+          "start": 101.16,
+          "end": 108.9
+        },
+        {
+          "speaker": "delaney",
+          "text": "Ten is ideal. And what will the children actually do?",
+          "start": 109.4,
+          "end": 112.77
+        },
+        {
+          "speaker": "greg",
+          "text": "There's a tractor ride round the fields, a visit to the dairy, and in May it's the lambs. The children can help to feed them, and that's always the favourite part.",
+          "start": 113.27,
+          "end": 123.08
+        },
+        {
+          "speaker": "delaney",
+          "text": "Wonderful. They'll love that.",
+          "start": 123.58,
+          "end": 125.4
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 126.3,
+          "end": 132.02
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 152.02,
+          "end": 155.34
+        },
+        {
+          "speaker": "greg",
+          "text": "Now, the cost. It's normally eight pounds a child, but we give schools a discount, so it's seven pounds.",
+          "start": 156.24,
+          "end": 162.88
+        },
+        {
+          "speaker": "delaney",
+          "text": "That's reasonable. Do the teachers pay?",
+          "start": 163.38,
+          "end": 165.7
+        },
+        {
+          "speaker": "greg",
+          "text": "No, teachers and helpers come free. And one more thing: the farm can be very muddy, so please tell the children to wear boots. They don't need hats, but a waterproof coat is a good idea.",
+          "start": 166.2,
+          "end": 177.85
+        },
+        {
+          "speaker": "delaney",
+          "text": "I'll tell them. Where do we eat lunch?",
+          "start": 178.35,
+          "end": 180.4
+        },
+        {
+          "speaker": "greg",
+          "text": "There are picnic tables outside, but if it rains you're welcome to use the barn. It's dry, and it has plenty of room.",
+          "start": 180.9,
+          "end": 188.43
+        },
+        {
+          "speaker": "delaney",
+          "text": "That's helpful. Is there anything else I should know?",
+          "start": 188.93,
+          "end": 191.7
+        },
+        {
+          "speaker": "greg",
+          "text": "Every child gets a free badge to take home, so they'll have something to remember the day. And I'll post you a booking form with the details. Could you sign it and return it by Friday, please, so that we can keep the date for you?",
+          "start": 192.2,
+          "end": 205.6
+        },
+        {
+          "speaker": "delaney",
+          "text": "Certainly. I'll do it this week. Thank you so much for your help.",
+          "start": 206.1,
+          "end": 209.66
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 210.56,
+          "end": 215.09
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Oakfield Farm – school visit",
+          "content": [
+            "Example: Type of school: **primary**",
+            "## The visit",
+            "• Teacher's name: Ms {{1}}",
+            "• Number of children: {{2}}",
+            "• Date: Thursday {{3}} May",
+            "• Arrival time: {{4}} a.m.",
+            "• Activity: feeding the {{5}}",
+            "## Practical details",
+            "• Cost: £{{6}} per child",
+            "• Children should wear {{7}}",
+            "• Lunch in the {{8}} if it rains",
+            "• Each child receives a free {{9}}",
+            "• Return the signed form by {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Delaney"
+              ],
+              "explanation": "She spells her surname: ‘D-E-L-A-N-E-Y’.",
+              "cue": "D-E-L-A-N-E-Y"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "32",
+                "thirty-two"
+              ],
+              "explanation": "There are thirty-five in the class, but three will be away: ‘so thirty-two’.",
+              "cue": "so thirty-two"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "22",
+                "twenty-second",
+                "22nd"
+              ],
+              "explanation": "‘Would the Thursday the twenty-second suit you?’ ‘Yes, that would be perfect.’ The twenty-ninth is half-term.",
+              "cue": "Thursday the twenty-second"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "10",
+                "ten"
+              ],
+              "explanation": "The farm opens at nine, but she agrees to arrive at ten: ‘Ten is ideal.’",
+              "cue": "most schools arrive at ten"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "lambs"
+              ],
+              "explanation": "‘In May it's the lambs. The children can help to feed them.’",
+              "cue": "in May it's the lambs"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "7",
+                "seven"
+              ],
+              "explanation": "It is normally eight pounds, but ‘we give schools a discount, so it's seven pounds’.",
+              "cue": "so it's seven pounds"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "boots"
+              ],
+              "explanation": "‘Please tell the children to wear boots.’ They do not need hats.",
+              "cue": "please tell the children to wear boots"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "barn"
+              ],
+              "explanation": "‘If it rains you're welcome to use the barn.’",
+              "cue": "you're welcome to use the barn"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "badge"
+              ],
+              "explanation": "‘Every child gets a free badge to take home.’",
+              "cue": "Every child gets a free badge"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "Friday"
+              ],
+              "explanation": "‘Could you sign it and return it by Friday, please?’",
+              "cue": "return it by Friday"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-24/part1.mp3",
+        "duration": 245.89
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Welcome to a new university",
+      "context": "A member of staff shows new students round the campus.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a member of staff welcoming new students to a university. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.2
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.2,
+          "end": 39.47
+        },
+        {
+          "speaker": "farley",
+          "text": "Good morning, everyone, and welcome to Brookfield University. I'm Sandra Farley, from the student services team, and this morning I'll show you where everything is. Please look at the map. We're at the main gate, at the bottom, and the library is at the top of the main path, straight ahead of you.",
+          "start": 40.37,
+          "end": 55.73
+        },
+        {
+          "speaker": "farley",
+          "text": "Let's start with the places you'll need in your first week. Just inside the gate, on the right of the path and next to the car park, is the health centre. You should register there as soon as you can.",
+          "start": 56.08,
+          "end": 66.1
+        },
+        {
+          "speaker": "farley",
+          "text": "Directly opposite the health centre, on the left of the path, is the bookshop. Students get ten percent off, so do remember to take your student card.",
+          "start": 66.45,
+          "end": 74.71
+        },
+        {
+          "speaker": "farley",
+          "text": "Further up on the left, beside the lake, is the sports hall. It has a swimming pool and a climbing wall, and membership is free in your first term.",
+          "start": 75.06,
+          "end": 82.63
+        },
+        {
+          "speaker": "farley",
+          "text": "Opposite the sports hall, on the right of the path, is the student union. That's where all the clubs and societies are based, so it's the place to go if you'd like to join something.",
+          "start": 82.98,
+          "end": 92.39
+        },
+        {
+          "speaker": "farley",
+          "text": "Finally, on the left of the library, at the top of the map, you'll find the lecture theatres. Your timetables tell you which one to go to. On the far right of the map is the new science centre, but it isn't open yet, so you won't be using it this year.",
+          "start": 92.74,
+          "end": 106.07
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 106.97,
+          "end": 112.69
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 137.69,
+          "end": 141.57
+        },
+        {
+          "speaker": "farley",
+          "text": "Now, a few practical points. Your student card is the key to almost everything, and it can be collected from the library desk, not the union as some of you may have heard. Please bring a passport or driving licence as proof of identity.",
+          "start": 142.47,
+          "end": 155.62
+        },
+        {
+          "speaker": "farley",
+          "text": "A word about the library. It's open until midnight during term, and this year there's a new silent floor on the top level, for people who find the other floors too busy. There aren't any more computers than last year, but there are more power sockets for your own laptops.",
+          "start": 155.97,
+          "end": 170.86
+        },
+        {
+          "speaker": "farley",
+          "text": "The campus bus into town leaves from the main gate every ten minutes, and it's free for students. The last bus is at eleven, so if you're out later you'll need a taxi.",
+          "start": 171.21,
+          "end": 180.21
+        },
+        {
+          "speaker": "farley",
+          "text": "About the health centre. You can't see a doctor there unless you're registered, so please don't leave it until you're ill. Registration takes five minutes, and you'll need to fill in a short form.",
+          "start": 180.56,
+          "end": 190.39
+        },
+        {
+          "speaker": "farley",
+          "text": "And finally, on Friday evening there's a welcome party in the student union, with music and free food, and everyone is invited. It's a great way to meet the people who'll be on your course. Enjoy your first week.",
+          "start": 190.74,
+          "end": 202.82
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 203.72,
+          "end": 208.05
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Brookfield University campus",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "ellipse",
+                "cx": 105,
+                "cy": 235,
+                "rx": 78,
+                "ry": 48,
+                "label": "Lake"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 396,
+                "x2": 320,
+                "y2": 108,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 20,
+                "y1": 418,
+                "x2": 620,
+                "y2": 418,
+                "style": "road",
+                "label": "Mill Road",
+                "lx": -200
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 402,
+                "label": "Main gate"
+              },
+              {
+                "type": "rect",
+                "x": 255,
+                "y": 36,
+                "w": 130,
+                "h": 66,
+                "style": "building",
+                "label": "Library"
+              },
+              {
+                "type": "rect",
+                "x": 470,
+                "y": 290,
+                "w": 140,
+                "h": 86,
+                "style": "parking",
+                "label": "Car park"
+              },
+              {
+                "type": "rect",
+                "x": 150,
+                "y": 36,
+                "w": 84,
+                "h": 62,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 408,
+                "y": 36,
+                "w": 92,
+                "h": 62,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 214,
+                "y": 172,
+                "w": 82,
+                "h": 62,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 344,
+                "y": 172,
+                "w": 92,
+                "h": 62,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 344,
+                "y": 290,
+                "w": 92,
+                "h": 62,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 214,
+                "y": 290,
+                "w": 82,
+                "h": 62,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 520,
+                "y": 160,
+                "w": 92,
+                "h": 72,
+                "style": "building"
+              },
+              {
+                "type": "compass",
+                "x": 598,
+                "y": 94
+              },
+              {
+                "type": "letter",
+                "x": 192,
+                "y": 67,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 454,
+                "y": 67,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 255,
+                "y": 203,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 390,
+                "y": 203,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 390,
+                "y": 321,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 255,
+                "y": 321,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 566,
+                "y": 196,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Health centre",
+              "answer": "E",
+              "explanation": "‘On the right of the path and next to the car park, is the health centre.’",
+              "cue": "on the right of the path and next to the car park, is the health centre"
+            },
+            {
+              "number": 12,
+              "prompt": "Bookshop",
+              "answer": "F",
+              "explanation": "‘Directly opposite the health centre, on the left of the path, is the bookshop.’",
+              "cue": "on the left of the path, is the bookshop"
+            },
+            {
+              "number": 13,
+              "prompt": "Sports hall",
+              "answer": "C",
+              "explanation": "‘Further up on the left, beside the lake, is the sports hall.’",
+              "cue": "beside the lake, is the sports hall"
+            },
+            {
+              "number": 14,
+              "prompt": "Student union",
+              "answer": "D",
+              "explanation": "‘Opposite the sports hall, on the right of the path, is the student union.’",
+              "cue": "on the right of the path, is the student union"
+            },
+            {
+              "number": 15,
+              "prompt": "Lecture theatres",
+              "answer": "A",
+              "explanation": "‘On the left of the library, at the top of the map, you'll find the lecture theatres.’",
+              "cue": "on the left of the library, at the top of the map, you'll find the lecture theatres"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Where should students collect their student cards?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "from the library desk"
+                },
+                {
+                  "key": "B",
+                  "text": "from the student union"
+                },
+                {
+                  "key": "C",
+                  "text": "from the main office"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘It can be collected from the library desk, not the union as some of you may have heard.’",
+              "cue": "it can be collected from the library desk, not the union"
+            },
+            {
+              "number": 17,
+              "prompt": "What is new in the library this year?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "it is open all night"
+                },
+                {
+                  "key": "B",
+                  "text": "there is a silent floor"
+                },
+                {
+                  "key": "C",
+                  "text": "there are more computers"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘There's a new silent floor on the top level.’ There are no more computers than last year.",
+              "cue": "there's a new silent floor on the top level"
+            },
+            {
+              "number": 18,
+              "prompt": "What does the speaker say about the campus bus?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is free for students."
+                },
+                {
+                  "key": "B",
+                  "text": "It runs all night."
+                },
+                {
+                  "key": "C",
+                  "text": "It is every half hour."
+                }
+              ],
+              "answer": "A",
+              "explanation": "The bus runs every ten minutes and ‘it's free for students’. The last bus is at eleven.",
+              "cue": "it's free for students"
+            },
+            {
+              "number": 19,
+              "prompt": "Why should students register at the health centre early?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is a legal requirement."
+                },
+                {
+                  "key": "B",
+                  "text": "They cannot see a doctor otherwise."
+                },
+                {
+                  "key": "C",
+                  "text": "It gives them a discount."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘You can't see a doctor there unless you're registered, so please don't leave it until you're ill.’",
+              "cue": "You can't see a doctor there unless you're registered"
+            },
+            {
+              "number": 20,
+              "prompt": "What will happen on Friday evening?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a talk about safety"
+                },
+                {
+                  "key": "B",
+                  "text": "a trip into town"
+                },
+                {
+                  "key": "C",
+                  "text": "a welcome party"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘On Friday evening there's a welcome party in the student union.’",
+              "cue": "there's a welcome party in the student union"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-24/part2.mp3",
+        "duration": 238.85
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A plan for a student café",
+      "context": "Two business students discuss the plan for a café on campus.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two business students, Emma and Ravi, discussing a plan for a student café. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 11.8
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 36.8,
+          "end": 41.51
+        },
+        {
+          "speaker": "emma",
+          "text": "I've put the questionnaire results into a table, Ravi. Out of a hundred and twenty students who answered, ninety said they would use a café on campus, which is three quarters.",
+          "start": 42.41,
+          "end": 52.04
+        },
+        {
+          "speaker": "ravi",
+          "text": "That's encouraging. But how many said they'd use it more than once a week?",
+          "start": 52.54,
+          "end": 56.29
+        },
+        {
+          "speaker": "emma",
+          "text": "Only forty, so we shouldn't be too optimistic about sales.",
+          "start": 56.79,
+          "end": 60.01
+        },
+        {
+          "speaker": "ravi",
+          "text": "What did people say they wanted most?",
+          "start": 60.51,
+          "end": 62.45
+        },
+        {
+          "speaker": "emma",
+          "text": "Cheap coffee, by a long way. Then healthy food, and then a quiet place to study. Surprisingly, hardly anybody mentioned free wifi, probably because the university already provides it.",
+          "start": 62.95,
+          "end": 74.37
+        },
+        {
+          "speaker": "ravi",
+          "text": "Our tutor will like that. She said the business plan has to be based on our own research.",
+          "start": 74.87,
+          "end": 79.52
+        },
+        {
+          "speaker": "emma",
+          "text": "And there's the question about opening hours. Most people want a café that's open in the evening, until nine, but I'm not sure we can afford to pay staff that late.",
+          "start": 80.02,
+          "end": 89.7
+        },
+        {
+          "speaker": "ravi",
+          "text": "We could open until seven and see how it goes. Now, the location. The students' union has offered us the room next to the bookshop.",
+          "start": 90.2,
+          "end": 97.63
+        },
+        {
+          "speaker": "emma",
+          "text": "It's a good spot, but I'm worried about the kitchen.",
+          "start": 98.13,
+          "end": 100.71
+        },
+        {
+          "speaker": "ravi",
+          "text": "Yes, there's no kitchen, only a small sink, so we'd have to prepare everything somewhere else.",
+          "start": 101.21,
+          "end": 106.14
+        },
+        {
+          "speaker": "emma",
+          "text": "True. There's also the old sports pavilion. It has a kitchen, but it's a long walk from the main buildings.",
+          "start": 106.64,
+          "end": 112.55
+        },
+        {
+          "speaker": "ravi",
+          "text": "Why don't we go and look at it this week, and then decide?",
+          "start": 113.05,
+          "end": 116.01
+        },
+        {
+          "speaker": "emma",
+          "text": "Good idea.",
+          "start": 116.51,
+          "end": 117.34
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 118.24,
+          "end": 124.39
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 144.39,
+          "end": 148.23
+        },
+        {
+          "speaker": "emma",
+          "text": "Right, let's go through each part of the plan. The location. We'll look at the pavilion first, but I think we should also ask the university whether we're even allowed to use it.",
+          "start": 149.13,
+          "end": 159.09
+        },
+        {
+          "speaker": "ravi",
+          "text": "Agreed. The menu next. We planned sandwiches, soup and cakes. Is that enough?",
+          "start": 159.59,
+          "end": 163.79
+        },
+        {
+          "speaker": "emma",
+          "text": "I'd keep it as it is. A short menu keeps the costs down, and the survey didn't ask for anything else.",
+          "start": 164.29,
+          "end": 170.27
+        },
+        {
+          "speaker": "ravi",
+          "text": "Prices. We planned to charge two pounds for a coffee, but the campus shop only charges one pound eighty.",
+          "start": 170.77,
+          "end": 176.76
+        },
+        {
+          "speaker": "emma",
+          "text": "Then we should change ours, or students will go there instead. One pound fifty, perhaps?",
+          "start": 177.26,
+          "end": 182.12
+        },
+        {
+          "speaker": "ravi",
+          "text": "The opening hours: until seven, as we said. But I'd like to find out what the cafés in town do.",
+          "start": 182.62,
+          "end": 188.43
+        },
+        {
+          "speaker": "emma",
+          "text": "Good idea. Why don't you visit two of them this week, and see when their customers come?",
+          "start": 188.93,
+          "end": 193.34
+        },
+        {
+          "speaker": "ravi",
+          "text": "Finally, the name. We've called it 'The Study Break'.",
+          "start": 193.84,
+          "end": 196.55
+        },
+        {
+          "speaker": "emma",
+          "text": "I'm not sure it's right. I think we should do another survey and let students vote on a name.",
+          "start": 197.05,
+          "end": 201.98
+        },
+        {
+          "speaker": "ravi",
+          "text": "Fine. Then we'll have plenty to show our tutor on Monday.",
+          "start": 202.48,
+          "end": 205.34
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 206.24,
+          "end": 210.7
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What proportion of the students who answered would use the café?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about half"
+                },
+                {
+                  "key": "B",
+                  "text": "about three quarters"
+                },
+                {
+                  "key": "C",
+                  "text": "almost all"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Ninety out of a hundred and twenty: ‘which is three quarters’.",
+              "cue": "which is three quarters"
+            },
+            {
+              "number": 22,
+              "prompt": "What did most students want from the café?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "cheap coffee"
+                },
+                {
+                  "key": "B",
+                  "text": "healthy food"
+                },
+                {
+                  "key": "C",
+                  "text": "a place to study"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Cheap coffee, by a long way. Then healthy food, and then a quiet place to study.’",
+              "cue": "Cheap coffee, by a long way"
+            },
+            {
+              "number": 23,
+              "prompt": "What problem does Emma mention about opening hours?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the cost of staff"
+                },
+                {
+                  "key": "B",
+                  "text": "noise at night"
+                },
+                {
+                  "key": "C",
+                  "text": "university rules"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I'm not sure we can afford to pay staff that late.’",
+              "cue": "I'm not sure we can afford to pay staff that late"
+            },
+            {
+              "number": 24,
+              "prompt": "What disadvantage does Ravi see in the room next to the bookshop?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is too small."
+                },
+                {
+                  "key": "B",
+                  "text": "It has no kitchen."
+                },
+                {
+                  "key": "C",
+                  "text": "It is too far from the library."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘There's no kitchen, only a small sink.’",
+              "cue": "there's no kitchen, only a small sink"
+            },
+            {
+              "number": 25,
+              "prompt": "What do the students agree to do about the location?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ask the union for another room"
+                },
+                {
+                  "key": "B",
+                  "text": "look at the sports pavilion"
+                },
+                {
+                  "key": "C",
+                  "text": "talk to their tutor"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Ravi suggests going to look at the pavilion: ‘Why don't we go and look at it this week, and then decide?’ Emma agrees.",
+              "cue": "Why don't we go and look at it this week"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What do the students decide to do about each part of their plan? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Decisions",
+          "options": [
+            {
+              "key": "A",
+              "text": "ask the university for permission"
+            },
+            {
+              "key": "B",
+              "text": "visit a competitor"
+            },
+            {
+              "key": "C",
+              "text": "do a survey"
+            },
+            {
+              "key": "D",
+              "text": "change it"
+            },
+            {
+              "key": "E",
+              "text": "keep it as it is"
+            },
+            {
+              "key": "F",
+              "text": "ask their tutor for advice"
+            },
+            {
+              "key": "G",
+              "text": "postpone the decision"
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "the location",
+              "answer": "A",
+              "explanation": "‘We should also ask the university whether we're even allowed to use it.’",
+              "cue": "we should also ask the university whether we're even allowed to use it"
+            },
+            {
+              "number": 27,
+              "prompt": "the menu",
+              "answer": "E",
+              "explanation": "‘I'd keep it as it is.’",
+              "cue": "I'd keep it as it is"
+            },
+            {
+              "number": 28,
+              "prompt": "the prices",
+              "answer": "D",
+              "explanation": "‘Then we should change ours, or students will go there instead.’",
+              "cue": "Then we should change ours"
+            },
+            {
+              "number": 29,
+              "prompt": "the opening hours",
+              "answer": "B",
+              "explanation": "Ravi will find out what the cafés in town do: ‘Why don't you visit two of them this week?’",
+              "cue": "Why don't you visit two of them this week"
+            },
+            {
+              "number": 30,
+              "prompt": "the name",
+              "answer": "C",
+              "explanation": "‘I think we should do another survey and let students vote on a name.’",
+              "cue": "we should do another survey and let students vote on a name"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-24/part3.mp3",
+        "duration": 241.5
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: salt marshes and coastal defence",
+      "context": "A lecture on why salt marshes matter and how they are managed.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about salt marshes and coastal defence. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.97
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.97,
+          "end": 44.38
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today's lecture is about salt marshes, which are some of the most valuable, and most overlooked, habitats on our coasts.",
+          "start": 45.28,
+          "end": 53.28
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A salt marsh is an area of low-lying land beside the sea that is flooded at high tide and drains at low tide. Because the water is salty, the plants that live there must be able to tolerate salt, and only a few species can. Examples are cord grass and sea lavender.",
+          "start": 53.63,
+          "end": 69.8
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Marshes form in sheltered places, such as river mouths, where mud settles out of the water. Pioneer plants colonise the mud, and their roots trap more and more of it, so that the level of the land slowly rises, and new species can move in.",
+          "start": 70.15,
+          "end": 83.98
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Why do marshes matter? First, they protect the coast. A marsh a hundred metres wide can reduce the height of waves by up to fifty percent, because the plants slow the water down. That is why engineers now consider marshes to be a cheaper alternative to a concrete sea wall, which is expensive to build and expensive to repair.",
+          "start": 84.33,
+          "end": 103.12
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Second, marshes store carbon. The mud is so waterlogged that dead plants decay very slowly, so the carbon stays locked away, sometimes for thousands of years. Per hectare, a salt marsh can store more carbon than a forest.",
+          "start": 103.47,
+          "end": 116.53
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Third, they are important for wildlife. Many fish use the marsh as a nursery, and in winter, huge flocks of migrating geese feed there. Without the marsh, they would have nowhere to go.",
+          "start": 116.88,
+          "end": 127.65
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Unfortunately, about half of the marshes in Europe have been lost over the last two hundred years, most of them drained so that the land could be used as farmland. Today the main danger is rising sea levels. A marsh can move inland as the sea rises, but not if there is a sea wall behind it, a problem called coastal squeeze.",
+          "start": 128.0,
+          "end": 146.41
+        },
+        {
+          "speaker": "lecturer",
+          "text": "One solution is called managed retreat. The sea wall is deliberately moved back, or even removed, so that the sea can flood the land behind it, and a new marsh can form. It is controversial, because farmers lose land, but in several countries it has proved cheaper than keeping the old defences. Next week, we'll look at mangroves.",
+          "start": 146.76,
+          "end": 164.92
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 165.82,
+          "end": 170.21
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 200.21,
+          "end": 202.92
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Salt marshes and coastal defence",
+          "content": [
+            "## What is a salt marsh?",
+            "• A coastal area flooded by the sea at {{31}} tide",
+            "• Plants must be able to tolerate {{32}}",
+            "• Forms in sheltered places where {{33}} settles",
+            "## Why marshes matter",
+            "• Plant {{34}} trap mud, so the land rises",
+            "• A marsh 100 metres wide can cut wave height by up to {{35}} percent",
+            "• Cheaper than building a concrete sea {{36}}",
+            "• They store {{37}} in the waterlogged mud",
+            "• In winter, migrating {{38}} feed there",
+            "## Threats and solutions",
+            "• Many marshes were drained to create {{39}}",
+            "• One solution is managed {{40}}: the sea wall is moved back"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "high"
+              ],
+              "explanation": "‘A salt marsh is … flooded at high tide and drains at low tide.’",
+              "cue": "flooded at high tide"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "salt"
+              ],
+              "explanation": "‘The plants that live there must be able to tolerate salt.’",
+              "cue": "must be able to tolerate salt"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "mud"
+              ],
+              "explanation": "‘Marshes form in sheltered places, such as river mouths, where mud settles out of the water.’",
+              "cue": "where mud settles out of the water"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "roots"
+              ],
+              "explanation": "‘Their roots trap more and more of it.’",
+              "cue": "their roots trap more and more of it"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "50",
+                "fifty"
+              ],
+              "explanation": "‘A marsh a hundred metres wide can reduce the height of waves by up to fifty percent.’",
+              "cue": "by up to fifty percent"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "wall"
+              ],
+              "explanation": "‘A cheaper alternative to a concrete sea wall.’",
+              "cue": "a concrete sea wall"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "carbon"
+              ],
+              "explanation": "‘Second, marshes store carbon.’",
+              "cue": "marshes store carbon"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "geese"
+              ],
+              "explanation": "‘In winter, huge flocks of migrating geese feed there.’",
+              "cue": "migrating geese feed there"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "farmland"
+              ],
+              "explanation": "‘Most of them drained so that the land could be used as farmland.’",
+              "cue": "used as farmland"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "retreat"
+              ],
+              "explanation": "‘One solution is called managed retreat.’",
+              "cue": "One solution is called managed retreat"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-24/part4.mp3",
+        "duration": 203.72
+      }
+    }
+  ],
+  "durationMinutes": 15
+}
