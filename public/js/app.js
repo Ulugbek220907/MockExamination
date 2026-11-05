@@ -258,10 +258,14 @@
     renderHome() {
       document.title = `${this.config.siteName} – ${t("title.home")}`;
       if (Account.user()) return this.renderDashboard();
+      // The mark blooms once per visit, not each time the home page is drawn again (the tests arrive after the first draw).
+      const bloom = !this.bloomed;
+      this.bloomed = true;
       this.main.innerHTML = `
         <div class="home">
           <h1 class="home-title">${t("home.title")}</h1>
           <p class="hero-lead">${this.leadText()}</p>
+          <div class="home-medallion${bloom ? " bloom" : ""}" aria-hidden="true"><svg focusable="false"><use href="#td-mark"/></svg></div>
           <div class="home-notice" id="home-account-notes">${this.accountNotesHTML()}</div>
           ${this.loadError ? `<div class="notice notice-warn home-notice"><strong>${t("Could not load the tests. Please refresh the page.")}</strong></div>` : ""}
           <h2 class="sr-only">${t("Tests")}</h2>
@@ -399,7 +403,7 @@
               aria-label="${esc(t("Start {name}", { name: `${label}, ${this.testName(start)}` }))}">${taken ? t("Next test") : start.access === "free" ? t("Start free") : t("Start")}</button>`
           : `<a class="btn-secondary" href="#/tests/${module}" aria-label="${esc(t("All {n} {module} tests", { n: tests.length, module: label }))}">${t("All tests")}</a>`;
         return `
-          <li class="ledger-row">
+          <li class="ledger-row" data-mod="${module}">
             <h3 class="ledger-name">${label}</h3>
             <p class="ledger-facts"><a href="#/tests/${module}" aria-label="${esc(t("All {n} {module} tests", { n: tests.length, module: label }))}">${count}</a>${rest ? `, ${rest}` : ""}<span class="fmt">${esc(this.formatOf(module))}</span></p>
             <div class="ledger-act">${action}</div>

@@ -2717,6 +2717,56 @@ class ErrorAlertTests(unittest.TestCase):
             logger.removeHandler(alerts)
 
 
+class BrandTests(AccountApiBase):
+    """The mark and the ornament (scripts/make_ornaments.py): drawn once, used in a few fixed places, never in the exam."""
+
+    def css(self, name="portal.css"):
+        with open(os.path.join(PUBLIC_DIR, "css", name), encoding="utf-8") as f:
+            return f.read()
+
+    def test_every_ornament_file_the_stylesheet_names_exists_and_is_an_svg(self):
+        import xml.etree.ElementTree as ET
+        names = set(re.findall(r'img/orn/([\w-]+\.svg)', self.css()))
+        self.assertGreaterEqual(len(names), 4)
+        for name in names:
+            path = os.path.join(PUBLIC_DIR, "img", "orn", name)
+            self.assertTrue(os.path.exists(path), name)
+            root = ET.parse(path).getroot()
+            self.assertTrue(root.tag.endswith("svg") and root.get("viewBox"), name)
+            self.assertLess(os.path.getsize(path), 12000, f"{name} is meant to be a small tile")
+
+    def test_the_mark_in_the_page_is_what_the_generator_draws(self):
+        sys.path.insert(0, os.path.join(BASE_DIR, "scripts"))
+        import make_ornaments
+        with open(os.path.join(PUBLIC_DIR, "index.html"), encoding="utf-8") as f:
+            page = f.read()
+        self.assertIn(make_ornaments.sprite_block(), page, "run python scripts/make_ornaments.py")
+        served = self.fetch("/").body.decode()
+        self.assertIn('id="td-mark"', served)
+        self.assertIn('class="orn-belt"', served)
+        self.assertIn('<use href="#td-mark"/>', served)
+
+    def test_the_exam_and_its_instructions_have_no_ornament(self):
+        page = open(os.path.join(PUBLIC_DIR, "index.html"), encoding="utf-8").read()
+        exam = page[page.index('<div id="verification-view"'):]
+        for word in ("td-mark", "orn-", "footer-frieze", "footer-belt"):
+            self.assertNotIn(word, exam)
+        exam_css = self.css("cd-ielts.css")
+        for word in ("td-mark", "orn-belt", "img/orn", "--gold"):
+            self.assertNotIn(word, exam_css)
+
+    def test_the_icons_are_the_sizes_the_manifest_promises(self):
+        sizes = {"logo-192.png": 192, "logo-512.png": 512, "logo-maskable-512.png": 512, "apple-touch-icon.png": 180, "email-logo.png": 96}
+        for name, size in sizes.items():
+            with open(os.path.join(PUBLIC_DIR, "img", name), "rb") as f:
+                head = f.read(24)
+            self.assertEqual(head[:8], b"\x89PNG\r\n\x1a\n", name)
+            self.assertEqual((int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big")), (size, size), name)
+        with open(os.path.join(PUBLIC_DIR, "img", "og.png"), "rb") as f:
+            head = f.read(24)
+        self.assertEqual((int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big")), (1200, 630))
+
+
 class InstallAndMigrationTests(AccountApiBase):
     def test_app_manifest_and_icons(self):
         r = self.fetch("/manifest.webmanifest")

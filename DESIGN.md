@@ -44,10 +44,10 @@ The exam screens (`public/css/cd-ielts.css`) are a different world on purpose: t
 ## Principles
 
 1. **One gesture per page.** The home page's gesture is the display headline. Everything else stays quiet.
-2. **Type and space, not decoration.** Rows are separated by 1px hairlines and space. No card grids, no shadows at rest, no gradients, no icons for decoration, no letter badges.
+2. **Type and space, not decoration.** Rows are separated by 1px hairlines and space. No card grids, no shadows at rest, no gradients, no icons for decoration, no letter badges. The one exception is the national ornament (below), which has fixed places and nowhere else.
 3. **One filled shape.** A fully round ink button is the main action on a page. The second action is an outlined round button, or an underlined link.
 4. **Say little.** The home page is a headline, one line, four rows and three numbers. Numbers are counted from the data (`/api/tests`, `/api/billing`), never typed in.
-5. **Fast on a phone.** No images on the home page. Three font files, the browser fetches only the ones a page needs. No animation libraries.
+5. **Fast on a phone.** No raster images on the home page: the mark and the ornament are small SVG, drawn once and reused. Three font files, the browser fetches only the ones a page needs. No animation libraries.
 
 ## Colour
 
@@ -60,6 +60,7 @@ The exam screens (`public/css/cd-ielts.css`) are a different world on purpose: t
 | `--ink-2` | `#2d3950` | body text under a heading |
 | `--muted` | `#4a566b` | captions (6.0:1 on the ground) |
 | `--ink-soft` | `#aeb8cb` | small text on ink (8.7:1) |
+| `--gold` | `#e0a93b` | the ornament on ink (8.1:1), nothing else: never text, never a button |
 | `--rule` | `#c7c6be` | hairlines |
 | `--edge` | `#767f90` | the border of a form field (3.3:1) |
 
@@ -89,8 +90,8 @@ A 12-column grid from 1024px with a `clamp(1.25rem, …, 2rem)` gutter; one colu
 
 ## Components
 
-- **Header:** the wordmark, **Price**, **About**, and the account (a round "Sign in" button, or an avatar). Nothing else. It is not sticky.
-- **Footer:** the last thing on every page. An ink band with the contact email, the social links from `config.social` (`SOCIAL_*` env vars; each shows only when set), Price, About, Examiners, Terms, Privacy, Refunds, Feedback, the one-line independence disclaimer and a giant wordmark. The full trademark text lives on About and the legal pages.
+- **Header:** the mark and the wordmark, **Price**, **About**, and the account (a round "Sign in" button, or an avatar). Nothing else. It is not sticky. A gold belt of stars sits above it.
+- **Footer:** the last thing on every page. An ink band with the contact email, the social links from `config.social` (`SOCIAL_*` env vars; each shows only when set), Price, About, Examiners, Terms, Privacy, Refunds, Feedback, the one-line independence disclaimer and a giant wordmark. Pointed arches cut its top edge, a gold vine runs across it and a gold key meander closes it. The full trademark text lives on About and the legal pages.
 - **Module row (home):** name, "N tests, K free" (the count links to the module's list), one format line, and one button: *Start free* (or *Start* / *Next test* for a pass holder), or *All tests* when nothing is left to start. On hover (mouse only) the row inverts to ink.
 - **Test row (list page):** name, the passage or task titles, a tag (*Free*, *Pass* with a lock, *In your pass*), and *Practice* and *Start*; a locked test has one quiet action, *Get the pass*.
 - **Buttons:** `btn-primary` (ink, round), `btn-secondary` (outline, round), `btn-link` (underlined text), `btn-danger`. Minimum 44px tall on every viewport for primary controls.
@@ -100,11 +101,31 @@ A 12-column grid from 1024px with a `clamp(1.25rem, …, 2rem)` gutter; one colu
 
 ## Motion
 
-CSS only, subtle, and off under `prefers-reduced-motion`. A 160ms colour change on hover and focus, a 0.97 scale on press, and a 220ms rise for dialogs. Nothing animates on scroll and no number counts up. Hover effects are wrapped in `@media (hover: hover) and (pointer: fine)`.
+CSS only, subtle, and off under `prefers-reduced-motion`. A 160ms colour change on hover and focus, a 0.97 scale on press, and a 220ms rise for dialogs. The home page's mark blooms once, 1.3s, the first time it is drawn in a visit. Nothing animates on scroll and no number counts up. Hover effects are wrapped in `@media (hover: hover) and (pointer: fine)`.
+
+## The mark and the ornament
+
+The look keeps the quiet page and gives it one identity: the ornament of Central Asian embroidery and tile work, drawn in code (`scripts/make_ornaments.py`) from geometry, never traced from anyone's artwork. Whoever changes it changes the script, not the SVG.
+
+**The mark** is the sun-medallion of Uzbek embroidery (suzani): four long almond petals (bodom), each with a smaller almond cut out of it, four short petals between them, a ring and a dot. The dot in a ring is also the filled bubble of an answer sheet. The four long petals are the four papers: top Listening, right Reading, bottom Writing, left Speaking. It is one `<symbol id="td-mark">` in `index.html`; every copy is `<use href="#td-mark">` recoloured by CSS variables (`--pf` fill, `--pa`…`--pd` one petal, `--pk`/`--pw` outline, `--rw` ring). Gold on an ink tile is the app icon and favicon; ink on the page is the header; hairline outline is the home page's large copy.
+
+**The bands** are small black SVG tiles in `public/img/orn/`, used as CSS masks so each can be any colour. Each has one job and one place:
+
+| Band | Motif | Where |
+|---|---|---|
+| girih | eight-point star of tile work | the belt above the header, gold on ink; four stars under the `h1` of About, the legal pages and test lists |
+| arches | pointed (ogee) arches | the top edge of the footer |
+| islimi | scrolling vine with curls and leaves | across the footer, gold on ink; the share image |
+| key | key meander | the last line of the footer |
+
+**Where the mark is big:** the home page for a visitor, from 1024px, beside the four module rows. Pointing at (or tabbing to) a row fills its petal: the ornament says something. It is hidden below 1024px.
+
+**Rules.** Ornament lives only in the website shell. The exam screens, their instructions and `cd-ielts.css` have none (a test checks this): the exam must feel like the exam. Gold is for ornament on ink only. No new motif or place without removing one. Contrast is not needed for ornament, but nothing a student must read may sit on it.
 
 ## Do not
 
-- Add images, video, canvas or an animation library to the home page.
+- Add raster images, video, canvas or an animation library to the home page.
+- Put ornament in the exam screens or the instructions, or use gold for text or buttons.
 - Reintroduce module colours, letter badges, transit vocabulary (lines, stations, interchange, fares) or card grids.
 - Use more than one filled button in a view.
 - Hide the main action behind a menu.
@@ -121,4 +142,6 @@ CSS only, subtle, and off under `prefers-reduced-motion`. A 160ms colour change 
 | Prices | `renderPricing` in `public/js/account.js` |
 | Copy | `public/js/strings.js` |
 | Fonts | `public/fonts/` |
-| Share image and logos | `scripts/make_og_image.js` |
+| The mark, the bands, the favicon, the mark in `index.html` | `scripts/make_ornaments.py` (writes `public/img/orn/`, `public/img/logo-mark*.svg`, `public/favicon.svg`) |
+| Share image and the app icons | `scripts/make_og_image.js` (draws them from the files above) |
+| Ornament styles | "The mark and the ornament" in `public/css/portal.css` |

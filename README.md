@@ -122,7 +122,8 @@ scripts/
   build_speaking_audio.py   generate the Speaking examiner's questions (Kokoro TTS)
   check_listening_audio.py  transcribe the MP3s with Whisper and check every answer is heard
   test_app.py             test suite (prints the number of tests)
-  make_og_image.js        draws public/img/og.png, the picture shown when the site is shared (Node + Playwright)
+  make_ornaments.py       draws the logo mark and the ornament bands (public/img/orn/, favicon.svg, the mark in index.html)
+  make_og_image.js        draws public/img/og.png (the picture shown when the site is shared) and the app icons (Node + Playwright)
 docs/
   PAYMENTS_CHECKLIST.md   step-by-step test purchase and refund on production
 .github/workflows/ci.yml  runs the content check and the tests on every push and pull request
