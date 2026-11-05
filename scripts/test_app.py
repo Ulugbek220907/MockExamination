@@ -2746,6 +2746,13 @@ class BrandTests(AccountApiBase):
         self.assertIn('class="orn-belt"', served)
         self.assertIn('<use href="#td-mark"/>', served)
 
+    def test_ornament_tiles_are_served_as_svg_and_cached_for_a_day(self):
+        r = self.fetch("/img/orn/girih.svg")
+        self.assertEqual(r.code, 200)
+        self.assertTrue(r.headers["Content-Type"].startswith("image/svg+xml"))
+        self.assertIn("max-age=86400", r.headers["Cache-Control"])
+        self.assertEqual(self.fetch("/img/og.png").headers["Cache-Control"], "no-cache")  # everything else unhashed is revalidated
+
     def test_the_exam_and_its_instructions_have_no_ornament(self):
         page = open(os.path.join(PUBLIC_DIR, "index.html"), encoding="utf-8").read()
         exam = page[page.index('<div id="verification-view"'):]

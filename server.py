@@ -861,6 +861,10 @@ class StaticHandler(tornado.web.StaticFileHandler):
     def set_extra_headers(self, path):
         if self.get_query_argument("v", None):
             self.set_header("Cache-Control", f"{self.CACHE_SCOPE}, max-age=31536000, immutable")
+        elif path.startswith("img/orn/") and self.CACHE_SCOPE == "public":
+            # The ornament tiles are named in the stylesheet, which cannot carry a hash, and change only when
+            # the design does: a day in the cache saves four requests on every page view.
+            self.set_header("Cache-Control", "public, max-age=86400")
         else:
             self.set_header("Cache-Control", "no-cache" if self.CACHE_SCOPE == "public" else "private, no-cache")
 
