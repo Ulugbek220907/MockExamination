@@ -47,7 +47,7 @@ os.environ["ADMIN_STATS_SECONDS"] = "0"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import accounts, analytics, api, auth, billing, checks, content, notify, scoring, speaking, storage, writing  # noqa: E402
+from mockexam import accounts, analytics, api, auth, billing, checks, content, google_signin, notify, scoring, speaking, storage, web, writing  # noqa: E402
 from mockexam.db import SqliteDb, iso, now, parse_time  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
@@ -2715,6 +2715,420 @@ class ErrorAlertTests(unittest.TestCase):
         finally:
             notify.SYNC = False
             logger.removeHandler(alerts)
+
+
+class HistoryRowTests(unittest.TestCase):
+    """The recent-tests list on a phone: a long Speaking result must not squeeze the test name (it once stacked one word per line)."""
+
+    def read(self, *parts):
+        with open(os.path.join(PUBLIC_DIR, *parts), encoding="utf-8") as f:
+            return f.read()
+
+    def test_long_speaking_results_get_their_own_line_on_phones(self):
+        js, css = self.read("js", "app.js"), self.read("css", "portal.css")
+        self.assertIn('class="history-long"', js)
+        self.assertRegex(css, r"history-table tr\.history-long\s*\{[^}]*grid-template-areas:\s*\"test test\" \"result result\"")
+        # the result column can never take more than part of the row, so the test name keeps its width
+        self.assertIn("fit-content(", css.split("Phones: recent tests as two-line rows")[1].split("Taps answer at once")[0])
+
+    def test_one_answer_is_not_called_answers(self):
+        js = self.read("js", "app.js")
+        self.assertIn('t("Listen (1 answer)")', js)
+
+
+# --------------------------------------------------------------------------------------------------
+# Sign in with Google (mockexam/google_signin.py). The tests make their own RSA key and sign tokens with it, so
+# nothing goes to Google; the signature check itself was also compared with OpenSSL's when it was written.
+# --------------------------------------------------------------------------------------------------
+
+GOOGLE_CLIENT = "1234567890-testclient.apps.googleusercontent.com"
+_SHA256_DIGEST_INFO = bytes.fromhex("3031300d060960864801650304020105000420")
+_DROP = object()  # "leave this claim out"
+
+
+def _is_prime(n):
+    small = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37)
+    for p in small:
+        if n % p == 0:
+            return n == p
+    d, r = n - 1, 0
+    while d % 2 == 0:
+        d, r = d // 2, r + 1
+    for a in small:
+        x = pow(a, d, n)
+        if x in (1, n - 1):
+            continue
+        for _ in range(r - 1):
+            x = pow(x, 2, n)
+            if x == n - 1:
+                break
+        else:
+            return False
+    return True
+
+
+def make_rsa_key(seed, bits=1024):
+    """(n, e, d) for a throwaway test key, made from a fixed seed so the tests are repeatable."""
+    import math
+    import random
+    rnd = random.Random(seed)
+
+    def prime():
+        while True:
+            c = rnd.getrandbits(bits // 2) | (1 << (bits // 2 - 1)) | 1
+            if _is_prime(c):
+                return c
+    e = 65537
+    while True:
+        p, q = prime(), prime()
+        if p != q and math.gcd(e, (p - 1) * (q - 1)) == 1:
+            return p * q, e, pow(e, -1, (p - 1) * (q - 1))
+
+
+def _b64url(data):
+    import base64
+    return base64.urlsafe_b64encode(data).rstrip(b"=").decode()
+
+
+def rs256_sign(key, signing_input):
+    n, _, d = key
+    k = (n.bit_length() + 7) // 8
+    t = _SHA256_DIGEST_INFO + __import__("hashlib").sha256(signing_input).digest()
+    em = b"\x00\x01" + b"\xff" * (k - len(t) - 3) + b"\x00" + t
+    return pow(int.from_bytes(em, "big"), d, n).to_bytes(k, "big")
+
+
+def google_token(key, header=None, signature=None, **claims):
+    """A Google-style ID token for `key`. Keyword arguments change claims (`_DROP` removes one); `header` changes the header."""
+    now = int(time.time())
+    body = {"iss": "https://accounts.google.com", "aud": GOOGLE_CLIENT, "sub": "1049381726354", "email": "student@gmail.com",
+            "email_verified": True, "name": "Aziz Karimov", "iat": now, "exp": now + 3600}
+    for k, v in claims.items():
+        if v is _DROP:
+            body.pop(k, None)
+        else:
+            body[k] = v
+    head = {"alg": "RS256", "kid": "test-key", "typ": "JWT", **(header or {})}
+    signing_input = f"{_b64url(json.dumps(head).encode())}.{_b64url(json.dumps(body).encode())}"
+    sig = signature if signature is not None else rs256_sign(key, signing_input.encode("ascii"))
+    return f"{signing_input}.{_b64url(sig)}"
+
+
+class GoogleTokenTests(unittest.TestCase):
+    """The ID token Google's button returns, checked on the server."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.key = make_rsa_key(11)
+        cls.other_key = make_rsa_key(12)
+        cls.keys = {"test-key": (cls.key[0], cls.key[1])}
+
+    def setUp(self):
+        self.fetches = 0
+        self.now = time.time()
+        self.age = 3600
+
+        def fetch():
+            self.fetches += 1
+            return self.keys, self.age
+        self.google = google_signin.GoogleSignIn(GOOGLE_CLIENT, fetch_keys=fetch, clock=lambda: self.now)
+
+    def token(self, **kw):
+        """A token that is fresh by this test's own clock (which some tests move forward)."""
+        kw.setdefault("iat", int(self.now))
+        kw.setdefault("exp", int(self.now) + 3600)
+        return google_token(self.key, **kw)
+
+    def refused(self, token, status=400):
+        with self.assertRaises(auth.AuthError) as ctx:
+            self.google.verify(token)
+        self.assertEqual(ctx.exception.status, status)
+        return ctx.exception
+
+    def test_a_good_token_gives_the_identity(self):
+        who = self.google.verify(self.token(email="Aziz.Karimov@Gmail.com", name="  Aziz   Karimov "))
+        self.assertEqual((who["email"], who["name"]), ("aziz.karimov@gmail.com", "Aziz Karimov"))
+        self.assertRegex(who["id"], r"^[0-9a-f-]{36}$")
+
+    def test_every_wrong_claim_is_refused(self):
+        for label, claims in {
+            "another app's token": {"aud": "9999-other.apps.googleusercontent.com"},
+            "no audience": {"aud": _DROP},
+            "a list of audiences": {"aud": [GOOGLE_CLIENT]},
+            "another issuer": {"iss": "https://accounts.evil.example"},
+            "no issuer": {"iss": _DROP},
+            "expired": {"exp": int(self.now) - 3600},
+            "no expiry": {"exp": _DROP},
+            "expiry that is not a number": {"exp": "9999999999"},
+            "expiry that is true": {"exp": True},
+            "no subject": {"sub": _DROP},
+            "no email": {"email": _DROP},
+            "an email that is not one": {"email": "not-an-email"},
+        }.items():
+            with self.subTest(label):
+                self.refused(self.token(**claims))
+
+    def test_a_little_clock_difference_is_fine_a_lot_is_not(self):
+        self.google.verify(self.token(exp=int(self.now) - 30))
+        self.refused(self.token(exp=int(self.now) - 120))
+
+    def test_forged_and_confused_tokens_are_refused(self):
+        good = self.token()
+        head, body, sig = good.split(".")
+        forged = {
+            "signed with another key": google_token(self.other_key),
+            "payload changed after signing": f"{head}.{_b64url(json.dumps({'iss': 'accounts.google.com', 'aud': GOOGLE_CLIENT, 'sub': '1', 'email': 'owner@gmail.com', 'email_verified': True, 'exp': int(self.now) + 99}).encode())}.{sig}",
+            "no signature": f"{head}.{body}.",
+            "alg none": self.token(header={"alg": "none"}, signature=b"x"),
+            "an unknown key id": self.token(header={"kid": "someone-elses"}),
+            "no key id": self.token(header={"kid": None}),
+            "a zeroed signature": self.token(signature=bytes(128)),
+            "a signature as big as the modulus": self.token(signature=b"\xff" * 128),
+            "a short signature": self.token(signature=b"\x01" * 5),
+        }
+        # The classic confusion: HS256 with the public key as the secret.
+        import hashlib
+        import hmac
+        signing = f"{_b64url(json.dumps({'alg': 'HS256', 'kid': 'test-key'}).encode())}.{body}"
+        mac = hmac.new(self.key[0].to_bytes(128, "big"), signing.encode(), hashlib.sha256).digest()
+        forged["HS256 keyed with the public key"] = f"{signing}.{_b64url(mac)}"
+        for label, token in forged.items():
+            with self.subTest(label):
+                self.refused(token)
+
+    def test_rubbish_is_refused_without_surprises(self):
+        for token in (None, "", "   ", "a", "a.b", "a.b.c", "....", "x" * 20000, "é.é.é", "e30.e30.e30", "!!!.???.***",
+                      self.token().replace(".", "..", 1), 12345, {"credential": "x"},
+                      f"{_b64url(b'[' * 6000 + b']' * 6000)}.{_b64url(b'{}')}.{_b64url(b'x')}",  # JSON nested thousands deep (a RecursionError on Python 3.11, which Render runs; just not an object on newer ones)
+                      f"{_b64url(b'{}')}.{_b64url(b'1' * 5000)}.{_b64url(b'x')}"):  # a number with thousands of digits
+            with self.subTest(repr(token)[:30]):
+                self.refused(token)
+
+    def test_json_that_nests_too_deep_is_refused_not_a_server_error(self):
+        # Python 3.11 (Render) raises RecursionError for deeply nested JSON; newer versions do not, so it is forced here.
+        with mock.patch("mockexam.google_signin.json.loads", side_effect=RecursionError):
+            self.refused(self.token())
+
+    def test_the_email_must_be_verified(self):
+        for value in (False, "false", _DROP, None, 1):
+            with self.subTest(repr(value)):
+                err = self.refused(self.token(email_verified=value))
+                self.assertIn("not confirmed", str(err))
+        self.google.verify(self.token(email_verified="true"))
+
+    def test_google_must_be_the_authority_for_the_address(self):
+        # Gmail: yes. A Workspace account (hd): yes. Someone else's address made into a Google account: a code instead.
+        self.google.verify(self.token(email="a@gmail.com"))
+        self.google.verify(self.token(email="a@googlemail.com"))
+        self.google.verify(self.token(email="teacher@school.example", hd="school.example"))
+        err = self.refused(self.token(email="Student@Yahoo.com"))
+        self.assertEqual((err.code, err.extra), ("google_use_code", {"email": "student@yahoo.com"}))
+
+    def test_the_name_comes_from_the_token(self):
+        self.assertEqual(self.google.verify(self.token(name=_DROP, given_name="Aziz", family_name="Karimov"))["name"], "Aziz Karimov")
+        self.assertEqual(self.google.verify(self.token(name=_DROP))["name"], "")
+        self.assertEqual(len(self.google.verify(self.token(name="N" * 300))["name"]), 80)
+
+    def test_google_s_keys_are_kept_and_fetched_again_when_old(self):
+        for _ in range(3):
+            self.google.verify(self.token())
+        self.assertEqual(self.fetches, 1)
+        self.now += 3601
+        self.google.verify(self.token())
+        self.assertEqual(self.fetches, 2)
+
+    def test_a_key_we_do_not_know_costs_at_most_one_fetch_a_minute(self):
+        for _ in range(5):
+            self.refused(self.token(header={"kid": "new-key"}))
+        self.assertEqual(self.fetches, 1)
+        self.now += 61
+        self.refused(self.token(header={"kid": "new-key"}))
+        self.assertEqual(self.fetches, 2)
+        # ... and once Google publishes it, the next token with that key works.
+        self.keys = {**self.keys, "new-key": (self.key[0], self.key[1])}
+        self.now += 61
+        self.google.verify(self.token(header={"kid": "new-key"}))
+
+    def test_when_google_cannot_be_reached(self):
+        def down():
+            raise OSError("no route to Google")
+        self.google._fetch = down
+        err = self.refused(self.token(), status=503)  # nothing known yet: say so
+        self.assertIn("temporarily unavailable", str(err))
+        # With keys already known, an outage changes nothing for the key we have.
+        self.google._fetch = lambda: (self.keys, 3600)
+        self.google.verify(self.token())
+        self.google._fetch = down
+        self.now += 7200
+        self.google.verify(self.token())
+
+    def test_off_without_a_client_id(self):
+        google = google_signin.GoogleSignIn("")
+        self.assertFalse(google.enabled)
+        with self.assertRaises(auth.AuthError):
+            google.verify(self.token())
+
+    def test_the_signature_check_itself(self):
+        n, e, _ = self.key
+        message = b"header.payload"
+        sig = rs256_sign(self.key, message)
+        self.assertTrue(google_signin.rs256_verify(message, sig, n, e))
+        self.assertFalse(google_signin.rs256_verify(message + b"!", sig, n, e))
+        self.assertFalse(google_signin.rs256_verify(message, sig[:-1] + bytes([sig[-1] ^ 1]), n, e))
+        self.assertFalse(google_signin.rs256_verify(message, sig, self.other_key[0], e))
+        self.assertFalse(google_signin.rs256_verify(message, b"", n, e))
+        self.assertFalse(google_signin.rs256_verify(message, sig, 0, e))
+
+    def test_google_s_key_document_is_read_carefully(self):
+        n, e = self.key[0], self.key[1]
+        document = {"keys": [
+            {"kid": "good", "kty": "RSA", "alg": "RS256", "use": "sig", "n": _b64url(n.to_bytes(128, "big")), "e": _b64url(e.to_bytes(3, "big"))},
+            {"kid": "other-algorithm", "kty": "RSA", "alg": "RS384", "n": "AQAB", "e": "AQAB"},
+            {"kid": "not-rsa", "kty": "EC", "n": "AQAB", "e": "AQAB"},
+            {"kty": "RSA", "alg": "RS256", "n": "AQAB", "e": "AQAB"},
+            {"kid": "garbage", "kty": "RSA", "alg": "RS256", "n": "!!", "e": "AQAB"},
+            "nonsense", 5, None,
+        ]}
+        self.assertEqual(google_signin.parse_keys(document), {"good": (n, e)})
+        for rubbish in ({}, [], None, "x", {"keys": "x"}, {"keys": None}):
+            self.assertEqual(google_signin.parse_keys(rubbish), {})
+
+    def test_the_limiter_can_be_asked_without_counting(self):
+        limiter = auth.AttemptLimiter(2, 60)
+        self.assertFalse(limiter.blocked("ip"))
+        self.assertFalse(limiter.blocked("ip"))
+        limiter.allow("ip")
+        limiter.allow("ip")
+        self.assertTrue(limiter.blocked("ip"))
+        self.assertFalse(limiter.blocked("someone else"))
+
+    def test_the_page_may_use_google_only_when_it_is_switched_on(self):
+        off, on = web.security_headers(False), web.security_headers(True)
+        self.assertNotIn("google", json.dumps(off).lower())
+        self.assertEqual(off["Cross-Origin-Opener-Policy"], "same-origin")
+        policy = on["Content-Security-Policy"]
+        for part in ("script-src 'self' https://accounts.google.com/gsi/client;", "connect-src 'self' https://accounts.google.com/gsi/;",
+                     "frame-src 'self' https://accounts.google.com/gsi/;", "style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style;"):
+            self.assertIn(part, policy)
+        self.assertEqual(on["Cross-Origin-Opener-Policy"], "same-origin-allow-popups")
+        # Everything else is the same, and nothing is opened to the whole of Google or to inline scripts.
+        for headers in (off, on):
+            self.assertIn("default-src 'self'", headers["Content-Security-Policy"])
+            self.assertIn("frame-ancestors 'none'", headers["Content-Security-Policy"])
+            self.assertEqual(headers["X-Frame-Options"], "DENY")
+        self.assertNotIn("'unsafe-inline'", [d for d in policy.split("; ") if d.startswith("script-src")][0])
+        self.assertNotRegex(policy, r"https://(www\.)?google\.com|\*")
+
+
+class GoogleSignInApiTests(AccountApiBase):
+    """POST /api/auth/google: Google's ID token in, a session cookie out."""
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.key = make_rsa_key(21)
+
+    def setUp(self):
+        super().setUp()
+        self.google = google_signin.GoogleSignIn(GOOGLE_CLIENT, fetch_keys=lambda: ({"test-key": (self.key[0], self.key[1])}, 3600))
+        self._app.settings["google"] = self.google
+        api.GOOGLE_BAD_PER_IP.hits.clear()
+
+    def sign_in(self, client_id=None, **claims):
+        body = {"credential": google_token(self.key, **claims)}
+        if client_id:
+            body["clientId"] = client_id
+        return self.call("POST", "/api/auth/google", body)
+
+    def test_first_time_signs_up_and_starts_a_session(self):
+        r, data = self.sign_in(email="new.student@gmail.com", name="Dilnoza Aliyeva")
+        self.assertEqual(r.code, 200, data)
+        self.assertEqual((data["user"]["email"], data["user"]["name"], data["user"]["role"]), ("new.student@gmail.com", "Dilnoza Aliyeva", "student"))
+        self.assertIn("HttpOnly", r.headers["Set-Cookie"])
+        cookie = r.headers["Set-Cookie"].split(";")[0]
+        r, me = self.call("GET", "/api/me", cookie=cookie)
+        self.assertEqual(me["user"]["email"], "new.student@gmail.com")
+        # The second time it is the same account, not a new one.
+        r, again = self.sign_in(email="new.student@gmail.com")
+        self.assertEqual(again["user"]["id"], data["user"]["id"])
+
+    def test_it_is_the_same_account_as_the_one_made_with_an_email_code(self):
+        cookie, by_code = self.login("both.ways@gmail.com")
+        r, by_google = self.sign_in(email="both.ways@gmail.com", name="Both Ways")
+        self.assertEqual(by_google["user"]["id"], by_code["user"]["id"])
+        r, me = self.call("GET", "/api/me", cookie=r.headers["Set-Cookie"].split(";")[0])
+        self.assertEqual(me["user"]["id"], by_code["user"]["id"])
+
+    def test_earlier_attempts_from_this_browser_join_the_account(self):
+        client = "0f3a5c2e-2222-4333-8444-955566667777"
+        r, _ = self.call("POST", "/api/reading/academic-reading-01/submit", {"answers": {}, "clientId": client, "candidateName": "Anon"})
+        self.assertEqual(r.code, 200)
+        r, _ = self.sign_in(client_id=client, email="claims@gmail.com")
+        r, hist = self.call("GET", "/api/history", cookie=r.headers["Set-Cookie"].split(";")[0])
+        self.assertEqual(len(hist["items"]), 1)
+
+    def test_google_cannot_make_someone_the_admin_by_an_address_it_does_not_control(self):
+        # ADMIN_EMAILS has owner@example.com. A Google account made with that address (no Workspace domain behind it)
+        # is not proof of the mailbox, so it gets no session at all; a code goes to the mailbox instead.
+        r, data = self.sign_in(email="owner@example.com")
+        self.assertEqual((r.code, data["code"], data["email"]), (400, "google_use_code", "owner@example.com"))
+        self.assertNotIn("Set-Cookie", r.headers)
+        # A Workspace account on that domain is Google's to vouch for.
+        r, data = self.sign_in(email="owner@example.com", hd="example.com")
+        self.assertEqual((r.code, data["user"]["role"]), (200, "admin"))
+
+    def test_refused_tokens_say_why_and_do_not_sign_anyone_in(self):
+        r, data = self.call("POST", "/api/auth/google", {"credential": "not.a.token"})
+        self.assertEqual(r.code, 400)
+        self.assertIn("could not check your Google sign-in", data["error"])
+        self.assertNotIn("Set-Cookie", r.headers)
+        for claims in ({"aud": "someone-else"}, {"email_verified": False}, {"exp": int(time.time()) - 600}):
+            r, _ = self.sign_in(**claims)
+            self.assertEqual(r.code, 400, claims)
+        r, _ = self.call("POST", "/api/auth/google", {})
+        self.assertEqual(r.code, 400)
+
+    def test_only_refused_sign_ins_count_against_an_address(self):
+        # Many students can share one address (a school, a phone network): proper sign-ins are never held up ...
+        for i in range(api.GOOGLE_BAD_PER_IP.limit + 5):
+            r, _ = self.sign_in(email=f"student{i}@gmail.com")
+            self.assertEqual(r.code, 200, i)
+        # ... but an address that keeps sending rubbish is stopped.
+        for _ in range(api.GOOGLE_BAD_PER_IP.limit):
+            r, _ = self.call("POST", "/api/auth/google", {"credential": "rubbish"})
+            self.assertEqual(r.code, 400)
+        r, data = self.call("POST", "/api/auth/google", {"credential": "rubbish"})
+        self.assertEqual(r.code, 429)
+
+    def test_google_being_down_is_not_the_students_fault(self):
+        def down():
+            raise OSError("no route to Google")
+        self.google._fetch = down
+        for _ in range(api.GOOGLE_BAD_PER_IP.limit + 3):
+            r, data = self.sign_in()
+            self.assertEqual(r.code, 503)
+        self.assertIn("temporarily unavailable", data["error"])
+
+    def test_the_page_is_told_which_client_id_to_use(self):
+        r, config = self.call("GET", "/api/config")
+        self.assertEqual((config["auth"]["googleClientId"], config["auth"]["google"]), (GOOGLE_CLIENT, True))
+        self._app.settings["google"] = google_signin.GoogleSignIn("")
+        r, config = self.call("GET", "/api/config")
+        self.assertIsNone(config["auth"]["googleClientId"])
+
+    def test_without_a_client_id_the_endpoint_is_closed(self):
+        self._app.settings["google"] = google_signin.GoogleSignIn("")
+        r, data = self.sign_in()
+        self.assertEqual((r.code, data["error"]), (400, "Google sign-in is not available on this server."))
+
+    def test_it_cannot_be_triggered_from_another_site(self):
+        body = json.dumps({"credential": google_token(self.key)})
+        for headers in ({"Sec-Fetch-Site": "cross-site", "Content-Type": "application/json"},
+                        {"Origin": "https://evil.example", "Content-Type": "application/json"},
+                        {"Content-Type": "application/x-www-form-urlencoded"}):
+            r = self.fetch("/api/auth/google", method="POST", headers=headers, body=body)
+            self.assertIn(r.code, (403, 415), headers)
+            self.assertNotIn("Set-Cookie", r.headers)
 
 
 class BrandTests(AccountApiBase):

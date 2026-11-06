@@ -1,0 +1,1324 @@
+{
+  "id": "listening-47",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 47",
+  "shortTitle": "Practice Test 47",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 47,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "callie": {
+      "name": "Callie",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "dan": {
+      "name": "Dan",
+      "voice": "am_adam",
+      "lang": "en-us"
+    },
+    "quinn": {
+      "name": "Ms Quinn",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "lydia": {
+      "name": "Lydia",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "omar": {
+      "name": "Omar",
+      "voice": "am_echo",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Ordering a photo book",
+      "context": "A man orders a photo book as an anniversary present.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a print shop to order a photo book. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.05
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.05,
+          "end": 38.11
+        },
+        {
+          "speaker": "callie",
+          "text": "PixelPrint, Callie speaking.",
+          "start": 39.01,
+          "end": 41.08
+        },
+        {
+          "speaker": "dan",
+          "text": "Hello. I'd like to order a photo book, please. It's a present for my parents' wedding anniversary, and I want to surprise them.",
+          "start": 41.58,
+          "end": 48.33
+        },
+        {
+          "speaker": "callie",
+          "text": "What a lovely idea. I'll take some details.",
+          "start": 48.83,
+          "end": 51.71
+        },
+        {
+          "speaker": "narrator",
+          "text": "The book is an anniversary present, so 'anniversary' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 52.61,
+          "end": 68.07
+        },
+        {
+          "speaker": "callie",
+          "text": "Could I have your name, please?",
+          "start": 68.97,
+          "end": 71.02
+        },
+        {
+          "speaker": "dan",
+          "text": "Dan Fletcher. That's F-L-E-T-C-H-E-R.",
+          "start": 71.52,
+          "end": 77.87
+        },
+        {
+          "speaker": "callie",
+          "text": "Thank you, Mr Fletcher. How many photographs do you want in the book?",
+          "start": 78.37,
+          "end": 82.12
+        },
+        {
+          "speaker": "dan",
+          "text": "About eighty. I thought a hundred at first, but I couldn't find that many good ones.",
+          "start": 82.62,
+          "end": 86.68
+        },
+        {
+          "speaker": "callie",
+          "text": "Eighty is plenty. What size would you like? We have A4, A5 and a large square format.",
+          "start": 87.18,
+          "end": 92.28
+        },
+        {
+          "speaker": "dan",
+          "text": "The square one, I think. It's more unusual.",
+          "start": 92.78,
+          "end": 95.23
+        },
+        {
+          "speaker": "callie",
+          "text": "Good choice. Would you like a soft cover or a hard cover?",
+          "start": 95.73,
+          "end": 98.91
+        },
+        {
+          "speaker": "dan",
+          "text": "A hard cover, so that it lasts.",
+          "start": 99.41,
+          "end": 101.16
+        },
+        {
+          "speaker": "callie",
+          "text": "And the paper? We offer glossy or matt.",
+          "start": 101.66,
+          "end": 104.13
+        },
+        {
+          "speaker": "dan",
+          "text": "Matt, please. Glossy paper shows every fingerprint.",
+          "start": 104.63,
+          "end": 107.68
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 108.58,
+          "end": 114.3
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 134.3,
+          "end": 137.63
+        },
+        {
+          "speaker": "callie",
+          "text": "That comes to forty-five pounds. It would have been fifty-five with the glossy paper, but the matt is cheaper.",
+          "start": 138.53,
+          "end": 144.27
+        },
+        {
+          "speaker": "dan",
+          "text": "That's fine. How long will it take?",
+          "start": 144.77,
+          "end": 146.47
+        },
+        {
+          "speaker": "callie",
+          "text": "Delivery takes five working days, so you'll need to order by next Monday if you want it for the weekend.",
+          "start": 146.97,
+          "end": 152.67
+        },
+        {
+          "speaker": "dan",
+          "text": "That's cutting it fine. Do I need to send the photographs on a disc?",
+          "start": 153.17,
+          "end": 156.71
+        },
+        {
+          "speaker": "callie",
+          "text": "No, you can upload them from your phone, or from your computer. The software will help you arrange them on the pages.",
+          "start": 157.21,
+          "end": 163.72
+        },
+        {
+          "speaker": "dan",
+          "text": "Can I put something on the cover?",
+          "start": 164.22,
+          "end": 165.97
+        },
+        {
+          "speaker": "callie",
+          "text": "Yes, a personal message, up to fifty characters. A lot of people put their names and the date.",
+          "start": 166.47,
+          "end": 171.91
+        },
+        {
+          "speaker": "dan",
+          "text": "I'll do that. Is there anything cheaper?",
+          "start": 172.41,
+          "end": 174.48
+        },
+        {
+          "speaker": "callie",
+          "text": "If you order before Friday, we'll give you free delivery, which saves you four pounds. Shall I make a note?",
+          "start": 174.98,
+          "end": 180.59
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 181.49,
+          "end": 186.01
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "PixelPrint – photo book order",
+          "content": [
+            "Example: The book is an **anniversary** present",
+            "## Details",
+            "• Name: Dan {{1}}",
+            "• Number of photographs: about {{2}}",
+            "• Size: a large {{3}} format",
+            "• Cover: {{4}} cover",
+            "• Paper: {{5}}",
+            "## Order",
+            "• Price: £{{6}}",
+            "• Delivery takes {{7}} working days",
+            "• Photographs can be uploaded from a {{8}} or computer",
+            "• A personal {{9}} can be printed on the cover",
+            "• Free {{10}} if ordered before Friday"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Fletcher"
+              ],
+              "explanation": "‘F-L-E-T-C-H-E-R.’",
+              "cue": "F-L-E-T-C-H-E-R"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "80",
+                "eighty"
+              ],
+              "explanation": "He thought a hundred at first, but ‘About eighty’.",
+              "cue": "About eighty"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "square"
+              ],
+              "explanation": "‘The square one, I think.’",
+              "cue": "The square one, I think"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "hard"
+              ],
+              "explanation": "‘A hard cover, so that it lasts.’",
+              "cue": "A hard cover, so that it lasts"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "matt",
+                "matte"
+              ],
+              "explanation": "‘Matt, please.’",
+              "cue": "Matt, please"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "45",
+                "forty-five"
+              ],
+              "explanation": "‘That comes to forty-five pounds.’ It would have been fifty-five with glossy paper.",
+              "cue": "That comes to forty-five pounds"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "‘Delivery takes five working days.’",
+              "cue": "Delivery takes five working days"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "phone"
+              ],
+              "explanation": "‘Upload them from your phone.’",
+              "cue": "upload them from your phone"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "message"
+              ],
+              "explanation": "‘A personal message, up to fifty characters.’",
+              "cue": "a personal message, up to fifty characters"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "delivery"
+              ],
+              "explanation": "‘We'll give you free delivery.’",
+              "cue": "we'll give you free delivery"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-47/part1.mp3",
+        "duration": 216.81
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A photography exhibition",
+      "context": "A curator introduces an exhibition at a gallery.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a gallery guide introducing a photography exhibition. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 9.99
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 34.99,
+          "end": 39.25
+        },
+        {
+          "speaker": "quinn",
+          "text": "Welcome to the Lakeside Gallery, and to this year's photography exhibition. I'm Fiona Quinn, the curator. Please look at your plan. We're at the entrance, at the bottom, and the path takes you straight up to the main corridor.",
+          "start": 40.15,
+          "end": 51.87
+        },
+        {
+          "speaker": "quinn",
+          "text": "The rooms along the top are the main exhibition. From left to right, the first room is the portraits. Next to it, the landscapes. In the middle, the black-and-white room, which many visitors find the most moving. And at the far right, the wildlife room.",
+          "start": 52.22,
+          "end": 65.46
+        },
+        {
+          "speaker": "quinn",
+          "text": "Below the corridor, on the left of the entrance path, is the street photography room. On the right of the path is the café, and at the far right, the shop.",
+          "start": 65.81,
+          "end": 73.83
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 74.73,
+          "end": 80.45
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 105.45,
+          "end": 109.33
+        },
+        {
+          "speaker": "quinn",
+          "text": "A few facts. About three hundred photographs are on display, chosen from more than two thousand submitted by photographers from forty countries.",
+          "start": 110.23,
+          "end": 118.38
+        },
+        {
+          "speaker": "quinn",
+          "text": "The theme of this year's exhibition is home. We asked photographers to show what home means to them, and you'll see everything from city flats to tents in the desert.",
+          "start": 118.73,
+          "end": 127.2
+        },
+        {
+          "speaker": "quinn",
+          "text": "You might notice that the photographs are not behind glass. That's deliberate, because glass causes reflections, and we want you to see the images clearly. Please don't touch them, though, and don't use a flash.",
+          "start": 127.55,
+          "end": 138.43
+        },
+        {
+          "speaker": "quinn",
+          "text": "On Thursday evenings, the café hosts a talk by one of the photographers. They explain how a picture was taken, and you can ask questions. It's free with your ticket.",
+          "start": 138.78,
+          "end": 147.79
+        },
+        {
+          "speaker": "quinn",
+          "text": "Tickets are eight pounds, but students pay four, and children under twelve go free. Please enjoy the exhibition, and do ask the staff if you have any questions.",
+          "start": 148.14,
+          "end": 156.93
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 157.83,
+          "end": 162.16
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the plan below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Lakeside Gallery: ground floor",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "sand"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 414,
+                "x2": 320,
+                "y2": 220,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 60,
+                "y1": 220,
+                "x2": 580,
+                "y2": 220,
+                "style": "path",
+                "label": "Main corridor",
+                "ly": -12
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Entrance"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 412
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 60,
+                "w": 130,
+                "h": 110,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 190,
+                "y": 60,
+                "w": 130,
+                "h": 110,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 340,
+                "y": 60,
+                "w": 130,
+                "h": 110,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 490,
+                "y": 60,
+                "w": 120,
+                "h": 110,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 150,
+                "y": 270,
+                "w": 130,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 360,
+                "y": 270,
+                "w": 120,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 500,
+                "y": 270,
+                "w": 110,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 105,
+                "y": 115,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 255,
+                "y": 115,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 405,
+                "y": 115,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 550,
+                "y": 115,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 215,
+                "y": 320,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 420,
+                "y": 320,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 555,
+                "y": 320,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Portraits",
+              "answer": "A",
+              "explanation": "‘The first room is the portraits.’",
+              "cue": "the first room is the portraits"
+            },
+            {
+              "number": 12,
+              "prompt": "Wildlife",
+              "answer": "D",
+              "explanation": "‘At the far right, the wildlife room.’",
+              "cue": "at the far right, the wildlife room"
+            },
+            {
+              "number": 13,
+              "prompt": "Black-and-white photographs",
+              "answer": "C",
+              "explanation": "‘In the middle, the black-and-white room.’",
+              "cue": "In the middle, the black-and-white room"
+            },
+            {
+              "number": 14,
+              "prompt": "Street photography",
+              "answer": "E",
+              "explanation": "‘On the left of the entrance path, is the street photography room.’",
+              "cue": "on the left of the entrance path, is the street photography room"
+            },
+            {
+              "number": 15,
+              "prompt": "Shop",
+              "answer": "G",
+              "explanation": "‘At the far right, the shop.’",
+              "cue": "at the far right, the shop"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How many photographs are on display?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about a hundred and twenty"
+                },
+                {
+                  "key": "B",
+                  "text": "about three hundred"
+                },
+                {
+                  "key": "C",
+                  "text": "about five hundred"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About three hundred photographs are on display.’",
+              "cue": "About three hundred photographs are on display"
+            },
+            {
+              "number": 17,
+              "prompt": "What is the theme of the exhibition?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the sea"
+                },
+                {
+                  "key": "B",
+                  "text": "work"
+                },
+                {
+                  "key": "C",
+                  "text": "home"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘The theme of this year's exhibition is home.’",
+              "cue": "The theme of this year's exhibition is home"
+            },
+            {
+              "number": 18,
+              "prompt": "Why are the photographs not behind glass?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Glass causes reflections."
+                },
+                {
+                  "key": "B",
+                  "text": "It is cheaper."
+                },
+                {
+                  "key": "C",
+                  "text": "Visitors may touch them."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Glass causes reflections.’",
+              "cue": "glass causes reflections"
+            },
+            {
+              "number": 19,
+              "prompt": "What happens in the café on Thursday evenings?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a talk by a photographer"
+                },
+                {
+                  "key": "B",
+                  "text": "a quiz"
+                },
+                {
+                  "key": "C",
+                  "text": "a print sale"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The café hosts a talk by one of the photographers.’",
+              "cue": "the café hosts a talk by one of the photographers"
+            },
+            {
+              "number": 20,
+              "prompt": "How much is a student ticket?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "free"
+                },
+                {
+                  "key": "B",
+                  "text": "four pounds"
+                },
+                {
+                  "key": "C",
+                  "text": "eight pounds"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Students pay four.’",
+              "cue": "students pay four"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-47/part2.mp3",
+        "duration": 192.96
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Teenagers and social media",
+      "context": "Two sociology students discuss the results of their study.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two sociology students, Lydia and Omar, discussing their study of teenagers and social media. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 13.49
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 38.49,
+          "end": 43.2
+        },
+        {
+          "speaker": "lydia",
+          "text": "Omar, I've finished transcribing the interviews. We spoke to thirty teenagers in all, didn't we?",
+          "start": 44.1,
+          "end": 49.65
+        },
+        {
+          "speaker": "omar",
+          "text": "Yes, between thirteen and sixteen years old, from two schools. We wanted more, but it took longer than expected to get permission.",
+          "start": 50.15,
+          "end": 57.36
+        },
+        {
+          "speaker": "lydia",
+          "text": "How did we find them? I can't remember.",
+          "start": 57.86,
+          "end": 60.23
+        },
+        {
+          "speaker": "omar",
+          "text": "They were volunteers. The teachers told their classes about the study, and anyone who was interested gave us their name.",
+          "start": 60.73,
+          "end": 67.1
+        },
+        {
+          "speaker": "lydia",
+          "text": "That could be a weakness. People who volunteer may be more confident than the others, so it's something to mention.",
+          "start": 67.6,
+          "end": 73.62
+        },
+        {
+          "speaker": "omar",
+          "text": "How long did each interview last?",
+          "start": 74.12,
+          "end": 76.45
+        },
+        {
+          "speaker": "lydia",
+          "text": "About twenty minutes. Ten would have been too short, and forty-five would have bored them.",
+          "start": 76.95,
+          "end": 81.75
+        },
+        {
+          "speaker": "omar",
+          "text": "What surprised you most?",
+          "start": 82.25,
+          "end": 84.17
+        },
+        {
+          "speaker": "lydia",
+          "text": "That most of them said they spent about three hours a day online, but when we checked the usage data on their phones, it was often more than that.",
+          "start": 84.67,
+          "end": 92.62
+        },
+        {
+          "speaker": "omar",
+          "text": "Our tutor will want us to present the results in a clear way.",
+          "start": 93.12,
+          "end": 96.79
+        },
+        {
+          "speaker": "lydia",
+          "text": "A short written report, I think. A poster wouldn't have enough space for the quotations.",
+          "start": 97.29,
+          "end": 102.18
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 103.08,
+          "end": 109.22
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 129.22,
+          "end": 133.06
+        },
+        {
+          "speaker": "lydia",
+          "text": "Let's summarise what they said about each platform. The photo app first.",
+          "start": 133.96,
+          "end": 138.25
+        },
+        {
+          "speaker": "omar",
+          "text": "Many of the girls said it made them feel anxious, because they compared themselves with other people's pictures.",
+          "start": 138.75,
+          "end": 144.7
+        },
+        {
+          "speaker": "lydia",
+          "text": "The video app?",
+          "start": 145.2,
+          "end": 146.57
+        },
+        {
+          "speaker": "omar",
+          "text": "Nearly all of them said it takes up too much time. They start watching one clip, and an hour later they're still there.",
+          "start": 147.07,
+          "end": 153.19
+        },
+        {
+          "speaker": "lydia",
+          "text": "The messaging app?",
+          "start": 153.69,
+          "end": 155.25
+        },
+        {
+          "speaker": "omar",
+          "text": "That was positive. They use it to keep in touch with family, especially relatives who live abroad.",
+          "start": 155.75,
+          "end": 161.44
+        },
+        {
+          "speaker": "lydia",
+          "text": "The discussion forum?",
+          "start": 161.94,
+          "end": 163.59
+        },
+        {
+          "speaker": "omar",
+          "text": "A few older students said it helps their studies, because they can ask questions about homework.",
+          "start": 164.09,
+          "end": 169.5
+        },
+        {
+          "speaker": "lydia",
+          "text": "And the gaming platform?",
+          "start": 170.0,
+          "end": 171.84
+        },
+        {
+          "speaker": "omar",
+          "text": "They said it makes them feel connected with friends, even when they can't meet in person. Shall I write the first draft?",
+          "start": 172.34,
+          "end": 178.74
+        },
+        {
+          "speaker": "lydia",
+          "text": "Yes, please. I'll prepare the tables.",
+          "start": 179.24,
+          "end": 181.48
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 182.38,
+          "end": 186.84
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "How many teenagers did the students interview?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "twenty"
+                },
+                {
+                  "key": "B",
+                  "text": "thirty"
+                },
+                {
+                  "key": "C",
+                  "text": "sixty"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘We spoke to thirty teenagers in all.’",
+              "cue": "We spoke to thirty teenagers in all"
+            },
+            {
+              "number": 22,
+              "prompt": "How were the participants chosen?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They were volunteers."
+                },
+                {
+                  "key": "B",
+                  "text": "They were chosen at random."
+                },
+                {
+                  "key": "C",
+                  "text": "They answered an advertisement."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘They were volunteers.’",
+              "cue": "They were volunteers"
+            },
+            {
+              "number": 23,
+              "prompt": "How long did each interview last?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ten minutes"
+                },
+                {
+                  "key": "B",
+                  "text": "twenty minutes"
+                },
+                {
+                  "key": "C",
+                  "text": "forty-five minutes"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About twenty minutes.’",
+              "cue": "About twenty minutes"
+            },
+            {
+              "number": 24,
+              "prompt": "What did the usage data show?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The teenagers used their phones less than they said."
+                },
+                {
+                  "key": "B",
+                  "text": "The teenagers used their phones more than they said."
+                },
+                {
+                  "key": "C",
+                  "text": "The teenagers used no social media."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘It was often more than that.’",
+              "cue": "it was often more than that"
+            },
+            {
+              "number": 25,
+              "prompt": "How will the findings be presented?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "on a poster"
+                },
+                {
+                  "key": "B",
+                  "text": "in a short written report"
+                },
+                {
+                  "key": "C",
+                  "text": "in a video"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A short written report, I think.’",
+              "cue": "A short written report, I think"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What did the teenagers say about each type of app? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It makes them feel anxious."
+            },
+            {
+              "key": "B",
+              "text": "It helps them keep in touch with family."
+            },
+            {
+              "key": "C",
+              "text": "It takes up too much time."
+            },
+            {
+              "key": "D",
+              "text": "It helps with their studies."
+            },
+            {
+              "key": "E",
+              "text": "It makes them feel connected to friends."
+            },
+            {
+              "key": "F",
+              "text": "It is full of advertising."
+            },
+            {
+              "key": "G",
+              "text": "They no longer use it."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "the photo app",
+              "answer": "A",
+              "explanation": "‘It made them feel anxious.’",
+              "cue": "it made them feel anxious"
+            },
+            {
+              "number": 27,
+              "prompt": "the video app",
+              "answer": "C",
+              "explanation": "‘It takes up too much time.’",
+              "cue": "it takes up too much time"
+            },
+            {
+              "number": 28,
+              "prompt": "the messaging app",
+              "answer": "B",
+              "explanation": "‘Keep in touch with family.’",
+              "cue": "keep in touch with family"
+            },
+            {
+              "number": 29,
+              "prompt": "the discussion forum",
+              "answer": "D",
+              "explanation": "‘It helps their studies.’",
+              "cue": "it helps their studies"
+            },
+            {
+              "number": 30,
+              "prompt": "the gaming platform",
+              "answer": "E",
+              "explanation": "‘It makes them feel connected with friends.’",
+              "cue": "it makes them feel connected with friends"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-47/part3.mp3",
+        "duration": 217.64
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how stars are born and die",
+      "context": "An astronomy lecture on the life cycle of stars.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how stars are born and die. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.2
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.2,
+          "end": 43.61
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today's lecture is about the life cycle of stars, from birth to death, and what that means for us.",
+          "start": 44.51,
+          "end": 50.49
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Stars are born in huge clouds of gas and dust called nebulae. Within such a cloud, a dense region starts to collapse, because gravity pulls the material together, and as it contracts, it heats up. When the centre becomes hot enough, nuclear fusion begins, in which hydrogen is turned into helium, and a star is born. This process releases the energy that makes the star shine.",
+          "start": 50.84,
+          "end": 70.04
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A star spends most of its life in a stable state, in which the pressure from the fusion balances the pull of gravity. Our own Sun has been in this state for about four and a half billion years, and it will last for about ten billion years in all.",
+          "start": 70.39,
+          "end": 83.29
+        },
+        {
+          "speaker": "lecturer",
+          "text": "When the hydrogen in the core runs out, the star's life changes. A star like the Sun swells enormously, and becomes a red giant. Eventually, it sheds its outer layers into space, and what remains is a small, hot core called a white dwarf, which slowly cools over billions of years.",
+          "start": 83.64,
+          "end": 98.88
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The story is more dramatic for stars much bigger than the Sun. Their cores collapse in a fraction of a second, and the star explodes in what is called a supernova, which can briefly outshine a whole galaxy. What is left behind may be an extremely dense neutron star, or, if the star was massive enough, a black hole.",
+          "start": 99.23,
+          "end": 115.82
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Why does this matter to us? Because stars are factories. In the early universe there were only hydrogen and helium. Elements such as carbon and oxygen were made inside stars, and then scattered into space when they died. The explosions spread this material, and eventually it formed new stars, planets and, in our case, living things. We are all, quite literally, made from the remains of stars. Next week we'll look at galaxies.",
+          "start": 116.17,
+          "end": 136.59
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 137.49,
+          "end": 141.88
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 171.88,
+          "end": 174.59
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The life cycle of stars",
+          "content": [
+            "## Birth",
+            "• Stars form in clouds of gas and dust called {{31}}",
+            "• {{32}} pulls the material together",
+            "• In the centre, hydrogen is turned into {{33}}",
+            "## Life and death",
+            "• The Sun will last for about ten {{34}} years",
+            "• A star like the Sun swells into a red {{35}}",
+            "• It then shrinks into a white {{36}}",
+            "• A much bigger star ends in an explosion called a {{37}}",
+            "• What remains may be a neutron star or a black {{38}}",
+            "## Why it matters",
+            "• Elements such as carbon and {{39}} were made in stars",
+            "• Dying stars scatter them into {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "nebulae",
+                "nebula"
+              ],
+              "explanation": "‘Huge clouds of gas and dust called nebulae.’",
+              "cue": "huge clouds of gas and dust called nebulae"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "gravity"
+              ],
+              "explanation": "‘Gravity pulls the material together.’",
+              "cue": "gravity pulls the material together"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "helium"
+              ],
+              "explanation": "‘Hydrogen is turned into helium.’",
+              "cue": "hydrogen is turned into helium"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "billion"
+              ],
+              "explanation": "‘About ten billion years in all.’",
+              "cue": "about ten billion years in all"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "giant"
+              ],
+              "explanation": "‘Becomes a red giant.’",
+              "cue": "becomes a red giant"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "dwarf"
+              ],
+              "explanation": "‘Called a white dwarf.’",
+              "cue": "called a white dwarf"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "supernova"
+              ],
+              "explanation": "‘What is called a supernova.’",
+              "cue": "what is called a supernova"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "hole"
+              ],
+              "explanation": "‘A black hole.’",
+              "cue": "a black hole"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "oxygen"
+              ],
+              "explanation": "‘Carbon and oxygen.’",
+              "cue": "carbon and oxygen"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "space"
+              ],
+              "explanation": "‘Scattered into space when they died.’",
+              "cue": "scattered into space when they died"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-47/part4.mp3",
+        "duration": 175.39
+      }
+    }
+  ],
+  "durationMinutes": 13
+}

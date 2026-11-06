@@ -1,0 +1,1235 @@
+{
+  "id": "listening-40",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 40",
+  "shortTitle": "Practice Test 40",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 40,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "neil": {
+      "name": "Neil",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "aisha": {
+      "name": "Aisha",
+      "voice": "af_sarah",
+      "lang": "en-us"
+    },
+    "banerjee": {
+      "name": "Mr Banerjee",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "zoe": {
+      "name": "Zoe",
+      "voice": "af_jessica",
+      "lang": "en-us"
+    },
+    "kareem": {
+      "name": "Kareem",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Reporting a heating problem",
+      "context": "A tenant phones a letting agency about a broken boiler.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a tenant phoning a letting agency to report a problem in her flat. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.39
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.39,
+          "end": 39.46
+        },
+        {
+          "speaker": "neil",
+          "text": "Castle Lettings, Neil speaking. How can I help?",
+          "start": 40.36,
+          "end": 43.35
+        },
+        {
+          "speaker": "aisha",
+          "text": "Hello. I'm a tenant in one of your flats, and I need to report a problem with the heating. It's in the kitchen, and it's getting worse.",
+          "start": 43.85,
+          "end": 50.97
+        },
+        {
+          "speaker": "neil",
+          "text": "I'm sorry to hear that. I'll take some details.",
+          "start": 51.47,
+          "end": 54.48
+        },
+        {
+          "speaker": "narrator",
+          "text": "The problem is in the kitchen, so 'kitchen' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 55.38,
+          "end": 70.12
+        },
+        {
+          "speaker": "neil",
+          "text": "Could I have your name, please?",
+          "start": 71.02,
+          "end": 72.58
+        },
+        {
+          "speaker": "aisha",
+          "text": "Aisha Rahman. That's R-A-H-M-A-N.",
+          "start": 73.08,
+          "end": 78.17
+        },
+        {
+          "speaker": "neil",
+          "text": "Thank you, Ms Rahman. And which flat are you in?",
+          "start": 78.67,
+          "end": 81.7
+        },
+        {
+          "speaker": "aisha",
+          "text": "Flat nine, Kingsley House. It's on the third floor.",
+          "start": 82.2,
+          "end": 85.25
+        },
+        {
+          "speaker": "neil",
+          "text": "What exactly is the problem?",
+          "start": 85.75,
+          "end": 87.77
+        },
+        {
+          "speaker": "aisha",
+          "text": "The boiler is making a loud banging noise, and it isn't heating the water properly. I've had no hot water since the morning.",
+          "start": 88.27,
+          "end": 95.31
+        },
+        {
+          "speaker": "neil",
+          "text": "How long has it been going on?",
+          "start": 95.81,
+          "end": 97.84
+        },
+        {
+          "speaker": "aisha",
+          "text": "The noise started three days ago, but it only stopped working this morning.",
+          "start": 98.34,
+          "end": 102.44
+        },
+        {
+          "speaker": "neil",
+          "text": "Have you contacted anyone already?",
+          "start": 102.94,
+          "end": 105.35
+        },
+        {
+          "speaker": "aisha",
+          "text": "I rang the emergency number on the notice in the hall, but I only got an answerphone, and nobody has called me back.",
+          "start": 105.85,
+          "end": 112.67
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 113.57,
+          "end": 119.29
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 139.29,
+          "end": 142.62
+        },
+        {
+          "speaker": "neil",
+          "text": "I'm sorry about that. The landlord, Mr Walsh, has been informed, and I'll arrange for an engineer to visit. I can't offer you today, but I can offer you tomorrow. Friday is also possible, but I assume you'd rather not wait.",
+          "start": 143.52,
+          "end": 157.85
+        },
+        {
+          "speaker": "aisha",
+          "text": "No, tomorrow would be much better. What time will the engineer come?",
+          "start": 158.35,
+          "end": 162.0
+        },
+        {
+          "speaker": "neil",
+          "text": "Between eleven and one. The engineer will phone you about half an hour before arriving.",
+          "start": 162.5,
+          "end": 167.79
+        },
+        {
+          "speaker": "aisha",
+          "text": "I'm working from home tomorrow, so that's fine. Do I need to do anything?",
+          "start": 168.29,
+          "end": 172.3
+        },
+        {
+          "speaker": "neil",
+          "text": "Please make sure that somebody is at home, because the engineer must get into the flat and the boiler cupboard. Could you also clear the space around the boiler?",
+          "start": 172.8,
+          "end": 182.13
+        },
+        {
+          "speaker": "aisha",
+          "text": "Of course. And what about tonight? It's quite cold.",
+          "start": 182.63,
+          "end": 185.36
+        },
+        {
+          "speaker": "neil",
+          "text": "We'll lend you an electric heater. The caretaker, Mr Dunn, lives on the ground floor, and he can bring one up this afternoon.",
+          "start": 185.86,
+          "end": 193.54
+        },
+        {
+          "speaker": "aisha",
+          "text": "That's very kind. How will I know the appointment is confirmed?",
+          "start": 194.04,
+          "end": 197.58
+        },
+        {
+          "speaker": "neil",
+          "text": "I'll send you a confirmation by email within the next hour, with the details.",
+          "start": 198.08,
+          "end": 202.62
+        },
+        {
+          "speaker": "aisha",
+          "text": "Thank you very much for your help.",
+          "start": 203.12,
+          "end": 204.77
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 205.67,
+          "end": 210.19
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Castle Lettings – repair request",
+          "content": [
+            "Example: The problem is in the **kitchen**",
+            "## The problem",
+            "• Tenant's name: Aisha {{1}}",
+            "• Address: flat {{2}}, Kingsley House",
+            "• The {{3}} is making a loud noise",
+            "• The noise started {{4}} days ago",
+            "• Her call to the emergency number was answered by an {{5}}",
+            "## The repair",
+            "• The engineer will come {{6}}",
+            "• Time: between {{7}} and one",
+            "• Someone must be at {{8}}",
+            "• Meanwhile the caretaker will lend her an {{9}} heater",
+            "• Confirmation will be sent by {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Rahman"
+              ],
+              "explanation": "‘R-A-H-M-A-N.’",
+              "cue": "R-A-H-M-A-N"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "9",
+                "nine"
+              ],
+              "explanation": "‘Flat nine, Kingsley House.’",
+              "cue": "Flat nine, Kingsley House"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "boiler"
+              ],
+              "explanation": "‘The boiler is making a loud banging noise.’",
+              "cue": "The boiler is making a loud banging noise"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘The noise started three days ago.’",
+              "cue": "The noise started three days ago"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "answerphone"
+              ],
+              "explanation": "‘I only got an answerphone.’",
+              "cue": "I only got an answerphone"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "tomorrow"
+              ],
+              "explanation": "‘I can offer you tomorrow.’",
+              "cue": "I can offer you tomorrow"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "11",
+                "eleven"
+              ],
+              "explanation": "‘Between eleven and one.’",
+              "cue": "Between eleven and one"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "home"
+              ],
+              "explanation": "‘Somebody is at home.’",
+              "cue": "somebody is at home"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "electric"
+              ],
+              "explanation": "‘We'll lend you an electric heater.’",
+              "cue": "We'll lend you an electric heater"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "email",
+                "e-mail"
+              ],
+              "explanation": "‘A confirmation by email.’",
+              "cue": "a confirmation by email"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-40/part1.mp3",
+        "duration": 240.99
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A residents' meeting",
+      "context": "A council officer explains improvements to a housing estate.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a council officer talking to residents about improvements to a housing estate. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 11.48
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 36.48,
+          "end": 40.75
+        },
+        {
+          "speaker": "banerjee",
+          "text": "Good evening, everyone, and thank you for coming. I'm Raj Banerjee, from the housing department, and I'm here to tell you about the improvements planned for the Elm Estate.",
+          "start": 41.65,
+          "end": 50.78
+        },
+        {
+          "speaker": "banerjee",
+          "text": "First, the money. Some residents have asked whether your rents will go up to pay for this, and I can promise you that they won't. The money comes from a lottery grant, which the council applied for last year, and we were delighted when it was approved.",
+          "start": 51.13,
+          "end": 63.54
+        },
+        {
+          "speaker": "banerjee",
+          "text": "The total is two hundred thousand pounds. It's not as much as some people hoped, so we've had to decide what comes first, and you told us in the survey that safety was the priority. So the first thing to be built will be the new lighting, along all the footpaths.",
+          "start": 63.89,
+          "end": 77.8
+        },
+        {
+          "speaker": "banerjee",
+          "text": "The play area is being moved. Many parents told us that the old one was out of sight, so they couldn't watch their children from their windows. The new one will be right in front of the main block, close to the flats.",
+          "start": 78.15,
+          "end": 88.84
+        },
+        {
+          "speaker": "banerjee",
+          "text": "There will also be a community garden, where residents can grow vegetables and herbs. The council will provide the soil, the tools and some training, and the produce will belong to whoever grows it.",
+          "start": 89.19,
+          "end": 99.9
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 100.8,
+          "end": 106.52
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 131.52,
+          "end": 135.4
+        },
+        {
+          "speaker": "banerjee",
+          "text": "Building work will start in June, as soon as the school term finishes, so that the noise doesn't disturb the children who are revising. It should be finished by the end of September.",
+          "start": 136.3,
+          "end": 146.01
+        },
+        {
+          "speaker": "banerjee",
+          "text": "There are some changes you should know about. Parking permits will be introduced, because at present people who don't live here leave their cars on the estate. Each household will get one free permit, and a second will cost a small fee.",
+          "start": 146.36,
+          "end": 158.56
+        },
+        {
+          "speaker": "banerjee",
+          "text": "From the first of next month, bins will be collected on Thursdays, not Mondays. The change is to fit in with the new rounds in the rest of the area, and there will be reminders on the notice boards.",
+          "start": 158.91,
+          "end": 169.45
+        },
+        {
+          "speaker": "banerjee",
+          "text": "We know that not everybody can come to meetings, so there will be drop-in sessions in the community hall every Saturday morning in May, where you can look at the plans and talk to the team.",
+          "start": 169.8,
+          "end": 179.31
+        },
+        {
+          "speaker": "banerjee",
+          "text": "To end tonight, we'd like you to vote on the design of the play area. There are three designs on the tables at the back. Please take a ballot paper, and the votes will be counted while we all have a cup of tea. Thank you.",
+          "start": 179.66,
+          "end": 191.01
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 191.91,
+          "end": 196.24
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Where does the money for the improvements come from?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "residents' rents"
+                },
+                {
+                  "key": "B",
+                  "text": "a lottery grant"
+                },
+                {
+                  "key": "C",
+                  "text": "the council's budget"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The money comes from a lottery grant.’",
+              "cue": "The money comes from a lottery grant"
+            },
+            {
+              "number": 12,
+              "prompt": "How much will be spent altogether?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "fifty thousand pounds"
+                },
+                {
+                  "key": "B",
+                  "text": "two hundred thousand pounds"
+                },
+                {
+                  "key": "C",
+                  "text": "five hundred thousand pounds"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The total is two hundred thousand pounds.’",
+              "cue": "The total is two hundred thousand pounds"
+            },
+            {
+              "number": 13,
+              "prompt": "What will be built first?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the play area"
+                },
+                {
+                  "key": "B",
+                  "text": "new lighting"
+                },
+                {
+                  "key": "C",
+                  "text": "the community garden"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The first thing to be built will be the new lighting.’",
+              "cue": "the first thing to be built will be the new lighting"
+            },
+            {
+              "number": 14,
+              "prompt": "Why is the play area being moved?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The old one was too noisy."
+                },
+                {
+                  "key": "B",
+                  "text": "Parents could not see the old one from their homes."
+                },
+                {
+                  "key": "C",
+                  "text": "The old one was unsafe."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘They couldn't watch their children from their windows.’",
+              "cue": "they couldn't watch their children from their windows"
+            },
+            {
+              "number": 15,
+              "prompt": "What will residents grow in the community garden?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "vegetables and herbs"
+                },
+                {
+                  "key": "B",
+                  "text": "flowers"
+                },
+                {
+                  "key": "C",
+                  "text": "trees"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Grow vegetables and herbs.’",
+              "cue": "grow vegetables and herbs"
+            },
+            {
+              "number": 16,
+              "prompt": "When will the building work start?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in March"
+                },
+                {
+                  "key": "B",
+                  "text": "in June"
+                },
+                {
+                  "key": "C",
+                  "text": "in September"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Building work will start in June.’",
+              "cue": "Building work will start in June"
+            },
+            {
+              "number": 17,
+              "prompt": "What is changing about parking?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Residents will need permits."
+                },
+                {
+                  "key": "B",
+                  "text": "All parking will be charged."
+                },
+                {
+                  "key": "C",
+                  "text": "Nothing is changing."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Parking permits will be introduced.’",
+              "cue": "Parking permits will be introduced"
+            },
+            {
+              "number": 18,
+              "prompt": "On which day will bins be collected from next month?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Monday"
+                },
+                {
+                  "key": "B",
+                  "text": "Thursday"
+                },
+                {
+                  "key": "C",
+                  "text": "Saturday"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Bins will be collected on Thursdays.’",
+              "cue": "bins will be collected on Thursdays"
+            },
+            {
+              "number": 19,
+              "prompt": "How can residents who miss the meeting see the plans?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at drop-in sessions"
+                },
+                {
+                  "key": "B",
+                  "text": "by post"
+                },
+                {
+                  "key": "C",
+                  "text": "online only"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Drop-in sessions in the community hall.’",
+              "cue": "drop-in sessions in the community hall"
+            },
+            {
+              "number": 20,
+              "prompt": "What will residents do at the end of the meeting?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "tour the estate"
+                },
+                {
+                  "key": "B",
+                  "text": "vote on the play area design"
+                },
+                {
+                  "key": "C",
+                  "text": "sign a petition"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Vote on the design of the play area.’",
+              "cue": "vote on the design of the play area"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-40/part2.mp3",
+        "duration": 227.04
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Preparing for a mock trial",
+      "context": "Two law students plan their defence in a mock trial.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two law students, Zoe and Kareem, preparing for a mock trial. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 10.9
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 35.9,
+          "end": 40.62
+        },
+        {
+          "speaker": "zoe",
+          "text": "Kareem, have you read the case file for the mock trial? We have to decide our strategy by Thursday.",
+          "start": 41.52,
+          "end": 46.79
+        },
+        {
+          "speaker": "kareem",
+          "text": "Yes. We're the defence, which is harder, because the evidence against our client looks strong.",
+          "start": 47.29,
+          "end": 52.11
+        },
+        {
+          "speaker": "zoe",
+          "text": "Remind me what the case is. A bicycle shop was broken into, wasn't it?",
+          "start": 52.61,
+          "end": 56.68
+        },
+        {
+          "speaker": "kareem",
+          "text": "Yes, a bicycle shop was burgled at night, and our client was seen in the street nearby. He says he was walking home from his sister's house.",
+          "start": 57.18,
+          "end": 64.54
+        },
+        {
+          "speaker": "zoe",
+          "text": "That's checkable. His sister can confirm the time he left.",
+          "start": 65.04,
+          "end": 68.16
+        },
+        {
+          "speaker": "kareem",
+          "text": "What will the judge want from us first?",
+          "start": 68.66,
+          "end": 70.88
+        },
+        {
+          "speaker": "zoe",
+          "text": "An opening statement, which should be short. Two minutes at most, or the jury will lose interest.",
+          "start": 71.38,
+          "end": 76.31
+        },
+        {
+          "speaker": "kareem",
+          "text": "Who'll speak?",
+          "start": 76.81,
+          "end": 77.85
+        },
+        {
+          "speaker": "zoe",
+          "text": "I'll do the opening, and you can do the cross-examination, because you're better at asking questions without getting angry.",
+          "start": 78.35,
+          "end": 84.6
+        },
+        {
+          "speaker": "kareem",
+          "text": "Thanks, I think. One risk is that our client may not be a good witness. He gets very nervous.",
+          "start": 85.1,
+          "end": 90.14
+        },
+        {
+          "speaker": "zoe",
+          "text": "Then we'll practise with him on Monday. Dr Walsh said the role-play will be recorded, so that we get feedback.",
+          "start": 90.64,
+          "end": 96.27
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 97.17,
+          "end": 103.31
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 123.31,
+          "end": 127.15
+        },
+        {
+          "speaker": "zoe",
+          "text": "Let's go through the evidence one piece at a time. The neighbour's statement first.",
+          "start": 128.05,
+          "end": 132.13
+        },
+        {
+          "speaker": "kareem",
+          "text": "She says she saw him at ten, but she wears glasses, and it was dark, so I'd say it's unreliable.",
+          "start": 132.63,
+          "end": 137.9
+        },
+        {
+          "speaker": "zoe",
+          "text": "The CCTV footage?",
+          "start": 138.4,
+          "end": 140.29
+        },
+        {
+          "speaker": "kareem",
+          "text": "It's blurred, and you can't see the face, but it supports the defence, because the person on it is much taller than our client.",
+          "start": 140.79,
+          "end": 147.26
+        },
+        {
+          "speaker": "zoe",
+          "text": "The police report?",
+          "start": 147.76,
+          "end": 149.23
+        },
+        {
+          "speaker": "kareem",
+          "text": "It was written three days later, which is far too late, so we can challenge many of the details.",
+          "start": 149.73,
+          "end": 154.91
+        },
+        {
+          "speaker": "zoe",
+          "text": "The expert witness on fingerprints?",
+          "start": 155.41,
+          "end": 157.55
+        },
+        {
+          "speaker": "kareem",
+          "text": "She'll use a lot of technical language, and the jury won't understand it, so we must ask her to explain in simple terms.",
+          "start": 158.05,
+          "end": 164.75
+        },
+        {
+          "speaker": "zoe",
+          "text": "And the shop owner's statement?",
+          "start": 165.25,
+          "end": 167.06
+        },
+        {
+          "speaker": "kareem",
+          "text": "He gives a different time from the neighbour's, so they contradict each other, and that is our best point. Shall we write it up?",
+          "start": 167.56,
+          "end": 173.53
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 174.43,
+          "end": 178.89
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What is the mock trial case about?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a burglary at a bicycle shop"
+                },
+                {
+                  "key": "B",
+                  "text": "a car accident"
+                },
+                {
+                  "key": "C",
+                  "text": "a stolen painting"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘A bicycle shop was burgled at night.’",
+              "cue": "a bicycle shop was burgled at night"
+            },
+            {
+              "number": 22,
+              "prompt": "Who can support the client's story?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "his sister"
+                },
+                {
+                  "key": "B",
+                  "text": "his employer"
+                },
+                {
+                  "key": "C",
+                  "text": "a neighbour"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘His sister can confirm the time he left.’",
+              "cue": "His sister can confirm the time he left"
+            },
+            {
+              "number": 23,
+              "prompt": "How long should the opening statement be?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one minute"
+                },
+                {
+                  "key": "B",
+                  "text": "two minutes"
+                },
+                {
+                  "key": "C",
+                  "text": "five minutes"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Two minutes at most.’",
+              "cue": "Two minutes at most"
+            },
+            {
+              "number": 24,
+              "prompt": "Why will Kareem do the cross-examination?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He can stay calm."
+                },
+                {
+                  "key": "B",
+                  "text": "He has studied it before."
+                },
+                {
+                  "key": "C",
+                  "text": "Zoe dislikes it."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Better at asking questions without getting angry.’",
+              "cue": "better at asking questions without getting angry"
+            },
+            {
+              "number": 25,
+              "prompt": "What will happen on Monday?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The students will practise with the client."
+                },
+                {
+                  "key": "B",
+                  "text": "The trial will take place."
+                },
+                {
+                  "key": "C",
+                  "text": "They will meet the judge."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We'll practise with him on Monday.’",
+              "cue": "we'll practise with him on Monday"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What does Kareem say about each piece of evidence? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is unreliable."
+            },
+            {
+              "key": "B",
+              "text": "It supports the defence."
+            },
+            {
+              "key": "C",
+              "text": "It was written too late."
+            },
+            {
+              "key": "D",
+              "text": "It is too technical."
+            },
+            {
+              "key": "E",
+              "text": "It contradicts another statement."
+            },
+            {
+              "key": "F",
+              "text": "It is the strongest evidence for the prosecution."
+            },
+            {
+              "key": "G",
+              "text": "It should be ignored."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "the neighbour's statement",
+              "answer": "A",
+              "explanation": "‘I'd say it's unreliable.’",
+              "cue": "I'd say it's unreliable"
+            },
+            {
+              "number": 27,
+              "prompt": "the CCTV footage",
+              "answer": "B",
+              "explanation": "‘It supports the defence.’",
+              "cue": "it supports the defence"
+            },
+            {
+              "number": 28,
+              "prompt": "the police report",
+              "answer": "C",
+              "explanation": "‘It was written three days later, which is far too late.’",
+              "cue": "It was written three days later, which is far too late"
+            },
+            {
+              "number": 29,
+              "prompt": "the expert witness",
+              "answer": "D",
+              "explanation": "‘She'll use a lot of technical language.’",
+              "cue": "She'll use a lot of technical language"
+            },
+            {
+              "number": 30,
+              "prompt": "the shop owner's statement",
+              "answer": "E",
+              "explanation": "‘They contradict each other.’",
+              "cue": "they contradict each other"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-40/part3.mp3",
+        "duration": 209.69
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the Great Fire of London",
+      "context": "A history lecture on the fire of 1666.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the Great Fire of London. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.94
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.94,
+          "end": 43.36
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. In September sixteen sixty-six, a fire destroyed most of the old city of London. It is one of the best-known disasters in English history, and it started in a very ordinary place: a bakery in Pudding Lane.",
+          "start": 44.26,
+          "end": 58.02
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Why did it spread so quickly? The houses were built mostly of timber, and covered with tar to keep out the rain, and they were packed closely together, with the upper floors leaning towards each other across the narrow streets. The summer had been very dry, and on that Sunday night there was a strong wind blowing from the east, which carried burning pieces from house to house.",
+          "start": 58.37,
+          "end": 77.48
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The fire burned for four days. By the time it was under control, about thirteen thousand houses and eighty-seven churches had been destroyed, including the old St Paul's Cathedral, and most of the city's people had lost their homes.",
+          "start": 77.83,
+          "end": 91.4
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Surprisingly, the official number of deaths was very low, only a handful were recorded, although historians suspect that the poor were simply not counted.",
+          "start": 91.75,
+          "end": 100.86
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The fighting of the fire was chaotic. The most effective method was to demolish houses ahead of the flames, to make gaps that the fire could not cross, and sometimes gunpowder was used to blow the buildings up. But at first the Lord Mayor hesitated, because he didn't want to destroy people's property.",
+          "start": 101.21,
+          "end": 118.21
+        },
+        {
+          "speaker": "lecturer",
+          "text": "We know so much about the fire largely thanks to Samuel Pepys, who kept a famous diary. He watched the fire from a boat on the river, as the best way to get a view, and wrote vivid descriptions of what he saw.",
+          "start": 118.56,
+          "end": 130.57
+        },
+        {
+          "speaker": "lecturer",
+          "text": "After the fire, the city was rebuilt. The architect Christopher Wren designed a new cathedral, which is the St Paul's we see today, and new houses were required to be made of brick or stone, with wider streets. And a tall column, called the Monument, was built close to the spot where the fire started, as a memorial. Next week we'll look at the Plague.",
+          "start": 130.92,
+          "end": 149.33
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 150.23,
+          "end": 154.63
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 184.63,
+          "end": 187.34
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "The Great Fire of London",
+          "content": [
+            "## Causes",
+            "• The fire started in a {{31}} in Pudding Lane",
+            "• Houses were mostly built of {{32}} and packed closely together",
+            "• A dry summer and a strong {{33}} helped the fire to spread",
+            "## Effects",
+            "• The fire burned for {{34}} days",
+            "• Thirteen thousand houses and eighty-seven {{35}} were destroyed",
+            "• The official number of deaths was very {{36}}",
+            "## Fighting the fire",
+            "• Houses were demolished, sometimes with {{37}}",
+            "## Afterwards",
+            "• Samuel Pepys watched the fire from a {{38}}",
+            "• Christopher Wren designed a new {{39}}",
+            "• A tall column called the {{40}} was built as a memorial"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "bakery"
+              ],
+              "explanation": "‘A bakery in Pudding Lane.’",
+              "cue": "a bakery in Pudding Lane"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "timber"
+              ],
+              "explanation": "‘Built mostly of timber.’",
+              "cue": "built mostly of timber"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "wind"
+              ],
+              "explanation": "‘A strong wind blowing from the east.’",
+              "cue": "a strong wind blowing from the east"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "4",
+                "four"
+              ],
+              "explanation": "‘The fire burned for four days.’",
+              "cue": "The fire burned for four days"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "churches"
+              ],
+              "explanation": "‘Eighty-seven churches.’",
+              "cue": "eighty-seven churches"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "low"
+              ],
+              "explanation": "‘The official number of deaths was very low.’",
+              "cue": "the official number of deaths was very low"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "gunpowder"
+              ],
+              "explanation": "‘Gunpowder was used to blow the buildings up.’",
+              "cue": "gunpowder was used to blow the buildings up"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "boat"
+              ],
+              "explanation": "‘From a boat on the river.’",
+              "cue": "from a boat on the river"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "cathedral"
+              ],
+              "explanation": "‘Designed a new cathedral.’",
+              "cue": "designed a new cathedral"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "Monument"
+              ],
+              "explanation": "‘Called the Monument.’",
+              "cue": "called the Monument"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-40/part4.mp3",
+        "duration": 188.14
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

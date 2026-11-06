@@ -1,0 +1,1273 @@
+{
+  "id": "listening-45",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 45",
+  "shortTitle": "Practice Test 45",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 45,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "hazel": {
+      "name": "Hazel",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "emma": {
+      "name": "Emma",
+      "voice": "af_nicole",
+      "lang": "en-us"
+    },
+    "ross": {
+      "name": "Mr Ross",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "noor": {
+      "name": "Noor",
+      "voice": "af_sky",
+      "lang": "en-us"
+    },
+    "felix": {
+      "name": "Felix",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Arranging pet care",
+      "context": "A woman arranges for her dog and parrot to be looked after.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman phoning a pet-sitting service to arrange care for her pets. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.07
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.07,
+          "end": 39.14
+        },
+        {
+          "speaker": "hazel",
+          "text": "Pawsitive Pet Care, Hazel speaking.",
+          "start": 40.04,
+          "end": 42.51
+        },
+        {
+          "speaker": "emma",
+          "text": "Hello. I'm going away on holiday, and I need someone to look after my pets. I have two of them, and they're quite different.",
+          "start": 43.01,
+          "end": 53.94
+        },
+        {
+          "speaker": "hazel",
+          "text": "That's fine. I'll take some details, and then we can talk about what they need.",
+          "start": 54.44,
+          "end": 58.75
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller has two pets, so 'two' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 59.65,
+          "end": 73.92
+        },
+        {
+          "speaker": "hazel",
+          "text": "Could I have your name, please?",
+          "start": 74.82,
+          "end": 76.76
+        },
+        {
+          "speaker": "emma",
+          "text": "Emma Brooks. That's B-R-O-O-K-S.",
+          "start": 77.26,
+          "end": 82.94
+        },
+        {
+          "speaker": "hazel",
+          "text": "Thank you, Mrs Brooks. What are your pets?",
+          "start": 83.44,
+          "end": 85.83
+        },
+        {
+          "speaker": "emma",
+          "text": "A dog called Biscuit, and a parrot called Mango.",
+          "start": 86.33,
+          "end": 90.49
+        },
+        {
+          "speaker": "hazel",
+          "text": "How old is Biscuit?",
+          "start": 90.99,
+          "end": 92.7
+        },
+        {
+          "speaker": "emma",
+          "text": "He's eight, so he's not so lively as he was, but he still loves his walks.",
+          "start": 93.2,
+          "end": 99.7
+        },
+        {
+          "speaker": "hazel",
+          "text": "And when will you be away?",
+          "start": 100.2,
+          "end": 102.06
+        },
+        {
+          "speaker": "emma",
+          "text": "From the ninth of July.",
+          "start": 102.56,
+          "end": 104.29
+        },
+        {
+          "speaker": "hazel",
+          "text": "How long for?",
+          "start": 104.79,
+          "end": 106.18
+        },
+        {
+          "speaker": "emma",
+          "text": "Ten days. We'll be back on the nineteenth.",
+          "start": 106.68,
+          "end": 110.17
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 111.07,
+          "end": 116.79
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 136.79,
+          "end": 140.12
+        },
+        {
+          "speaker": "hazel",
+          "text": "How often does Biscuit need walking?",
+          "start": 141.02,
+          "end": 143.47
+        },
+        {
+          "speaker": "emma",
+          "text": "Twice a day, once in the morning and once in the evening, for about half an hour each time.",
+          "start": 143.97,
+          "end": 151.95
+        },
+        {
+          "speaker": "hazel",
+          "text": "Has he got any special needs?",
+          "start": 152.45,
+          "end": 154.44
+        },
+        {
+          "speaker": "emma",
+          "text": "He mustn't be given bones. He has sensitive teeth, and the vet advised us to avoid them. He eats dry food, and the right amount is written on the bag.",
+          "start": 154.94,
+          "end": 169.21
+        },
+        {
+          "speaker": "hazel",
+          "text": "And the parrot?",
+          "start": 169.71,
+          "end": 170.92
+        },
+        {
+          "speaker": "emma",
+          "text": "Mango has to be covered at nine in the evening, or she doesn't sleep. She talks all day, so don't be surprised if she sounds like me.",
+          "start": 171.42,
+          "end": 183.22
+        },
+        {
+          "speaker": "hazel",
+          "text": "That's lovely. How will I get into the house?",
+          "start": 183.72,
+          "end": 186.2
+        },
+        {
+          "speaker": "emma",
+          "text": "I'll leave a key with my neighbour, Mrs Patel, at number twelve. She'll give it to you. Please ring her before you come.",
+          "start": 186.7,
+          "end": 197.0
+        },
+        {
+          "speaker": "hazel",
+          "text": "And in case of an emergency?",
+          "start": 197.5,
+          "end": 199.68
+        },
+        {
+          "speaker": "emma",
+          "text": "Our vet is Dr Singh, that's S-I-N-G-H, and her number is on the fridge, together with mine. Thank you so much, Hazel.",
+          "start": 200.18,
+          "end": 213.11
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 214.01,
+          "end": 218.54
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Pawsitive Pet Care – booking",
+          "content": [
+            "Example: The caller has **two** pets",
+            "## Details",
+            "• Name: Emma {{1}}",
+            "• Pets: a dog called Biscuit and a {{2}} called Mango",
+            "• Biscuit is {{3}} years old",
+            "• Away from the {{4}} of July",
+            "• Number of days: {{5}}",
+            "## Instructions",
+            "• Biscuit needs walking {{6}} times a day",
+            "• Biscuit must not be given {{7}}",
+            "• Mango must be covered at {{8}} p.m.",
+            "• The key will be left with the {{9}}",
+            "• The vet is Dr {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Brooks"
+              ],
+              "explanation": "‘B-R-O-O-K-S.’",
+              "cue": "B-R-O-O-K-S"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "parrot"
+              ],
+              "explanation": "‘A parrot called Mango.’",
+              "cue": "a parrot called Mango"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "8",
+                "eight"
+              ],
+              "explanation": "‘He's eight.’",
+              "cue": "He's eight"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "9",
+                "ninth",
+                "9th"
+              ],
+              "explanation": "‘From the ninth of July.’",
+              "cue": "From the ninth of July"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "10",
+                "ten"
+              ],
+              "explanation": "‘Ten days.’",
+              "cue": "Ten days"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "2",
+                "two",
+                "twice"
+              ],
+              "explanation": "‘Twice a day.’",
+              "cue": "Twice a day"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "bones"
+              ],
+              "explanation": "‘He mustn't be given bones.’",
+              "cue": "He mustn't be given bones"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "9",
+                "nine"
+              ],
+              "explanation": "‘Covered at nine in the evening.’",
+              "cue": "covered at nine in the evening"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "neighbour",
+                "neighbor"
+              ],
+              "explanation": "‘I'll leave a key with my neighbour.’",
+              "cue": "I'll leave a key with my neighbour"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "Singh"
+              ],
+              "explanation": "‘S-I-N-G-H.’",
+              "cue": "S-I-N-G-H"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-45/part1.mp3",
+        "duration": 249.34
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Volunteering at an animal shelter",
+      "context": "A manager briefs new volunteers at an animal shelter.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the manager of an animal shelter talking to new volunteers. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.26
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.26,
+          "end": 39.53
+        },
+        {
+          "speaker": "ross",
+          "text": "Welcome, everybody, and thank you for offering to help at Greenfield Animal Shelter. I'm Mike Ross, the manager, and I'll explain how we work.",
+          "start": 40.43,
+          "end": 48.67
+        },
+        {
+          "speaker": "ross",
+          "text": "At the moment, we look after about a hundred and twenty animals. Most are dogs and cats, but we also have rabbits, some birds, and, at the moment, a very friendly goat.",
+          "start": 49.02,
+          "end": 58.49
+        },
+        {
+          "speaker": "ross",
+          "text": "People often think that most of our animals are given up by owners who can't keep them. In fact, most are strays, brought in by members of the public who find them wandering in the streets.",
+          "start": 58.84,
+          "end": 68.69
+        },
+        {
+          "speaker": "ross",
+          "text": "On average, an animal stays with us for about six weeks, although some are rehomed in days, and a few of the older ones stay for months.",
+          "start": 69.04,
+          "end": 76.66
+        },
+        {
+          "speaker": "ross",
+          "text": "Before an animal can be rehomed, it has a full check by the vet, and receives all its vaccinations. We also check the new home before the animal moves.",
+          "start": 77.01,
+          "end": 85.63
+        },
+        {
+          "speaker": "ross",
+          "text": "We receive no government money. Almost everything we spend comes from donations, so every pound counts, and our charity shop on the high street helps a great deal.",
+          "start": 85.98,
+          "end": 95.3
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 96.2,
+          "end": 101.92
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 126.92,
+          "end": 130.8
+        },
+        {
+          "speaker": "ross",
+          "text": "Now, what will you be doing? Volunteers walk the dogs, which they love, and they clean the kennels and the cat pens, which they love rather less. Medicine is only given by the vet nurses, and training is done by our staff, so you won't need to worry about those.",
+          "start": 131.7,
+          "end": 145.33
+        },
+        {
+          "speaker": "ross",
+          "text": "You must be at least eighteen years old to volunteer, because you'll be working with animals that are sometimes frightened or unpredictable.",
+          "start": 145.68,
+          "end": 152.89
+        },
+        {
+          "speaker": "ross",
+          "text": "Everyone starts with an induction, which takes one morning. We show you round, explain the safety rules, and you'll meet the animals you'll be looking after.",
+          "start": 153.24,
+          "end": 161.61
+        },
+        {
+          "speaker": "ross",
+          "text": "A last word about safety. If you are bitten or scratched, however slightly, please tell me or a member of staff at once. It's very rare, but we must record every incident and clean the wound properly.",
+          "start": 161.96,
+          "end": 173.13
+        },
+        {
+          "speaker": "ross",
+          "text": "Now, if you're ready, we'll start the tour with the dogs, which is usually everyone's favourite.",
+          "start": 173.48,
+          "end": 178.65
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 179.55,
+          "end": 183.88
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "How many animals does the shelter look after?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about forty"
+                },
+                {
+                  "key": "B",
+                  "text": "about a hundred and twenty"
+                },
+                {
+                  "key": "C",
+                  "text": "about three hundred"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About a hundred and twenty animals.’",
+              "cue": "about a hundred and twenty animals"
+            },
+            {
+              "number": 12,
+              "prompt": "Where do most of the animals come from?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "from owners who can't keep them"
+                },
+                {
+                  "key": "B",
+                  "text": "from the public who find strays"
+                },
+                {
+                  "key": "C",
+                  "text": "from farms"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Most are strays.’",
+              "cue": "most are strays"
+            },
+            {
+              "number": 13,
+              "prompt": "How long does an animal stay on average?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "two weeks"
+                },
+                {
+                  "key": "B",
+                  "text": "six weeks"
+                },
+                {
+                  "key": "C",
+                  "text": "six months"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About six weeks.’",
+              "cue": "about six weeks"
+            },
+            {
+              "number": 14,
+              "prompt": "What happens to every animal before it is rehomed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It has a vet check and vaccinations."
+                },
+                {
+                  "key": "B",
+                  "text": "It goes on a training course."
+                },
+                {
+                  "key": "C",
+                  "text": "It spends a week in a trial home."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘A full check by the vet, and receives all its vaccinations.’",
+              "cue": "a full check by the vet, and receives all its vaccinations"
+            },
+            {
+              "number": 15,
+              "prompt": "How is the shelter mainly funded?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by the government"
+                },
+                {
+                  "key": "B",
+                  "text": "by donations"
+                },
+                {
+                  "key": "C",
+                  "text": "by selling pets"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Almost everything we spend comes from donations.’",
+              "cue": "Almost everything we spend comes from donations"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO jobs will volunteers do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "walking dogs"
+            },
+            {
+              "key": "B",
+              "text": "cleaning kennels and pens"
+            },
+            {
+              "key": "C",
+              "text": "giving medicine"
+            },
+            {
+              "key": "D",
+              "text": "training the animals"
+            },
+            {
+              "key": "E",
+              "text": "driving ambulances"
+            }
+          ],
+          "answer": [
+            "A",
+            "B"
+          ],
+          "explanation": "Volunteers walk dogs (A) and clean kennels and pens (B). Medicine and training are done by staff.",
+          "questions": [
+            {
+              "number": 16,
+              "cue": "Volunteers walk the dogs"
+            },
+            {
+              "number": 17,
+              "cue": "they clean the kennels and the cat pens"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 18,
+              "prompt": "How old must volunteers be?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "sixteen"
+                },
+                {
+                  "key": "B",
+                  "text": "eighteen"
+                },
+                {
+                  "key": "C",
+                  "text": "twenty-one"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘At least eighteen years old.’",
+              "cue": "at least eighteen years old"
+            },
+            {
+              "number": 19,
+              "prompt": "How long is the induction?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one morning"
+                },
+                {
+                  "key": "B",
+                  "text": "two days"
+                },
+                {
+                  "key": "C",
+                  "text": "a week"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘An induction, which takes one morning.’",
+              "cue": "an induction, which takes one morning"
+            },
+            {
+              "number": 20,
+              "prompt": "What should a volunteer do if bitten or scratched?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "tell a member of staff at once"
+                },
+                {
+                  "key": "B",
+                  "text": "go home"
+                },
+                {
+                  "key": "C",
+                  "text": "carry on working"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Please tell me or a member of staff at once.’",
+              "cue": "please tell me or a member of staff at once"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-45/part2.mp3",
+        "duration": 214.68
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Music composition assignments",
+      "context": "Two music students discuss their compositions and concert.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two music students, Noor and Felix, discussing their composition assignments. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 11.69
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 36.69,
+          "end": 41.41
+        },
+        {
+          "speaker": "felix",
+          "text": "Noor, how's the composition going? Dr Marsh said that the final piece must be for a small group of players.",
+          "start": 42.31,
+          "end": 48.24
+        },
+        {
+          "speaker": "noor",
+          "text": "I've settled on a piece for piano and flute. I thought about adding a violin, but I couldn't find a player.",
+          "start": 48.74,
+          "end": 54.41
+        },
+        {
+          "speaker": "felix",
+          "text": "Why the flute?",
+          "start": 54.91,
+          "end": 56.17
+        },
+        {
+          "speaker": "noor",
+          "text": "It can sound like the wind, which suits my theme, a journey across the sea. How long is yours supposed to be?",
+          "start": 56.67,
+          "end": 62.92
+        },
+        {
+          "speaker": "felix",
+          "text": "The brief says between four and six minutes. Mine is exactly five.",
+          "start": 63.42,
+          "end": 67.6
+        },
+        {
+          "speaker": "noor",
+          "text": "Have you written it all out yet?",
+          "start": 68.1,
+          "end": 70.02
+        },
+        {
+          "speaker": "felix",
+          "text": "I'm using notation software, because my handwriting is terrible, but I always start at the piano, trying out ideas.",
+          "start": 70.52,
+          "end": 77.07
+        },
+        {
+          "speaker": "noor",
+          "text": "My problem is the ending. Mine just seems to stop.",
+          "start": 77.57,
+          "end": 80.88
+        },
+        {
+          "speaker": "felix",
+          "text": "Dr Marsh said that endings are the hardest part. The best advice she gave me was to repeat the opening idea, but more slowly, so that it feels like coming home.",
+          "start": 81.38,
+          "end": 90.34
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 91.24,
+          "end": 97.38
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 117.38,
+          "end": 121.22
+        },
+        {
+          "speaker": "felix",
+          "text": "Who's going to perform the pieces? We need players for the concert.",
+          "start": 122.12,
+          "end": 125.67
+        },
+        {
+          "speaker": "noor",
+          "text": "The department can find students from the performance course, but we have to book rehearsals by Friday, or all the slots will be taken.",
+          "start": 126.17,
+          "end": 133.65
+        },
+        {
+          "speaker": "felix",
+          "text": "I'm going to play my own piece on the guitar, so I don't need to find anyone.",
+          "start": 134.15,
+          "end": 138.29
+        },
+        {
+          "speaker": "noor",
+          "text": "Lucky you. The concert is in the chapel, so the acoustics are very good, although it's cold in there, so wear a coat.",
+          "start": 138.79,
+          "end": 145.09
+        },
+        {
+          "speaker": "felix",
+          "text": "How will we be marked?",
+          "start": 145.59,
+          "end": 147.06
+        },
+        {
+          "speaker": "noor",
+          "text": "Half for the composition itself, and half for a written commentary, explaining the choices we made.",
+          "start": 147.56,
+          "end": 153.02
+        },
+        {
+          "speaker": "felix",
+          "text": "When is the commentary due?",
+          "start": 153.52,
+          "end": 155.37
+        },
+        {
+          "speaker": "noor",
+          "text": "A week after the concert, so you can include comments from the audience.",
+          "start": 155.87,
+          "end": 159.8
+        },
+        {
+          "speaker": "felix",
+          "text": "Right, I'll write notes in the rehearsal breaks. Let's meet next week to compare.",
+          "start": 160.3,
+          "end": 164.69
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 165.59,
+          "end": 170.05
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO instruments will Noor's piece use?",
+          "options": [
+            {
+              "key": "A",
+              "text": "piano"
+            },
+            {
+              "key": "B",
+              "text": "violin"
+            },
+            {
+              "key": "C",
+              "text": "flute"
+            },
+            {
+              "key": "D",
+              "text": "drums"
+            },
+            {
+              "key": "E",
+              "text": "guitar"
+            }
+          ],
+          "answer": [
+            "A",
+            "C"
+          ],
+          "explanation": "Noor's piece is for piano (A) and flute (C). She could not find a violin player.",
+          "questions": [
+            {
+              "number": 21,
+              "cue": "a piece for piano and flute"
+            },
+            {
+              "number": 22,
+              "cue": "It can sound like the wind"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 23,
+              "prompt": "How long is Noor's piece?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "four minutes"
+                },
+                {
+                  "key": "B",
+                  "text": "five minutes"
+                },
+                {
+                  "key": "C",
+                  "text": "six minutes"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Mine is exactly five.’",
+              "cue": "Mine is exactly five"
+            },
+            {
+              "number": 24,
+              "prompt": "How does Noor begin composing?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the piano"
+                },
+                {
+                  "key": "B",
+                  "text": "on the computer"
+                },
+                {
+                  "key": "C",
+                  "text": "by singing"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I always start at the piano.’",
+              "cue": "I always start at the piano"
+            },
+            {
+              "number": 25,
+              "prompt": "What advice about endings did Dr Marsh give Noor?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "repeat the opening idea more slowly"
+                },
+                {
+                  "key": "B",
+                  "text": "finish very quietly"
+                },
+                {
+                  "key": "C",
+                  "text": "change the key"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Repeat the opening idea, but more slowly.’",
+              "cue": "repeat the opening idea, but more slowly"
+            },
+            {
+              "number": 26,
+              "prompt": "By when must rehearsals be booked?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Wednesday"
+                },
+                {
+                  "key": "B",
+                  "text": "Friday"
+                },
+                {
+                  "key": "C",
+                  "text": "next week"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘We have to book rehearsals by Friday.’",
+              "cue": "we have to book rehearsals by Friday"
+            },
+            {
+              "number": 27,
+              "prompt": "What will Felix do for his performance?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "play the guitar himself"
+                },
+                {
+                  "key": "B",
+                  "text": "ask a friend to play"
+                },
+                {
+                  "key": "C",
+                  "text": "use a recording"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I'm going to play my own piece on the guitar.’",
+              "cue": "I'm going to play my own piece on the guitar"
+            },
+            {
+              "number": 28,
+              "prompt": "What is special about the concert venue?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It has very good acoustics."
+                },
+                {
+                  "key": "B",
+                  "text": "It is very small."
+                },
+                {
+                  "key": "C",
+                  "text": "It is outdoors."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The acoustics are very good.’",
+              "cue": "the acoustics are very good"
+            },
+            {
+              "number": 29,
+              "prompt": "How much of the mark is for the commentary?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a quarter"
+                },
+                {
+                  "key": "B",
+                  "text": "a half"
+                },
+                {
+                  "key": "C",
+                  "text": "a third"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Half for the composition itself, and half for a written commentary.’",
+              "cue": "Half for the composition itself, and half for a written commentary"
+            },
+            {
+              "number": 30,
+              "prompt": "When is the commentary due?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "on the day of the concert"
+                },
+                {
+                  "key": "B",
+                  "text": "a week after the concert"
+                },
+                {
+                  "key": "C",
+                  "text": "at the end of term"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A week after the concert.’",
+              "cue": "A week after the concert"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-45/part3.mp3",
+        "duration": 200.85
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how earthquakes are measured",
+      "context": "A geology lecture on earthquake waves and scales.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how earthquakes are measured. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.96
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.96,
+          "end": 43.38
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Earthquakes are among the most destructive natural events, and yet, until the twentieth century, there was no reliable way to compare one with another. Today I'll explain how scientists measure them.",
+          "start": 44.28,
+          "end": 56.31
+        },
+        {
+          "speaker": "lecturer",
+          "text": "First, what causes an earthquake? The Earth's crust is divided into huge pieces called tectonic plates, which move very slowly against each other. Sometimes the edges get stuck, and the pressure builds up, until the rock suddenly slips and releases a great amount of energy, which travels outward as waves.",
+          "start": 56.66,
+          "end": 73.81
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The point underground where the rock first slips is called the focus. The point on the surface directly above it is the epicentre, and that is usually where the shaking is strongest.",
+          "start": 74.16,
+          "end": 83.98
+        },
+        {
+          "speaker": "lecturer",
+          "text": "There are two main kinds of wave. The P waves are the fastest, so they reach a recording station first. The S waves arrive later, and they do much more damage. The difference between their arrival times shows how far away the earthquake was.",
+          "start": 84.33,
+          "end": 97.87
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The waves are recorded by an instrument called a seismograph, which draws a line that stays flat when the ground is still and wiggles when it shakes.",
+          "start": 98.22,
+          "end": 106.07
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The best known measure is the Richter scale, devised in nineteen thirty-five by Charles Richter for the state of California. Each whole number on the scale means that the ground motion is ten times bigger, so a magnitude seven earthquake shakes the ground ten times as much as a magnitude six.",
+          "start": 106.42,
+          "end": 123.02
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A different system, the Mercalli scale, measures the intensity of the shaking, not the energy released. It uses Roman numerals, and describes the effects, from hardly noticed to total destruction. So the same earthquake has one magnitude, but a different intensity in each place.",
+          "start": 123.37,
+          "end": 138.97
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Many of the world's earthquakes occur around the Pacific Ocean, in a belt known as the Ring of Fire. Despite decades of research, earthquakes cannot be predicted, but early warning systems that detect the P waves can give people a few seconds of notice. Next week we'll look at tsunamis.",
+          "start": 139.32,
+          "end": 155.64
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 156.54,
+          "end": 160.93
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 190.93,
+          "end": 193.64
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "How earthquakes are measured",
+          "content": [
+            "## Causes",
+            "• Earthquakes happen when tectonic {{31}} suddenly slip",
+            "• The point underground where it starts is the {{32}}",
+            "• The point directly above it is the {{33}}",
+            "## Waves and measurement",
+            "• P waves are the {{34}} waves",
+            "• An instrument called a {{35}} records the waves",
+            "• The Richter scale was devised for the state of {{36}}",
+            "• Each whole number means the ground motion is ten {{37}} bigger",
+            "• The Mercalli scale measures the {{38}} of the shaking",
+            "## Other facts",
+            "• Many earthquakes occur in the Pacific Ring of {{39}}",
+            "• Earthquakes cannot be {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "plates"
+              ],
+              "explanation": "‘Tectonic plates.’",
+              "cue": "tectonic plates"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "focus"
+              ],
+              "explanation": "‘Is called the focus.’",
+              "cue": "is called the focus"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "epicentre",
+                "epicenter"
+              ],
+              "explanation": "‘Is the epicentre.’",
+              "cue": "is the epicentre"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "fastest"
+              ],
+              "explanation": "‘The P waves are the fastest.’",
+              "cue": "The P waves are the fastest"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "seismograph",
+                "seismometer"
+              ],
+              "explanation": "‘An instrument called a seismograph.’",
+              "cue": "an instrument called a seismograph"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "California"
+              ],
+              "explanation": "‘For the state of California.’",
+              "cue": "for the state of California"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "times"
+              ],
+              "explanation": "‘Ten times bigger.’",
+              "cue": "ten times bigger"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "intensity"
+              ],
+              "explanation": "‘Measures the intensity of the shaking.’",
+              "cue": "measures the intensity of the shaking"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "Fire"
+              ],
+              "explanation": "‘The Ring of Fire.’",
+              "cue": "the Ring of Fire"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "predicted",
+                "predict"
+              ],
+              "explanation": "‘Earthquakes cannot be predicted.’",
+              "cue": "earthquakes cannot be predicted"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-45/part4.mp3",
+        "duration": 194.44
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

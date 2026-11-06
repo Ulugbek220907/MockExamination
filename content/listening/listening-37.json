@@ -1,0 +1,1338 @@
+{
+  "id": "listening-37",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 37",
+  "shortTitle": "Practice Test 37",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 37,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "lucy": {
+      "name": "Lucy",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "mark": {
+      "name": "Mark",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "guide": {
+      "name": "Guide",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "tara": {
+      "name": "Tara",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "ben": {
+      "name": "Ben",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a balloon flight",
+      "context": "A man books a hot-air balloon flight as a birthday present.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a company to book a hot-air balloon flight. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.37
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.37,
+          "end": 38.43
+        },
+        {
+          "speaker": "lucy",
+          "text": "Skyhigh Balloon Flights, Lucy speaking.",
+          "start": 39.33,
+          "end": 42.0
+        },
+        {
+          "speaker": "mark",
+          "text": "Hello. I'd like to book a balloon flight, please. It's a present for my wife's birthday, and I want it to be a surprise.",
+          "start": 42.5,
+          "end": 49.84
+        },
+        {
+          "speaker": "lucy",
+          "text": "How lovely. I'll take some details first.",
+          "start": 50.34,
+          "end": 53.01
+        },
+        {
+          "speaker": "narrator",
+          "text": "The flight is a birthday present, so 'birthday' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.91,
+          "end": 68.86
+        },
+        {
+          "speaker": "lucy",
+          "text": "Could I have your name, please?",
+          "start": 69.76,
+          "end": 71.81
+        },
+        {
+          "speaker": "mark",
+          "text": "Mark Holloway. That's H-O-L-L-O-W-A-Y.",
+          "start": 72.31,
+          "end": 79.15
+        },
+        {
+          "speaker": "lucy",
+          "text": "Thank you, Mr Holloway. How many passengers will there be?",
+          "start": 79.65,
+          "end": 82.91
+        },
+        {
+          "speaker": "mark",
+          "text": "Two, my wife and me. We did think of bringing our son, but he's too young.",
+          "start": 83.41,
+          "end": 87.79
+        },
+        {
+          "speaker": "lucy",
+          "text": "And which date would you like?",
+          "start": 88.29,
+          "end": 90.23
+        },
+        {
+          "speaker": "mark",
+          "text": "Saturday the sixth of September, if there's space.",
+          "start": 90.73,
+          "end": 93.56
+        },
+        {
+          "speaker": "lucy",
+          "text": "There is. Flights usually start at five in the morning, but later in September the sun rises later, so we'll meet at six o'clock.",
+          "start": 94.06,
+          "end": 101.42
+        },
+        {
+          "speaker": "mark",
+          "text": "That's early, but fine. Where do we meet?",
+          "start": 101.92,
+          "end": 104.42
+        },
+        {
+          "speaker": "lucy",
+          "text": "At Oakfield Farm, near Bridgewater. There's a sign at the end of the lane, and our team will be there with the balloon.",
+          "start": 104.92,
+          "end": 111.09
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 111.99,
+          "end": 117.7
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 137.7,
+          "end": 141.03
+        },
+        {
+          "speaker": "lucy",
+          "text": "The flight itself lasts about an hour, although the whole morning takes around four hours with the preparation and the trip back.",
+          "start": 141.93,
+          "end": 148.99
+        },
+        {
+          "speaker": "mark",
+          "text": "And the price?",
+          "start": 149.49,
+          "end": 150.67
+        },
+        {
+          "speaker": "lucy",
+          "text": "It's ninety-five pounds each. It was ninety last year, but fuel has become more expensive.",
+          "start": 151.17,
+          "end": 156.58
+        },
+        {
+          "speaker": "mark",
+          "text": "What should we wear?",
+          "start": 157.08,
+          "end": 158.36
+        },
+        {
+          "speaker": "lucy",
+          "text": "Warm clothes, because it's colder in the air, and sturdy shoes, as the field can be muddy. Please don't wear sandals or high heels.",
+          "start": 158.86,
+          "end": 165.9
+        },
+        {
+          "speaker": "mark",
+          "text": "What happens if the weather is bad?",
+          "start": 166.4,
+          "end": 168.54
+        },
+        {
+          "speaker": "lucy",
+          "text": "Balloons can't fly in strong winds, so then we postpone the flight to another date, free of charge. We'll call you the evening before to let you know.",
+          "start": 169.04,
+          "end": 177.04
+        },
+        {
+          "speaker": "mark",
+          "text": "Is there anything afterwards?",
+          "start": 177.54,
+          "end": 179.33
+        },
+        {
+          "speaker": "lucy",
+          "text": "Yes. After landing, everyone gets a glass of champagne, which is a tradition among balloonists, and then a cooked breakfast at the farm.",
+          "start": 179.83,
+          "end": 187.34
+        },
+        {
+          "speaker": "mark",
+          "text": "Wonderful. I'll make the booking now.",
+          "start": 187.84,
+          "end": 190.02
+        },
+        {
+          "speaker": "lucy",
+          "text": "Lovely. I'll just take your card details.",
+          "start": 190.52,
+          "end": 193.27
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 194.17,
+          "end": 198.69
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Skyhigh Balloon Flights – booking",
+          "content": [
+            "Example: The flight is a **birthday** present",
+            "## Booking",
+            "• Name: Mark {{1}}",
+            "• Number of passengers: {{2}}",
+            "• Date: Saturday {{3}} September",
+            "• Meeting time: {{4}} a.m.",
+            "• Meeting place: {{5}} near Bridgewater",
+            "## Details",
+            "• The flight lasts about one {{6}}",
+            "• Price: £{{7}} each",
+            "• Wear warm clothes and {{8}} shoes",
+            "• In bad weather the flight is {{9}} to another date",
+            "• After landing, passengers get a glass of {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Holloway"
+              ],
+              "explanation": "‘H-O-L-L-O-W-A-Y.’",
+              "cue": "H-O-L-L-O-W-A-Y"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "2",
+                "two"
+              ],
+              "explanation": "‘Two, my wife and me.’",
+              "cue": "Two, my wife and me"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "6",
+                "sixth",
+                "6th"
+              ],
+              "explanation": "‘Saturday the sixth of September.’",
+              "cue": "Saturday the sixth of September"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "Flights usually start at five, but ‘we'll meet at six o'clock’.",
+              "cue": "we'll meet at six o'clock"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "Oakfield",
+                "farm"
+              ],
+              "explanation": "‘At Oakfield Farm.’",
+              "cue": "At Oakfield Farm"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "hour"
+              ],
+              "explanation": "‘Lasts about an hour.’",
+              "cue": "lasts about an hour"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "95",
+                "ninety-five"
+              ],
+              "explanation": "‘It's ninety-five pounds each.’ It was ninety last year.",
+              "cue": "It's ninety-five pounds each"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "sturdy"
+              ],
+              "explanation": "‘Sturdy shoes.’",
+              "cue": "sturdy shoes"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "postponed",
+                "postpone"
+              ],
+              "explanation": "‘We postpone the flight to another date.’",
+              "cue": "we postpone the flight to another date"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "champagne"
+              ],
+              "explanation": "‘Everyone gets a glass of champagne.’",
+              "cue": "everyone gets a glass of champagne"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-37/part1.mp3",
+        "duration": 229.49
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A visit to an aquarium",
+      "context": "A guide welcomes visitors to an aquarium.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a guide welcoming visitors to an aquarium. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 9.13
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 34.13,
+          "end": 38.4
+        },
+        {
+          "speaker": "guide",
+          "text": "Good morning, everyone, and welcome to Seaview Aquarium. I'm Priya, one of the guides. Please look at the plan in your guide. We're at the entrance, at the bottom, and the big ocean tank is straight ahead of us. Just inside the entrance, on the left, is the gift shop, which I'd save until the end.",
+          "start": 39.3,
+          "end": 54.68
+        },
+        {
+          "speaker": "guide",
+          "text": "Let's start on the left side of the building. The room nearest the entrance is the touch pool, where you can gently touch starfish and sea urchins. Above it is the jellyfish gallery, and at the top on the left, the seahorse room.",
+          "start": 55.03,
+          "end": 66.94
+        },
+        {
+          "speaker": "guide",
+          "text": "On the right side, the room nearest the entrance is the café, which has a lovely view of the main tank. Above it is the penguin beach, which is always popular. And at the top on the right is the shark tunnel, where you walk right under the sharks.",
+          "start": 67.29,
+          "end": 80.04
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 80.94,
+          "end": 86.66
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 111.66,
+          "end": 115.54
+        },
+        {
+          "speaker": "guide",
+          "text": "Some facts. We have about four hundred species of fish here, which is more than most people expect, although most of them are quite small.",
+          "start": 116.44,
+          "end": 123.7
+        },
+        {
+          "speaker": "guide",
+          "text": "The penguins are fed at two o'clock every day, and it's worth arriving a little early. The shark feeding is later, at four.",
+          "start": 124.05,
+          "end": 130.53
+        },
+        {
+          "speaker": "guide",
+          "text": "At the touch pool, please wash your hands before and after you touch the animals. You don't need gloves, because they can damage the skin of the creatures.",
+          "start": 130.88,
+          "end": 138.75
+        },
+        {
+          "speaker": "guide",
+          "text": "The jellyfish gallery is kept very dark. That's deliberate, because the special lighting makes the jellyfish stand out, and they seem to glow in the water.",
+          "start": 139.1,
+          "end": 147.42
+        },
+        {
+          "speaker": "guide",
+          "text": "And our new project is a breeding programme for seahorses, which are quite endangered in the wild. If it works, we hope to return young seahorses to the sea. Please enjoy your visit.",
+          "start": 147.77,
+          "end": 157.86
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 158.76,
+          "end": 163.09
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the plan below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Seaview Aquarium: floor plan",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "sand"
+              },
+              {
+                "type": "rect",
+                "x": 200,
+                "y": 130,
+                "w": 240,
+                "h": 110,
+                "style": "water",
+                "label": "Ocean tank"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 414,
+                "x2": 320,
+                "y2": 250,
+                "style": "path"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Entrance"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 412
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 40,
+                "w": 140,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 150,
+                "w": 140,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 270,
+                "w": 140,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 470,
+                "y": 40,
+                "w": 140,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 470,
+                "y": 150,
+                "w": 140,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 470,
+                "y": 270,
+                "w": 140,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 200,
+                "y": 300,
+                "w": 90,
+                "h": 60,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 100,
+                "y": 85,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 100,
+                "y": 195,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 100,
+                "y": 315,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 540,
+                "y": 85,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 540,
+                "y": 195,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 540,
+                "y": 315,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 245,
+                "y": 330,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Shark tunnel",
+              "answer": "D",
+              "explanation": "‘At the top on the right is the shark tunnel.’",
+              "cue": "at the top on the right is the shark tunnel"
+            },
+            {
+              "number": 12,
+              "prompt": "Jellyfish gallery",
+              "answer": "B",
+              "explanation": "‘Above it is the jellyfish gallery.’",
+              "cue": "Above it is the jellyfish gallery"
+            },
+            {
+              "number": 13,
+              "prompt": "Touch pool",
+              "answer": "C",
+              "explanation": "‘The room nearest the entrance is the touch pool.’",
+              "cue": "The room nearest the entrance is the touch pool"
+            },
+            {
+              "number": 14,
+              "prompt": "Penguin beach",
+              "answer": "E",
+              "explanation": "‘Above it is the penguin beach.’",
+              "cue": "Above it is the penguin beach"
+            },
+            {
+              "number": 15,
+              "prompt": "Café",
+              "answer": "F",
+              "explanation": "‘The room nearest the entrance is the café.’",
+              "cue": "the room nearest the entrance is the café"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How many species of fish live in the aquarium?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about two hundred"
+                },
+                {
+                  "key": "B",
+                  "text": "about four hundred"
+                },
+                {
+                  "key": "C",
+                  "text": "about eight hundred"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About four hundred species of fish.’",
+              "cue": "about four hundred species of fish"
+            },
+            {
+              "number": 17,
+              "prompt": "When are the penguins fed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at eleven o'clock"
+                },
+                {
+                  "key": "B",
+                  "text": "at two o'clock"
+                },
+                {
+                  "key": "C",
+                  "text": "at four o'clock"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The penguins are fed at two o'clock.’ The sharks are fed at four.",
+              "cue": "The penguins are fed at two o'clock"
+            },
+            {
+              "number": 18,
+              "prompt": "What must visitors do at the touch pool?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "wash their hands"
+                },
+                {
+                  "key": "B",
+                  "text": "wear gloves"
+                },
+                {
+                  "key": "C",
+                  "text": "avoid the starfish"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Please wash your hands before and after you touch the animals.’",
+              "cue": "please wash your hands before and after you touch the animals"
+            },
+            {
+              "number": 19,
+              "prompt": "Why is the jellyfish gallery kept so dark?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The jellyfish are sensitive to light."
+                },
+                {
+                  "key": "B",
+                  "text": "The lighting makes the jellyfish stand out."
+                },
+                {
+                  "key": "C",
+                  "text": "It keeps the water cool."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The special lighting makes the jellyfish stand out.’",
+              "cue": "the special lighting makes the jellyfish stand out"
+            },
+            {
+              "number": 20,
+              "prompt": "What is the aquarium's new project?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "breeding seahorses"
+                },
+                {
+                  "key": "B",
+                  "text": "building a new penguin beach"
+                },
+                {
+                  "key": "C",
+                  "text": "opening an underwater restaurant"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Our new project is a breeding programme for seahorses.’",
+              "cue": "our new project is a breeding programme for seahorses"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-37/part2.mp3",
+        "duration": 193.89
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A study of air quality",
+      "context": "Two students plan a study of air pollution in a city.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two environmental science students, Tara and Ben, planning a study of air quality in a city. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 13.04
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 38.04,
+          "end": 42.75
+        },
+        {
+          "speaker": "tara",
+          "text": "Ben, I've picked up the air quality sensors from the department. There are six, and they're smaller than I expected.",
+          "start": 43.65,
+          "end": 49.97
+        },
+        {
+          "speaker": "ben",
+          "text": "How long do the batteries last?",
+          "start": 50.47,
+          "end": 52.56
+        },
+        {
+          "speaker": "tara",
+          "text": "About ten days, so we'll need to recharge them in the middle of the study, which will run for a month.",
+          "start": 53.06,
+          "end": 58.56
+        },
+        {
+          "speaker": "ben",
+          "text": "Where shall we put them? I thought of the campus, because it's convenient.",
+          "start": 59.06,
+          "end": 62.69
+        },
+        {
+          "speaker": "tara",
+          "text": "But a campus isn't typical. Dr Singh said we should choose places with different traffic levels, so I'd suggest the main road, a side street, the park and the railway station.",
+          "start": 63.19,
+          "end": 72.85
+        },
+        {
+          "speaker": "ben",
+          "text": "We need permission to attach sensors to the lamp posts.",
+          "start": 73.35,
+          "end": 76.53
+        },
+        {
+          "speaker": "tara",
+          "text": "The council has already agreed, but only for the main road and the park.",
+          "start": 77.03,
+          "end": 81.38
+        },
+        {
+          "speaker": "ben",
+          "text": "What time of day should we measure?",
+          "start": 81.88,
+          "end": 83.8
+        },
+        {
+          "speaker": "tara",
+          "text": "The sensors take a reading every minute, all day, but we'll focus on the morning rush hour, because that's when we expect pollution to peak.",
+          "start": 84.3,
+          "end": 91.77
+        },
+        {
+          "speaker": "ben",
+          "text": "And the weather. Rain washes pollution out of the air.",
+          "start": 92.27,
+          "end": 95.15
+        },
+        {
+          "speaker": "tara",
+          "text": "So we'll record the rainfall as well, and compare dry days with wet days.",
+          "start": 95.65,
+          "end": 100.17
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 101.07,
+          "end": 107.22
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 127.22,
+          "end": 131.06
+        },
+        {
+          "speaker": "tara",
+          "text": "For the background section I've made notes on the main pollutants and where they come from. Nitrogen dioxide first.",
+          "start": 131.96,
+          "end": 138.76
+        },
+        {
+          "speaker": "ben",
+          "text": "That's mostly from traffic exhaust, especially diesel vehicles.",
+          "start": 139.26,
+          "end": 142.85
+        },
+        {
+          "speaker": "tara",
+          "text": "Ozone?",
+          "start": 143.35,
+          "end": 144.37
+        },
+        {
+          "speaker": "ben",
+          "text": "That's interesting, because it isn't released directly. It forms when sunlight reacts with other gases, so it's highest on hot, sunny afternoons.",
+          "start": 144.87,
+          "end": 152.59
+        },
+        {
+          "speaker": "tara",
+          "text": "Sulphur dioxide?",
+          "start": 153.09,
+          "end": 155.08
+        },
+        {
+          "speaker": "ben",
+          "text": "That comes mainly from industry, particularly from burning coal, although levels have fallen a lot in this country.",
+          "start": 155.58,
+          "end": 161.68
+        },
+        {
+          "speaker": "tara",
+          "text": "Fine particles?",
+          "start": 162.18,
+          "end": 163.86
+        },
+        {
+          "speaker": "ben",
+          "text": "In winter, many of those come from wood burning in homes, which surprised me.",
+          "start": 164.36,
+          "end": 168.71
+        },
+        {
+          "speaker": "tara",
+          "text": "And the coarse dust?",
+          "start": 169.21,
+          "end": 170.94
+        },
+        {
+          "speaker": "ben",
+          "text": "From building sites, where cement and soil are disturbed.",
+          "start": 171.44,
+          "end": 174.62
+        },
+        {
+          "speaker": "tara",
+          "text": "That's enough for the section. I'll send you my draft tonight.",
+          "start": 175.12,
+          "end": 178.64
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 179.54,
+          "end": 184.0
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "How long do the sensors' batteries last?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about three days"
+                },
+                {
+                  "key": "B",
+                  "text": "about ten days"
+                },
+                {
+                  "key": "C",
+                  "text": "about a month"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About ten days.’",
+              "cue": "About ten days"
+            },
+            {
+              "number": 22,
+              "prompt": "Why does Tara reject the idea of using the campus?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is too far away."
+                },
+                {
+                  "key": "B",
+                  "text": "It is not typical."
+                },
+                {
+                  "key": "C",
+                  "text": "There is no permission."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A campus isn't typical.’",
+              "cue": "a campus isn't typical"
+            },
+            {
+              "number": 23,
+              "prompt": "Where has the council allowed sensors?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "everywhere"
+                },
+                {
+                  "key": "B",
+                  "text": "on the main road and in the park"
+                },
+                {
+                  "key": "C",
+                  "text": "only in the park"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Only for the main road and the park.’",
+              "cue": "only for the main road and the park"
+            },
+            {
+              "number": 24,
+              "prompt": "When do they expect pollution to peak?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in the morning rush hour"
+                },
+                {
+                  "key": "B",
+                  "text": "at lunch time"
+                },
+                {
+                  "key": "C",
+                  "text": "in the evening"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We'll focus on the morning rush hour.’",
+              "cue": "we'll focus on the morning rush hour"
+            },
+            {
+              "number": 25,
+              "prompt": "Why will they record rainfall?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to compare dry and wet days"
+                },
+                {
+                  "key": "B",
+                  "text": "because the sensors need it"
+                },
+                {
+                  "key": "C",
+                  "text": "because the tutor asked them to"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Compare dry days with wet days.’",
+              "cue": "compare dry days with wet days"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What does Ben say is the main source of each pollutant? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Sources",
+          "options": [
+            {
+              "key": "A",
+              "text": "traffic exhaust"
+            },
+            {
+              "key": "B",
+              "text": "wood burning"
+            },
+            {
+              "key": "C",
+              "text": "sunlight reacting with other gases"
+            },
+            {
+              "key": "D",
+              "text": "industry"
+            },
+            {
+              "key": "E",
+              "text": "building sites"
+            },
+            {
+              "key": "F",
+              "text": "cigarettes"
+            },
+            {
+              "key": "G",
+              "text": "cooking"
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "nitrogen dioxide",
+              "answer": "A",
+              "explanation": "‘Mostly from traffic exhaust.’",
+              "cue": "mostly from traffic exhaust"
+            },
+            {
+              "number": 27,
+              "prompt": "ozone",
+              "answer": "C",
+              "explanation": "‘It forms when sunlight reacts with other gases.’",
+              "cue": "It forms when sunlight reacts with other gases"
+            },
+            {
+              "number": 28,
+              "prompt": "sulphur dioxide",
+              "answer": "D",
+              "explanation": "‘Comes mainly from industry.’",
+              "cue": "comes mainly from industry"
+            },
+            {
+              "number": 29,
+              "prompt": "fine particles",
+              "answer": "B",
+              "explanation": "‘Come from wood burning in homes.’",
+              "cue": "come from wood burning in homes"
+            },
+            {
+              "number": 30,
+              "prompt": "coarse dust",
+              "answer": "E",
+              "explanation": "‘From building sites.’",
+              "cue": "From building sites"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-37/part3.mp3",
+        "duration": 214.8
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the Dead Sea",
+      "context": "A geography lecture on the Dead Sea and its problems.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the Dead Sea. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.19
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.19,
+          "end": 42.61
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today I'd like to talk about one of the most unusual stretches of water in the world: the Dead Sea. It is really a salt lake, and it lies between Jordan to the east and Israel to the west.",
+          "start": 43.51,
+          "end": 55.03
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Its shore is about four hundred and thirty metres below sea level, which makes it the lowest dry land on Earth.",
+          "start": 55.38,
+          "end": 61.35
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The water is about nine times as salty as the ocean. Because it is so dense, people float on it without any effort, and you can read a newspaper while lying on the surface. But very little can live in it. Only a few kinds of bacteria and one or two tiny organisms survive, and that is where the name comes from.",
+          "start": 61.7,
+          "end": 79.01
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The lake is fed mainly by the River Jordan, and it has no outlet. Water leaves only by evaporation, which in the hot desert climate is very fast, so the salt is left behind and gradually builds up.",
+          "start": 79.36,
+          "end": 91.22
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Today the Dead Sea is in trouble. Its level is falling by about a metre every year. The main reason is that most of the water of the Jordan and its tributaries is diverted for agriculture and for drinking, so far less flows in than before. Mineral companies also pump water from the lake to extract salts, which makes the situation worse.",
+          "start": 91.57,
+          "end": 110.87
+        },
+        {
+          "speaker": "lecturer",
+          "text": "As the water retreats, it leaves behind salt layers underground, which dissolve when fresh water reaches them. The ground then collapses, creating sinkholes along the shore, some of them large enough to swallow a road.",
+          "start": 111.22,
+          "end": 123.34
+        },
+        {
+          "speaker": "lecturer",
+          "text": "One proposal is to build a canal from the Red Sea, to bring in water and stabilise the level. It would be very expensive, and some scientists worry that mixing the two kinds of water could change the lake's colour and chemistry. The debate continues. Next week we'll look at the Aral Sea.",
+          "start": 123.69,
+          "end": 139.61
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 140.51,
+          "end": 144.9
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 174.9,
+          "end": 177.61
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The Dead Sea",
+          "content": [
+            "## Location",
+            "• The lake lies between Jordan and {{31}}",
+            "• Its shore is the lowest dry land on {{32}}",
+            "## The water",
+            "• The water is about nine times as {{33}} as the ocean",
+            "• People float easily because the water is very {{34}}",
+            "• Only a few kinds of {{35}} can live in it",
+            "• The lake is fed mainly by the River {{36}}",
+            "## Problems",
+            "• The level is falling by about a {{37}} every year",
+            "• Water from the rivers is diverted for {{38}}",
+            "• Collapsing ground creates {{39}} along the shore",
+            "• One proposal is a canal from the {{40}} Sea"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "Israel"
+              ],
+              "explanation": "‘Jordan to the east and Israel to the west.’",
+              "cue": "Jordan to the east and Israel to the west"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "Earth"
+              ],
+              "explanation": "‘The lowest dry land on Earth.’",
+              "cue": "the lowest dry land on Earth"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "salty"
+              ],
+              "explanation": "‘Nine times as salty as the ocean.’",
+              "cue": "nine times as salty as the ocean"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "dense"
+              ],
+              "explanation": "‘Because it is so dense.’",
+              "cue": "Because it is so dense"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "bacteria"
+              ],
+              "explanation": "‘A few kinds of bacteria.’",
+              "cue": "a few kinds of bacteria"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "Jordan"
+              ],
+              "explanation": "‘Fed mainly by the River Jordan.’",
+              "cue": "fed mainly by the River Jordan"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "metre",
+                "meter"
+              ],
+              "explanation": "‘Falling by about a metre every year.’",
+              "cue": "falling by about a metre every year"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "agriculture"
+              ],
+              "explanation": "‘Diverted for agriculture and for drinking.’",
+              "cue": "diverted for agriculture and for drinking"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "sinkholes"
+              ],
+              "explanation": "‘Creating sinkholes along the shore.’",
+              "cue": "creating sinkholes along the shore"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "Red"
+              ],
+              "explanation": "‘A canal from the Red Sea.’",
+              "cue": "a canal from the Red Sea"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-37/part4.mp3",
+        "duration": 178.41
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

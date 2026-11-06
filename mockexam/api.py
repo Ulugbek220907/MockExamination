@@ -4,7 +4,8 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
   POST /api/auth/code                 email a 6-digit sign-in code
   POST /api/auth/verify               check the code, start a session
   POST /api/auth/token                start a session from a Google / email-link redirect
-  GET  /api/auth/google               redirect to Google sign-in (via Supabase)
+  POST /api/auth/google               sign in with the ID token from Google's button (GOOGLE_CLIENT_ID)
+  GET  /api/auth/google               redirect to Google sign-in (via Supabase, when that is set up instead)
   POST /api/auth/logout
   GET  /api/me, POST /api/me          account, plan, examiner profile; change name
   GET  /api/progress                  band scores over time, for the progress chart
@@ -56,6 +57,8 @@ CODE_PER_IP = auth.AttemptLimiter(10, 3600)
 CODE_PER_EMAIL = auth.AttemptLimiter(5, 3600)
 VERIFY_PER_EMAIL = auth.AttemptLimiter(10, 900)
 VERIFY_PER_IP = auth.AttemptLimiter(40, 3600)
+# Only Google sign-ins that fail count: a student who signs in properly is never held up by a crowd behind the same address.
+GOOGLE_BAD_PER_IP = auth.AttemptLimiter(30, 3600)
 
 
 def _uuid(value):
@@ -108,17 +111,18 @@ def account_payload(db, profile):
 # --------------------------------------------------------------------------
 
 class ApiError(tornado.web.HTTPError):
-    """An error whose message is shown to the user (and an optional machine-readable code)."""
+    """An error whose message is shown to the user (and an optional machine-readable code and extra fields)."""
 
     public = True  # the message is safe to show, even with a 5xx status
 
-    def __init__(self, status, message, code=None):
+    def __init__(self, status, message, code=None, extra=None):
         super().__init__(status, log_message=message.replace("%", "%%"))
         self.code = code
+        self.extra = extra
 
 
 def _raise(e):
-    raise ApiError(getattr(e, "status", 400), str(e))
+    raise ApiError(getattr(e, "status", 400), str(e), code=getattr(e, "code", None), extra=getattr(e, "extra", None))
 
 
 class AuthCodeHandler(BaseHandler):
@@ -188,12 +192,33 @@ class AuthTokenHandler(SessionMixin, BaseHandler):
         await self.finish_login(identity, _uuid(body.get("clientId")))
 
 
-class AuthGoogleHandler(BaseHandler):
+class AuthGoogleHandler(SessionMixin, BaseHandler):
+    @property
+    def google(self):
+        return self.application.settings["google"]
+
     async def get(self):
+        """The older way: through Supabase's Google provider (used only when GOOGLE_CLIENT_ID is not set)."""
         url = self.auth.google_url(self.site_url() + "/auth-callback.html")
         if not url or not await in_thread(self.auth.google_enabled):
             raise ApiError(400, "Google sign-in is not available on this server.")
         self.redirect(url)
+
+    async def post(self):
+        """Sign in (or sign up: the account is made on the first time) with the ID token from Google's button."""
+        if not self.google.enabled:
+            raise ApiError(400, "Google sign-in is not available on this server.")
+        body = self.body_json()
+        ip = self.client_ip()
+        if GOOGLE_BAD_PER_IP.blocked(ip):
+            raise ApiError(429, "Too many attempts. Please try again later.")
+        try:
+            identity = await in_thread(self.google.verify, body.get("credential"))
+        except auth.AuthError as e:
+            if e.status < 500:
+                GOOGLE_BAD_PER_IP.allow(ip)  # a refused token counts against the address; Google being down does not
+            _raise(e)
+        await self.finish_login(identity, _uuid(body.get("clientId")))
 
 
 class LogoutHandler(BaseHandler):

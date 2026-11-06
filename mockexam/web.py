@@ -6,6 +6,7 @@ The application settings carry the shared services, so handlers never import
 the server module:
   settings["store"]   – LocalStore or SupabaseStore (store.db for tables)
   settings["auth"]    – SupabaseAuth or DevAuth
+  settings["google"]  – GoogleSignIn (checks Google ID tokens; off without GOOGLE_CLIENT_ID)
 """
 
 import hmac
@@ -17,7 +18,7 @@ from urllib.parse import urlparse
 import tornado.ioloop
 import tornado.web
 
-from . import accounts, analytics
+from . import accounts, analytics, google_signin
 
 TRUST_PROXY = os.environ.get("TRUST_PROXY", "1") != "0"
 ADMIN_TOKEN = os.environ.get("ADMIN_TOKEN", "")
@@ -26,22 +27,46 @@ MAX_BODY_BYTES = 256 * 1024
 SESSION_COOKIE = "mx_session"
 SESSION_DAYS = 30
 
-SECURITY_HEADERS = {
-    "X-Content-Type-Options": "nosniff",
-    "X-Frame-Options": "DENY",
-    "Referrer-Policy": "strict-origin-when-cross-origin",
-    "Permissions-Policy": "camera=(), microphone=(self), geolocation=()",
-    "Cross-Origin-Opener-Policy": "same-origin",
-    "Cross-Origin-Resource-Policy": "same-origin",
-    # Browsers ignore this over plain HTTP, so local development is unaffected. Over HTTPS
-    # it lets returning visitors skip the http:// -> https:// redirect.
-    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-    "Content-Security-Policy": (
-        "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
-        "img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; font-src 'self'; "
-        "frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
-    ),
-}
+GSI = "https://accounts.google.com/gsi/"  # what Google's sign-in button loads from (its own documented addresses)
+
+
+def security_headers(google=False):
+    """
+    The headers every page and API answer carries. The content security policy lets the page load only its own files.
+    With `google` (GOOGLE_CLIENT_ID is set) it also lets the page load Google's sign-in script, show its button and
+    talk to it, from exactly the addresses Google lists, and the opener policy allows the sign-in popup to answer the
+    page; nothing else is opened up.
+    """
+    own = ["'self'"]
+    directives = [
+        ("default-src", own),
+        ("script-src", own + ([GSI + "client"] if google else [])),
+        ("style-src", own + ["'unsafe-inline'"] + ([GSI + "style"] if google else [])),
+        ("img-src", own + ["data:"]),
+        ("media-src", own + ["blob:"]),
+        ("connect-src", own + ([GSI] if google else [])),
+        *([("frame-src", own + [GSI])] if google else []),
+        ("font-src", own),
+        ("frame-ancestors", ["'none'"]),
+        ("base-uri", own),
+        ("form-action", own),
+    ]
+    csp = "; ".join(f"{name} {' '.join(values)}" for name, values in directives)
+    return {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(), microphone=(self), geolocation=()",
+        "Cross-Origin-Opener-Policy": "same-origin-allow-popups" if google else "same-origin",
+        "Cross-Origin-Resource-Policy": "same-origin",
+        # Browsers ignore this over plain HTTP, so local development is unaffected. Over HTTPS
+        # it lets returning visitors skip the http:// -> https:// redirect.
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "Content-Security-Policy": csp,
+    }
+
+
+SECURITY_HEADERS = security_headers(bool(google_signin.configured()))
 
 
 async def in_thread(fn, *args):
@@ -142,6 +167,8 @@ class BaseHandler(tornado.web.RequestHandler):
         body = {"error": message}
         if getattr(exc, "code", None):
             body["code"] = exc.code
+        if getattr(exc, "extra", None):
+            body.update({k: v for k, v in exc.extra.items() if k not in body})
         self.send_json(body, status_code)
 
     def client_ip(self):

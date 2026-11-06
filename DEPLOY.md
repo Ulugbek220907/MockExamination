@@ -103,17 +103,36 @@ In the Supabase dashboard:
 3. **Authentication → Emails → SMTP Settings**: connect an email service. Supabase's built-in email only reaches your own team's addresses.
    [Resend](https://resend.com) (3,000 emails a month free) and [Brevo](https://www.brevo.com) (300 a day free) both work: create an account, verify your domain, copy the SMTP host, port, user and password into Supabase, and set the sender to something like `no-reply@your-domain`.
    Then raise **Rate Limits → emails per hour** to fit your traffic.
-4. **Google sign-in (optional)**:
+4. **Google sign-in through Supabase (the older way, optional).** Skip this if you use *Sign in with Google* below, which needs nothing in Supabase. If you have already switched on Supabase's Google provider and not set `GOOGLE_CLIENT_ID`, the "Continue with Google" button still works, through Supabase:
    - In [Google Cloud Console](https://console.cloud.google.com/apis/credentials), create an *OAuth client ID* of type *Web application*.
    - Add `https://xlsdbilvhxmhmmolooac.supabase.co/auth/v1/callback` as an *Authorized redirect URI*.
    - Paste the client ID and secret into **Supabase → Authentication → Sign In / Providers → Google** and enable it.
-   - The "Continue with Google" button appears automatically.
 
 On Render, set `ADMIN_EMAILS` to your own email address. After you sign in with it you get the **Admin** page (`#/admin`).
 
 > **Launch setting.** While `COMMERCE_ENABLED` is `0` (the default, and what `render.yaml` sets), nothing below is visible: five tests per module are free, the others show "Coming soon…", and prices, the pass, refunds and examiner checks are hidden in the site and closed on the server. Everything in section 4 keeps working in the code; set `COMMERCE_ENABLED=1` on Render when you are ready to sell, and set the paid tests' `"access"` back to `"premium"` if you had set any to `"soon"`.
 >
 > The tests come from the site's own files, so the five-free-per-module setting takes effect with the deploy; there is nothing to upload.
+
+### 4.1b Sign in with Google (one click)
+
+Students who use Google can sign in, or sign up, with one click, without waiting for an email. The server checks Google's signed ID token itself, so nothing is needed in Supabase and there is no client secret. It takes about five minutes, once:
+
+1. Open [Google Cloud Console](https://console.cloud.google.com/auth/overview) and choose or create a project (any name, for example `TestDay`).
+2. Set up the consent screen (**Google Auth Platform**, or **APIs & Services → OAuth consent screen**): app name `TestDay`, your support email, *authorized domain* `testday.uz`, and your contact email. Audience / user type: **External**, then **Publish app** so that its status is *In production*. (In *Testing* only the test users you list can sign in.) The site asks only for the default `openid`, `email` and `profile`, which Google does not review.
+3. **Clients → Create client**, type **Web application**, name `TestDay website`. Under **Authorized JavaScript origins** add `https://www.testday.uz` (and `https://testday.uz` if people use it, and the Render address `https://<your-service>.onrender.com`). **No redirect URI is needed.** Create it and copy the **Client ID** (it ends in `.apps.googleusercontent.com`).
+4. On Render, open the **website** service (`testday`, not `testday-social`) → **Environment** → add `GOOGLE_CLIENT_ID` with that Client ID → **Save**. The service redeploys.
+5. Open the site and press **Sign in**: *Continue with Google* is now Google's own button. `/api/config` shows `auth.googleClientId` when it is on. To switch it off, empty the setting.
+
+What to know:
+
+- **Accounts.** An account is its email address, as with the emailed codes, so someone who signed up by code and later uses Google (same address) gets the same account, with the same results.
+- **Who can sign in with one click.** Gmail addresses and Google Workspace accounts (a school or company address on Google). A Google account that was made with someone else's address (for example Yahoo or Mail.ru) is asked to confirm it with the emailed code instead: Google itself says it cannot vouch for those, because the address may belong to somebody else by now. That is also why nobody can get to the admin panel with a look-alike Google account.
+- **What the server checks** on every sign-in: Google's signature on the token, that the token was made for this site's client ID, that it is from Google, that it has not expired, and that the email is verified. Google's public keys are fetched when needed and kept in memory for as long as Google says.
+- **Security headers.** Only when `GOOGLE_CLIENT_ID` is set, the content security policy also allows Google's sign-in script, frame and requests (exactly the addresses Google documents), and the opener policy becomes `same-origin-allow-popups` so that Google's popup can answer the page. Without the setting nothing changes.
+- **Page speed.** Google's script loads only when someone points at *Sign in* or opens the sign-in window; it is not on any other page load.
+- **When it does not work.** If Google's script cannot load (blocked, offline) the window says so and the email form below it still works. Google may also refuse to sign in inside some apps' built-in browsers (for example when a link is opened inside Telegram or Instagram); the email code works there.
+- **Another domain later:** add the new address under *Authorized JavaScript origins*; no other change.
 
 ### 4.2 Prices
 
@@ -177,8 +196,9 @@ on **Admin** (payments to confirm) and **Examiner** (checks to mark) either way.
 - [ ] Set `SITE_NAME=TestDay` on every Render service (the code defaults to TestDay, but an existing service that still has `SITE_NAME=MockExam` will show that name). Avoid putting "IELTS" in the domain name or logo, because the IELTS partners protect the trademark. Descriptive use in text ("IELTS-style practice") with the disclaimer is what the site does now.
 - [ ] Set `CONTACT_EMAIL` so users can ask for their data to be deleted (shown on the About & legal page).
 - [ ] Set `SOCIAL_TELEGRAM`, `SOCIAL_INSTAGRAM`, `SOCIAL_YOUTUBE` and `SOCIAL_TIKTOK` to your full https:// profile addresses. Each one appears in the footer only when it is set.
-- [ ] If you target users in the EU/UK, get a proper privacy policy and cookie review. The site uses one sign-in cookie and no trackers, plus local storage for autosave and preferences. Speaking recordings are personal data (a voice): the About page explains who can hear them and when they are deleted.
+- [ ] If you target users in the EU/UK, get a proper privacy policy and cookie review. The site uses one sign-in cookie and no trackers, plus local storage for autosave and preferences (with Google sign-in switched on, Google's own button is also loaded from Google, but only once someone opens the sign-in window). Speaking recordings are personal data (a voice): the About page explains who can hear them and when they are deleted.
 - [ ] Run `python scripts/test_app.py` and take one test of each module on the live URL (Speaking on a phone too).
+- [ ] If you set up *Sign in with Google* (4.1b): on the live address, sign in once with a Gmail account (one click, no code) and once with a Google account made with a non-Google address such as Yahoo (it should ask for the emailed code instead).
 - [ ] Sign in with your admin email, buy the plan once by card transfer and confirm it in Admin, then order and mark a Writing check and a Speaking check with a test examiner account.
 
 ## Admin endpoints

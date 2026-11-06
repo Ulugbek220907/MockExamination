@@ -1,0 +1,1345 @@
+{
+  "id": "listening-43",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 43",
+  "shortTitle": "Practice Test 43",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 43,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "ingrid": {
+      "name": "Ingrid",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "neil": {
+      "name": "Neil",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "ferrari": {
+      "name": "Ms Ferrari",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "maeve": {
+      "name": "Maeve",
+      "voice": "af_river",
+      "lang": "en-us"
+    },
+    "luis": {
+      "name": "Luis",
+      "voice": "am_echo",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a ferry crossing",
+      "context": "A man books a ferry crossing for his family and dog.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a ferry company to book a crossing for his family. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.94
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.94,
+          "end": 39.01
+        },
+        {
+          "speaker": "ingrid",
+          "text": "Channel Crossings, Ingrid speaking.",
+          "start": 39.91,
+          "end": 42.26
+        },
+        {
+          "speaker": "neil",
+          "text": "Good morning. I'd like to book a ferry crossing for my family, please, from Dover to Calais.",
+          "start": 42.76,
+          "end": 47.54
+        },
+        {
+          "speaker": "ingrid",
+          "text": "Of course. I'll need a few details first.",
+          "start": 48.04,
+          "end": 50.53
+        },
+        {
+          "speaker": "narrator",
+          "text": "The crossing is to Calais, so 'Calais' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 51.43,
+          "end": 65.92
+        },
+        {
+          "speaker": "ingrid",
+          "text": "Could I have your surname, please?",
+          "start": 66.82,
+          "end": 68.97
+        },
+        {
+          "speaker": "neil",
+          "text": "It's Garrett. That's G-A-R-R-E-T-T.",
+          "start": 69.47,
+          "end": 74.89
+        },
+        {
+          "speaker": "ingrid",
+          "text": "Thank you, Mr Garrett. And which date would you like to travel?",
+          "start": 75.39,
+          "end": 78.74
+        },
+        {
+          "speaker": "neil",
+          "text": "The fourteenth of August.",
+          "start": 79.24,
+          "end": 80.84
+        },
+        {
+          "speaker": "ingrid",
+          "text": "And how many people will be travelling?",
+          "start": 81.34,
+          "end": 83.66
+        },
+        {
+          "speaker": "neil",
+          "text": "Two adults and three children. We have a big family.",
+          "start": 84.16,
+          "end": 86.81
+        },
+        {
+          "speaker": "ingrid",
+          "text": "Are you taking a vehicle?",
+          "start": 87.31,
+          "end": 89.08
+        },
+        {
+          "speaker": "neil",
+          "text": "Yes, our car, and we're bringing our dog as well. Is that allowed?",
+          "start": 89.58,
+          "end": 92.97
+        },
+        {
+          "speaker": "ingrid",
+          "text": "Yes, but pets must travel in the kennels on the car deck, and I'll need to note that on the booking. What time would you like to leave?",
+          "start": 93.47,
+          "end": 100.43
+        },
+        {
+          "speaker": "neil",
+          "text": "Eight in the morning, if you have space. Half past seven would be better, but I imagine that's full.",
+          "start": 100.93,
+          "end": 105.81
+        },
+        {
+          "speaker": "ingrid",
+          "text": "It is, I'm afraid. The eight o'clock is fine, though.",
+          "start": 106.31,
+          "end": 109.32
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 110.22,
+          "end": 115.94
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 135.94,
+          "end": 139.26
+        },
+        {
+          "speaker": "ingrid",
+          "text": "The fare is forty-five pounds for each adult, and the car is charged separately.",
+          "start": 140.16,
+          "end": 144.84
+        },
+        {
+          "speaker": "neil",
+          "text": "What about the children?",
+          "start": 145.34,
+          "end": 146.83
+        },
+        {
+          "speaker": "ingrid",
+          "text": "Children under five travel free, and from five to fifteen they pay half. How old are yours?",
+          "start": 147.33,
+          "end": 152.81
+        },
+        {
+          "speaker": "neil",
+          "text": "Four, seven and ten. So only one is free, I suppose.",
+          "start": 153.31,
+          "end": 156.43
+        },
+        {
+          "speaker": "ingrid",
+          "text": "That's right. Now, about your dog. The kennels are on the car deck, and you can visit him during the crossing, but only with a member of the crew.",
+          "start": 156.93,
+          "end": 164.31
+        },
+        {
+          "speaker": "neil",
+          "text": "That's good to know. He's quite nervous. Can we upgrade to a more comfortable seat?",
+          "start": 164.81,
+          "end": 168.93
+        },
+        {
+          "speaker": "ingrid",
+          "text": "There are reclining seats for an extra ten pounds each. They're popular with families who have an early crossing, because the children can sleep.",
+          "start": 169.43,
+          "end": 177.17
+        },
+        {
+          "speaker": "neil",
+          "text": "That sounds worth it. When do we need to arrive at the port?",
+          "start": 177.67,
+          "end": 180.49
+        },
+        {
+          "speaker": "ingrid",
+          "text": "You must check in at least ninety minutes before departure, as there are passport checks and the car has to be inspected.",
+          "start": 180.99,
+          "end": 187.6
+        },
+        {
+          "speaker": "neil",
+          "text": "Thank you. I'll book it now.",
+          "start": 188.1,
+          "end": 189.85
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 190.75,
+          "end": 195.27
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Channel Crossings – booking",
+          "content": [
+            "Example: Crossing from Dover to **Calais**",
+            "## Booking",
+            "• Name: Neil {{1}}",
+            "• Date: {{2}} August",
+            "• Passengers: two adults and {{3}} children",
+            "• He is travelling with a {{4}}",
+            "• Departure time: {{5}} a.m.",
+            "## Details",
+            "• Price: £{{6}} for each adult",
+            "• Children under {{7}} travel free",
+            "• The dog must stay in the {{8}}",
+            "• A reclining {{9}} costs ten pounds extra",
+            "• Check in at least {{10}} minutes before departure"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Garrett"
+              ],
+              "explanation": "‘G-A-R-R-E-T-T.’",
+              "cue": "G-A-R-R-E-T-T"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "14",
+                "fourteenth",
+                "14th"
+              ],
+              "explanation": "‘The fourteenth of August.’",
+              "cue": "The fourteenth of August"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘Two adults and three children.’",
+              "cue": "Two adults and three children"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "dog"
+              ],
+              "explanation": "‘We're bringing our dog as well.’",
+              "cue": "we're bringing our dog as well"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "8",
+                "eight"
+              ],
+              "explanation": "Half past seven is full: ‘The eight o'clock is fine, though.’",
+              "cue": "The eight o'clock is fine"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "45",
+                "forty-five"
+              ],
+              "explanation": "‘Forty-five pounds for each adult.’",
+              "cue": "forty-five pounds for each adult"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "‘Children under five travel free.’",
+              "cue": "Children under five travel free"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "kennels",
+                "kennel"
+              ],
+              "explanation": "‘Pets must travel in the kennels on the car deck.’",
+              "cue": "pets must travel in the kennels on the car deck"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "seat",
+                "seats"
+              ],
+              "explanation": "‘Reclining seats for an extra ten pounds.’",
+              "cue": "reclining seats for an extra ten pounds"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "90",
+                "ninety"
+              ],
+              "explanation": "‘At least ninety minutes before departure.’",
+              "cue": "at least ninety minutes before departure"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-43/part1.mp3",
+        "duration": 226.07
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A co-working space",
+      "context": "A manager shows prospective members round a co-working space.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a manager showing prospective members round a co-working space. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.5
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.5,
+          "end": 39.77
+        },
+        {
+          "speaker": "ferrari",
+          "text": "Hello, everyone, and welcome to Hive. I'm Elena Ferrari, the community manager. Please look at the plan. We're at reception, near the entrance at the bottom, and the open-plan area, where most members work, is in the middle.",
+          "start": 40.67,
+          "end": 53.02
+        },
+        {
+          "speaker": "ferrari",
+          "text": "Along the top, in the middle, are the meeting rooms. There are four of them, and members can book them online by the hour. At the top on the right is the quiet room, where phones and conversations aren't allowed.",
+          "start": 53.37,
+          "end": 64.2
+        },
+        {
+          "speaker": "ferrari",
+          "text": "At the top on the left is the terrace, which has tables and plants, and it's very popular in summer. On the left side, in the middle, is the kitchen, with free tea and coffee. And on the right side, in the middle, is the printing area, with a printer, a scanner and a stock of paper.",
+          "start": 64.55,
+          "end": 78.72
+        },
+        {
+          "speaker": "ferrari",
+          "text": "Below those are the phone booths, at the bottom on the left, and the storage lockers, at the bottom on the right.",
+          "start": 79.07,
+          "end": 84.55
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 85.45,
+          "end": 91.17
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 116.17,
+          "end": 120.05
+        },
+        {
+          "speaker": "ferrari",
+          "text": "Some more information. We have eighty desks, and most of them are rented by freelancers and small companies. At the moment about seventy are occupied, so there is room for you.",
+          "start": 120.95,
+          "end": 130.92
+        },
+        {
+          "speaker": "ferrari",
+          "text": "Members have access to the building twenty-four hours a day, with a key card, which is useful if you work with clients in other time zones.",
+          "start": 131.27,
+          "end": 138.69
+        },
+        {
+          "speaker": "ferrari",
+          "text": "The monthly fee includes tea and coffee, wifi and the use of the meeting rooms for ten hours a month. Printing is charged separately, at a few pence a page.",
+          "start": 139.04,
+          "end": 147.91
+        },
+        {
+          "speaker": "ferrari",
+          "text": "On Friday afternoons, we hold a networking event, with drinks and snacks, which is free and open to all members. It's a good way to meet people from other businesses.",
+          "start": 148.26,
+          "end": 157.42
+        },
+        {
+          "speaker": "ferrari",
+          "text": "If you'd like to try us before you commit, you can book a free day pass online. Just choose a date on our website, and we'll have a desk waiting for you. Now, if you'd like to follow me, I'll show you the terrace.",
+          "start": 157.77,
+          "end": 168.45
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 169.35,
+          "end": 173.68
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the plan below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Hive co-working space: floor plan",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "sand"
+              },
+              {
+                "type": "rect",
+                "x": 160,
+                "y": 150,
+                "w": 320,
+                "h": 120,
+                "style": "grass",
+                "label": "Open-plan area"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Entrance"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 412
+              },
+              {
+                "type": "rect",
+                "x": 250,
+                "y": 330,
+                "w": 140,
+                "h": 60,
+                "style": "building",
+                "label": "Reception"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 40,
+                "w": 150,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 240,
+                "y": 40,
+                "w": 160,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 460,
+                "y": 40,
+                "w": 150,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 150,
+                "w": 100,
+                "h": 120,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 500,
+                "y": 150,
+                "w": 110,
+                "h": 120,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 30,
+                "y": 300,
+                "w": 140,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 470,
+                "y": 286,
+                "w": 140,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 105,
+                "y": 80,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 80,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 535,
+                "y": 80,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 80,
+                "y": 210,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 555,
+                "y": 210,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 100,
+                "y": 340,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 540,
+                "y": 326,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Meeting rooms",
+              "answer": "B",
+              "explanation": "‘Along the top, in the middle, are the meeting rooms.’",
+              "cue": "Along the top, in the middle, are the meeting rooms"
+            },
+            {
+              "number": 12,
+              "prompt": "Kitchen",
+              "answer": "D",
+              "explanation": "‘On the left side, in the middle, is the kitchen.’",
+              "cue": "On the left side, in the middle, is the kitchen"
+            },
+            {
+              "number": 13,
+              "prompt": "Quiet room",
+              "answer": "C",
+              "explanation": "‘At the top on the right is the quiet room.’",
+              "cue": "At the top on the right is the quiet room"
+            },
+            {
+              "number": 14,
+              "prompt": "Printing area",
+              "answer": "E",
+              "explanation": "‘On the right side, in the middle, is the printing area.’",
+              "cue": "on the right side, in the middle, is the printing area"
+            },
+            {
+              "number": 15,
+              "prompt": "Terrace",
+              "answer": "A",
+              "explanation": "‘At the top on the left is the terrace.’",
+              "cue": "At the top on the left is the terrace"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How many desks does the space have?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "forty"
+                },
+                {
+                  "key": "B",
+                  "text": "eighty"
+                },
+                {
+                  "key": "C",
+                  "text": "a hundred and twenty"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘We have eighty desks.’",
+              "cue": "We have eighty desks"
+            },
+            {
+              "number": 17,
+              "prompt": "When can members enter the building?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "during office hours only"
+                },
+                {
+                  "key": "B",
+                  "text": "twenty-four hours a day"
+                },
+                {
+                  "key": "C",
+                  "text": "until midnight"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Access to the building twenty-four hours a day.’",
+              "cue": "access to the building twenty-four hours a day"
+            },
+            {
+              "number": 18,
+              "prompt": "What is not included in the monthly fee?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "tea and coffee"
+                },
+                {
+                  "key": "B",
+                  "text": "wifi"
+                },
+                {
+                  "key": "C",
+                  "text": "printing"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘Printing is charged separately.’",
+              "cue": "Printing is charged separately"
+            },
+            {
+              "number": 19,
+              "prompt": "What happens on Friday afternoons?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a free networking event"
+                },
+                {
+                  "key": "B",
+                  "text": "a training course"
+                },
+                {
+                  "key": "C",
+                  "text": "a yoga class"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We hold a networking event, with drinks and snacks.’",
+              "cue": "we hold a networking event, with drinks and snacks"
+            },
+            {
+              "number": 20,
+              "prompt": "How can people try the space?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by booking a free day pass online"
+                },
+                {
+                  "key": "B",
+                  "text": "by paying a small deposit"
+                },
+                {
+                  "key": "C",
+                  "text": "by visiting on Fridays"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘You can book a free day pass online.’",
+              "cue": "you can book a free day pass online"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-43/part2.mp3",
+        "duration": 204.48
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A soil survey on a farm",
+      "context": "Two students write up the results of a soil survey.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two agriculture students, Maeve and Luis, writing up a soil survey of a farm. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.08
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.08,
+          "end": 41.79
+        },
+        {
+          "speaker": "maeve",
+          "text": "Luis, we need to decide how to describe our sampling method. We took samples from five fields on the farm.",
+          "start": 42.69,
+          "end": 48.24
+        },
+        {
+          "speaker": "luis",
+          "text": "Fifteen from each field, I think, walking in a W pattern across it, so that we'd cover the whole area.",
+          "start": 48.74,
+          "end": 54.48
+        },
+        {
+          "speaker": "maeve",
+          "text": "That's right. And we took them with a hand auger, to a depth of twenty centimetres.",
+          "start": 54.98,
+          "end": 59.09
+        },
+        {
+          "speaker": "luis",
+          "text": "Yes, because that's the layer where most of the plant roots grow. Then we mixed the samples from each field together.",
+          "start": 59.59,
+          "end": 65.65
+        },
+        {
+          "speaker": "maeve",
+          "text": "Mr Hale asked us not to take samples near the hedges. Do you remember why?",
+          "start": 66.15,
+          "end": 70.46
+        },
+        {
+          "speaker": "luis",
+          "text": "Because the soil there isn't typical. Leaves fall from the hedge and rot, so it contains much more organic matter than the rest of the field.",
+          "start": 70.96,
+          "end": 78.79
+        },
+        {
+          "speaker": "maeve",
+          "text": "The analysis was done by a commercial laboratory, wasn't it?",
+          "start": 79.29,
+          "end": 82.73
+        },
+        {
+          "speaker": "luis",
+          "text": "Yes, the university lab was fully booked, so Dr Green arranged for a laboratory in town to do it. The results came back on Tuesday.",
+          "start": 83.23,
+          "end": 91.06
+        },
+        {
+          "speaker": "maeve",
+          "text": "And what's our main recommendation to Mr Hale?",
+          "start": 91.56,
+          "end": 94.22
+        },
+        {
+          "speaker": "luis",
+          "text": "To add lime to the most acidic field. That would have the biggest effect on his crop yields, and it's cheap and easy to do.",
+          "start": 94.72,
+          "end": 101.72
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 102.62,
+          "end": 108.76
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 128.76,
+          "end": 132.6
+        },
+        {
+          "speaker": "maeve",
+          "text": "Now let's go through the results field by field. North Field first.",
+          "start": 133.5,
+          "end": 137.47
+        },
+        {
+          "speaker": "luis",
+          "text": "It's low in organic matter. The farmer has grown wheat there for many years without adding any manure.",
+          "start": 137.97,
+          "end": 144.01
+        },
+        {
+          "speaker": "maeve",
+          "text": "River Field?",
+          "start": 144.51,
+          "end": 145.73
+        },
+        {
+          "speaker": "luis",
+          "text": "It was waterlogged. We found standing water just below the surface, and the drainage is poor.",
+          "start": 146.23,
+          "end": 151.49
+        },
+        {
+          "speaker": "maeve",
+          "text": "Hill Field?",
+          "start": 151.99,
+          "end": 153.21
+        },
+        {
+          "speaker": "luis",
+          "text": "That's very compacted, because the heavy machinery goes over it every year, so the water can't soak in.",
+          "start": 153.71,
+          "end": 159.75
+        },
+        {
+          "speaker": "maeve",
+          "text": "The Orchard?",
+          "start": 160.25,
+          "end": 161.36
+        },
+        {
+          "speaker": "luis",
+          "text": "That was the best. The soil was rich in worms, and we counted more than twenty in every spade of earth.",
+          "start": 161.86,
+          "end": 167.7
+        },
+        {
+          "speaker": "maeve",
+          "text": "And the Meadow?",
+          "start": 168.2,
+          "end": 169.33
+        },
+        {
+          "speaker": "luis",
+          "text": "That was too acidic, which is why the grass is so poor there. That's the field that needs lime.",
+          "start": 169.83,
+          "end": 175.25
+        },
+        {
+          "speaker": "maeve",
+          "text": "Good. Let's put that in a table, and write the recommendations next.",
+          "start": 175.75,
+          "end": 179.17
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 180.07,
+          "end": 184.52
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "How many samples did the students take from each field?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "five"
+                },
+                {
+                  "key": "B",
+                  "text": "fifteen"
+                },
+                {
+                  "key": "C",
+                  "text": "thirty"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Fifteen from each field.’",
+              "cue": "Fifteen from each field"
+            },
+            {
+              "number": 22,
+              "prompt": "To what depth did they take the samples?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ten centimetres"
+                },
+                {
+                  "key": "B",
+                  "text": "twenty centimetres"
+                },
+                {
+                  "key": "C",
+                  "text": "fifty centimetres"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘To a depth of twenty centimetres.’",
+              "cue": "to a depth of twenty centimetres"
+            },
+            {
+              "number": 23,
+              "prompt": "Why did Mr Hale ask them to avoid the hedges?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The soil there is not typical."
+                },
+                {
+                  "key": "B",
+                  "text": "Birds were nesting there."
+                },
+                {
+                  "key": "C",
+                  "text": "The ground was too wet."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The soil there isn't typical.’",
+              "cue": "the soil there isn't typical"
+            },
+            {
+              "number": 24,
+              "prompt": "Where were the samples analysed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the university"
+                },
+                {
+                  "key": "B",
+                  "text": "at a commercial laboratory"
+                },
+                {
+                  "key": "C",
+                  "text": "on the farm"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The analysis was done by a commercial laboratory.’",
+              "cue": "the analysis was done by a commercial laboratory"
+            },
+            {
+              "number": 25,
+              "prompt": "What is the main recommendation to Mr Hale?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "add lime to the most acidic field"
+                },
+                {
+                  "key": "B",
+                  "text": "plant trees"
+                },
+                {
+                  "key": "C",
+                  "text": "buy a new tractor"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘To add lime to the most acidic field.’",
+              "cue": "To add lime to the most acidic field"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What did the students find in each field? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Findings",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is high in nitrogen."
+            },
+            {
+              "key": "B",
+              "text": "It is too acidic."
+            },
+            {
+              "key": "C",
+              "text": "It is very compacted."
+            },
+            {
+              "key": "D",
+              "text": "It is rich in worms."
+            },
+            {
+              "key": "E",
+              "text": "It is waterlogged."
+            },
+            {
+              "key": "F",
+              "text": "It is low in organic matter."
+            },
+            {
+              "key": "G",
+              "text": "It is contaminated with metal."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "North Field",
+              "answer": "F",
+              "explanation": "‘It's low in organic matter.’",
+              "cue": "It's low in organic matter"
+            },
+            {
+              "number": 27,
+              "prompt": "River Field",
+              "answer": "E",
+              "explanation": "‘It was waterlogged.’",
+              "cue": "It was waterlogged"
+            },
+            {
+              "number": 28,
+              "prompt": "Hill Field",
+              "answer": "C",
+              "explanation": "‘That's very compacted.’",
+              "cue": "That's very compacted"
+            },
+            {
+              "number": 29,
+              "prompt": "the Orchard",
+              "answer": "D",
+              "explanation": "‘The soil was rich in worms.’",
+              "cue": "The soil was rich in worms"
+            },
+            {
+              "number": 30,
+              "prompt": "the Meadow",
+              "answer": "B",
+              "explanation": "‘That was too acidic.’",
+              "cue": "That was too acidic"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-43/part3.mp3",
+        "duration": 215.32
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the origins of the Olympic Games",
+      "context": "A lecture on the ancient Games and their revival.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the origins of the Olympic Games. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.56
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.56,
+          "end": 43.98
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today we'll look at the origins of the Olympic Games, and how they developed from a local festival into the world's biggest sporting event.",
+          "start": 44.88,
+          "end": 52.85
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The ancient Games were held at Olympia, in southern Greece, and the first recorded Games were in seven hundred and seventy-six BC. They took place every four years for nearly twelve hundred years. They were a religious festival, in honour of the god Zeus, and the great temple there held a huge statue of him.",
+          "start": 53.2,
+          "end": 68.91
+        },
+        {
+          "speaker": "lecturer",
+          "text": "One striking feature was the sacred truce. While the Games were on, wars were suspended, so that athletes and spectators could travel safely to Olympia, even across territories at war.",
+          "start": 69.26,
+          "end": 79.82
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The events included running, wrestling, boxing and chariot racing. The shortest race, the stadion, was about two hundred metres, and the first Games had no other event. The winners received no money, only a wreath of olive leaves, though they were treated as heroes when they returned home.",
+          "start": 80.17,
+          "end": 94.99
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Competition was limited. Only free Greek men could compete, and women, slaves and foreigners were excluded. The Games survived under Roman rule, but at the end of the fourth century, a Christian emperor banned them as a pagan festival.",
+          "start": 95.34,
+          "end": 107.65
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The Games were revived in the late nineteenth century, thanks to a Frenchman, Baron Pierre de Coubertin. The first modern Games were held in Athens in eighteen ninety-six, with fourteen nations taking part.",
+          "start": 108.0,
+          "end": 119.1
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Women first competed in nineteen hundred, in sports such as tennis and golf, and the first Winter Games were held in nineteen twenty-four, with sports like skiing and skating. And the tradition of the Olympic flame continues today. It is lit at Olympia, using a mirror and the rays of the sun, and then carried by torch to the host city. Next week we'll look at the Paralympic Games.",
+          "start": 119.45,
+          "end": 138.24
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 139.14,
+          "end": 143.53
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 173.53,
+          "end": 176.24
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The origins of the Olympic Games",
+          "content": [
+            "## The ancient Games",
+            "• Held at {{31}} in southern Greece",
+            "• They honoured the god {{32}}",
+            "• A sacred {{33}} allowed athletes to travel safely",
+            "• Winners received a wreath of {{34}} leaves",
+            "• Only free Greek {{35}} could compete",
+            "• A Roman {{36}} banned the Games",
+            "## The modern Games",
+            "• The first modern Games took place in {{37}} in 1896",
+            "• Women first competed in 1900, in sports such as {{38}}",
+            "• The Winter Games began in 1924 with sports like {{39}}",
+            "• The flame is lit using a mirror and the rays of the {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "Olympia"
+              ],
+              "explanation": "‘Held at Olympia, in southern Greece.’",
+              "cue": "held at Olympia, in southern Greece"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "Zeus"
+              ],
+              "explanation": "‘In honour of the god Zeus.’",
+              "cue": "in honour of the god Zeus"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "truce"
+              ],
+              "explanation": "‘The sacred truce.’",
+              "cue": "the sacred truce"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "olive"
+              ],
+              "explanation": "‘A wreath of olive leaves.’",
+              "cue": "a wreath of olive leaves"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "men"
+              ],
+              "explanation": "‘Only free Greek men could compete.’",
+              "cue": "Only free Greek men could compete"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "emperor"
+              ],
+              "explanation": "‘A Christian emperor banned them.’",
+              "cue": "a Christian emperor banned them"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "Athens"
+              ],
+              "explanation": "‘Held in Athens in eighteen ninety-six.’",
+              "cue": "held in Athens in eighteen ninety-six"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "tennis"
+              ],
+              "explanation": "‘Sports such as tennis and golf.’",
+              "cue": "sports such as tennis and golf"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "skiing"
+              ],
+              "explanation": "‘Sports like skiing and skating.’",
+              "cue": "sports like skiing and skating"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "sun"
+              ],
+              "explanation": "‘The rays of the sun.’",
+              "cue": "the rays of the sun"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-43/part4.mp3",
+        "duration": 177.04
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

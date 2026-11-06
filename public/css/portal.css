@@ -687,6 +687,11 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
   font-family: inherit; color: var(--ink);
 }
 .btn-google:hover { border-color: var(--ink-2); }
+/* Google's own button sits in a slot as tall as the button, so nothing moves when it replaces the placeholder. */
+.google-slot { display: flex; justify-content: center; min-height: 40px; color-scheme: light; transition: opacity 0.15s; }
+.google-slot .btn-google { min-height: 40px; padding-block: 0; }
+.google-slot.is-busy { opacity: 0.5; pointer-events: none; }
+.google-block .form-error { margin-top: 8px; }
 .auth-or { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 0.85em; margin: 16px 0; }
 .auth-or::before, .auth-or::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 .auth-form { display: flex; flex-direction: column; gap: 8px; }
@@ -1317,10 +1322,13 @@ mark.ai-filler { background: #f1dfb4; color: inherit; border-radius: 3px; paddin
   #history-section .history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   #history-section .history-table, #history-section .history-table tbody { display: block; }
   #history-section .history-table tr {
-    display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "test result" "date time";
+    display: grid; grid-template-columns: minmax(0, 1fr) fit-content(58%); grid-template-areas: "test result" "date time";
     gap: 2px 12px; padding: 12px 14px; border-bottom: 1px solid var(--rule);
   }
-  #history-section .history-table td { padding: 0; border: 0; }
+  #history-section .history-table td { padding: 0; border: 0; min-width: 0; overflow-wrap: anywhere; }
+  /* A long result (a Speaking band with the examiner's note and the link) gets its own line, so the test name keeps its width */
+  #history-section .history-table tr.history-long { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "test test" "result result" "date time"; row-gap: 4px; }
+  #history-section .history-table tr.history-long td:nth-child(3) { text-align: left; }
   #history-section .history-table td:nth-child(1) { grid-area: date; font-size: 0.85em; color: var(--muted); }
   #history-section .history-table td:nth-child(2) { grid-area: test; font-weight: 600; }
   #history-section .history-table td:nth-child(3) { grid-area: result; text-align: right; }

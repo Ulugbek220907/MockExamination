@@ -1,0 +1,1382 @@
+{
+  "id": "listening-54",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 54",
+  "shortTitle": "Practice Test 54",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 54,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "eleni": {
+      "name": "Eleni",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "ben": {
+      "name": "Ben",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "costa": {
+      "name": "Ms Costa",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "freda": {
+      "name": "Freda",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "kai": {
+      "name": "Kai",
+      "voice": "am_adam",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a walking tour",
+      "context": "A man books a guided walk for a group for his mother's birthday.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a company to book a guided walking tour for a group. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.99
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.99,
+          "end": 39.05
+        },
+        {
+          "speaker": "eleni",
+          "text": "Heritage Walks, Eleni speaking.",
+          "start": 39.95,
+          "end": 42.24
+        },
+        {
+          "speaker": "ben",
+          "text": "Hello. I'd like to book a guided walk for a group, please. It's for my mother's birthday, and she loves history.",
+          "start": 42.74,
+          "end": 48.22
+        },
+        {
+          "speaker": "eleni",
+          "text": "How lovely. I'll take some details.",
+          "start": 48.72,
+          "end": 51.02
+        },
+        {
+          "speaker": "narrator",
+          "text": "The walk is for a birthday, so 'birthday' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 51.92,
+          "end": 66.58
+        },
+        {
+          "speaker": "eleni",
+          "text": "Could I have your name, please?",
+          "start": 67.48,
+          "end": 69.29
+        },
+        {
+          "speaker": "ben",
+          "text": "Ben Wallace. That's W-A-L-L-A-C-E.",
+          "start": 69.79,
+          "end": 75.46
+        },
+        {
+          "speaker": "eleni",
+          "text": "Thank you, Mr Wallace. How many people will there be?",
+          "start": 75.96,
+          "end": 78.84
+        },
+        {
+          "speaker": "ben",
+          "text": "I thought ten, but a couple more have decided to come, so twelve.",
+          "start": 79.34,
+          "end": 82.58
+        },
+        {
+          "speaker": "eleni",
+          "text": "And which date would you like?",
+          "start": 83.08,
+          "end": 84.75
+        },
+        {
+          "speaker": "ben",
+          "text": "Saturday the seventeenth of May.",
+          "start": 85.25,
+          "end": 87.19
+        },
+        {
+          "speaker": "eleni",
+          "text": "That's fine. Where would the group like to meet?",
+          "start": 87.69,
+          "end": 90.16
+        },
+        {
+          "speaker": "ben",
+          "text": "Outside the cathedral, if that's all right. It's easy for everyone to find.",
+          "start": 90.66,
+          "end": 94.69
+        },
+        {
+          "speaker": "eleni",
+          "text": "Are there any special needs we should know about?",
+          "start": 95.19,
+          "end": 97.82
+        },
+        {
+          "speaker": "ben",
+          "text": "Most of the group are over sixty, so we'd like a gentle pace, with places to sit.",
+          "start": 98.32,
+          "end": 102.78
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 103.68,
+          "end": 109.39
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 129.39,
+          "end": 132.72
+        },
+        {
+          "speaker": "eleni",
+          "text": "We have three tours. The Old Town walk lasts two hours, and it costs twelve pounds per person. It's the most popular, and it's quite gentle.",
+          "start": 133.62,
+          "end": 141.37
+        },
+        {
+          "speaker": "ben",
+          "text": "That sounds perfect. And the others?",
+          "start": 141.87,
+          "end": 143.91
+        },
+        {
+          "speaker": "eleni",
+          "text": "The Ghost walk is ninety minutes, in the evening, and it costs fourteen pounds. It's not really suitable for people who want a quiet pace, because there are lots of steps.",
+          "start": 144.41,
+          "end": 153.57
+        },
+        {
+          "speaker": "ben",
+          "text": "No, I think not. What's the third?",
+          "start": 154.07,
+          "end": 156.09
+        },
+        {
+          "speaker": "eleni",
+          "text": "The Castle and Gardens tour. It lasts three hours, and it costs twenty pounds, which includes a cream tea at the castle café. It's a coach tour, so there's not much walking.",
+          "start": 156.59,
+          "end": 166.11
+        },
+        {
+          "speaker": "ben",
+          "text": "That sounds lovely for my mother. Do you give discounts for groups?",
+          "start": 166.61,
+          "end": 170.17
+        },
+        {
+          "speaker": "eleni",
+          "text": "Yes, there's a fifteen percent discount for groups of more than ten, which applies to you.",
+          "start": 170.67,
+          "end": 175.21
+        },
+        {
+          "speaker": "ben",
+          "text": "Excellent. I'll take the Old Town walk. Can I pay by card?",
+          "start": 175.71,
+          "end": 179.06
+        },
+        {
+          "speaker": "eleni",
+          "text": "Yes, and I'll email you a receipt and the meeting point.",
+          "start": 179.56,
+          "end": 182.64
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 183.54,
+          "end": 188.06
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Heritage Walks – group booking",
+          "content": [
+            "Example: The walk is for a **birthday**",
+            "## Booking",
+            "• Name: Ben {{1}}",
+            "• Group size: {{2}}",
+            "• Date: Saturday {{3}} May",
+            "• Meeting place: outside the {{4}}",
+            "• Most of the group are over {{5}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Wallace"
+              ],
+              "explanation": "‘W-A-L-L-A-C-E.’",
+              "cue": "W-A-L-L-A-C-E"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "12",
+                "twelve"
+              ],
+              "explanation": "‘So twelve.’",
+              "cue": "so twelve"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "17",
+                "seventeenth",
+                "17th"
+              ],
+              "explanation": "‘Saturday the seventeenth of May.’",
+              "cue": "Saturday the seventeenth of May"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "cathedral"
+              ],
+              "explanation": "‘Outside the cathedral.’",
+              "cue": "Outside the cathedral"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "60",
+                "sixty"
+              ],
+              "explanation": "‘Most of the group are over sixty.’",
+              "cue": "Most of the group are over sixty"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Tours",
+          "content": {
+            "headers": [
+              "Tour",
+              "Length",
+              "Price per person"
+            ],
+            "rows": [
+              [
+                "Old Town walk",
+                "{{6}} hours",
+                "£12"
+              ],
+              [
+                "Ghost walk",
+                "90 minutes",
+                "£{{7}}"
+              ],
+              [
+                "Castle and Gardens",
+                "3 hours",
+                "£{{8}}, including a cream {{9}}"
+              ],
+              [
+                "Group discount",
+                "—",
+                "{{10}} percent"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "2",
+                "two"
+              ],
+              "explanation": "‘The Old Town walk lasts two hours.’",
+              "cue": "The Old Town walk lasts two hours"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "14",
+                "fourteen"
+              ],
+              "explanation": "‘It costs fourteen pounds.’",
+              "cue": "it costs fourteen pounds"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "20",
+                "twenty"
+              ],
+              "explanation": "‘It costs twenty pounds.’",
+              "cue": "it costs twenty pounds"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "tea"
+              ],
+              "explanation": "‘A cream tea at the castle café.’",
+              "cue": "a cream tea at the castle café"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "15",
+                "fifteen"
+              ],
+              "explanation": "‘A fifteen percent discount for groups of more than ten.’",
+              "cue": "a fifteen percent discount for groups of more than ten"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-54/part1.mp3",
+        "duration": 218.86
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A tour of an old town",
+      "context": "A guide introduces a walking tour.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a guide introducing a walking tour of an old town. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.03
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.03,
+          "end": 39.3
+        },
+        {
+          "speaker": "costa",
+          "text": "Good morning, everyone, and welcome to our walk round the Old Town. I'm Maria Costa, and I've been a guide here for ten years. Please look at the map. We're at the Old Bridge, at the bottom, and the main street goes straight ahead, to the junction in the middle of the town.",
+          "start": 40.2,
+          "end": 54.21
+        },
+        {
+          "speaker": "costa",
+          "text": "On the way up, on the left, is the museum, in an old merchant's house. We'll visit it at the end of the tour. On the right, in a big building with a green roof, is the Town Hall.",
+          "start": 54.56,
+          "end": 63.59
+        },
+        {
+          "speaker": "costa",
+          "text": "At the junction, we turn right, and above the junction on the right of the main street is the Clock Tower, which you'll see from all over the town.",
+          "start": 63.94,
+          "end": 71.04
+        },
+        {
+          "speaker": "costa",
+          "text": "On the left, in the top corner, is the cathedral, and in the top right corner, behind the Clock Tower, is the Market Square, where the market is held every Saturday morning. The library, above the junction on the left, and the old prison on the lower left aren't on our route.",
+          "start": 71.39,
+          "end": 85.68
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 86.58,
+          "end": 92.3
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 117.3,
+          "end": 121.18
+        },
+        {
+          "speaker": "costa",
+          "text": "A few notes on what we'll see. The cathedral isn't famous for its tower, although that is tall, but for its stained glass windows, which date from the twelfth century and are among the oldest in the country.",
+          "start": 122.08,
+          "end": 132.62
+        },
+        {
+          "speaker": "costa",
+          "text": "The Clock Tower was built in the seventeen hundreds, to replace an older one that burned down. People often assume it's medieval, but it isn't.",
+          "start": 132.97,
+          "end": 140.99
+        },
+        {
+          "speaker": "costa",
+          "text": "At noon every day, little wooden figures come out of the clock and strike the bell. It's very popular, so we'll arrange to be in the square at five to twelve.",
+          "start": 141.34,
+          "end": 149.68
+        },
+        {
+          "speaker": "costa",
+          "text": "The tour takes about two hours, and there are places to sit along the way. If anyone gets tired, just tell me.",
+          "start": 150.03,
+          "end": 155.65
+        },
+        {
+          "speaker": "costa",
+          "text": "And we'll finish at a small café, near the museum, where you can have a hot drink, and I'll answer any more questions. Shall we start?",
+          "start": 156.0,
+          "end": 162.91
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 163.81,
+          "end": 168.14
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "The Old Town walking tour",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "rect",
+                "x": 10,
+                "y": 345,
+                "w": 620,
+                "h": 85,
+                "style": "water",
+                "label": "River Dene",
+                "lx": 200
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 350,
+                "x2": 320,
+                "y2": 25,
+                "style": "road"
+              },
+              {
+                "type": "line",
+                "x1": 30,
+                "y1": 190,
+                "x2": 610,
+                "y2": 190,
+                "style": "road"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 345,
+                "label": "Old Bridge"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 300
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 40,
+                "w": 130,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 190,
+                "y": 40,
+                "w": 100,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 350,
+                "y": 40,
+                "w": 100,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 480,
+                "y": 40,
+                "w": 130,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 220,
+                "w": 130,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 190,
+                "y": 220,
+                "w": 100,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 350,
+                "y": 220,
+                "w": 120,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 105,
+                "y": 90,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 240,
+                "y": 90,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 400,
+                "y": 90,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 545,
+                "y": 90,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 105,
+                "y": 270,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 240,
+                "y": 270,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 410,
+                "y": 270,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Museum",
+              "answer": "F",
+              "explanation": "‘On the left, is the museum.’",
+              "cue": "on the left, is the museum"
+            },
+            {
+              "number": 12,
+              "prompt": "Town Hall",
+              "answer": "G",
+              "explanation": "‘On the right, in a big building with a green roof, is the Town Hall.’",
+              "cue": "on the right, in a big building with a green roof, is the Town Hall"
+            },
+            {
+              "number": 13,
+              "prompt": "Clock Tower",
+              "answer": "C",
+              "explanation": "‘Above the junction on the right of the main street is the Clock Tower.’",
+              "cue": "above the junction on the right of the main street is the Clock Tower"
+            },
+            {
+              "number": 14,
+              "prompt": "Cathedral",
+              "answer": "A",
+              "explanation": "‘On the left, in the top corner, is the cathedral.’",
+              "cue": "On the left, in the top corner, is the cathedral"
+            },
+            {
+              "number": 15,
+              "prompt": "Market Square",
+              "answer": "D",
+              "explanation": "‘In the top right corner, behind the Clock Tower, is the Market Square.’",
+              "cue": "in the top right corner, behind the Clock Tower, is the Market Square"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "What is the cathedral most famous for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "its tower"
+                },
+                {
+                  "key": "B",
+                  "text": "its stained glass"
+                },
+                {
+                  "key": "C",
+                  "text": "its organ"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘But for its stained glass windows.’",
+              "cue": "but for its stained glass windows"
+            },
+            {
+              "number": 17,
+              "prompt": "When was the Clock Tower built?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in the twelfth century"
+                },
+                {
+                  "key": "B",
+                  "text": "in the seventeen hundreds"
+                },
+                {
+                  "key": "C",
+                  "text": "in the eighteen hundreds"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The Clock Tower was built in the seventeen hundreds.’",
+              "cue": "The Clock Tower was built in the seventeen hundreds"
+            },
+            {
+              "number": 18,
+              "prompt": "What happens at noon every day?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Wooden figures come out of the clock."
+                },
+                {
+                  "key": "B",
+                  "text": "The market opens."
+                },
+                {
+                  "key": "C",
+                  "text": "The cathedral bells ring."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Little wooden figures come out of the clock.’",
+              "cue": "little wooden figures come out of the clock"
+            },
+            {
+              "number": 19,
+              "prompt": "How long does the tour take?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one hour"
+                },
+                {
+                  "key": "B",
+                  "text": "about two hours"
+                },
+                {
+                  "key": "C",
+                  "text": "about three hours"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The tour takes about two hours.’",
+              "cue": "The tour takes about two hours"
+            },
+            {
+              "number": 20,
+              "prompt": "Where will the tour end?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the market"
+                },
+                {
+                  "key": "B",
+                  "text": "at a café"
+                },
+                {
+                  "key": "C",
+                  "text": "at the bridge"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘We'll finish at a small café, near the museum.’",
+              "cue": "we'll finish at a small café, near the museum"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-54/part2.mp3",
+        "duration": 198.94
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A model of a library design",
+      "context": "Two architecture students plan a model.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two architecture students, Freda and Kai, planning a model of a library design. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.06
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.06,
+          "end": 41.77
+        },
+        {
+          "speaker": "freda",
+          "text": "Kai, we need to decide how to build the model of our library design. What scale did the tutor say?",
+          "start": 42.67,
+          "end": 48.32
+        },
+        {
+          "speaker": "kai",
+          "text": "One to a hundred, so that the whole building fits on one table. A scale of one to fifty would be too big.",
+          "start": 48.82,
+          "end": 54.78
+        },
+        {
+          "speaker": "freda",
+          "text": "Right. And it's a public library, not a university one, isn't it? That affects the design, with so many different users.",
+          "start": 55.28,
+          "end": 62.47
+        },
+        {
+          "speaker": "kai",
+          "text": "Yes, for the whole community, from children to older people. That's why we included a children's area on the ground floor.",
+          "start": 62.97,
+          "end": 69.58
+        },
+        {
+          "speaker": "freda",
+          "text": "Which feature are we most proud of?",
+          "start": 70.08,
+          "end": 71.83
+        },
+        {
+          "speaker": "kai",
+          "text": "The reading garden on the roof. It's unusual, and it's the first thing the examiners will notice.",
+          "start": 72.33,
+          "end": 77.47
+        },
+        {
+          "speaker": "freda",
+          "text": "What will be the main difficulty in building the model?",
+          "start": 77.97,
+          "end": 80.74
+        },
+        {
+          "speaker": "kai",
+          "text": "The curved roof. Cutting curves is hard, and the card tends to wrinkle.",
+          "start": 81.24,
+          "end": 85.1
+        },
+        {
+          "speaker": "freda",
+          "text": "How shall we divide the work?",
+          "start": 85.6,
+          "end": 87.1
+        },
+        {
+          "speaker": "kai",
+          "text": "I'll build the structure, since I'm better with a knife, and you can do the landscaping and the lettering.",
+          "start": 87.6,
+          "end": 92.59
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 93.49,
+          "end": 99.63
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 119.63,
+          "end": 123.47
+        },
+        {
+          "speaker": "freda",
+          "text": "Let's choose the materials. The walls first.",
+          "start": 124.37,
+          "end": 126.98
+        },
+        {
+          "speaker": "kai",
+          "text": "Foam board, because it's light, easy to cut, and it keeps its shape.",
+          "start": 127.48,
+          "end": 130.87
+        },
+        {
+          "speaker": "freda",
+          "text": "The roof?",
+          "start": 131.37,
+          "end": 132.16
+        },
+        {
+          "speaker": "kai",
+          "text": "Thin card, so that we can bend it into a curve. Paper would be too weak.",
+          "start": 132.66,
+          "end": 136.69
+        },
+        {
+          "speaker": "freda",
+          "text": "The windows?",
+          "start": 137.19,
+          "end": 138.04
+        },
+        {
+          "speaker": "kai",
+          "text": "Clear plastic, from a sheet. We can stick it behind the openings, and it will look like real glass.",
+          "start": 138.54,
+          "end": 143.73
+        },
+        {
+          "speaker": "freda",
+          "text": "And the floors? We want to be able to lift them out to show the inside.",
+          "start": 144.23,
+          "end": 147.96
+        },
+        {
+          "speaker": "kai",
+          "text": "Balsa wood. It's thin and strong, and doesn't bend under the weight of the furniture.",
+          "start": 148.46,
+          "end": 152.73
+        },
+        {
+          "speaker": "freda",
+          "text": "And the trees in the garden?",
+          "start": 153.23,
+          "end": 154.74
+        },
+        {
+          "speaker": "kai",
+          "text": "Small pieces of sponge, painted green. It's the classic way, and it looks good enough.",
+          "start": 155.24,
+          "end": 159.89
+        },
+        {
+          "speaker": "freda",
+          "text": "I'll buy the materials on Saturday.",
+          "start": 160.39,
+          "end": 162.29
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 163.19,
+          "end": 167.65
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What scale will the model be?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one to fifty"
+                },
+                {
+                  "key": "B",
+                  "text": "one to a hundred"
+                },
+                {
+                  "key": "C",
+                  "text": "one to two hundred"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘One to a hundred.’",
+              "cue": "One to a hundred"
+            },
+            {
+              "number": 22,
+              "prompt": "What kind of library are they designing?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a public library"
+                },
+                {
+                  "key": "B",
+                  "text": "a university library"
+                },
+                {
+                  "key": "C",
+                  "text": "a school library"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘It's a public library.’",
+              "cue": "it's a public library"
+            },
+            {
+              "number": 23,
+              "prompt": "Which feature are they most proud of?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a glass entrance hall"
+                },
+                {
+                  "key": "B",
+                  "text": "a reading garden on the roof"
+                },
+                {
+                  "key": "C",
+                  "text": "a café"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The reading garden on the roof.’",
+              "cue": "The reading garden on the roof"
+            },
+            {
+              "number": 24,
+              "prompt": "What will be the main difficulty in building the model?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the curved roof"
+                },
+                {
+                  "key": "B",
+                  "text": "the cost"
+                },
+                {
+                  "key": "C",
+                  "text": "the deadline"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The curved roof.’",
+              "cue": "The curved roof"
+            },
+            {
+              "number": 25,
+              "prompt": "How will they divide the work?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Kai builds the structure and Freda does the landscaping."
+                },
+                {
+                  "key": "B",
+                  "text": "Freda builds the structure and Kai paints."
+                },
+                {
+                  "key": "C",
+                  "text": "They will build everything together."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I'll build the structure.’",
+              "cue": "I'll build the structure"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What material will they use for each part of the model? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Materials",
+          "options": [
+            {
+              "key": "A",
+              "text": "card"
+            },
+            {
+              "key": "B",
+              "text": "balsa wood"
+            },
+            {
+              "key": "C",
+              "text": "clear plastic"
+            },
+            {
+              "key": "D",
+              "text": "sponge"
+            },
+            {
+              "key": "E",
+              "text": "foam board"
+            },
+            {
+              "key": "F",
+              "text": "paper"
+            },
+            {
+              "key": "G",
+              "text": "wire"
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "the walls",
+              "answer": "E",
+              "explanation": "‘Foam board, because it's light.’",
+              "cue": "Foam board, because it's light"
+            },
+            {
+              "number": 27,
+              "prompt": "the roof",
+              "answer": "A",
+              "explanation": "‘Thin card, so that we can bend it into a curve.’",
+              "cue": "Thin card, so that we can bend it into a curve"
+            },
+            {
+              "number": 28,
+              "prompt": "the windows",
+              "answer": "C",
+              "explanation": "‘Clear plastic, from a sheet.’",
+              "cue": "Clear plastic, from a sheet"
+            },
+            {
+              "number": 29,
+              "prompt": "the floors",
+              "answer": "B",
+              "explanation": "‘Balsa wood.’",
+              "cue": "Balsa wood"
+            },
+            {
+              "number": 30,
+              "prompt": "the trees",
+              "answer": "D",
+              "explanation": "‘Small pieces of sponge, painted green.’",
+              "cue": "Small pieces of sponge, painted green"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-54/part3.mp3",
+        "duration": 198.45
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: garden cities",
+      "context": "A lecture on the garden city movement.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about garden cities. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.43
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.43,
+          "end": 42.85
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today we'll look at an idea which has influenced town planning for over a century: the garden city.",
+          "start": 43.75,
+          "end": 50.25
+        },
+        {
+          "speaker": "lecturer",
+          "text": "At the end of the nineteenth century, the cities of Britain were crowded and dirty, while the countryside was losing its people. An English reformer named Ebenezer Howard had an idea. In a book published in eighteen ninety-eight, he proposed that a new kind of town could combine the best of the town and the country.",
+          "start": 50.6,
+          "end": 67.75
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Each garden city would be limited in size, with about thirty thousand people. When it reached that number, a new town would be built nearby, instead of the existing one growing without limit.",
+          "start": 68.1,
+          "end": 78.75
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A garden city would be surrounded by a belt of farmland, which would keep the countryside close to everyone and prevent the town from spreading. The land would be owned by the community, so that any increase in its value would benefit the residents, and not private landowners.",
+          "start": 79.1,
+          "end": 93.99
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The layout was carefully planned. Houses had gardens, and the streets were wide and lined with trees. Shops were grouped in the town centre, and factories were kept in a separate area on the edge, so that workers could live near their jobs without the smoke and noise.",
+          "start": 94.34,
+          "end": 108.83
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The first garden city was begun in nineteen oh three, and a second followed in the nineteen twenties. They were successful, although they did not become the cheap communities that Howard had imagined.",
+          "start": 109.18,
+          "end": 120.2
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The ideas had a lasting influence. After the Second World War, the British government built a series of new towns, which borrowed much from the garden city plan, including the green spaces, and the separation of homes from industry.",
+          "start": 120.55,
+          "end": 134.29
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The idea has also been criticised. Many garden suburbs were designed for people who owned cars, and critics argue that they make people depend on cars to get around. Even so, Howard's vision continues to inspire planners who want more green space in cities. Next week we'll look at skyscrapers.",
+          "start": 134.64,
+          "end": 152.22
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 153.12,
+          "end": 157.52
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 187.52,
+          "end": 190.23
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Garden cities",
+          "content": [
+            "## Ebenezer Howard's idea",
+            "• He wanted to combine the best of the town and the {{31}}",
+            "• Each garden city would have about thirty thousand {{32}}",
+            "• It would be surrounded by a belt of {{33}}",
+            "• The land would be owned by the {{34}}",
+            "## The layout",
+            "• Houses had {{35}}",
+            "• The streets were wide and lined with {{36}}",
+            "• Factories were kept in a separate {{37}}",
+            "## Influence",
+            "• After the war, the government built {{38}} towns based on the idea",
+            "• Critics say people depend on {{39}} to get around",
+            "• Planners still want more green {{40}} in cities"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "country"
+              ],
+              "explanation": "‘The best of the town and the country.’",
+              "cue": "the best of the town and the country"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "people",
+                "inhabitants",
+                "residents"
+              ],
+              "explanation": "‘About thirty thousand people.’",
+              "cue": "about thirty thousand people"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "farmland"
+              ],
+              "explanation": "‘A belt of farmland.’",
+              "cue": "a belt of farmland"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "community"
+              ],
+              "explanation": "‘Owned by the community.’",
+              "cue": "owned by the community"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "gardens"
+              ],
+              "explanation": "‘Houses had gardens.’",
+              "cue": "Houses had gardens"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "trees"
+              ],
+              "explanation": "‘Lined with trees.’",
+              "cue": "lined with trees"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "area",
+                "zone"
+              ],
+              "explanation": "‘A separate area on the edge.’",
+              "cue": "a separate area on the edge"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "new"
+              ],
+              "explanation": "‘A series of new towns.’",
+              "cue": "a series of new towns"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "cars"
+              ],
+              "explanation": "‘Depend on cars to get around.’",
+              "cue": "depend on cars to get around"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "space",
+                "spaces"
+              ],
+              "explanation": "‘More green space in cities.’",
+              "cue": "more green space in cities"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-54/part4.mp3",
+        "duration": 191.03
+      }
+    }
+  ],
+  "durationMinutes": 13
+}

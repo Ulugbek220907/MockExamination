@@ -1,0 +1,1245 @@
+{
+  "id": "listening-39",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 39",
+  "shortTitle": "Practice Test 39",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 39,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "hannah": {
+      "name": "Hannah",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "vikram": {
+      "name": "Vikram",
+      "voice": "am_fenrir",
+      "lang": "en-us"
+    },
+    "osei": {
+      "name": "Ms Osei",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "greta": {
+      "name": "Greta",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "sanjay": {
+      "name": "Sanjay",
+      "voice": "am_echo",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking adult swimming lessons",
+      "context": "A man phones a leisure centre about swimming lessons.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a leisure centre to ask about adult swimming lessons. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.31
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.31,
+          "end": 39.37
+        },
+        {
+          "speaker": "hannah",
+          "text": "Parkside Leisure Centre, Hannah speaking.",
+          "start": 40.27,
+          "end": 42.75
+        },
+        {
+          "speaker": "vikram",
+          "text": "Hello. I'd like some information about swimming lessons, please. They're for me. I'm afraid I never learned as a child.",
+          "start": 43.25,
+          "end": 50.16
+        },
+        {
+          "speaker": "hannah",
+          "text": "No problem at all. Lots of adults learn. I'll take some details first.",
+          "start": 50.66,
+          "end": 54.91
+        },
+        {
+          "speaker": "narrator",
+          "text": "The lessons are for the caller himself, so 'himself' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 55.81,
+          "end": 71.23
+        },
+        {
+          "speaker": "hannah",
+          "text": "Could I have your name, please?",
+          "start": 72.13,
+          "end": 73.94
+        },
+        {
+          "speaker": "vikram",
+          "text": "Vikram Nair. That's N-A-I-R.",
+          "start": 74.44,
+          "end": 77.78
+        },
+        {
+          "speaker": "hannah",
+          "text": "Thank you, Mr Nair. And how old are you, if you don't mind my asking?",
+          "start": 78.28,
+          "end": 82.01
+        },
+        {
+          "speaker": "vikram",
+          "text": "Forty-two. I know it's late to start, but better late than never.",
+          "start": 82.51,
+          "end": 85.82
+        },
+        {
+          "speaker": "hannah",
+          "text": "Not at all. Can you swim at all, or are you a complete beginner?",
+          "start": 86.32,
+          "end": 89.63
+        },
+        {
+          "speaker": "vikram",
+          "text": "A complete beginner. I can stand in the shallow end, but that's about all.",
+          "start": 90.13,
+          "end": 94.05
+        },
+        {
+          "speaker": "hannah",
+          "text": "And what made you decide to learn now?",
+          "start": 94.55,
+          "end": 96.73
+        },
+        {
+          "speaker": "vikram",
+          "text": "I'm going to Greece next summer with some friends, and they all swim and sail. I don't want to be left on the beach.",
+          "start": 97.23,
+          "end": 103.82
+        },
+        {
+          "speaker": "hannah",
+          "text": "Which evenings suit you?",
+          "start": 104.32,
+          "end": 105.96
+        },
+        {
+          "speaker": "vikram",
+          "text": "Thursdays, if possible. On Mondays I work late, and on Wednesdays I have a class.",
+          "start": 106.46,
+          "end": 111.37
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 112.27,
+          "end": 117.99
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 137.99,
+          "end": 141.31
+        },
+        {
+          "speaker": "hannah",
+          "text": "We have three courses. The Beginners' course lasts eight weeks, and it's on Thursday evenings, which suits you. It costs sixty pounds in total.",
+          "start": 142.21,
+          "end": 149.7
+        },
+        {
+          "speaker": "vikram",
+          "text": "That sounds right. What comes after that?",
+          "start": 150.2,
+          "end": 152.25
+        },
+        {
+          "speaker": "hannah",
+          "text": "The Improvers' course is for people who can already swim a width. It's six weeks, on Wednesday evenings, and it costs fifty pounds.",
+          "start": 152.75,
+          "end": 159.43
+        },
+        {
+          "speaker": "vikram",
+          "text": "And if I find the group too slow?",
+          "start": 159.93,
+          "end": 161.66
+        },
+        {
+          "speaker": "hannah",
+          "text": "You could try the one-to-one lessons. You buy a block of five, and each lesson costs twenty-five pounds. The times are arranged with the teacher.",
+          "start": 162.16,
+          "end": 169.99
+        },
+        {
+          "speaker": "vikram",
+          "text": "I'll start with the group course. Can I book now?",
+          "start": 170.49,
+          "end": 172.94
+        },
+        {
+          "speaker": "hannah",
+          "text": "Yes. I'll put you down for the next course, which starts on the third of April. Please bring a towel and goggles, and a swimming hat is compulsory.",
+          "start": 173.44,
+          "end": 180.88
+        },
+        {
+          "speaker": "vikram",
+          "text": "Thank you. I'll bring a card to pay the deposit.",
+          "start": 181.38,
+          "end": 183.86
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 184.76,
+          "end": 189.28
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Parkside Leisure Centre – adult swimming",
+          "content": [
+            "Example: The lessons are for **himself**",
+            "## Details",
+            "• Name: Vikram {{1}}",
+            "• Age: {{2}}",
+            "• Swimming ability: {{3}}",
+            "• Reason: a trip to {{4}} next summer",
+            "• Prefers {{5}} evenings"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Nair"
+              ],
+              "explanation": "‘N-A-I-R.’",
+              "cue": "N-A-I-R"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "42",
+                "forty-two"
+              ],
+              "explanation": "‘Forty-two.’",
+              "cue": "Forty-two"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "beginner"
+              ],
+              "explanation": "‘A complete beginner.’",
+              "cue": "A complete beginner"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "Greece"
+              ],
+              "explanation": "‘I'm going to Greece next summer.’",
+              "cue": "I'm going to Greece next summer"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "Thursday",
+                "Thursdays"
+              ],
+              "explanation": "‘Thursdays, if possible.’",
+              "cue": "Thursdays, if possible"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Courses",
+          "content": {
+            "headers": [
+              "Course",
+              "Length",
+              "Evening",
+              "Price"
+            ],
+            "rows": [
+              [
+                "Beginners",
+                "{{6}} weeks",
+                "Thursday",
+                "£60"
+              ],
+              [
+                "Improvers",
+                "6 weeks",
+                "{{7}}",
+                "£{{8}}"
+              ],
+              [
+                "One-to-one",
+                "{{9}} lessons",
+                "arranged with the teacher",
+                "£{{10}} a lesson"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "8",
+                "eight"
+              ],
+              "explanation": "‘Lasts eight weeks.’",
+              "cue": "lasts eight weeks"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "Wednesday",
+                "Wednesdays"
+              ],
+              "explanation": "‘On Wednesday evenings.’",
+              "cue": "on Wednesday evenings"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "50",
+                "fifty"
+              ],
+              "explanation": "‘It costs fifty pounds.’",
+              "cue": "it costs fifty pounds"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "‘You buy a block of five.’",
+              "cue": "You buy a block of five"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "25",
+                "twenty-five"
+              ],
+              "explanation": "‘Each lesson costs twenty-five pounds.’",
+              "cue": "each lesson costs twenty-five pounds"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-39/part1.mp3",
+        "duration": 220.08
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A new community swimming pool",
+      "context": "A manager tells members about a new pool.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a manager telling members about a new community swimming pool. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.26
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.26,
+          "end": 39.53
+        },
+        {
+          "speaker": "osei",
+          "text": "Good evening, everyone, and welcome to the opening of the new Millfield Pool. I'm Grace Osei, the manager, and I'd like to tell you what you can expect.",
+          "start": 40.43,
+          "end": 49.18
+        },
+        {
+          "speaker": "osei",
+          "text": "The building work took eighteen months. We had hoped to finish in a year, but the wet winter caused delays, and I'm grateful to the neighbours for being so patient.",
+          "start": 49.53,
+          "end": 58.17
+        },
+        {
+          "speaker": "osei",
+          "text": "The main pool is twenty-five metres long, with six lanes. Next to it is the teaching pool, which has a moving floor. It can be raised for young children and lowered for adults, so one pool serves all ages.",
+          "start": 58.52,
+          "end": 70.21
+        },
+        {
+          "speaker": "osei",
+          "text": "A single adult swim costs three pounds fifty, and children pay half. Members get a reduced price, and I'll explain the membership in a moment.",
+          "start": 70.56,
+          "end": 79.01
+        },
+        {
+          "speaker": "osei",
+          "text": "We open every day except Monday, which is kept for cleaning and maintenance. On the other days, the pool is open from seven in the morning until ten at night.",
+          "start": 79.36,
+          "end": 88.53
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 89.43,
+          "end": 95.15
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 120.15,
+          "end": 124.03
+        },
+        {
+          "speaker": "osei",
+          "text": "We have a lot of activities for older people. There's aqua aerobics on Tuesday and Friday mornings, which is gentle exercise in the water, and a lane swimming session for the over-sixties every weekday at nine. We also teach diving, but that is for young people only, and there's no water polo yet.",
+          "start": 124.93,
+          "end": 142.15
+        },
+        {
+          "speaker": "osei",
+          "text": "A few rules. Everyone must take a shower before entering the pool. It's not just a matter of cleanliness. It also reduces the chemicals we need to add to the water.",
+          "start": 142.5,
+          "end": 152.48
+        },
+        {
+          "speaker": "osei",
+          "text": "Parents are welcome to stay during children's lessons, and they can watch from the viewing gallery above the teaching pool, where there's a café as well. The gym is for members only.",
+          "start": 152.83,
+          "end": 162.71
+        },
+        {
+          "speaker": "osei",
+          "text": "To join, the easiest way is online, through our website, where you can pay by card and collect your membership card at the desk. You can also join at reception, but the queue is often long on Saturdays. Now, shall we cut the ribbon?",
+          "start": 163.06,
+          "end": 175.96
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 176.86,
+          "end": 181.19
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "How long did the building work take?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one year"
+                },
+                {
+                  "key": "B",
+                  "text": "eighteen months"
+                },
+                {
+                  "key": "C",
+                  "text": "three years"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The building work took eighteen months.’",
+              "cue": "The building work took eighteen months"
+            },
+            {
+              "number": 12,
+              "prompt": "How long is the main pool?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "twenty metres"
+                },
+                {
+                  "key": "B",
+                  "text": "twenty-five metres"
+                },
+                {
+                  "key": "C",
+                  "text": "fifty metres"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Twenty-five metres long.’",
+              "cue": "twenty-five metres long"
+            },
+            {
+              "number": 13,
+              "prompt": "What is special about the teaching pool?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is the deepest."
+                },
+                {
+                  "key": "B",
+                  "text": "It has a moving floor."
+                },
+                {
+                  "key": "C",
+                  "text": "It is very warm."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Which has a moving floor.’",
+              "cue": "which has a moving floor"
+            },
+            {
+              "number": 14,
+              "prompt": "How much does a single adult swim cost?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "£2.50"
+                },
+                {
+                  "key": "B",
+                  "text": "£3.50"
+                },
+                {
+                  "key": "C",
+                  "text": "£5.50"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Three pounds fifty.’",
+              "cue": "three pounds fifty"
+            },
+            {
+              "number": 15,
+              "prompt": "On which day is the pool closed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Monday"
+                },
+                {
+                  "key": "B",
+                  "text": "Wednesday"
+                },
+                {
+                  "key": "C",
+                  "text": "Sunday"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Every day except Monday.’",
+              "cue": "every day except Monday"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO activities does the pool offer for older people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "aqua aerobics"
+            },
+            {
+              "key": "B",
+              "text": "diving lessons"
+            },
+            {
+              "key": "C",
+              "text": "a lane swimming session in the morning"
+            },
+            {
+              "key": "D",
+              "text": "water polo"
+            },
+            {
+              "key": "E",
+              "text": "lifeguard training"
+            }
+          ],
+          "answer": [
+            "A",
+            "C"
+          ],
+          "explanation": "Aqua aerobics (A) and the over-sixties lane session (C). Diving is for young people, and there is no water polo.",
+          "questions": [
+            {
+              "number": 16,
+              "cue": "There's aqua aerobics on Tuesday and Friday mornings"
+            },
+            {
+              "number": 17,
+              "cue": "a lane swimming session for the over-sixties"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 18,
+              "prompt": "What must swimmers do before entering the pool?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "take a shower"
+                },
+                {
+                  "key": "B",
+                  "text": "put on sunscreen"
+                },
+                {
+                  "key": "C",
+                  "text": "remove their jewellery"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Everyone must take a shower before entering the pool.’",
+              "cue": "Everyone must take a shower before entering the pool"
+            },
+            {
+              "number": 19,
+              "prompt": "What can parents do during children's lessons?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "watch from a viewing gallery"
+                },
+                {
+                  "key": "B",
+                  "text": "use the gym"
+                },
+                {
+                  "key": "C",
+                  "text": "swim in the main pool"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘They can watch from the viewing gallery.’",
+              "cue": "they can watch from the viewing gallery"
+            },
+            {
+              "number": 20,
+              "prompt": "What is the easiest way to join?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "online"
+                },
+                {
+                  "key": "B",
+                  "text": "at reception"
+                },
+                {
+                  "key": "C",
+                  "text": "by phone"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The easiest way is online.’",
+              "cue": "the easiest way is online"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-39/part2.mp3",
+        "duration": 211.99
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A pendulum experiment",
+      "context": "Two physics students plan their lab report.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two physics students, Greta and Sanjay, discussing their report on a pendulum experiment. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.63
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.63,
+          "end": 42.35
+        },
+        {
+          "speaker": "greta",
+          "text": "Sanjay, have you looked at the results from our pendulum experiment? I've put them in a table.",
+          "start": 43.25,
+          "end": 47.96
+        },
+        {
+          "speaker": "sanjay",
+          "text": "Yes. The aim was to find out how the length of the string affects the time of one swing. I think the report should say that clearly in the introduction.",
+          "start": 48.46,
+          "end": 56.85
+        },
+        {
+          "speaker": "greta",
+          "text": "Agreed. One thing bothers me. The results for the longest string look odd. The time was shorter than we expected.",
+          "start": 57.35,
+          "end": 63.38
+        },
+        {
+          "speaker": "sanjay",
+          "text": "I think the string stretched as the mass hung from it. We used cotton, which isn't ideal. A thin wire would have been better.",
+          "start": 63.88,
+          "end": 70.56
+        },
+        {
+          "speaker": "greta",
+          "text": "Should we repeat the experiment?",
+          "start": 71.06,
+          "end": 72.83
+        },
+        {
+          "speaker": "sanjay",
+          "text": "There isn't time. The lab is only booked until Wednesday, and Dr Frost wants the report by Friday.",
+          "start": 73.33,
+          "end": 79.33
+        },
+        {
+          "speaker": "greta",
+          "text": "We did measure each length three times and take the average, so at least that reduces random errors.",
+          "start": 79.83,
+          "end": 85.29
+        },
+        {
+          "speaker": "sanjay",
+          "text": "Yes, and what will the graph show?",
+          "start": 85.79,
+          "end": 88.05
+        },
+        {
+          "speaker": "greta",
+          "text": "The length on one axis, and the square of the time on the other. It should be a straight line, if the theory is right.",
+          "start": 88.55,
+          "end": 94.56
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 95.46,
+          "end": 101.61
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 121.61,
+          "end": 125.45
+        },
+        {
+          "speaker": "greta",
+          "text": "Now the method. Let me describe it step by step. First, we attached a piece of string to a stand, with a small mass at the end.",
+          "start": 126.35,
+          "end": 133.41
+        },
+        {
+          "speaker": "sanjay",
+          "text": "Then we measured the length with a ruler, from the pivot to the middle of the mass.",
+          "start": 133.91,
+          "end": 138.09
+        },
+        {
+          "speaker": "greta",
+          "text": "Next we pulled the mass back to an angle of ten degrees, which we measured with a protractor, so that every swing began in the same way.",
+          "start": 138.59,
+          "end": 145.44
+        },
+        {
+          "speaker": "sanjay",
+          "text": "We released it and timed ten complete swings with a stopwatch, because one swing is too quick to time accurately.",
+          "start": 145.94,
+          "end": 152.36
+        },
+        {
+          "speaker": "greta",
+          "text": "And finally we plotted the results on a graph, and drew a line of best fit.",
+          "start": 152.86,
+          "end": 156.85
+        },
+        {
+          "speaker": "sanjay",
+          "text": "That's a clear description. I'll add the diagram.",
+          "start": 157.35,
+          "end": 160.49
+        },
+        {
+          "speaker": "greta",
+          "text": "Thanks. I'll start on the conclusion.",
+          "start": 160.99,
+          "end": 162.99
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 163.89,
+          "end": 168.35
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What was the aim of the experiment?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to find how the string's length affects the swing time"
+                },
+                {
+                  "key": "B",
+                  "text": "to measure gravity"
+                },
+                {
+                  "key": "C",
+                  "text": "to compare different masses"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘How the length of the string affects the time of one swing.’",
+              "cue": "how the length of the string affects the time of one swing"
+            },
+            {
+              "number": 22,
+              "prompt": "What does Sanjay think caused the odd result?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a timing error"
+                },
+                {
+                  "key": "B",
+                  "text": "the string stretched"
+                },
+                {
+                  "key": "C",
+                  "text": "the stand moved"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘I think the string stretched.’",
+              "cue": "I think the string stretched"
+            },
+            {
+              "number": 23,
+              "prompt": "Why can't they repeat the experiment?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The lab is only booked until Wednesday."
+                },
+                {
+                  "key": "B",
+                  "text": "The equipment is broken."
+                },
+                {
+                  "key": "C",
+                  "text": "Dr Frost forbids it."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The lab is only booked until Wednesday.’",
+              "cue": "The lab is only booked until Wednesday"
+            },
+            {
+              "number": 24,
+              "prompt": "Why did they measure each length three times?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to reduce random errors"
+                },
+                {
+                  "key": "B",
+                  "text": "because Dr Frost asked"
+                },
+                {
+                  "key": "C",
+                  "text": "to save time"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Take the average, so at least that reduces random errors.’",
+              "cue": "take the average, so at least that reduces random errors"
+            },
+            {
+              "number": 25,
+              "prompt": "What should the graph look like?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a curve"
+                },
+                {
+                  "key": "B",
+                  "text": "a straight line"
+                },
+                {
+                  "key": "C",
+                  "text": "a circle"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘It should be a straight line.’",
+              "cue": "It should be a straight line"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "The pendulum experiment",
+          "optionsTitle": "Equipment",
+          "options": [
+            {
+              "key": "A",
+              "text": "string"
+            },
+            {
+              "key": "B",
+              "text": "stopwatch"
+            },
+            {
+              "key": "C",
+              "text": "ruler"
+            },
+            {
+              "key": "D",
+              "text": "protractor"
+            },
+            {
+              "key": "E",
+              "text": "mass"
+            },
+            {
+              "key": "F",
+              "text": "stand"
+            },
+            {
+              "key": "G",
+              "text": "graph"
+            }
+          ],
+          "content": [
+            "Attach a piece of {{26}} to a stand, with a small mass at the end.",
+            "Measure the length with a {{27}}.",
+            "Pull the mass back to ten degrees, measured with a {{28}}.",
+            "Time ten complete swings with a {{29}}.",
+            "Plot the results on a {{30}}."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘We attached a piece of string to a stand.’",
+              "cue": "we attached a piece of string to a stand"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘We measured the length with a ruler.’",
+              "cue": "we measured the length with a ruler"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "D"
+              ],
+              "explanation": "‘Which we measured with a protractor.’",
+              "cue": "which we measured with a protractor"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "B"
+              ],
+              "explanation": "‘Timed ten complete swings with a stopwatch.’",
+              "cue": "timed ten complete swings with a stopwatch"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "G"
+              ],
+              "explanation": "‘We plotted the results on a graph.’",
+              "cue": "we plotted the results on a graph"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-39/part3.mp3",
+        "duration": 199.15
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how rainbows form",
+      "context": "A physics lecture on the formation of rainbows.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how rainbows form. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.69
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.69,
+          "end": 43.1
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Few things in nature are as admired as the rainbow, and yet most people cannot say exactly how one forms. So let's look at it step by step.",
+          "start": 44.0,
+          "end": 53.17
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A rainbow needs two things: sunlight and raindrops. When a ray of sunlight enters a raindrop, it slows down and bends. This bending is called refraction. The ray then travels across the drop and is reflected from the back of it, like a mirror.",
+          "start": 53.52,
+          "end": 66.73
+        },
+        {
+          "speaker": "lecturer",
+          "text": "When the ray leaves the drop, it bends again. And here is the key point. Sunlight is white, but it is really a mixture of colours, and each colour bends by a slightly different amount. So the white light is split into its different colours, and we see them spread across the sky.",
+          "start": 67.08,
+          "end": 81.44
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Red light leaves the drop at an angle of about forty-two degrees to the direction of the sun's rays, and violet at a slightly smaller angle. That is why red is always on the outside of the bow and violet on the inside.",
+          "start": 81.79,
+          "end": 94.1
+        },
+        {
+          "speaker": "lecturer",
+          "text": "To see a rainbow, you need the sun behind you, with the rain in front of you. The sun must also be low in the sky, so rainbows are most common in the early morning and late afternoon. If the sun is higher than forty-two degrees, the rainbow falls below the horizon, and you cannot see it from the ground.",
+          "start": 94.45,
+          "end": 109.98
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In fact, a rainbow is really a full circle. From the ground we see only the top half, but from an aircraft, you can sometimes see the whole circle, with the shadow of the plane in the middle.",
+          "start": 110.33,
+          "end": 120.57
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Sometimes there is a second, fainter rainbow outside the first. Its colours are in the reverse order, with red on the inside, because the light has been reflected twice. The sky between the two bows looks darker than the rest, which is a real effect and not an illusion.",
+          "start": 120.92,
+          "end": 135.45
+        },
+        {
+          "speaker": "lecturer",
+          "text": "And you don't need rain. Rainbows can be seen in the spray of a waterfall, or a garden hose, as long as the sun is in the right place. Next week we'll look at halos around the sun.",
+          "start": 135.8,
+          "end": 145.86
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 146.76,
+          "end": 151.16
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 181.16,
+          "end": 183.87
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "How rainbows form",
+          "content": [
+            "## How a rainbow forms",
+            "• Sunlight enters a {{31}} and is bent",
+            "• It is reflected from the {{32}} of the drop",
+            "• White light is split into its different {{33}}",
+            "• Red light leaves at about {{34}} degrees",
+            "## Seeing a rainbow",
+            "• The sun must be {{35}} the observer",
+            "• The sun must be low in the {{36}}",
+            "• A rainbow is really a full {{37}}",
+            "## Other features",
+            "• A second bow has its colours in {{38}} order",
+            "• The sky between the two bows looks {{39}}",
+            "• Rainbows can also form in the spray of a {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "raindrop"
+              ],
+              "explanation": "‘A ray of sunlight enters a raindrop.’",
+              "cue": "a ray of sunlight enters a raindrop"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "back"
+              ],
+              "explanation": "‘Reflected from the back of it.’",
+              "cue": "reflected from the back of it"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "colours",
+                "colors"
+              ],
+              "explanation": "‘Split into its different colours.’",
+              "cue": "split into its different colours"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "42",
+                "forty-two"
+              ],
+              "explanation": "‘An angle of about forty-two degrees.’",
+              "cue": "an angle of about forty-two degrees"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "behind"
+              ],
+              "explanation": "‘You need the sun behind you.’",
+              "cue": "you need the sun behind you"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "sky"
+              ],
+              "explanation": "‘Low in the sky.’",
+              "cue": "low in the sky"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "circle"
+              ],
+              "explanation": "‘A rainbow is really a full circle.’",
+              "cue": "a rainbow is really a full circle"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "reverse"
+              ],
+              "explanation": "‘In the reverse order.’",
+              "cue": "in the reverse order"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "darker"
+              ],
+              "explanation": "‘Looks darker than the rest.’",
+              "cue": "looks darker than the rest"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "waterfall"
+              ],
+              "explanation": "‘The spray of a waterfall.’",
+              "cue": "the spray of a waterfall"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-39/part4.mp3",
+        "duration": 184.67
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

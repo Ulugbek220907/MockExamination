@@ -1,0 +1,1240 @@
+{
+  "id": "listening-44",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 44",
+  "shortTitle": "Practice Test 44",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 44,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "marisol": {
+      "name": "Marisol",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "dev": {
+      "name": "Dev",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "lopez": {
+      "name": "Ms Lopez",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "priya": {
+      "name": "Priya",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "joel": {
+      "name": "Joel",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Enrolling in a salsa class",
+      "context": "A man phones a dance school to join a salsa class.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a dance school to enrol in a salsa class. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.54
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.54,
+          "end": 38.61
+        },
+        {
+          "speaker": "marisol",
+          "text": "Casa de Baile Dance School, Marisol speaking.",
+          "start": 39.51,
+          "end": 42.45
+        },
+        {
+          "speaker": "dev",
+          "text": "Hello. I'd like to join a salsa class, please. I'm going to my cousin's wedding abroad, and I'd like to be able to dance at it.",
+          "start": 42.95,
+          "end": 49.41
+        },
+        {
+          "speaker": "marisol",
+          "text": "How exciting. I'll take a few details first.",
+          "start": 49.91,
+          "end": 52.75
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller needs to dance at a wedding, so 'wedding' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.65,
+          "end": 68.75
+        },
+        {
+          "speaker": "marisol",
+          "text": "Could I have your name, please?",
+          "start": 69.65,
+          "end": 71.47
+        },
+        {
+          "speaker": "dev",
+          "text": "Dev Mehta. That's M-E-H-T-A.",
+          "start": 71.97,
+          "end": 76.58
+        },
+        {
+          "speaker": "marisol",
+          "text": "Thank you, Dev. And how old are you?",
+          "start": 77.08,
+          "end": 79.21
+        },
+        {
+          "speaker": "dev",
+          "text": "I'm thirty-one.",
+          "start": 79.71,
+          "end": 81.01
+        },
+        {
+          "speaker": "marisol",
+          "text": "Have you danced before?",
+          "start": 81.51,
+          "end": 83.09
+        },
+        {
+          "speaker": "dev",
+          "text": "A little. I did some tango a few years ago, but I stopped when I changed jobs.",
+          "start": 83.59,
+          "end": 87.73
+        },
+        {
+          "speaker": "marisol",
+          "text": "That will help, because you'll already know about rhythm and leading. Where is the wedding?",
+          "start": 88.23,
+          "end": 92.37
+        },
+        {
+          "speaker": "dev",
+          "text": "In Cuba, which is why I'm trying to learn salsa. My cousin says everyone dances there.",
+          "start": 92.87,
+          "end": 97.92
+        },
+        {
+          "speaker": "marisol",
+          "text": "Which evening would suit you?",
+          "start": 98.42,
+          "end": 100.13
+        },
+        {
+          "speaker": "dev",
+          "text": "Tuesdays, if possible. Wednesdays I go to the gym.",
+          "start": 100.63,
+          "end": 103.74
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 104.64,
+          "end": 110.36
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 130.36,
+          "end": 133.69
+        },
+        {
+          "speaker": "marisol",
+          "text": "The Tuesday class is for beginners, and it starts at seven in the evening. A term is ten weeks, and it costs sixty pounds.",
+          "start": 134.59,
+          "end": 141.31
+        },
+        {
+          "speaker": "dev",
+          "text": "That sounds fair. What about the other levels?",
+          "start": 141.81,
+          "end": 144.13
+        },
+        {
+          "speaker": "marisol",
+          "text": "The Improvers' class is on Wednesday evenings at eight, and also costs sixty pounds. Then we have an Advanced class on Fridays at seven, and that one costs eighty pounds, because it's taught by two instructors.",
+          "start": 144.63,
+          "end": 156.5
+        },
+        {
+          "speaker": "dev",
+          "text": "I'm sure I'll start with the beginners. Can I try a class first?",
+          "start": 157.0,
+          "end": 160.45
+        },
+        {
+          "speaker": "marisol",
+          "text": "Yes, we offer a taster class for five pounds, and if you decide to join, that money is taken off the price of the term.",
+          "start": 160.95,
+          "end": 167.46
+        },
+        {
+          "speaker": "dev",
+          "text": "Is there anything I should wear?",
+          "start": 167.96,
+          "end": 169.92
+        },
+        {
+          "speaker": "marisol",
+          "text": "Comfortable clothes, and shoes with a smooth sole, so that you can turn easily. Trainers are not ideal, because they grip the floor too much.",
+          "start": 170.42,
+          "end": 177.7
+        },
+        {
+          "speaker": "dev",
+          "text": "Do I need a partner?",
+          "start": 178.2,
+          "end": 179.56
+        },
+        {
+          "speaker": "marisol",
+          "text": "No, we change partners during the lesson, so you'll dance with everyone. See you on Tuesday, Dev.",
+          "start": 180.06,
+          "end": 185.29
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 186.19,
+          "end": 190.71
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Casa de Baile Dance School – enquiry",
+          "content": [
+            "Example: He needs to dance at a **wedding**",
+            "## Details",
+            "• Name: Dev {{1}}",
+            "• Age: {{2}}",
+            "• He has done some {{3}} before",
+            "• The wedding is in {{4}}",
+            "• Preferred evening: {{5}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Mehta"
+              ],
+              "explanation": "‘M-E-H-T-A.’",
+              "cue": "M-E-H-T-A"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "31",
+                "thirty-one"
+              ],
+              "explanation": "‘I'm thirty-one.’",
+              "cue": "I'm thirty-one"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "tango"
+              ],
+              "explanation": "‘I did some tango a few years ago.’",
+              "cue": "I did some tango a few years ago"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "Cuba"
+              ],
+              "explanation": "‘In Cuba.’",
+              "cue": "In Cuba"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "Tuesday",
+                "Tuesdays"
+              ],
+              "explanation": "‘Tuesdays, if possible.’",
+              "cue": "Tuesdays, if possible"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Classes",
+          "content": {
+            "headers": [
+              "Level",
+              "Day",
+              "Time",
+              "Price per term"
+            ],
+            "rows": [
+              [
+                "Beginners",
+                "Tuesday",
+                "{{6}} p.m.",
+                "£{{7}}"
+              ],
+              [
+                "Improvers",
+                "{{8}}",
+                "8 p.m.",
+                "£60"
+              ],
+              [
+                "Advanced",
+                "Friday",
+                "7 p.m.",
+                "£{{9}}"
+              ],
+              [
+                "Taster class",
+                "any",
+                "any",
+                "£{{10}}"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "7",
+                "seven"
+              ],
+              "explanation": "‘It starts at seven in the evening.’",
+              "cue": "it starts at seven in the evening"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "60",
+                "sixty"
+              ],
+              "explanation": "‘It costs sixty pounds.’",
+              "cue": "it costs sixty pounds"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "Wednesday",
+                "Wednesdays"
+              ],
+              "explanation": "‘On Wednesday evenings at eight.’",
+              "cue": "on Wednesday evenings at eight"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "80",
+                "eighty"
+              ],
+              "explanation": "‘That one costs eighty pounds.’",
+              "cue": "that one costs eighty pounds"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "‘A taster class for five pounds.’",
+              "cue": "a taster class for five pounds"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-44/part1.mp3",
+        "duration": 221.51
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A street dance festival",
+      "context": "An organiser describes the programme of a dance festival.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear an organiser describing the programme of a street dance festival. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.61
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.61,
+          "end": 39.87
+        },
+        {
+          "speaker": "lopez",
+          "text": "Hello, everyone, and thank you for coming to this information evening about the Riverside Dance Festival. I'm Carmen Lopez, the festival director, and I'll start with the programme.",
+          "start": 40.77,
+          "end": 51.05
+        },
+        {
+          "speaker": "lopez",
+          "text": "On Friday evening, the festival opens with a ballet gala, performed by dancers from the city's ballet school. It's the only ticketed event on Friday, and it takes place in the theatre.",
+          "start": 51.4,
+          "end": 62.11
+        },
+        {
+          "speaker": "lopez",
+          "text": "On Saturday morning, there's a street dance workshop for anyone who'd like to try, with teachers from three local studios. You don't need any experience.",
+          "start": 62.46,
+          "end": 71.0
+        },
+        {
+          "speaker": "lopez",
+          "text": "Saturday afternoon is for folk dances from Asia, performed by groups from five countries, in colourful costumes, and the audience is invited to join in the last dance.",
+          "start": 71.35,
+          "end": 81.33
+        },
+        {
+          "speaker": "lopez",
+          "text": "On Saturday evening, the highlight is the flamenco show, which begins at eight o'clock, and which many people think is the best part of the weekend.",
+          "start": 81.68,
+          "end": 89.83
+        },
+        {
+          "speaker": "lopez",
+          "text": "And on Sunday afternoon, the festival closes with a salsa party, with a live band. Irish step dancing and a tango lesson were planned, but we had to cancel them because of a clash with another event.",
+          "start": 90.18,
+          "end": 101.51
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 102.41,
+          "end": 108.13
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 133.13,
+          "end": 137.01
+        },
+        {
+          "speaker": "lopez",
+          "text": "A few facts. This year, twenty-four dance groups are taking part, which is twice as many as last year, and they come from all over the world.",
+          "start": 137.91,
+          "end": 145.87
+        },
+        {
+          "speaker": "lopez",
+          "text": "Most events will be held in the town square, with a big stage in the middle and seats around the edge, but the ballet gala will be in the theatre, as I said.",
+          "start": 146.22,
+          "end": 154.41
+        },
+        {
+          "speaker": "lopez",
+          "text": "A weekend pass costs thirty pounds, which covers all events except the gala. Day tickets are fifteen pounds, and under-sixteens go free.",
+          "start": 154.76,
+          "end": 162.65
+        },
+        {
+          "speaker": "lopez",
+          "text": "If it rains, the events will move to the sports hall, which holds about eight hundred people. We'll announce any change on our website and on the radio.",
+          "start": 163.0,
+          "end": 170.96
+        },
+        {
+          "speaker": "lopez",
+          "text": "Tickets can be bought online, or at the tourist information office, which is open until the end of the festival. We don't sell them at the door, so please plan ahead.",
+          "start": 171.31,
+          "end": 180.03
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 180.93,
+          "end": 185.26
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "Which event takes place at each time? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 11–15.",
+          "optionsTitle": "Events",
+          "options": [
+            {
+              "key": "A",
+              "text": "Irish step dancing"
+            },
+            {
+              "key": "B",
+              "text": "a street dance workshop"
+            },
+            {
+              "key": "C",
+              "text": "a ballet gala"
+            },
+            {
+              "key": "D",
+              "text": "a flamenco show"
+            },
+            {
+              "key": "E",
+              "text": "folk dances from Asia"
+            },
+            {
+              "key": "F",
+              "text": "a tango lesson"
+            },
+            {
+              "key": "G",
+              "text": "a salsa party"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Friday evening",
+              "answer": "C",
+              "explanation": "‘The festival opens with a ballet gala.’",
+              "cue": "the festival opens with a ballet gala"
+            },
+            {
+              "number": 12,
+              "prompt": "Saturday morning",
+              "answer": "B",
+              "explanation": "‘There's a street dance workshop.’",
+              "cue": "there's a street dance workshop"
+            },
+            {
+              "number": 13,
+              "prompt": "Saturday afternoon",
+              "answer": "E",
+              "explanation": "‘Saturday afternoon is for folk dances from Asia.’",
+              "cue": "Saturday afternoon is for folk dances from Asia"
+            },
+            {
+              "number": 14,
+              "prompt": "Saturday evening",
+              "answer": "D",
+              "explanation": "‘The highlight is the flamenco show.’",
+              "cue": "the highlight is the flamenco show"
+            },
+            {
+              "number": 15,
+              "prompt": "Sunday afternoon",
+              "answer": "G",
+              "explanation": "‘Closes with a salsa party.’",
+              "cue": "closes with a salsa party"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How many dance groups are taking part?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "twelve"
+                },
+                {
+                  "key": "B",
+                  "text": "twenty-four"
+                },
+                {
+                  "key": "C",
+                  "text": "forty"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Twenty-four dance groups are taking part.’",
+              "cue": "twenty-four dance groups are taking part"
+            },
+            {
+              "number": 17,
+              "prompt": "Where will most events be held?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in the park"
+                },
+                {
+                  "key": "B",
+                  "text": "in the town square"
+                },
+                {
+                  "key": "C",
+                  "text": "in the sports hall"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Most events will be held in the town square.’",
+              "cue": "Most events will be held in the town square"
+            },
+            {
+              "number": 18,
+              "prompt": "How much is a weekend pass?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "fifteen pounds"
+                },
+                {
+                  "key": "B",
+                  "text": "thirty pounds"
+                },
+                {
+                  "key": "C",
+                  "text": "forty-five pounds"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A weekend pass costs thirty pounds.’",
+              "cue": "A weekend pass costs thirty pounds"
+            },
+            {
+              "number": 19,
+              "prompt": "What will happen if it rains?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Events will move to the sports hall."
+                },
+                {
+                  "key": "B",
+                  "text": "Events will be cancelled."
+                },
+                {
+                  "key": "C",
+                  "text": "Events will continue under tents."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The events will move to the sports hall.’",
+              "cue": "the events will move to the sports hall"
+            },
+            {
+              "number": 20,
+              "prompt": "Where can tickets be bought?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "online only"
+                },
+                {
+                  "key": "B",
+                  "text": "online or at the tourist office"
+                },
+                {
+                  "key": "C",
+                  "text": "at the door"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Tickets can be bought online, or at the tourist information office.’",
+              "cue": "Tickets can be bought online, or at the tourist information office"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-44/part2.mp3",
+        "duration": 216.06
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Social media marketing for a start-up",
+      "context": "Two business students plan a marketing campaign.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two business students, Priya and Joel, planning social media marketing for a start-up. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.35
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.35,
+          "end": 42.07
+        },
+        {
+          "speaker": "priya",
+          "text": "Joel, for our marketing project, I've chosen a real start-up, a company called Greenbottle, which sells reusable water bottles.",
+          "start": 42.97,
+          "end": 50.61
+        },
+        {
+          "speaker": "joel",
+          "text": "I like that. What's their problem?",
+          "start": 51.11,
+          "end": 53.41
+        },
+        {
+          "speaker": "priya",
+          "text": "They've only been going for a year, and they have almost no customers outside their home town. They've asked us to design a social media plan.",
+          "start": 53.91,
+          "end": 61.95
+        },
+        {
+          "speaker": "joel",
+          "text": "Which platform should we concentrate on? There's so much choice.",
+          "start": 62.45,
+          "end": 66.25
+        },
+        {
+          "speaker": "priya",
+          "text": "I'd say Instagram, because their product looks good in photographs, and the audience they want is young. TikTok is possible, but it takes a lot more time.",
+          "start": 66.75,
+          "end": 75.43
+        },
+        {
+          "speaker": "joel",
+          "text": "Who is the main target audience? Families, or students?",
+          "start": 75.93,
+          "end": 79.56
+        },
+        {
+          "speaker": "priya",
+          "text": "Students, mainly. They carry bottles all day, and they care about the environment. Families come second.",
+          "start": 80.06,
+          "end": 86.05
+        },
+        {
+          "speaker": "joel",
+          "text": "What's wrong with their current posts?",
+          "start": 86.55,
+          "end": 88.62
+        },
+        {
+          "speaker": "priya",
+          "text": "The photos are poor. They're dark and blurry, so it's the first thing we'd improve. The text is fine.",
+          "start": 89.12,
+          "end": 94.76
+        },
+        {
+          "speaker": "joel",
+          "text": "How often should they post? Every day sounds like a lot.",
+          "start": 95.26,
+          "end": 98.88
+        },
+        {
+          "speaker": "priya",
+          "text": "Three times a week is realistic for a small company. More than that and the quality drops.",
+          "start": 99.38,
+          "end": 104.89
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 105.79,
+          "end": 111.93
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 131.93,
+          "end": 135.77
+        },
+        {
+          "speaker": "priya",
+          "text": "Let me describe the plan. First, the company should run a customer survey, to find out what people really want from a bottle.",
+          "start": 136.67,
+          "end": 143.71
+        },
+        {
+          "speaker": "joel",
+          "text": "Then each week, they post a short video, showing the bottles in use, for example on a hike or in a gym.",
+          "start": 144.21,
+          "end": 151.04
+        },
+        {
+          "speaker": "priya",
+          "text": "And they need to find local influencers, popular people with a lot of followers, and ask them to try the product.",
+          "start": 151.54,
+          "end": 158.07
+        },
+        {
+          "speaker": "joel",
+          "text": "We should also create a campaign hashtag, so that customers can share their own photos, and the company can repost the best ones.",
+          "start": 158.57,
+          "end": 167.03
+        },
+        {
+          "speaker": "priya",
+          "text": "And everything has to fit a small budget, because they only have a few hundred pounds a month.",
+          "start": 167.53,
+          "end": 172.8
+        },
+        {
+          "speaker": "joel",
+          "text": "That's the main limit, so we'll need to say what to do first.",
+          "start": 173.3,
+          "end": 176.76
+        },
+        {
+          "speaker": "priya",
+          "text": "I'll draw up the plan tonight.",
+          "start": 177.26,
+          "end": 179.35
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 180.25,
+          "end": 184.71
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What does the start-up sell?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "reusable water bottles"
+                },
+                {
+                  "key": "B",
+                  "text": "backpacks"
+                },
+                {
+                  "key": "C",
+                  "text": "sports clothing"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘A company called Greenbottle, which sells reusable water bottles.’",
+              "cue": "a company called Greenbottle, which sells reusable water bottles"
+            },
+            {
+              "number": 22,
+              "prompt": "Which platform do the students recommend?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Instagram"
+                },
+                {
+                  "key": "B",
+                  "text": "TikTok"
+                },
+                {
+                  "key": "C",
+                  "text": "Facebook"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I'd say Instagram.’",
+              "cue": "I'd say Instagram"
+            },
+            {
+              "number": 23,
+              "prompt": "Who is the main target audience?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "students"
+                },
+                {
+                  "key": "B",
+                  "text": "families"
+                },
+                {
+                  "key": "C",
+                  "text": "retired people"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Students, mainly.’",
+              "cue": "Students, mainly"
+            },
+            {
+              "number": 24,
+              "prompt": "What is wrong with the company's current posts?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "too much text"
+                },
+                {
+                  "key": "B",
+                  "text": "too few posts"
+                },
+                {
+                  "key": "C",
+                  "text": "poor photographs"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘The photos are poor.’",
+              "cue": "The photos are poor"
+            },
+            {
+              "number": 25,
+              "prompt": "How often should the company post?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "every day"
+                },
+                {
+                  "key": "B",
+                  "text": "three times a week"
+                },
+                {
+                  "key": "C",
+                  "text": "once a week"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Three times a week is realistic.’",
+              "cue": "Three times a week is realistic"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "The marketing plan",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "video"
+            },
+            {
+              "key": "B",
+              "text": "influencers"
+            },
+            {
+              "key": "C",
+              "text": "survey"
+            },
+            {
+              "key": "D",
+              "text": "budget"
+            },
+            {
+              "key": "E",
+              "text": "hashtag"
+            },
+            {
+              "key": "F",
+              "text": "website"
+            },
+            {
+              "key": "G",
+              "text": "newsletter"
+            }
+          ],
+          "content": [
+            "The company starts with a customer {{26}}.",
+            "A short {{27}} is posted every week.",
+            "Popular local {{28}} are asked to try the product.",
+            "A campaign {{29}} encourages customers to share photos.",
+            "The {{30}} is limited to a few hundred pounds a month."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘Run a customer survey.’",
+              "cue": "run a customer survey"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘They post a short video.’",
+              "cue": "they post a short video"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "B"
+              ],
+              "explanation": "‘Find local influencers.’",
+              "cue": "find local influencers"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "E"
+              ],
+              "explanation": "‘Create a campaign hashtag.’",
+              "cue": "create a campaign hashtag"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "D"
+              ],
+              "explanation": "‘Fit a small budget.’",
+              "cue": "fit a small budget"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-44/part3.mp3",
+        "duration": 215.51
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the Silk Road",
+      "context": "A history lecture on the network of trade routes.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the Silk Road. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.3
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.3,
+          "end": 42.72
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today we're going to talk about the Silk Road, which was not a single road, but a huge network of trade routes that linked China with the Mediterranean for well over a thousand years.",
+          "start": 43.62,
+          "end": 54.8
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Interestingly, the name is quite modern. It was invented in the nineteenth century by a German geographer, who wanted a simple name for these ancient routes. The people who used them never called them that.",
+          "start": 55.15,
+          "end": 66.77
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The routes began to open in the second century BC, when the Han emperor sent an explorer called Zhang Qian to the west to look for allies. He returned with news of distant lands and fine horses, and the trade developed from there.",
+          "start": 67.12,
+          "end": 80.67
+        },
+        {
+          "speaker": "lecturer",
+          "text": "It's a mistake to imagine merchants travelling from China to Rome. Most traders carried goods over short sections of the route, and sold them to the next merchant, so that a bale of silk passed through many hands. The goods included silk, jade, glass and spices, as well as horses and gold.",
+          "start": 81.02,
+          "end": 97.57
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Travel was slow and dangerous. Caravans of camels crossed deserts and mountains, and rested at roadside inns called caravanserais, where merchants could find food, water and a safe place to store their goods.",
+          "start": 97.92,
+          "end": 110.25
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Cities along the way grew rich. Samarkand and Bukhara, in what is now Uzbekistan, became great centres of trade and learning, where merchants from many countries met and exchanged not only goods but also ideas.",
+          "start": 110.6,
+          "end": 123.6
+        },
+        {
+          "speaker": "lecturer",
+          "text": "For centuries the Chinese kept the secret of silk production, until about the sixth century, when monks smuggled silkworm eggs to the Byzantine Empire. And ideas travelled too. Buddhism spread from India to China, and paper and gunpowder travelled west.",
+          "start": 123.95,
+          "end": 139.07
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The routes declined when sea routes opened in the fifteenth century, and it became cheaper to move goods by ship. Next week we'll look at the spice trade.",
+          "start": 139.42,
+          "end": 148.13
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 149.03,
+          "end": 153.42
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 183.42,
+          "end": 186.13
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The Silk Road",
+          "content": [
+            "## Background",
+            "• The name 'Silk Road' was invented in the {{31}} century",
+            "• The Han {{32}} sent an explorer west",
+            "• Traders usually carried goods over {{33}} sections of the route",
+            "• Goods included silk, jade, glass and {{34}}",
+            "• Caravans rested at roadside {{35}}",
+            "• The cities of {{36}} and Bukhara grew rich from trade",
+            "## Exchange of ideas and goods",
+            "• Monks smuggled silkworm eggs to the {{37}} Empire",
+            "• Buddhism spread from India to {{38}}",
+            "• Paper and {{39}} travelled west",
+            "## Decline",
+            "• The routes declined when {{40}} routes opened"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "nineteenth"
+              ],
+              "explanation": "‘In the nineteenth century by a German geographer.’",
+              "cue": "in the nineteenth century by a German geographer"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "emperor"
+              ],
+              "explanation": "‘The Han emperor sent an explorer.’",
+              "cue": "the Han emperor sent an explorer"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "short"
+              ],
+              "explanation": "‘Goods over short sections of the route.’",
+              "cue": "goods over short sections of the route"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "spices"
+              ],
+              "explanation": "‘Glass and spices.’",
+              "cue": "glass and spices"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "inns"
+              ],
+              "explanation": "‘Roadside inns called caravanserais.’",
+              "cue": "roadside inns called caravanserais"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "Samarkand"
+              ],
+              "explanation": "‘Samarkand and Bukhara.’",
+              "cue": "Samarkand and Bukhara"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "Byzantine"
+              ],
+              "explanation": "‘To the Byzantine Empire.’",
+              "cue": "to the Byzantine Empire"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "China"
+              ],
+              "explanation": "‘Buddhism spread from India to China.’",
+              "cue": "Buddhism spread from India to China"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "gunpowder"
+              ],
+              "explanation": "‘Paper and gunpowder travelled west.’",
+              "cue": "paper and gunpowder travelled west"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "sea"
+              ],
+              "explanation": "‘When sea routes opened.’",
+              "cue": "when sea routes opened"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-44/part4.mp3",
+        "duration": 186.93
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

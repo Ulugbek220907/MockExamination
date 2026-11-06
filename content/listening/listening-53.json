@@ -1,0 +1,1198 @@
+{
+  "id": "listening-53",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 53",
+  "shortTitle": "Practice Test 53",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 53,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "gina": {
+      "name": "Gina",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "oliver": {
+      "name": "Oliver",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "fraser": {
+      "name": "Mr Fraser",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "poppy": {
+      "name": "Poppy",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "eli": {
+      "name": "Eli",
+      "voice": "am_echo",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking an airport transfer",
+      "context": "A man books a taxi to meet his family at the airport.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a transfer company to book a taxi from the airport. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.11
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.11,
+          "end": 39.18
+        },
+        {
+          "speaker": "gina",
+          "text": "Prime Transfers, Gina speaking.",
+          "start": 40.08,
+          "end": 42.36
+        },
+        {
+          "speaker": "oliver",
+          "text": "Hello. I'd like to book a taxi to meet us at the airport when we arrive, please. We're coming for a family holiday.",
+          "start": 42.86,
+          "end": 50.16
+        },
+        {
+          "speaker": "gina",
+          "text": "Certainly. I'll take some details.",
+          "start": 50.66,
+          "end": 52.99
+        },
+        {
+          "speaker": "narrator",
+          "text": "The taxi is to meet them at the airport, so 'airport' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.89,
+          "end": 69.29
+        },
+        {
+          "speaker": "gina",
+          "text": "Could I have your name, please?",
+          "start": 70.19,
+          "end": 72.13
+        },
+        {
+          "speaker": "oliver",
+          "text": "Oliver Bannister. That's B-A-N-N-I-S-T-E-R.",
+          "start": 72.63,
+          "end": 79.94
+        },
+        {
+          "speaker": "gina",
+          "text": "Thank you, Mr Bannister. Which airport will you arrive at?",
+          "start": 80.44,
+          "end": 83.79
+        },
+        {
+          "speaker": "oliver",
+          "text": "Gatwick.",
+          "start": 84.29,
+          "end": 85.14
+        },
+        {
+          "speaker": "gina",
+          "text": "And on which date?",
+          "start": 85.64,
+          "end": 87.16
+        },
+        {
+          "speaker": "oliver",
+          "text": "The third of March.",
+          "start": 87.66,
+          "end": 89.04
+        },
+        {
+          "speaker": "gina",
+          "text": "What time does your flight land?",
+          "start": 89.54,
+          "end": 91.57
+        },
+        {
+          "speaker": "oliver",
+          "text": "It's scheduled to land at three, but the airline says it often arrives late, so say four to be safe.",
+          "start": 92.07,
+          "end": 98.7
+        },
+        {
+          "speaker": "gina",
+          "text": "How many passengers will there be?",
+          "start": 99.2,
+          "end": 101.42
+        },
+        {
+          "speaker": "oliver",
+          "text": "Three, my wife, our daughter and me.",
+          "start": 101.92,
+          "end": 104.01
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 104.91,
+          "end": 110.63
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 130.63,
+          "end": 133.96
+        },
+        {
+          "speaker": "gina",
+          "text": "And where would you like to be taken?",
+          "start": 134.86,
+          "end": 137.1
+        },
+        {
+          "speaker": "oliver",
+          "text": "To the Regent Hotel, in the centre of Brighton. I have the address here.",
+          "start": 137.6,
+          "end": 142.04
+        },
+        {
+          "speaker": "gina",
+          "text": "That's fine. How much luggage will you have?",
+          "start": 142.54,
+          "end": 145.03
+        },
+        {
+          "speaker": "oliver",
+          "text": "Four large suitcases, and some hand luggage. Is that a problem?",
+          "start": 145.53,
+          "end": 149.91
+        },
+        {
+          "speaker": "gina",
+          "text": "Not at all. We'll send a people carrier, which has plenty of room. The fare is sixty-five pounds, and that includes the tolls.",
+          "start": 150.41,
+          "end": 157.23
+        },
+        {
+          "speaker": "oliver",
+          "text": "That's good. How will we find the driver?",
+          "start": 157.73,
+          "end": 159.87
+        },
+        {
+          "speaker": "gina",
+          "text": "He'll be waiting in the arrivals hall, holding a sign with your name on it. If you can't see him, you can call the number on your confirmation.",
+          "start": 160.37,
+          "end": 168.07
+        },
+        {
+          "speaker": "oliver",
+          "text": "What if the flight is delayed?",
+          "start": 168.57,
+          "end": 170.32
+        },
+        {
+          "speaker": "gina",
+          "text": "We track all flights, so we'll know. And there's thirty minutes of free waiting time after landing, which is enough for most people to collect their luggage.",
+          "start": 170.82,
+          "end": 179.03
+        },
+        {
+          "speaker": "oliver",
+          "text": "Wonderful. I'll pay by card now.",
+          "start": 179.53,
+          "end": 181.75
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 182.65,
+          "end": 187.17
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Prime Transfers – booking",
+          "content": [
+            "Example: The taxi will meet them at the **airport**",
+            "## Booking",
+            "• Name: Oliver {{1}}",
+            "• Arriving at {{2}} Airport",
+            "• Date: {{3}} March",
+            "• Arrival time: {{4}} p.m.",
+            "• Number of passengers: {{5}}",
+            "## Details",
+            "• Destination: the {{6}} Hotel",
+            "• Luggage: {{7}} large suitcases",
+            "• Price: £{{8}}",
+            "• The driver will hold a {{9}} with the name on it",
+            "• Free waiting time: {{10}} minutes"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Bannister"
+              ],
+              "explanation": "‘B-A-N-N-I-S-T-E-R.’",
+              "cue": "B-A-N-N-I-S-T-E-R"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Gatwick"
+              ],
+              "explanation": "‘Gatwick.’",
+              "cue": "Gatwick"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "3",
+                "third",
+                "3rd"
+              ],
+              "explanation": "‘The third of March.’",
+              "cue": "The third of March"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "4",
+                "four"
+              ],
+              "explanation": "It is scheduled for three, but ‘say four to be safe’.",
+              "cue": "say four to be safe"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘Three, my wife, our daughter and me.’",
+              "cue": "Three, my wife, our daughter and me"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "Regent"
+              ],
+              "explanation": "‘To the Regent Hotel.’",
+              "cue": "To the Regent Hotel"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "4",
+                "four"
+              ],
+              "explanation": "‘Four large suitcases.’",
+              "cue": "Four large suitcases"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "65",
+                "sixty-five"
+              ],
+              "explanation": "‘The fare is sixty-five pounds.’",
+              "cue": "The fare is sixty-five pounds"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "sign"
+              ],
+              "explanation": "‘Holding a sign with your name on it.’",
+              "cue": "holding a sign with your name on it"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "30",
+                "thirty"
+              ],
+              "explanation": "‘Thirty minutes of free waiting time.’",
+              "cue": "thirty minutes of free waiting time"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-53/part1.mp3",
+        "duration": 217.97
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A company induction day",
+      "context": "A manager explains the programme of an induction day.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a manager explaining the programme of an induction day for new employees. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.99
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.99,
+          "end": 40.26
+        },
+        {
+          "speaker": "fraser",
+          "text": "Good morning, everyone, and welcome to Halden Engineering. I'm Neil Fraser, the personnel manager, and I'll explain how today will work. You'll attend five sessions, in different parts of the building, so please keep your map with you.",
+          "start": 41.16,
+          "end": 53.76
+        },
+        {
+          "speaker": "fraser",
+          "text": "The first session is health and safety, which is compulsory for everyone. It's in the main hall, because it's the largest room, and it includes a short fire drill.",
+          "start": 54.11,
+          "end": 63.22
+        },
+        {
+          "speaker": "fraser",
+          "text": "Then you'll go to the IT office, where you'll receive your computer account and your email address. Please have your passwords ready, because it takes a while if you forget them.",
+          "start": 63.57,
+          "end": 72.68
+        },
+        {
+          "speaker": "fraser",
+          "text": "After lunch, there's a session on the history of the company, in the boardroom. It's more interesting than it sounds, and the chief executive will join us to answer your questions.",
+          "start": 73.03,
+          "end": 82.29
+        },
+        {
+          "speaker": "fraser",
+          "text": "Later, you'll meet your own teams in the canteen, over coffee and cakes, which is a relaxed way to meet your new colleagues. And finally, you'll visit the human resources office, where we'll explain your pension and other benefits.",
+          "start": 82.64,
+          "end": 94.37
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 95.27,
+          "end": 100.99
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 125.99,
+          "end": 129.87
+        },
+        {
+          "speaker": "fraser",
+          "text": "Some practical points. Normal working hours start at half past eight, but today you needn't come so early, because we're starting at nine.",
+          "start": 130.77,
+          "end": 138.73
+        },
+        {
+          "speaker": "fraser",
+          "text": "Lunch breaks are flexible. You can take them whenever it suits your team, between twelve and two, as long as you take one full hour.",
+          "start": 139.08,
+          "end": 146.38
+        },
+        {
+          "speaker": "fraser",
+          "text": "The dress code is smart casual. You don't need a suit or a tie, but we ask you not to wear jeans or trainers when you meet visitors from other companies.",
+          "start": 146.73,
+          "end": 155.07
+        },
+        {
+          "speaker": "fraser",
+          "text": "All new staff have a probation period of six months, during which your manager will review your progress each month, and we'll talk about how you're getting on.",
+          "start": 155.42,
+          "end": 163.57
+        },
+        {
+          "speaker": "fraser",
+          "text": "If you have a problem, the first person to talk to is your line manager, not the personnel office. Only if the problem is about your line manager, should you come to us. Now, let's make a start.",
+          "start": 163.92,
+          "end": 174.54
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 175.44,
+          "end": 179.77
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "Where does each induction session take place? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 11–15.",
+          "optionsTitle": "Places",
+          "options": [
+            {
+              "key": "A",
+              "text": "the training room"
+            },
+            {
+              "key": "B",
+              "text": "the canteen"
+            },
+            {
+              "key": "C",
+              "text": "the IT office"
+            },
+            {
+              "key": "D",
+              "text": "the boardroom"
+            },
+            {
+              "key": "E",
+              "text": "Room 12"
+            },
+            {
+              "key": "F",
+              "text": "the main hall"
+            },
+            {
+              "key": "G",
+              "text": "the human resources office"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "health and safety",
+              "answer": "F",
+              "explanation": "‘Health and safety, which is compulsory for everyone. It's in the main hall.’",
+              "cue": "health and safety, which is compulsory for everyone. It's in the main hall"
+            },
+            {
+              "number": 12,
+              "prompt": "computer accounts",
+              "answer": "C",
+              "explanation": "‘You'll go to the IT office.’",
+              "cue": "you'll go to the IT office"
+            },
+            {
+              "number": 13,
+              "prompt": "company history",
+              "answer": "D",
+              "explanation": "‘The history of the company, in the boardroom.’",
+              "cue": "the history of the company, in the boardroom"
+            },
+            {
+              "number": 14,
+              "prompt": "meeting your team",
+              "answer": "B",
+              "explanation": "‘You'll meet your own teams in the canteen.’",
+              "cue": "you'll meet your own teams in the canteen"
+            },
+            {
+              "number": 15,
+              "prompt": "pension and benefits",
+              "answer": "G",
+              "explanation": "‘You'll visit the human resources office.’",
+              "cue": "you'll visit the human resources office"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "What time does normal work start?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "half past eight"
+                },
+                {
+                  "key": "B",
+                  "text": "nine o'clock"
+                },
+                {
+                  "key": "C",
+                  "text": "half past nine"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Normal working hours start at half past eight.’",
+              "cue": "Normal working hours start at half past eight"
+            },
+            {
+              "number": 17,
+              "prompt": "How are lunch breaks arranged?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at a fixed time"
+                },
+                {
+                  "key": "B",
+                  "text": "flexibly, for one hour"
+                },
+                {
+                  "key": "C",
+                  "text": "there is no break"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Lunch breaks are flexible.’",
+              "cue": "Lunch breaks are flexible"
+            },
+            {
+              "number": 18,
+              "prompt": "What is the dress code?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "formal suits"
+                },
+                {
+                  "key": "B",
+                  "text": "smart casual"
+                },
+                {
+                  "key": "C",
+                  "text": "a uniform"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The dress code is smart casual.’",
+              "cue": "The dress code is smart casual"
+            },
+            {
+              "number": 19,
+              "prompt": "How long is the probation period?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "three months"
+                },
+                {
+                  "key": "B",
+                  "text": "six months"
+                },
+                {
+                  "key": "C",
+                  "text": "a year"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A probation period of six months.’",
+              "cue": "a probation period of six months"
+            },
+            {
+              "number": 20,
+              "prompt": "Who should staff talk to first about a problem?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "their line manager"
+                },
+                {
+                  "key": "B",
+                  "text": "the personnel office"
+                },
+                {
+                  "key": "C",
+                  "text": "the chief executive"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The first person to talk to is your line manager.’",
+              "cue": "the first person to talk to is your line manager"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-53/part2.mp3",
+        "duration": 210.57
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "An experiment on mould",
+      "context": "Two biology students plan an experiment on mould growth.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two biology students, Poppy and Eli, planning an experiment on mould. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 11.48
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 36.48,
+          "end": 41.19
+        },
+        {
+          "speaker": "poppy",
+          "text": "Eli, let's agree on the plan for the mould experiment. What's the aim, exactly?",
+          "start": 42.09,
+          "end": 46.81
+        },
+        {
+          "speaker": "eli",
+          "text": "To find out how temperature affects the growth of mould. Our hypothesis is that it will grow faster in a warm place than in a cold one.",
+          "start": 47.31,
+          "end": 54.93
+        },
+        {
+          "speaker": "poppy",
+          "text": "And we chose bread because?",
+          "start": 55.43,
+          "end": 57.6
+        },
+        {
+          "speaker": "eli",
+          "text": "It's cheap, and mould grows quickly on it, so we can see results within days. We don't have a lot of time.",
+          "start": 58.1,
+          "end": 64.12
+        },
+        {
+          "speaker": "poppy",
+          "text": "What about safety? Some moulds can cause allergies.",
+          "start": 64.62,
+          "end": 68.05
+        },
+        {
+          "speaker": "eli",
+          "text": "That's why we seal each dish in a bag, and we never open them. We wear gloves when we handle the bags, and we dispose of them afterwards.",
+          "start": 68.55,
+          "end": 75.81
+        },
+        {
+          "speaker": "poppy",
+          "text": "How long will the experiment last?",
+          "start": 76.31,
+          "end": 78.76
+        },
+        {
+          "speaker": "eli",
+          "text": "A week. Dr Ward said that's enough to see a difference, and any longer would be pointless.",
+          "start": 79.26,
+          "end": 84.19
+        },
+        {
+          "speaker": "poppy",
+          "text": "And what do you predict?",
+          "start": 84.69,
+          "end": 86.5
+        },
+        {
+          "speaker": "eli",
+          "text": "That the mould in the warm room will grow much faster, perhaps twice as fast as in the fridge.",
+          "start": 87.0,
+          "end": 92.31
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 93.21,
+          "end": 99.36
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 119.36,
+          "end": 123.2
+        },
+        {
+          "speaker": "poppy",
+          "text": "Let's write the method. First, put a slice of bread in a clean dish.",
+          "start": 124.1,
+          "end": 128.15
+        },
+        {
+          "speaker": "eli",
+          "text": "Then add a few drops of water, because mould needs moisture to grow.",
+          "start": 128.65,
+          "end": 132.92
+        },
+        {
+          "speaker": "poppy",
+          "text": "Seal each dish in a plastic bag, so that no spores can escape.",
+          "start": 133.42,
+          "end": 137.55
+        },
+        {
+          "speaker": "eli",
+          "text": "We put one bag in a warm room, and the other in the fridge, and we leave both undisturbed.",
+          "start": 138.05,
+          "end": 143.17
+        },
+        {
+          "speaker": "poppy",
+          "text": "Every day, we measure the area covered by mould with a ruler, and note the result.",
+          "start": 143.67,
+          "end": 148.58
+        },
+        {
+          "speaker": "eli",
+          "text": "I'll keep the table of results, and you can take photographs.",
+          "start": 149.08,
+          "end": 152.67
+        },
+        {
+          "speaker": "poppy",
+          "text": "Fine. We'll start tomorrow.",
+          "start": 153.17,
+          "end": 155.32
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 156.22,
+          "end": 160.68
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What is the aim of the experiment?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to see how temperature affects mould growth"
+                },
+                {
+                  "key": "B",
+                  "text": "to identify the species of mould"
+                },
+                {
+                  "key": "C",
+                  "text": "to find a cure for mould"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘How temperature affects the growth of mould.’",
+              "cue": "how temperature affects the growth of mould"
+            },
+            {
+              "number": 22,
+              "prompt": "Why did they choose bread?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is cheap and mould grows quickly."
+                },
+                {
+                  "key": "B",
+                  "text": "The tutor recommended it."
+                },
+                {
+                  "key": "C",
+                  "text": "It is safe to eat."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘It's cheap, and mould grows quickly on it.’",
+              "cue": "It's cheap, and mould grows quickly on it"
+            },
+            {
+              "number": 23,
+              "prompt": "What is the main safety rule?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "wear gloves and never open the bags"
+                },
+                {
+                  "key": "B",
+                  "text": "wash hands only"
+                },
+                {
+                  "key": "C",
+                  "text": "work in a fume cupboard"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We never open them.’",
+              "cue": "we never open them"
+            },
+            {
+              "number": 24,
+              "prompt": "How long will the experiment last?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "three days"
+                },
+                {
+                  "key": "B",
+                  "text": "a week"
+                },
+                {
+                  "key": "C",
+                  "text": "a month"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A week.’",
+              "cue": "A week"
+            },
+            {
+              "number": 25,
+              "prompt": "What do they predict?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The mould will grow faster in the warm room."
+                },
+                {
+                  "key": "B",
+                  "text": "The mould will grow at the same rate."
+                },
+                {
+                  "key": "C",
+                  "text": "The mould will grow only in the fridge."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The mould in the warm room will grow much faster.’",
+              "cue": "the mould in the warm room will grow much faster"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "The mould experiment",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "bread"
+            },
+            {
+              "key": "B",
+              "text": "water"
+            },
+            {
+              "key": "C",
+              "text": "plastic bag"
+            },
+            {
+              "key": "D",
+              "text": "warm room"
+            },
+            {
+              "key": "E",
+              "text": "cupboard"
+            },
+            {
+              "key": "F",
+              "text": "ruler"
+            },
+            {
+              "key": "G",
+              "text": "notebook"
+            }
+          ],
+          "content": [
+            "Put a slice of {{26}} in a clean dish.",
+            "Add a few drops of {{27}}.",
+            "Seal each dish in a {{28}}.",
+            "Put one bag in a {{29}} and the other in the fridge.",
+            "Measure the area of mould every day with a {{30}}."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘Put a slice of bread in a clean dish.’",
+              "cue": "put a slice of bread in a clean dish"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "B"
+              ],
+              "explanation": "‘Add a few drops of water.’",
+              "cue": "add a few drops of water"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘Seal each dish in a plastic bag.’",
+              "cue": "Seal each dish in a plastic bag"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "D"
+              ],
+              "explanation": "‘We put one bag in a warm room.’",
+              "cue": "We put one bag in a warm room"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "F"
+              ],
+              "explanation": "‘We measure the area covered by mould with a ruler.’",
+              "cue": "we measure the area covered by mould with a ruler"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-53/part3.mp3",
+        "duration": 191.48
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the history of cinema",
+      "context": "A lecture on cinema from the Lumière brothers to streaming.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of cinema. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.66
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.66,
+          "end": 43.08
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today we'll look at the history of cinema, which is only a little more than a hundred and twenty years old, and yet has become one of the most powerful forms of entertainment.",
+          "start": 43.98,
+          "end": 54.67
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Moving pictures were invented by several people at about the same time. In America, Thomas Edison's company developed a machine that one person at a time could watch through a peephole. But the first film shown to a paying audience was projected by the Lumière brothers in Paris, in December eighteen ninety-five. Their films were very short, lasting less than a minute, and showed everyday scenes, such as workers leaving a factory.",
+          "start": 55.02,
+          "end": 81.04
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Early films were silent, but cinemas were never quiet. They employed live music, usually a pianist, who played along with the action, and some larger cinemas had a whole orchestra.",
+          "start": 81.39,
+          "end": 93.15
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The French magician Georges Méliès realised that film could do more than record reality. In his famous film, A Trip to the Moon, from nineteen oh two, he used special effects, such as stopping the camera and changing the scene, to create fantasy.",
+          "start": 93.5,
+          "end": 109.2
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Soon the centre of the industry moved to the United States, and in particular to a suburb of Los Angeles in California called Hollywood, where the weather was sunny and the land cheap.",
+          "start": 109.55,
+          "end": 120.45
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The next great change was sound. The Jazz Singer, in nineteen twenty-seven, was the first feature film with synchronised speech, and within a few years, silent films had almost disappeared. Colour followed in the nineteen thirties, using a process called Technicolor, and it was spectacular in films such as The Wizard of Oz.",
+          "start": 120.8,
+          "end": 140.66
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In the nineteen fifties, television reduced cinema audiences, and studios responded with wider screens and bigger spectacles. The next revolution was digital. In nineteen ninety-five, Toy Story became the first feature film made entirely with computer animation.",
+          "start": 141.01,
+          "end": 158.46
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Today many people watch films on streaming services, at home or on a phone, and the future of the cinema is a subject of lively debate. Next week we'll look at the history of television.",
+          "start": 158.81,
+          "end": 171.02
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 171.92,
+          "end": 176.31
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 206.31,
+          "end": 209.02
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "The history of cinema",
+          "content": [
+            "## The beginnings",
+            "• The Lumière brothers showed films to a paying audience in {{31}} in 1895",
+            "• Their first films lasted less than a {{32}}",
+            "• Silent films were shown with live {{33}}",
+            "• Georges Méliès used {{34}} effects in 'A Trip to the Moon'",
+            "• The film industry moved to {{35}} in California",
+            "## Sound, colour and technology",
+            "• 'The {{36}} Singer' was the first feature film with synchronised speech",
+            "• Technicolor films appeared in the {{37}}",
+            "• In the 1950s, {{38}} reduced cinema audiences",
+            "• 'Toy Story' was the first feature film animated entirely by {{39}}",
+            "• Today many people watch films on {{40}} services"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "Paris"
+              ],
+              "explanation": "‘In Paris, in December eighteen ninety-five.’",
+              "cue": "in Paris, in December eighteen ninety-five"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "minute"
+              ],
+              "explanation": "‘Lasting less than a minute.’",
+              "cue": "lasting less than a minute"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "music"
+              ],
+              "explanation": "‘Live music, usually a pianist.’",
+              "cue": "live music, usually a pianist"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "special"
+              ],
+              "explanation": "‘He used special effects.’",
+              "cue": "he used special effects"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "Hollywood"
+              ],
+              "explanation": "‘Called Hollywood.’",
+              "cue": "called Hollywood"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "Jazz"
+              ],
+              "explanation": "‘The Jazz Singer.’",
+              "cue": "The Jazz Singer"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "1930s",
+                "thirties"
+              ],
+              "explanation": "‘Colour followed in the nineteen thirties.’",
+              "cue": "Colour followed in the nineteen thirties"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "television"
+              ],
+              "explanation": "‘Television reduced cinema audiences.’",
+              "cue": "television reduced cinema audiences"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "computer"
+              ],
+              "explanation": "‘Entirely with computer animation.’",
+              "cue": "entirely with computer animation"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "streaming"
+              ],
+              "explanation": "‘Streaming services.’",
+              "cue": "streaming services"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-53/part4.mp3",
+        "duration": 209.82
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

@@ -27,13 +27,13 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 
 - Free Listening, Reading and Writing tests need no account; Speaking needs a free account because recordings are saved to it.
 - Payment through Payme, Click, or a card transfer confirmed by an admin. Prices in so'm.
-- Sign-in by a 6-digit email code (Google sign-in when enabled in Supabase).
+- Sign-in by a 6-digit email code, or in one click with Google (when `GOOGLE_CLIENT_ID` is set).
 - Answers and essays autosave in the browser so an attempt survives a refresh.
 - Hosted on Render with Supabase; pages must load fast on mobile data in Uzbekistan.
 
 ## Capabilities and Constraints
 
-- Modules and content today: Listening 36 tests, Academic Reading 96, Academic Writing 35, Speaking 100. Each module has 5 free tests; the rest are "Coming soon" until selling starts.
+- Modules and content today: Listening 56 tests, Academic Reading 96, Academic Writing 35, Speaking 100. Each module has 5 free tests; the rest are "Coming soon" until selling starts.
 - Content status: Reading tests 1–6 are original. Most of the remaining Reading tests are practice material of mixed origin, repaired and checked but not original; they are to be replaced by original tests over time, and until then the site must not call its content original. Listening has 16 tests (about 16–20 minutes each, written for the site and voiced with open-licence text-to-speech; tests 12–16 were added as "Coming soon") and is the next thing to grow.
 - Results: estimated band, per-section and per-question-type breakdown, explanation for every answer, listening transcript with answers highlighted and "listen again".
 - Progress page with latest band per module and band over time; history of attempts.

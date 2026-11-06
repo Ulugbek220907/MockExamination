@@ -201,17 +201,68 @@
     return el;
   }
 
+  const GOOGLE_G = `<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.7-.06-1.37-.18-2.02H12v3.83h5.38a4.6 4.6 0 0 1-2 3.02v2.5h3.24c1.9-1.75 2.98-4.32 2.98-7.33z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.43l-3.24-2.5c-.9.6-2.04.95-3.38.95-2.6 0-4.8-1.75-5.59-4.1H3.07v2.58A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.41 13.92a6 6 0 0 1 0-3.84V7.5H3.07a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 5.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.93 5.5l3.34 2.58C7.2 7.73 9.4 5.98 12 5.98z"/></svg>`;
+
+  /**
+   * Google's sign-in script (Google Identity Services), loaded the first time it is needed: when the sign-in window opens,
+   * or a moment before, when the pointer or a finger goes near a "Sign in" button. Nobody else sends Google a request.
+   * Resolves with google.accounts.id, set up once; the answer goes to whichever sign-in window is open (state.onGoogle).
+   */
+  let gsi = null;
+  function googleReady(clientId) {
+    if (!gsi) {
+      gsi = new Promise((resolve, reject) => {
+        const ready = () => {
+          const id = window.google && window.google.accounts && window.google.accounts.id;
+          if (!id) return reject(new Error("Google sign-in did not start"));
+          id.initialize({ client_id: clientId, ux_mode: "popup", auto_select: false, cancel_on_tap_outside: true,
+            callback: (response) => { if (state.onGoogle) state.onGoogle(response); } });
+          resolve(id);
+        };
+        if (window.google && window.google.accounts && window.google.accounts.id) return ready();
+        const script = document.createElement("script");
+        script.src = "https://accounts.google.com/gsi/client";
+        script.async = true;
+        script.defer = true;
+        script.onload = ready;
+        script.onerror = () => { script.remove(); reject(new Error("Google sign-in could not be loaded")); };
+        document.head.appendChild(script);
+      });
+      gsi.catch(() => { gsi = null; });  // a failed load can be tried again
+    }
+    return gsi;
+  }
+
+  let warmArmed = false;
+  function armGoogleWarmUp() {
+    const clientId = state.config.auth && state.config.auth.googleClientId;
+    if (!clientId || warmArmed) return;
+    warmArmed = true;
+    const events = ["pointerover", "touchstart", "focusin"];
+    const warm = (e) => {
+      if (user() || !e.target.closest || !e.target.closest('[data-action="signin"]')) return;
+      events.forEach((name) => document.removeEventListener(name, warm, true));
+      googleReady(clientId).catch(() => {});
+    };
+    events.forEach((name) => document.addEventListener(name, warm, { capture: true, passive: true }));
+  }
+
   function login(reason) {
     if (user()) return Promise.resolve(true);
     return new Promise((resolve) => {
-      const google = state.config.auth && state.config.auth.google;
+      const googleId = state.config.auth && state.config.auth.googleClientId;   // Google's own button (set GOOGLE_CLIENT_ID)
+      const googleViaSupabase = !googleId && state.config.auth && state.config.auth.google;   // the older redirect
+      const orLine = `<div class="auth-or"><span>${t("or use your email")}</span></div>`;
+      const googleBlock = googleId
+        ? `<div class="google-block">
+            <div class="google-slot" data-google-slot><button type="button" class="btn-google" data-google-wait>${GOOGLE_G}${t("Continue with Google")}</button></div>
+            <p class="form-error" role="alert" hidden data-google-error></p>
+          </div>${orLine}`
+        : googleViaSupabase ? `<button type="button" class="btn-google" data-google>${GOOGLE_G}${t("Continue with Google")}</button>${orLine}` : "";
       const el = overlay(t("signin.title"), `
         <div class="auth-step" data-step="email">
           <p class="auth-lead">${esc(reason || t(commerce() ? "signin.default" : "signin.default.free"))}</p>
-          ${google ? `<button type="button" class="btn-google" data-google>
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.7-.06-1.37-.18-2.02H12v3.83h5.38a4.6 4.6 0 0 1-2 3.02v2.5h3.24c1.9-1.75 2.98-4.32 2.98-7.33z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.43l-3.24-2.5c-.9.6-2.04.95-3.38.95-2.6 0-4.8-1.75-5.59-4.1H3.07v2.58A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.41 13.92a6 6 0 0 1 0-3.84V7.5H3.07a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 5.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.93 5.5l3.34 2.58C7.2 7.73 9.4 5.98 12 5.98z"/></svg>
-              ${t("Continue with Google")}</button>
-            <div class="auth-or"><span>${t("or use your email")}</span></div>` : ""}
+          ${googleBlock}
           <form class="auth-form" data-form="email" novalidate>
             <label for="auth-email">${t("Email address")}</label>
             <input id="auth-email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="you@example.com" />
@@ -240,6 +291,7 @@
       const close = (ok) => {
         if (done) return;
         done = true;
+        state.onGoogle = null;
         el.remove();
         document.removeEventListener("keydown", onKey);
         resolve(ok);
@@ -319,6 +371,52 @@
         if (await sendCode()) U.toast(t("A new code is on its way."));
         setTimeout(() => { resend.disabled = false; }, 30000);
       });
+      if (googleId) {
+        const slot = el.querySelector("[data-google-slot]");
+        const googleError = (msg) => {
+          const p = el.querySelector("[data-google-error]");
+          p.textContent = msg || "";
+          p.hidden = !msg;
+        };
+        // Google answers with an ID token; the server checks it and signs the person in (or makes the account).
+        state.onGoogle = async (response) => {
+          if (done || !response || !response.credential) return;
+          googleError("");
+          slot.classList.add("is-busy");
+          try {
+            state.me = await U.api("/api/auth/google", {
+              method: "POST", body: JSON.stringify({ credential: response.credential, clientId: U.clientId() }),
+            });
+            renderAccountSlot();
+            U.toast(t("You are signed in."));
+            close(true);
+          } catch (err) {
+            slot.classList.remove("is-busy");
+            if (err.code === "google_use_code") {
+              // Google cannot vouch for this address (it is not a Gmail or Workspace one): confirm it with a code instead.
+              const input = el.querySelector("#auth-email");
+              if (err.data && err.data.email) input.value = err.data.email;
+              showError("email", err.message);
+              input.focus();
+            } else {
+              googleError(err.message);
+            }
+          }
+        };
+        const mount = () => {
+          googleError("");
+          googleReady(googleId).then((id) => {
+            if (done) return;
+            slot.innerHTML = "";
+            id.renderButton(slot, { type: "standard", theme: "outline", size: "large", text: "continue_with", shape: "rectangular",
+              logo_alignment: "left", locale: "en", width: Math.max(200, Math.min(400, Math.round(slot.clientWidth || 320))) });
+          }).catch(() => {
+            if (!done) googleError(t("Google sign-in could not load. Check your connection, or use your email below."));
+          });
+        };
+        slot.addEventListener("click", (e) => { if (e.target.closest("[data-google-wait]")) mount(); });  // try again after a failure
+        mount();
+      }
       const g = el.querySelector("[data-google]");
       if (g) {
         g.addEventListener("click", () => {
@@ -1334,6 +1432,6 @@
 
   window.Account = {
     state, commerce, refreshMe, primeMe, user, planActive, role, goal, daysUntil, planEndingHTML, goalFormHTML, bindGoalForm, login, logout, paywall, buy, billing, money, onClick, renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
-    setConfig(config) { state.config = config || {}; },
+    setConfig(config) { state.config = config || {}; armGoogleWarmUp(); },
   };
 })();

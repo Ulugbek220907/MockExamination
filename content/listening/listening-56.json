@@ -1,0 +1,1342 @@
+{
+  "id": "listening-56",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 56",
+  "shortTitle": "Practice Test 56",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 56,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "clerk": {
+      "name": "Sandra",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "tom": {
+      "name": "Tom",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "owner": {
+      "name": "Anna",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "ella": {
+      "name": "Ella",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "raj": {
+      "name": "Raj",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Hiring a boat",
+      "context": "A man books a rowing boat on a lake.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a boat hire company on a lake. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 8.62
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 28.62,
+          "end": 37.69
+        },
+        {
+          "speaker": "clerk",
+          "text": "Lakeside Boat Hire, good morning.",
+          "start": 38.59,
+          "end": 40.68
+        },
+        {
+          "speaker": "tom",
+          "text": "Hello. I'd like to hire a boat for a family trip on the lake.",
+          "start": 41.18,
+          "end": 44.87
+        },
+        {
+          "speaker": "clerk",
+          "text": "Certainly. I'll take your details first.",
+          "start": 45.37,
+          "end": 47.57
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller wants a family trip, so 'family' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 48.47,
+          "end": 63.38
+        },
+        {
+          "speaker": "clerk",
+          "text": "Could I have your name, please?",
+          "start": 64.28,
+          "end": 65.86
+        },
+        {
+          "speaker": "tom",
+          "text": "Tom Marshall. That's M-A-R-S-H-A-L-L.",
+          "start": 66.36,
+          "end": 72.36
+        },
+        {
+          "speaker": "clerk",
+          "text": "Thank you, Mr Marshall. And which day would you like to hire the boat?",
+          "start": 72.86,
+          "end": 76.53
+        },
+        {
+          "speaker": "tom",
+          "text": "Saturday the fourteenth, if you have anything free.",
+          "start": 77.03,
+          "end": 80.16
+        },
+        {
+          "speaker": "clerk",
+          "text": "Let me check. Yes, we do. How many people will there be?",
+          "start": 80.66,
+          "end": 83.54
+        },
+        {
+          "speaker": "tom",
+          "text": "Five of us, two adults and three children.",
+          "start": 84.04,
+          "end": 86.67
+        },
+        {
+          "speaker": "clerk",
+          "text": "That's fine. Our rowing boats take up to six people, while the motor boats are smaller and take only four.",
+          "start": 87.17,
+          "end": 92.74
+        },
+        {
+          "speaker": "tom",
+          "text": "Then a rowing boat, please. It's cheaper, isn't it?",
+          "start": 93.24,
+          "end": 96.22
+        },
+        {
+          "speaker": "clerk",
+          "text": "Yes, it is. And how long would you like it for?",
+          "start": 96.72,
+          "end": 99.09
+        },
+        {
+          "speaker": "tom",
+          "text": "Three hours would be enough, I think, because the children get tired.",
+          "start": 99.59,
+          "end": 103.52
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 104.42,
+          "end": 110.13
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 130.13,
+          "end": 133.46
+        },
+        {
+          "speaker": "clerk",
+          "text": "The price is twelve pounds an hour for a rowing boat, and we ask for a deposit of twenty pounds, which we return when the boat comes back safely.",
+          "start": 134.36,
+          "end": 142.15
+        },
+        {
+          "speaker": "tom",
+          "text": "That's reasonable. Do we need any special equipment?",
+          "start": 142.65,
+          "end": 145.7
+        },
+        {
+          "speaker": "clerk",
+          "text": "Everyone has to wear a lifejacket, and we provide them free of charge, in all sizes.",
+          "start": 146.2,
+          "end": 151.17
+        },
+        {
+          "speaker": "tom",
+          "text": "Good. What time do we have to bring the boat back?",
+          "start": 151.67,
+          "end": 154.21
+        },
+        {
+          "speaker": "clerk",
+          "text": "By six o'clock in the evening at the latest, because we close at half past six.",
+          "start": 154.71,
+          "end": 159.04
+        },
+        {
+          "speaker": "tom",
+          "text": "And can we go anywhere on the lake?",
+          "start": 159.54,
+          "end": 161.5
+        },
+        {
+          "speaker": "clerk",
+          "text": "Almost, but you mustn't go past the old bridge, because the water is deeper and faster there.",
+          "start": 162.0,
+          "end": 166.72
+        },
+        {
+          "speaker": "tom",
+          "text": "No problem. Thank you very much.",
+          "start": 167.22,
+          "end": 169.46
+        },
+        {
+          "speaker": "clerk",
+          "text": "You're welcome. We look forward to seeing you on Saturday.",
+          "start": 169.96,
+          "end": 172.73
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 173.63,
+          "end": 178.15
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Lakeside Boat Hire – booking",
+          "content": [
+            "Example: The customer wants a **family** trip",
+            "## Details",
+            "• Name: Tom {{1}}",
+            "• Date of hire: Saturday the {{2}} of August",
+            "• Number of people: {{3}}",
+            "• Type of boat: a {{4}} boat",
+            "• Length of hire: {{5}} hours",
+            "## Costs and rules",
+            "• Cost: £{{6}} an hour",
+            "• Deposit: £{{7}}",
+            "• Everyone must wear a {{8}}",
+            "• The boat must be returned by {{9}} p.m.",
+            "• Do not go past the old {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Marshall"
+              ],
+              "explanation": "‘M-A-R-S-H-A-L-L.’",
+              "cue": "M-A-R-S-H-A-L-L"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "14",
+                "fourteenth",
+                "14th"
+              ],
+              "explanation": "‘Saturday the fourteenth.’",
+              "cue": "Saturday the fourteenth"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "‘Five of us.’",
+              "cue": "Five of us"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "rowing"
+              ],
+              "explanation": "‘Then a rowing boat, please.’",
+              "cue": "Then a rowing boat, please"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘Three hours would be enough.’",
+              "cue": "Three hours would be enough"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "12",
+                "twelve"
+              ],
+              "explanation": "‘Twelve pounds an hour.’",
+              "cue": "twelve pounds an hour"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "20",
+                "twenty"
+              ],
+              "explanation": "‘A deposit of twenty pounds.’",
+              "cue": "a deposit of twenty pounds"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "lifejacket",
+                "life-jacket"
+              ],
+              "explanation": "‘Everyone has to wear a lifejacket.’",
+              "cue": "Everyone has to wear a lifejacket"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "‘By six o'clock in the evening at the latest.’",
+              "cue": "By six o'clock in the evening at the latest"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "bridge"
+              ],
+              "explanation": "‘You mustn't go past the old bridge.’",
+              "cue": "you mustn't go past the old bridge"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-56/part1.mp3",
+        "duration": 208.95
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Hollins Farm Shop and Market",
+      "context": "The owner of a farm shop describes the site to new staff.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the owner of a farm shop describing the site to new staff. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.07
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.07,
+          "end": 39.34
+        },
+        {
+          "speaker": "owner",
+          "text": "Welcome to Hollins Farm Shop and Market. I'm Anna Hollins, and I'll tell you where everything is. Please look at the plan. You come in through the main entrance at the bottom, and the path leads straight up through the middle of the site.",
+          "start": 40.24,
+          "end": 52.04
+        },
+        {
+          "speaker": "owner",
+          "text": "Let's start at the top. At the top on the left is the butcher, where all the meat comes from our own animals. In the middle at the top is the dairy, where you can buy milk, cheese and ice cream. At the top on the right is the café, which has a terrace overlooking the fields.",
+          "start": 52.39,
+          "end": 66.7
+        },
+        {
+          "speaker": "owner",
+          "text": "On the left, about halfway down, is the bakery. You can smell the bread from the entrance! Opposite it, on the right, is the greengrocer, with vegetables picked that morning.",
+          "start": 67.05,
+          "end": 76.1
+        },
+        {
+          "speaker": "owner",
+          "text": "Near the bottom on the left is the plant nursery, where you can buy flowers and herbs. And at the bottom on the right is the children's play area, which is fenced, so it's safe for small children.",
+          "start": 76.45,
+          "end": 86.88
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 87.78,
+          "end": 93.5
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 118.5,
+          "end": 122.38
+        },
+        {
+          "speaker": "owner",
+          "text": "Now, some practical information. The shop is open every day from eight until six, except on Sundays when it closes at four.",
+          "start": 123.28,
+          "end": 130.66
+        },
+        {
+          "speaker": "owner",
+          "text": "Everything we sell comes from within thirty miles of the farm, which is what makes us different from the supermarkets, and our customers like to know where their food has come from.",
+          "start": 131.01,
+          "end": 140.12
+        },
+        {
+          "speaker": "owner",
+          "text": "The farmers' market is held on the first Saturday of every month, and it brings stalls from other farms in the area, so you'll be busy on those days.",
+          "start": 140.47,
+          "end": 148.17
+        },
+        {
+          "speaker": "owner",
+          "text": "On Wednesdays in summer we run a tour of the farm, when children can feed the lambs. You'll be asked to help with these, and I'll explain what to do.",
+          "start": 148.52,
+          "end": 156.31
+        },
+        {
+          "speaker": "owner",
+          "text": "Finally, a rule about dogs. Dogs are not allowed in the shop or the bakery, but they can come into the café garden. Please remind visitors politely, because some of them forget.",
+          "start": 156.66,
+          "end": 166.68
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 167.58,
+          "end": 171.91
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the plan below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Hollins Farm Shop and Market",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 414,
+                "x2": 320,
+                "y2": 150,
+                "style": "path"
+              },
+              {
+                "type": "rect",
+                "x": 170,
+                "y": 150,
+                "w": 300,
+                "h": 40,
+                "style": "sand",
+                "label": "Courtyard"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Main entrance"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 412
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 50,
+                "w": 150,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 240,
+                "y": 50,
+                "w": 160,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 450,
+                "y": 50,
+                "w": 150,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 210,
+                "w": 110,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 490,
+                "y": 210,
+                "w": 120,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 330,
+                "w": 130,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 470,
+                "y": 312,
+                "w": 140,
+                "h": 56,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 115,
+                "y": 95,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 95,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 525,
+                "y": 95,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 95,
+                "y": 255,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 550,
+                "y": 255,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 105,
+                "y": 370,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 540,
+                "y": 340,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Bakery",
+              "answer": "D",
+              "explanation": "‘On the left, about halfway down, is the bakery.’",
+              "cue": "On the left, about halfway down, is the bakery"
+            },
+            {
+              "number": 12,
+              "prompt": "Dairy",
+              "answer": "B",
+              "explanation": "‘In the middle at the top is the dairy.’",
+              "cue": "In the middle at the top is the dairy"
+            },
+            {
+              "number": 13,
+              "prompt": "Café",
+              "answer": "C",
+              "explanation": "‘At the top on the right is the café.’",
+              "cue": "At the top on the right is the café"
+            },
+            {
+              "number": 14,
+              "prompt": "Plant nursery",
+              "answer": "F",
+              "explanation": "‘Near the bottom on the left is the plant nursery.’",
+              "cue": "Near the bottom on the left is the plant nursery"
+            },
+            {
+              "number": 15,
+              "prompt": "Play area",
+              "answer": "G",
+              "explanation": "‘At the bottom on the right is the children's play area.’",
+              "cue": "at the bottom on the right is the children's play area"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "On Sundays the shop closes at",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "two o'clock."
+                },
+                {
+                  "key": "B",
+                  "text": "four o'clock."
+                },
+                {
+                  "key": "C",
+                  "text": "six o'clock."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Except on Sundays when it closes at four.’",
+              "cue": "except on Sundays when it closes at four"
+            },
+            {
+              "number": 17,
+              "prompt": "How far from the farm do the products come?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ten miles"
+                },
+                {
+                  "key": "B",
+                  "text": "a hundred miles"
+                },
+                {
+                  "key": "C",
+                  "text": "no more than thirty miles"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘Within thirty miles of the farm.’",
+              "cue": "within thirty miles of the farm"
+            },
+            {
+              "number": 18,
+              "prompt": "The farmers' market takes place",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "every Saturday."
+                },
+                {
+                  "key": "B",
+                  "text": "on the first Saturday of each month."
+                },
+                {
+                  "key": "C",
+                  "text": "on the last Sunday of each month."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘On the first Saturday of every month.’",
+              "cue": "on the first Saturday of every month"
+            },
+            {
+              "number": 19,
+              "prompt": "What can children do on the farm tour?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "feed the lambs"
+                },
+                {
+                  "key": "B",
+                  "text": "ride a tractor"
+                },
+                {
+                  "key": "C",
+                  "text": "pick fruit"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Children can feed the lambs.’",
+              "cue": "children can feed the lambs"
+            },
+            {
+              "number": 20,
+              "prompt": "Where may dogs go?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "into the café garden only"
+                },
+                {
+                  "key": "B",
+                  "text": "anywhere on a lead"
+                },
+                {
+                  "key": "C",
+                  "text": "nowhere on the site"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘They can come into the café garden.’",
+              "cue": "they can come into the café garden"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-56/part2.mp3",
+        "duration": 202.71
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Planning an essay on memory",
+      "context": "Two students plan an essay on how reliable human memory is.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two students, Ella and Raj, planning an essay about memory. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 10.69
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 35.69,
+          "end": 40.41
+        },
+        {
+          "speaker": "ella",
+          "text": "Raj, have you started planning the memory essay yet? It's due next Friday.",
+          "start": 41.31,
+          "end": 45.66
+        },
+        {
+          "speaker": "raj",
+          "text": "Only the title. I chose 'How reliable is human memory?' because I'm fascinated by how witnesses remember crimes.",
+          "start": 46.16,
+          "end": 54.24
+        },
+        {
+          "speaker": "ella",
+          "text": "That's a good angle, and there's a lot of research on it. How long is the essay?",
+          "start": 54.74,
+          "end": 59.03
+        },
+        {
+          "speaker": "raj",
+          "text": "Two thousand words, and the tutor said we mustn't go over by more than ten per cent.",
+          "start": 59.53,
+          "end": 64.84
+        },
+        {
+          "speaker": "ella",
+          "text": "Right. And do we have to use a minimum number of sources?",
+          "start": 65.34,
+          "end": 68.44
+        },
+        {
+          "speaker": "raj",
+          "text": "At least eight, and at least three of them have to be journal articles, not books.",
+          "start": 68.94,
+          "end": 73.67
+        },
+        {
+          "speaker": "ella",
+          "text": "I've found a few already. Where did you look?",
+          "start": 74.17,
+          "end": 76.67
+        },
+        {
+          "speaker": "raj",
+          "text": "I started on the university database, and then I asked the librarian, who showed me how to search by topic, which saved a lot of time.",
+          "start": 77.17,
+          "end": 86.41
+        },
+        {
+          "speaker": "ella",
+          "text": "Good idea. I'd like to start with a bit of history, but I'm not sure there's room in two thousand words.",
+          "start": 86.91,
+          "end": 92.58
+        },
+        {
+          "speaker": "raj",
+          "text": "I'd leave it out. The tutor said that she'd rather have a clear argument than a long background section.",
+          "start": 93.08,
+          "end": 99.33
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 26 to 30.",
+          "start": 100.23,
+          "end": 106.65
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 126.65,
+          "end": 130.49
+        },
+        {
+          "speaker": "ella",
+          "text": "So how should we structure the essay? Shall I suggest an outline?",
+          "start": 131.39,
+          "end": 135.06
+        },
+        {
+          "speaker": "raj",
+          "text": "Please. I think we should begin with a short introduction that explains the aim of the essay.",
+          "start": 135.56,
+          "end": 141.13
+        },
+        {
+          "speaker": "ella",
+          "text": "Agreed. Then we need a clear definition of working memory, because the term is used differently by different writers.",
+          "start": 141.63,
+          "end": 148.22
+        },
+        {
+          "speaker": "raj",
+          "text": "Right. After that, we describe a famous experiment, such as the one by Loftus about leading questions in eyewitness accounts.",
+          "start": 148.72,
+          "end": 157.08
+        },
+        {
+          "speaker": "ella",
+          "text": "And I'd add a case study of a patient with memory loss, to show what happens when memory fails.",
+          "start": 157.58,
+          "end": 163.3
+        },
+        {
+          "speaker": "raj",
+          "text": "Good. Then we finish with a conclusion that answers the question in the title.",
+          "start": 163.8,
+          "end": 168.24
+        },
+        {
+          "speaker": "ella",
+          "text": "Perfect. Should we include a graph of the results?",
+          "start": 168.74,
+          "end": 171.45
+        },
+        {
+          "speaker": "raj",
+          "text": "I don't think so. There's no space for it, and the bibliography doesn't count in the words, because it's separate.",
+          "start": 171.95,
+          "end": 178.58
+        },
+        {
+          "speaker": "ella",
+          "text": "Great. Shall we meet on Wednesday to compare our drafts?",
+          "start": 179.08,
+          "end": 182.13
+        },
+        {
+          "speaker": "raj",
+          "text": "Yes, in the library at two o'clock.",
+          "start": 182.63,
+          "end": 184.83
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 185.73,
+          "end": 190.19
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did Raj choose the title?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It was the only title left."
+                },
+                {
+                  "key": "B",
+                  "text": "His tutor suggested it."
+                },
+                {
+                  "key": "C",
+                  "text": "He is interested in witnesses' memory."
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘I'm fascinated by how witnesses remember crimes.’",
+              "cue": "I'm fascinated by how witnesses remember crimes"
+            },
+            {
+              "number": 22,
+              "prompt": "By how much may the essay exceed two thousand words?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by up to ten per cent"
+                },
+                {
+                  "key": "B",
+                  "text": "not at all"
+                },
+                {
+                  "key": "C",
+                  "text": "by up to a hundred words"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We mustn't go over by more than ten per cent.’",
+              "cue": "we mustn't go over by more than ten per cent"
+            },
+            {
+              "number": 23,
+              "prompt": "At least three of the sources must be",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "books."
+                },
+                {
+                  "key": "B",
+                  "text": "journal articles."
+                },
+                {
+                  "key": "C",
+                  "text": "websites."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘At least three of them have to be journal articles.’",
+              "cue": "at least three of them have to be journal articles"
+            },
+            {
+              "number": 24,
+              "prompt": "What did the librarian show Raj?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "how to search by topic"
+                },
+                {
+                  "key": "B",
+                  "text": "how to cite sources"
+                },
+                {
+                  "key": "C",
+                  "text": "how to borrow online"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘How to search by topic.’",
+              "cue": "how to search by topic"
+            },
+            {
+              "number": 25,
+              "prompt": "What does Raj advise about the history of memory research?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "put it in an appendix"
+                },
+                {
+                  "key": "B",
+                  "text": "include it at the start"
+                },
+                {
+                  "key": "C",
+                  "text": "leave it out"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘I'd leave it out.’",
+              "cue": "I'd leave it out"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "Essay plan",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "definition"
+            },
+            {
+              "key": "B",
+              "text": "graph"
+            },
+            {
+              "key": "C",
+              "text": "introduction"
+            },
+            {
+              "key": "D",
+              "text": "case study"
+            },
+            {
+              "key": "E",
+              "text": "bibliography"
+            },
+            {
+              "key": "F",
+              "text": "experiment"
+            },
+            {
+              "key": "G",
+              "text": "conclusion"
+            }
+          ],
+          "content": [
+            "Begin with a short {{26}} that explains the aim.",
+            "Give a clear {{27}} of 'working memory'.",
+            "Describe a famous {{28}}, such as the one by Loftus.",
+            "Add a {{29}} of a patient with memory loss.",
+            "Finish with a {{30}} that answers the title question."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘Begin with a short introduction that explains the aim.’",
+              "cue": "begin with a short introduction that explains the aim"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘A clear definition of working memory.’",
+              "cue": "a clear definition of working memory"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "F"
+              ],
+              "explanation": "‘We describe a famous experiment.’",
+              "cue": "we describe a famous experiment"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "D"
+              ],
+              "explanation": "‘A case study of a patient with memory loss.’",
+              "cue": "a case study of a patient with memory loss"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "G"
+              ],
+              "explanation": "‘We finish with a conclusion that answers the question.’",
+              "cue": "we finish with a conclusion that answers the question"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-56/part3.mp3",
+        "duration": 220.99
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how human memory works",
+      "context": "A lecture on the stages and kinds of human memory.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how human memory works. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.05
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.05,
+          "end": 43.46
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today I'll explain how human memory works. Psychologists usually describe it as a system with three stages: sensory memory, short-term memory and long-term memory.",
+          "start": 44.36,
+          "end": 55.27
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Sensory memory holds information from the senses for a very short time, less than a second for what we see, and a few seconds for what we hear. Most of this information is lost at once, unless we pay attention to it.",
+          "start": 55.62,
+          "end": 67.46
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Short-term memory is where we hold information that we are using now, such as a telephone number we've just been given. In the nineteen fifties, the psychologist George Miller showed that most people can hold about seven items at once. This is known as the magic number seven. Information lasts for about twenty seconds unless it is repeated, a process called rehearsal.",
+          "start": 67.81,
+          "end": 86.9
+        },
+        {
+          "speaker": "lecturer",
+          "text": "To move information into long-term memory, we need to process it deeply. Making a link to something we already know, or giving it a meaning, helps far more than simply repeating it. Long-term memory has almost unlimited capacity, and it can last a lifetime.",
+          "start": 87.25,
+          "end": 101.29
+        },
+        {
+          "speaker": "lecturer",
+          "text": "There are different kinds of long-term memory. Episodic memory stores personal events, such as your last birthday, while semantic memory stores facts, such as the capital of France. Procedural memory stores skills, such as riding a bicycle, and it's remarkably durable; people who haven't ridden for years can usually still do it.",
+          "start": 101.64,
+          "end": 118.47
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Why do we forget? One reason is that a memory fades with time if it isn't used. Another is interference, when new information makes it harder to recall older information. Sleep plays an important role, since during sleep the brain strengthens the memories of the day.",
+          "start": 118.82,
+          "end": 133.13
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Finally, some practical advice for students. Spacing your revision over several days is more effective than studying all night before an exam, and testing yourself works better than simply rereading your notes. Next week, we'll look at how attention works.",
+          "start": 133.48,
+          "end": 147.24
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 148.14,
+          "end": 152.54
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 182.54,
+          "end": 185.25
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "How human memory works",
+          "content": [
+            "## Three stages",
+            "• {{31}} memory holds information from the senses for a very short time",
+            "• Short-term memory holds about {{32}} items at once",
+            "• Information lasts about {{33}} seconds unless it is repeated",
+            "• Repeating information is called {{34}}",
+            "## Long-term memory",
+            "• Information must be processed {{35}} to move into long-term memory",
+            "• {{36}} memory stores personal events",
+            "• Semantic memory stores {{37}}",
+            "• Riding a bicycle is an example of {{38}} memory",
+            "## Forgetting",
+            "• A memory fades if it is not {{39}}",
+            "• During {{40}}, the brain strengthens the memories of the day"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "sensory"
+              ],
+              "explanation": "‘Sensory memory holds information from the senses.’",
+              "cue": "Sensory memory holds information from the senses"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "7",
+                "seven"
+              ],
+              "explanation": "‘About seven items at once.’",
+              "cue": "about seven items at once"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "20",
+                "twenty"
+              ],
+              "explanation": "‘About twenty seconds.’",
+              "cue": "about twenty seconds"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "rehearsal"
+              ],
+              "explanation": "‘A process called rehearsal.’",
+              "cue": "a process called rehearsal"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "deeply"
+              ],
+              "explanation": "‘We need to process it deeply.’",
+              "cue": "we need to process it deeply"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "Episodic"
+              ],
+              "explanation": "‘Episodic memory stores personal events.’",
+              "cue": "Episodic memory stores personal events"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "facts"
+              ],
+              "explanation": "‘Semantic memory stores facts.’",
+              "cue": "semantic memory stores facts"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "procedural"
+              ],
+              "explanation": "‘Procedural memory stores skills.’",
+              "cue": "Procedural memory stores skills"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "used",
+                "recalled"
+              ],
+              "explanation": "‘If it isn't used.’",
+              "cue": "if it isn't used"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "sleep"
+              ],
+              "explanation": "‘During sleep the brain strengthens the memories of the day.’",
+              "cue": "during sleep the brain strengthens the memories of the day"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-56/part4.mp3",
+        "duration": 186.05
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

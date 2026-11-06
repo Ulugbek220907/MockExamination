@@ -1,0 +1,1297 @@
+{
+  "id": "listening-42",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 42",
+  "shortTitle": "Practice Test 42",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 42,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "karen": {
+      "name": "Karen",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "joe": {
+      "name": "Joe",
+      "voice": "am_puck",
+      "lang": "en-us"
+    },
+    "cole": {
+      "name": "Mr Cole",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "ines": {
+      "name": "Ines",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "will": {
+      "name": "Will",
+      "voice": "am_adam",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a blood donation",
+      "context": "A young man books his first blood donation.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a young man phoning a blood donation service to book an appointment. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.33
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.33,
+          "end": 39.39
+        },
+        {
+          "speaker": "karen",
+          "text": "National Blood Service, Karen speaking.",
+          "start": 40.29,
+          "end": 42.75
+        },
+        {
+          "speaker": "joe",
+          "text": "Hello. I'd like to book an appointment to give blood, please. I've never done it before.",
+          "start": 43.25,
+          "end": 47.9
+        },
+        {
+          "speaker": "karen",
+          "text": "That's wonderful. Everyone remembers their first time. I'll take some details.",
+          "start": 48.4,
+          "end": 52.92
+        },
+        {
+          "speaker": "narrator",
+          "text": "It is the caller's first donation, so 'first' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.82,
+          "end": 69.16
+        },
+        {
+          "speaker": "karen",
+          "text": "Could I have your name, please?",
+          "start": 70.06,
+          "end": 72.0
+        },
+        {
+          "speaker": "joe",
+          "text": "Joe Lawson. That's L-A-W-S-O-N.",
+          "start": 72.5,
+          "end": 77.32
+        },
+        {
+          "speaker": "karen",
+          "text": "Thank you, Joe. How old are you? You need to be at least seventeen.",
+          "start": 77.82,
+          "end": 81.51
+        },
+        {
+          "speaker": "joe",
+          "text": "I'm nineteen.",
+          "start": 82.01,
+          "end": 82.95
+        },
+        {
+          "speaker": "karen",
+          "text": "Good. And a quick question about your weight. You need to weigh at least fifty kilos.",
+          "start": 83.45,
+          "end": 87.89
+        },
+        {
+          "speaker": "joe",
+          "text": "I'm well over that. I weigh about seventy.",
+          "start": 88.39,
+          "end": 90.59
+        },
+        {
+          "speaker": "karen",
+          "text": "Have you had any tattoos or piercings recently?",
+          "start": 91.09,
+          "end": 94.05
+        },
+        {
+          "speaker": "joe",
+          "text": "I had a tattoo five months ago. Is that a problem?",
+          "start": 94.55,
+          "end": 97.6
+        },
+        {
+          "speaker": "karen",
+          "text": "No, you have to wait four months, so you're fine. When would you like to come?",
+          "start": 98.1,
+          "end": 102.09
+        },
+        {
+          "speaker": "joe",
+          "text": "Thursday, if possible. I'm free after lectures.",
+          "start": 102.59,
+          "end": 105.28
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 106.18,
+          "end": 111.9
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 131.9,
+          "end": 135.23
+        },
+        {
+          "speaker": "karen",
+          "text": "We have a session on Thursday at four o'clock. There's also one at six, but that's usually full.",
+          "start": 136.13,
+          "end": 141.46
+        },
+        {
+          "speaker": "joe",
+          "text": "Four is perfect. Where is it?",
+          "start": 141.96,
+          "end": 143.67
+        },
+        {
+          "speaker": "karen",
+          "text": "At the Memorial Hall, on Church Street. It's next to the library, and you can't miss it, because of the big red banner.",
+          "start": 144.17,
+          "end": 150.61
+        },
+        {
+          "speaker": "joe",
+          "text": "Is there anything I should do beforehand?",
+          "start": 151.11,
+          "end": 153.22
+        },
+        {
+          "speaker": "karen",
+          "text": "Yes, it's important to eat a good meal in the two hours before you come. People who haven't eaten are more likely to feel faint. And drink plenty of water, at least half a litre, as that makes it easier to find a vein.",
+          "start": 153.72,
+          "end": 166.05
+        },
+        {
+          "speaker": "joe",
+          "text": "How long will it take?",
+          "start": 166.55,
+          "end": 167.62
+        },
+        {
+          "speaker": "karen",
+          "text": "The donation itself takes about ten minutes, but you should allow an hour for the whole visit, because there's a short health check first, and a rest and a drink afterwards.",
+          "start": 168.12,
+          "end": 177.61
+        },
+        {
+          "speaker": "joe",
+          "text": "And will I be able to go to a lecture afterwards?",
+          "start": 178.11,
+          "end": 180.78
+        },
+        {
+          "speaker": "karen",
+          "text": "Yes, but please avoid heavy exercise for the rest of the day. We'll see you on Thursday, Joe. And thank you.",
+          "start": 181.28,
+          "end": 187.29
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 188.19,
+          "end": 192.72
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "National Blood Service – appointment",
+          "content": [
+            "Example: The caller wants to book his **first** donation",
+            "## Details",
+            "• Name: Joe {{1}}",
+            "• Age: {{2}}",
+            "• Donors must weigh at least {{3}} kilos",
+            "• He had a tattoo {{4}} months ago",
+            "• Appointment on {{5}}",
+            "## The session",
+            "• Time: {{6}} p.m.",
+            "• Place: the {{7}} Hall",
+            "• Eat a good {{8}} before coming",
+            "• Drink plenty of {{9}}",
+            "• The donation itself takes about {{10}} minutes"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Lawson"
+              ],
+              "explanation": "‘L-A-W-S-O-N.’",
+              "cue": "L-A-W-S-O-N"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "19",
+                "nineteen"
+              ],
+              "explanation": "‘I'm nineteen.’",
+              "cue": "I'm nineteen"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "50",
+                "fifty"
+              ],
+              "explanation": "‘You need to weigh at least fifty kilos.’",
+              "cue": "You need to weigh at least fifty kilos"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "‘I had a tattoo five months ago.’",
+              "cue": "I had a tattoo five months ago"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "Thursday"
+              ],
+              "explanation": "‘Thursday, if possible.’",
+              "cue": "Thursday, if possible"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "4",
+                "four"
+              ],
+              "explanation": "‘We have a session on Thursday at four o'clock.’ The six o'clock one is usually full.",
+              "cue": "a session on Thursday at four o'clock"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "Memorial"
+              ],
+              "explanation": "‘At the Memorial Hall, on Church Street.’",
+              "cue": "At the Memorial Hall, on Church Street"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "meal"
+              ],
+              "explanation": "‘Eat a good meal in the two hours before you come.’",
+              "cue": "eat a good meal in the two hours before you come"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "water"
+              ],
+              "explanation": "‘Drink plenty of water.’",
+              "cue": "drink plenty of water"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "10",
+                "ten"
+              ],
+              "explanation": "‘The donation itself takes about ten minutes.’",
+              "cue": "The donation itself takes about ten minutes"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-42/part1.mp3",
+        "duration": 223.52
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A village flower show",
+      "context": "An organiser briefs volunteers at a flower show.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear an organiser welcoming volunteers to a village flower show. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.63
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.63,
+          "end": 39.89
+        },
+        {
+          "speaker": "cole",
+          "text": "Good morning, everyone, and thank you for helping at this year's flower show. I'm Peter Cole, the chairman. Please look at the plan of the show ground. We're at the main gate, at the bottom, and the path runs straight ahead to the bandstand, at the top in the middle.",
+          "start": 40.79,
+          "end": 53.93
+        },
+        {
+          "speaker": "cole",
+          "text": "On the left of the path, the tent nearest the gate is the children's activity area, where there are painting and planting for the younger visitors. Above it, in the middle on the left, is the floral art marquee. And at the top on the left is the rose marquee, which is the most popular, so you'll need two stewards there.",
+          "start": 54.28,
+          "end": 69.9
+        },
+        {
+          "speaker": "cole",
+          "text": "On the right, the nearest to the gate is the refreshment tent. Above it, in the middle, is the plant sales area, where local nurseries sell their plants. And at the top on the right is the vegetable tent, with the giant marrows and onions.",
+          "start": 70.25,
+          "end": 83.01
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 83.91,
+          "end": 89.63
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 114.63,
+          "end": 118.51
+        },
+        {
+          "speaker": "cole",
+          "text": "Some facts for you. The show is a hundred and fifty years old this year. The first one was held in a farmer's field with just thirty entries, and now we have more than eight hundred.",
+          "start": 119.41,
+          "end": 128.52
+        },
+        {
+          "speaker": "cole",
+          "text": "We're expecting about five thousand visitors, which is a record. The weather forecast is good, but please be ready to direct people to the covered areas if it rains.",
+          "start": 128.87,
+          "end": 138.28
+        },
+        {
+          "speaker": "cole",
+          "text": "The prize for best in show is a silver cup, which has been awarded since the very first show. There's also a cash prize of fifty pounds for the best vegetable display.",
+          "start": 138.63,
+          "end": 148.14
+        },
+        {
+          "speaker": "cole",
+          "text": "Dogs are not allowed in the marquees, except for assistance dogs. Please tell visitors politely. There's a dog-sitting area by the gate, run by the scouts.",
+          "start": 148.49,
+          "end": 157.36
+        },
+        {
+          "speaker": "cole",
+          "text": "The prize-giving is at three o'clock at the bandstand. Please make sure the area is clear by half past two, so the judges can set up. Thank you all, and have a wonderful day.",
+          "start": 157.71,
+          "end": 167.49
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 168.39,
+          "end": 172.72
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the plan below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Whitby Flower Show: show ground",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 414,
+                "x2": 320,
+                "y2": 140,
+                "style": "path"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Main gate"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 412
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 40,
+                "w": 150,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 450,
+                "y": 40,
+                "w": 150,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 160,
+                "w": 150,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 450,
+                "y": 160,
+                "w": 150,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 290,
+                "w": 130,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 250,
+                "y": 55,
+                "w": 140,
+                "h": 75,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 450,
+                "y": 290,
+                "w": 150,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 115,
+                "y": 85,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 525,
+                "y": 85,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 115,
+                "y": 205,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 525,
+                "y": 205,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 105,
+                "y": 330,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 92,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 525,
+                "y": 330,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Plant sales",
+              "answer": "D",
+              "explanation": "‘Above it, in the middle, is the plant sales area.’",
+              "cue": "Above it, in the middle, is the plant sales area"
+            },
+            {
+              "number": 12,
+              "prompt": "Bandstand",
+              "answer": "F",
+              "explanation": "‘The bandstand, at the top in the middle.’",
+              "cue": "the bandstand, at the top in the middle"
+            },
+            {
+              "number": 13,
+              "prompt": "Rose marquee",
+              "answer": "A",
+              "explanation": "‘At the top on the left is the rose marquee.’",
+              "cue": "at the top on the left is the rose marquee"
+            },
+            {
+              "number": 14,
+              "prompt": "Children's activities",
+              "answer": "E",
+              "explanation": "‘The tent nearest the gate is the children's activity area.’",
+              "cue": "the tent nearest the gate is the children's activity area"
+            },
+            {
+              "number": 15,
+              "prompt": "Refreshments",
+              "answer": "G",
+              "explanation": "‘The nearest to the gate is the refreshment tent.’",
+              "cue": "the nearest to the gate is the refreshment tent"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How old is the flower show this year?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "fifty years"
+                },
+                {
+                  "key": "B",
+                  "text": "a hundred years"
+                },
+                {
+                  "key": "C",
+                  "text": "a hundred and fifty years"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘A hundred and fifty years old this year.’",
+              "cue": "a hundred and fifty years old this year"
+            },
+            {
+              "number": 17,
+              "prompt": "How many visitors are expected?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "two thousand"
+                },
+                {
+                  "key": "B",
+                  "text": "five thousand"
+                },
+                {
+                  "key": "C",
+                  "text": "ten thousand"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About five thousand visitors.’",
+              "cue": "about five thousand visitors"
+            },
+            {
+              "number": 18,
+              "prompt": "What is the prize for best in show?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a silver cup"
+                },
+                {
+                  "key": "B",
+                  "text": "a cash prize"
+                },
+                {
+                  "key": "C",
+                  "text": "a trip"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘A silver cup, which has been awarded since the very first show.’",
+              "cue": "a silver cup, which has been awarded since the very first show"
+            },
+            {
+              "number": 19,
+              "prompt": "What is not allowed in the marquees?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "flash photography"
+                },
+                {
+                  "key": "B",
+                  "text": "dogs"
+                },
+                {
+                  "key": "C",
+                  "text": "bags"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Dogs are not allowed in the marquees.’",
+              "cue": "Dogs are not allowed in the marquees"
+            },
+            {
+              "number": 20,
+              "prompt": "When is the prize-giving?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at noon"
+                },
+                {
+                  "key": "B",
+                  "text": "at three o'clock"
+                },
+                {
+                  "key": "C",
+                  "text": "at five o'clock"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The prize-giving is at three o'clock.’",
+              "cue": "The prize-giving is at three o'clock"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-42/part2.mp3",
+        "duration": 203.52
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Designing a library chatbot",
+      "context": "Two computer science students write up a chatbot project.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two computer science students, Ines and Will, discussing a chatbot for a university library. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 13.1
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 38.1,
+          "end": 42.82
+        },
+        {
+          "speaker": "ines",
+          "text": "Will, shall we go through the design of our chatbot before we write it up?",
+          "start": 43.72,
+          "end": 47.64
+        },
+        {
+          "speaker": "will",
+          "text": "Sure. The purpose is to answer the common questions that students ask the library, like opening hours and how to renew a book.",
+          "start": 48.14,
+          "end": 55.35
+        },
+        {
+          "speaker": "ines",
+          "text": "Right. And we chose a simple design, because we only had eight weeks, and a more advanced system would never have been finished.",
+          "start": 55.85,
+          "end": 62.68
+        },
+        {
+          "speaker": "will",
+          "text": "True. What was the biggest problem when we tested it?",
+          "start": 63.18,
+          "end": 65.67
+        },
+        {
+          "speaker": "ines",
+          "text": "That students ask unexpected questions. People don't type what you expect. They use slang, and they make spelling mistakes.",
+          "start": 66.17,
+          "end": 73.15
+        },
+        {
+          "speaker": "will",
+          "text": "How many test questions did we collect?",
+          "start": 73.65,
+          "end": 75.66
+        },
+        {
+          "speaker": "ines",
+          "text": "A hundred and twenty, from the library staff and from students on the course.",
+          "start": 76.16,
+          "end": 80.55
+        },
+        {
+          "speaker": "will",
+          "text": "And how many did the chatbot answer correctly?",
+          "start": 81.05,
+          "end": 83.35
+        },
+        {
+          "speaker": "ines",
+          "text": "About eighty percent, which isn't bad, but the library wanted ninety, so we need to say what we would improve.",
+          "start": 83.85,
+          "end": 89.85
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 90.75,
+          "end": 96.89
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 116.89,
+          "end": 120.73
+        },
+        {
+          "speaker": "ines",
+          "text": "Now let me describe how it works, step by step. First, the user types a question into the window on the library website.",
+          "start": 121.63,
+          "end": 128.63
+        },
+        {
+          "speaker": "will",
+          "text": "Then the program looks for keywords in the question, such as 'renew' or 'opening'.",
+          "start": 129.13,
+          "end": 133.5
+        },
+        {
+          "speaker": "ines",
+          "text": "It searches a database of previous questions and answers, and finds the ones with the same keywords.",
+          "start": 134.0,
+          "end": 139.93
+        },
+        {
+          "speaker": "will",
+          "text": "Each possible answer is given a score, depending on how many keywords match, and the highest score wins.",
+          "start": 140.43,
+          "end": 146.32
+        },
+        {
+          "speaker": "ines",
+          "text": "And if no answer scores high enough, the question is passed to a human librarian, who replies by email.",
+          "start": 146.82,
+          "end": 153.05
+        },
+        {
+          "speaker": "will",
+          "text": "That's a good safety net. I think the diagram will make it clear.",
+          "start": 153.55,
+          "end": 156.94
+        },
+        {
+          "speaker": "ines",
+          "text": "I'll draw it tonight.",
+          "start": 157.44,
+          "end": 159.17
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 160.07,
+          "end": 164.53
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What is the purpose of the chatbot?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to answer common library questions"
+                },
+                {
+                  "key": "B",
+                  "text": "to book study rooms"
+                },
+                {
+                  "key": "C",
+                  "text": "to recommend books"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘To answer the common questions that students ask the library.’",
+              "cue": "to answer the common questions that students ask the library"
+            },
+            {
+              "number": 22,
+              "prompt": "Why did they choose a simple design?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They only had eight weeks."
+                },
+                {
+                  "key": "B",
+                  "text": "The data was limited."
+                },
+                {
+                  "key": "C",
+                  "text": "The tutor insisted."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We only had eight weeks.’",
+              "cue": "we only had eight weeks"
+            },
+            {
+              "number": 23,
+              "prompt": "What was the biggest problem when testing?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Students asked unexpected questions."
+                },
+                {
+                  "key": "B",
+                  "text": "The server was slow."
+                },
+                {
+                  "key": "C",
+                  "text": "There were not enough testers."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Students ask unexpected questions.’",
+              "cue": "students ask unexpected questions"
+            },
+            {
+              "number": 24,
+              "prompt": "How many test questions did they collect?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "forty"
+                },
+                {
+                  "key": "B",
+                  "text": "a hundred and twenty"
+                },
+                {
+                  "key": "C",
+                  "text": "three hundred"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A hundred and twenty.’",
+              "cue": "A hundred and twenty"
+            },
+            {
+              "number": 25,
+              "prompt": "What percentage did the chatbot answer correctly?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about sixty"
+                },
+                {
+                  "key": "B",
+                  "text": "about eighty"
+                },
+                {
+                  "key": "C",
+                  "text": "about ninety-five"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About eighty percent.’",
+              "cue": "About eighty percent"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "How the chatbot answers a question",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "keywords"
+            },
+            {
+              "key": "B",
+              "text": "database"
+            },
+            {
+              "key": "C",
+              "text": "user"
+            },
+            {
+              "key": "D",
+              "text": "librarian"
+            },
+            {
+              "key": "E",
+              "text": "template"
+            },
+            {
+              "key": "F",
+              "text": "score"
+            },
+            {
+              "key": "G",
+              "text": "log"
+            }
+          ],
+          "content": [
+            "The {{26}} types a question into a window.",
+            "The program looks for {{27}} in the question.",
+            "It searches a {{28}} of previous questions and answers.",
+            "Each possible answer is given a {{29}}.",
+            "If no answer scores high enough, a {{30}} replies by email."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘The user types a question into the window.’",
+              "cue": "the user types a question into the window"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘Looks for keywords in the question.’",
+              "cue": "looks for keywords in the question"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "B"
+              ],
+              "explanation": "‘Searches a database of previous questions.’",
+              "cue": "searches a database of previous questions"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "F"
+              ],
+              "explanation": "‘Given a score, depending on how many keywords match.’",
+              "cue": "given a score, depending on how many keywords match"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "D"
+              ],
+              "explanation": "‘Passed to a human librarian.’",
+              "cue": "passed to a human librarian"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-42/part3.mp3",
+        "duration": 195.33
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the development of the telephone",
+      "context": "A lecture on the history of the telephone.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the development of the telephone. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.39
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.39,
+          "end": 43.81
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today's lecture is about the telephone, which in little more than a century has changed from a scientific curiosity to something that almost everyone carries in a pocket.",
+          "start": 44.71,
+          "end": 56.27
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The telephone was patented in eighteen seventy-six by Alexander Graham Bell, though other inventors were working on similar ideas, and there are still arguments about who deserves the credit. According to Bell's own notes, the first words ever spoken on a telephone were to his assistant, Thomas Watson, in the next room: Mr Watson, come here, I want to see you.",
+          "start": 56.62,
+          "end": 79.21
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In the early days, there was no direct dialling. Each call had to be connected by a human operator, who sat at a switchboard and plugged cables into sockets to link the two people. The first telephone exchange opened in eighteen seventy-eight, and by the end of the century, there were hundreds of thousands of phones.",
+          "start": 79.56,
+          "end": 98.8
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The quality of the early telephones was poor. Thomas Edison made a major improvement by inventing a better microphone, which made voices much louder and clearer.",
+          "start": 99.15,
+          "end": 109.33
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Long distance was the next challenge. The first telephone cable across the Atlantic Ocean was laid in nineteen fifty-six, and it carried only a few dozen calls at once. Today, calls are carried by fibre-optic cables, which can handle millions, and by satellites.",
+          "start": 109.68,
+          "end": 126.87
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The most dramatic change was the mobile phone. The first call from a handheld mobile was made in nineteen seventy-three by Martin Cooper, an engineer at Motorola. The phone weighed about a kilogram, and it took ten hours to charge, and it gave you only half an hour of talking.",
+          "start": 127.22,
+          "end": 145.21
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The first text message was sent in nineteen ninety-two. It was just two words: Merry Christmas. And then, in two thousand and seven, the first modern smartphone appeared, combining a phone, a camera and a computer in one device. Next week we'll look at the history of the internet.",
+          "start": 145.56,
+          "end": 163.01
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 163.91,
+          "end": 168.3
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 198.3,
+          "end": 201.01
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The development of the telephone",
+          "content": [
+            "## Beginnings",
+            "• Bell's assistant was called Thomas {{31}}",
+            "• The first words were: 'Mr Watson, come {{32}}'",
+            "• Early calls were connected by a human {{33}}",
+            "## Improvements",
+            "• Edison improved the {{34}}",
+            "• The first transatlantic telephone {{35}} was laid in 1956",
+            "• Today calls are carried by fibre-optic cables and by {{36}}",
+            "## Mobile phones",
+            "• The first handheld mobile call was made by Martin {{37}}",
+            "• The first mobile phone weighed about a {{38}}",
+            "• The first text message said 'Merry {{39}}'",
+            "• Smartphones combine a phone, a camera and a {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "Watson"
+              ],
+              "explanation": "‘His assistant, Thomas Watson.’",
+              "cue": "his assistant, Thomas Watson"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "here"
+              ],
+              "explanation": "‘Mr Watson, come here.’",
+              "cue": "Mr Watson, come here"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "operator"
+              ],
+              "explanation": "‘Connected by a human operator.’",
+              "cue": "connected by a human operator"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "microphone"
+              ],
+              "explanation": "‘Inventing a better microphone.’",
+              "cue": "inventing a better microphone"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "cable"
+              ],
+              "explanation": "‘The first telephone cable across the Atlantic Ocean.’",
+              "cue": "The first telephone cable across the Atlantic Ocean"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "satellites"
+              ],
+              "explanation": "‘And by satellites.’",
+              "cue": "and by satellites"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "Cooper"
+              ],
+              "explanation": "‘By Martin Cooper.’",
+              "cue": "by Martin Cooper"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "kilogram"
+              ],
+              "explanation": "‘The phone weighed about a kilogram.’",
+              "cue": "The phone weighed about a kilogram"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "Christmas"
+              ],
+              "explanation": "‘Merry Christmas.’",
+              "cue": "Merry Christmas"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "computer"
+              ],
+              "explanation": "‘A camera and a computer in one device.’",
+              "cue": "a camera and a computer in one device"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-42/part4.mp3",
+        "duration": 201.81
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

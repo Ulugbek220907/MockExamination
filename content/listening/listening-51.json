@@ -1,0 +1,1249 @@
+{
+  "id": "listening-51",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 51",
+  "shortTitle": "Practice Test 51",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 51,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "walsh": {
+      "name": "Ms Walsh",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "wei": {
+      "name": "Wei",
+      "voice": "am_eric",
+      "lang": "en-us"
+    },
+    "boyd": {
+      "name": "Mr Boyd",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "naomi": {
+      "name": "Naomi",
+      "voice": "af_jessica",
+      "lang": "en-us"
+    },
+    "theo": {
+      "name": "Theo",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Enquiring about a summer camp",
+      "context": "A father asks about places at a summer camp for his son.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a father phoning a summer camp to ask about places for his son. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.75
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.75,
+          "end": 38.82
+        },
+        {
+          "speaker": "walsh",
+          "text": "Oakwood Summer Camp, Ms Walsh speaking.",
+          "start": 39.72,
+          "end": 42.02
+        },
+        {
+          "speaker": "wei",
+          "text": "Hello. I'd like some information about your summer camps, please. They're for my son.",
+          "start": 42.52,
+          "end": 46.7
+        },
+        {
+          "speaker": "walsh",
+          "text": "Of course. I'll take a few details.",
+          "start": 47.2,
+          "end": 49.19
+        },
+        {
+          "speaker": "narrator",
+          "text": "The camp is for the caller's son, so 'son' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 50.09,
+          "end": 64.89
+        },
+        {
+          "speaker": "walsh",
+          "text": "Could I have your name, please?",
+          "start": 65.79,
+          "end": 67.37
+        },
+        {
+          "speaker": "wei",
+          "text": "Wei Zhang. That's Z-H-A-N-G.",
+          "start": 67.87,
+          "end": 72.3
+        },
+        {
+          "speaker": "walsh",
+          "text": "Thank you, Mr Zhang. And your son's name?",
+          "start": 72.8,
+          "end": 75.12
+        },
+        {
+          "speaker": "wei",
+          "text": "Leo. L-E-O.",
+          "start": 75.62,
+          "end": 78.3
+        },
+        {
+          "speaker": "walsh",
+          "text": "How old is Leo?",
+          "start": 78.8,
+          "end": 80.14
+        },
+        {
+          "speaker": "wei",
+          "text": "He's nine, but he'll be ten in August.",
+          "start": 80.64,
+          "end": 82.78
+        },
+        {
+          "speaker": "walsh",
+          "text": "What does he enjoy doing?",
+          "start": 83.28,
+          "end": 84.77
+        },
+        {
+          "speaker": "wei",
+          "text": "Football, mainly, and he loves painting. He's always drawing something.",
+          "start": 85.27,
+          "end": 88.92
+        },
+        {
+          "speaker": "walsh",
+          "text": "Which week would suit you?",
+          "start": 89.42,
+          "end": 90.87
+        },
+        {
+          "speaker": "wei",
+          "text": "The week beginning the fourteenth of July, if there's space.",
+          "start": 91.37,
+          "end": 94.29
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 95.19,
+          "end": 100.91
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 120.91,
+          "end": 124.24
+        },
+        {
+          "speaker": "walsh",
+          "text": "There is. We have three kinds of camp that week. The Adventure camp includes climbing, canoeing and archery, and it costs thirty-five pounds a day.",
+          "start": 125.14,
+          "end": 132.78
+        },
+        {
+          "speaker": "wei",
+          "text": "That sounds exciting, but he's a bit nervous of water.",
+          "start": 133.28,
+          "end": 136.18
+        },
+        {
+          "speaker": "walsh",
+          "text": "In that case, the Art camp might suit him better. The children do painting and puppet making, and at the end of the week, they put on a show. That's twenty-eight pounds a day.",
+          "start": 136.68,
+          "end": 145.79
+        },
+        {
+          "speaker": "wei",
+          "text": "He'd like that. What about the third?",
+          "start": 146.29,
+          "end": 148.29
+        },
+        {
+          "speaker": "walsh",
+          "text": "The Science camp, with experiments, and a trip to the museum on Wednesday. It's thirty pounds a day.",
+          "start": 148.79,
+          "end": 154.04
+        },
+        {
+          "speaker": "wei",
+          "text": "I think the Art camp is best for Leo, but could he try football as well?",
+          "start": 154.54,
+          "end": 158.06
+        },
+        {
+          "speaker": "walsh",
+          "text": "Yes, every afternoon, there's a free hour of sports on the field, whichever camp the children are in.",
+          "start": 158.56,
+          "end": 164.0
+        },
+        {
+          "speaker": "wei",
+          "text": "Perfect. Is lunch included?",
+          "start": 164.5,
+          "end": 166.33
+        },
+        {
+          "speaker": "walsh",
+          "text": "Yes, and a snack in the afternoon. Just tell us about any allergies. I'll send you the booking form.",
+          "start": 166.83,
+          "end": 172.21
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 173.11,
+          "end": 177.63
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Oakwood Summer Camp – enquiry",
+          "content": [
+            "Example: The camp is for his **son**",
+            "## Details",
+            "• Name: Wei {{1}}",
+            "• Son's name: {{2}}",
+            "• Age: {{3}}",
+            "• Interests: football and {{4}}",
+            "• Week beginning the {{5}} of July"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Zhang"
+              ],
+              "explanation": "‘Z-H-A-N-G.’",
+              "cue": "Z-H-A-N-G"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Leo"
+              ],
+              "explanation": "‘L-E-O.’",
+              "cue": "L-E-O"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "9",
+                "nine"
+              ],
+              "explanation": "‘He's nine.’",
+              "cue": "He's nine"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "painting"
+              ],
+              "explanation": "‘He loves painting.’",
+              "cue": "he loves painting"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "14",
+                "fourteenth",
+                "14th"
+              ],
+              "explanation": "‘The fourteenth of July.’",
+              "cue": "the fourteenth of July"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Camps",
+          "content": {
+            "headers": [
+              "Camp",
+              "Activities",
+              "Price per day"
+            ],
+            "rows": [
+              [
+                "Adventure",
+                "climbing, {{6}} and archery",
+                "£{{7}}"
+              ],
+              [
+                "Art",
+                "painting and {{8}} making",
+                "£28"
+              ],
+              [
+                "Science",
+                "experiments and a trip to the {{9}}",
+                "£{{10}}"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "canoeing"
+              ],
+              "explanation": "‘Climbing, canoeing and archery.’",
+              "cue": "climbing, canoeing and archery"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "35",
+                "thirty-five"
+              ],
+              "explanation": "‘Thirty-five pounds a day.’",
+              "cue": "thirty-five pounds a day"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "puppet"
+              ],
+              "explanation": "‘Painting and puppet making.’",
+              "cue": "painting and puppet making"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "museum"
+              ],
+              "explanation": "‘A trip to the museum on Wednesday.’",
+              "cue": "a trip to the museum on Wednesday"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "30",
+                "thirty"
+              ],
+              "explanation": "‘It's thirty pounds a day.’",
+              "cue": "It's thirty pounds a day"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-51/part1.mp3",
+        "duration": 208.43
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A residential summer camp",
+      "context": "A director describes the week at a summer camp.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a camp director describing the programme of a week-long residential summer camp. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 11.78
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 36.78,
+          "end": 41.05
+        },
+        {
+          "speaker": "boyd",
+          "text": "Welcome, everyone, and thank you for coming to this information evening about our residential summer camp. I'm Alan Boyd, the camp director, and I'll start by telling you what the week looks like.",
+          "start": 41.95,
+          "end": 52.61
+        },
+        {
+          "speaker": "boyd",
+          "text": "The children arrive on Monday afternoon, and spend the first evening getting to know one another. On Tuesday, there's a treasure hunt across the whole site, in teams, which is a good way to make friends.",
+          "start": 52.96,
+          "end": 63.56
+        },
+        {
+          "speaker": "boyd",
+          "text": "On Wednesday evening, we go on a night hike, with torches, to a hill near the camp. The children love it, though some are a little scared at first, and the leaders stay close.",
+          "start": 63.91,
+          "end": 73.05
+        },
+        {
+          "speaker": "boyd",
+          "text": "Thursday is the swimming gala, at the lake, with races and games, and prizes for every team. Friday evening is the talent show, when the children sing, dance or perform magic tricks.",
+          "start": 73.4,
+          "end": 83.98
+        },
+        {
+          "speaker": "boyd",
+          "text": "And on Saturday, before everyone goes home, there's a campfire barbecue, where we hand out certificates. Parents are welcome to join us for that. There are no activities on Sunday, because the camp is closed.",
+          "start": 84.33,
+          "end": 95.61
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 96.51,
+          "end": 102.23
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 127.23,
+          "end": 131.11
+        },
+        {
+          "speaker": "boyd",
+          "text": "Some details you'll want to know. About eighty children come each week, in groups of ten, and each group has two leaders, one of whom is always a trained first-aider.",
+          "start": 132.01,
+          "end": 140.89
+        },
+        {
+          "speaker": "boyd",
+          "text": "Please don't let your children bring mobile phones. We have a phone that they can use in the evenings to call home, and it helps them to join in with the activities instead of looking at screens.",
+          "start": 141.24,
+          "end": 151.07
+        },
+        {
+          "speaker": "boyd",
+          "text": "Sleeping bags are provided, but many children like to bring their own, and a favourite soft toy is very welcome.",
+          "start": 151.42,
+          "end": 158.03
+        },
+        {
+          "speaker": "boyd",
+          "text": "It's quite common for a child to feel homesick, especially on the second night. If it happens, they talk to a counsellor, who is trained to help, and in nearly every case the child is happy again by the next morning.",
+          "start": 158.38,
+          "end": 169.8
+        },
+        {
+          "speaker": "boyd",
+          "text": "To keep you informed, we post photographs on the camp website every day, so you can see what your child has been doing. Now, are there any questions?",
+          "start": 170.15,
+          "end": 178.77
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 179.67,
+          "end": 184.0
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "On which day does each activity take place? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 11–15.",
+          "optionsTitle": "Days",
+          "options": [
+            {
+              "key": "A",
+              "text": "Monday"
+            },
+            {
+              "key": "B",
+              "text": "Tuesday"
+            },
+            {
+              "key": "C",
+              "text": "Wednesday"
+            },
+            {
+              "key": "D",
+              "text": "Thursday"
+            },
+            {
+              "key": "E",
+              "text": "Friday"
+            },
+            {
+              "key": "F",
+              "text": "Saturday"
+            },
+            {
+              "key": "G",
+              "text": "Sunday"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "the treasure hunt",
+              "answer": "B",
+              "explanation": "‘On Tuesday, there's a treasure hunt.’",
+              "cue": "On Tuesday, there's a treasure hunt"
+            },
+            {
+              "number": 12,
+              "prompt": "the night hike",
+              "answer": "C",
+              "explanation": "‘On Wednesday evening, we go on a night hike.’",
+              "cue": "On Wednesday evening, we go on a night hike"
+            },
+            {
+              "number": 13,
+              "prompt": "the swimming gala",
+              "answer": "D",
+              "explanation": "‘Thursday is the swimming gala.’",
+              "cue": "Thursday is the swimming gala"
+            },
+            {
+              "number": 14,
+              "prompt": "the talent show",
+              "answer": "E",
+              "explanation": "‘Friday evening is the talent show.’",
+              "cue": "Friday evening is the talent show"
+            },
+            {
+              "number": 15,
+              "prompt": "the campfire barbecue",
+              "answer": "F",
+              "explanation": "‘On Saturday, before everyone goes home, there's a campfire barbecue.’",
+              "cue": "on Saturday, before everyone goes home, there's a campfire barbecue"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How many children come each week?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about forty"
+                },
+                {
+                  "key": "B",
+                  "text": "about eighty"
+                },
+                {
+                  "key": "C",
+                  "text": "about a hundred and twenty"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About eighty children come each week.’",
+              "cue": "About eighty children come each week"
+            },
+            {
+              "number": 17,
+              "prompt": "How many leaders does each group have?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one"
+                },
+                {
+                  "key": "B",
+                  "text": "two"
+                },
+                {
+                  "key": "C",
+                  "text": "three"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Each group has two leaders.’",
+              "cue": "each group has two leaders"
+            },
+            {
+              "number": 18,
+              "prompt": "What should children not bring?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "mobile phones"
+                },
+                {
+                  "key": "B",
+                  "text": "sleeping bags"
+                },
+                {
+                  "key": "C",
+                  "text": "soft toys"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Don't let your children bring mobile phones.’",
+              "cue": "don't let your children bring mobile phones"
+            },
+            {
+              "number": 19,
+              "prompt": "What happens if a child feels homesick?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Their parents are called."
+                },
+                {
+                  "key": "B",
+                  "text": "They talk to a counsellor."
+                },
+                {
+                  "key": "C",
+                  "text": "They are sent home."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘They talk to a counsellor.’",
+              "cue": "they talk to a counsellor"
+            },
+            {
+              "number": 20,
+              "prompt": "How do parents get news of their children?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by phone"
+                },
+                {
+                  "key": "B",
+                  "text": "from photographs on the website"
+                },
+                {
+                  "key": "C",
+                  "text": "by letter"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘We post photographs on the camp website every day.’",
+              "cue": "we post photographs on the camp website every day"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-51/part2.mp3",
+        "duration": 214.8
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "The ethics of self-driving cars",
+      "context": "Two philosophy students plan an essay.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two philosophy students, Naomi and Theo, discussing the ethics of self-driving cars. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.65
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.65,
+          "end": 42.37
+        },
+        {
+          "speaker": "naomi",
+          "text": "Theo, shall we plan the essay on self-driving cars? I think we should begin with the arguments in favour.",
+          "start": 43.27,
+          "end": 48.86
+        },
+        {
+          "speaker": "theo",
+          "text": "Yes. The strongest one is that they would cause fewer accidents, because most crashes are caused by human error, such as tiredness or distraction.",
+          "start": 49.36,
+          "end": 58.25
+        },
+        {
+          "speaker": "naomi",
+          "text": "And a second argument is that they could reduce traffic. If cars communicate with each other, they can travel closer together and avoid jams.",
+          "start": 58.75,
+          "end": 66.33
+        },
+        {
+          "speaker": "theo",
+          "text": "Cheaper insurance is sometimes mentioned, but I don't think it's convincing. Nobody knows yet how insurance would work.",
+          "start": 66.83,
+          "end": 73.87
+        },
+        {
+          "speaker": "naomi",
+          "text": "Now the main ethical problem. Who is responsible when a self-driving car causes an accident?",
+          "start": 74.37,
+          "end": 79.76
+        },
+        {
+          "speaker": "theo",
+          "text": "That's the question the essay should focus on. I'd say the manufacturer, because it designed the software, but the owner might also be responsible if they didn't keep it updated.",
+          "start": 80.26,
+          "end": 90.72
+        },
+        {
+          "speaker": "naomi",
+          "text": "We could include the famous dilemma, where a car must choose between two harmful actions.",
+          "start": 91.22,
+          "end": 95.91
+        },
+        {
+          "speaker": "theo",
+          "text": "It's interesting, but it's a rare situation, and Dr Hall said we should not spend more than a paragraph on it.",
+          "start": 96.41,
+          "end": 102.79
+        },
+        {
+          "speaker": "naomi",
+          "text": "What about privacy? These cars collect a huge amount of data about where people go.",
+          "start": 103.29,
+          "end": 107.88
+        },
+        {
+          "speaker": "theo",
+          "text": "Yes, that deserves a section, because the data could be sold to advertisers.",
+          "start": 108.38,
+          "end": 113.09
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 113.99,
+          "end": 120.13
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 140.13,
+          "end": 143.97
+        },
+        {
+          "speaker": "naomi",
+          "text": "How long is the essay supposed to be?",
+          "start": 144.87,
+          "end": 147.16
+        },
+        {
+          "speaker": "theo",
+          "text": "Two thousand words, and we have until the end of the month.",
+          "start": 147.66,
+          "end": 151.05
+        },
+        {
+          "speaker": "naomi",
+          "text": "I suggest we divide it. You take the arguments in favour, and I take the ethical problems.",
+          "start": 151.55,
+          "end": 156.54
+        },
+        {
+          "speaker": "theo",
+          "text": "Fine. Should we include interviews with drivers?",
+          "start": 157.04,
+          "end": 159.9
+        },
+        {
+          "speaker": "naomi",
+          "text": "No, we don't have the time. I'd prefer to use published research, and a couple of news reports.",
+          "start": 160.4,
+          "end": 165.24
+        },
+        {
+          "speaker": "theo",
+          "text": "Where should we look for the research? The library only has a few books.",
+          "start": 165.74,
+          "end": 169.65
+        },
+        {
+          "speaker": "naomi",
+          "text": "The journals online are better. I'll send you the links tonight.",
+          "start": 170.15,
+          "end": 173.35
+        },
+        {
+          "speaker": "theo",
+          "text": "Good. And when shall we meet to put it together?",
+          "start": 173.85,
+          "end": 176.17
+        },
+        {
+          "speaker": "naomi",
+          "text": "Next Friday, in the library. Then we'll have a week to edit.",
+          "start": 176.67,
+          "end": 179.66
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 180.56,
+          "end": 185.02
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO arguments in favour of self-driving cars do the students mention?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They would cause fewer accidents."
+            },
+            {
+              "key": "B",
+              "text": "They would make insurance cheaper."
+            },
+            {
+              "key": "C",
+              "text": "They would create jobs."
+            },
+            {
+              "key": "D",
+              "text": "They would reduce traffic."
+            },
+            {
+              "key": "E",
+              "text": "They would make journeys faster."
+            }
+          ],
+          "answer": [
+            "A",
+            "D"
+          ],
+          "explanation": "Fewer accidents (A) and less traffic (D). Cheaper insurance is mentioned but not convincing.",
+          "questions": [
+            {
+              "number": 21,
+              "cue": "they would cause fewer accidents"
+            },
+            {
+              "number": 22,
+              "cue": "they could reduce traffic"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 23,
+              "prompt": "What do the students think is the main ethical problem?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "who is responsible for accidents"
+                },
+                {
+                  "key": "B",
+                  "text": "how much the cars cost"
+                },
+                {
+                  "key": "C",
+                  "text": "how fast they can go"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Who is responsible when a self-driving car causes an accident.’",
+              "cue": "Who is responsible when a self-driving car causes an accident"
+            },
+            {
+              "number": 24,
+              "prompt": "How much space will they give to the famous dilemma?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a section"
+                },
+                {
+                  "key": "B",
+                  "text": "a paragraph"
+                },
+                {
+                  "key": "C",
+                  "text": "none"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Not spend more than a paragraph on it.’",
+              "cue": "not spend more than a paragraph on it"
+            },
+            {
+              "number": 25,
+              "prompt": "Why do the students think privacy needs a section?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The cars collect a lot of data."
+                },
+                {
+                  "key": "B",
+                  "text": "The cars are easy to hack."
+                },
+                {
+                  "key": "C",
+                  "text": "Drivers dislike cameras."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘These cars collect a huge amount of data.’",
+              "cue": "These cars collect a huge amount of data"
+            },
+            {
+              "number": 26,
+              "prompt": "How long is the essay?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one thousand words"
+                },
+                {
+                  "key": "B",
+                  "text": "two thousand words"
+                },
+                {
+                  "key": "C",
+                  "text": "three thousand words"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Two thousand words.’",
+              "cue": "Two thousand words"
+            },
+            {
+              "number": 27,
+              "prompt": "How will they divide the work?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Naomi writes the arguments in favour."
+                },
+                {
+                  "key": "B",
+                  "text": "Theo writes the arguments in favour."
+                },
+                {
+                  "key": "C",
+                  "text": "They write alternate paragraphs."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘You take the arguments in favour.’",
+              "cue": "You take the arguments in favour"
+            },
+            {
+              "number": 28,
+              "prompt": "What do they decide about interviews?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They will interview drivers."
+                },
+                {
+                  "key": "B",
+                  "text": "They will not use interviews."
+                },
+                {
+                  "key": "C",
+                  "text": "They will interview the tutor."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘No, we don't have the time.’",
+              "cue": "No, we don't have the time"
+            },
+            {
+              "number": 29,
+              "prompt": "Where does Theo suggest looking for research?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in the library"
+                },
+                {
+                  "key": "B",
+                  "text": "in online journals"
+                },
+                {
+                  "key": "C",
+                  "text": "in newspapers"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The journals online are better.’",
+              "cue": "The journals online are better"
+            },
+            {
+              "number": 30,
+              "prompt": "When will they meet to put the essay together?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "next Friday"
+                },
+                {
+                  "key": "B",
+                  "text": "tomorrow"
+                },
+                {
+                  "key": "C",
+                  "text": "at the end of the month"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Next Friday, in the library.’",
+              "cue": "Next Friday, in the library"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-51/part3.mp3",
+        "duration": 215.82
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: desertification",
+      "context": "A lecture on the causes of desertification and some solutions.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about desertification. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.56
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.56,
+          "end": 42.97
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today's lecture is about desertification, which is the process by which fertile land gradually turns into desert. It is one of the most serious environmental problems in the world, and it affects the lives of hundreds of millions of people.",
+          "start": 43.87,
+          "end": 59.19
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Drylands, meaning the regions where rainfall is low, cover about forty percent of the Earth's land surface. They are home to about a billion people, many of whom depend on farming and herding animals.",
+          "start": 59.54,
+          "end": 71.19
+        },
+        {
+          "speaker": "lecturer",
+          "text": "What causes desertification? Climate plays a part, especially long droughts, but human activity is usually the main cause. The first is overgrazing. When too many animals feed on the grass, the plants cannot recover, and the ground is left bare.",
+          "start": 71.54,
+          "end": 85.7
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The second is the removal of trees. People cut down trees for firewood or to clear land, and without roots to hold it, the soil is exposed. Third, poor farming methods, such as growing the same crop year after year, exhaust the soil.",
+          "start": 86.05,
+          "end": 99.62
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Once the plants have gone, the wind and rain remove the topsoil, the thin fertile layer on the surface. It takes hundreds of years to form, but it can be lost in a single storm, and once it has gone, the land may never recover.",
+          "start": 99.97,
+          "end": 112.69
+        },
+        {
+          "speaker": "lecturer",
+          "text": "One of the worst affected regions is the Sahel, the broad belt of land on the southern edge of the Sahara in Africa. Droughts there in the nineteen seventies and eighties caused famine, and the desert has steadily advanced.",
+          "start": 113.04,
+          "end": 125.71
+        },
+        {
+          "speaker": "lecturer",
+          "text": "But there are solutions. The Great Green Wall is a project to plant a belt of trees across Africa, from Senegal in the west to Djibouti in the east, and to restore the land along its path. Individual farmers can help, too, by building stone walls or terraces on slopes, which stop the rain washing away the soil, and by using drip irrigation, which delivers water directly to the roots, and wastes very little.",
+          "start": 126.06,
+          "end": 147.41
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The lesson is that, with care, damaged land can recover. Next week we'll look at the problem of water scarcity.",
+          "start": 147.76,
+          "end": 154.16
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 155.06,
+          "end": 159.46
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 189.46,
+          "end": 192.17
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Desertification",
+          "content": [
+            "## The problem",
+            "• Fertile land gradually turns into {{31}}",
+            "• Drylands cover about {{32}} percent of the Earth's land",
+            "## Causes",
+            "• Too many animals eating the grass is called {{33}}",
+            "• Cutting down {{34}} leaves the soil exposed",
+            "• Poor {{35}} methods exhaust the soil",
+            "• Wind and rain remove the {{36}}",
+            "## Regions and solutions",
+            "• The {{37}} in Africa is badly affected",
+            "• The Great {{38}} Wall is a project to plant trees",
+            "• Stone walls or {{39}} on slopes stop the soil washing away",
+            "• Drip {{40}} delivers water directly to the roots"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "desert"
+              ],
+              "explanation": "‘Fertile land gradually turns into desert.’",
+              "cue": "fertile land gradually turns into desert"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "40",
+                "forty"
+              ],
+              "explanation": "‘About forty percent of the Earth's land surface.’",
+              "cue": "about forty percent of the Earth's land surface"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "overgrazing"
+              ],
+              "explanation": "‘The first is overgrazing.’",
+              "cue": "The first is overgrazing"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "trees"
+              ],
+              "explanation": "‘The removal of trees.’",
+              "cue": "the removal of trees"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "farming"
+              ],
+              "explanation": "‘Poor farming methods.’",
+              "cue": "poor farming methods"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "topsoil"
+              ],
+              "explanation": "‘Remove the topsoil.’",
+              "cue": "remove the topsoil"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "Sahel"
+              ],
+              "explanation": "‘The Sahel, the broad belt of land.’",
+              "cue": "the Sahel, the broad belt of land"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "Green"
+              ],
+              "explanation": "‘The Great Green Wall.’",
+              "cue": "The Great Green Wall"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "terraces"
+              ],
+              "explanation": "‘Stone walls or terraces on slopes.’",
+              "cue": "stone walls or terraces on slopes"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "irrigation"
+              ],
+              "explanation": "‘Drip irrigation.’",
+              "cue": "drip irrigation"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-51/part4.mp3",
+        "duration": 192.97
+      }
+    }
+  ],
+  "durationMinutes": 14
+}
