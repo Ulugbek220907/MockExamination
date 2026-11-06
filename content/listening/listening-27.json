@@ -1,0 +1,1370 @@
+{
+  "id": "listening-27",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 27",
+  "shortTitle": "Practice Test 27",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 27,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "fiona": {
+      "name": "Fiona",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "james": {
+      "name": "James",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "ellis": {
+      "name": "Mr Ellis",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "nadia": {
+      "name": "Nadia",
+      "voice": "af_kore",
+      "lang": "en-us"
+    },
+    "ben": {
+      "name": "Ben",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {
+    "crevasses": "kɹəvˈæsᵻz"
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a guided kayak trip",
+      "context": "A man phones a company to book a family kayak trip.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a company to book a guided kayak trip. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.35
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.35,
+          "end": 38.41
+        },
+        {
+          "speaker": "fiona",
+          "text": "Dunmore Kayak Adventures, Fiona speaking.",
+          "start": 39.31,
+          "end": 41.85
+        },
+        {
+          "speaker": "james",
+          "text": "Hello. I'd like to book a guided kayak trip for my family. A colleague of mine did one with you last summer.",
+          "start": 42.35,
+          "end": 49.43
+        },
+        {
+          "speaker": "fiona",
+          "text": "Lovely. I'll take a few details, and then I'll tell you about the trips.",
+          "start": 49.93,
+          "end": 53.48
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller wants a trip for his family, so 'family' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 54.38,
+          "end": 69.52
+        },
+        {
+          "speaker": "fiona",
+          "text": "Can I have your name, please?",
+          "start": 70.42,
+          "end": 72.02
+        },
+        {
+          "speaker": "james",
+          "text": "It's James Thornley. That's T-H-O-R-N-L-E-Y.",
+          "start": 72.52,
+          "end": 79.6
+        },
+        {
+          "speaker": "fiona",
+          "text": "Thank you, Mr Thornley. How many of you will be coming?",
+          "start": 80.1,
+          "end": 83.08
+        },
+        {
+          "speaker": "james",
+          "text": "There'll be three adults and two children.",
+          "start": 83.58,
+          "end": 85.74
+        },
+        {
+          "speaker": "fiona",
+          "text": "And which day would you like? We have places on Sunday the tenth of August.",
+          "start": 86.24,
+          "end": 90.01
+        },
+        {
+          "speaker": "james",
+          "text": "That would be perfect. What time does it start?",
+          "start": 90.51,
+          "end": 93.25
+        },
+        {
+          "speaker": "fiona",
+          "text": "Normally we start at ten, but because of the tides that day, it's nine o'clock. Is that a problem?",
+          "start": 93.75,
+          "end": 99.1
+        },
+        {
+          "speaker": "james",
+          "text": "Not at all. And where do we meet?",
+          "start": 99.6,
+          "end": 101.65
+        },
+        {
+          "speaker": "fiona",
+          "text": "At the jetty in Dunmore Bay. It's next to the sailing club, and you'll see our blue van.",
+          "start": 102.15,
+          "end": 106.76
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 107.66,
+          "end": 113.37
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 133.37,
+          "end": 136.7
+        },
+        {
+          "speaker": "fiona",
+          "text": "The price is thirty-five pounds for each adult. It was thirty last year, but we've had to put it up. Children are twenty pounds.",
+          "start": 137.6,
+          "end": 144.71
+        },
+        {
+          "speaker": "james",
+          "text": "That's fine. How old do the children have to be?",
+          "start": 145.21,
+          "end": 148.15
+        },
+        {
+          "speaker": "fiona",
+          "text": "They must be at least eight. Some companies take younger ones, but we think it's safer to wait. For the longer sea trip they have to be ten, but you've asked for the bay, so eight is enough.",
+          "start": 148.65,
+          "end": 158.04
+        },
+        {
+          "speaker": "james",
+          "text": "Mine are nine and eleven, so that's all right. What should we bring?",
+          "start": 158.54,
+          "end": 162.65
+        },
+        {
+          "speaker": "fiona",
+          "text": "A change of clothes, because you will get wet, and a towel. We provide life jackets, and a waterproof bag for your phone and your keys.",
+          "start": 163.15,
+          "end": 170.11
+        },
+        {
+          "speaker": "james",
+          "text": "That's very helpful. How will I know the booking is confirmed?",
+          "start": 170.61,
+          "end": 174.26
+        },
+        {
+          "speaker": "fiona",
+          "text": "I'll send a confirmation by email. Please don't expect a text message, because the phone signal in the bay is very poor.",
+          "start": 174.76,
+          "end": 181.52
+        },
+        {
+          "speaker": "james",
+          "text": "Thanks. I'll look out for it.",
+          "start": 182.02,
+          "end": 183.85
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 184.75,
+          "end": 189.28
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Dunmore Kayak Adventures – booking",
+          "content": [
+            "Example: Trip for his **family**",
+            "## Booking",
+            "• Name: James {{1}}",
+            "• Group: {{2}} adults and two children",
+            "• Date: Sunday {{3}} August",
+            "• Start time: {{4}} a.m.",
+            "• Meeting point: the {{5}} in Dunmore Bay",
+            "## Details",
+            "• Price: £{{6}} for each adult",
+            "• Children must be at least {{7}} years old",
+            "• Bring: a change of {{8}} and a towel",
+            "• Provided: life jackets and a waterproof {{9}}",
+            "• Confirmation will be sent by {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Thornley"
+              ],
+              "explanation": "He spells his surname: ‘T-H-O-R-N-L-E-Y’.",
+              "cue": "T-H-O-R-N-L-E-Y"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘There'll be three adults and two children.’",
+              "cue": "There'll be three adults and two children"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "10",
+                "tenth",
+                "10th"
+              ],
+              "explanation": "‘We have places on Sunday the tenth of August.’ He accepts.",
+              "cue": "Sunday the tenth of August"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "9",
+                "nine"
+              ],
+              "explanation": "It is normally ten, ‘but because of the tides that day, it's nine o'clock’.",
+              "cue": "it's nine o'clock"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "jetty"
+              ],
+              "explanation": "‘At the jetty in Dunmore Bay.’",
+              "cue": "At the jetty in Dunmore Bay"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "35",
+                "thirty-five"
+              ],
+              "explanation": "It was thirty last year, but ‘thirty-five pounds for each adult’ now.",
+              "cue": "thirty-five pounds for each adult"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "8",
+                "eight"
+              ],
+              "explanation": "‘They must be at least eight.’ Ten applies only to the longer sea trip.",
+              "cue": "They must be at least eight"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "clothes"
+              ],
+              "explanation": "‘A change of clothes, because you will get wet, and a towel.’",
+              "cue": "A change of clothes"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "bag"
+              ],
+              "explanation": "‘We provide life jackets, and a waterproof bag for your phone and your keys.’",
+              "cue": "a waterproof bag for your phone and your keys"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "email",
+                "e-mail"
+              ],
+              "explanation": "‘I'll send a confirmation by email.’ There is no text message because the signal is poor.",
+              "cue": "I'll send a confirmation by email"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-27/part1.mp3",
+        "duration": 220.08
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A talk at a national park",
+      "context": "A ranger tells visitors where things are and how to behave in a national park.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a park ranger giving a talk to visitors at a national park. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.33
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.33,
+          "end": 39.59
+        },
+        {
+          "speaker": "ellis",
+          "text": "Good morning, everybody, and welcome to Ashdale National Park. I'm Tom Ellis, one of the rangers. Please look at the map in your leaflet. We're at the visitor centre, in the middle at the bottom, and the park entrance is just in front of us.",
+          "start": 40.49,
+          "end": 53.12
+        },
+        {
+          "speaker": "ellis",
+          "text": "Two main paths start from the junction at the top of the short path ahead of us. If you go straight ahead, at the top of the map, you'll find the viewpoint tower. It's a twenty-minute walk, and from the top you can see the whole valley.",
+          "start": 53.47,
+          "end": 64.97
+        },
+        {
+          "speaker": "ellis",
+          "text": "If you turn left at the junction and walk to the end of the path, close to the lake, you'll find the boat hire. You can borrow a rowing boat for an hour, but you must wear a life jacket.",
+          "start": 65.32,
+          "end": 74.65
+        },
+        {
+          "speaker": "ellis",
+          "text": "Turn right instead, and at the far end of that path is the campsite. It's very peaceful, but please book before you go, because it's often full in summer.",
+          "start": 75.0,
+          "end": 83.34
+        },
+        {
+          "speaker": "ellis",
+          "text": "Back near the visitor centre, the café is on the left, and it serves hot food until four. On the right of the visitor centre is the picnic area, with tables and a play area for children. The toilets are above the lake path, but the ranger hut, on the edge of the forest, is for staff only.",
+          "start": 83.69,
+          "end": 98.92
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 99.82,
+          "end": 105.54
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 130.54,
+          "end": 134.42
+        },
+        {
+          "speaker": "ellis",
+          "text": "Now, a few facts and rules. The land was bought for the nation in nineteen fifty-one, but it only became a national park in nineteen seventy-four, after a long campaign by local people.",
+          "start": 135.32,
+          "end": 146.05
+        },
+        {
+          "speaker": "ellis",
+          "text": "We ask you not to fly drones anywhere in the park. People often think the problem is noise, but the real reason is the ospreys. They nest by the lake in spring, and drones frighten the adult birds away from their eggs.",
+          "start": 146.4,
+          "end": 158.13
+        },
+        {
+          "speaker": "ellis",
+          "text": "There are no bins on the paths, so please take your litter home with you. It sounds inconvenient, but the bins used to attract foxes and gulls, and the animals were becoming a problem for the wildlife.",
+          "start": 158.48,
+          "end": 169.13
+        },
+        {
+          "speaker": "ellis",
+          "text": "About the lake. You're welcome to swim, but only in the marked area next to the beach. The water in the middle is deep and very cold, even in July.",
+          "start": 169.48,
+          "end": 177.76
+        },
+        {
+          "speaker": "ellis",
+          "text": "Finally, on Friday evenings we run a guided night walk, which starts here at eight. You'll see owls, bats and, with luck, a deer. It's free, but you need to bring a torch. Enjoy your visit.",
+          "start": 178.11,
+          "end": 188.35
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 189.25,
+          "end": 193.58
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Ashdale National Park: central area",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "ellipse",
+                "cx": 120,
+                "cy": 90,
+                "rx": 85,
+                "ry": 45,
+                "label": "Silver Lake"
+              },
+              {
+                "type": "trees",
+                "x": 440,
+                "y": 30,
+                "w": 180,
+                "h": 150,
+                "label": "Pine Forest"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 392,
+                "x2": 320,
+                "y2": 160,
+                "style": "path"
+              },
+              {
+                "type": "line",
+                "x1": 90,
+                "y1": 210,
+                "x2": 540,
+                "y2": 210,
+                "style": "path"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Park entrance"
+              },
+              {
+                "type": "compass",
+                "x": 596,
+                "y": 396
+              },
+              {
+                "type": "rect",
+                "x": 250,
+                "y": 330,
+                "w": 140,
+                "h": 60,
+                "style": "building",
+                "label": "Visitor centre"
+              },
+              {
+                "type": "rect",
+                "x": 50,
+                "y": 236,
+                "w": 80,
+                "h": 56,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 282,
+                "y": 100,
+                "w": 76,
+                "h": 56,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 500,
+                "y": 236,
+                "w": 90,
+                "h": 56,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 130,
+                "y": 332,
+                "w": 90,
+                "h": 56,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 420,
+                "y": 332,
+                "w": 90,
+                "h": 56,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 366,
+                "y": 120,
+                "w": 66,
+                "h": 46,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 170,
+                "y": 148,
+                "w": 70,
+                "h": 46,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 90,
+                "y": 264,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 128,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 545,
+                "y": 264,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 175,
+                "y": 360,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 465,
+                "y": 360,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 399,
+                "y": 143,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 205,
+                "y": 171,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Café",
+              "answer": "D",
+              "explanation": "‘Back near the visitor centre, the café is on the left.’",
+              "cue": "the café is on the left"
+            },
+            {
+              "number": 12,
+              "prompt": "Viewpoint tower",
+              "answer": "B",
+              "explanation": "‘If you go straight ahead, at the top of the map, you'll find the viewpoint tower.’",
+              "cue": "straight ahead, at the top of the map, you'll find the viewpoint tower"
+            },
+            {
+              "number": 13,
+              "prompt": "Campsite",
+              "answer": "C",
+              "explanation": "Turn right: ‘at the far end of that path is the campsite’.",
+              "cue": "at the far end of that path is the campsite"
+            },
+            {
+              "number": 14,
+              "prompt": "Boat hire",
+              "answer": "A",
+              "explanation": "Turn left: ‘close to the lake, you'll find the boat hire’.",
+              "cue": "close to the lake, you'll find the boat hire"
+            },
+            {
+              "number": 15,
+              "prompt": "Picnic area",
+              "answer": "E",
+              "explanation": "‘On the right of the visitor centre is the picnic area.’ The ranger hut (F) is for staff only.",
+              "cue": "On the right of the visitor centre is the picnic area"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "When did Ashdale become a national park?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in 1951"
+                },
+                {
+                  "key": "B",
+                  "text": "in 1974"
+                },
+                {
+                  "key": "C",
+                  "text": "in 1998"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The land was bought in 1951, ‘but it only became a national park in nineteen seventy-four’.",
+              "cue": "it only became a national park in nineteen seventy-four"
+            },
+            {
+              "number": 17,
+              "prompt": "Why are drones not allowed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They are too noisy."
+                },
+                {
+                  "key": "B",
+                  "text": "They frighten nesting birds."
+                },
+                {
+                  "key": "C",
+                  "text": "They cause accidents."
+                }
+              ],
+              "answer": "B",
+              "explanation": "People think of noise, ‘but the real reason is the ospreys’.",
+              "cue": "drones frighten the adult birds away from their eggs"
+            },
+            {
+              "number": 18,
+              "prompt": "What should visitors do with their litter?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "leave it by the paths"
+                },
+                {
+                  "key": "B",
+                  "text": "put it in the bins at the lake"
+                },
+                {
+                  "key": "C",
+                  "text": "take it home"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘There are no bins on the paths, so please take your litter home with you.’",
+              "cue": "please take your litter home with you"
+            },
+            {
+              "number": 19,
+              "prompt": "What is the rule about swimming in the lake?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is allowed in one marked area."
+                },
+                {
+                  "key": "B",
+                  "text": "It is not allowed at all."
+                },
+                {
+                  "key": "C",
+                  "text": "It needs a guide."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘You're welcome to swim, but only in the marked area next to the beach.’",
+              "cue": "only in the marked area next to the beach"
+            },
+            {
+              "number": 20,
+              "prompt": "What can visitors do on Friday evenings?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "join a night walk"
+                },
+                {
+                  "key": "B",
+                  "text": "hire a bicycle"
+                },
+                {
+                  "key": "C",
+                  "text": "watch a film"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘On Friday evenings we run a guided night walk.’",
+              "cue": "on Friday evenings we run a guided night walk"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-27/part2.mp3",
+        "duration": 224.38
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A presentation on energy storage",
+      "context": "Two students plan a presentation on ways of storing renewable energy.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two students, Nadia and Ben, planning a presentation on energy storage. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 11.57
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 36.57,
+          "end": 41.28
+        },
+        {
+          "speaker": "nadia",
+          "text": "Ben, we need to decide how to open our presentation on energy storage. I thought we could start with a short video.",
+          "start": 42.18,
+          "end": 49.67
+        },
+        {
+          "speaker": "ben",
+          "text": "The university's projector is unreliable, though. Last week the sound didn't work at all. I'd rather begin with a question for the audience.",
+          "start": 50.17,
+          "end": 57.76
+        },
+        {
+          "speaker": "nadia",
+          "text": "Fine. What kind of question?",
+          "start": 58.26,
+          "end": 59.78
+        },
+        {
+          "speaker": "ben",
+          "text": "What happens to wind power when the wind stops? That leads straight into our main point, which is that renewable energy needs storage.",
+          "start": 60.28,
+          "end": 67.38
+        },
+        {
+          "speaker": "nadia",
+          "text": "Good. How long should the whole thing be? Dr Hughes said twenty minutes.",
+          "start": 67.88,
+          "end": 71.85
+        },
+        {
+          "speaker": "ben",
+          "text": "Twenty minutes including questions, so fifteen for the talk itself. We shouldn't try to cover every technology.",
+          "start": 72.35,
+          "end": 78.51
+        },
+        {
+          "speaker": "nadia",
+          "text": "I've found a great statistic, saying that the amount of storage in the country has doubled in five years.",
+          "start": 79.01,
+          "end": 85.46
+        },
+        {
+          "speaker": "ben",
+          "text": "Be careful. I checked, and it comes from a company's own website, so it might be biased. Use the government report instead.",
+          "start": 85.96,
+          "end": 92.61
+        },
+        {
+          "speaker": "nadia",
+          "text": "Right. And the slides? I've put quite a lot of text on each one.",
+          "start": 93.11,
+          "end": 96.65
+        },
+        {
+          "speaker": "ben",
+          "text": "Too much. People can't read and listen at the same time. Use pictures, and no more than twenty words on a slide.",
+          "start": 97.15,
+          "end": 103.19
+        },
+        {
+          "speaker": "nadia",
+          "text": "Who should present which part? You're better at the technical bits.",
+          "start": 103.69,
+          "end": 107.15
+        },
+        {
+          "speaker": "ben",
+          "text": "I'll do the batteries and the hydrogen. You can take the pumped hydro and the conclusion, since you visited the power station.",
+          "start": 107.65,
+          "end": 114.07
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 114.97,
+          "end": 121.11
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 141.11,
+          "end": 144.95
+        },
+        {
+          "speaker": "nadia",
+          "text": "Let's agree what to say about each method. Lithium batteries first.",
+          "start": 145.85,
+          "end": 149.99
+        },
+        {
+          "speaker": "ben",
+          "text": "They're very efficient, losing only about ten percent of the energy that goes in. That's their main selling point.",
+          "start": 150.49,
+          "end": 156.57
+        },
+        {
+          "speaker": "nadia",
+          "text": "And pumped hydro?",
+          "start": 157.07,
+          "end": 158.25
+        },
+        {
+          "speaker": "ben",
+          "text": "It works well, but you need mountains and a lot of water, so not every country can use it.",
+          "start": 158.75,
+          "end": 163.55
+        },
+        {
+          "speaker": "nadia",
+          "text": "Hydrogen?",
+          "start": 164.05,
+          "end": 164.9
+        },
+        {
+          "speaker": "ben",
+          "text": "It's still experimental. There are only a few pilot projects, and nobody knows yet whether it will be competitive.",
+          "start": 165.4,
+          "end": 171.5
+        },
+        {
+          "speaker": "nadia",
+          "text": "Compressed air?",
+          "start": 172.0,
+          "end": 172.96
+        },
+        {
+          "speaker": "ben",
+          "text": "Interesting, but it's too expensive. You have to build huge underground caverns, and the cost has stopped most projects.",
+          "start": 173.46,
+          "end": 179.86
+        },
+        {
+          "speaker": "nadia",
+          "text": "And flywheels?",
+          "start": 180.36,
+          "end": 181.3
+        },
+        {
+          "speaker": "ben",
+          "text": "They're useful for short bursts of power. They react in a fraction of a second, but they can only store energy for a few minutes.",
+          "start": 181.8,
+          "end": 188.41
+        },
+        {
+          "speaker": "nadia",
+          "text": "Good. That gives us a nice comparison table for the last slide.",
+          "start": 188.91,
+          "end": 192.65
+        },
+        {
+          "speaker": "ben",
+          "text": "Let's practise on Thursday, then.",
+          "start": 193.15,
+          "end": 195.28
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 196.18,
+          "end": 200.64
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why does Ben not want to start with a video?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It would take too long."
+                },
+                {
+                  "key": "B",
+                  "text": "The equipment may not work."
+                },
+                {
+                  "key": "C",
+                  "text": "Videos are boring."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The university's projector is unreliable, though. Last week the sound didn't work at all.’",
+              "cue": "The university's projector is unreliable"
+            },
+            {
+              "number": 22,
+              "prompt": "How long should the talk itself be?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ten minutes"
+                },
+                {
+                  "key": "B",
+                  "text": "fifteen minutes"
+                },
+                {
+                  "key": "C",
+                  "text": "twenty minutes"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Twenty minutes in total, ‘so fifteen for the talk itself’.",
+              "cue": "so fifteen for the talk itself"
+            },
+            {
+              "number": 23,
+              "prompt": "What does Ben advise about Nadia's statistic?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "use it as it is"
+                },
+                {
+                  "key": "B",
+                  "text": "replace it with an official source"
+                },
+                {
+                  "key": "C",
+                  "text": "leave out all statistics"
+                }
+              ],
+              "answer": "B",
+              "explanation": "It comes from a company website, so ‘Use the government report instead’.",
+              "cue": "Use the government report instead"
+            },
+            {
+              "number": 24,
+              "prompt": "What does Ben say about Nadia's slides?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They have too much text."
+                },
+                {
+                  "key": "B",
+                  "text": "They have poor colours."
+                },
+                {
+                  "key": "C",
+                  "text": "There are too many."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Too much. People can't read and listen at the same time.’",
+              "cue": "People can't read and listen at the same time"
+            },
+            {
+              "number": 25,
+              "prompt": "Why will Nadia present the pumped hydro section?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She has visited a power station."
+                },
+                {
+                  "key": "B",
+                  "text": "She has studied it at length."
+                },
+                {
+                  "key": "C",
+                  "text": "Ben dislikes the topic."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘You can take the pumped hydro and the conclusion, since you visited the power station.’",
+              "cue": "since you visited the power station"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What opinion do the students express about each way of storing energy? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Opinions",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is too expensive."
+            },
+            {
+              "key": "B",
+              "text": "It depends on the landscape."
+            },
+            {
+              "key": "C",
+              "text": "It is still experimental."
+            },
+            {
+              "key": "D",
+              "text": "It is very efficient."
+            },
+            {
+              "key": "E",
+              "text": "It lasts for many years."
+            },
+            {
+              "key": "F",
+              "text": "It is useful for short bursts of power."
+            },
+            {
+              "key": "G",
+              "text": "It raises environmental concerns."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "lithium batteries",
+              "answer": "D",
+              "explanation": "‘They're very efficient, losing only about ten percent of the energy that goes in.’",
+              "cue": "They're very efficient, losing only about ten percent"
+            },
+            {
+              "number": 27,
+              "prompt": "pumped hydro",
+              "answer": "B",
+              "explanation": "‘You need mountains and a lot of water, so not every country can use it.’",
+              "cue": "you need mountains and a lot of water"
+            },
+            {
+              "number": 28,
+              "prompt": "hydrogen",
+              "answer": "C",
+              "explanation": "‘It's still experimental.’",
+              "cue": "It's still experimental"
+            },
+            {
+              "number": 29,
+              "prompt": "compressed air",
+              "answer": "A",
+              "explanation": "‘It's too expensive. You have to build huge underground caverns.’",
+              "cue": "it's too expensive"
+            },
+            {
+              "number": 30,
+              "prompt": "flywheels",
+              "answer": "F",
+              "explanation": "‘They're useful for short bursts of power.’",
+              "cue": "They're useful for short bursts of power"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-27/part3.mp3",
+        "duration": 231.44
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how glaciers form and move",
+      "context": "A geography lecture on how ice becomes a glacier and how glaciers shape land.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how glaciers form and move. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.11
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.11,
+          "end": 43.53
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Glaciers cover about ten percent of the Earth's land surface, and they hold most of the world's fresh water. Today I'd like to explain how they form, and how something so solid can flow.",
+          "start": 44.43,
+          "end": 55.76
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A glacier begins as snow. Each winter, new snow buries the old, and under the weight, the snow is compressed into small grains of ice. Over many years, these grains are squeezed together, until they become solid ice. In the coldest places, this can take centuries.",
+          "start": 56.11,
+          "end": 71.21
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Once the ice is about thirty metres thick, it starts to flow under its own weight, like an extremely slow river. This happens in two ways. The first is internal deformation, in which the ice crystals slide over one another. The second is basal sliding. Meltwater at the bottom of the glacier acts as a lubricant, and the whole mass slides over the rock beneath.",
+          "start": 71.56,
+          "end": 91.83
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Most glaciers move only a few centimetres a day, though some fast-flowing ones can travel tens of metres a day. The surface always moves faster than the base, and the centre faster than the edges, because of the friction with the valley walls.",
+          "start": 92.18,
+          "end": 105.28
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The top layer of ice is brittle, so when a glacier flows over a bump in the rock, it cracks, and these cracks are called crevasses. They can be dozens of metres deep, and they are dangerous, especially when they are hidden by fresh snow.",
+          "start": 105.63,
+          "end": 118.15
+        },
+        {
+          "speaker": "lecturer",
+          "text": "As glaciers move, they reshape the landscape. They pick up rocks, which scrape the valley floor and leave long scratches called striations. When the ice melts, it leaves behind great piles of rock and gravel, known as moraines.",
+          "start": 118.5,
+          "end": 130.89
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Today, most glaciers are shrinking. In the Alps, they have lost about half of their volume since nineteen hundred, and the meltwater is raising sea levels. Next week we'll look at what happens to the water.",
+          "start": 131.24,
+          "end": 142.19
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 143.09,
+          "end": 147.48
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 177.48,
+          "end": 180.19
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "How glaciers form and move",
+          "content": [
+            "## How a glacier forms",
+            "• Old snow is compressed into small {{31}} of ice",
+            "• After many years this becomes {{32}} ice",
+            "• The ice starts to flow when it is about {{33}} metres thick",
+            "## How it moves",
+            "• Ice crystals slide over one another: internal {{34}}",
+            "• Meltwater at the base acts as a {{35}}",
+            "• The surface moves faster than the {{36}}",
+            "## Effects",
+            "• Cracks in the brittle top layer are called {{37}}",
+            "• Rocks leave scratches on the valley floor called {{38}}",
+            "• Melting ice leaves piles of rock called {{39}}",
+            "• Alpine glaciers have lost about {{40}} of their volume since 1900"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "grains"
+              ],
+              "explanation": "‘The snow is compressed into small grains of ice.’",
+              "cue": "small grains of ice"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "solid"
+              ],
+              "explanation": "‘These grains are squeezed together, until they become solid ice.’",
+              "cue": "until they become solid ice"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "30",
+                "thirty"
+              ],
+              "explanation": "‘Once the ice is about thirty metres thick, it starts to flow.’",
+              "cue": "about thirty metres thick"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "deformation"
+              ],
+              "explanation": "‘The first is internal deformation, in which the ice crystals slide over one another.’",
+              "cue": "internal deformation"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "lubricant"
+              ],
+              "explanation": "‘Meltwater at the bottom of the glacier acts as a lubricant.’",
+              "cue": "acts as a lubricant"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "base"
+              ],
+              "explanation": "‘The surface always moves faster than the base.’",
+              "cue": "The surface always moves faster than the base"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "crevasses"
+              ],
+              "explanation": "‘These cracks are called crevasses.’",
+              "cue": "these cracks are called crevasses"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "striations"
+              ],
+              "explanation": "‘Rocks … leave long scratches called striations.’",
+              "cue": "long scratches called striations"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "moraines"
+              ],
+              "explanation": "‘Great piles of rock and gravel, known as moraines.’",
+              "cue": "known as moraines"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "half"
+              ],
+              "explanation": "‘In the Alps, they have lost about half of their volume since nineteen hundred.’",
+              "cue": "lost about half of their volume"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-27/part4.mp3",
+        "duration": 180.99
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

@@ -1,0 +1,1385 @@
+{
+  "id": "listening-36",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 36",
+  "shortTitle": "Practice Test 36",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 36,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "eddie": {
+      "name": "Eddie",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "rebecca": {
+      "name": "Rebecca",
+      "voice": "af_jessica",
+      "lang": "en-us"
+    },
+    "hargreaves": {
+      "name": "Mr Hargreaves",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "chloe": {
+      "name": "Chloe",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "daniel": {
+      "name": "Daniel",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Renting a musical instrument",
+      "context": "A mother phones a music shop to rent a violin for her son.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman phoning a music shop to rent a violin for her son. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.65
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.65,
+          "end": 38.71
+        },
+        {
+          "speaker": "eddie",
+          "text": "Melody Music Shop, Eddie speaking.",
+          "start": 39.61,
+          "end": 42.41
+        },
+        {
+          "speaker": "rebecca",
+          "text": "Hello. I'd like to rent a violin for my son, please. He's just started lessons at school.",
+          "start": 42.91,
+          "end": 47.58
+        },
+        {
+          "speaker": "eddie",
+          "text": "Of course. We do a lot of rentals for schools. I'll take a few details.",
+          "start": 48.08,
+          "end": 52.58
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller wants to rent a violin, so 'violin' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.48,
+          "end": 68.71
+        },
+        {
+          "speaker": "eddie",
+          "text": "Could I have your name, please?",
+          "start": 69.61,
+          "end": 71.77
+        },
+        {
+          "speaker": "rebecca",
+          "text": "Rebecca Fitzgerald. That's F-I-T-Z-G-E-R-A-L-D.",
+          "start": 72.27,
+          "end": 79.92
+        },
+        {
+          "speaker": "eddie",
+          "text": "Thank you, Mrs Fitzgerald. And how old is your son?",
+          "start": 80.42,
+          "end": 84.13
+        },
+        {
+          "speaker": "rebecca",
+          "text": "He's nine.",
+          "start": 84.63,
+          "end": 85.62
+        },
+        {
+          "speaker": "eddie",
+          "text": "Violins come in different sizes, and the right one depends on the length of the child's arm, not on his age. Do you know what size he needs?",
+          "start": 86.12,
+          "end": 93.99
+        },
+        {
+          "speaker": "rebecca",
+          "text": "He's small for his age, so his teacher measured him, and she said a half size.",
+          "start": 94.49,
+          "end": 98.43
+        },
+        {
+          "speaker": "eddie",
+          "text": "Half size, then. That's the one we'd normally give to a seven-year-old, so he'll grow out of it quickly. How long would you like to rent it for?",
+          "start": 98.93,
+          "end": 106.59
+        },
+        {
+          "speaker": "rebecca",
+          "text": "The school term is three months, but I'm not sure that he'll continue after that.",
+          "start": 107.09,
+          "end": 111.12
+        },
+        {
+          "speaker": "eddie",
+          "text": "Three months is fine, and we can extend it if he wants to carry on. The cost is twelve pounds a month.",
+          "start": 111.62,
+          "end": 117.73
+        },
+        {
+          "speaker": "rebecca",
+          "text": "That seems reasonable.",
+          "start": 118.23,
+          "end": 119.74
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 120.64,
+          "end": 126.36
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 146.36,
+          "end": 149.69
+        },
+        {
+          "speaker": "eddie",
+          "text": "We also take a deposit. It's normally sixty pounds, but for school children, it's forty. You get all of it back when you return the violin undamaged.",
+          "start": 150.59,
+          "end": 159.14
+        },
+        {
+          "speaker": "rebecca",
+          "text": "That's fair. What does the rental include?",
+          "start": 159.64,
+          "end": 161.82
+        },
+        {
+          "speaker": "eddie",
+          "text": "A bow and a case, so you don't need to buy anything else, except perhaps some rosin for the bow, which costs a couple of pounds.",
+          "start": 162.32,
+          "end": 169.16
+        },
+        {
+          "speaker": "rebecca",
+          "text": "Does he get any lessons with it?",
+          "start": 169.66,
+          "end": 171.5
+        },
+        {
+          "speaker": "eddie",
+          "text": "We include one free trial lesson with our teacher, if you'd like it. It's a good way to check that the violin suits him.",
+          "start": 172.0,
+          "end": 178.57
+        },
+        {
+          "speaker": "rebecca",
+          "text": "Excellent. When can I collect it?",
+          "start": 179.07,
+          "end": 181.1
+        },
+        {
+          "speaker": "eddie",
+          "text": "It will be ready on Saturday morning, after ten o'clock.",
+          "start": 181.6,
+          "end": 185.27
+        },
+        {
+          "speaker": "rebecca",
+          "text": "And what do I need to bring?",
+          "start": 185.77,
+          "end": 187.49
+        },
+        {
+          "speaker": "eddie",
+          "text": "Some identification, please, either a passport or a driving licence, because we need to check your name and address.",
+          "start": 187.99,
+          "end": 194.69
+        },
+        {
+          "speaker": "rebecca",
+          "text": "I'll bring my driving licence. Thanks for your help.",
+          "start": 195.19,
+          "end": 197.77
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 198.67,
+          "end": 203.2
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Melody Music Shop – instrument rental",
+          "content": [
+            "Example: Wants to rent a **violin**",
+            "## Details",
+            "• Name: Rebecca {{1}}",
+            "• Son's age: {{2}}",
+            "• Size of violin: {{3}} size",
+            "• Rental period: {{4}} months",
+            "• Cost: £{{5}} a month",
+            "## Conditions",
+            "• Deposit for school children: £{{6}}",
+            "• The rental includes a bow and a {{7}}",
+            "• One free {{8}} lesson is included",
+            "• Collect the violin on {{9}} morning",
+            "• Bring a passport or driving {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Fitzgerald"
+              ],
+              "explanation": "She spells her surname: ‘F-I-T-Z-G-E-R-A-L-D’.",
+              "cue": "F-I-T-Z-G-E-R-A-L-D"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "9",
+                "nine"
+              ],
+              "explanation": "‘He's nine.’",
+              "cue": "He's nine"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "half",
+                "1/2"
+              ],
+              "explanation": "‘His teacher measured him, and she said a half size.’",
+              "cue": "she said a half size"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘The school term is three months … Three months is fine.’",
+              "cue": "Three months is fine"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "12",
+                "twelve"
+              ],
+              "explanation": "‘The cost is twelve pounds a month.’",
+              "cue": "The cost is twelve pounds a month"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "40",
+                "forty"
+              ],
+              "explanation": "It is normally sixty pounds, ‘but for school children, it's forty’.",
+              "cue": "for school children, it's forty"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "case"
+              ],
+              "explanation": "‘A bow and a case, so you don't need to buy anything else.’",
+              "cue": "A bow and a case"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "trial"
+              ],
+              "explanation": "‘We include one free trial lesson with our teacher.’",
+              "cue": "one free trial lesson"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "Saturday"
+              ],
+              "explanation": "‘It will be ready on Saturday morning, after ten o'clock.’",
+              "cue": "ready on Saturday morning"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "licence",
+                "license"
+              ],
+              "explanation": "‘Either a passport or a driving licence.’",
+              "cue": "a passport or a driving licence"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-36/part1.mp3",
+        "duration": 234.0
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A bird sanctuary",
+      "context": "The warden of a bird sanctuary tells visitors where to see birds.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the warden of a bird sanctuary welcoming a group of visitors. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.39
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.39,
+          "end": 39.66
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "Good morning, everyone, and welcome to the Marsh Lake Bird Sanctuary. I'm Colin Hargreaves, the warden. Please look at the map. We're at the visitor centre, in the south, and a path goes right round the lake. It's about three kilometres, and you can walk it in an hour.",
+          "start": 40.56,
+          "end": 56.56
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "In the south-west, close to the visitor centre, are the toilets, so please use them before you set off. There are none further round the path.",
+          "start": 56.91,
+          "end": 65.25
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "If you go round clockwise, in the north-west, in the middle of the reeds, you'll find the reedbed hide. It's small, but it's the best place to see the shy birds that live in the reeds.",
+          "start": 65.6,
+          "end": 76.35
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "On the north shore of the lake is the lake hide, which is the largest, with seats for thirty people, and big windows facing the water. From the north-east corner, you can see the feeding station, where we put out seed every morning, and it's always busy.",
+          "start": 76.7,
+          "end": 92.13
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "On the east side of the lake, there's a picnic area, with tables and a good view. The building on the west side is the education hut, which we use for school groups, and the one in the south-east is the ringing hut, where we weigh and measure birds. That one is closed to the public.",
+          "start": 92.48,
+          "end": 109.03
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 109.93,
+          "end": 115.65
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 140.65,
+          "end": 144.53
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "The bird we're best known for is the bittern. It's very shy and well camouflaged, so you'll hear it more often than you see it. Avocets nest on the islands in spring, and ospreys only visit us briefly on migration, so don't expect to see those.",
+          "start": 145.43,
+          "end": 160.32
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "The best time to see birds is early in the morning, soon after we open, when they are most active. By midday, many have gone to rest, and in the evening it is usually quiet.",
+          "start": 160.67,
+          "end": 171.44
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "When you're in the hides, please stay inside and keep still. If you go out onto the bank, the birds will be frightened by your movement and fly away, which ruins the experience for everyone.",
+          "start": 171.79,
+          "end": 183.17
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "If you don't have binoculars, you can borrow a pair from the visitor centre. We ask for a ten-pound deposit, which we return when you bring them back.",
+          "start": 183.52,
+          "end": 192.54
+        },
+        {
+          "speaker": "hargreaves",
+          "text": "Finally, a new project. This autumn, we're planting ten thousand reeds, to extend the reedbed, which will give the bitterns more room to breed. If you'd like to help, ask at the visitor centre. Enjoy your walk.",
+          "start": 192.89,
+          "end": 205.88
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 206.78,
+          "end": 211.11
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Marsh Lake Bird Sanctuary",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "ellipse",
+                "cx": 320,
+                "cy": 190,
+                "rx": 190,
+                "ry": 115,
+                "style": "path-ring"
+              },
+              {
+                "type": "ellipse",
+                "cx": 320,
+                "cy": 190,
+                "rx": 140,
+                "ry": 70,
+                "label": "Marsh Lake"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 414,
+                "x2": 320,
+                "y2": 330,
+                "style": "path"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Entrance"
+              },
+              {
+                "type": "compass",
+                "x": 598,
+                "y": 396
+              },
+              {
+                "type": "rect",
+                "x": 270,
+                "y": 336,
+                "w": 100,
+                "h": 54,
+                "style": "building",
+                "label": "Visitor centre"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 60,
+                "w": 80,
+                "h": 50,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 280,
+                "y": 12,
+                "w": 80,
+                "h": 48,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 520,
+                "y": 60,
+                "w": 80,
+                "h": 50,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 545,
+                "y": 170,
+                "w": 70,
+                "h": 60,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 25,
+                "y": 170,
+                "w": 70,
+                "h": 60,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 150,
+                "y": 330,
+                "w": 80,
+                "h": 50,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 430,
+                "y": 330,
+                "w": 80,
+                "h": 50,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 80,
+                "y": 85,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 36,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 560,
+                "y": 85,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 580,
+                "y": 200,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 60,
+                "y": 200,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 190,
+                "y": 355,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 470,
+                "y": 355,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Lake hide",
+              "answer": "B",
+              "explanation": "‘On the north shore of the lake is the lake hide, which is the largest.’",
+              "cue": "On the north shore of the lake is the lake hide"
+            },
+            {
+              "number": 12,
+              "prompt": "Reedbed hide",
+              "answer": "A",
+              "explanation": "‘In the north-west, in the middle of the reeds, you'll find the reedbed hide.’",
+              "cue": "in the north-west, in the middle of the reeds, you'll find the reedbed hide"
+            },
+            {
+              "number": 13,
+              "prompt": "Feeding station",
+              "answer": "C",
+              "explanation": "‘From the north-east corner, you can see the feeding station.’",
+              "cue": "From the north-east corner, you can see the feeding station"
+            },
+            {
+              "number": 14,
+              "prompt": "Picnic area",
+              "answer": "D",
+              "explanation": "‘On the east side of the lake, there's a picnic area.’",
+              "cue": "On the east side of the lake, there's a picnic area"
+            },
+            {
+              "number": 15,
+              "prompt": "Toilets",
+              "answer": "F",
+              "explanation": "‘In the south-west, close to the visitor centre, are the toilets.’",
+              "cue": "In the south-west, close to the visitor centre, are the toilets"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Which bird is the sanctuary best known for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the bittern"
+                },
+                {
+                  "key": "B",
+                  "text": "the avocet"
+                },
+                {
+                  "key": "C",
+                  "text": "the osprey"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The bird we're best known for is the bittern.’ Avocets nest in spring and ospreys only pass through.",
+              "cue": "The bird we're best known for is the bittern"
+            },
+            {
+              "number": 17,
+              "prompt": "When is the best time to see birds?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "early in the morning"
+                },
+                {
+                  "key": "B",
+                  "text": "at midday"
+                },
+                {
+                  "key": "C",
+                  "text": "in the evening"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The best time to see birds is early in the morning.’",
+              "cue": "The best time to see birds is early in the morning"
+            },
+            {
+              "number": 18,
+              "prompt": "Why must visitors stay inside the hides?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Movement frightens the birds."
+                },
+                {
+                  "key": "B",
+                  "text": "It is a safety rule."
+                },
+                {
+                  "key": "C",
+                  "text": "The bank is closed."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The birds will be frightened by your movement and fly away.’",
+              "cue": "the birds will be frightened by your movement"
+            },
+            {
+              "number": 19,
+              "prompt": "What must visitors leave to borrow binoculars?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a deposit"
+                },
+                {
+                  "key": "B",
+                  "text": "some identification"
+                },
+                {
+                  "key": "C",
+                  "text": "a membership card"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We ask for a ten-pound deposit, which we return when you bring them back.’",
+              "cue": "We ask for a ten-pound deposit"
+            },
+            {
+              "number": 20,
+              "prompt": "What new project is planned for the autumn?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "building a new hide"
+                },
+                {
+                  "key": "B",
+                  "text": "planting reeds"
+                },
+                {
+                  "key": "C",
+                  "text": "counting birds with volunteers"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘This autumn, we're planting ten thousand reeds, to extend the reedbed.’",
+              "cue": "we're planting ten thousand reeds"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-36/part2.mp3",
+        "duration": 241.91
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Reflecting on teaching practice",
+      "context": "Two education students compare their experiences of teaching practice.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two education students, Chloe and Daniel, discussing their teaching practice in schools. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.55
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.55,
+          "end": 42.26
+        },
+        {
+          "speaker": "chloe",
+          "text": "Daniel, how was your teaching practice? Mine ended on Friday, and I'm still exhausted.",
+          "start": 43.16,
+          "end": 48.24
+        },
+        {
+          "speaker": "daniel",
+          "text": "Mine went well. What was the hardest part for you?",
+          "start": 48.74,
+          "end": 51.45
+        },
+        {
+          "speaker": "chloe",
+          "text": "Two things. At first I couldn't keep the class quiet. They were eight years old, and they tested me all the time. And the marking. I took home thirty exercise books every night.",
+          "start": 51.95,
+          "end": 62.23
+        },
+        {
+          "speaker": "daniel",
+          "text": "Was planning a problem?",
+          "start": 62.73,
+          "end": 64.35
+        },
+        {
+          "speaker": "chloe",
+          "text": "No, the lesson plans were fine, and the school had interactive whiteboards, which made things easy. I didn't meet any parents, so that didn't come up.",
+          "start": 64.85,
+          "end": 73.49
+        },
+        {
+          "speaker": "daniel",
+          "text": "I had the opposite problem. My class was older, eleven-year-olds, so they were calmer, but I found it harder to interest them.",
+          "start": 73.99,
+          "end": 80.75
+        },
+        {
+          "speaker": "chloe",
+          "text": "Did you teach your own subject?",
+          "start": 81.25,
+          "end": 82.9
+        },
+        {
+          "speaker": "daniel",
+          "text": "Mostly science, but they also asked me to run a drama club, which I loved.",
+          "start": 83.4,
+          "end": 87.51
+        },
+        {
+          "speaker": "chloe",
+          "text": "What was your most successful lesson?",
+          "start": 88.01,
+          "end": 89.79
+        },
+        {
+          "speaker": "daniel",
+          "text": "A lesson on floating and sinking. The children designed boats from foil, and tested how many coins they could carry.",
+          "start": 90.29,
+          "end": 96.75
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 97.65,
+          "end": 103.79
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 123.79,
+          "end": 127.63
+        },
+        {
+          "speaker": "daniel",
+          "text": "I'm sure you had a good lesson too.",
+          "start": 128.53,
+          "end": 130.6
+        },
+        {
+          "speaker": "chloe",
+          "text": "Not at first. My poetry lesson was a disaster. They were bored, so halfway through I changed the activity, and let them perform the poems instead. That worked much better.",
+          "start": 131.1,
+          "end": 141.85
+        },
+        {
+          "speaker": "daniel",
+          "text": "What did your mentor say?",
+          "start": 142.35,
+          "end": 144.1
+        },
+        {
+          "speaker": "chloe",
+          "text": "That I was nervous about silence. She told me that a pause isn't a failure, because it gives children time to think.",
+          "start": 144.6,
+          "end": 151.0
+        },
+        {
+          "speaker": "daniel",
+          "text": "My mentor said I talk too much, and I should let the children do more of the work.",
+          "start": 151.5,
+          "end": 155.98
+        },
+        {
+          "speaker": "chloe",
+          "text": "That's good advice. Are you going to apply for jobs in this area?",
+          "start": 156.48,
+          "end": 160.0
+        },
+        {
+          "speaker": "daniel",
+          "text": "I'd like to, but there are very few posts in science. I'm also looking at schools abroad.",
+          "start": 160.5,
+          "end": 165.41
+        },
+        {
+          "speaker": "chloe",
+          "text": "I've been offered an interview already, next Wednesday.",
+          "start": 165.91,
+          "end": 168.68
+        },
+        {
+          "speaker": "daniel",
+          "text": "Congratulations! I hope it goes well.",
+          "start": 169.18,
+          "end": 171.64
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 172.54,
+          "end": 177.0
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO difficulties did Chloe have during her teaching practice?",
+          "options": [
+            {
+              "key": "A",
+              "text": "controlling the class"
+            },
+            {
+              "key": "B",
+              "text": "planning lessons"
+            },
+            {
+              "key": "C",
+              "text": "using technology"
+            },
+            {
+              "key": "D",
+              "text": "talking to parents"
+            },
+            {
+              "key": "E",
+              "text": "marking"
+            }
+          ],
+          "answer": [
+            "A",
+            "E"
+          ],
+          "explanation": "Chloe found it hard to keep the class quiet (A) and spent her evenings marking (E). Planning was fine, the school had whiteboards, and she did not meet any parents.",
+          "questions": [
+            {
+              "number": 21,
+              "cue": "I couldn't keep the class quiet"
+            },
+            {
+              "number": 22,
+              "cue": "the marking"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 23,
+              "prompt": "How old were the pupils in Daniel's class?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "seven"
+                },
+                {
+                  "key": "B",
+                  "text": "nine"
+                },
+                {
+                  "key": "C",
+                  "text": "eleven"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘My class was older, eleven-year-olds.’",
+              "cue": "My class was older, eleven-year-olds"
+            },
+            {
+              "number": 24,
+              "prompt": "What extra activity did Daniel run?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a drama club"
+                },
+                {
+                  "key": "B",
+                  "text": "a football team"
+                },
+                {
+                  "key": "C",
+                  "text": "a choir"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘They also asked me to run a drama club, which I loved.’",
+              "cue": "they also asked me to run a drama club"
+            },
+            {
+              "number": 25,
+              "prompt": "What was Daniel's most successful lesson about?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "electricity"
+                },
+                {
+                  "key": "B",
+                  "text": "floating and sinking"
+                },
+                {
+                  "key": "C",
+                  "text": "plants"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A lesson on floating and sinking.’",
+              "cue": "A lesson on floating and sinking"
+            },
+            {
+              "number": 26,
+              "prompt": "What did Chloe do when her poetry lesson went badly?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She stopped the lesson."
+                },
+                {
+                  "key": "B",
+                  "text": "She changed the activity."
+                },
+                {
+                  "key": "C",
+                  "text": "She asked the teacher for help."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Halfway through I changed the activity, and let them perform the poems instead.’",
+              "cue": "halfway through I changed the activity"
+            },
+            {
+              "number": 27,
+              "prompt": "What advice did Chloe's mentor give her?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Speak more slowly."
+                },
+                {
+                  "key": "B",
+                  "text": "Accept pauses."
+                },
+                {
+                  "key": "C",
+                  "text": "Use more activities."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A pause isn't a failure, because it gives children time to think.’",
+              "cue": "a pause isn't a failure"
+            },
+            {
+              "number": 28,
+              "prompt": "What did Daniel's mentor say?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He talks too much."
+                },
+                {
+                  "key": "B",
+                  "text": "He is too strict."
+                },
+                {
+                  "key": "C",
+                  "text": "He plans badly."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘My mentor said I talk too much, and I should let the children do more of the work.’",
+              "cue": "I talk too much"
+            },
+            {
+              "number": 29,
+              "prompt": "What is Daniel considering?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "further study"
+                },
+                {
+                  "key": "B",
+                  "text": "working abroad"
+                },
+                {
+                  "key": "C",
+                  "text": "leaving teaching"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘I'm also looking at schools abroad.’",
+              "cue": "I'm also looking at schools abroad"
+            },
+            {
+              "number": 30,
+              "prompt": "When is Chloe's interview?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "on Monday"
+                },
+                {
+                  "key": "B",
+                  "text": "on Wednesday"
+                },
+                {
+                  "key": "C",
+                  "text": "on Friday"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘I've been offered an interview already, next Wednesday.’",
+              "cue": "next Wednesday"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-36/part3.mp3",
+        "duration": 207.8
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the waggle dance of honeybees",
+      "context": "A biology lecture on how honeybees communicate where food is.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the waggle dance of honeybees. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.2
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.2,
+          "end": 43.61
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today I'd like to talk about one of the most remarkable discoveries in animal behaviour: the way that honeybees tell each other where to find food.",
+          "start": 44.51,
+          "end": 53.3
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The discovery was made by Karl von Frisch, an Austrian scientist, who spent decades watching bees in glass-sided hives. He shared the Nobel Prize in nineteen seventy-three for his work.",
+          "start": 53.65,
+          "end": 64.47
+        },
+        {
+          "speaker": "lecturer",
+          "text": "When a forager bee finds a good source of nectar, she returns to the hive and performs a dance. The dance takes place on the vertical surface of the honeycomb, in the dark inside of the hive, and the other bees follow her, touching her with their antennae.",
+          "start": 64.82,
+          "end": 78.45
+        },
+        {
+          "speaker": "lecturer",
+          "text": "If the food is close to the hive, she performs what is called a round dance. But if it is far away, she performs the waggle dance. She walks forward in a straight line while waggling her body, then circles back to the start and repeats it.",
+          "start": 78.8,
+          "end": 91.54
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The waggle run is the key. The angle of this run, relative to the vertical, shows the direction of the food relative to the sun. If the bee waggles straight upward, the food is in the direction of the sun. If she waggles at an angle of sixty degrees to the right, the food is sixty degrees to the right of the sun.",
+          "start": 91.89,
+          "end": 108.74
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The length of the waggle shows the distance. The longer the waggle, the further away the food. And the better the food, the more vigorous the dance, which attracts more followers.",
+          "start": 109.09,
+          "end": 117.88
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Bees even correct for the movement of the sun across the sky, so that the information remains accurate during the day, even when the bee is inside the hive and cannot see the sun.",
+          "start": 118.23,
+          "end": 127.85
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The same system is used in another way. When a swarm of bees looks for a new home, scouts visit possible sites, and return to dance for the sites they like. The scouts' dances compete, and the site with the most dancers is chosen. It is a remarkable example of group decision-making. Next week we'll look at ants.",
+          "start": 128.2,
+          "end": 145.65
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 146.55,
+          "end": 150.95
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 180.95,
+          "end": 183.66
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The waggle dance of honeybees",
+          "content": [
+            "## Discovery",
+            "• Karl von Frisch, an {{31}} scientist, studied bees in glass hives",
+            "• He shared the {{32}} Prize in 1973",
+            "## The dance",
+            "• The dance takes place on the honeycomb in the {{33}} hive",
+            "• The angle of the waggle run shows the direction of the food relative to the {{34}}",
+            "• The longer the waggle, the greater the {{35}}",
+            "• Food that is close is signalled by a {{36}} dance",
+            "• The better the food, the more {{37}} the dance",
+            "• Other bees follow, touching the dancer with their {{38}}",
+            "## Other behaviour",
+            "• When bees look for a new home, the site with the most {{39}} is chosen",
+            "• Bees correct the dance for the movement of the sun during the {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "Austrian"
+              ],
+              "explanation": "‘Karl von Frisch, an Austrian scientist.’",
+              "cue": "an Austrian scientist"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "Nobel"
+              ],
+              "explanation": "‘He shared the Nobel Prize in nineteen seventy-three.’",
+              "cue": "shared the Nobel Prize"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "dark"
+              ],
+              "explanation": "‘In the dark inside of the hive.’",
+              "cue": "in the dark inside of the hive"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "sun"
+              ],
+              "explanation": "‘The angle of this run … shows the direction of the food relative to the sun.’",
+              "cue": "relative to the sun"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "distance"
+              ],
+              "explanation": "‘The length of the waggle shows the distance.’",
+              "cue": "The longer the waggle, the further away the food"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "round"
+              ],
+              "explanation": "‘If the food is close to the hive, she performs what is called a round dance.’",
+              "cue": "she performs what is called a round dance"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "vigorous"
+              ],
+              "explanation": "‘The better the food, the more vigorous the dance.’",
+              "cue": "the more vigorous the dance"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "antennae"
+              ],
+              "explanation": "‘The other bees follow her, touching her with their antennae.’",
+              "cue": "touching her with their antennae"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "dancers"
+              ],
+              "explanation": "‘The site with the most dancers is chosen.’",
+              "cue": "the site with the most dancers is chosen"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "day"
+              ],
+              "explanation": "‘The information remains accurate during the day.’",
+              "cue": "during the day"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-36/part4.mp3",
+        "duration": 184.46
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

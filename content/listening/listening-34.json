@@ -1,0 +1,1351 @@
+{
+  "id": "listening-34",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 34",
+  "shortTitle": "Practice Test 34",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 34,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "gareth": {
+      "name": "Gareth",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "priyanka": {
+      "name": "Priyanka",
+      "voice": "af_bella",
+      "lang": "en-us"
+    },
+    "rowe": {
+      "name": "Ms Rowe",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "priti": {
+      "name": "Priti",
+      "voice": "af_nicole",
+      "lang": "en-us"
+    },
+    "sam": {
+      "name": "Sam",
+      "voice": "am_echo",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {
+    "stelae": "stˈiːliː"
+  },
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Ordering made-to-measure curtains",
+      "context": "A customer phones a shop to order curtains for a bay window.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a customer phoning a shop to order made-to-measure curtains. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.56
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.56,
+          "end": 38.63
+        },
+        {
+          "speaker": "gareth",
+          "text": "Hartwell Home Furnishings, Gareth speaking.",
+          "start": 39.53,
+          "end": 42.66
+        },
+        {
+          "speaker": "priyanka",
+          "text": "Hello. I'd like to order some curtains, please. They're for my living room, and I want them made to measure.",
+          "start": 43.16,
+          "end": 49.09
+        },
+        {
+          "speaker": "gareth",
+          "text": "Certainly. I'll take your details first, and then we can talk about fabrics.",
+          "start": 49.59,
+          "end": 54.07
+        },
+        {
+          "speaker": "narrator",
+          "text": "The curtains are for the living room, so 'living room' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 54.97,
+          "end": 70.12
+        },
+        {
+          "speaker": "gareth",
+          "text": "Could I have your name, please?",
+          "start": 71.02,
+          "end": 73.17
+        },
+        {
+          "speaker": "priyanka",
+          "text": "It's Priyanka Fernandes. That's F-E-R-N-A-N-D-E-S.",
+          "start": 73.67,
+          "end": 81.16
+        },
+        {
+          "speaker": "gareth",
+          "text": "Thank you, Ms Fernandes. How many windows are the curtains for?",
+          "start": 81.66,
+          "end": 85.97
+        },
+        {
+          "speaker": "priyanka",
+          "text": "Three. It's a bay window, so there are three separate sections, and I'd like a matching pair for the middle one.",
+          "start": 86.47,
+          "end": 92.74
+        },
+        {
+          "speaker": "gareth",
+          "text": "And have you thought about the fabric?",
+          "start": 93.24,
+          "end": 95.76
+        },
+        {
+          "speaker": "priyanka",
+          "text": "I liked the velvet, but I think it's too heavy for a bay window. I'll choose linen.",
+          "start": 96.26,
+          "end": 100.95
+        },
+        {
+          "speaker": "gareth",
+          "text": "A good choice. And the colour?",
+          "start": 101.45,
+          "end": 103.71
+        },
+        {
+          "speaker": "priyanka",
+          "text": "I thought of blue to begin with, but the walls are already blue, so I'll go for grey.",
+          "start": 104.21,
+          "end": 109.1
+        },
+        {
+          "speaker": "gareth",
+          "text": "That will look elegant. Would you like a lining?",
+          "start": 109.6,
+          "end": 112.48
+        },
+        {
+          "speaker": "priyanka",
+          "text": "Yes, a blackout lining, please, because the street light shines straight into the room.",
+          "start": 112.98,
+          "end": 117.99
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 118.89,
+          "end": 124.61
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 144.61,
+          "end": 147.94
+        },
+        {
+          "speaker": "gareth",
+          "text": "Now, how will the curtains hang? We can fit them to a metal track, or to a pole.",
+          "start": 148.84,
+          "end": 153.7
+        },
+        {
+          "speaker": "priyanka",
+          "text": "I'd prefer a wooden pole, I think. It looks more traditional, and it suits the room.",
+          "start": 154.2,
+          "end": 158.96
+        },
+        {
+          "speaker": "gareth",
+          "text": "Fine. Made-to-measure curtains normally take four weeks, but at the moment we're very busy, so it will be six.",
+          "start": 159.46,
+          "end": 165.88
+        },
+        {
+          "speaker": "priyanka",
+          "text": "That's all right. I'm not in a hurry. How much will it all be?",
+          "start": 166.38,
+          "end": 169.66
+        },
+        {
+          "speaker": "gareth",
+          "text": "We'll give you the full price when the fitter has measured your windows. For now, we ask for a deposit of fifty pounds, to start the order.",
+          "start": 170.16,
+          "end": 177.67
+        },
+        {
+          "speaker": "priyanka",
+          "text": "No problem. And is fitting included?",
+          "start": 178.17,
+          "end": 180.37
+        },
+        {
+          "speaker": "gareth",
+          "text": "No, the fitting is charged separately, and it's forty pounds for a bay window. Our fitter will measure first, and fit the curtains when they are ready.",
+          "start": 180.87,
+          "end": 188.76
+        },
+        {
+          "speaker": "priyanka",
+          "text": "And when do I pay the balance?",
+          "start": 189.26,
+          "end": 190.72
+        },
+        {
+          "speaker": "gareth",
+          "text": "On delivery, when the fitter brings the curtains. We accept cards, but not cheques.",
+          "start": 191.22,
+          "end": 196.23
+        },
+        {
+          "speaker": "priyanka",
+          "text": "Lovely. Thank you for your help.",
+          "start": 196.73,
+          "end": 198.41
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 199.31,
+          "end": 203.84
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Hartwell Home Furnishings – curtain order",
+          "content": [
+            "Example: Curtains for the **living room**",
+            "## Details",
+            "• Name: Priyanka {{1}}",
+            "• Number of windows: {{2}}",
+            "• Fabric: {{3}}",
+            "• Colour: {{4}}",
+            "• Lining: {{5}} (to keep out street light)",
+            "## Order",
+            "• Curtains will hang from a wooden {{6}}",
+            "• Delivery time: {{7}} weeks",
+            "• Deposit: £{{8}}",
+            "• Fitting charge: £{{9}}",
+            "• The balance is paid on {{10}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Fernandes"
+              ],
+              "explanation": "She spells her surname: ‘F-E-R-N-A-N-D-E-S’.",
+              "cue": "F-E-R-N-A-N-D-E-S"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘Three. It's a bay window, so there are three separate sections.’",
+              "cue": "Three. It's a bay window"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "linen"
+              ],
+              "explanation": "She likes the velvet, but it is too heavy: ‘I'll choose linen.’",
+              "cue": "I'll choose linen"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "grey",
+                "gray"
+              ],
+              "explanation": "Blue was her first idea, but the walls are blue: ‘I'll go for grey.’",
+              "cue": "I'll go for grey"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "blackout"
+              ],
+              "explanation": "‘Yes, a blackout lining, please.’",
+              "cue": "a blackout lining"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "pole"
+              ],
+              "explanation": "‘I'd prefer a wooden pole, I think.’",
+              "cue": "I'd prefer a wooden pole"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "It normally takes four weeks, ‘but at the moment we're very busy, so it will be six’.",
+              "cue": "it will be six"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "50",
+                "fifty"
+              ],
+              "explanation": "‘For now, we ask for a deposit of fifty pounds.’",
+              "cue": "a deposit of fifty pounds"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "40",
+                "forty"
+              ],
+              "explanation": "‘The fitting is charged separately, and it's forty pounds for a bay window.’",
+              "cue": "it's forty pounds for a bay window"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "delivery"
+              ],
+              "explanation": "‘On delivery, when the fitter brings the curtains.’",
+              "cue": "On delivery"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-34/part1.mp3",
+        "duration": 234.64
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A tour of a castle's gardens",
+      "context": "The head gardener introduces the gardens of a castle.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the head gardener of a castle giving visitors a tour of the gardens. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.73
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.73,
+          "end": 40.0
+        },
+        {
+          "speaker": "rowe",
+          "text": "Good morning, everyone, and welcome to the gardens of Hartwell Castle. I'm Joan Rowe, the head gardener. Please look at the map. We're at the entrance, at the bottom, and the castle is at the top, at the end of the main path.",
+          "start": 40.9,
+          "end": 52.57
+        },
+        {
+          "speaker": "rowe",
+          "text": "Just inside the entrance, on the left of the path, is the tearoom. I'd keep that for the end of the tour, as the scones are excellent.",
+          "start": 52.92,
+          "end": 59.66
+        },
+        {
+          "speaker": "rowe",
+          "text": "Walking up the main path, on the left at the bottom is the greenhouse, which is where we grow most of our plants. Above it, in the middle on the left, is the maze, and at the top, beside the castle, the herb garden.",
+          "start": 60.01,
+          "end": 70.93
+        },
+        {
+          "speaker": "rowe",
+          "text": "On the right, opposite the greenhouse, is the pond, with its fountain. Above the pond, in the middle on the right, you'll find the orchard. And the rose garden is beside the castle, at the top on the right, though the roses are only at their best in June.",
+          "start": 71.28,
+          "end": 84.4
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 85.3,
+          "end": 91.02
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 116.02,
+          "end": 119.9
+        },
+        {
+          "speaker": "rowe",
+          "text": "A little history. People often assume that the gardens were designed by a famous landscape architect, but they weren't. They were created in eighteen ninety by the owner of the castle, Lady Margaret, who was a keen gardener, and she planned every bed herself.",
+          "start": 120.8,
+          "end": 134.84
+        },
+        {
+          "speaker": "rowe",
+          "text": "The maze was her favourite. It has more than a thousand trees, planted in tight rows, and it takes about twenty minutes to find your way to the middle. Some visitors need much longer, but the fastest time on record is four minutes.",
+          "start": 135.19,
+          "end": 147.78
+        },
+        {
+          "speaker": "rowe",
+          "text": "In the orchard we grow forty varieties of apple. We don't make cider, as some visitors expect. The fruit is used in the tearoom and sold in the shop, and in autumn you can buy it straight from the trees.",
+          "start": 148.13,
+          "end": 159.26
+        },
+        {
+          "speaker": "rowe",
+          "text": "The greenhouse isn't a place for exotic fruit. Most of our plants are grown there from seed, and then moved out to fill the flower beds each spring, so it's a busy place, and you're welcome to look in.",
+          "start": 159.61,
+          "end": 170.07
+        },
+        {
+          "speaker": "rowe",
+          "text": "And on Sundays at two o'clock we offer a free guided walk, which lasts about an hour, and is very popular. Please do join us, and don't pick the flowers. Now, shall we begin?",
+          "start": 170.42,
+          "end": 179.63
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 180.53,
+          "end": 184.86
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Hartwell Castle gardens",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 414,
+                "x2": 320,
+                "y2": 118,
+                "style": "path"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Entrance"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 412
+              },
+              {
+                "type": "rect",
+                "x": 240,
+                "y": 28,
+                "w": 160,
+                "h": 84,
+                "style": "building",
+                "label": "Castle"
+              },
+              {
+                "type": "rect",
+                "x": 60,
+                "y": 40,
+                "w": 130,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 450,
+                "y": 40,
+                "w": 130,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 165,
+                "w": 150,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 450,
+                "y": 165,
+                "w": 150,
+                "h": 100,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 60,
+                "y": 300,
+                "w": 130,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 450,
+                "y": 300,
+                "w": 130,
+                "h": 80,
+                "style": "water"
+              },
+              {
+                "type": "rect",
+                "x": 220,
+                "y": 335,
+                "w": 80,
+                "h": 56,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 125,
+                "y": 85,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 515,
+                "y": 85,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 115,
+                "y": 215,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 525,
+                "y": 215,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 125,
+                "y": 340,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 515,
+                "y": 340,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 260,
+                "y": 363,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Maze",
+              "answer": "C",
+              "explanation": "‘Above it, in the middle on the left, is the maze.’",
+              "cue": "in the middle on the left, is the maze"
+            },
+            {
+              "number": 12,
+              "prompt": "Orchard",
+              "answer": "D",
+              "explanation": "‘Above the pond, in the middle on the right, you'll find the orchard.’",
+              "cue": "in the middle on the right, you'll find the orchard"
+            },
+            {
+              "number": 13,
+              "prompt": "Greenhouse",
+              "answer": "E",
+              "explanation": "‘On the left at the bottom is the greenhouse.’",
+              "cue": "on the left at the bottom is the greenhouse"
+            },
+            {
+              "number": 14,
+              "prompt": "Herb garden",
+              "answer": "A",
+              "explanation": "‘At the top, beside the castle, the herb garden.’",
+              "cue": "beside the castle, the herb garden"
+            },
+            {
+              "number": 15,
+              "prompt": "Pond",
+              "answer": "F",
+              "explanation": "‘On the right, opposite the greenhouse, is the pond, with its fountain.’",
+              "cue": "opposite the greenhouse, is the pond"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Who designed the gardens?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a famous landscape architect"
+                },
+                {
+                  "key": "B",
+                  "text": "the castle's owner"
+                },
+                {
+                  "key": "C",
+                  "text": "a group of monks"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘They weren't [designed by a famous architect]. They were created in eighteen ninety by the owner of the castle.’",
+              "cue": "created in eighteen ninety by the owner of the castle"
+            },
+            {
+              "number": 17,
+              "prompt": "How long does it usually take to reach the middle of the maze?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ten minutes"
+                },
+                {
+                  "key": "B",
+                  "text": "twenty minutes"
+                },
+                {
+                  "key": "C",
+                  "text": "forty minutes"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘It takes about twenty minutes to find your way to the middle.’ Some visitors need much longer.",
+              "cue": "it takes about twenty minutes to find your way to the middle"
+            },
+            {
+              "number": 18,
+              "prompt": "What happens to the apples from the orchard?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They are made into cider."
+                },
+                {
+                  "key": "B",
+                  "text": "They are used in the tearoom and sold in the shop."
+                },
+                {
+                  "key": "C",
+                  "text": "They are sent to a market."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘We don't make cider … The fruit is used in the tearoom and sold in the shop.’",
+              "cue": "The fruit is used in the tearoom and sold in the shop"
+            },
+            {
+              "number": 19,
+              "prompt": "What is the greenhouse mainly used for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "growing exotic fruit"
+                },
+                {
+                  "key": "B",
+                  "text": "growing plants for the flower beds"
+                },
+                {
+                  "key": "C",
+                  "text": "selling plants to visitors"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Most of our plants are grown there from seed, and then moved out to fill the flower beds each spring.’",
+              "cue": "Most of our plants are grown there from seed"
+            },
+            {
+              "number": 20,
+              "prompt": "What can visitors do on Sundays?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "join a free guided walk"
+                },
+                {
+                  "key": "B",
+                  "text": "plant a tree"
+                },
+                {
+                  "key": "C",
+                  "text": "pick fruit"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘On Sundays at two o'clock we offer a free guided walk.’",
+              "cue": "on Sundays at two o'clock we offer a free guided walk"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-34/part2.mp3",
+        "duration": 215.66
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A case study on fair-trade coffee",
+      "context": "Two economics students plan a case study of a coffee cooperative.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two economics students, Priti and Sam, discussing a case study on fair-trade coffee. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.67
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.67,
+          "end": 42.39
+        },
+        {
+          "speaker": "priti",
+          "text": "Sam, for our economics assignment on fair-trade coffee, I've chosen a cooperative in Peru as the case study.",
+          "start": 43.29,
+          "end": 53.36
+        },
+        {
+          "speaker": "sam",
+          "text": "Why Peru and not Ethiopia? Ethiopia is the original home of coffee.",
+          "start": 53.86,
+          "end": 58.62
+        },
+        {
+          "speaker": "priti",
+          "text": "True, but there's much more published data about Peruvian cooperatives, and the one I chose has an annual report in English.",
+          "start": 59.12,
+          "end": 70.53
+        },
+        {
+          "speaker": "sam",
+          "text": "That makes sense. What's the main argument? That fair trade is good for farmers?",
+          "start": 71.03,
+          "end": 75.59
+        },
+        {
+          "speaker": "priti",
+          "text": "More carefully than that. I want to argue that it helps, but the benefits are limited, because only some of the extra price reaches the farmer.",
+          "start": 76.09,
+          "end": 89.02
+        },
+        {
+          "speaker": "sam",
+          "text": "How did the cooperative start?",
+          "start": 89.52,
+          "end": 91.74
+        },
+        {
+          "speaker": "priti",
+          "text": "In nineteen ninety-four, with about forty farmers. Now it has more than five thousand members.",
+          "start": 92.24,
+          "end": 101.46
+        },
+        {
+          "speaker": "sam",
+          "text": "What's the biggest benefit the farmers mention?",
+          "start": 101.96,
+          "end": 104.86
+        },
+        {
+          "speaker": "priti",
+          "text": "I thought it would be the higher price, but in the interviews they mostly mentioned training. For example, they learned how to grow coffee without chemicals.",
+          "start": 105.36,
+          "end": 118.52
+        },
+        {
+          "speaker": "sam",
+          "text": "And what are the criticisms?",
+          "start": 119.02,
+          "end": 120.96
+        },
+        {
+          "speaker": "priti",
+          "text": "The main one is that certification fees are too high for the smallest farms, so the poorest farmers can't afford to join.",
+          "start": 121.46,
+          "end": 132.81
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 133.71,
+          "end": 139.86
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 159.86,
+          "end": 163.7
+        },
+        {
+          "speaker": "sam",
+          "text": "Let's describe the supply chain. Start with the growers.",
+          "start": 164.6,
+          "end": 168.2
+        },
+        {
+          "speaker": "priti",
+          "text": "They receive a guaranteed minimum price, whatever happens to the world market. That's the central idea of fair trade.",
+          "start": 168.7,
+          "end": 179.6
+        },
+        {
+          "speaker": "sam",
+          "text": "The cooperative?",
+          "start": 180.1,
+          "end": 181.68
+        },
+        {
+          "speaker": "priti",
+          "text": "It pays for training for its members, as well as a school fund, using the extra money, called the premium.",
+          "start": 182.18,
+          "end": 191.27
+        },
+        {
+          "speaker": "sam",
+          "text": "The exporters?",
+          "start": 191.77,
+          "end": 193.11
+        },
+        {
+          "speaker": "priti",
+          "text": "They face rising costs, mainly because of shipping and fuel, and they say their margins are shrinking.",
+          "start": 193.61,
+          "end": 203.13
+        },
+        {
+          "speaker": "sam",
+          "text": "The roasters?",
+          "start": 203.63,
+          "end": 204.87
+        },
+        {
+          "speaker": "priti",
+          "text": "Small roasters are expanding quickly, because customers want fair-trade coffee that's fresh.",
+          "start": 205.37,
+          "end": 213.37
+        },
+        {
+          "speaker": "sam",
+          "text": "And finally, the supermarkets.",
+          "start": 213.87,
+          "end": 216.04
+        },
+        {
+          "speaker": "priti",
+          "text": "They take the largest share of the profit. That's the surprising figure in the data, about half of the final price.",
+          "start": 216.54,
+          "end": 226.44
+        },
+        {
+          "speaker": "sam",
+          "text": "That should make a strong conclusion. I'll draw a diagram of the chain.",
+          "start": 226.94,
+          "end": 231.12
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 232.02,
+          "end": 236.48
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why did Priti choose a cooperative in Peru?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There is more published data."
+                },
+                {
+                  "key": "B",
+                  "text": "She has visited it."
+                },
+                {
+                  "key": "C",
+                  "text": "Her tutor suggested it."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘There's much more published data about Peruvian cooperatives.’",
+              "cue": "there's much more published data about Peruvian cooperatives"
+            },
+            {
+              "number": 22,
+              "prompt": "What is Priti's main argument?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Fair trade harms farmers."
+                },
+                {
+                  "key": "B",
+                  "text": "Fair trade helps, but the benefits are limited."
+                },
+                {
+                  "key": "C",
+                  "text": "Fair trade is not needed."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘I want to argue that it helps, but the benefits are limited.’",
+              "cue": "it helps, but the benefits are limited"
+            },
+            {
+              "number": 23,
+              "prompt": "How many members does the cooperative have now?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about five hundred"
+                },
+                {
+                  "key": "B",
+                  "text": "more than five thousand"
+                },
+                {
+                  "key": "C",
+                  "text": "about fifty thousand"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Now it has more than five thousand members.’ It began with forty.",
+              "cue": "more than five thousand members"
+            },
+            {
+              "number": 24,
+              "prompt": "What do the farmers say is the biggest benefit?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the higher price"
+                },
+                {
+                  "key": "B",
+                  "text": "the training"
+                },
+                {
+                  "key": "C",
+                  "text": "the loans"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘I thought it would be the higher price, but in the interviews they mostly mentioned training.’",
+              "cue": "in the interviews they mostly mentioned training"
+            },
+            {
+              "number": 25,
+              "prompt": "What criticism of fair trade does Priti mention?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The fees are too high for the poorest farmers."
+                },
+                {
+                  "key": "B",
+                  "text": "The products are too expensive."
+                },
+                {
+                  "key": "C",
+                  "text": "The quality is lower."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Certification fees are too high for the smallest farms, so the poorest farmers can't afford to join.’",
+              "cue": "certification fees are too high for the smallest farms"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What does Priti say about each group in the supply chain? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It receives a guaranteed minimum price."
+            },
+            {
+              "key": "B",
+              "text": "It pays for training."
+            },
+            {
+              "key": "C",
+              "text": "It takes the largest share of the profit."
+            },
+            {
+              "key": "D",
+              "text": "It is expanding quickly."
+            },
+            {
+              "key": "E",
+              "text": "It faces rising costs."
+            },
+            {
+              "key": "F",
+              "text": "It is mostly made up of women."
+            },
+            {
+              "key": "G",
+              "text": "It is losing customers."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "the growers",
+              "answer": "A",
+              "explanation": "‘They receive a guaranteed minimum price, whatever happens to the world market.’",
+              "cue": "They receive a guaranteed minimum price"
+            },
+            {
+              "number": 27,
+              "prompt": "the cooperative",
+              "answer": "B",
+              "explanation": "‘It pays for training for its members, as well as a school fund.’",
+              "cue": "It pays for training for its members"
+            },
+            {
+              "number": 28,
+              "prompt": "the exporters",
+              "answer": "E",
+              "explanation": "‘They face rising costs, mainly because of shipping and fuel.’",
+              "cue": "They face rising costs"
+            },
+            {
+              "number": 29,
+              "prompt": "the roasters",
+              "answer": "D",
+              "explanation": "‘Small roasters are expanding quickly.’",
+              "cue": "Small roasters are expanding quickly"
+            },
+            {
+              "number": 30,
+              "prompt": "the supermarkets",
+              "answer": "C",
+              "explanation": "‘They take the largest share of the profit.’",
+              "cue": "They take the largest share of the profit"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-34/part3.mp3",
+        "duration": 267.28
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the Maya",
+      "context": "A history lecture on the Maya civilisation and its decline.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the Maya civilisation. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.01
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.01,
+          "end": 43.42
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today we're looking at the Maya, one of the most advanced civilisations of the ancient Americas. They lived in what is now southern Mexico, Guatemala and Belize, and their classic period lasted from about the year two hundred and fifty to nine hundred.",
+          "start": 44.32,
+          "end": 59.55
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The Maya were not a single empire. They were a collection of city-states, each ruled by a king, and often at war with one another. The largest cities, such as Tikal, may have had more than fifty thousand inhabitants.",
+          "start": 59.9,
+          "end": 71.74
+        },
+        {
+          "speaker": "lecturer",
+          "text": "They built impressive stone pyramids, and they did it without metal tools, and without wheeled vehicles or animals to carry loads. Many of their cities had no rivers nearby, so farmers collected rainwater in huge reservoirs, and grew maize, beans and squash.",
+          "start": 72.09,
+          "end": 87.24
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The Maya also developed the most fully developed written language in the ancient Americas. Their hieroglyphs were carved on stone monuments called stelae, and recorded the deeds of kings and the dates of battles. It took scholars much of the twentieth century to decode them.",
+          "start": 87.59,
+          "end": 103.01
+        },
+        {
+          "speaker": "lecturer",
+          "text": "They were brilliant mathematicians. Their number system was based on twenty, not ten, and they had a symbol for zero, which was a great achievement, since many other civilisations never developed one. They also tracked the movements of the sun, the moon and Venus, and predicted eclipses with great accuracy.",
+          "start": 103.36,
+          "end": 120.43
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Cacao beans were so valuable that they were used as money, as well as being made into a bitter drink for the elite.",
+          "start": 120.78,
+          "end": 127.24
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Around the year nine hundred, many of the cities in the south were abandoned. Historians used to blame a single cause, but now the evidence points to several: warfare, overpopulation, and above all, a series of long droughts, which ruined the harvests. Yet the Maya did not disappear. About six million Maya people live in the region today, and many still speak Mayan languages.",
+          "start": 127.59,
+          "end": 147.46
+        },
+        {
+          "speaker": "lecturer",
+          "text": "New technology is changing what we know. In two thousand and eighteen, researchers used laser scanning from aircraft to see through the trees, and found tens of thousands of previously unknown buildings hidden under the forest in Guatemala. There is clearly much more to learn. Next week we'll look at the Aztecs.",
+          "start": 147.81,
+          "end": 165.41
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 166.31,
+          "end": 170.7
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 200.7,
+          "end": 203.41
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The Maya",
+          "content": [
+            "## Background",
+            "• The Maya lived in city-states, each ruled by a {{31}}",
+            "• Tikal may have had more than 50,000 {{32}}",
+            "## Achievements",
+            "• Pyramids were built without metal {{33}}",
+            "• Farmers collected rainwater in {{34}}",
+            "• Hieroglyphs were carved on stone monuments called {{35}}",
+            "• Their number system was based on {{36}}",
+            "• They had a symbol for {{37}}",
+            "• Cacao beans were used as {{38}}",
+            "## Decline and discovery",
+            "• Many southern cities were abandoned after long periods of {{39}}",
+            "• Laser scanning found thousands of buildings hidden under the {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "king"
+              ],
+              "explanation": "‘They were a collection of city-states, each ruled by a king.’",
+              "cue": "each ruled by a king"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "inhabitants"
+              ],
+              "explanation": "‘Tikal, may have had more than fifty thousand inhabitants.’",
+              "cue": "more than fifty thousand inhabitants"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "tools"
+              ],
+              "explanation": "‘They did it without metal tools.’",
+              "cue": "without metal tools"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "reservoirs"
+              ],
+              "explanation": "‘Farmers collected rainwater in huge reservoirs.’",
+              "cue": "collected rainwater in huge reservoirs"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "stelae"
+              ],
+              "explanation": "‘Their hieroglyphs were carved on stone monuments called stelae.’",
+              "cue": "stone monuments called stelae"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "20",
+                "twenty"
+              ],
+              "explanation": "‘Their number system was based on twenty, not ten.’",
+              "cue": "based on twenty, not ten"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "zero"
+              ],
+              "explanation": "‘They had a symbol for zero.’",
+              "cue": "a symbol for zero"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "money"
+              ],
+              "explanation": "‘Cacao beans were so valuable that they were used as money.’",
+              "cue": "used as money"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "drought",
+                "droughts"
+              ],
+              "explanation": "‘Above all, a series of long droughts, which ruined the harvests.’",
+              "cue": "a series of long droughts"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "forest"
+              ],
+              "explanation": "‘Tens of thousands of previously unknown buildings hidden under the forest in Guatemala.’",
+              "cue": "hidden under the forest in Guatemala"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-34/part4.mp3",
+        "duration": 204.21
+      }
+    }
+  ],
+  "durationMinutes": 15
+}

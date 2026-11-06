@@ -1,0 +1,1371 @@
+{
+  "id": "listening-32",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 32",
+  "shortTitle": "Practice Test 32",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 32,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "paula": {
+      "name": "Paula",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "joel": {
+      "name": "Joel",
+      "voice": "am_eric",
+      "lang": "en-us"
+    },
+    "dawson": {
+      "name": "Mr Dawson",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "mira": {
+      "name": "Mira",
+      "voice": "af_river",
+      "lang": "en-us"
+    },
+    "jonas": {
+      "name": "Jonas",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking driving lessons",
+      "context": "A student phones a driving school to ask about lessons and prices.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a student phoning a driving school to ask about lessons. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.47
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.47,
+          "end": 38.54
+        },
+        {
+          "speaker": "paula",
+          "text": "Good morning, Greenway Driving School, Paula speaking.",
+          "start": 39.44,
+          "end": 42.24
+        },
+        {
+          "speaker": "joel",
+          "text": "Hello. I'd like to start driving lessons, please. I want to learn in a manual car, not an automatic.",
+          "start": 42.74,
+          "end": 47.92
+        },
+        {
+          "speaker": "paula",
+          "text": "No problem. Most of our learners do. Let me take a few details first.",
+          "start": 48.42,
+          "end": 52.45
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller wants to learn in a manual car, so 'manual' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.35,
+          "end": 68.84
+        },
+        {
+          "speaker": "paula",
+          "text": "Could I have your name, please?",
+          "start": 69.74,
+          "end": 71.32
+        },
+        {
+          "speaker": "joel",
+          "text": "It's Joel Greenaway. That's G-R-E-E-N-A-W-A-Y. It's funny, because it's nearly the name of your school.",
+          "start": 71.82,
+          "end": 81.95
+        },
+        {
+          "speaker": "paula",
+          "text": "So it is. And how old are you, Joel?",
+          "start": 82.45,
+          "end": 84.54
+        },
+        {
+          "speaker": "joel",
+          "text": "I'm seventeen. I'll be eighteen in June, but I can already have a provisional licence.",
+          "start": 85.04,
+          "end": 89.22
+        },
+        {
+          "speaker": "paula",
+          "text": "That's right. Have you had any lessons before?",
+          "start": 89.72,
+          "end": 92.05
+        },
+        {
+          "speaker": "joel",
+          "text": "Yes, ten hours with another school, but then they closed down, so I need to carry on with someone new.",
+          "start": 92.55,
+          "end": 97.24
+        },
+        {
+          "speaker": "paula",
+          "text": "I'm sorry to hear that. When would you like your lessons?",
+          "start": 97.74,
+          "end": 100.62
+        },
+        {
+          "speaker": "joel",
+          "text": "After school, so Wednesdays, if possible. I have football practice on Tuesdays and Thursdays.",
+          "start": 101.12,
+          "end": 106.05
+        },
+        {
+          "speaker": "paula",
+          "text": "Wednesday is fine. And which test centre would you like to use?",
+          "start": 106.55,
+          "end": 110.0
+        },
+        {
+          "speaker": "joel",
+          "text": "Ashford, because that's the nearest to my home.",
+          "start": 110.5,
+          "end": 112.98
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 113.88,
+          "end": 119.6
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 139.6,
+          "end": 142.92
+        },
+        {
+          "speaker": "paula",
+          "text": "Now, let me explain our packages. The Starter package is five hours, and it's thirty-five pounds an hour. That's designed for people who have some experience already.",
+          "start": 143.82,
+          "end": 153.34
+        },
+        {
+          "speaker": "joel",
+          "text": "I think I need more than that. What else is there?",
+          "start": 153.84,
+          "end": 156.42
+        },
+        {
+          "speaker": "paula",
+          "text": "The Standard package is twenty hours, at thirty-two pounds an hour, which works out cheaper per hour. It also includes a free motorway lesson, which many schools charge extra for.",
+          "start": 156.92,
+          "end": 166.88
+        },
+        {
+          "speaker": "joel",
+          "text": "That sounds right for me. And what about the third option?",
+          "start": 167.38,
+          "end": 170.24
+        },
+        {
+          "speaker": "paula",
+          "text": "The Intensive package is thirty hours, over two or three weeks. It used to cost thirty pounds an hour, but now it's twenty-eight. The price includes the fee for the driving test itself, so you won't have to pay it separately.",
+          "start": 170.74,
+          "end": 182.75
+        },
+        {
+          "speaker": "joel",
+          "text": "That's tempting, but I can't do so many hours in one go, because of school. I'll go for the Standard package.",
+          "start": 183.25,
+          "end": 188.8
+        },
+        {
+          "speaker": "paula",
+          "text": "Very good. I'll book your first lesson for next Wednesday at four. Your instructor will be Mr Harris, and he'll pick you up from school.",
+          "start": 189.3,
+          "end": 196.04
+        },
+        {
+          "speaker": "joel",
+          "text": "Thank you. I'm looking forward to it.",
+          "start": 196.54,
+          "end": 198.61
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 199.51,
+          "end": 204.03
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Greenway Driving School – new learner",
+          "content": [
+            "Example: Wants lessons in a **manual** car",
+            "## Details",
+            "• Name: Joel {{1}}",
+            "• Age: {{2}}",
+            "• Previous lessons: {{3}} hours",
+            "• Preferred day: {{4}}",
+            "• Preferred test centre: {{5}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Greenaway"
+              ],
+              "explanation": "He spells his surname: ‘G-R-E-E-N-A-W-A-Y’.",
+              "cue": "G-R-E-E-N-A-W-A-Y"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "17",
+                "seventeen"
+              ],
+              "explanation": "‘I'm seventeen. I'll be eighteen in June.’",
+              "cue": "I'm seventeen"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "10",
+                "ten"
+              ],
+              "explanation": "‘Yes, ten hours with another school, but then they closed down.’",
+              "cue": "ten hours with another school"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "Wednesday",
+                "Wednesdays"
+              ],
+              "explanation": "‘After school, so Wednesdays, if possible.’",
+              "cue": "Wednesdays, if possible"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "Ashford"
+              ],
+              "explanation": "‘Ashford, because that's the nearest to my home.’",
+              "cue": "Ashford, because that's the nearest"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Lesson packages",
+          "content": {
+            "headers": [
+              "Package",
+              "Hours",
+              "Price per hour",
+              "Notes"
+            ],
+            "rows": [
+              [
+                "Starter",
+                "5",
+                "£{{6}}",
+                "for drivers with some experience"
+              ],
+              [
+                "Standard",
+                "{{7}}",
+                "£32",
+                "includes a free {{8}} lesson"
+              ],
+              [
+                "Intensive",
+                "30",
+                "£{{9}}",
+                "includes the driving {{10}} fee"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "35",
+                "thirty-five"
+              ],
+              "explanation": "‘The Starter package is five hours, and it's thirty-five pounds an hour.’",
+              "cue": "it's thirty-five pounds an hour"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "20",
+                "twenty"
+              ],
+              "explanation": "‘The Standard package is twenty hours, at thirty-two pounds an hour.’",
+              "cue": "The Standard package is twenty hours"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "motorway"
+              ],
+              "explanation": "‘It also includes a free motorway lesson.’",
+              "cue": "a free motorway lesson"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "28",
+                "twenty-eight"
+              ],
+              "explanation": "It used to cost thirty pounds an hour, ‘but now it's twenty-eight’.",
+              "cue": "now it's twenty-eight"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "test"
+              ],
+              "explanation": "‘The price includes the fee for the driving test itself.’",
+              "cue": "includes the fee for the driving test itself"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-32/part1.mp3",
+        "duration": 234.83
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A heritage railway open day",
+      "context": "A volunteer welcomes visitors to a heritage railway.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a volunteer welcoming visitors to the open day at a heritage railway. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 11.16
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 36.16,
+          "end": 40.43
+        },
+        {
+          "speaker": "dawson",
+          "text": "Good morning, everyone, and welcome to Millbrook Heritage Railway. My name's Peter Dawson, and I'm one of the volunteers who runs the station. Please look at the map in your programme. We're at the entrance, at the bottom, and the platform is straight ahead.",
+          "start": 41.33,
+          "end": 54.28
+        },
+        {
+          "speaker": "dawson",
+          "text": "As you come in, the ticket office is immediately on your left, next to the path. That's where you can buy your tickets for the steam train. A little further to the left, at the end of the buildings, is the museum, which has a collection of old tickets, uniforms and lamps.",
+          "start": 54.63,
+          "end": 67.83
+        },
+        {
+          "speaker": "dawson",
+          "text": "On the right of the path, the building with the green door is the café, which used to be the waiting room. Beyond it, at the far right on this side of the line, is the model railway. It's one of the biggest in the region, and it's run by a group of retired engineers.",
+          "start": 68.18,
+          "end": 81.13
+        },
+        {
+          "speaker": "dawson",
+          "text": "To reach the other side, use the footbridge at the end of the platform. Directly opposite the entrance, on the north side, is the locomotive shed, where we keep and repair our engines. To the left of it is the signal box, and children are always fascinated by the levers. And on the far right is the picnic area.",
+          "start": 81.48,
+          "end": 97.5
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 98.4,
+          "end": 104.12
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 129.12,
+          "end": 133.0
+        },
+        {
+          "speaker": "dawson",
+          "text": "A few facts. The railway is a charity, and our main income comes from ticket sales. Donations help, and the shop contributes a little, but it's the tickets that keep the engines running.",
+          "start": 133.9,
+          "end": 143.59
+        },
+        {
+          "speaker": "dawson",
+          "text": "The train journey takes forty minutes in each direction, and the trains leave every hour. If you'd like to be at the front, where the best views are, please be on the platform ten minutes early.",
+          "start": 143.94,
+          "end": 153.52
+        },
+        {
+          "speaker": "dawson",
+          "text": "Today, children can sit in the driver's cab of one of our engines, accompanied by a volunteer. They can't blow the whistle, I'm afraid, because it's very loud, and the neighbours are not so keen.",
+          "start": 153.87,
+          "end": 164.32
+        },
+        {
+          "speaker": "dawson",
+          "text": "One engine is particularly special: Lady Anne. She was built in nineteen twenty-eight, and she appeared in a famous film in the nineteen sixties, which is why she's so popular with visitors.",
+          "start": 164.67,
+          "end": 174.65
+        },
+        {
+          "speaker": "dawson",
+          "text": "Finally, a safety rule: please stay behind the yellow line on the platform when a train is coming in. You can take photographs, and dogs are welcome on a lead. Now, if you'd like to buy your tickets, the office is just here on the left.",
+          "start": 175.0,
+          "end": 187.01
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 187.91,
+          "end": 192.24
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Millbrook Heritage Railway",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "line",
+                "x1": 20,
+                "y1": 190,
+                "x2": 620,
+                "y2": 190,
+                "style": "road",
+                "label": "Railway line",
+                "lx": -200
+              },
+              {
+                "type": "rect",
+                "x": 110,
+                "y": 208,
+                "w": 420,
+                "h": 28,
+                "style": "sand",
+                "label": "Platform"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 414,
+                "x2": 320,
+                "y2": 240,
+                "style": "path"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Entrance"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 412
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 300,
+                "w": 100,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 170,
+                "y": 300,
+                "w": 110,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 360,
+                "y": 300,
+                "w": 100,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 500,
+                "y": 300,
+                "w": 100,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 70,
+                "y": 60,
+                "w": 120,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 260,
+                "y": 60,
+                "w": 120,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 460,
+                "y": 60,
+                "w": 120,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 90,
+                "y": 335,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 225,
+                "y": 335,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 410,
+                "y": 335,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 550,
+                "y": 335,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 130,
+                "y": 105,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 105,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 520,
+                "y": 105,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Ticket office",
+              "answer": "B",
+              "explanation": "‘The ticket office is immediately on your left, next to the path.’",
+              "cue": "the ticket office is immediately on your left"
+            },
+            {
+              "number": 12,
+              "prompt": "Museum",
+              "answer": "A",
+              "explanation": "‘A little further to the left, at the end of the buildings, is the museum.’",
+              "cue": "at the end of the buildings, is the museum"
+            },
+            {
+              "number": 13,
+              "prompt": "Model railway",
+              "answer": "D",
+              "explanation": "‘Beyond it, at the far right on this side of the line, is the model railway.’",
+              "cue": "at the far right on this side of the line, is the model railway"
+            },
+            {
+              "number": 14,
+              "prompt": "Locomotive shed",
+              "answer": "F",
+              "explanation": "‘Directly opposite the entrance, on the north side, is the locomotive shed.’",
+              "cue": "Directly opposite the entrance, on the north side, is the locomotive shed"
+            },
+            {
+              "number": 15,
+              "prompt": "Signal box",
+              "answer": "E",
+              "explanation": "‘To the left of it is the signal box.’ The picnic area (G) is on the far right.",
+              "cue": "To the left of it is the signal box"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "What is the railway's main source of income?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ticket sales"
+                },
+                {
+                  "key": "B",
+                  "text": "donations"
+                },
+                {
+                  "key": "C",
+                  "text": "the shop"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Our main income comes from ticket sales.’",
+              "cue": "it's the tickets that keep the engines running"
+            },
+            {
+              "number": 17,
+              "prompt": "How long is the train journey?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "twenty minutes"
+                },
+                {
+                  "key": "B",
+                  "text": "forty minutes"
+                },
+                {
+                  "key": "C",
+                  "text": "an hour"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The train journey takes forty minutes in each direction.’",
+              "cue": "takes forty minutes in each direction"
+            },
+            {
+              "number": 18,
+              "prompt": "What can children do at the open day?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ride in a small train"
+                },
+                {
+                  "key": "B",
+                  "text": "sit in a driver's cab"
+                },
+                {
+                  "key": "C",
+                  "text": "blow the whistle"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Children can sit in the driver's cab of one of our engines.’ They cannot blow the whistle.",
+              "cue": "children can sit in the driver's cab of one of our engines"
+            },
+            {
+              "number": 19,
+              "prompt": "Why is the engine Lady Anne popular?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She is the oldest engine."
+                },
+                {
+                  "key": "B",
+                  "text": "She was built by volunteers."
+                },
+                {
+                  "key": "C",
+                  "text": "She appeared in a film."
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘She appeared in a famous film in the nineteen sixties.’",
+              "cue": "she appeared in a famous film"
+            },
+            {
+              "number": 20,
+              "prompt": "What is the safety rule on the platform?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "stay behind the yellow line"
+                },
+                {
+                  "key": "B",
+                  "text": "do not take photographs"
+                },
+                {
+                  "key": "C",
+                  "text": "keep away from the edge at all times"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Please stay behind the yellow line on the platform when a train is coming in.’",
+              "cue": "please stay behind the yellow line on the platform"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-32/part2.mp3",
+        "duration": 223.04
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A study on bilingual children",
+      "context": "Two students plan a research study on children who speak two languages.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two students, Mira and Jonas, planning a research study on bilingual children. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.08
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.08,
+          "end": 41.79
+        },
+        {
+          "speaker": "mira",
+          "text": "Jonas, how's the literature review for our study on bilingual children going?",
+          "start": 42.69,
+          "end": 46.83
+        },
+        {
+          "speaker": "jonas",
+          "text": "I've read about thirty papers. The most surprising thing is that bilingual children don't start speaking later than monolingual children, which many parents believe.",
+          "start": 47.33,
+          "end": 55.93
+        },
+        {
+          "speaker": "mira",
+          "text": "I found something about code-switching, where children switch between languages in one sentence. The old view was that it shows confusion.",
+          "start": 56.43,
+          "end": 63.36
+        },
+        {
+          "speaker": "jonas",
+          "text": "Now the view is that it shows skill, because the child has to know both grammars.",
+          "start": 63.86,
+          "end": 68.09
+        },
+        {
+          "speaker": "mira",
+          "text": "For our sample, we planned to look at children aged four to six, in two nurseries.",
+          "start": 68.59,
+          "end": 72.66
+        },
+        {
+          "speaker": "jonas",
+          "text": "Only one nursery agreed, though. The other said it would disturb their routine.",
+          "start": 73.16,
+          "end": 77.3
+        },
+        {
+          "speaker": "mira",
+          "text": "Then the sample will be about twenty children from one nursery. We need consent forms from the parents of each child.",
+          "start": 77.8,
+          "end": 83.58
+        },
+        {
+          "speaker": "jonas",
+          "text": "I'll send those out on Monday, with the letter in English and in Polish, because many of the families speak Polish at home.",
+          "start": 84.08,
+          "end": 90.5
+        },
+        {
+          "speaker": "mira",
+          "text": "Good. How long will each child's session be? Dr Evans said no more than fifteen minutes, because young children get tired.",
+          "start": 91.0,
+          "end": 96.97
+        },
+        {
+          "speaker": "jonas",
+          "text": "Fifteen minutes is tight for all the tasks we planned. Let's reduce the number of tasks, rather than rushing them.",
+          "start": 97.47,
+          "end": 103.21
+        },
+        {
+          "speaker": "mira",
+          "text": "Agreed. Quality matters more than quantity.",
+          "start": 103.71,
+          "end": 106.27
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 107.17,
+          "end": 113.32
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 133.32,
+          "end": 137.16
+        },
+        {
+          "speaker": "mira",
+          "text": "Let's decide how to describe each method in the methodology chapter. Observation first.",
+          "start": 138.06,
+          "end": 143.26
+        },
+        {
+          "speaker": "jonas",
+          "text": "Watching the children play naturally gives us the richest data. It's by far the most informative method, because they don't know they're being studied.",
+          "start": 143.76,
+          "end": 151.44
+        },
+        {
+          "speaker": "mira",
+          "text": "Then the parent questionnaire.",
+          "start": 151.94,
+          "end": 153.76
+        },
+        {
+          "speaker": "jonas",
+          "text": "Parents tend to exaggerate their child's ability, so I'd say it's unreliable, and we must treat the answers with care.",
+          "start": 154.26,
+          "end": 160.51
+        },
+        {
+          "speaker": "mira",
+          "text": "The language test?",
+          "start": 161.01,
+          "end": 162.54
+        },
+        {
+          "speaker": "jonas",
+          "text": "You need training to give it correctly. I haven't had any, so we'll need Dr Evans to show us.",
+          "start": 163.04,
+          "end": 168.16
+        },
+        {
+          "speaker": "mira",
+          "text": "And interviews with the teachers?",
+          "start": 168.66,
+          "end": 170.56
+        },
+        {
+          "speaker": "jonas",
+          "text": "They're time-consuming. Each one would take half an hour at least, so we should limit them to three.",
+          "start": 171.06,
+          "end": 175.97
+        },
+        {
+          "speaker": "mira",
+          "text": "Finally, the drawing task, where the children draw their family and talk about it.",
+          "start": 176.47,
+          "end": 180.59
+        },
+        {
+          "speaker": "jonas",
+          "text": "That's ideal for young children, because it feels like play, and they relax. Shall I draft the chapter tonight?",
+          "start": 181.09,
+          "end": 186.76
+        },
+        {
+          "speaker": "mira",
+          "text": "Please. I'll check it tomorrow.",
+          "start": 187.26,
+          "end": 189.2
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 190.1,
+          "end": 194.56
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What surprised Jonas in his reading?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Bilingual children start speaking at the same age as others."
+                },
+                {
+                  "key": "B",
+                  "text": "Bilingual children are better at mathematics."
+                },
+                {
+                  "key": "C",
+                  "text": "Bilingual children mix languages more."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Bilingual children don't start speaking later than monolingual children, which many parents believe.’",
+              "cue": "bilingual children don't start speaking later than monolingual children"
+            },
+            {
+              "number": 22,
+              "prompt": "What is the modern view of code-switching?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It shows confusion."
+                },
+                {
+                  "key": "B",
+                  "text": "It shows skill."
+                },
+                {
+                  "key": "C",
+                  "text": "It is harmful."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Now the view is that it shows skill.’",
+              "cue": "Now the view is that it shows skill"
+            },
+            {
+              "number": 23,
+              "prompt": "How many nurseries agreed to take part?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one"
+                },
+                {
+                  "key": "B",
+                  "text": "two"
+                },
+                {
+                  "key": "C",
+                  "text": "three"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Only one nursery agreed, though.’",
+              "cue": "Only one nursery agreed"
+            },
+            {
+              "number": 24,
+              "prompt": "Why will the letter to parents be in two languages?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The tutor asked for it."
+                },
+                {
+                  "key": "B",
+                  "text": "Many families speak Polish at home."
+                },
+                {
+                  "key": "C",
+                  "text": "It is a legal requirement."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘With the letter in English and in Polish, because many of the families speak Polish at home.’",
+              "cue": "many of the families speak Polish at home"
+            },
+            {
+              "number": 25,
+              "prompt": "What do they decide about the length of the sessions?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "reduce the number of tasks"
+                },
+                {
+                  "key": "B",
+                  "text": "ask for more time"
+                },
+                {
+                  "key": "C",
+                  "text": "test the children in groups"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Let's reduce the number of tasks, rather than rushing them.’",
+              "cue": "Let's reduce the number of tasks"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What do the students say about each research method? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It takes a lot of time."
+            },
+            {
+              "key": "B",
+              "text": "It is unreliable."
+            },
+            {
+              "key": "C",
+              "text": "It is the most informative."
+            },
+            {
+              "key": "D",
+              "text": "It is too expensive."
+            },
+            {
+              "key": "E",
+              "text": "It is too intrusive."
+            },
+            {
+              "key": "F",
+              "text": "It is ideal for young children."
+            },
+            {
+              "key": "G",
+              "text": "It needs special training."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "observation",
+              "answer": "C",
+              "explanation": "‘It's by far the most informative method.’",
+              "cue": "It's by far the most informative method"
+            },
+            {
+              "number": 27,
+              "prompt": "the parent questionnaire",
+              "answer": "B",
+              "explanation": "‘Parents tend to exaggerate their child's ability, so I'd say it's unreliable.’",
+              "cue": "I'd say it's unreliable"
+            },
+            {
+              "number": 28,
+              "prompt": "the language test",
+              "answer": "G",
+              "explanation": "‘You need training to give it correctly.’",
+              "cue": "You need training to give it correctly"
+            },
+            {
+              "number": 29,
+              "prompt": "interviews with teachers",
+              "answer": "A",
+              "explanation": "‘They're time-consuming. Each one would take half an hour at least.’",
+              "cue": "They're time-consuming"
+            },
+            {
+              "number": 30,
+              "prompt": "the drawing task",
+              "answer": "F",
+              "explanation": "‘That's ideal for young children, because it feels like play.’",
+              "cue": "That's ideal for young children"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-32/part3.mp3",
+        "duration": 225.36
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: tidal energy",
+      "context": "A lecture on how energy can be obtained from the tides.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about tidal energy. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.49
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.49,
+          "end": 42.91
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Many renewable energy sources depend on the weather, which is hard to predict. Today I want to talk about one that does not: energy from the tides.",
+          "start": 43.81,
+          "end": 52.81
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Tides are caused mainly by the gravity of the moon, which pulls the water in the oceans towards it. The sun has a smaller effect. When the sun and the moon are in line, at new moon and full moon, the pull is strongest, and we get very high and very low tides, which are called spring tides.",
+          "start": 53.16,
+          "end": 68.74
+        },
+        {
+          "speaker": "lecturer",
+          "text": "There are two main ways of using this energy. The first is the tidal barrage, which is a kind of dam built across an estuary. Water flows in through turbines as the tide rises, and out again as it falls. The first large power station of this kind was built in France, in nineteen sixty-six, and it is still working.",
+          "start": 69.09,
+          "end": 87.41
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The second method is newer. Tidal stream turbines look like underwater wind turbines. They are placed on the sea floor, where the tidal currents are strong, and the moving water turns the blades. Several can be grouped together in what are called tidal farms.",
+          "start": 87.76,
+          "end": 101.69
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The great advantage of tidal power is that it is completely predictable. Unlike wind or sunshine, we can calculate the tides decades in advance, so planners know exactly how much electricity to expect, and when.",
+          "start": 102.04,
+          "end": 114.67
+        },
+        {
+          "speaker": "lecturer",
+          "text": "But there are problems. First, you need a big difference between high and low tide, a tidal range of at least five metres, and only a few places in the world have that. Second, building a barrage is very expensive. And third, it can change the habitat of the estuary. Fish can be injured by the turbines, and the movement of mud and sand is altered, which affects wildlife.",
+          "start": 115.02,
+          "end": 135.48
+        },
+        {
+          "speaker": "lecturer",
+          "text": "For these reasons, tidal stream turbines are now seen as the more promising approach, because they have less effect on the environment. Next week we'll look at wave power.",
+          "start": 135.83,
+          "end": 145.15
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 146.05,
+          "end": 150.45
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 180.45,
+          "end": 183.16
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Tidal energy",
+          "content": [
+            "## Causes of the tides",
+            "• Tides are caused mainly by the gravity of the {{31}}",
+            "• At new moon and full moon there are very high tides, called {{32}} tides",
+            "## Technology",
+            "• The first large tidal power station was built in {{33}} in 1966",
+            "• A barrage is a kind of {{34}} built across an estuary",
+            "• Tidal stream turbines look like underwater {{35}} turbines",
+            "• Groups of turbines are called tidal {{36}}",
+            "## Advantages and problems",
+            "• Tides are completely {{37}}, unlike wind or sunshine",
+            "• A tidal range of at least {{38}} metres is needed",
+            "• Building a barrage is very {{39}}",
+            "• Barrages can harm {{40}}, which can be injured by the turbines"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "moon"
+              ],
+              "explanation": "‘Tides are caused mainly by the gravity of the moon.’",
+              "cue": "mainly by the gravity of the moon"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "spring"
+              ],
+              "explanation": "‘Very high and very low tides, which are called spring tides.’",
+              "cue": "which are called spring tides"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "France"
+              ],
+              "explanation": "‘The first large power station of this kind was built in France, in nineteen sixty-six.’",
+              "cue": "in France, in nineteen sixty-six"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "dam"
+              ],
+              "explanation": "‘The tidal barrage, which is a kind of dam built across an estuary.’",
+              "cue": "a kind of dam built across an estuary"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "wind"
+              ],
+              "explanation": "‘Tidal stream turbines look like underwater wind turbines.’",
+              "cue": "look like underwater wind turbines"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "farms"
+              ],
+              "explanation": "‘Several can be grouped together in what are called tidal farms.’",
+              "cue": "called tidal farms"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "predictable"
+              ],
+              "explanation": "‘The great advantage of tidal power is that it is completely predictable.’",
+              "cue": "it is completely predictable"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "‘A tidal range of at least five metres.’",
+              "cue": "a tidal range of at least five metres"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "expensive"
+              ],
+              "explanation": "‘Building a barrage is very expensive.’",
+              "cue": "building a barrage is very expensive"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "fish"
+              ],
+              "explanation": "‘Fish can be injured by the turbines.’",
+              "cue": "Fish can be injured by the turbines"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-32/part4.mp3",
+        "duration": 183.96
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

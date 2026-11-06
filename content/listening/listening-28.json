@@ -1,0 +1,1275 @@
+{
+  "id": "listening-28",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 28",
+  "shortTitle": "Practice Test 28",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 28,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "helen": {
+      "name": "Helen",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "leo": {
+      "name": "Leo",
+      "voice": "am_echo",
+      "lang": "en-us"
+    },
+    "maria": {
+      "name": "Maria",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "hana": {
+      "name": "Hana",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "marcus": {
+      "name": "Marcus",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Opening a bank account",
+      "context": "A customer phones a bank to open a current account.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a customer phoning a bank to ask about opening an account. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.65
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.65,
+          "end": 38.71
+        },
+        {
+          "speaker": "helen",
+          "text": "Harbour Bank, Helen speaking. How can I help?",
+          "start": 39.61,
+          "end": 42.3
+        },
+        {
+          "speaker": "leo",
+          "text": "Hello. I've just started a new job in the city, and I'd like to open a current account, please.",
+          "start": 42.8,
+          "end": 47.94
+        },
+        {
+          "speaker": "helen",
+          "text": "Of course. I'll take your details first, and then I'll explain our accounts.",
+          "start": 48.44,
+          "end": 52.49
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller wants a current account, so 'current' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.39,
+          "end": 68.35
+        },
+        {
+          "speaker": "helen",
+          "text": "Can I have your full name?",
+          "start": 69.25,
+          "end": 71.15
+        },
+        {
+          "speaker": "leo",
+          "text": "Leo Marchetti. That's M-A-R-C-H-E-T-T-I.",
+          "start": 71.65,
+          "end": 79.43
+        },
+        {
+          "speaker": "helen",
+          "text": "Thank you, Mr Marchetti. And your date of birth?",
+          "start": 79.93,
+          "end": 82.94
+        },
+        {
+          "speaker": "leo",
+          "text": "The fourteenth of March, nineteen ninety-six.",
+          "start": 83.44,
+          "end": 86.45
+        },
+        {
+          "speaker": "helen",
+          "text": "And your address?",
+          "start": 86.95,
+          "end": 88.48
+        },
+        {
+          "speaker": "leo",
+          "text": "It's twelve Wellington Street. I only moved in last month.",
+          "start": 88.98,
+          "end": 92.7
+        },
+        {
+          "speaker": "helen",
+          "text": "Do you have a recent bill as proof of address? It must be from the last three months.",
+          "start": 93.2,
+          "end": 97.57
+        },
+        {
+          "speaker": "leo",
+          "text": "I have an electricity bill in my name. Would that be all right?",
+          "start": 98.07,
+          "end": 101.76
+        },
+        {
+          "speaker": "helen",
+          "text": "That's perfect. A bank statement would also be fine, but I'm afraid a mobile phone bill wouldn't. And what is your occupation?",
+          "start": 102.26,
+          "end": 109.19
+        },
+        {
+          "speaker": "leo",
+          "text": "I'm an engineer. I work for a company that builds bridges.",
+          "start": 109.69,
+          "end": 113.45
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 114.35,
+          "end": 120.06
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 140.06,
+          "end": 143.39
+        },
+        {
+          "speaker": "helen",
+          "text": "Now, our accounts. We have three. The Basic account has no monthly fee. You get a debit card and online banking, but no overdraft.",
+          "start": 144.29,
+          "end": 151.89
+        },
+        {
+          "speaker": "leo",
+          "text": "And the others?",
+          "start": 152.39,
+          "end": 153.5
+        },
+        {
+          "speaker": "helen",
+          "text": "The Classic account is six pounds a month. As well as the debit card, you get mobile phone insurance, which covers theft and accidental damage.",
+          "start": 154.0,
+          "end": 162.15
+        },
+        {
+          "speaker": "leo",
+          "text": "That sounds useful. What about the Premium account?",
+          "start": 162.65,
+          "end": 165.76
+        },
+        {
+          "speaker": "helen",
+          "text": "That's fourteen pounds a month. It includes travel insurance and free access to airport lounges, which is popular with people who travel for work.",
+          "start": 166.26,
+          "end": 174.6
+        },
+        {
+          "speaker": "leo",
+          "text": "I travel quite a lot, but only in this country.",
+          "start": 175.1,
+          "end": 178.15
+        },
+        {
+          "speaker": "helen",
+          "text": "Then Classic is probably better value, as you won't need the travel insurance.",
+          "start": 178.65,
+          "end": 183.2
+        },
+        {
+          "speaker": "leo",
+          "text": "I think so too. Can I open it online?",
+          "start": 183.7,
+          "end": 186.66
+        },
+        {
+          "speaker": "helen",
+          "text": "Yes, or you can come to a branch with your passport. Either way it takes about fifteen minutes.",
+          "start": 187.16,
+          "end": 192.26
+        },
+        {
+          "speaker": "leo",
+          "text": "Great. I'll do it online tonight. Thanks for your help.",
+          "start": 192.76,
+          "end": 195.96
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 196.86,
+          "end": 201.38
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Harbour Bank – new customer",
+          "content": [
+            "Example: Reason for call: to open a **current** account",
+            "## Customer details",
+            "• Name: Leo {{1}}",
+            "• Date of birth: {{2}} March 1996",
+            "• Address: 12 {{3}} Street",
+            "• Proof of address: a recent {{4}} bill",
+            "• Occupation: {{5}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Marchetti"
+              ],
+              "explanation": "He spells his surname: ‘M-A-R-C-H-E-T-T-I’.",
+              "cue": "M-A-R-C-H-E-T-T-I"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "14",
+                "fourteenth",
+                "14th"
+              ],
+              "explanation": "‘The fourteenth of March, nineteen ninety-six.’",
+              "cue": "The fourteenth of March"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "Wellington"
+              ],
+              "explanation": "‘It's twelve Wellington Street.’",
+              "cue": "twelve Wellington Street"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "electricity"
+              ],
+              "explanation": "‘I have an electricity bill in my name.’ A mobile phone bill would not be accepted.",
+              "cue": "I have an electricity bill"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "engineer"
+              ],
+              "explanation": "‘I'm an engineer. I work for a company that builds bridges.’",
+              "cue": "I'm an engineer"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Accounts",
+          "content": {
+            "headers": [
+              "Account",
+              "Monthly fee",
+              "Includes"
+            ],
+            "rows": [
+              [
+                "Basic",
+                "no fee",
+                "debit card and {{6}} banking"
+              ],
+              [
+                "Classic",
+                "£{{7}}",
+                "{{8}} insurance"
+              ],
+              [
+                "Premium",
+                "£{{9}}",
+                "travel insurance and airport {{10}}"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "online"
+              ],
+              "explanation": "‘You get a debit card and online banking, but no overdraft.’",
+              "cue": "You get a debit card and online banking"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "‘The Classic account is six pounds a month.’",
+              "cue": "The Classic account is six pounds a month"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "phone",
+                "mobile"
+              ],
+              "explanation": "‘As well as the debit card, you get mobile phone insurance.’",
+              "cue": "you get mobile phone insurance"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "14",
+                "fourteen"
+              ],
+              "explanation": "‘That's fourteen pounds a month.’",
+              "cue": "That's fourteen pounds a month"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "lounges",
+                "lounge"
+              ],
+              "explanation": "‘It includes travel insurance and free access to airport lounges.’",
+              "cue": "free access to airport lounges"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-28/part1.mp3",
+        "duration": 232.18
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A community radio station",
+      "context": "The manager of a radio station talks to a visiting group about its history and volunteers.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the manager of a community radio station talking to a visiting group. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.86
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.86,
+          "end": 40.13
+        },
+        {
+          "speaker": "maria",
+          "text": "Hello, everyone, and welcome to Harbour FM. I'm Maria Costa, the station manager. I'd like to tell you a little about us before we start the tour.",
+          "start": 41.03,
+          "end": 49.84
+        },
+        {
+          "speaker": "maria",
+          "text": "We started broadcasting in two thousand and nine. Some people think it was earlier, because the idea was first discussed in two thousand and five, but it took four years to get a licence.",
+          "start": 50.19,
+          "end": 61.07
+        },
+        {
+          "speaker": "maria",
+          "text": "Our first studio was in a former shop on Quay Street. We had no money, so a local church lent us a hall for training, but all the broadcasting was done from the shop.",
+          "start": 61.42,
+          "end": 70.78
+        },
+        {
+          "speaker": "maria",
+          "text": "Today we have about eighty volunteers and only three paid staff. At one time we had a hundred and twenty, but many were students who left when they graduated.",
+          "start": 71.13,
+          "end": 80.52
+        },
+        {
+          "speaker": "maria",
+          "text": "Our most popular programme isn't the morning news, as you might expect. It's the Saturday sports phone-in, where listeners ring up to argue about the local football team.",
+          "start": 80.87,
+          "end": 90.43
+        },
+        {
+          "speaker": "maria",
+          "text": "We're funded mostly by local businesses, which pay for advertising. We did apply for a government grant, but we were turned down, and we only get a few small donations from listeners.",
+          "start": 90.78,
+          "end": 101.44
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 102.34,
+          "end": 108.06
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 133.06,
+          "end": 136.94
+        },
+        {
+          "speaker": "maria",
+          "text": "If you'd like to volunteer, we ask a few things. First, everyone attends a training day, held on the first Saturday of every month. You'll learn to use the equipment, and what you can and cannot say on air. You also need to sign a volunteer agreement, which is a simple contract.",
+          "start": 137.84,
+          "end": 152.97
+        },
+        {
+          "speaker": "maria",
+          "text": "You don't need a voice test, because we think anyone can learn, and we'll lend you headphones, so there's no need to buy your own. Nobody is expected to work night shifts, either.",
+          "start": 153.32,
+          "end": 162.94
+        },
+        {
+          "speaker": "maria",
+          "text": "Next year, the big plan is to launch a podcast, so that people who miss a programme can listen to it again. We'd like a second studio too, but that's too expensive for now, and we have no plans to change our name.",
+          "start": 163.29,
+          "end": 175.17
+        },
+        {
+          "speaker": "maria",
+          "text": "On today's visit, you'll be able to watch a live broadcast through the glass wall of the main studio, but please stay quiet, and don't knock on the glass. In the training studio, one of our volunteers will let you try the equipment.",
+          "start": 175.52,
+          "end": 188.11
+        },
+        {
+          "speaker": "maria",
+          "text": "If you'd like to apply after today, send an email to the volunteer coordinator. Please don't phone, because the office is empty during the day. Now, if you'd follow me, and keep your voices low.",
+          "start": 188.46,
+          "end": 199.45
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 200.35,
+          "end": 204.68
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "When did Harbour FM start broadcasting?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in 2005"
+                },
+                {
+                  "key": "B",
+                  "text": "in 2009"
+                },
+                {
+                  "key": "C",
+                  "text": "in 2014"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The idea was discussed in 2005, but ‘we started broadcasting in two thousand and nine’.",
+              "cue": "We started broadcasting in two thousand and nine"
+            },
+            {
+              "number": 12,
+              "prompt": "Where was the first studio?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in a church hall"
+                },
+                {
+                  "key": "B",
+                  "text": "in a former shop"
+                },
+                {
+                  "key": "C",
+                  "text": "in a school"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Our first studio was in a former shop on Quay Street.’ The church hall was used for training.",
+              "cue": "Our first studio was in a former shop on Quay Street"
+            },
+            {
+              "number": 13,
+              "prompt": "How many volunteers does the station have now?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about forty"
+                },
+                {
+                  "key": "B",
+                  "text": "about eighty"
+                },
+                {
+                  "key": "C",
+                  "text": "about a hundred and twenty"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Today we have about eighty volunteers.’ A hundred and twenty is the earlier number.",
+              "cue": "about eighty volunteers"
+            },
+            {
+              "number": 14,
+              "prompt": "What is the station's most popular programme?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the morning news"
+                },
+                {
+                  "key": "B",
+                  "text": "the Saturday sports phone-in"
+                },
+                {
+                  "key": "C",
+                  "text": "the evening music show"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘It's the Saturday sports phone-in.’",
+              "cue": "It's the Saturday sports phone-in"
+            },
+            {
+              "number": 15,
+              "prompt": "How is the station mainly paid for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by local advertising"
+                },
+                {
+                  "key": "B",
+                  "text": "by a government grant"
+                },
+                {
+                  "key": "C",
+                  "text": "by donations from listeners"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We're funded mostly by local businesses, which pay for advertising.’",
+              "cue": "We're funded mostly by local businesses"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO things must new volunteers do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "attend a training day"
+            },
+            {
+              "key": "B",
+              "text": "pass a voice test"
+            },
+            {
+              "key": "C",
+              "text": "sign an agreement"
+            },
+            {
+              "key": "D",
+              "text": "buy their own headphones"
+            },
+            {
+              "key": "E",
+              "text": "work a night shift"
+            }
+          ],
+          "answer": [
+            "A",
+            "C"
+          ],
+          "explanation": "Volunteers attend a training day (A) and sign an agreement (C). There is no voice test, headphones are lent, and nobody works nights.",
+          "questions": [
+            {
+              "number": 16,
+              "cue": "everyone attends a training day"
+            },
+            {
+              "number": 17,
+              "cue": "You also need to sign a volunteer agreement"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 18,
+              "prompt": "What is the station planning to do next year?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "open a second studio"
+                },
+                {
+                  "key": "B",
+                  "text": "launch a podcast"
+                },
+                {
+                  "key": "C",
+                  "text": "change its name"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Next year, the big plan is to launch a podcast.’ A second studio is too expensive.",
+              "cue": "the big plan is to launch a podcast"
+            },
+            {
+              "number": 19,
+              "prompt": "What will visitors be able to do in the training studio?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "watch a live broadcast"
+                },
+                {
+                  "key": "B",
+                  "text": "record their own programme"
+                },
+                {
+                  "key": "C",
+                  "text": "try the equipment"
+                }
+              ],
+              "answer": "C",
+              "explanation": "The live broadcast is seen through the glass of the main studio; in the training studio they can ‘try the equipment’.",
+              "cue": "one of our volunteers will let you try the equipment"
+            },
+            {
+              "number": 20,
+              "prompt": "How should people apply to volunteer?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by phone"
+                },
+                {
+                  "key": "B",
+                  "text": "by email"
+                },
+                {
+                  "key": "C",
+                  "text": "in person"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Send an email to the volunteer coordinator. Please don't phone.’",
+              "cue": "send an email to the volunteer coordinator"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-28/part2.mp3",
+        "duration": 235.48
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A study on procrastination",
+      "context": "Two psychology students plan how to write up their study on procrastination.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two psychology students, Hana and Marcus, discussing a study on procrastination. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.59
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.59,
+          "end": 42.3
+        },
+        {
+          "speaker": "hana",
+          "text": "Marcus, I've been looking at the data for our procrastination study. Before we write it up, let's agree how we describe the sample.",
+          "start": 43.2,
+          "end": 50.46
+        },
+        {
+          "speaker": "marcus",
+          "text": "We started with a hundred and fifty students, but twenty-two dropped out, didn't they?",
+          "start": 50.96,
+          "end": 55.91
+        },
+        {
+          "speaker": "hana",
+          "text": "Yes, so we have a hundred and twenty-eight who completed everything.",
+          "start": 56.41,
+          "end": 59.88
+        },
+        {
+          "speaker": "marcus",
+          "text": "Why did so many drop out? Was it the diary?",
+          "start": 60.38,
+          "end": 63.2
+        },
+        {
+          "speaker": "hana",
+          "text": "Mostly. Keeping a daily diary for four weeks was too much for some of them. A couple said they simply forgot.",
+          "start": 63.7,
+          "end": 70.19
+        },
+        {
+          "speaker": "marcus",
+          "text": "What was the biggest surprise in the results?",
+          "start": 70.69,
+          "end": 73.16
+        },
+        {
+          "speaker": "hana",
+          "text": "I expected the students with the most work to procrastinate most, but it was the opposite. Those with a heavy workload were actually more organised.",
+          "start": 73.66,
+          "end": 82.39
+        },
+        {
+          "speaker": "marcus",
+          "text": "Interesting. And the deadline effect? I remember that people did most of their work at the end.",
+          "start": 82.89,
+          "end": 88.65
+        },
+        {
+          "speaker": "hana",
+          "text": "Yes, about seventy percent of the work was done in the final forty-eight hours, however long the assignment was.",
+          "start": 89.15,
+          "end": 95.35
+        },
+        {
+          "speaker": "marcus",
+          "text": "Our tutor will want a recommendation. Should we suggest that universities set earlier deadlines?",
+          "start": 95.85,
+          "end": 101.91
+        },
+        {
+          "speaker": "hana",
+          "text": "I'd be careful, because we didn't test that. A better suggestion is to ask lecturers to split large assignments into stages, with a short deadline for each stage.",
+          "start": 102.41,
+          "end": 112.14
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 113.04,
+          "end": 119.18
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 139.18,
+          "end": 143.02
+        },
+        {
+          "speaker": "hana",
+          "text": "Now the method section. Let's describe it step by step. First, everyone completed a questionnaire about their study habits.",
+          "start": 143.92,
+          "end": 151.56
+        },
+        {
+          "speaker": "marcus",
+          "text": "Then they kept the diary for four weeks, writing down each day what they worked on and for how long.",
+          "start": 152.06,
+          "end": 157.97
+        },
+        {
+          "speaker": "hana",
+          "text": "And we collected the log data from the university's online platform, which recorded when they opened their course materials.",
+          "start": 158.47,
+          "end": 165.51
+        },
+        {
+          "speaker": "marcus",
+          "text": "Don't forget that half of the group received weekly reminders by text message, and the other half didn't.",
+          "start": 166.01,
+          "end": 172.37
+        },
+        {
+          "speaker": "hana",
+          "text": "Right. The reminders made no real difference, which is another finding. Finally, we interviewed twelve students, to ask them about the reasons for their choices.",
+          "start": 172.87,
+          "end": 182.53
+        },
+        {
+          "speaker": "marcus",
+          "text": "That's the part I enjoyed most. Some of the explanations were really honest.",
+          "start": 183.03,
+          "end": 187.75
+        },
+        {
+          "speaker": "hana",
+          "text": "We didn't offer any reward for taking part, so we were lucky that so many people did. Shall I write the first draft of the method?",
+          "start": 188.25,
+          "end": 195.39
+        },
+        {
+          "speaker": "marcus",
+          "text": "Please. I'll start on the results.",
+          "start": 195.89,
+          "end": 198.07
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 198.97,
+          "end": 203.43
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "How many students completed the study?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "128"
+                },
+                {
+                  "key": "B",
+                  "text": "150"
+                },
+                {
+                  "key": "C",
+                  "text": "172"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Of 150 students, 22 dropped out: ‘a hundred and twenty-eight who completed everything’.",
+              "cue": "a hundred and twenty-eight who completed everything"
+            },
+            {
+              "number": 22,
+              "prompt": "Why did most of the students drop out?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They lost interest."
+                },
+                {
+                  "key": "B",
+                  "text": "The diary was too demanding."
+                },
+                {
+                  "key": "C",
+                  "text": "They had exams."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Keeping a daily diary for four weeks was too much for some of them.’",
+              "cue": "Keeping a daily diary for four weeks was too much for some of them"
+            },
+            {
+              "number": 23,
+              "prompt": "What surprised Hana about the results?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Students with heavy workloads were more organised."
+                },
+                {
+                  "key": "B",
+                  "text": "First-year students procrastinated more."
+                },
+                {
+                  "key": "C",
+                  "text": "Men procrastinated more than women."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Those with a heavy workload were actually more organised.’",
+              "cue": "Those with a heavy workload were actually more organised"
+            },
+            {
+              "number": 24,
+              "prompt": "What proportion of the work was done in the last two days?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about half"
+                },
+                {
+                  "key": "B",
+                  "text": "about seventy percent"
+                },
+                {
+                  "key": "C",
+                  "text": "almost all of it"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About seventy percent of the work was done in the final forty-eight hours.’",
+              "cue": "about seventy percent of the work was done in the final forty-eight hours"
+            },
+            {
+              "number": 25,
+              "prompt": "Which recommendation does Hana prefer?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "earlier deadlines"
+                },
+                {
+                  "key": "B",
+                  "text": "splitting assignments into stages"
+                },
+                {
+                  "key": "C",
+                  "text": "reminder messages"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Earlier deadlines were not tested; she prefers to ‘ask lecturers to split large assignments into stages’.",
+              "cue": "ask lecturers to split large assignments into stages"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "How the study was carried out",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "questionnaire"
+            },
+            {
+              "key": "B",
+              "text": "diary"
+            },
+            {
+              "key": "C",
+              "text": "interviews"
+            },
+            {
+              "key": "D",
+              "text": "reminders"
+            },
+            {
+              "key": "E",
+              "text": "platform"
+            },
+            {
+              "key": "F",
+              "text": "reward"
+            },
+            {
+              "key": "G",
+              "text": "grades"
+            }
+          ],
+          "content": [
+            "Students first completed a {{26}} about their study habits.",
+            "For four weeks they kept a daily {{27}} of their work.",
+            "Time spent on the university's online {{28}} was recorded.",
+            "Half of the students received weekly {{29}} by text message.",
+            "A sample of students took part in {{30}} about their choices."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘Everyone completed a questionnaire about their study habits.’",
+              "cue": "everyone completed a questionnaire"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "B"
+              ],
+              "explanation": "‘Then they kept the diary for four weeks.’",
+              "cue": "they kept the diary for four weeks"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "E"
+              ],
+              "explanation": "‘We collected the log data from the university's online platform.’",
+              "cue": "the university's online platform"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "D"
+              ],
+              "explanation": "‘Half of the group received weekly reminders by text message.’",
+              "cue": "half of the group received weekly reminders"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘We interviewed twelve students, to ask them about the reasons for their choices.’ There was no reward.",
+              "cue": "we interviewed twelve students"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-28/part3.mp3",
+        "duration": 234.23
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the invention of photography",
+      "context": "A history lecture on the people who invented photography.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the invention of photography. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.13
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.13,
+          "end": 43.55
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today I want to look at the invention of photography, which was not the work of one person, but of several people working in different countries.",
+          "start": 44.45,
+          "end": 52.66
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The starting point was the camera obscura, a darkened room or box with a small hole in one wall. Light from outside passes through the hole and projects an upside-down picture of the scene on the opposite wall. Artists had used it for centuries to help them draw.",
+          "start": 53.01,
+          "end": 66.86
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The problem was how to make the picture permanent. In the eighteen twenties, a French inventor named Nicéphore Niépce coated a metal plate with a light-sensitive substance called bitumen, and placed it in a camera obscura at an upstairs window. After an exposure of about eight hours, he had the oldest surviving photograph, a view of rooftops and a courtyard.",
+          "start": 67.21,
+          "end": 85.66
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Niépce later worked with Louis Daguerre, who discovered that a plate coated with silver, and treated with the vapour of mercury, produced a much clearer image in only a few minutes. The process was announced in eighteen thirty-nine. But each daguerreotype was unique, and it could not be copied.",
+          "start": 86.01,
+          "end": 100.77
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Meanwhile, in England, William Henry Fox Talbot developed a process using paper to make a negative, from which any number of positive prints could be made. That is the principle on which film photography was based until the digital age.",
+          "start": 101.12,
+          "end": 114.09
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Photography became widespread only when George Eastman introduced the Kodak camera in eighteen eighty-eight. It was loaded with a roll of film, and his slogan was, you press the button, we do the rest. Customers sent the whole camera back to the factory, where the film was developed and the camera was reloaded.",
+          "start": 114.44,
+          "end": 130.4
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The effects were far-reaching. Before photography, only wealthy people could afford a painted portrait. Now ordinary families could have a picture of themselves, and newspapers and scientists could record events and discoveries accurately. Next week we'll look at early cinema.",
+          "start": 130.75,
+          "end": 145.3
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 146.2,
+          "end": 150.6
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 180.6,
+          "end": 183.31
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The invention of photography",
+          "content": [
+            "## Before photography",
+            "• The camera obscura: light passes through a small {{31}} in a dark box",
+            "• Artists used it to help them {{32}}",
+            "## The first photographs",
+            "• Niépce coated a metal plate with {{33}}",
+            "• The exposure lasted about {{34}} hours",
+            "• Daguerre used the vapour of {{35}} to produce the image",
+            "• A daguerreotype was unique and could not be {{36}}",
+            "## Later developments",
+            "• Talbot made a negative using {{37}}",
+            "• Eastman's Kodak (1888) was loaded with a roll of {{38}}",
+            "• Customers sent the whole {{39}} back to the factory",
+            "• Before photography, only rich people could afford a painted {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "hole"
+              ],
+              "explanation": "‘A darkened room or box with a small hole in one wall.’",
+              "cue": "a small hole in one wall"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "draw"
+              ],
+              "explanation": "‘Artists had used it for centuries to help them draw.’",
+              "cue": "to help them draw"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "bitumen"
+              ],
+              "explanation": "‘Niépce coated a metal plate with a light-sensitive substance called bitumen.’",
+              "cue": "a light-sensitive substance called bitumen"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "8",
+                "eight"
+              ],
+              "explanation": "‘After an exposure of about eight hours, he had the oldest surviving photograph.’",
+              "cue": "an exposure of about eight hours"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "mercury"
+              ],
+              "explanation": "‘A plate coated with silver, and treated with the vapour of mercury.’",
+              "cue": "the vapour of mercury"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "copied"
+              ],
+              "explanation": "‘Each daguerreotype was unique, and it could not be copied.’",
+              "cue": "it could not be copied"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "paper"
+              ],
+              "explanation": "‘Talbot developed a process using paper to make a negative.’",
+              "cue": "using paper to make a negative"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "film"
+              ],
+              "explanation": "‘It was loaded with a roll of film.’",
+              "cue": "a roll of film"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "camera"
+              ],
+              "explanation": "‘Customers sent the whole camera back to the factory.’",
+              "cue": "Customers sent the whole camera back to the factory"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "portrait"
+              ],
+              "explanation": "‘Before photography, only wealthy people could afford a painted portrait.’",
+              "cue": "afford a painted portrait"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-28/part4.mp3",
+        "duration": 184.11
+      }
+    }
+  ],
+  "durationMinutes": 15
+}

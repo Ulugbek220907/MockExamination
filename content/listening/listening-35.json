@@ -1,0 +1,1216 @@
+{
+  "id": "listening-35",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 35",
+  "shortTitle": "Practice Test 35",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 35,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "dunne": {
+      "name": "Ms Dunne",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "tariq": {
+      "name": "Tariq",
+      "voice": "am_adam",
+      "lang": "en-us"
+    },
+    "gordon": {
+      "name": "Ms Gordon",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "hugo": {
+      "name": "Hugo",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "ayesha": {
+      "name": "Ayesha",
+      "voice": "af_bella",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Enquiring about a nursery place",
+      "context": "A father phones a nursery to ask about a place for his daughter.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a father phoning a nursery to ask about a place for his daughter. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.86
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.86,
+          "end": 38.93
+        },
+        {
+          "speaker": "dunne",
+          "text": "Little Acorns Nursery, Ms Dunne speaking.",
+          "start": 39.83,
+          "end": 42.79
+        },
+        {
+          "speaker": "tariq",
+          "text": "Good morning. I'm calling about a nursery place for my daughter. We've just moved to the area.",
+          "start": 43.29,
+          "end": 48.22
+        },
+        {
+          "speaker": "dunne",
+          "text": "Welcome. I'd be happy to help. I'll take a few details first.",
+          "start": 48.72,
+          "end": 52.41
+        },
+        {
+          "speaker": "narrator",
+          "text": "The place is for his daughter, so 'daughter' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.31,
+          "end": 67.92
+        },
+        {
+          "speaker": "dunne",
+          "text": "Could I have your name, please?",
+          "start": 68.82,
+          "end": 70.76
+        },
+        {
+          "speaker": "tariq",
+          "text": "Tariq Mahmood. That's M-A-H-M-O-O-D.",
+          "start": 71.26,
+          "end": 76.73
+        },
+        {
+          "speaker": "dunne",
+          "text": "Thank you, Mr Mahmood. And your daughter's name?",
+          "start": 77.23,
+          "end": 80.16
+        },
+        {
+          "speaker": "tariq",
+          "text": "Amira. A-M-I-R-A.",
+          "start": 80.66,
+          "end": 84.48
+        },
+        {
+          "speaker": "dunne",
+          "text": "How old is she?",
+          "start": 84.98,
+          "end": 86.47
+        },
+        {
+          "speaker": "tariq",
+          "text": "She's two. She'll be three in December, but we'd like her to start now.",
+          "start": 86.97,
+          "end": 90.25
+        },
+        {
+          "speaker": "dunne",
+          "text": "That's fine. We take children from two years old. When would you like her to start?",
+          "start": 90.75,
+          "end": 95.34
+        },
+        {
+          "speaker": "tariq",
+          "text": "As soon as possible. Would the second of September be possible?",
+          "start": 95.84,
+          "end": 99.25
+        },
+        {
+          "speaker": "dunne",
+          "text": "Yes, there is a place from then. And how many days a week would you need?",
+          "start": 99.75,
+          "end": 103.74
+        },
+        {
+          "speaker": "tariq",
+          "text": "Three days, because my wife and I both work part-time. We thought Monday to Wednesday.",
+          "start": 104.24,
+          "end": 109.04
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 109.94,
+          "end": 115.66
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 135.66,
+          "end": 138.99
+        },
+        {
+          "speaker": "dunne",
+          "text": "Let me explain our sessions. We have three kinds. The morning session runs from eight o'clock until twelve, and it's twenty-two pounds.",
+          "start": 139.89,
+          "end": 147.46
+        },
+        {
+          "speaker": "tariq",
+          "text": "And in the afternoon?",
+          "start": 147.96,
+          "end": 149.16
+        },
+        {
+          "speaker": "dunne",
+          "text": "The afternoon session starts at one o'clock and finishes at six, and it costs eighteen pounds. It's cheaper because there's no meal.",
+          "start": 149.66,
+          "end": 157.19
+        },
+        {
+          "speaker": "tariq",
+          "text": "I see. Is there an option for the whole day?",
+          "start": 157.69,
+          "end": 159.99
+        },
+        {
+          "speaker": "dunne",
+          "text": "Yes, the full day is from eight until six, and it's thirty-five pounds. That includes lunch, which is cooked fresh in our kitchen, and an afternoon snack.",
+          "start": 160.49,
+          "end": 169.11
+        },
+        {
+          "speaker": "tariq",
+          "text": "That would suit us best, since both of us finish work late. Can we visit first?",
+          "start": 169.61,
+          "end": 173.79
+        },
+        {
+          "speaker": "dunne",
+          "text": "Of course. Visits are on Thursday mornings, and you're welcome to bring Amira. We'll show you the rooms and the garden.",
+          "start": 174.29,
+          "end": 180.56
+        },
+        {
+          "speaker": "tariq",
+          "text": "Thank you. I'll come on Thursday.",
+          "start": 181.06,
+          "end": 182.79
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 183.69,
+          "end": 188.21
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Little Acorns Nursery – enquiry",
+          "content": [
+            "Example: Place is for his **daughter**",
+            "## Details",
+            "• Father's name: Tariq {{1}}",
+            "• Child's name: {{2}}",
+            "• Age: {{3}}",
+            "• Start date: {{4}} September",
+            "• Needs {{5}} days a week"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Mahmood"
+              ],
+              "explanation": "He spells his surname: ‘M-A-H-M-O-O-D’.",
+              "cue": "M-A-H-M-O-O-D"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Amira"
+              ],
+              "explanation": "‘Amira. A-M-I-R-A.’",
+              "cue": "Amira. A-M-I-R-A"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "2",
+                "two"
+              ],
+              "explanation": "‘She's two. She'll be three in December.’",
+              "cue": "She's two"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "2",
+                "second",
+                "2nd"
+              ],
+              "explanation": "‘Would the second of September be possible?’ ‘Yes.’",
+              "cue": "the second of September"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘Three days, because my wife and I both work part-time.’",
+              "cue": "Three days, because my wife and I both work part-time"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Sessions",
+          "content": {
+            "headers": [
+              "Session",
+              "Time",
+              "Price"
+            ],
+            "rows": [
+              [
+                "Morning",
+                "8 a.m. to {{6}}",
+                "£22"
+              ],
+              [
+                "Afternoon",
+                "{{7}} p.m. to 6 p.m.",
+                "£{{8}}"
+              ],
+              [
+                "Full day",
+                "8 a.m. to 6 p.m.",
+                "£{{9}}, including {{10}}"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "12",
+                "twelve",
+                "noon"
+              ],
+              "explanation": "‘The morning session runs from eight o'clock until twelve.’",
+              "cue": "from eight o'clock until twelve"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "1",
+                "one"
+              ],
+              "explanation": "‘The afternoon session starts at one o'clock.’",
+              "cue": "starts at one o'clock"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "18",
+                "eighteen"
+              ],
+              "explanation": "‘It costs eighteen pounds. It's cheaper because there's no meal.’",
+              "cue": "it costs eighteen pounds"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "35",
+                "thirty-five"
+              ],
+              "explanation": "‘The full day is from eight until six, and it's thirty-five pounds.’",
+              "cue": "it's thirty-five pounds"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "lunch"
+              ],
+              "explanation": "‘That includes lunch, which is cooked fresh in our kitchen.’",
+              "cue": "That includes lunch"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-35/part1.mp3",
+        "duration": 219.01
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A charity bookshop",
+      "context": "The manager of a charity bookshop explains the volunteer roles.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the manager of a charity bookshop talking to new volunteers. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.22
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.22,
+          "end": 39.49
+        },
+        {
+          "speaker": "gordon",
+          "text": "Welcome, everyone, and thank you for volunteering at the Harbour Bookshop. I'm Liz Gordon, the manager. Let me explain how the week is organised, because each job has its own day.",
+          "start": 40.39,
+          "end": 50.01
+        },
+        {
+          "speaker": "gordon",
+          "text": "Sorting donations is on Monday mornings. That's when the weekend's bags of books are opened, and it's a big job, so we need four people for it.",
+          "start": 50.36,
+          "end": 58.21
+        },
+        {
+          "speaker": "gordon",
+          "text": "Once the books have been sorted, they need to be priced. That's done on Wednesdays, using a price guide. You'd be surprised how many books are worth more than they look.",
+          "start": 58.56,
+          "end": 66.69
+        },
+        {
+          "speaker": "gordon",
+          "text": "The window displays are changed on Thursday mornings. If you're creative, this is the job for you. The theme changes each month.",
+          "start": 67.04,
+          "end": 74.06
+        },
+        {
+          "speaker": "gordon",
+          "text": "Our online sales are handled on Tuesday afternoons. We list the more valuable books on the internet, which brings in nearly a third of our income.",
+          "start": 74.41,
+          "end": 82.41
+        },
+        {
+          "speaker": "gordon",
+          "text": "And on Saturdays, when the shop is busiest, we need people to work at the till, and chat with the customers. We're closed on Sundays, so there's no volunteering then.",
+          "start": 82.76,
+          "end": 91.57
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 92.47,
+          "end": 98.18
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 123.18,
+          "end": 127.07
+        },
+        {
+          "speaker": "gordon",
+          "text": "A few more details. The shop raises money for a charity that supports homeless people, with hostels and a free meal service. Everything we earn, after paying for the rent and the electricity, goes to the charity.",
+          "start": 127.97,
+          "end": 139.72
+        },
+        {
+          "speaker": "gordon",
+          "text": "On a normal day, we need four volunteers in the shop. That's enough to keep things running smoothly, but if you can't come, please let me know the day before.",
+          "start": 140.07,
+          "end": 148.37
+        },
+        {
+          "speaker": "gordon",
+          "text": "You don't need any special qualifications. All new volunteers have an informal interview with me, which is really just a conversation about what you'd like to do, and what you're good at.",
+          "start": 148.72,
+          "end": 158.88
+        },
+        {
+          "speaker": "gordon",
+          "text": "A word about the books themselves. Volunteers receive a thirty percent discount on anything they buy, but nobody can take items home before they've been priced, to keep things fair.",
+          "start": 159.23,
+          "end": 169.32
+        },
+        {
+          "speaker": "gordon",
+          "text": "And to say thank you, every December we hold a dinner for all the volunteers, which is paid for by a local restaurant. Now, let me show you round.",
+          "start": 169.67,
+          "end": 177.5
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 178.4,
+          "end": 182.73
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "When does each volunteer job take place? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 11–15.",
+          "optionsTitle": "Days",
+          "options": [
+            {
+              "key": "A",
+              "text": "Monday mornings"
+            },
+            {
+              "key": "B",
+              "text": "Tuesday afternoons"
+            },
+            {
+              "key": "C",
+              "text": "Wednesdays"
+            },
+            {
+              "key": "D",
+              "text": "Thursday mornings"
+            },
+            {
+              "key": "E",
+              "text": "Friday afternoons"
+            },
+            {
+              "key": "F",
+              "text": "Saturdays"
+            },
+            {
+              "key": "G",
+              "text": "Sundays"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "sorting donations",
+              "answer": "A",
+              "explanation": "‘Sorting donations is on Monday mornings.’",
+              "cue": "Sorting donations is on Monday mornings"
+            },
+            {
+              "number": 12,
+              "prompt": "pricing books",
+              "answer": "C",
+              "explanation": "‘They need to be priced. That's done on Wednesdays.’",
+              "cue": "That's done on Wednesdays"
+            },
+            {
+              "number": 13,
+              "prompt": "working at the till",
+              "answer": "F",
+              "explanation": "‘On Saturdays, when the shop is busiest, we need people to work at the till.’ The shop is closed on Sundays.",
+              "cue": "on Saturdays, when the shop is busiest, we need people to work at the till"
+            },
+            {
+              "number": 14,
+              "prompt": "window displays",
+              "answer": "D",
+              "explanation": "‘The window displays are changed on Thursday mornings.’",
+              "cue": "The window displays are changed on Thursday mornings"
+            },
+            {
+              "number": 15,
+              "prompt": "online sales",
+              "answer": "B",
+              "explanation": "‘Our online sales are handled on Tuesday afternoons.’",
+              "cue": "Our online sales are handled on Tuesday afternoons"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "What does the charity do?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It trains guide dogs."
+                },
+                {
+                  "key": "B",
+                  "text": "It supports homeless people."
+                },
+                {
+                  "key": "C",
+                  "text": "It funds medical research."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The shop raises money for a charity that supports homeless people.’",
+              "cue": "a charity that supports homeless people"
+            },
+            {
+              "number": 17,
+              "prompt": "How many volunteers are needed in the shop on a normal day?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "two"
+                },
+                {
+                  "key": "B",
+                  "text": "four"
+                },
+                {
+                  "key": "C",
+                  "text": "six"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘On a normal day, we need four volunteers in the shop.’",
+              "cue": "we need four volunteers in the shop"
+            },
+            {
+              "number": 18,
+              "prompt": "What must new volunteers do first?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "have an informal interview"
+                },
+                {
+                  "key": "B",
+                  "text": "have a police check"
+                },
+                {
+                  "key": "C",
+                  "text": "take a first-aid course"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘All new volunteers have an informal interview with me.’",
+              "cue": "an informal interview with me"
+            },
+            {
+              "number": 19,
+              "prompt": "What is the rule about buying books?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Volunteers can borrow books for free."
+                },
+                {
+                  "key": "B",
+                  "text": "Volunteers get a discount."
+                },
+                {
+                  "key": "C",
+                  "text": "Volunteers cannot buy books."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Volunteers receive a thirty percent discount on anything they buy.’",
+              "cue": "Volunteers receive a thirty percent discount"
+            },
+            {
+              "number": 20,
+              "prompt": "How are volunteers thanked?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "with a yearly dinner"
+                },
+                {
+                  "key": "B",
+                  "text": "with a free lunch each shift"
+                },
+                {
+                  "key": "C",
+                  "text": "with a certificate"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Every December we hold a dinner for all the volunteers.’",
+              "cue": "every December we hold a dinner for all the volunteers"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-35/part2.mp3",
+        "duration": 213.53
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A report on a lunar eclipse",
+      "context": "Two astronomy students write up their observation of a lunar eclipse.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two astronomy students, Hugo and Ayesha, discussing their report on a lunar eclipse. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.53
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.53,
+          "end": 42.24
+        },
+        {
+          "speaker": "hugo",
+          "text": "Ayesha, did you manage to photograph the eclipse last night? I couldn't see anything. It was completely cloudy here.",
+          "start": 43.14,
+          "end": 50.03
+        },
+        {
+          "speaker": "ayesha",
+          "text": "It was clear for the first hour, and I got some good pictures before the clouds came.",
+          "start": 50.53,
+          "end": 55.25
+        },
+        {
+          "speaker": "hugo",
+          "text": "Lucky you. What equipment did you use?",
+          "start": 55.75,
+          "end": 58.26
+        },
+        {
+          "speaker": "ayesha",
+          "text": "My phone on a tripod, and my brother's binoculars. I'd borrowed a telescope from the department, but the battery for its motor was flat.",
+          "start": 58.76,
+          "end": 67.25
+        },
+        {
+          "speaker": "hugo",
+          "text": "What time did the eclipse become total?",
+          "start": 67.75,
+          "end": 70.12
+        },
+        {
+          "speaker": "ayesha",
+          "text": "At eleven fifty, and it lasted about an hour, which is quite long.",
+          "start": 70.62,
+          "end": 74.55
+        },
+        {
+          "speaker": "hugo",
+          "text": "What colour did the moon turn?",
+          "start": 75.05,
+          "end": 76.84
+        },
+        {
+          "speaker": "ayesha",
+          "text": "Darker than I expected, a deep orange rather than bright red. I think there was a lot of dust in the atmosphere.",
+          "start": 77.34,
+          "end": 84.14
+        },
+        {
+          "speaker": "hugo",
+          "text": "Our tutor wants us to compare our photographs with the predictions.",
+          "start": 84.64,
+          "end": 88.25
+        },
+        {
+          "speaker": "ayesha",
+          "text": "I did that this morning. The prediction was within two minutes of what I saw, which is impressive.",
+          "start": 88.75,
+          "end": 94.25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 95.15,
+          "end": 101.3
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 121.3,
+          "end": 125.14
+        },
+        {
+          "speaker": "hugo",
+          "text": "Now the explanation section. I'll draft it. A lunar eclipse happens when the Earth moves between the sun and the moon.",
+          "start": 126.04,
+          "end": 133.5
+        },
+        {
+          "speaker": "ayesha",
+          "text": "Right, so the moon passes into the Earth's shadow, and you'd expect it to go completely dark.",
+          "start": 134.0,
+          "end": 139.1
+        },
+        {
+          "speaker": "hugo",
+          "text": "But it doesn't, because some of the sunlight is bent by the Earth's atmosphere, and still reaches the moon.",
+          "start": 139.6,
+          "end": 145.51
+        },
+        {
+          "speaker": "ayesha",
+          "text": "And that light is mainly red, because the blue light is scattered away. It's the same reason that sunsets are red.",
+          "start": 146.01,
+          "end": 152.82
+        },
+        {
+          "speaker": "hugo",
+          "text": "That's a nice link. Then the moon's orbit carries it out of the shadow again, and the eclipse ends.",
+          "start": 153.32,
+          "end": 159.1
+        },
+        {
+          "speaker": "ayesha",
+          "text": "Shall we add a diagram?",
+          "start": 159.6,
+          "end": 160.96
+        },
+        {
+          "speaker": "hugo",
+          "text": "Yes, I'll draw one this evening. You write the observations section.",
+          "start": 161.46,
+          "end": 165.69
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 166.59,
+          "end": 171.05
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What happened to Ayesha's observation of the eclipse?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It was cloudy all night."
+                },
+                {
+                  "key": "B",
+                  "text": "Clouds came after the first hour."
+                },
+                {
+                  "key": "C",
+                  "text": "She fell asleep."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘It was clear for the first hour, and I got some good pictures before the clouds came.’",
+              "cue": "I got some good pictures before the clouds came"
+            },
+            {
+              "number": 22,
+              "prompt": "Why didn't Ayesha use the telescope?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It was broken."
+                },
+                {
+                  "key": "B",
+                  "text": "Its battery was flat."
+                },
+                {
+                  "key": "C",
+                  "text": "It was too heavy."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The battery for its motor was flat.’",
+              "cue": "the battery for its motor was flat"
+            },
+            {
+              "number": 23,
+              "prompt": "When did the eclipse become total?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at 11.20"
+                },
+                {
+                  "key": "B",
+                  "text": "at 11.50"
+                },
+                {
+                  "key": "C",
+                  "text": "at 12.30"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘At eleven fifty, and it lasted about an hour.’",
+              "cue": "At eleven fifty"
+            },
+            {
+              "number": 24,
+              "prompt": "Why was the moon's colour different from what Ayesha expected?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There was dust in the atmosphere."
+                },
+                {
+                  "key": "B",
+                  "text": "Her camera settings were wrong."
+                },
+                {
+                  "key": "C",
+                  "text": "Street lights were too bright."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Darker than I expected … I think there was a lot of dust in the atmosphere.’",
+              "cue": "I think there was a lot of dust in the atmosphere"
+            },
+            {
+              "number": 25,
+              "prompt": "How accurate was the prediction?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "exactly right"
+                },
+                {
+                  "key": "B",
+                  "text": "within two minutes"
+                },
+                {
+                  "key": "C",
+                  "text": "about ten minutes out"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The prediction was within two minutes of what I saw.’",
+              "cue": "The prediction was within two minutes"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "How a lunar eclipse happens",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "Earth"
+            },
+            {
+              "key": "B",
+              "text": "sun"
+            },
+            {
+              "key": "C",
+              "text": "shadow"
+            },
+            {
+              "key": "D",
+              "text": "moon"
+            },
+            {
+              "key": "E",
+              "text": "atmosphere"
+            },
+            {
+              "key": "F",
+              "text": "orbit"
+            },
+            {
+              "key": "G",
+              "text": "red"
+            }
+          ],
+          "content": [
+            "The {{26}} moves between the sun and the moon.",
+            "The moon passes into the Earth's {{27}}.",
+            "Some sunlight is bent by the Earth's {{28}} and still reaches the moon.",
+            "This light is mainly {{29}}, so the moon looks reddish.",
+            "The moon's {{30}} carries it out of the shadow again."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘A lunar eclipse happens when the Earth moves between the sun and the moon.’",
+              "cue": "when the Earth moves between the sun and the moon"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘The moon passes into the Earth's shadow.’",
+              "cue": "the moon passes into the Earth's shadow"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "E"
+              ],
+              "explanation": "‘Some of the sunlight is bent by the Earth's atmosphere, and still reaches the moon.’",
+              "cue": "bent by the Earth's atmosphere"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "G"
+              ],
+              "explanation": "‘That light is mainly red, because the blue light is scattered away.’",
+              "cue": "that light is mainly red"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "F"
+              ],
+              "explanation": "‘Then the moon's orbit carries it out of the shadow again.’",
+              "cue": "the moon's orbit carries it out of the shadow"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-35/part3.mp3",
+        "duration": 201.85
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the history of chocolate",
+      "context": "A history lecture on chocolate, from the Maya to milk chocolate.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of chocolate. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.71
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.71,
+          "end": 43.12
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Chocolate is one of the world's favourite foods, yet for most of its history it was not sweet, and it was not eaten. It was a drink, and a bitter one.",
+          "start": 44.02,
+          "end": 52.96
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Cacao trees grow naturally in the tropical forests of Central and South America. The first people to turn the beans into a drink were probably the peoples of Mesoamerica, and by the time of the Maya and the Aztecs, it was an important part of life. They prepared it with water, and flavoured it with chilli and other spices. It was frothy, and quite different from the hot chocolate we know.",
+          "start": 53.31,
+          "end": 72.62
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The beans were so valuable that they were also used as money. Records show that a rabbit could be bought for ten beans, and a day's work paid in a small handful.",
+          "start": 72.97,
+          "end": 81.82
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The Spanish brought cacao to Europe in the sixteenth century. They didn't like the bitter taste, so they added sugar, and sometimes honey and cinnamon, and the sweet drink became fashionable at the royal courts. For two centuries, it remained a luxury for the rich.",
+          "start": 82.17,
+          "end": 95.78
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The industrial age transformed it. In eighteen twenty-eight, a Dutch chemist called Van Houten invented a press that squeezed the fat out of the beans, and produced cocoa powder, which was cheaper, and mixed more easily with water. Then in eighteen forty-seven, the English firm of Fry made the first solid bar of eating chocolate.",
+          "start": 96.13,
+          "end": 112.99
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The next step was milk chocolate. In eighteen seventy-five, a Swiss chocolate maker named Daniel Peter combined cocoa with condensed milk, with the help of his neighbour, Henri Nestlé, who made milk products. The result was smoother and sweeter, and it made chocolate popular with children.",
+          "start": 113.34,
+          "end": 128.44
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Today, most cacao is grown in West Africa, by millions of small farmers, many of whom earn very little. There are serious concerns about child labour on some farms, and that is why fair-trade and certification schemes have become so important. Next week we'll look at the history of coffee.",
+          "start": 128.79,
+          "end": 144.3
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 145.2,
+          "end": 149.59
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 179.59,
+          "end": 182.3
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The history of chocolate",
+          "content": [
+            "## Origins",
+            "• The Maya and the {{31}} drank chocolate as a bitter drink",
+            "• It was often flavoured with {{32}}",
+            "• Cacao beans were also used as {{33}}",
+            "## Europe",
+            "• The Spanish brought cacao to Europe in the sixteenth {{34}}",
+            "• Europeans added {{35}} to make it sweeter",
+            "## The industrial age",
+            "• 1828: Van Houten invented a {{36}} that produced cocoa powder",
+            "• 1847: the English firm of Fry made the first solid {{37}}",
+            "• 1875: Daniel Peter combined cocoa with condensed {{38}}",
+            "## Today",
+            "• Most cacao is grown in West {{39}}",
+            "• There are concerns about child {{40}} on some farms"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "Aztecs"
+              ],
+              "explanation": "‘By the time of the Maya and the Aztecs, it was an important part of life.’",
+              "cue": "the Maya and the Aztecs"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "chilli",
+                "chili"
+              ],
+              "explanation": "‘They prepared it with water, and flavoured it with chilli and other spices.’",
+              "cue": "flavoured it with chilli"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "money"
+              ],
+              "explanation": "‘The beans were so valuable that they were also used as money.’",
+              "cue": "used as money"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "century"
+              ],
+              "explanation": "‘The Spanish brought cacao to Europe in the sixteenth century.’",
+              "cue": "in the sixteenth century"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "sugar"
+              ],
+              "explanation": "‘They didn't like the bitter taste, so they added sugar.’",
+              "cue": "so they added sugar"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "press"
+              ],
+              "explanation": "‘Van Houten invented a press that squeezed the fat out of the beans.’",
+              "cue": "invented a press"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "bar"
+              ],
+              "explanation": "‘The English firm of Fry made the first solid bar of eating chocolate.’",
+              "cue": "the first solid bar of eating chocolate"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "milk"
+              ],
+              "explanation": "‘Daniel Peter combined cocoa with condensed milk.’",
+              "cue": "combined cocoa with condensed milk"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "Africa"
+              ],
+              "explanation": "‘Today, most cacao is grown in West Africa.’",
+              "cue": "grown in West Africa"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "labour"
+              ],
+              "explanation": "‘There are serious concerns about child labour on some farms.’",
+              "cue": "child labour on some farms"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-35/part4.mp3",
+        "duration": 183.1
+      }
+    }
+  ],
+  "durationMinutes": 14
+}

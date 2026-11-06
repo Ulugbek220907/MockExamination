@@ -1,0 +1,1242 @@
+{
+  "id": "listening-30",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 30",
+  "shortTitle": "Practice Test 30",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 30,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "nina": {
+      "name": "Nina",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "kenji": {
+      "name": "Kenji",
+      "voice": "am_adam",
+      "lang": "en-us"
+    },
+    "grant": {
+      "name": "Mr Grant",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "imogen": {
+      "name": "Imogen",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "raj": {
+      "name": "Raj",
+      "voice": "am_fenrir",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Joining a language exchange club",
+      "context": "A man phones a club to ask about practising French.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a language exchange club to ask about joining. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.9
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.9,
+          "end": 38.97
+        },
+        {
+          "speaker": "nina",
+          "text": "Hello, Lingua Club, Nina speaking.",
+          "start": 39.87,
+          "end": 42.24
+        },
+        {
+          "speaker": "kenji",
+          "text": "Hello. I'm interested in joining your club, to practise my French. A colleague told me about it.",
+          "start": 42.74,
+          "end": 48.05
+        },
+        {
+          "speaker": "nina",
+          "text": "Wonderful. We have lots of French speakers. Let me take a few details first.",
+          "start": 48.55,
+          "end": 53.07
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller wants to practise French, so 'French' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.97,
+          "end": 68.8
+        },
+        {
+          "speaker": "nina",
+          "text": "Can I have your name, please?",
+          "start": 69.7,
+          "end": 71.66
+        },
+        {
+          "speaker": "kenji",
+          "text": "Kenji Watanabe. That's W-A-T-A-N-A-B-E.",
+          "start": 72.16,
+          "end": 78.77
+        },
+        {
+          "speaker": "nina",
+          "text": "Thank you, Kenji. Is English your first language?",
+          "start": 79.27,
+          "end": 82.21
+        },
+        {
+          "speaker": "kenji",
+          "text": "No, I grew up in Osaka, so my first language is Japanese. I've lived here for six years.",
+          "start": 82.71,
+          "end": 88.22
+        },
+        {
+          "speaker": "nina",
+          "text": "And how would you describe your level of French?",
+          "start": 88.72,
+          "end": 91.36
+        },
+        {
+          "speaker": "kenji",
+          "text": "I studied it for years at school, so people expect me to be advanced, but honestly I'd say intermediate. I can read well, but I find speaking difficult.",
+          "start": 91.86,
+          "end": 100.42
+        },
+        {
+          "speaker": "nina",
+          "text": "That's very common, and it's exactly why people join. Why do you need French now?",
+          "start": 100.92,
+          "end": 105.65
+        },
+        {
+          "speaker": "kenji",
+          "text": "My company is sending me to work in Geneva next spring, so I want to be confident by then.",
+          "start": 106.15,
+          "end": 111.31
+        },
+        {
+          "speaker": "nina",
+          "text": "That's a good reason. And which evenings are you free?",
+          "start": 111.81,
+          "end": 114.91
+        },
+        {
+          "speaker": "kenji",
+          "text": "Mostly Tuesdays. On Wednesdays I have a class, and on Thursdays I play football.",
+          "start": 115.41,
+          "end": 119.99
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 120.89,
+          "end": 126.61
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 146.61,
+          "end": 149.94
+        },
+        {
+          "speaker": "nina",
+          "text": "Then let me explain what we offer. We have three kinds of meeting. The conversation night is on Tuesdays at the Riverside Café, and it's free. You only pay for your own coffee.",
+          "start": 150.84,
+          "end": 160.87
+        },
+        {
+          "speaker": "kenji",
+          "text": "That sounds ideal. What else is there?",
+          "start": 161.37,
+          "end": 163.5
+        },
+        {
+          "speaker": "nina",
+          "text": "There's also a film club, which is held in the university library, in the small cinema room. We show a French film and talk about it afterwards. It starts at eight in the evening, and it costs four pounds.",
+          "start": 164.0,
+          "end": 175.56
+        },
+        {
+          "speaker": "kenji",
+          "text": "And at the weekend?",
+          "start": 176.06,
+          "end": 177.21
+        },
+        {
+          "speaker": "nina",
+          "text": "On Sunday mornings there's a walk. We meet at the old bridge, and we speak only French, or the language of the person we're walking with. It's three pounds, which pays for refreshments at the end.",
+          "start": 177.71,
+          "end": 188.04
+        },
+        {
+          "speaker": "kenji",
+          "text": "I'd like to try the conversation night first. Do I need to book?",
+          "start": 188.54,
+          "end": 192.04
+        },
+        {
+          "speaker": "nina",
+          "text": "No, just come along. Look for a table with a small French flag on it. And do bring a notebook, because everyone writes down new words.",
+          "start": 192.54,
+          "end": 200.15
+        },
+        {
+          "speaker": "kenji",
+          "text": "Thank you. I'll see you on Tuesday.",
+          "start": 200.65,
+          "end": 202.45
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 203.35,
+          "end": 207.87
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Lingua Club – new member",
+          "content": [
+            "Example: Wants to practise **French**",
+            "## Details",
+            "• Name: Kenji {{1}}",
+            "• First language: {{2}}",
+            "• Level of French: {{3}}",
+            "• Moving to {{4}} for work",
+            "• Free on {{5}} evenings"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Watanabe"
+              ],
+              "explanation": "He spells his surname: ‘W-A-T-A-N-A-B-E’.",
+              "cue": "W-A-T-A-N-A-B-E"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Japanese"
+              ],
+              "explanation": "‘I grew up in Osaka, so my first language is Japanese.’",
+              "cue": "my first language is Japanese"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "intermediate"
+              ],
+              "explanation": "People expect him to be advanced, ‘but honestly I'd say intermediate’.",
+              "cue": "I'd say intermediate"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "Geneva"
+              ],
+              "explanation": "‘My company is sending me to work in Geneva next spring.’",
+              "cue": "sending me to work in Geneva"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "Tuesday",
+                "Tuesdays"
+              ],
+              "explanation": "‘Mostly Tuesdays.’ He has a class on Wednesdays and plays football on Thursdays.",
+              "cue": "Mostly Tuesdays"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Club meetings",
+          "content": {
+            "headers": [
+              "Meeting",
+              "Place",
+              "Time or cost"
+            ],
+            "rows": [
+              [
+                "Conversation night",
+                "the {{6}} Café",
+                "Tuesdays, free"
+              ],
+              [
+                "Film club",
+                "the university {{7}}",
+                "{{8}} p.m., £4"
+              ],
+              [
+                "Weekend walk",
+                "the old {{9}}",
+                "Sunday mornings, £{{10}}"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "Riverside"
+              ],
+              "explanation": "‘The conversation night is on Tuesdays at the Riverside Café.’",
+              "cue": "at the Riverside Café"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "library"
+              ],
+              "explanation": "‘It's held in the university library, in the small cinema room.’",
+              "cue": "held in the university library"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "8",
+                "eight"
+              ],
+              "explanation": "‘It starts at eight in the evening, and it costs four pounds.’",
+              "cue": "It starts at eight in the evening"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "bridge"
+              ],
+              "explanation": "‘We meet at the old bridge.’",
+              "cue": "We meet at the old bridge"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘It's three pounds, which pays for refreshments at the end.’",
+              "cue": "It's three pounds"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-30/part1.mp3",
+        "duration": 238.67
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A textile museum",
+      "context": "A curator introduces the museum and some of its exhibits.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a curator giving an introductory talk at a textile museum. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.39
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.39,
+          "end": 39.66
+        },
+        {
+          "speaker": "grant",
+          "text": "Good morning, everyone, and welcome to the Calder Textile Museum. My name's Alan Grant, and I'm the curator. I'll begin with a little history, then tell you about some of our best exhibits.",
+          "start": 40.56,
+          "end": 51.27
+        },
+        {
+          "speaker": "grant",
+          "text": "The museum was founded in eighteen ninety-seven, but that was in a different building. It moved here in nineteen twenty-three, and the collection has grown ever since.",
+          "start": 51.62,
+          "end": 60.49
+        },
+        {
+          "speaker": "grant",
+          "text": "This building was originally a wool warehouse, which is why the rooms are so large and the floors so strong. Many visitors expect it was a cotton mill, because there were so many in this region, but it was always used for wool.",
+          "start": 60.84,
+          "end": 72.87
+        },
+        {
+          "speaker": "grant",
+          "text": "Our biggest challenge is light. Sunlight and even electric light slowly destroy the colours of old fabrics, so most of our rooms are kept quite dark, and we ask you not to use flash.",
+          "start": 73.22,
+          "end": 83.36
+        },
+        {
+          "speaker": "grant",
+          "text": "We now have about twelve thousand items in the collection. Only about a tenth are on display at any time, so we change the exhibits every six months. This year we've also introduced something new: an audio guide, which is available in five languages. It's free with your ticket.",
+          "start": 83.71,
+          "end": 98.36
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 99.26,
+          "end": 104.98
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 129.98,
+          "end": 133.86
+        },
+        {
+          "speaker": "grant",
+          "text": "Let me tell you about five of our favourite items. In the first gallery, you'll see a silk banner from the seventeenth century. It's so fragile that it is rarely on display, so you're lucky to see it today.",
+          "start": 134.76,
+          "end": 145.79
+        },
+        {
+          "speaker": "grant",
+          "text": "Beside it is a cotton loom, which is the only item in the museum you may touch. Please do try the shuttle. Children love it.",
+          "start": 146.14,
+          "end": 153.44
+        },
+        {
+          "speaker": "grant",
+          "text": "Upstairs, the wedding dress in the glass case was donated by a local family. It was worn by four generations of brides, and the donor's granddaughter still visits.",
+          "start": 153.79,
+          "end": 163.18
+        },
+        {
+          "speaker": "grant",
+          "text": "Next to it, there's a wool blanket, made in the nineteen twenties. What makes it special is that it was stitched by schoolchildren, as a class project. Each square has the child's name on the back.",
+          "start": 163.53,
+          "end": 173.77
+        },
+        {
+          "speaker": "grant",
+          "text": "And finally, the printed scarf in the last gallery. It came from India, and was brought back by a traveller in the eighteen fifties. The patterns were printed with carved wooden blocks. Please enjoy the visit, and do ask any of our guides if you have questions.",
+          "start": 174.12,
+          "end": 187.32
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 188.22,
+          "end": 192.55
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "When was the museum founded?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in 1897"
+                },
+                {
+                  "key": "B",
+                  "text": "in 1923"
+                },
+                {
+                  "key": "C",
+                  "text": "in 1961"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The museum was founded in eighteen ninety-seven.’ It moved to this building in 1923.",
+              "cue": "The museum was founded in eighteen ninety-seven"
+            },
+            {
+              "number": 12,
+              "prompt": "What was the building originally used for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a school"
+                },
+                {
+                  "key": "B",
+                  "text": "a wool warehouse"
+                },
+                {
+                  "key": "C",
+                  "text": "a railway station"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘This building was originally a wool warehouse.’ It was not a cotton mill.",
+              "cue": "originally a wool warehouse"
+            },
+            {
+              "number": 13,
+              "prompt": "What is the museum's biggest challenge?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a lack of money"
+                },
+                {
+                  "key": "B",
+                  "text": "damage from light"
+                },
+                {
+                  "key": "C",
+                  "text": "a shortage of staff"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Our biggest challenge is light.’",
+              "cue": "Our biggest challenge is light"
+            },
+            {
+              "number": 14,
+              "prompt": "How many items are in the collection?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about two thousand"
+                },
+                {
+                  "key": "B",
+                  "text": "about twelve thousand"
+                },
+                {
+                  "key": "C",
+                  "text": "about fifty thousand"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘We now have about twelve thousand items in the collection.’",
+              "cue": "about twelve thousand items in the collection"
+            },
+            {
+              "number": 15,
+              "prompt": "What is new this year?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a café"
+                },
+                {
+                  "key": "B",
+                  "text": "an audio guide"
+                },
+                {
+                  "key": "C",
+                  "text": "a children's gallery"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘This year we've also introduced … an audio guide, which is available in five languages.’",
+              "cue": "an audio guide, which is available in five languages"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What does the curator say about each exhibit? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 16–20.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was made by children."
+            },
+            {
+              "key": "B",
+              "text": "It was restored last year."
+            },
+            {
+              "key": "C",
+              "text": "It is the oldest item in the collection."
+            },
+            {
+              "key": "D",
+              "text": "It was given by a local family."
+            },
+            {
+              "key": "E",
+              "text": "Visitors may touch it."
+            },
+            {
+              "key": "F",
+              "text": "It came from abroad."
+            },
+            {
+              "key": "G",
+              "text": "It is rarely on display."
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "the silk banner",
+              "answer": "G",
+              "explanation": "‘It's so fragile that it is rarely on display.’",
+              "cue": "it is rarely on display"
+            },
+            {
+              "number": 17,
+              "prompt": "the cotton loom",
+              "answer": "E",
+              "explanation": "‘The only item in the museum you may touch.’",
+              "cue": "the only item in the museum you may touch"
+            },
+            {
+              "number": 18,
+              "prompt": "the wedding dress",
+              "answer": "D",
+              "explanation": "‘The wedding dress … was donated by a local family.’",
+              "cue": "was donated by a local family"
+            },
+            {
+              "number": 19,
+              "prompt": "the wool blanket",
+              "answer": "A",
+              "explanation": "‘It was stitched by schoolchildren, as a class project.’",
+              "cue": "it was stitched by schoolchildren"
+            },
+            {
+              "number": 20,
+              "prompt": "the printed scarf",
+              "answer": "F",
+              "explanation": "‘It came from India, and was brought back by a traveller in the eighteen fifties.’",
+              "cue": "It came from India"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-30/part2.mp3",
+        "duration": 223.35
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A poster about plankton",
+      "context": "Two marine biology students plan a poster.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two marine biology students, Imogen and Raj, planning a poster about plankton. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.48
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.48,
+          "end": 42.2
+        },
+        {
+          "speaker": "imogen",
+          "text": "Raj, I've put together a first version of the plankton poster. What do you think?",
+          "start": 43.1,
+          "end": 47.66
+        },
+        {
+          "speaker": "raj",
+          "text": "It's a good start, but I can see two problems. The pictures you downloaded are low quality, and they'll look blurred when we print them at that size.",
+          "start": 48.16,
+          "end": 56.61
+        },
+        {
+          "speaker": "imogen",
+          "text": "I know. I'll look for better ones. What's the other problem?",
+          "start": 57.11,
+          "end": 60.25
+        },
+        {
+          "speaker": "raj",
+          "text": "There aren't enough sources. Dr Okoye said every claim needs a reference, and at the moment we only have two.",
+          "start": 60.75,
+          "end": 67.36
+        },
+        {
+          "speaker": "imogen",
+          "text": "You're right. I'll add some. The title is fine, I think, and I don't think there's too much text.",
+          "start": 67.86,
+          "end": 72.72
+        },
+        {
+          "speaker": "raj",
+          "text": "No, the text is fine. And the colours are easy to read. Where shall we print it?",
+          "start": 73.22,
+          "end": 77.77
+        },
+        {
+          "speaker": "imogen",
+          "text": "At the university print shop. It's cheaper for students, but it closes at four on Fridays, so we'll need to be there before that.",
+          "start": 78.27,
+          "end": 85.29
+        },
+        {
+          "speaker": "raj",
+          "text": "Then we'll go on Thursday. Now, what's the main message? I think it's that plankton produce a lot of the world's oxygen.",
+          "start": 85.79,
+          "end": 92.95
+        },
+        {
+          "speaker": "imogen",
+          "text": "Yes, about half, and that's what will surprise people. It's more important than the point that plankton are food for whales, though we can mention that.",
+          "start": 93.45,
+          "end": 101.26
+        },
+        {
+          "speaker": "raj",
+          "text": "What shall we put in the middle? I think a diagram of the food chain would be better than a photograph, because plankton are too small to photograph clearly.",
+          "start": 101.76,
+          "end": 110.15
+        },
+        {
+          "speaker": "imogen",
+          "text": "Good idea. A map of where they live is also possible, but a diagram is clearer.",
+          "start": 110.65,
+          "end": 115.45
+        },
+        {
+          "speaker": "raj",
+          "text": "I did think about adding a short quiz for visitors, but it would take up too much space.",
+          "start": 115.95,
+          "end": 120.73
+        },
+        {
+          "speaker": "imogen",
+          "text": "Agreed. A poster should be simple.",
+          "start": 121.23,
+          "end": 123.47
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 124.37,
+          "end": 130.51
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 150.51,
+          "end": 154.35
+        },
+        {
+          "speaker": "raj",
+          "text": "How long do we get at the poster session? Is it five minutes each?",
+          "start": 155.25,
+          "end": 158.9
+        },
+        {
+          "speaker": "imogen",
+          "text": "No, it's only two minutes per poster, so we'll need to be very concise.",
+          "start": 159.4,
+          "end": 163.43
+        },
+        {
+          "speaker": "raj",
+          "text": "Then we should decide who answers which questions. I'll deal with the methods, since I did the sampling on the boat.",
+          "start": 163.93,
+          "end": 170.09
+        },
+        {
+          "speaker": "imogen",
+          "text": "Fine. I'll take the questions about climate, as I wrote that part. What do we do on Thursday, apart from the printing?",
+          "start": 170.59,
+          "end": 177.04
+        },
+        {
+          "speaker": "raj",
+          "text": "I'd like us to practise the whole thing out loud, with a timer, and then ask a friend to listen.",
+          "start": 177.54,
+          "end": 182.96
+        },
+        {
+          "speaker": "imogen",
+          "text": "Good. And before Friday I want to check all the references again, because we have to submit a list with the poster.",
+          "start": 183.46,
+          "end": 189.66
+        },
+        {
+          "speaker": "raj",
+          "text": "Perfect. Let's meet in the library at ten.",
+          "start": 190.16,
+          "end": 192.36
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 193.26,
+          "end": 197.72
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO problems with the poster does Raj mention?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has too much text."
+            },
+            {
+              "key": "B",
+              "text": "The pictures are poor quality."
+            },
+            {
+              "key": "C",
+              "text": "The title is unclear."
+            },
+            {
+              "key": "D",
+              "text": "The colours are hard to read."
+            },
+            {
+              "key": "E",
+              "text": "There are too few references."
+            }
+          ],
+          "answer": [
+            "B",
+            "E"
+          ],
+          "explanation": "Raj mentions the low-quality pictures (B) and the lack of sources (E). The text and colours are fine, and the title is fine too.",
+          "questions": [
+            {
+              "number": 21,
+              "cue": "The pictures you downloaded are low quality"
+            },
+            {
+              "number": 22,
+              "cue": "There aren't enough sources"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 23,
+              "prompt": "Where will they print the poster?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the university print shop"
+                },
+                {
+                  "key": "B",
+                  "text": "at a shop in town"
+                },
+                {
+                  "key": "C",
+                  "text": "at home"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘At the university print shop. It's cheaper for students.’",
+              "cue": "At the university print shop"
+            },
+            {
+              "number": 24,
+              "prompt": "What is the main message of the poster?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Plankton produce much of the world's oxygen."
+                },
+                {
+                  "key": "B",
+                  "text": "Plankton are in danger."
+                },
+                {
+                  "key": "C",
+                  "text": "Plankton feed the whales."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I think it's that plankton produce a lot of the world's oxygen.’ Feeding whales is a secondary point.",
+              "cue": "plankton produce a lot of the world's oxygen"
+            },
+            {
+              "number": 25,
+              "prompt": "What does Raj suggest for the central image?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a photograph"
+                },
+                {
+                  "key": "B",
+                  "text": "a diagram of the food chain"
+                },
+                {
+                  "key": "C",
+                  "text": "a map"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A diagram of the food chain would be better than a photograph.’",
+              "cue": "a diagram of the food chain would be better than a photograph"
+            },
+            {
+              "number": 26,
+              "prompt": "Why do they decide not to include a quiz?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It would take too much space."
+                },
+                {
+                  "key": "B",
+                  "text": "It would be hard to mark."
+                },
+                {
+                  "key": "C",
+                  "text": "Dr Okoye would not approve."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I did think about adding a short quiz for visitors, but it would take up too much space.’",
+              "cue": "it would take up too much space"
+            },
+            {
+              "number": 27,
+              "prompt": "How long will each poster presentation last?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "two minutes"
+                },
+                {
+                  "key": "B",
+                  "text": "five minutes"
+                },
+                {
+                  "key": "C",
+                  "text": "ten minutes"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Raj thinks five minutes, but ‘it's only two minutes per poster’.",
+              "cue": "it's only two minutes per poster"
+            },
+            {
+              "number": 28,
+              "prompt": "Who will answer questions about the methods?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Imogen"
+                },
+                {
+                  "key": "B",
+                  "text": "Raj"
+                },
+                {
+                  "key": "C",
+                  "text": "both of them"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘I'll deal with the methods, since I did the sampling on the boat.’",
+              "cue": "I'll deal with the methods"
+            },
+            {
+              "number": 29,
+              "prompt": "What will they do on Thursday?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "practise the presentation"
+                },
+                {
+                  "key": "B",
+                  "text": "collect the samples"
+                },
+                {
+                  "key": "C",
+                  "text": "write the references"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I'd like us to practise the whole thing out loud, with a timer.’",
+              "cue": "I'd like us to practise the whole thing out loud"
+            },
+            {
+              "number": 30,
+              "prompt": "What does Imogen want to do before Friday?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "check the references"
+                },
+                {
+                  "key": "B",
+                  "text": "buy more paper"
+                },
+                {
+                  "key": "C",
+                  "text": "email Dr Okoye"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Before Friday I want to check all the references again.’",
+              "cue": "I want to check all the references again"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-30/part3.mp3",
+        "duration": 228.52
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: spider silk",
+      "context": "A biology lecture on how spiders make silk and why people want it.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about spider silk. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.26
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.26,
+          "end": 42.67
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Today's lecture is about one of nature's most remarkable materials: spider silk. Weight for weight, it is stronger than steel, yet it is light and flexible.",
+          "start": 43.57,
+          "end": 53.41
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Silk is made in special glands in the spider's abdomen. It is a liquid protein, which turns into a solid thread as it is pulled out through small openings called spinnerets. A single spider can make up to seven different kinds of silk, each for a different purpose.",
+          "start": 53.76,
+          "end": 68.56
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Consider the orb weaver, which builds the familiar round web. The frame of the web, and the lines that go out from the centre, are made from a very strong silk. But the spiral that catches insects uses a different kind, which is sticky and extremely stretchy. It can stretch to several times its length without breaking, which helps the web to absorb the impact of a flying insect.",
+          "start": 68.91,
+          "end": 88.99
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Not all silk is used for catching food. Some spiders wrap their eggs in a soft silk sac, and young spiders of some species use a thread to travel through the air. They let out a line of silk, and the wind carries them away, a method known as ballooning.",
+          "start": 89.34,
+          "end": 103.57
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Scientists would love to use spider silk in products. It could be used to make strong, light clothing, or in medicine, for stitching wounds. The trouble is that spiders cannot be farmed like silkworms. They are territorial, and they attack and eat one another when kept together.",
+          "start": 103.92,
+          "end": 118.6
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So researchers have tried other approaches. They have inserted spider genes into bacteria, and even into goats, so that the animals produce the silk protein in their milk. The silk can then be collected and spun into fibres. It is an expensive process, but progress is steady.",
+          "start": 118.95,
+          "end": 134.5
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Nature remains well ahead of us. No factory yet makes silk as tough as the thread of a garden spider. Next week we'll look at another natural material: coral.",
+          "start": 134.85,
+          "end": 143.94
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 144.84,
+          "end": 149.23
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 179.23,
+          "end": 181.94
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Spider silk",
+          "content": [
+            "## Properties and production",
+            "• Weight for weight, stronger than {{31}}",
+            "• Made in glands in the spider's {{32}}",
+            "• Thread is pulled out through small openings called {{33}}",
+            "• A spider can make up to {{34}} kinds of silk",
+            "## Use in the web",
+            "• The spiral that catches insects is sticky and very {{35}}",
+            "• Eggs are wrapped in a soft {{36}}",
+            "• Young spiders travel by wind: this is called {{37}}",
+            "## Human use",
+            "• Possible uses include clothing and stitching {{38}}",
+            "• Spiders cannot be farmed because they eat one {{39}}",
+            "• Researchers have put spider genes into bacteria and {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "steel"
+              ],
+              "explanation": "‘Weight for weight, it is stronger than steel.’",
+              "cue": "stronger than steel"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "abdomen"
+              ],
+              "explanation": "‘Silk is made in special glands in the spider's abdomen.’",
+              "cue": "in the spider's abdomen"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "spinnerets"
+              ],
+              "explanation": "‘Small openings called spinnerets.’",
+              "cue": "called spinnerets"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "7",
+                "seven"
+              ],
+              "explanation": "‘A single spider can make up to seven different kinds of silk.’",
+              "cue": "up to seven different kinds of silk"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "stretchy",
+                "elastic"
+              ],
+              "explanation": "‘The spiral … is sticky and extremely stretchy.’",
+              "cue": "sticky and extremely stretchy"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "sac"
+              ],
+              "explanation": "‘Some spiders wrap their eggs in a soft silk sac.’",
+              "cue": "a soft silk sac"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "ballooning"
+              ],
+              "explanation": "‘A method known as ballooning.’",
+              "cue": "a method known as ballooning"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "wounds"
+              ],
+              "explanation": "‘In medicine, for stitching wounds.’",
+              "cue": "for stitching wounds"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "another"
+              ],
+              "explanation": "‘They attack and eat one another when kept together.’",
+              "cue": "they attack and eat one another"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "goats"
+              ],
+              "explanation": "‘They have inserted spider genes into bacteria, and even into goats.’",
+              "cue": "and even into goats"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-30/part4.mp3",
+        "duration": 182.74
+      }
+    }
+  ],
+  "durationMinutes": 15
+}
