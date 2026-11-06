@@ -1,0 +1,1224 @@
+{
+  "id": "listening-50",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 50",
+  "shortTitle": "Practice Test 50",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 50,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "joanne": {
+      "name": "Joanne",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "raj": {
+      "name": "Raj",
+      "voice": "am_fenrir",
+      "lang": "en-us"
+    },
+    "dunn": {
+      "name": "Mr Dunn",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "tilda": {
+      "name": "Tilda",
+      "voice": "af_nicole",
+      "lang": "en-us"
+    },
+    "ahmed": {
+      "name": "Ahmed",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a first-aid course",
+      "context": "A man books a first-aid course required by his employer.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a training centre to book a first-aid course. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.75
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.75,
+          "end": 38.82
+        },
+        {
+          "speaker": "joanne",
+          "text": "Safe Hands Training, Joanne speaking.",
+          "start": 39.72,
+          "end": 42.19
+        },
+        {
+          "speaker": "raj",
+          "text": "Hello. I'd like to book a place on your first-aid course, please. My employer requires everyone on site to have the certificate.",
+          "start": 42.69,
+          "end": 49.99
+        },
+        {
+          "speaker": "joanne",
+          "text": "Of course. I'll take some details first.",
+          "start": 50.49,
+          "end": 53.05
+        },
+        {
+          "speaker": "narrator",
+          "text": "The course is needed for work, so 'work' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.95,
+          "end": 68.63
+        },
+        {
+          "speaker": "joanne",
+          "text": "Could I have your name, please?",
+          "start": 69.53,
+          "end": 71.47
+        },
+        {
+          "speaker": "raj",
+          "text": "Raj Kapoor. That's K-A-P-O-O-R.",
+          "start": 71.97,
+          "end": 76.62
+        },
+        {
+          "speaker": "joanne",
+          "text": "Thank you, Mr Kapoor. What is your job?",
+          "start": 77.12,
+          "end": 79.79
+        },
+        {
+          "speaker": "raj",
+          "text": "I'm a plumber. I work on building sites, so first aid is quite important.",
+          "start": 80.29,
+          "end": 84.28
+        },
+        {
+          "speaker": "joanne",
+          "text": "I can see why. Which date would suit you?",
+          "start": 84.78,
+          "end": 87.29
+        },
+        {
+          "speaker": "raj",
+          "text": "The twelfth of March, if you have a place.",
+          "start": 87.79,
+          "end": 89.74
+        },
+        {
+          "speaker": "joanne",
+          "text": "We do. The course lasts six hours, so it's a full day.",
+          "start": 90.24,
+          "end": 93.39
+        },
+        {
+          "speaker": "raj",
+          "text": "That's fine. What time does it start?",
+          "start": 93.89,
+          "end": 95.69
+        },
+        {
+          "speaker": "joanne",
+          "text": "Registration is at half past eight, but the training itself starts at nine, so please be on time.",
+          "start": 96.19,
+          "end": 102.01
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 102.91,
+          "end": 108.63
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 128.63,
+          "end": 131.95
+        },
+        {
+          "speaker": "joanne",
+          "text": "The fee is seventy-five pounds, and that includes the certificate and a small first-aid manual.",
+          "start": 132.85,
+          "end": 138.61
+        },
+        {
+          "speaker": "raj",
+          "text": "That's good value. Where is the course held?",
+          "start": 139.11,
+          "end": 141.21
+        },
+        {
+          "speaker": "joanne",
+          "text": "At the Community Centre, on Mill Road. It's next to the swimming pool, and there's free parking at the back.",
+          "start": 141.71,
+          "end": 147.51
+        },
+        {
+          "speaker": "raj",
+          "text": "Is there a place to buy lunch nearby?",
+          "start": 148.01,
+          "end": 149.89
+        },
+        {
+          "speaker": "joanne",
+          "text": "There's a café across the road, but most people bring a packed lunch, because the break is quite short.",
+          "start": 150.39,
+          "end": 155.87
+        },
+        {
+          "speaker": "raj",
+          "text": "And what should I wear?",
+          "start": 156.37,
+          "end": 157.37
+        },
+        {
+          "speaker": "joanne",
+          "text": "Loose clothes that you can move in easily, because you'll be kneeling on the floor and practising on the dummies.",
+          "start": 157.87,
+          "end": 163.87
+        },
+        {
+          "speaker": "raj",
+          "text": "How long does the certificate last?",
+          "start": 164.37,
+          "end": 166.14
+        },
+        {
+          "speaker": "joanne",
+          "text": "Three years. After that, you'll need a refresher course, and we'll remind you by email.",
+          "start": 166.64,
+          "end": 171.5
+        },
+        {
+          "speaker": "raj",
+          "text": "Excellent. Can I pay by card now?",
+          "start": 172.0,
+          "end": 173.92
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 174.82,
+          "end": 179.34
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Safe Hands Training – first-aid course",
+          "content": [
+            "Example: The course is needed for **work**",
+            "## Booking",
+            "• Name: Raj {{1}}",
+            "• Job: {{2}}",
+            "• Date: {{3}} March",
+            "• The course lasts {{4}} hours",
+            "• The training starts at {{5}} a.m.",
+            "## Details",
+            "• Fee: £{{6}}",
+            "• Place: the {{7}} Centre",
+            "• Bring a packed {{8}}",
+            "• Wear {{9}} clothes",
+            "• The certificate is valid for {{10}} years"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Kapoor"
+              ],
+              "explanation": "‘K-A-P-O-O-R.’",
+              "cue": "K-A-P-O-O-R"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "plumber"
+              ],
+              "explanation": "‘I'm a plumber.’",
+              "cue": "I'm a plumber"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "12",
+                "twelfth",
+                "12th"
+              ],
+              "explanation": "‘The twelfth of March.’",
+              "cue": "The twelfth of March"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "‘The course lasts six hours.’",
+              "cue": "The course lasts six hours"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "9",
+                "nine"
+              ],
+              "explanation": "Registration is at half past eight, but ‘the training itself starts at nine’.",
+              "cue": "the training itself starts at nine"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "75",
+                "seventy-five"
+              ],
+              "explanation": "‘The fee is seventy-five pounds.’",
+              "cue": "The fee is seventy-five pounds"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "Community"
+              ],
+              "explanation": "‘At the Community Centre, on Mill Road.’",
+              "cue": "At the Community Centre, on Mill Road"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "lunch"
+              ],
+              "explanation": "‘Most people bring a packed lunch.’",
+              "cue": "most people bring a packed lunch"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "loose"
+              ],
+              "explanation": "‘Loose clothes that you can move in easily.’",
+              "cue": "Loose clothes that you can move in easily"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘Three years.’",
+              "cue": "Three years"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-50/part1.mp3",
+        "duration": 210.14
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A first-aid course",
+      "context": "An instructor welcomes a group to a first-aid course.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear an instructor welcoming a group to a first-aid course. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 9.86
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 34.86,
+          "end": 39.13
+        },
+        {
+          "speaker": "dunn",
+          "text": "Good morning, everyone, and welcome to the course. I'm Tony Dunn, and I'll be your instructor today. There are twelve of you, which is a good number, because everyone will get plenty of practice.",
+          "start": 40.03,
+          "end": 51.57
+        },
+        {
+          "speaker": "dunn",
+          "text": "Let's start with the most important rule of first aid. Before you do anything else, check that the area is safe, for you, for the casualty and for anyone else. It's no use becoming a second casualty.",
+          "start": 51.92,
+          "end": 64.38
+        },
+        {
+          "speaker": "dunn",
+          "text": "Next, we'll learn CPR, which is used when somebody's heart has stopped. You push down firmly on the middle of the chest at a rate of about a hundred times a minute, and that's quicker than most people expect.",
+          "start": 64.73,
+          "end": 77.61
+        },
+        {
+          "speaker": "dunn",
+          "text": "After lunch, we'll look at burns. For a serious burn, the best treatment is to cool it under cool running water for at least twenty minutes. Please don't use ice, and never put butter on a burn, which is an old myth that makes things worse.",
+          "start": 77.96,
+          "end": 91.96
+        },
+        {
+          "speaker": "dunn",
+          "text": "You'll be practising on dummies, which are in the next room, so you don't have to worry about hurting anyone. Nobody has to practise on each other.",
+          "start": 92.31,
+          "end": 100.43
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 101.33,
+          "end": 107.05
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 132.05,
+          "end": 135.93
+        },
+        {
+          "speaker": "dunn",
+          "text": "Let me say something about heart attacks. The best known symptom is pain in the chest, a feeling of heaviness, but also pain which spreads to the arm, the neck or the jaw. People often think they're having indigestion, so they wait too long, and that is dangerous. If you're in doubt, call the emergency number.",
+          "start": 136.83,
+          "end": 155.95
+        },
+        {
+          "speaker": "dunn",
+          "text": "What about an unconscious person who is still breathing? You should put them in the recovery position, on their side, with the head tilted back, so that they can breathe and nothing blocks their throat. Don't give them anything to drink.",
+          "start": 156.3,
+          "end": 169.74
+        },
+        {
+          "speaker": "dunn",
+          "text": "At the end of the day, there's a practical test. You'll show us that you can do CPR, and put somebody in the recovery position. There's no written exam, and in nearly every course, everyone passes.",
+          "start": 170.09,
+          "end": 182.25
+        },
+        {
+          "speaker": "dunn",
+          "text": "Your certificate will be sent to you by email within a week, and if you need a paper copy, you can ask the office.",
+          "start": 182.6,
+          "end": 189.04
+        },
+        {
+          "speaker": "dunn",
+          "text": "Right, shall we begin? Please turn off your phones, unless you need to keep one on for work.",
+          "start": 189.39,
+          "end": 194.68
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 195.58,
+          "end": 199.91
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "How many people are on the course?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "eight"
+                },
+                {
+                  "key": "B",
+                  "text": "twelve"
+                },
+                {
+                  "key": "C",
+                  "text": "twenty"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘There are twelve of you.’",
+              "cue": "There are twelve of you"
+            },
+            {
+              "number": 12,
+              "prompt": "What is the first rule of first aid?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "call for help"
+                },
+                {
+                  "key": "B",
+                  "text": "check that the area is safe"
+                },
+                {
+                  "key": "C",
+                  "text": "start CPR"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Check that the area is safe.’",
+              "cue": "check that the area is safe"
+            },
+            {
+              "number": 13,
+              "prompt": "How fast should chest compressions be given?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about fifty a minute"
+                },
+                {
+                  "key": "B",
+                  "text": "about a hundred a minute"
+                },
+                {
+                  "key": "C",
+                  "text": "about two hundred a minute"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘At a rate of about a hundred times a minute.’",
+              "cue": "at a rate of about a hundred times a minute"
+            },
+            {
+              "number": 14,
+              "prompt": "What is the best treatment for a serious burn?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "cooling it with running water"
+                },
+                {
+                  "key": "B",
+                  "text": "putting ice on it"
+                },
+                {
+                  "key": "C",
+                  "text": "covering it with butter"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Cool it under cool running water for at least twenty minutes.’",
+              "cue": "cool it under cool running water for at least twenty minutes"
+            },
+            {
+              "number": 15,
+              "prompt": "What will the students practise on?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "dummies"
+                },
+                {
+                  "key": "B",
+                  "text": "each other"
+                },
+                {
+                  "key": "C",
+                  "text": "volunteers"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘You'll be practising on dummies.’",
+              "cue": "You'll be practising on dummies"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO symptoms of a heart attack does the instructor mention?",
+          "options": [
+            {
+              "key": "A",
+              "text": "pain in the chest"
+            },
+            {
+              "key": "B",
+              "text": "sneezing"
+            },
+            {
+              "key": "C",
+              "text": "pain spreading to the arm"
+            },
+            {
+              "key": "D",
+              "text": "a rash"
+            },
+            {
+              "key": "E",
+              "text": "hiccups"
+            }
+          ],
+          "answer": [
+            "A",
+            "C"
+          ],
+          "explanation": "Chest pain (A) and pain spreading to the arm, neck or jaw (C).",
+          "questions": [
+            {
+              "number": 16,
+              "cue": "The best known symptom is pain in the chest"
+            },
+            {
+              "number": 17,
+              "cue": "pain which spreads to the arm"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 18,
+              "prompt": "What should be done with an unconscious person who is breathing?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "put them in the recovery position"
+                },
+                {
+                  "key": "B",
+                  "text": "sit them up"
+                },
+                {
+                  "key": "C",
+                  "text": "give them water"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Put them in the recovery position.’",
+              "cue": "put them in the recovery position"
+            },
+            {
+              "number": 19,
+              "prompt": "What is the final test?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a written quiz"
+                },
+                {
+                  "key": "B",
+                  "text": "a practical test"
+                },
+                {
+                  "key": "C",
+                  "text": "an interview"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘There's a practical test.’",
+              "cue": "there's a practical test"
+            },
+            {
+              "number": 20,
+              "prompt": "How will the certificates be delivered?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the end of the day"
+                },
+                {
+                  "key": "B",
+                  "text": "by email"
+                },
+                {
+                  "key": "C",
+                  "text": "by post"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Sent to you by email within a week.’",
+              "cue": "sent to you by email within a week"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-50/part2.mp3",
+        "duration": 230.71
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A student satisfaction survey",
+      "context": "Two statistics students discuss sampling methods for their survey.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two statistics students, Tilda and Ahmed, discussing a student satisfaction survey. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.57
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.57,
+          "end": 42.28
+        },
+        {
+          "speaker": "tilda",
+          "text": "Ahmed, shall we go through the survey report? I'll start with the sample. We sent the questionnaire to six hundred students, didn't we?",
+          "start": 43.18,
+          "end": 54.49
+        },
+        {
+          "speaker": "ahmed",
+          "text": "Yes, six hundred, but only two hundred and fifty replied, so our sample is two hundred and fifty.",
+          "start": 54.99,
+          "end": 60.15
+        },
+        {
+          "speaker": "tilda",
+          "text": "That's a response rate of about forty percent. Not wonderful, but not terrible for an online survey.",
+          "start": 60.65,
+          "end": 69.93
+        },
+        {
+          "speaker": "ahmed",
+          "text": "Not wonderful, no. And the other problem was with the questions. Several respondents said that question seven was confusing, so we can't use those answers.",
+          "start": 70.43,
+          "end": 78.92
+        },
+        {
+          "speaker": "tilda",
+          "text": "What about the margin of error? I calculated it as plus or minus six percent.",
+          "start": 79.42,
+          "end": 86.91
+        },
+        {
+          "speaker": "ahmed",
+          "text": "I'd say that's acceptable for a student project. A professional survey would want it smaller, but we'd need a much bigger sample for that.",
+          "start": 87.41,
+          "end": 94.62
+        },
+        {
+          "speaker": "tilda",
+          "text": "Agreed. What shall we say in the conclusion?",
+          "start": 95.12,
+          "end": 98.34
+        },
+        {
+          "speaker": "ahmed",
+          "text": "That a larger sample would give more reliable results, and that the university should repeat the survey next year, using a shorter questionnaire.",
+          "start": 98.84,
+          "end": 106.46
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 107.36,
+          "end": 113.5
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 133.5,
+          "end": 137.34
+        },
+        {
+          "speaker": "tilda",
+          "text": "In the methodology, we should explain the sampling methods we considered. Simple random sampling first.",
+          "start": 138.24,
+          "end": 148.08
+        },
+        {
+          "speaker": "ahmed",
+          "text": "It's the textbook method, but it needs a complete list of the whole population, and the university couldn't give us one.",
+          "start": 148.58,
+          "end": 154.59
+        },
+        {
+          "speaker": "tilda",
+          "text": "Stratified sampling?",
+          "start": 155.09,
+          "end": 156.63
+        },
+        {
+          "speaker": "ahmed",
+          "text": "That ensures that each group is represented, for example each year and each faculty, so it's more accurate when the groups differ.",
+          "start": 157.13,
+          "end": 164.0
+        },
+        {
+          "speaker": "tilda",
+          "text": "Convenience sampling?",
+          "start": 164.5,
+          "end": 166.14
+        },
+        {
+          "speaker": "ahmed",
+          "text": "That's the easiest, just asking whoever is nearby, but it's biased, so it's not suitable for conclusions about all students.",
+          "start": 166.64,
+          "end": 173.0
+        },
+        {
+          "speaker": "tilda",
+          "text": "Cluster sampling?",
+          "start": 173.5,
+          "end": 174.82
+        },
+        {
+          "speaker": "ahmed",
+          "text": "It's cheap when the population is spread over many places, because you survey whole groups, like entire classes, instead of individuals.",
+          "start": 175.32,
+          "end": 182.57
+        },
+        {
+          "speaker": "tilda",
+          "text": "And quota sampling?",
+          "start": 183.07,
+          "end": 184.53
+        },
+        {
+          "speaker": "ahmed",
+          "text": "That's the method we actually used, in the end, taking a fixed number from each faculty, so we'll describe it in detail.",
+          "start": 185.03,
+          "end": 191.47
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 192.37,
+          "end": 196.83
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "How many students replied to the survey?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a hundred"
+                },
+                {
+                  "key": "B",
+                  "text": "two hundred and fifty"
+                },
+                {
+                  "key": "C",
+                  "text": "six hundred"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Only two hundred and fifty replied.’",
+              "cue": "only two hundred and fifty replied"
+            },
+            {
+              "number": 22,
+              "prompt": "What was the response rate?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about forty percent"
+                },
+                {
+                  "key": "B",
+                  "text": "about sixty-five percent"
+                },
+                {
+                  "key": "C",
+                  "text": "about ninety percent"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘A response rate of about forty percent.’",
+              "cue": "a response rate of about forty percent"
+            },
+            {
+              "number": 23,
+              "prompt": "What was wrong with question seven?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It was confusing."
+                },
+                {
+                  "key": "B",
+                  "text": "It was too long."
+                },
+                {
+                  "key": "C",
+                  "text": "It was too personal."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Question seven was confusing.’",
+              "cue": "question seven was confusing"
+            },
+            {
+              "number": 24,
+              "prompt": "What does Ahmed think about the margin of error?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is too large to be useful."
+                },
+                {
+                  "key": "B",
+                  "text": "It is acceptable."
+                },
+                {
+                  "key": "C",
+                  "text": "It cannot be calculated."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘I'd say that's acceptable for a student project.’",
+              "cue": "I'd say that's acceptable for a student project"
+            },
+            {
+              "number": 25,
+              "prompt": "What will they say in the conclusion?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A larger sample would be more reliable."
+                },
+                {
+                  "key": "B",
+                  "text": "The survey should be abandoned."
+                },
+                {
+                  "key": "C",
+                  "text": "The questions were perfect."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘A larger sample would give more reliable results.’",
+              "cue": "a larger sample would give more reliable results"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What does Ahmed say about each sampling method? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is easy but biased."
+            },
+            {
+              "key": "B",
+              "text": "It needs a complete list of the population."
+            },
+            {
+              "key": "C",
+              "text": "It ensures each group is represented."
+            },
+            {
+              "key": "D",
+              "text": "It is cheap when people are spread out."
+            },
+            {
+              "key": "E",
+              "text": "It is not used in serious research."
+            },
+            {
+              "key": "F",
+              "text": "It takes too long."
+            },
+            {
+              "key": "G",
+              "text": "It is the one the students used."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "simple random sampling",
+              "answer": "B",
+              "explanation": "‘It needs a complete list of the whole population.’",
+              "cue": "it needs a complete list of the whole population"
+            },
+            {
+              "number": 27,
+              "prompt": "stratified sampling",
+              "answer": "C",
+              "explanation": "‘Ensures that each group is represented.’",
+              "cue": "ensures that each group is represented"
+            },
+            {
+              "number": 28,
+              "prompt": "convenience sampling",
+              "answer": "A",
+              "explanation": "‘It's biased.’",
+              "cue": "it's biased"
+            },
+            {
+              "number": 29,
+              "prompt": "cluster sampling",
+              "answer": "D",
+              "explanation": "‘It's cheap when the population is spread over many places.’",
+              "cue": "It's cheap when the population is spread over many places"
+            },
+            {
+              "number": 30,
+              "prompt": "quota sampling",
+              "answer": "G",
+              "explanation": "‘That's the method we actually used.’",
+              "cue": "That's the method we actually used"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-50/part3.mp3",
+        "duration": 227.63
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the history of money",
+      "context": "A lecture on money from barter to digital currencies.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of money. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.54
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.54,
+          "end": 42.95
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Money is so familiar that we rarely ask where it came from. Today I'd like to trace its history, from the earliest exchanges to the digital payments of today.",
+          "start": 43.85,
+          "end": 53.45
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Before money, people used barter, which means exchanging one good directly for another. But barter has a big problem. It only works if each person wants what the other has. If I have fish and want a pair of shoes, I must find a shoemaker who wants fish.",
+          "start": 53.8,
+          "end": 68.03
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So people began to use items that everyone accepted. Early forms of money included shells, salt and cattle. These were useful, but not ideal, because cattle are difficult to carry, and shells can be collected by anyone.",
+          "start": 68.38,
+          "end": 80.73
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The first coins were made in Lydia, in what is now Turkey, about six hundred years before Christ. They were small pieces of metal, an alloy of gold and silver, stamped with a mark which guaranteed their value.",
+          "start": 81.08,
+          "end": 92.45
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In China, around the tenth century, merchants faced a different problem. Their coins were so heavy that a large purchase needed a cart. So paper money appeared, which was far more convenient to carry.",
+          "start": 92.8,
+          "end": 103.9
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Europe was slower. The first European banknotes were issued in Sweden in sixteen sixty-one. Banknotes were originally promises to pay the holder a certain amount of gold, and that is why banks kept gold in their vaults.",
+          "start": 104.25,
+          "end": 116.66
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In the nineteen fifties, the first credit card was introduced, allowing people to buy now and pay later. Today most money exists only as numbers on a computer, and cash is used less each year.",
+          "start": 117.01,
+          "end": 128.32
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The latest development is digital currencies. Some of them use a system called blockchain, in which a record of every transaction is shared across thousands of computers, with no central bank. Whether they will last is still an open question. Next week we'll look at banking.",
+          "start": 128.67,
+          "end": 144.2
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 145.1,
+          "end": 149.5
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 179.5,
+          "end": 182.2
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "The history of money",
+          "content": [
+            "## Early money",
+            "• Barter works only if each person wants what the other {{31}}",
+            "• Early forms of money included shells, salt and {{32}}",
+            "## Coins and paper",
+            "• The first coins were made in {{33}}, in what is now Turkey",
+            "• They were made from an alloy of gold and {{34}}",
+            "• In China, paper money appeared because coins were too {{35}}",
+            "• The first European banknotes were issued in {{36}} in 1661",
+            "• Banknotes were originally promises to pay in {{37}}",
+            "## Modern developments",
+            "• The first credit card appeared in the {{38}}",
+            "• Today most money exists only as numbers on a {{39}}",
+            "• Some digital currencies use a system called {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "has"
+              ],
+              "explanation": "‘If each person wants what the other has.’",
+              "cue": "if each person wants what the other has"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "cattle"
+              ],
+              "explanation": "‘Shells, salt and cattle.’",
+              "cue": "shells, salt and cattle"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "Lydia"
+              ],
+              "explanation": "‘Made in Lydia.’",
+              "cue": "made in Lydia"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "silver"
+              ],
+              "explanation": "‘An alloy of gold and silver.’",
+              "cue": "an alloy of gold and silver"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "heavy"
+              ],
+              "explanation": "‘Their coins were so heavy.’",
+              "cue": "their coins were so heavy"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "Sweden"
+              ],
+              "explanation": "‘Issued in Sweden in sixteen sixty-one.’",
+              "cue": "issued in Sweden in sixteen sixty-one"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "gold"
+              ],
+              "explanation": "‘To pay the holder a certain amount of gold.’",
+              "cue": "to pay the holder a certain amount of gold"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "1950s",
+                "fifties"
+              ],
+              "explanation": "‘In the nineteen fifties, the first credit card was introduced.’",
+              "cue": "In the nineteen fifties, the first credit card was introduced"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "computer"
+              ],
+              "explanation": "‘Numbers on a computer.’",
+              "cue": "numbers on a computer"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "blockchain"
+              ],
+              "explanation": "‘A system called blockchain.’",
+              "cue": "a system called blockchain"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-50/part4.mp3",
+        "duration": 183.0
+      }
+    }
+  ],
+  "durationMinutes": 14
+}
