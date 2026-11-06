@@ -1,0 +1,1230 @@
+{
+  "id": "listening-41",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 41",
+  "shortTitle": "Practice Test 41",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 41,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "marsh": {
+      "name": "Ms Marsh",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "robert": {
+      "name": "Robert",
+      "voice": "am_eric",
+      "lang": "en-us"
+    },
+    "adeyemi": {
+      "name": "Mrs Adeyemi",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "abby": {
+      "name": "Abby",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "femi": {
+      "name": "Femi",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a vineyard tour",
+      "context": "A man books a tour and wine tasting for a company outing.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a vineyard to book a tour for his colleagues. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.24
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.24,
+          "end": 38.31
+        },
+        {
+          "speaker": "marsh",
+          "text": "Hillside Vineyard, Ms Marsh speaking.",
+          "start": 39.21,
+          "end": 41.43
+        },
+        {
+          "speaker": "robert",
+          "text": "Hello. I'd like to book a tour and a wine tasting for a group. It's a company outing, to thank my colleagues for a good year.",
+          "start": 41.93,
+          "end": 48.15
+        },
+        {
+          "speaker": "marsh",
+          "text": "What a nice idea. I'll take some details.",
+          "start": 48.65,
+          "end": 51.15
+        },
+        {
+          "speaker": "narrator",
+          "text": "The booking is for a company outing, so 'outing' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 52.05,
+          "end": 67.22
+        },
+        {
+          "speaker": "marsh",
+          "text": "Could I have your name, please?",
+          "start": 68.12,
+          "end": 69.7
+        },
+        {
+          "speaker": "robert",
+          "text": "Robert Whitfield. That's W-H-I-T-F-I-E-L-D.",
+          "start": 70.2,
+          "end": 77.46
+        },
+        {
+          "speaker": "marsh",
+          "text": "Thank you, Mr Whitfield. How many people will be in the group?",
+          "start": 77.96,
+          "end": 81.28
+        },
+        {
+          "speaker": "robert",
+          "text": "Twenty. We had twenty-five at first, but a few can't come.",
+          "start": 81.78,
+          "end": 84.81
+        },
+        {
+          "speaker": "marsh",
+          "text": "And which date would you like?",
+          "start": 85.31,
+          "end": 86.85
+        },
+        {
+          "speaker": "robert",
+          "text": "Saturday the eleventh of October, if that's possible.",
+          "start": 87.35,
+          "end": 90.36
+        },
+        {
+          "speaker": "marsh",
+          "text": "It is. Tours normally start at eleven in the winter, but in October we begin at ten, so you'll be here before it gets busy.",
+          "start": 90.86,
+          "end": 97.79
+        },
+        {
+          "speaker": "robert",
+          "text": "That's perfect.",
+          "start": 98.29,
+          "end": 99.34
+        },
+        {
+          "speaker": "marsh",
+          "text": "The tour is about an hour and a half, followed by a tasting of five wines.",
+          "start": 99.84,
+          "end": 104.0
+        },
+        {
+          "speaker": "robert",
+          "text": "Only five? I was expecting more.",
+          "start": 104.5,
+          "end": 106.63
+        },
+        {
+          "speaker": "marsh",
+          "text": "Five is what most people can cope with, believe me.",
+          "start": 107.13,
+          "end": 109.8
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 110.7,
+          "end": 116.41
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 136.41,
+          "end": 139.74
+        },
+        {
+          "speaker": "marsh",
+          "text": "The price is eighteen pounds per person. It was twenty-two last year, but we've introduced a reduction for groups of fifteen or more.",
+          "start": 140.64,
+          "end": 147.75
+        },
+        {
+          "speaker": "robert",
+          "text": "That's good value. Is food included?",
+          "start": 148.25,
+          "end": 150.44
+        },
+        {
+          "speaker": "marsh",
+          "text": "Yes, there's a lunch after the tasting, a platter with bread, cheese and cold meat, and a glass of grape juice for anyone who doesn't drink.",
+          "start": 150.94,
+          "end": 158.28
+        },
+        {
+          "speaker": "robert",
+          "text": "Our colleagues are coming by train. Is the vineyard easy to reach?",
+          "start": 158.78,
+          "end": 162.13
+        },
+        {
+          "speaker": "marsh",
+          "text": "We'll send our minibus to collect everyone from the station, and take them back afterwards, so there's no need to arrange taxis.",
+          "start": 162.63,
+          "end": 169.48
+        },
+        {
+          "speaker": "robert",
+          "text": "That's very helpful. Is there anything people should bring?",
+          "start": 169.98,
+          "end": 172.86
+        },
+        {
+          "speaker": "marsh",
+          "text": "Warm clothes, because the cellars are cold, even in summer. And please tell them to wear flat shoes, as there are steps.",
+          "start": 173.36,
+          "end": 179.72
+        },
+        {
+          "speaker": "robert",
+          "text": "And can we buy wine to take home?",
+          "start": 180.22,
+          "end": 182.31
+        },
+        {
+          "speaker": "marsh",
+          "text": "Of course. There's a ten percent discount on everything in the shop for tour groups.",
+          "start": 182.81,
+          "end": 186.8
+        },
+        {
+          "speaker": "robert",
+          "text": "Excellent. I'll confirm the booking this afternoon.",
+          "start": 187.3,
+          "end": 189.92
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 190.82,
+          "end": 195.34
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Hillside Vineyard – group booking",
+          "content": [
+            "Example: The booking is for a company **outing**",
+            "## Booking",
+            "• Name: Robert {{1}}",
+            "• Number in group: {{2}}",
+            "• Date: Saturday {{3}} October",
+            "• The tour starts at {{4}} a.m.",
+            "• The tasting includes {{5}} wines",
+            "## Details",
+            "• Cost: £{{6}} per person",
+            "• Lunch is a {{7}} with bread, cheese and cold meat",
+            "• A {{8}} will collect the group from the station",
+            "• Wear {{9}} clothes, because the cellars are cold",
+            "• Group members get a ten percent {{10}} in the shop"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Whitfield"
+              ],
+              "explanation": "‘W-H-I-T-F-I-E-L-D.’",
+              "cue": "W-H-I-T-F-I-E-L-D"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "20",
+                "twenty"
+              ],
+              "explanation": "‘Twenty. We had twenty-five at first.’",
+              "cue": "Twenty. We had twenty-five at first"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "11",
+                "eleventh",
+                "11th"
+              ],
+              "explanation": "‘Saturday the eleventh of October.’",
+              "cue": "Saturday the eleventh of October"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "10",
+                "ten"
+              ],
+              "explanation": "Tours normally start at eleven in the winter, ‘but in October we begin at ten’.",
+              "cue": "in October we begin at ten"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "5",
+                "five"
+              ],
+              "explanation": "‘A tasting of five wines.’",
+              "cue": "a tasting of five wines"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "18",
+                "eighteen"
+              ],
+              "explanation": "‘The price is eighteen pounds per person.’ It was twenty-two last year.",
+              "cue": "eighteen pounds per person"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "platter"
+              ],
+              "explanation": "‘A platter with bread, cheese and cold meat.’",
+              "cue": "a platter with bread, cheese and cold meat"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "minibus"
+              ],
+              "explanation": "‘We'll send our minibus to collect everyone from the station.’",
+              "cue": "We'll send our minibus to collect everyone from the station"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "warm"
+              ],
+              "explanation": "‘Warm clothes, because the cellars are cold.’",
+              "cue": "Warm clothes, because the cellars are cold"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "discount"
+              ],
+              "explanation": "‘A ten percent discount on everything in the shop.’",
+              "cue": "a ten percent discount on everything in the shop"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-41/part1.mp3",
+        "duration": 226.14
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Volunteering at a hospital",
+      "context": "A coordinator briefs new hospital volunteers.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a volunteer coordinator briefing new volunteers at a hospital. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.86
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.86,
+          "end": 40.13
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "Welcome, everybody, and thank you for volunteering at St Anne's Hospital. I'm Funmi Adeyemi, the volunteer coordinator. I'll begin by explaining where each role is based, because people often get lost on their first day.",
+          "start": 41.03,
+          "end": 53.74
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "If you're welcoming visitors, you'll be at the main entrance. Your job is to greet people, answer their questions, and walk with them to the right department if they need it.",
+          "start": 54.09,
+          "end": 63.14
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "Anyone who likes children might prefer the children's ward, where volunteers read stories, play games, and keep the little patients company while their parents have a break.",
+          "start": 63.49,
+          "end": 72.62
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "In the outpatients waiting area, volunteers serve tea and biscuits to patients who sometimes have to wait for hours. A cup of tea makes a big difference.",
+          "start": 72.97,
+          "end": 81.46
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "If you enjoy plants, there's a job in the garden, which patients use for gentle walks and where people sit with visitors. The gardeners could always use more help.",
+          "start": 81.81,
+          "end": 90.71
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "And we have a gift shop, run entirely by volunteers, which sells cards and small presents. All the profits go to buy equipment for the wards. The chapel and the pharmacy don't use volunteers.",
+          "start": 91.06,
+          "end": 101.98
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 102.88,
+          "end": 108.6
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 133.6,
+          "end": 137.48
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "A few facts. The hospital has about three hundred and fifty volunteers, which is fewer than we need, so you're very welcome.",
+          "start": 138.38,
+          "end": 145.18
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "We ask you to give at least four hours a week. Most people give more, once they've started, but we don't want anyone to feel under pressure.",
+          "start": 145.53,
+          "end": 152.42
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "Before you begin, everyone has a background check, which is a legal requirement because you'll be working with vulnerable people. It takes about two weeks, so you can't start until it's complete.",
+          "start": 152.77,
+          "end": 163.12
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "There's no uniform. You wear your own clothes, but you do need a badge, which you'll collect today, and you must keep it visible at all times.",
+          "start": 163.47,
+          "end": 170.62
+        },
+        {
+          "speaker": "adeyemi",
+          "text": "And as a thank you, volunteers get a free lunch in the staff canteen on the days they work. Now, if you'll follow me, I'll take you to collect your badges.",
+          "start": 170.97,
+          "end": 179.1
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 180.0,
+          "end": 184.33
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "Where is each volunteer role based? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 11–15.",
+          "optionsTitle": "Places",
+          "options": [
+            {
+              "key": "A",
+              "text": "the main entrance"
+            },
+            {
+              "key": "B",
+              "text": "the children's ward"
+            },
+            {
+              "key": "C",
+              "text": "the outpatients waiting area"
+            },
+            {
+              "key": "D",
+              "text": "the chapel"
+            },
+            {
+              "key": "E",
+              "text": "the pharmacy"
+            },
+            {
+              "key": "F",
+              "text": "the gift shop"
+            },
+            {
+              "key": "G",
+              "text": "the garden"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "welcoming visitors",
+              "answer": "A",
+              "explanation": "‘You'll be at the main entrance.’",
+              "cue": "you'll be at the main entrance"
+            },
+            {
+              "number": 12,
+              "prompt": "reading to children",
+              "answer": "B",
+              "explanation": "‘The children's ward, where volunteers read stories.’",
+              "cue": "the children's ward, where volunteers read stories"
+            },
+            {
+              "number": 13,
+              "prompt": "serving tea and biscuits",
+              "answer": "C",
+              "explanation": "‘In the outpatients waiting area, volunteers serve tea and biscuits.’",
+              "cue": "In the outpatients waiting area, volunteers serve tea and biscuits"
+            },
+            {
+              "number": 14,
+              "prompt": "looking after the plants",
+              "answer": "G",
+              "explanation": "‘There's a job in the garden.’",
+              "cue": "there's a job in the garden"
+            },
+            {
+              "number": 15,
+              "prompt": "selling cards",
+              "answer": "F",
+              "explanation": "‘We have a gift shop, run entirely by volunteers.’",
+              "cue": "we have a gift shop, run entirely by volunteers"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How many volunteers does the hospital have?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about a hundred and fifty"
+                },
+                {
+                  "key": "B",
+                  "text": "about three hundred and fifty"
+                },
+                {
+                  "key": "C",
+                  "text": "about six hundred"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About three hundred and fifty volunteers.’",
+              "cue": "about three hundred and fifty volunteers"
+            },
+            {
+              "number": 17,
+              "prompt": "How many hours a week are volunteers asked to give?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at least two"
+                },
+                {
+                  "key": "B",
+                  "text": "at least four"
+                },
+                {
+                  "key": "C",
+                  "text": "at least eight"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘At least four hours a week.’",
+              "cue": "at least four hours a week"
+            },
+            {
+              "number": 18,
+              "prompt": "What must every volunteer have before starting?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a medical examination"
+                },
+                {
+                  "key": "B",
+                  "text": "a background check"
+                },
+                {
+                  "key": "C",
+                  "text": "an interview with a doctor"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Everyone has a background check.’",
+              "cue": "everyone has a background check"
+            },
+            {
+              "number": 19,
+              "prompt": "What do volunteers wear?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a blue tunic"
+                },
+                {
+                  "key": "B",
+                  "text": "a green apron"
+                },
+                {
+                  "key": "C",
+                  "text": "their own clothes and a badge"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘You wear your own clothes, but you do need a badge.’",
+              "cue": "You wear your own clothes, but you do need a badge"
+            },
+            {
+              "number": 20,
+              "prompt": "What do volunteers get free on the days they work?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "parking"
+                },
+                {
+                  "key": "B",
+                  "text": "lunch"
+                },
+                {
+                  "key": "C",
+                  "text": "a bus pass"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A free lunch in the staff canteen.’",
+              "cue": "a free lunch in the staff canteen"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-41/part2.mp3",
+        "duration": 215.13
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Nursing placements",
+      "context": "Two nursing students compare their placements.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two nursing students, Abby and Femi, discussing their clinical placements. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 11.57
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 36.57,
+          "end": 41.28
+        },
+        {
+          "speaker": "abby",
+          "text": "Femi, how was your placement on the surgical ward? Mine was on the children's ward, and it was much harder than I'd imagined.",
+          "start": 42.18,
+          "end": 49.52
+        },
+        {
+          "speaker": "femi",
+          "text": "Mine was tiring but good. What was the hardest thing for you?",
+          "start": 50.02,
+          "end": 53.75
+        },
+        {
+          "speaker": "abby",
+          "text": "Talking to worried parents. I never knew what to say, and I was afraid of saying something wrong.",
+          "start": 54.25,
+          "end": 59.44
+        },
+        {
+          "speaker": "femi",
+          "text": "How did you cope?",
+          "start": 59.94,
+          "end": 61.17
+        },
+        {
+          "speaker": "abby",
+          "text": "My mentor told me that listening is more important than talking, so I just listened, and it helped a lot.",
+          "start": 61.67,
+          "end": 67.9
+        },
+        {
+          "speaker": "femi",
+          "text": "On my ward, the hardest thing was the pace. Twelve-hour shifts, and sometimes no break at all.",
+          "start": 68.4,
+          "end": 74.16
+        },
+        {
+          "speaker": "abby",
+          "text": "What did you learn about teamwork?",
+          "start": 74.66,
+          "end": 76.22
+        },
+        {
+          "speaker": "femi",
+          "text": "That the nursing assistants know a huge amount. At first I ignored them, but they taught me how to move patients safely.",
+          "start": 76.72,
+          "end": 83.95
+        },
+        {
+          "speaker": "abby",
+          "text": "Did you make any mistakes?",
+          "start": 84.45,
+          "end": 85.92
+        },
+        {
+          "speaker": "femi",
+          "text": "One. I gave a patient the wrong form to sign. It wasn't serious, but I reported it at once, and my mentor praised me for that.",
+          "start": 86.42,
+          "end": 94.49
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 95.39,
+          "end": 101.53
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 121.53,
+          "end": 125.37
+        },
+        {
+          "speaker": "femi",
+          "text": "And what skills do you think you developed?",
+          "start": 126.27,
+          "end": 128.64
+        },
+        {
+          "speaker": "abby",
+          "text": "My communication, definitely, and I'm much better at managing my time, because on the ward there were so many things to do at once. I can't say the same for the equipment. I'm still nervous with the machines.",
+          "start": 129.14,
+          "end": 141.51
+        },
+        {
+          "speaker": "femi",
+          "text": "That will come with practice. What happens next term for you?",
+          "start": 142.01,
+          "end": 145.23
+        },
+        {
+          "speaker": "abby",
+          "text": "I have a placement in a community clinic, which is quite different, with fewer emergencies and more talking to patients.",
+          "start": 145.73,
+          "end": 152.5
+        },
+        {
+          "speaker": "femi",
+          "text": "I'd love that. I want to work in mental health in the end, so I'll try to get a placement like that too.",
+          "start": 153.0,
+          "end": 159.01
+        },
+        {
+          "speaker": "abby",
+          "text": "That's a really good aim. Are you going to the library this weekend? The reflective essay is due on Monday.",
+          "start": 159.51,
+          "end": 165.59
+        },
+        {
+          "speaker": "femi",
+          "text": "Yes, let's go on Saturday morning and work on it together.",
+          "start": 166.09,
+          "end": 169.53
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 170.43,
+          "end": 174.89
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What did Abby find hardest on her placement?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "talking to parents"
+                },
+                {
+                  "key": "B",
+                  "text": "giving injections"
+                },
+                {
+                  "key": "C",
+                  "text": "working at night"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Talking to worried parents.’",
+              "cue": "Talking to worried parents"
+            },
+            {
+              "number": 22,
+              "prompt": "What advice did Abby's mentor give her?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to listen"
+                },
+                {
+                  "key": "B",
+                  "text": "to keep notes"
+                },
+                {
+                  "key": "C",
+                  "text": "to ask a doctor"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Listening is more important than talking.’",
+              "cue": "listening is more important than talking"
+            },
+            {
+              "number": 23,
+              "prompt": "What did Femi find hardest on his placement?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the pace of work"
+                },
+                {
+                  "key": "B",
+                  "text": "the paperwork"
+                },
+                {
+                  "key": "C",
+                  "text": "the patients' relatives"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The hardest thing was the pace.’",
+              "cue": "the hardest thing was the pace"
+            },
+            {
+              "number": 24,
+              "prompt": "What did the nursing assistants teach Femi?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "how to move patients safely"
+                },
+                {
+                  "key": "B",
+                  "text": "how to use computers"
+                },
+                {
+                  "key": "C",
+                  "text": "how to take blood"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘They taught me how to move patients safely.’",
+              "cue": "they taught me how to move patients safely"
+            },
+            {
+              "number": 25,
+              "prompt": "Why did Femi's mentor praise him?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He reported his mistake."
+                },
+                {
+                  "key": "B",
+                  "text": "He worked very fast."
+                },
+                {
+                  "key": "C",
+                  "text": "He stayed late."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘I reported it at once, and my mentor praised me.’",
+              "cue": "I reported it at once, and my mentor praised me"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO skills does Abby say she developed?",
+          "options": [
+            {
+              "key": "A",
+              "text": "communication"
+            },
+            {
+              "key": "B",
+              "text": "using equipment"
+            },
+            {
+              "key": "C",
+              "text": "time management"
+            },
+            {
+              "key": "D",
+              "text": "leadership"
+            },
+            {
+              "key": "E",
+              "text": "writing reports"
+            }
+          ],
+          "answer": [
+            "A",
+            "C"
+          ],
+          "explanation": "Abby improved her communication (A) and her time management (C), but is still nervous with the equipment.",
+          "questions": [
+            {
+              "number": 26,
+              "cue": "My communication, definitely"
+            },
+            {
+              "number": 27,
+              "cue": "I'm much better at managing my time"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 28,
+              "prompt": "What will Abby do next term?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "work in a care home"
+                },
+                {
+                  "key": "B",
+                  "text": "do a placement in a clinic"
+                },
+                {
+                  "key": "C",
+                  "text": "study abroad"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘I have a placement in a community clinic.’",
+              "cue": "I have a placement in a community clinic"
+            },
+            {
+              "number": 29,
+              "prompt": "What does Femi want to specialise in?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "emergency nursing"
+                },
+                {
+                  "key": "B",
+                  "text": "children's nursing"
+                },
+                {
+                  "key": "C",
+                  "text": "mental health"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘I want to work in mental health in the end.’",
+              "cue": "I want to work in mental health in the end"
+            },
+            {
+              "number": 30,
+              "prompt": "What will they do on Saturday morning?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "go hiking"
+                },
+                {
+                  "key": "B",
+                  "text": "work on their essay in the library"
+                },
+                {
+                  "key": "C",
+                  "text": "visit their mentors"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Let's go on Saturday morning and work on it together.’",
+              "cue": "let's go on Saturday morning and work on it together"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-41/part3.mp3",
+        "duration": 205.69
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: hummingbirds",
+      "context": "A biology lecture on hummingbirds.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about hummingbirds. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.11
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.11,
+          "end": 42.53
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Hummingbirds are some of the most extraordinary birds in the world. There are more than three hundred species, and every one of them lives in the Americas, from Alaska in the north to the southern tip of Chile.",
+          "start": 43.43,
+          "end": 55.29
+        },
+        {
+          "speaker": "lecturer",
+          "text": "They are tiny. The smallest weighs less than a coin. But they are champions of flight. They beat their wings about fifty times a second, and they can hover in front of a flower, and they are the only birds that can fly backwards.",
+          "start": 55.64,
+          "end": 68.07
+        },
+        {
+          "speaker": "lecturer",
+          "text": "All this effort needs a lot of energy. A hummingbird's heart can beat over a thousand times a minute, and the bird has to eat very often. It feeds on nectar, the sugary liquid in flowers, and it drinks many times its own weight in a day. Its long beak and a tongue that is almost as long as the beak reach deep inside the flower.",
+          "start": 68.42,
+          "end": 86.19
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Nectar provides sugar, but not protein, so the birds also catch small insects, which they pick out of the air or from spiders' webs.",
+          "start": 86.54,
+          "end": 94.05
+        },
+        {
+          "speaker": "lecturer",
+          "text": "How do they survive when they cannot feed, for example, at night? Some species solve the problem by lowering their body temperature, so that their heart rate and breathing slow down, and they use much less energy until morning.",
+          "start": 94.4,
+          "end": 106.76
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Some hummingbirds also make remarkable journeys. The ruby-throated hummingbird, which weighs about as much as a coin, flies non-stop across the Gulf of Mexico on its migration, a journey of many hours, with no chance to rest or eat on the way.",
+          "start": 107.11,
+          "end": 121.93
+        },
+        {
+          "speaker": "lecturer",
+          "text": "And a last curiosity: hummingbirds are strongly attracted to the colour red, which is why bird feeders for them are usually red. Gardeners who plant red flowers will soon get visitors. Next week we'll look at owls.",
+          "start": 122.28,
+          "end": 134.74
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 135.64,
+          "end": 140.04
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 170.04,
+          "end": 172.75
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Hummingbirds",
+          "content": [
+            "## Features",
+            "• All hummingbirds live in the {{31}}",
+            "• Their wings beat about {{32}} times a second",
+            "• They are the only birds that can fly {{33}}",
+            "• A hummingbird's {{34}} can beat over a thousand times a minute",
+            "## Feeding",
+            "• They feed on a sugary liquid called {{35}}",
+            "• A long {{36}} reaches deep into the flower",
+            "• They also eat small {{37}} for protein",
+            "## Survival",
+            "• At night some species lower their body {{38}} to save energy",
+            "• Some cross the Gulf of {{39}} without stopping",
+            "• They are attracted to the colour {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "Americas"
+              ],
+              "explanation": "‘Lives in the Americas.’",
+              "cue": "lives in the Americas"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "50",
+                "fifty"
+              ],
+              "explanation": "‘About fifty times a second.’",
+              "cue": "about fifty times a second"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "backwards"
+              ],
+              "explanation": "‘The only birds that can fly backwards.’",
+              "cue": "the only birds that can fly backwards"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "heart"
+              ],
+              "explanation": "‘A hummingbird's heart can beat over a thousand times a minute.’",
+              "cue": "A hummingbird's heart can beat over a thousand times a minute"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "nectar"
+              ],
+              "explanation": "‘The sugary liquid in flowers.’",
+              "cue": "the sugary liquid in flowers"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "tongue"
+              ],
+              "explanation": "‘A tongue that is almost as long as the beak.’",
+              "cue": "a tongue that is almost as long as the beak"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "insects"
+              ],
+              "explanation": "‘Catch small insects.’",
+              "cue": "catch small insects"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "temperature"
+              ],
+              "explanation": "‘Lowering their body temperature.’",
+              "cue": "lowering their body temperature"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "Mexico"
+              ],
+              "explanation": "‘Across the Gulf of Mexico.’",
+              "cue": "across the Gulf of Mexico"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "red"
+              ],
+              "explanation": "‘Attracted to the colour red.’",
+              "cue": "attracted to the colour red"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-41/part4.mp3",
+        "duration": 173.55
+      }
+    }
+  ],
+  "durationMinutes": 14
+}
