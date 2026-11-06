@@ -1,0 +1,1253 @@
+{
+  "id": "listening-46",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 46",
+  "shortTitle": "Practice Test 46",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 46,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "ben": {
+      "name": "Ben",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "sophie": {
+      "name": "Sophie",
+      "voice": "af_jessica",
+      "lang": "en-us"
+    },
+    "nolan": {
+      "name": "Mrs Nolan",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "rosa": {
+      "name": "Rosa",
+      "voice": "af_bella",
+      "lang": "en-us"
+    },
+    "amos": {
+      "name": "Amos",
+      "voice": "am_fenrir",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Tennis coaching for a child",
+      "context": "A mother asks about tennis coaching for her daughter.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a mother phoning a tennis club to ask about coaching for her daughter. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.07
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.07,
+          "end": 39.14
+        },
+        {
+          "speaker": "ben",
+          "text": "Westfield Tennis Club, Ben speaking.",
+          "start": 40.04,
+          "end": 42.49
+        },
+        {
+          "speaker": "sophie",
+          "text": "Hello. I'm calling about tennis coaching for my daughter. She's been asking me for weeks.",
+          "start": 42.99,
+          "end": 47.41
+        },
+        {
+          "speaker": "ben",
+          "text": "Lovely. I'll take a few details first.",
+          "start": 47.91,
+          "end": 50.28
+        },
+        {
+          "speaker": "narrator",
+          "text": "The coaching is for the caller's daughter, so 'daughter' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 51.18,
+          "end": 66.47
+        },
+        {
+          "speaker": "ben",
+          "text": "Could I have your name, please?",
+          "start": 67.37,
+          "end": 68.93
+        },
+        {
+          "speaker": "sophie",
+          "text": "Sophie Hughes. That's H-U-G-H-E-S.",
+          "start": 69.43,
+          "end": 74.52
+        },
+        {
+          "speaker": "ben",
+          "text": "Thank you, Mrs Hughes. And your daughter's name?",
+          "start": 75.02,
+          "end": 77.88
+        },
+        {
+          "speaker": "sophie",
+          "text": "Ellie. That's E-L-L-I-E.",
+          "start": 78.38,
+          "end": 82.24
+        },
+        {
+          "speaker": "ben",
+          "text": "How old is she?",
+          "start": 82.74,
+          "end": 83.9
+        },
+        {
+          "speaker": "sophie",
+          "text": "She's eleven.",
+          "start": 84.4,
+          "end": 85.42
+        },
+        {
+          "speaker": "ben",
+          "text": "Has she played before?",
+          "start": 85.92,
+          "end": 87.24
+        },
+        {
+          "speaker": "sophie",
+          "text": "She's played at school for two years, but only in games lessons, so she's had no proper coaching.",
+          "start": 87.74,
+          "end": 92.78
+        },
+        {
+          "speaker": "ben",
+          "text": "Which day would suit you best?",
+          "start": 93.28,
+          "end": 94.9
+        },
+        {
+          "speaker": "sophie",
+          "text": "Saturdays, I think. During the week she has too much homework.",
+          "start": 95.4,
+          "end": 98.51
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 99.41,
+          "end": 105.13
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 125.13,
+          "end": 128.46
+        },
+        {
+          "speaker": "ben",
+          "text": "We run three kinds of coaching. The Starters group is on Saturdays at nine, with up to six children, which means every child gets plenty of attention. It costs thirty-six pounds a month.",
+          "start": 129.36,
+          "end": 141.5
+        },
+        {
+          "speaker": "sophie",
+          "text": "That sounds perfect. What about the other groups?",
+          "start": 142.0,
+          "end": 144.47
+        },
+        {
+          "speaker": "ben",
+          "text": "The Intermediate group is for children who can already rally. It starts at ten on Saturdays, with up to eight children, and it costs forty-eight pounds a month.",
+          "start": 144.97,
+          "end": 154.42
+        },
+        {
+          "speaker": "sophie",
+          "text": "I think Starters is right for Ellie. Do you also give private lessons?",
+          "start": 154.92,
+          "end": 158.61
+        },
+        {
+          "speaker": "ben",
+          "text": "Yes, if she wants some extra practice. A private lesson costs thirty pounds an hour, and the times are arranged with the coach.",
+          "start": 159.11,
+          "end": 166.77
+        },
+        {
+          "speaker": "sophie",
+          "text": "Does she need her own racket?",
+          "start": 167.27,
+          "end": 169.09
+        },
+        {
+          "speaker": "ben",
+          "text": "Not at first. We have rackets for hire at two pounds a session, and you can buy one when you're sure she'll carry on.",
+          "start": 169.59,
+          "end": 176.24
+        },
+        {
+          "speaker": "sophie",
+          "text": "That's very helpful. Can we try a session first?",
+          "start": 176.74,
+          "end": 179.45
+        },
+        {
+          "speaker": "ben",
+          "text": "Yes, the first one is free. Just turn up at nine on Saturday, in sports shoes. Tennis shoes aren't necessary, but trainers with a flat sole are best.",
+          "start": 179.95,
+          "end": 189.29
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 190.19,
+          "end": 194.72
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Westfield Tennis Club – coaching enquiry",
+          "content": [
+            "Example: The coaching is for her **daughter**",
+            "## Details",
+            "• Name: Sophie {{1}}",
+            "• Daughter's name: {{2}}",
+            "• Age: {{3}}",
+            "• She has played at {{4}} for two years",
+            "• Preferred day: {{5}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Hughes"
+              ],
+              "explanation": "‘H-U-G-H-E-S.’",
+              "cue": "H-U-G-H-E-S"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "Ellie"
+              ],
+              "explanation": "‘That's E-L-L-I-E.’",
+              "cue": "That's E-L-L-I-E"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "11",
+                "eleven"
+              ],
+              "explanation": "‘She's eleven.’",
+              "cue": "She's eleven"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "school"
+              ],
+              "explanation": "‘She's played at school for two years.’",
+              "cue": "She's played at school for two years"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "Saturday",
+                "Saturdays"
+              ],
+              "explanation": "‘Saturdays, I think.’",
+              "cue": "Saturdays, I think"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Coaching groups",
+          "content": {
+            "headers": [
+              "Group",
+              "Number of children",
+              "Time",
+              "Price"
+            ],
+            "rows": [
+              [
+                "Starters",
+                "up to {{6}}",
+                "Saturday 9 a.m.",
+                "£{{7}} a month"
+              ],
+              [
+                "Intermediate",
+                "up to 8",
+                "Saturday {{8}} a.m.",
+                "£48 a month"
+              ],
+              [
+                "Private lesson",
+                "1",
+                "arranged with the coach",
+                "£{{9}} an hour"
+              ],
+              [
+                "Racket hire",
+                "—",
+                "—",
+                "£{{10}} a session"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "‘With up to six children.’",
+              "cue": "with up to six children"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "36",
+                "thirty-six"
+              ],
+              "explanation": "‘Thirty-six pounds a month.’",
+              "cue": "thirty-six pounds a month"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "10",
+                "ten"
+              ],
+              "explanation": "‘It starts at ten on Saturdays.’",
+              "cue": "It starts at ten on Saturdays"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "30",
+                "thirty"
+              ],
+              "explanation": "‘Thirty pounds an hour.’",
+              "cue": "thirty pounds an hour"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "2",
+                "two"
+              ],
+              "explanation": "‘Rackets for hire at two pounds a session.’",
+              "cue": "rackets for hire at two pounds a session"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-46/part1.mp3",
+        "duration": 225.52
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A school sports day",
+      "context": "A head teacher briefs parent helpers.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a head teacher briefing parent helpers before a school sports day. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.5
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.5,
+          "end": 39.77
+        },
+        {
+          "speaker": "nolan",
+          "text": "Good afternoon, everyone, and thank you for volunteering to help on sports day. I'm Mrs Nolan, the head teacher. I'll explain how the day will work.",
+          "start": 40.67,
+          "end": 48.9
+        },
+        {
+          "speaker": "nolan",
+          "text": "Sports day will be on Thursday of next week. We usually hold it on a Friday, but the field is booked for a football match, so we've had to change it.",
+          "start": 49.25,
+          "end": 57.25
+        },
+        {
+          "speaker": "nolan",
+          "text": "The first race will start at half past nine, and we'll finish by lunchtime. Parents who aren't helping are welcome to watch, and we'll put out chairs along the side of the field.",
+          "start": 57.6,
+          "end": 66.9
+        },
+        {
+          "speaker": "nolan",
+          "text": "If it rains, I'm afraid we won't move indoors, because the hall isn't big enough. The whole event will be postponed to the following week.",
+          "start": 67.25,
+          "end": 74.25
+        },
+        {
+          "speaker": "nolan",
+          "text": "Please don't park in the school car park, which is needed for the equipment lorry. Use the church hall car park, which is five minutes' walk away, and I'm grateful to the vicar for allowing it.",
+          "start": 74.6,
+          "end": 84.58
+        },
+        {
+          "speaker": "nolan",
+          "text": "Children should bring a water bottle and a sun hat. They'll wear their normal PE kit, and we'll provide fruit and a drink at the end.",
+          "start": 84.93,
+          "end": 91.95
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 92.85,
+          "end": 98.57
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 123.57,
+          "end": 127.45
+        },
+        {
+          "speaker": "nolan",
+          "text": "Now let me describe the events and the age groups. The youngest children, in Year One, take part in the egg-and-spoon race. It's the most popular race, and I'm afraid the eggs are usually the first casualty.",
+          "start": 128.35,
+          "end": 139.74
+        },
+        {
+          "speaker": "nolan",
+          "text": "Year Two have the sack race, which is chaotic and very funny. Year Three do an obstacle course, which isn't on your list because it's supervised by the teachers.",
+          "start": 140.09,
+          "end": 148.82
+        },
+        {
+          "speaker": "nolan",
+          "text": "Year Four run the relay, in teams of four, and it's important that the batons are handed over properly, so we need two adults at each changeover. Year Five do the long jump, and we need someone to measure and record the results.",
+          "start": 149.17,
+          "end": 161.8
+        },
+        {
+          "speaker": "nolan",
+          "text": "And Year Six finish the morning with the tug of war, which has been a tradition for forty years. The teachers will take on the Year Six team, and I'm told the teachers have a secret weapon this year.",
+          "start": 162.15,
+          "end": 172.73
+        },
+        {
+          "speaker": "nolan",
+          "text": "If you could all collect your coloured badges from the office, you'll see the station you've been given. Thank you again for your help.",
+          "start": 173.08,
+          "end": 179.61
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 180.51,
+          "end": 184.84
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "On which day will sports day be held?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Wednesday"
+                },
+                {
+                  "key": "B",
+                  "text": "Thursday"
+                },
+                {
+                  "key": "C",
+                  "text": "Friday"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Sports day will be on Thursday of next week.’",
+              "cue": "Sports day will be on Thursday of next week"
+            },
+            {
+              "number": 12,
+              "prompt": "What time will the first race start?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "half past nine"
+                },
+                {
+                  "key": "B",
+                  "text": "ten o'clock"
+                },
+                {
+                  "key": "C",
+                  "text": "one o'clock"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The first race will start at half past nine.’",
+              "cue": "The first race will start at half past nine"
+            },
+            {
+              "number": 13,
+              "prompt": "What will happen if it rains?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It will be postponed."
+                },
+                {
+                  "key": "B",
+                  "text": "It will move to the hall."
+                },
+                {
+                  "key": "C",
+                  "text": "It will be cancelled."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Postponed to the following week.’",
+              "cue": "postponed to the following week"
+            },
+            {
+              "number": 14,
+              "prompt": "Where should parents park?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in the school car park"
+                },
+                {
+                  "key": "B",
+                  "text": "in the church hall car park"
+                },
+                {
+                  "key": "C",
+                  "text": "in the street"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Use the church hall car park.’",
+              "cue": "Use the church hall car park"
+            },
+            {
+              "number": 15,
+              "prompt": "What should the children bring?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a packed lunch"
+                },
+                {
+                  "key": "B",
+                  "text": "a water bottle and a sun hat"
+                },
+                {
+                  "key": "C",
+                  "text": "their own trainers"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A water bottle and a sun hat.’",
+              "cue": "a water bottle and a sun hat"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Which year group takes part in each event? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 16–20.",
+          "optionsTitle": "Year groups",
+          "options": [
+            {
+              "key": "A",
+              "text": "Year One"
+            },
+            {
+              "key": "B",
+              "text": "Year Two"
+            },
+            {
+              "key": "C",
+              "text": "Year Three"
+            },
+            {
+              "key": "D",
+              "text": "Year Four"
+            },
+            {
+              "key": "E",
+              "text": "Year Five"
+            },
+            {
+              "key": "F",
+              "text": "Year Six"
+            },
+            {
+              "key": "G",
+              "text": "Year Seven"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "the egg-and-spoon race",
+              "answer": "A",
+              "explanation": "‘Year One, take part in the egg-and-spoon race.’",
+              "cue": "Year One, take part in the egg-and-spoon race"
+            },
+            {
+              "number": 17,
+              "prompt": "the sack race",
+              "answer": "B",
+              "explanation": "‘Year Two have the sack race.’",
+              "cue": "Year Two have the sack race"
+            },
+            {
+              "number": 18,
+              "prompt": "the relay",
+              "answer": "D",
+              "explanation": "‘Year Four run the relay.’",
+              "cue": "Year Four run the relay"
+            },
+            {
+              "number": 19,
+              "prompt": "the long jump",
+              "answer": "E",
+              "explanation": "‘Year Five do the long jump.’",
+              "cue": "Year Five do the long jump"
+            },
+            {
+              "number": 20,
+              "prompt": "the tug of war",
+              "answer": "F",
+              "explanation": "‘Year Six finish the morning with the tug of war.’",
+              "cue": "Year Six finish the morning with the tug of war"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-46/part2.mp3",
+        "duration": 215.64
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A composting scheme",
+      "context": "Two students plan a composting scheme for their university.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two environmental science students, Rosa and Amos, planning a composting scheme at their university. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 13.57
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 38.57,
+          "end": 43.29
+        },
+        {
+          "speaker": "rosa",
+          "text": "Amos, shall we go through the proposal for the composting scheme? Dr Lim wants it by the end of the week.",
+          "start": 44.19,
+          "end": 50.37
+        },
+        {
+          "speaker": "amos",
+          "text": "Yes. The aim is to reduce the amount of food waste that goes to landfill, where it produces methane, a powerful greenhouse gas.",
+          "start": 50.87,
+          "end": 58.66
+        },
+        {
+          "speaker": "rosa",
+          "text": "And how much waste does the canteen produce? I've got the figure here somewhere.",
+          "start": 59.16,
+          "end": 63.38
+        },
+        {
+          "speaker": "amos",
+          "text": "About five hundred kilograms a week, and about a third of that is food that could be composted.",
+          "start": 63.88,
+          "end": 69.39
+        },
+        {
+          "speaker": "rosa",
+          "text": "Where shall we put the compost bins? Our first idea was next to the library.",
+          "start": 69.89,
+          "end": 74.32
+        },
+        {
+          "speaker": "amos",
+          "text": "But that's too far from the canteen, and the smell would annoy the students. Behind the canteen is better, because the kitchen staff can reach it easily.",
+          "start": 74.82,
+          "end": 83.36
+        },
+        {
+          "speaker": "rosa",
+          "text": "We ran a trial for two weeks. What went wrong?",
+          "start": 83.86,
+          "end": 86.55
+        },
+        {
+          "speaker": "amos",
+          "text": "The main problem was that students put the wrong things in the bins, plastic forks and packaging, mostly. The smell wasn't a problem, and we didn't see any rats.",
+          "start": 87.05,
+          "end": 96.43
+        },
+        {
+          "speaker": "rosa",
+          "text": "How do we deal with that?",
+          "start": 96.93,
+          "end": 98.17
+        },
+        {
+          "speaker": "amos",
+          "text": "Signs with pictures, I think, showing what goes in and what doesn't. A fine would be silly, and we can't ask staff to supervise the bins all day.",
+          "start": 98.67,
+          "end": 107.52
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 108.42,
+          "end": 114.57
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 134.57,
+          "end": 138.41
+        },
+        {
+          "speaker": "rosa",
+          "text": "Now, in the guide for students, we need to explain what can go into the compost. Coffee grounds first.",
+          "start": 139.31,
+          "end": 145.47
+        },
+        {
+          "speaker": "amos",
+          "text": "They're good. They add nitrogen, which balances the dry material, and the cafés give us plenty.",
+          "start": 145.97,
+          "end": 151.5
+        },
+        {
+          "speaker": "rosa",
+          "text": "Meat?",
+          "start": 152.0,
+          "end": 152.55
+        },
+        {
+          "speaker": "amos",
+          "text": "Better kept out of a small heap, because it attracts pests like rats and flies.",
+          "start": 153.05,
+          "end": 157.53
+        },
+        {
+          "speaker": "rosa",
+          "text": "Paper cups?",
+          "start": 158.03,
+          "end": 158.82
+        },
+        {
+          "speaker": "amos",
+          "text": "They look harmless, but most have a thin plastic lining, so they must stay out.",
+          "start": 159.32,
+          "end": 163.59
+        },
+        {
+          "speaker": "rosa",
+          "text": "Garden waste, like branches and woody stems?",
+          "start": 164.09,
+          "end": 166.88
+        },
+        {
+          "speaker": "amos",
+          "text": "That's fine, but it takes the longest to break down, so it needs to be cut up small.",
+          "start": 167.38,
+          "end": 171.73
+        },
+        {
+          "speaker": "rosa",
+          "text": "And eggshells?",
+          "start": 172.23,
+          "end": 173.07
+        },
+        {
+          "speaker": "amos",
+          "text": "They're fine, but they need to be crushed first, or they stay in the compost for months.",
+          "start": 173.57,
+          "end": 178.17
+        },
+        {
+          "speaker": "rosa",
+          "text": "Good. I'll draw the poster this weekend.",
+          "start": 178.67,
+          "end": 180.87
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 181.77,
+          "end": 186.23
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What is the aim of the composting scheme?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to reduce food waste going to landfill"
+                },
+                {
+                  "key": "B",
+                  "text": "to make money"
+                },
+                {
+                  "key": "C",
+                  "text": "to teach students gardening"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘To reduce the amount of food waste that goes to landfill.’",
+              "cue": "to reduce the amount of food waste that goes to landfill"
+            },
+            {
+              "number": 22,
+              "prompt": "How much waste does the canteen produce each week?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about a hundred kilograms"
+                },
+                {
+                  "key": "B",
+                  "text": "about five hundred kilograms"
+                },
+                {
+                  "key": "C",
+                  "text": "about two tonnes"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About five hundred kilograms a week.’",
+              "cue": "About five hundred kilograms a week"
+            },
+            {
+              "number": 23,
+              "prompt": "Where will the compost bins be placed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "behind the canteen"
+                },
+                {
+                  "key": "B",
+                  "text": "next to the library"
+                },
+                {
+                  "key": "C",
+                  "text": "in the car park"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Behind the canteen is better.’",
+              "cue": "Behind the canteen is better"
+            },
+            {
+              "number": 24,
+              "prompt": "What was the main problem in the trial?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "bad smells"
+                },
+                {
+                  "key": "B",
+                  "text": "students putting in the wrong things"
+                },
+                {
+                  "key": "C",
+                  "text": "rats"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Students put the wrong things in the bins.’",
+              "cue": "students put the wrong things in the bins"
+            },
+            {
+              "number": 25,
+              "prompt": "How will they solve the problem?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "with signs with pictures"
+                },
+                {
+                  "key": "B",
+                  "text": "with fines"
+                },
+                {
+                  "key": "C",
+                  "text": "with staff supervision"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Signs with pictures, I think.’",
+              "cue": "Signs with pictures, I think"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "What does Amos say about each kind of waste? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "optionsTitle": "Comments",
+          "options": [
+            {
+              "key": "A",
+              "text": "It should go in the bins."
+            },
+            {
+              "key": "B",
+              "text": "It should be kept out."
+            },
+            {
+              "key": "C",
+              "text": "It needs to be crushed first."
+            },
+            {
+              "key": "D",
+              "text": "It takes the longest to break down."
+            },
+            {
+              "key": "E",
+              "text": "It adds nitrogen."
+            },
+            {
+              "key": "F",
+              "text": "It attracts pests."
+            },
+            {
+              "key": "G",
+              "text": "It can be collected from cafés."
+            }
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "coffee grounds",
+              "answer": "E",
+              "explanation": "‘They add nitrogen.’",
+              "cue": "They add nitrogen"
+            },
+            {
+              "number": 27,
+              "prompt": "meat",
+              "answer": "F",
+              "explanation": "‘It attracts pests like rats and flies.’",
+              "cue": "it attracts pests like rats and flies"
+            },
+            {
+              "number": 28,
+              "prompt": "paper cups",
+              "answer": "B",
+              "explanation": "‘So they must stay out.’",
+              "cue": "so they must stay out"
+            },
+            {
+              "number": 29,
+              "prompt": "garden waste",
+              "answer": "D",
+              "explanation": "‘It takes the longest to break down.’",
+              "cue": "it takes the longest to break down"
+            },
+            {
+              "number": 30,
+              "prompt": "eggshells",
+              "answer": "C",
+              "explanation": "‘They need to be crushed first.’",
+              "cue": "they need to be crushed first"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-46/part3.mp3",
+        "duration": 217.03
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the history of vaccination",
+      "context": "A medical history lecture on vaccines.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of vaccination. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.09
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.09,
+          "end": 43.51
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Vaccination is one of the most successful medical developments in history. Today I'd like to trace its story, from a single experiment to a global programme.",
+          "start": 44.41,
+          "end": 54.2
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Before vaccines, smallpox was one of the deadliest diseases. About one in three of the people who caught it died, and many survivors were left blind or scarred for life.",
+          "start": 54.55,
+          "end": 64.15
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In seventeen ninety-six, an English doctor named Edward Jenner noticed something odd. Milkmaids, who often caught a mild disease called cowpox from the cows, seemed never to catch smallpox. Jenner guessed that cowpox gave some kind of protection.",
+          "start": 64.5,
+          "end": 77.98
+        },
+        {
+          "speaker": "lecturer",
+          "text": "He tested the idea on a young boy, giving him a small amount of material from a cowpox sore. Later, he exposed the boy to smallpox, and the boy stayed healthy. The word vaccine itself comes from the Latin word for cow, vacca.",
+          "start": 78.33,
+          "end": 91.07
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In the nineteenth century, the French scientist Louis Pasteur developed the idea. He made vaccines for animal diseases, such as anthrax, and for a terrible human disease, rabies, by weakening the germs that cause them.",
+          "start": 91.42,
+          "end": 103.68
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In the nineteen fifties, an American researcher named Jonas Salk produced the first successful vaccine for polio, which had been paralysing thousands of children every summer.",
+          "start": 104.03,
+          "end": 114.17
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A vaccine protects the people who receive it, and it also protects others. If enough people are vaccinated, the disease cannot spread easily, and even those who are not protected are safe. This is known as herd immunity.",
+          "start": 114.52,
+          "end": 126.78
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The greatest triumph was the campaign against smallpox. After a worldwide programme, the World Health Organization declared smallpox eradicated in nineteen eighty, the only human disease to have been wiped out.",
+          "start": 127.13,
+          "end": 139.08
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Today, vaccines still save millions of lives. But one challenge is that false information spreads very easily, especially online, and some people have become afraid of vaccination without good reason. Next week we'll look at antibiotics.",
+          "start": 139.43,
+          "end": 152.98
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 153.88,
+          "end": 158.27
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 188.27,
+          "end": 190.98
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "The history of vaccination",
+          "content": [
+            "## Before vaccines",
+            "• Smallpox killed about one in {{31}} of those infected",
+            "## Jenner",
+            "• Jenner noticed that {{32}} did not catch smallpox",
+            "• He tested his idea on a young {{33}}",
+            "• The word vaccine comes from the Latin word for {{34}}",
+            "## Later developments",
+            "• Pasteur made vaccines for anthrax and {{35}}",
+            "• Jonas {{36}} produced the polio vaccine",
+            "• If enough people are vaccinated, there is {{37}} immunity",
+            "• The WHO declared smallpox {{38}} in 1980",
+            "## Today",
+            "• Some people are afraid of vaccines because of false {{39}} online",
+            "• Vaccines still save millions of {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "3",
+                "three"
+              ],
+              "explanation": "‘About one in three of the people who caught it died.’",
+              "cue": "About one in three of the people who caught it died"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "milkmaids"
+              ],
+              "explanation": "‘Milkmaids, who often caught a mild disease.’",
+              "cue": "Milkmaids, who often caught a mild disease"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "boy"
+              ],
+              "explanation": "‘On a young boy.’",
+              "cue": "on a young boy"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "cow"
+              ],
+              "explanation": "‘The Latin word for cow.’",
+              "cue": "the Latin word for cow"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "rabies"
+              ],
+              "explanation": "‘And for a terrible human disease, rabies.’",
+              "cue": "and for a terrible human disease, rabies"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "Salk"
+              ],
+              "explanation": "‘Jonas Salk produced the first successful vaccine for polio.’",
+              "cue": "Jonas Salk produced the first successful vaccine for polio"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "herd"
+              ],
+              "explanation": "‘This is known as herd immunity.’",
+              "cue": "This is known as herd immunity"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "eradicated"
+              ],
+              "explanation": "‘Declared smallpox eradicated.’",
+              "cue": "declared smallpox eradicated"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "information"
+              ],
+              "explanation": "‘False information spreads very easily.’",
+              "cue": "false information spreads very easily"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "lives"
+              ],
+              "explanation": "‘Save millions of lives.’",
+              "cue": "save millions of lives"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-46/part4.mp3",
+        "duration": 191.78
+      }
+    }
+  ],
+  "durationMinutes": 14
+}
