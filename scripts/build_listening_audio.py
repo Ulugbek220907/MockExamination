@@ -144,7 +144,10 @@ class Synth:
         apart at the moments the model reports for each phoneme and put back with real pauses between them.
         """
         letters = word.replace("-", "")
-        key = hashlib.sha1(f"spell11|{voice}|{lang}|{speed}|{SPELL_SPEED}|{SPELL_GAP_LETTER}|{SPELL_GAP_GROUP}|{letters}".encode("utf-8")).hexdigest()
+        # A British spelling that ends in a doubled letter ("H-A-R-T-W-E-L-L": "... E, double L") is made as described
+        # below at "double"; the recordings of such words made before that lost their last letter, so they have their
+        # own version number and are made again. Every other word keeps its recording.
+        key = hashlib.sha1(f"{spell_cache_version(letters, lang)}|{voice}|{lang}|{speed}|{SPELL_SPEED}|{SPELL_GAP_LETTER}|{SPELL_GAP_GROUP}|{letters}".encode("utf-8")).hexdigest()
         path = os.path.join(CACHE_DIR, key + ".npy")
         if os.path.exists(path):
             return np.load(path)
@@ -184,7 +187,12 @@ class Synth:
             for j in range(size):
                 clip = trim_silence(np.asarray(audio[edges[done]:edges[done + 1]], dtype=np.float32))
                 if done == len(units) - 1:
-                    clip = shorten_tail(clip)
+                    if units[-1].startswith("dˈʌbəl"):
+                        # "double L" is two sounds with a dip between them. shorten_tail would take that dip for the
+                        # end and cut the letter off, so the cut is made after the last sound that can be heard.
+                        clip = trim_tail(clip)
+                    else:
+                        clip = shorten_tail(clip)
                 chunks.append(level(clip))
                 done += 1
                 if done < len(units):
@@ -256,6 +264,28 @@ def shorten_tail(samples, keep=0.45, floor=0.2):
             break
     else:
         end = min(len(samples), start + int(0.15 * SAMPLE_RATE))
+    out = samples[:end].copy()
+    fade = min(len(out), int(0.04 * SAMPLE_RATE))
+    out[len(out) - fade:] *= np.linspace(1.0, 0.0, fade, dtype=np.float32)
+    return out
+
+
+def spell_cache_version(letters, lang):
+    """The version of a spelled word's recording: only British words that end in a doubled letter have the newer one."""
+    return "spell12" if lang == "en-gb" and re.search(r"(.)\1$", letters) else "spell11"
+
+
+def trim_tail(samples, floor=0.1, hold=0.04):
+    """
+    Cut a clip `hold` seconds after its last stretch (10 ms) that is louder than `floor` of its loudest one, with a short
+    fade. Unlike shorten_tail this never ends a clip at a dip in the middle of it, so a quiet last sound survives.
+    """
+    frame = int(0.01 * SAMPLE_RATE)
+    level_of = [float(np.sqrt(np.mean(samples[i:i + frame] ** 2))) for i in range(0, len(samples) - frame, frame)]
+    if not level_of:
+        return samples
+    loud = [i for i, v in enumerate(level_of) if v >= floor * max(level_of)]
+    end = min(len(samples), (loud[-1] + 1) * frame + int(hold * SAMPLE_RATE))
     out = samples[:end].copy()
     fade = min(len(out), int(0.04 * SAMPLE_RATE))
     out[len(out) - fade:] *= np.linspace(1.0, 0.0, fade, dtype=np.float32)
