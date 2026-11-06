@@ -1,0 +1,1338 @@
+{
+  "id": "listening-48",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 48",
+  "shortTitle": "Practice Test 48",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 48,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "anna": {
+      "name": "Anna",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "chris": {
+      "name": "Chris",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "tanner": {
+      "name": "Mr Tanner",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "mia": {
+      "name": "Mia",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "ravi": {
+      "name": "Ravi",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a ski holiday",
+      "context": "A man books a skiing trip for a group of friends.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a travel agency to book a skiing trip for a group of friends. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.9
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.9,
+          "end": 39.97
+        },
+        {
+          "speaker": "anna",
+          "text": "Snowline Travel, Anna speaking.",
+          "start": 40.87,
+          "end": 43.07
+        },
+        {
+          "speaker": "chris",
+          "text": "Hello. I'd like to book a ski holiday, please. It's for a group of friends, and we try to go away together every winter.",
+          "start": 43.57,
+          "end": 50.65
+        },
+        {
+          "speaker": "anna",
+          "text": "That sounds fun. I'll take some details.",
+          "start": 51.15,
+          "end": 53.77
+        },
+        {
+          "speaker": "narrator",
+          "text": "The trip is for a group of friends, so 'friends' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 54.67,
+          "end": 69.69
+        },
+        {
+          "speaker": "anna",
+          "text": "Could I have your surname, please?",
+          "start": 70.59,
+          "end": 72.6
+        },
+        {
+          "speaker": "chris",
+          "text": "It's Sherwood. That's S-H-E-R-W-O-O-D.",
+          "start": 73.1,
+          "end": 80.01
+        },
+        {
+          "speaker": "anna",
+          "text": "Thank you, Mr Sherwood. How many of you will there be?",
+          "start": 80.51,
+          "end": 83.41
+        },
+        {
+          "speaker": "chris",
+          "text": "There were eight of us, but two have pulled out, so it's six.",
+          "start": 83.91,
+          "end": 87.09
+        },
+        {
+          "speaker": "anna",
+          "text": "And where would you like to go?",
+          "start": 87.59,
+          "end": 89.34
+        },
+        {
+          "speaker": "chris",
+          "text": "We'd like to go to Austria. We went to France last year, and it was very expensive.",
+          "start": 89.84,
+          "end": 94.92
+        },
+        {
+          "speaker": "anna",
+          "text": "When would you like to travel?",
+          "start": 95.42,
+          "end": 97.15
+        },
+        {
+          "speaker": "chris",
+          "text": "The seventh of February, for a week.",
+          "start": 97.65,
+          "end": 99.76
+        },
+        {
+          "speaker": "anna",
+          "text": "What is the level of your group?",
+          "start": 100.26,
+          "end": 102.16
+        },
+        {
+          "speaker": "chris",
+          "text": "Most of us are beginners, I'm afraid. Only two have been skiing before.",
+          "start": 102.66,
+          "end": 107.37
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 108.27,
+          "end": 113.99
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 133.99,
+          "end": 137.32
+        },
+        {
+          "speaker": "anna",
+          "text": "We have three packages. The Standard package is sixty-five pounds a night. It includes breakfast, and a bus pass, so you can travel between the villages without paying.",
+          "start": 138.22,
+          "end": 147.2
+        },
+        {
+          "speaker": "chris",
+          "text": "That sounds good. What about the next one?",
+          "start": 147.7,
+          "end": 150.11
+        },
+        {
+          "speaker": "anna",
+          "text": "The Comfort package is eighty pounds a night, with breakfast and dinner, and the hire of all your ski equipment, which saves a lot of money.",
+          "start": 150.61,
+          "end": 157.78
+        },
+        {
+          "speaker": "chris",
+          "text": "Most of us don't have our own skis, so that sounds right.",
+          "start": 158.28,
+          "end": 161.71
+        },
+        {
+          "speaker": "anna",
+          "text": "The Luxury package is ninety-five pounds a night. It includes everything in the Comfort package, plus access to the spa, with a sauna and a pool, which is lovely after a day on the slopes.",
+          "start": 162.21,
+          "end": 172.69
+        },
+        {
+          "speaker": "chris",
+          "text": "I think Comfort is best for us. Are lessons included?",
+          "start": 173.19,
+          "end": 176.71
+        },
+        {
+          "speaker": "anna",
+          "text": "Not in the price, but you can book them at the resort. I'd recommend a lesson every morning for the beginners.",
+          "start": 177.21,
+          "end": 182.58
+        },
+        {
+          "speaker": "chris",
+          "text": "Thank you. Can I pay a deposit now?",
+          "start": 183.08,
+          "end": 185.32
+        },
+        {
+          "speaker": "anna",
+          "text": "Yes, I'll send you a form by email this afternoon.",
+          "start": 185.82,
+          "end": 188.72
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 189.62,
+          "end": 194.15
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Snowline Travel – ski holiday",
+          "content": [
+            "Example: The trip is for a group of **friends**",
+            "## Details",
+            "• Name: Chris {{1}}",
+            "• Group size: {{2}}",
+            "• Resort in {{3}}",
+            "• Date: {{4}} February",
+            "• Most of the group are {{5}} skiers"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Sherwood"
+              ],
+              "explanation": "‘S-H-E-R-W-O-O-D.’",
+              "cue": "S-H-E-R-W-O-O-D"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "‘So it's six.’",
+              "cue": "so it's six"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "Austria"
+              ],
+              "explanation": "‘We'd like to go to Austria.’",
+              "cue": "We'd like to go to Austria"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "7",
+                "seventh",
+                "7th"
+              ],
+              "explanation": "‘The seventh of February.’",
+              "cue": "The seventh of February"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "beginner",
+                "beginners"
+              ],
+              "explanation": "‘Most of us are beginners.’",
+              "cue": "Most of us are beginners"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Packages",
+          "content": {
+            "headers": [
+              "Package",
+              "Price per night",
+              "Includes"
+            ],
+            "rows": [
+              [
+                "Standard",
+                "£{{6}}",
+                "breakfast and a {{7}} pass"
+              ],
+              [
+                "Comfort",
+                "£80",
+                "breakfast, dinner and {{8}} hire"
+              ],
+              [
+                "Luxury",
+                "£{{9}}",
+                "everything in Comfort, plus the {{10}}"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "65",
+                "sixty-five"
+              ],
+              "explanation": "‘Sixty-five pounds a night.’",
+              "cue": "sixty-five pounds a night"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "bus"
+              ],
+              "explanation": "‘Breakfast, and a bus pass.’",
+              "cue": "breakfast, and a bus pass"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "equipment",
+                "ski"
+              ],
+              "explanation": "‘The hire of all your ski equipment.’",
+              "cue": "the hire of all your ski equipment"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "95",
+                "ninety-five"
+              ],
+              "explanation": "‘Ninety-five pounds a night.’",
+              "cue": "ninety-five pounds a night"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "spa"
+              ],
+              "explanation": "‘Access to the spa.’",
+              "cue": "access to the spa"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-48/part1.mp3",
+        "duration": 224.95
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A ski resort briefing",
+      "context": "A resort manager gives guests information and safety advice.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a ski resort manager giving a safety and information briefing. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.56
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.56,
+          "end": 39.83
+        },
+        {
+          "speaker": "tanner",
+          "text": "Good morning, everyone, and welcome to Alpenhof. I'm Hans Tanner, the resort manager, and I'll tell you what you need to know before you hit the slopes. Please look at the map. We're in the village, at the bottom, and the main path leads up the mountain.",
+          "start": 40.73,
+          "end": 53.64
+        },
+        {
+          "speaker": "tanner",
+          "text": "Just by the entrance, on the right, is ski hire, where you collect your skis and boots. On the left, at the bottom, is the ski school, where the beginners' lessons begin at nine. Between the ski school and the path is the first aid post, which is staffed all day.",
+          "start": 53.99,
+          "end": 67.26
+        },
+        {
+          "speaker": "tanner",
+          "text": "Going up the path, on the left is the beginners' area, with a gentle slope and a magic carpet lift. On the right is the Sun Hut café, which serves hot chocolate and the best apple cake in the Alps.",
+          "start": 67.61,
+          "end": 78.63
+        },
+        {
+          "speaker": "tanner",
+          "text": "At the top of the path is the gondola station, which takes you up to the main slopes. And to the right of it is a viewpoint, with a wonderful view of the glacier, though you'll need a gondola ticket to get there.",
+          "start": 78.98,
+          "end": 89.65
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 90.55,
+          "end": 96.27
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 121.27,
+          "end": 125.15
+        },
+        {
+          "speaker": "tanner",
+          "text": "Some practical points. A day pass for the lifts costs forty-five euros, and a six-day pass is cheaper, if you're staying all week.",
+          "start": 126.05,
+          "end": 133.67
+        },
+        {
+          "speaker": "tanner",
+          "text": "The last gondola down leaves at half past four. Please don't miss it, because the walk down takes more than two hours, and it gets dark quickly in the mountains.",
+          "start": 134.02,
+          "end": 142.59
+        },
+        {
+          "speaker": "tanner",
+          "text": "Helmets are compulsory for children under fourteen. Adults are not required to wear them, but we strongly recommend it, and you can hire one at the same desk as your skis.",
+          "start": 142.94,
+          "end": 152.14
+        },
+        {
+          "speaker": "tanner",
+          "text": "Look out for the coloured flags at the top of each slope. A green flag means the slope is open, and a red flag means it is closed. Never ski on a closed slope, however good the snow looks.",
+          "start": 152.49,
+          "end": 163.11
+        },
+        {
+          "speaker": "tanner",
+          "text": "If you see an accident, or if you have one, please report it at the nearest lift station, where staff will call the mountain rescue. Have a wonderful week, and ski safely.",
+          "start": 163.46,
+          "end": 172.64
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 173.54,
+          "end": 177.87
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "Alpenhof ski area: base station",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "sand"
+              },
+              {
+                "type": "line",
+                "x1": 320,
+                "y1": 414,
+                "x2": 320,
+                "y2": 135,
+                "style": "path"
+              },
+              {
+                "type": "gate",
+                "x": 320,
+                "y": 428,
+                "label": "Village"
+              },
+              {
+                "type": "compass",
+                "x": 602,
+                "y": 412
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 300,
+                "w": 130,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 40,
+                "y": 170,
+                "w": 130,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 270,
+                "y": 55,
+                "w": 100,
+                "h": 75,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 470,
+                "y": 170,
+                "w": 140,
+                "h": 90,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 470,
+                "y": 286,
+                "w": 140,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 200,
+                "y": 320,
+                "w": 90,
+                "h": 60,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 470,
+                "y": 50,
+                "w": 140,
+                "h": 80,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 105,
+                "y": 340,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 105,
+                "y": 215,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 320,
+                "y": 92,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 540,
+                "y": 215,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 540,
+                "y": 326,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 245,
+                "y": 350,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 540,
+                "y": 90,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Ski school",
+              "answer": "A",
+              "explanation": "‘On the left, at the bottom, is the ski school.’",
+              "cue": "On the left, at the bottom, is the ski school"
+            },
+            {
+              "number": 12,
+              "prompt": "Gondola station",
+              "answer": "C",
+              "explanation": "‘At the top of the path is the gondola station.’",
+              "cue": "At the top of the path is the gondola station"
+            },
+            {
+              "number": 13,
+              "prompt": "Ski hire",
+              "answer": "E",
+              "explanation": "‘By the entrance, on the right, is ski hire.’",
+              "cue": "by the entrance, on the right, is ski hire"
+            },
+            {
+              "number": 14,
+              "prompt": "Sun Hut café",
+              "answer": "D",
+              "explanation": "‘On the right is the Sun Hut café.’",
+              "cue": "On the right is the Sun Hut café"
+            },
+            {
+              "number": 15,
+              "prompt": "First aid post",
+              "answer": "F",
+              "explanation": "‘Between the ski school and the path is the first aid post.’",
+              "cue": "Between the ski school and the path is the first aid post"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How much does a day pass cost?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "thirty-five euros"
+                },
+                {
+                  "key": "B",
+                  "text": "forty-five euros"
+                },
+                {
+                  "key": "C",
+                  "text": "fifty-five euros"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘A day pass for the lifts costs forty-five euros.’",
+              "cue": "A day pass for the lifts costs forty-five euros"
+            },
+            {
+              "number": 17,
+              "prompt": "When does the last gondola come down?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at four o'clock"
+                },
+                {
+                  "key": "B",
+                  "text": "at half past four"
+                },
+                {
+                  "key": "C",
+                  "text": "at five o'clock"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The last gondola down leaves at half past four.’",
+              "cue": "The last gondola down leaves at half past four"
+            },
+            {
+              "number": 18,
+              "prompt": "Who must wear a helmet?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "everybody"
+                },
+                {
+                  "key": "B",
+                  "text": "children under fourteen"
+                },
+                {
+                  "key": "C",
+                  "text": "only beginners"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Helmets are compulsory for children under fourteen.’",
+              "cue": "Helmets are compulsory for children under fourteen"
+            },
+            {
+              "number": 19,
+              "prompt": "What does a red flag mean?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The slope is closed."
+                },
+                {
+                  "key": "B",
+                  "text": "There is a risk of avalanche."
+                },
+                {
+                  "key": "C",
+                  "text": "The slope is for experts."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘A red flag means it is closed.’",
+              "cue": "a red flag means it is closed"
+            },
+            {
+              "number": 20,
+              "prompt": "Where should accidents be reported?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the nearest lift station"
+                },
+                {
+                  "key": "B",
+                  "text": "at the village police station"
+                },
+                {
+                  "key": "C",
+                  "text": "at the hotel"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Report it at the nearest lift station.’",
+              "cue": "report it at the nearest lift station"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-48/part2.mp3",
+        "duration": 208.67
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Designing a vocabulary game",
+      "context": "Two education students describe a board game for children.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two education students, Mia and Ravi, designing a vocabulary board game for children. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.78
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.78,
+          "end": 42.5
+        },
+        {
+          "speaker": "mia",
+          "text": "Ravi, shall we describe our game in the report? It's a board game to help children learn French vocabulary.",
+          "start": 43.4,
+          "end": 49.65
+        },
+        {
+          "speaker": "ravi",
+          "text": "Yes. I think we should say clearly who it's for. I'd say seven to nine-year-olds, because the five- and six-year-olds can't read the cards yet, and the older ones would find it too easy.",
+          "start": 50.15,
+          "end": 61.79
+        },
+        {
+          "speaker": "mia",
+          "text": "Agreed. Why did we decide on vocabulary, and not grammar?",
+          "start": 62.29,
+          "end": 65.92
+        },
+        {
+          "speaker": "ravi",
+          "text": "Because it's easy to test. You can see straight away whether a child knows a word, but grammar is much harder to assess in a game.",
+          "start": 66.42,
+          "end": 74.76
+        },
+        {
+          "speaker": "mia",
+          "text": "How many words did we include?",
+          "start": 75.26,
+          "end": 76.91
+        },
+        {
+          "speaker": "ravi",
+          "text": "Eighty, in groups of ten, such as animals, food and colours.",
+          "start": 77.41,
+          "end": 81.27
+        },
+        {
+          "speaker": "mia",
+          "text": "What did the teacher say about the first version?",
+          "start": 81.77,
+          "end": 84.03
+        },
+        {
+          "speaker": "ravi",
+          "text": "That it was too long. Children lost interest after twenty minutes, so we shortened the board.",
+          "start": 84.53,
+          "end": 89.86
+        },
+        {
+          "speaker": "mia",
+          "text": "And how are we going to test the game?",
+          "start": 90.36,
+          "end": 92.17
+        },
+        {
+          "speaker": "ravi",
+          "text": "In a real class, at the primary school in Hill Street. Mrs Evans has agreed to let us try it with a group of twelve children.",
+          "start": 92.67,
+          "end": 100.89
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 101.79,
+          "end": 107.93
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 127.93,
+          "end": 131.77
+        },
+        {
+          "speaker": "mia",
+          "text": "Now let me describe how the game works. First, each player puts a counter on the start square.",
+          "start": 132.67,
+          "end": 138.09
+        },
+        {
+          "speaker": "ravi",
+          "text": "Then they roll a dice and move that number of squares along the board.",
+          "start": 138.59,
+          "end": 142.69
+        },
+        {
+          "speaker": "mia",
+          "text": "If they land on a coloured square, they pick up a card with a picture on it, such as an apple or a cat.",
+          "start": 143.19,
+          "end": 148.82
+        },
+        {
+          "speaker": "ravi",
+          "text": "They have to say the French word before the timer runs out. We use a one-minute sand timer, which the children like.",
+          "start": 149.32,
+          "end": 156.36
+        },
+        {
+          "speaker": "mia",
+          "text": "If they're correct, they win a point, and the player with the most points at the end wins the game.",
+          "start": 156.86,
+          "end": 161.98
+        },
+        {
+          "speaker": "ravi",
+          "text": "There's no prize, although the teacher said she might give out stickers.",
+          "start": 162.48,
+          "end": 166.68
+        },
+        {
+          "speaker": "mia",
+          "text": "That's a nice idea. Shall I draw the board for the appendix?",
+          "start": 167.18,
+          "end": 170.49
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 171.39,
+          "end": 175.85
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What age group is the game designed for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "five to six"
+                },
+                {
+                  "key": "B",
+                  "text": "seven to nine"
+                },
+                {
+                  "key": "C",
+                  "text": "ten to twelve"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘I'd say seven to nine-year-olds.’",
+              "cue": "I'd say seven to nine-year-olds"
+            },
+            {
+              "number": 22,
+              "prompt": "Why did they choose vocabulary rather than grammar?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is easy to test."
+                },
+                {
+                  "key": "B",
+                  "text": "The teacher asked for it."
+                },
+                {
+                  "key": "C",
+                  "text": "It is more fun."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘It's easy to test.’",
+              "cue": "it's easy to test"
+            },
+            {
+              "number": 23,
+              "prompt": "How many words does the game include?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "forty"
+                },
+                {
+                  "key": "B",
+                  "text": "eighty"
+                },
+                {
+                  "key": "C",
+                  "text": "a hundred and fifty"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Eighty, in groups of ten.’",
+              "cue": "Eighty, in groups of ten"
+            },
+            {
+              "number": 24,
+              "prompt": "What did the teacher say about the first version?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It was too long."
+                },
+                {
+                  "key": "B",
+                  "text": "It was too noisy."
+                },
+                {
+                  "key": "C",
+                  "text": "It was too competitive."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘That it was too long.’",
+              "cue": "That it was too long"
+            },
+            {
+              "number": 25,
+              "prompt": "How will they test the game?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "with a class of children"
+                },
+                {
+                  "key": "B",
+                  "text": "with university students"
+                },
+                {
+                  "key": "C",
+                  "text": "online"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘In a real class, at the primary school.’",
+              "cue": "In a real class, at the primary school"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "How the game works",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "card"
+            },
+            {
+              "key": "B",
+              "text": "dice"
+            },
+            {
+              "key": "C",
+              "text": "counter"
+            },
+            {
+              "key": "D",
+              "text": "board"
+            },
+            {
+              "key": "E",
+              "text": "points"
+            },
+            {
+              "key": "F",
+              "text": "timer"
+            },
+            {
+              "key": "G",
+              "text": "prize"
+            }
+          ],
+          "content": [
+            "Each player puts a {{26}} on the start square.",
+            "Players roll a {{27}} and move along the board.",
+            "On a coloured square, they pick up a {{28}} with a picture.",
+            "They must say the French word before the {{29}} runs out.",
+            "The player with the most {{30}} wins."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘Puts a counter on the start square.’",
+              "cue": "puts a counter on the start square"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "B"
+              ],
+              "explanation": "‘They roll a dice.’",
+              "cue": "they roll a dice"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘Pick up a card with a picture on it.’",
+              "cue": "pick up a card with a picture on it"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "F"
+              ],
+              "explanation": "‘Before the timer runs out.’",
+              "cue": "before the timer runs out"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "E"
+              ],
+              "explanation": "‘The player with the most points at the end wins the game.’",
+              "cue": "the player with the most points at the end wins the game"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-48/part3.mp3",
+        "duration": 206.65
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the Industrial Revolution",
+      "context": "A history lecture on the Industrial Revolution.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the Industrial Revolution. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.07
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.07,
+          "end": 43.49
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Few periods in history changed everyday life as much as the Industrial Revolution, which began in Britain in the late eighteenth century, and then spread across the world.",
+          "start": 44.39,
+          "end": 54.77
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The first great change came in the textile industry. Until then, cloth was made by hand at home, in a slow process. A series of inventions changed this. The spinning jenny, invented in the seventeen sixties, allowed a single worker to spin several threads at once, and later machines made spinning and weaving faster still. As machines became larger, they were moved into factories.",
+          "start": 55.12,
+          "end": 76.31
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The other key invention was the steam engine. James Watt greatly improved the design in the seventeen sixties, and his engines were soon used to power factories, mines and ships. They were driven by coal, which Britain had in large quantities, and the demand for coal and iron grew rapidly.",
+          "start": 76.66,
+          "end": 92.94
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Transport changed too. Canals, and then railways, made it cheaper and faster to move goods and people. The first public railway to use steam locomotives opened in eighteen twenty-five, and within a few decades, a network covered the country.",
+          "start": 93.29,
+          "end": 106.96
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Cities grew at an astonishing speed. Towns such as Manchester, which had been small, became huge, as people left the countryside to find work in the factories. But the new towns were crowded and dirty, with few sewers and little clean water, and diseases spread quickly.",
+          "start": 107.31,
+          "end": 122.93
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Working conditions were harsh. Many factory workers were children, who worked long hours for little pay. Public concern led Parliament to pass a series of laws, called the Factory Acts, which gradually limited the hours of children and improved safety.",
+          "start": 123.28,
+          "end": 137.42
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Historians still debate whether ordinary people benefited. In the short term, many suffered. But in the long run, living standards rose, and the Industrial Revolution laid the foundation for modern economic growth. Next week we'll look at the changes in agriculture.",
+          "start": 137.77,
+          "end": 153.32
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 154.22,
+          "end": 158.62
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 188.62,
+          "end": 191.33
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The Industrial Revolution",
+          "content": [
+            "## Beginnings",
+            "• It began in {{31}} in the late eighteenth century",
+            "• The first great change was in the {{32}} industry",
+            "• The spinning {{33}} allowed one worker to spin several threads",
+            "## Power and transport",
+            "• James Watt improved the steam {{34}}",
+            "• The engines were driven by {{35}}",
+            "• Canals and railways moved goods and {{36}} more cheaply",
+            "## Society",
+            "• Towns such as {{37}} grew rapidly",
+            "• Many factory workers were {{38}}",
+            "• Laws called the {{39}} Acts limited working hours",
+            "• In the long run, living standards {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "Britain"
+              ],
+              "explanation": "‘Began in Britain.’",
+              "cue": "began in Britain"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "textile"
+              ],
+              "explanation": "‘In the textile industry.’",
+              "cue": "in the textile industry"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "jenny"
+              ],
+              "explanation": "‘The spinning jenny.’",
+              "cue": "The spinning jenny"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "engine"
+              ],
+              "explanation": "‘Greatly improved the design.’",
+              "cue": "greatly improved the design"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "coal"
+              ],
+              "explanation": "‘They were driven by coal, which Britain had in large quantities.’",
+              "cue": "driven by coal"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "people"
+              ],
+              "explanation": "‘Move goods and people.’",
+              "cue": "move goods and people"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "Manchester"
+              ],
+              "explanation": "‘Towns such as Manchester.’",
+              "cue": "Towns such as Manchester"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "children"
+              ],
+              "explanation": "‘Many factory workers were children.’",
+              "cue": "Many factory workers were children"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "Factory"
+              ],
+              "explanation": "‘Called the Factory Acts.’",
+              "cue": "called the Factory Acts"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "rose",
+                "improved"
+              ],
+              "explanation": "‘Living standards rose.’",
+              "cue": "living standards rose"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-48/part4.mp3",
+        "duration": 192.13
+      }
+    }
+  ],
+  "durationMinutes": 14
+}
