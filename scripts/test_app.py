@@ -2717,6 +2717,25 @@ class ErrorAlertTests(unittest.TestCase):
             logger.removeHandler(alerts)
 
 
+class HistoryRowTests(unittest.TestCase):
+    """The recent-tests list on a phone: a long Speaking result must not squeeze the test name (it once stacked one word per line)."""
+
+    def read(self, *parts):
+        with open(os.path.join(PUBLIC_DIR, *parts), encoding="utf-8") as f:
+            return f.read()
+
+    def test_long_speaking_results_get_their_own_line_on_phones(self):
+        js, css = self.read("js", "app.js"), self.read("css", "portal.css")
+        self.assertIn('class="history-long"', js)
+        self.assertRegex(css, r"history-table tr\.history-long\s*\{[^}]*grid-template-areas:\s*\"test test\" \"result result\"")
+        # the result column can never take more than part of the row, so the test name keeps its width
+        self.assertIn("fit-content(", css.split("Phones: recent tests as two-line rows")[1].split("Taps answer at once")[0])
+
+    def test_one_answer_is_not_called_answers(self):
+        js = self.read("js", "app.js")
+        self.assertIn('t("Listen (1 answer)")', js)
+
+
 class BrandTests(AccountApiBase):
     """The mark and the ornament (scripts/make_ornaments.py): drawn once, used in a few fixed places, never in the exam."""
 

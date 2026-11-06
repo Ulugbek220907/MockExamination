@@ -647,8 +647,11 @@
           <tbody>${items.slice(0, 10).map((i) => {
             const test = testOf(i.testId);
             const name = test ? `${MODULE_LABELS[test.module]}, ${this.testName(test)}` : i.testId;
+            // A Speaking row with a band or a marking note has a long result; on phones it gets a line of its own.
+            const longResult = i.module === "speaking"
+              && ((i.bandScore !== null && i.bandScore !== undefined) || (i.aiBand !== null && i.aiBand !== undefined) || (i.checkStatus && i.checkStatus !== "completed"));
             return `
-            <tr>
+            <tr${longResult ? ' class="history-long"' : ""}>
               <td>${esc(U.formatDate(i.createdAt))}</td>
               <td>${esc(name)}${i.mode === "practice" ? ` <span class="muted-text">(${t("practice")})</span>` : ""}</td>
               <td>${i.module === "speaking" ? this.speakingHistoryCell(i)
@@ -666,7 +669,7 @@
       const band = i.bandScore !== null && i.bandScore !== undefined ? `<strong>${t("Band {band}", { band: IeltsScoring.formatBand(i.bandScore) })}</strong> `
         : i.aiBand !== null && i.aiBand !== undefined ? `<strong>${t("Band {band}", { band: IeltsScoring.formatBand(i.aiBand) })}</strong> <span class="muted-text">${t("(AI examiner)")}</span> ` : "";
       const status = i.checkStatus && i.checkStatus !== "completed" ? `<span class="muted-text">${t("Examiner marking")}</span> ` : "";
-      return `${band}${status}<a href="#/speaking/${Number(i.id)}">${t("Listen ({n} answers)", { n: i.answered })}</a>`;
+      return `${band}${status}<a href="#/speaking/${Number(i.id)}">${Number(i.answered) === 1 ? t("Listen (1 answer)") : t("Listen ({n} answers)", { n: i.answered })}</a>`;
     }
 
     /* Practice by question type ------------------------------------------ */
