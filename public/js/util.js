@@ -60,6 +60,8 @@
         if (!res.ok) {
           const err = new Error((data && data.error) || `Request failed (${res.status})`);
           err.status = res.status;
+          if (data && data.code) err.code = data.code;
+          err.data = data;
           throw err;
         }
         if (isSimpleGet && isCacheable(path)) {

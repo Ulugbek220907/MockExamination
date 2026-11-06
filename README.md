@@ -20,7 +20,7 @@
 - **Launch mode** (`COMMERCE_ENABLED` unset or `0`, the default): the first five tests of every module are free and every other test is shown blurred with "Coming soon…". Nothing is for sale: the Price, Examiners and Refund pages, the pass, orders and examiner checks are hidden in the site and answer 404 on the server. A test is free when its JSON says `"access": "free"` (or has no `access` and `sortOrder` is 5 or less); a test that says `"premium"` (or has no `access` and `sortOrder` above 5) is "soon" in launch mode, and refused by the API and the audio to everyone except admins and examiners, who can preview it. Listening, Reading and Writing need no sign-in; Speaking needs a (free) account because the recordings are saved to it.
 - **Selling mode** (`COMMERCE_ENABLED=1`): the same `"premium"` tests need the monthly plan, the Price, Examiners and Refunds pages come back, and the server enforces the plan.
 - The plan costs 39,000 so'm a month (configurable). The first payment gives two months, and nothing renews automatically.
-- Sign-in uses a 6-digit email code or Google (Supabase Auth). Attempts made before signing in are added to the account.
+- Sign-in uses a 6-digit email code, or Google in one click. Google's own button appears when `GOOGLE_CLIENT_ID` is set (see DEPLOY.md, "Sign in with Google"); the server checks Google's signed ID token itself. The older route, through Supabase's Google provider, still works when that is the one switched on. Attempts made before signing in are added to the account.
 - Payments: Payme and Click (merchant APIs built in, switched on by environment variables), or a card transfer confirmed by an admin.
 - Admin panel for confirming payments, refunds, adding examiners and giving plan days, with revenue for the last 7 and 30 days (pass vs. examiner checks), passes active now and passes ending within 7 days.
 - Progress page: the latest band per module with the change since the previous test, and a chart of band scores over time (timed Listening/Reading, marked Writing/Speaking), with a table view.
@@ -82,7 +82,8 @@ mockexam/
   storage.py              LocalStore (JSON + SQLite) and SupabaseStore (REST)
   db.py                   table access for accounts/payments: SQLite locally, Supabase REST in production
   dbcache.py              short-lived read cache in front of db.py (the database can be far from the server)
-  auth.py                 sign-in with email codes and Google (Supabase Auth); development mode
+  auth.py                 sign-in with email codes (and Google through Supabase Auth); development mode
+  google_signin.py        "Continue with Google": checks Google's ID token (RS256, issuer, audience, expiry, verified email)
   accounts.py             profiles, roles, the monthly plan, which tests a user may open
   billing.py              prices, orders, Payme Merchant API, Click SHOP API, card transfers
   checks.py               examiner profiles, paid checks, marking, one review per check

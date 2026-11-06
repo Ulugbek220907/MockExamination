@@ -687,6 +687,11 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
   font-family: inherit; color: var(--ink);
 }
 .btn-google:hover { border-color: var(--ink-2); }
+/* Google's own button sits in a slot as tall as the button, so nothing moves when it replaces the placeholder. */
+.google-slot { display: flex; justify-content: center; min-height: 40px; color-scheme: light; transition: opacity 0.15s; }
+.google-slot .btn-google { min-height: 40px; padding-block: 0; }
+.google-slot.is-busy { opacity: 0.5; pointer-events: none; }
+.google-block .form-error { margin-top: 8px; }
 .auth-or { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 0.85em; margin: 16px 0; }
 .auth-or::before, .auth-or::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 .auth-form { display: flex; flex-direction: column; gap: 8px; }

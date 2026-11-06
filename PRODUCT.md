@@ -27,7 +27,7 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 
 - Free Listening, Reading and Writing tests need no account; Speaking needs a free account because recordings are saved to it.
 - Payment through Payme, Click, or a card transfer confirmed by an admin. Prices in so'm.
-- Sign-in by a 6-digit email code (Google sign-in when enabled in Supabase).
+- Sign-in by a 6-digit email code, or in one click with Google (when `GOOGLE_CLIENT_ID` is set).
 - Answers and essays autosave in the browser so an attempt survives a refresh.
 - Hosted on Render with Supabase; pages must load fast on mobile data in Uzbekistan.
 

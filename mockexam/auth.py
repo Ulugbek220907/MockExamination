@@ -13,6 +13,9 @@ SupabaseAuth  – production otherwise. Needs SUPABASE_URL and SUPABASE_KEY.
 DevAuth       – local development and tests: codes are printed to the server
                 log (and returned by the API when AUTH_DEV_CODES=1), no email
                 is sent, Google is unavailable.
+
+Google can also be signed in to directly, without Supabase: see google_signin.py
+(switched on by GOOGLE_CLIENT_ID).
 """
 
 import datetime
@@ -38,9 +41,13 @@ CODE_RE = re.compile(r"^\d{6}$")
 
 
 class AuthError(Exception):
-    def __init__(self, message, status=400):
+    """A sign-in problem whose message a student can act on. `code` and `extra` let the page do more than show it."""
+
+    def __init__(self, message, status=400, code=None, extra=None):
         super().__init__(message)
         self.status = status
+        self.code = code
+        self.extra = extra
 
 
 def clean_email(value):
@@ -287,6 +294,12 @@ class AttemptLimiter:
         self.window = window
         self.hits = {}
         self.lock = threading.Lock()
+
+    def blocked(self, key):
+        """Whether `key` has used up its limit, without counting this call."""
+        now = time.time()
+        with self.lock:
+            return len([t for t in self.hits.get(key, []) if now - t < self.window]) >= self.limit
 
     def allow(self, key):
         now = time.time()

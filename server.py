@@ -66,7 +66,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, ai, analytics, api, auth, billing, content, content_sync, notify, pool, practice, scoring, speaking, speaking_ai, storage, writing  # noqa: E402
+from mockexam import accounts, ai, analytics, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, speaking, speaking_ai, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -108,6 +108,7 @@ MODULES = {
 }
 
 STORE = storage.create_store()
+GOOGLE = google_signin.GoogleSignIn(google_signin.configured())
 
 
 def create_auth():
@@ -389,6 +390,7 @@ class HealthHandler(BaseHandler):
 
 class ConfigHandler(BaseHandler):
     async def get(self):
+        google = self.application.settings["google"]
         self.send_json({
             "siteName": SITE_NAME,
             "aiMarking": writing.ai_configured(),
@@ -397,7 +399,10 @@ class ConfigHandler(BaseHandler):
             "contactEmail": CONTACT_EMAIL,
             "social": SOCIAL_LINKS,
             "storage": STORE.name,
-            "auth": {"email": True, "google": await in_thread(AUTH.google_enabled), "dev": AUTH.name == "dev"},
+            # googleClientId: the page shows Google's own button (api.AuthGoogleHandler.post). Without it, "google" says
+            # whether the older way, through Supabase, is switched on.
+            "auth": {"email": True, "dev": AUTH.name == "dev", "googleClientId": google.client_id or None,
+                     "google": google.enabled or await in_thread(AUTH.google_enabled)},
             "speakingKeepDays": speaking.KEEP_DAYS,
             "commerce": accounts.commerce_enabled(),
         })
@@ -922,6 +927,7 @@ def make_app():
         cookie_secret=cookie_secret(),
         store=STORE,
         auth=AUTH,
+        google=GOOGLE,
     )
 
 
