@@ -4,7 +4,7 @@
 
 > **Independent site.** TestDay is not affiliated with, endorsed by or approved by the British Council, IDP IELTS or Cambridge University Press & Assessment. "IELTS" is a registered trademark of its owners and is used only to describe the exam this site helps people prepare for.
 
-> **Also in this repository:** `social-poster/` is a separate small service that posts a TestDay post every day to YouTube, TikTok, Instagram, Threads and Facebook. It has its own `render.yaml`, requirements and tests and is not part of the website; see [social-poster/README.md](social-poster/README.md).
+> **Also in this repository:** `social-poster/` is a separate small service that posts a TestDay post every day to YouTube, TikTok, Instagram, Threads and Facebook. It is a second service in the repository's `render.yaml` (`testday-social`), with its own requirements and tests, and is not part of the website; see [social-poster/README.md](social-poster/README.md) for how to create it in Render (it is not created by a push).
 
 ## What's inside
 
@@ -117,12 +117,13 @@ public/
 supabase/schema.sql       database schema (run once in Supabase)
 scripts/
   validate_content.py     content checker
-  seed_supabase.py        upload content/ to Supabase
+  seed_supabase.py        upload content/ to Supabase (only for TESTS_SOURCE=supabase)
   build_listening_audio.py  generate listening MP3s from the scripts (Kokoro TTS)
   build_speaking_audio.py   generate the Speaking examiner's questions (Kokoro TTS)
   check_listening_audio.py  transcribe the MP3s with Whisper and check every answer is heard
   test_app.py             test suite (prints the number of tests)
-  make_og_image.js        draws public/img/og.png, the picture shown when the site is shared (Node + Playwright)
+  make_ornaments.py       draws the logo mark and the ornament bands (public/img/orn/, favicon.svg, the mark in index.html)
+  make_og_image.js        draws public/img/og.png (the picture shown when the site is shared) and the app icons (Node + Playwright)
 docs/
   PAYMENTS_CHECKLIST.md   step-by-step test purchase and refund on production
 .github/workflows/ci.yml  runs the content check and the tests on every push and pull request

@@ -3,9 +3,13 @@ Storage backends.
 
 LocalStore     – tests from content/<module>/*.json, attempts in a local SQLite file.
                  Zero configuration; ideal for development.
-SupabaseStore  – tests and attempts in Supabase (Postgres) through the server
-                 API functions in supabase/schema.sql. Enabled when
-                 SUPABASE_URL, SUPABASE_KEY and SUPABASE_APP_SECRET are set.
+SupabaseStore  – attempts, accounts and recordings in Supabase (Postgres) through
+                 the server API functions in supabase/schema.sql. Enabled when
+                 SUPABASE_URL, SUPABASE_KEY and SUPABASE_APP_SECRET are set. The
+                 tests come from the files that ship with each deploy (content/),
+                 not from the database: a copy in Supabase added nothing but a 6 MB
+                 download every few minutes. TESTS_SOURCE=supabase brings the old
+                 behaviour back (see content_sync.py and scripts/seed_supabase.py).
 
 Both expose the same methods, and all methods are synchronous (the server
 calls them from a thread pool). `store.db` gives table access (see db.py) for
@@ -259,6 +263,11 @@ class SupabaseStore:
     CACHE_SECONDS = 300
 
     def __init__(self, url, api_key, app_secret):
+        # "files": the tests are the files in content/ (read once, then kept in memory).
+        # "supabase": the tests are the copy in the tests table, reloaded every CACHE_SECONDS.
+        source = (os.environ.get("TESTS_SOURCE") or "files").strip().lower()
+        self.tests_source = source if source in ("files", "supabase") else "files"
+        self._local = None
         self.rest = url.rstrip("/") + "/rest/v1"
         self.key = api_key
         self.secret = app_secret
@@ -295,9 +304,15 @@ class SupabaseStore:
     # -- content -----------------------------------------------------------
     def list_tests(self):
         """
-        Cached tests. Once loaded, requests never wait for Supabase: when the cache is
-        older than CACHE_SECONDS it is served as is while a background thread reloads it.
+        The tests. From the files in content/ unless TESTS_SOURCE=supabase; then, once loaded,
+        requests never wait for Supabase: when the cache is older than CACHE_SECONDS it is
+        served as is while a background thread reloads it.
         """
+        if self.tests_source == "files":
+            with self._lock:
+                if self._local is None:
+                    self._local = load_local_tests()
+                return self._local
         with self._lock:
             tests = self._cache
             if tests is not None and time.time() - self._cache_at >= self.CACHE_SECONDS and not self._refreshing:
@@ -337,6 +352,7 @@ class SupabaseStore:
     def refresh(self):
         with self._lock:
             self._cache = None
+            self._local = None
 
     def upsert_test(self, test):
         self._rpc("app_upsert_test", p_test=test)

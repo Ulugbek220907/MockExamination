@@ -1,13 +1,20 @@
 /**
- * Draws the images that stand for TestDay outside the site:
- *   public/img/og.png          1200 x 630, shown when testday.uz is shared in Telegram, WhatsApp, Facebook or X
- *   public/img/logo-512.png     512 x 512, the logo in the search-engine data (index.html)
- *   public/img/email-logo.png    96 x 96, the logo at the top of the emails
+ * Draws the images that stand for TestDay outside the site, from the mark and the ornament that
+ * scripts/make_ornaments.py draws (public/img/logo-mark*.svg, public/img/orn/*.svg):
+ *   public/img/og.png                 1200 x 630, shown when testday.uz is shared in Telegram, WhatsApp, Facebook or X
+ *   public/img/logo-512.png            512 x 512, the logo in the search-engine data (index.html) and the app icon
+ *   public/img/logo-192.png            192 x 192, the app icon
+ *   public/img/logo-maskable-512.png   512 x 512, the app icon for phones that cut it into a circle or a squircle
+ *   public/img/apple-touch-icon.png    180 x 180, the icon on an iPhone home screen (iOS rounds the corners itself)
+ *   public/img/email-logo.png           96 x 96, the logo at the top of the emails
+ *   social-poster/assets/mark-ink.png   512 x 512, the mark alone in ink, and mark-gold.png in gold, for the posters
  *
- * Run after changing the brand colours or the wording:
+ * Run after changing the brand colours, the mark or the wording:
+ *   python scripts/make_ornaments.py
  *   npm i -D playwright   (or use a global install)
  *   node scripts/make_og_image.js
  */
+const fs = require("fs");
 const path = require("path");
 
 let chromium;
@@ -18,36 +25,51 @@ try {
 }
 
 const root = path.join(__dirname, "..");
-const font = require("fs").readFileSync(path.join(root, "public", "fonts", "schibsted-grotesk-core.woff2")).toString("base64");
+const read = (...p) => fs.readFileSync(path.join(root, "public", ...p));
+const font = read("fonts", "schibsted-grotesk-core.woff2").toString("base64");
 const img = (name) => path.join(root, "public", "img", name);
+const poster = (name) => path.join(root, "social-poster", "assets", name);
 
-// The brand (see DESIGN.md): a warm ground and one deep ink.
-const C = { ground: "#e9e8e2", ink: "#0f1a30", soft: "#aeb8cb", muted: "#4a566b" };
+// The brand (see DESIGN.md): a warm ground, one deep ink, and gold for the ornament on ink.
+const C = { ground: "#e9e8e2", ink: "#0f1a30", lift: "#1d2a45", soft: "#aeb8cb", gold: "#e0a93b" };
+
+/** The inside of an SVG file (without its <svg> tag), recoloured: the mark is drawn in navy. */
+const inner = (file, colour) => read("img", file).toString().replace(/^<svg[^>]*>/, "").replace(/<\/svg>\s*$/, "").replaceAll(C.ink, colour);
+const mark = (colour) => inner("logo-mark.svg", colour);
+/** A band as a CSS mask: any colour, repeated sideways, as tall as its box. */
+const band = (name, colour, extra) => {
+  const uri = `url('data:image/svg+xml;base64,${read("img", "orn", `${name}.svg`).toString("base64")}')`; // single quotes: it sits inside a style="" attribute
+  return `<div style="background:${colour};-webkit-mask:${uri} repeat-x center/auto 100%;mask:${uri} repeat-x center/auto 100%;${extra}"></div>`;
+};
 
 const fontFace = `@font-face { font-family: "Schibsted Grotesk"; src: url("data:font/woff2;base64,${font}") format("woff2"); font-weight: 400 700; }
   html, body { margin: 0; } svg { display: block; }`;
 
+// The share picture: ink and gold, like the footer of the site.
 const og = `<!doctype html><html><head><style>${fontFace}
-  body { width: 1200px; height: 630px; overflow: hidden; background: ${C.ground}; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: ${C.ink}; position: relative; font-family: "Schibsted Grotesk"; }
+  .abs { position: absolute; }
 </style></head><body>
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" font-family="Schibsted Grotesk">
-  <rect width="1200" height="630" fill="${C.ground}"/>
-  <text x="72" y="104" font-size="40" font-weight="650" fill="${C.ink}" letter-spacing="-0.8">TestDay</text>
-  <text x="68" y="318" font-size="148" font-weight="600" fill="${C.ink}" letter-spacing="-5.5">IELTS practice</text>
-  <text x="68" y="452" font-size="148" font-weight="600" fill="${C.ink}" letter-spacing="-5.5">like test day</text>
-  <rect y="530" width="1200" height="100" fill="${C.ink}"/>
-  <g font-size="30" font-weight="500" fill="${C.ground}">
-    <text x="72" y="592">Listening</text><text x="302" y="592">Reading</text>
-    <text x="500" y="592">Writing</text><text x="690" y="592">Speaking</text>
-  </g>
-  <text x="1128" y="592" text-anchor="end" font-size="30" font-weight="500" fill="${C.soft}">testday.uz</text>
+  <svg class="abs" style="left:640px;top:-70px" width="760" height="760" viewBox="-1.12 -1.12 2.24 2.24" aria-hidden="true">${mark(C.lift)}</svg>
+  ${band("girih", C.gold, "position:absolute;left:0;right:0;top:26px;height:30px")}
+  <svg class="abs" style="left:72px;top:96px" width="68" height="68" viewBox="-1.12 -1.12 2.24 2.24">${mark(C.gold)}</svg>
+  <div class="abs" style="left:156px;top:100px;font-size:44px;font-weight:650;letter-spacing:-0.9px;color:${C.ground};line-height:60px">TestDay</div>
+  <div class="abs" style="left:66px;top:196px;font-size:140px;font-weight:600;letter-spacing:-5.2px;line-height:126px;color:${C.ground};white-space:nowrap">IELTS practice<br>like test day</div>
+  <div class="abs" style="left:72px;top:482px;font-size:28px;font-weight:500;color:${C.soft};letter-spacing:0.1px">Listening&nbsp;&nbsp;·&nbsp;&nbsp;Reading&nbsp;&nbsp;·&nbsp;&nbsp;Writing&nbsp;&nbsp;·&nbsp;&nbsp;Speaking</div>
+  <div class="abs" style="right:72px;top:482px;font-size:28px;font-weight:500;color:${C.gold}">testday.uz</div>
+  ${band("islimi", C.gold, "position:absolute;left:0;right:0;bottom:6px;height:84px;opacity:0.95")}
+</body></html>`;
+
+// The app icon: the gold mark on a navy tile (rounded for the icon that is shown as it is).
+const tile = (size, { round, scale }) => `<!doctype html><html><head><style>html, body { margin: 0; background: transparent; } svg { display: block; }</style></head><body>
+<svg width="${size}" height="${size}" viewBox="-1.3 -1.3 2.6 2.6" xmlns="http://www.w3.org/2000/svg">
+  <rect x="-1.3" y="-1.3" width="2.6" height="2.6" ${round ? 'rx="0.52"' : ""} fill="${C.ink}"/>
+  <g transform="scale(${scale})">${mark(C.gold)}</g>
 </svg></body></html>`;
 
-// A "T" in a rounded square: the same mark as public/favicon.svg.
-const mark = (size) => `<!doctype html><html><head><style>${fontFace} body { width: ${size}px; height: ${size}px; background: transparent; }</style></head><body>
-<svg width="${size}" height="${size}" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="7" fill="${C.ink}"/><path d="M8 9h16v3.6h-6.2V24h-3.6V12.6H8z" fill="${C.ground}"/>
-</svg></body></html>`;
+// The mark alone on a transparent ground (the social poster pastes it into its pictures).
+const markOnly = (size, colour) => `<!doctype html><html><head><style>html, body { margin: 0; background: transparent; } svg { display: block; }</style></head><body>
+<svg width="${size}" height="${size}" viewBox="-1.12 -1.12 2.24 2.24" xmlns="http://www.w3.org/2000/svg">${mark(colour)}</svg></body></html>`;
 
 async function draw(browser, html, w, h, file, transparent) {
   const page = await browser.newPage({ viewport: { width: w, height: h } });
@@ -65,7 +87,13 @@ async function draw(browser, html, w, h, file, transparent) {
 (async () => {
   const browser = await chromium.launch();
   await draw(browser, og, 1200, 630, img("og.png"));
-  await draw(browser, mark(512), 512, 512, img("logo-512.png"), true);
-  await draw(browser, mark(96), 96, 96, img("email-logo.png"), true);
+  await draw(browser, tile(512, { round: true, scale: 0.96 }), 512, 512, img("logo-512.png"), true);
+  await draw(browser, tile(192, { round: true, scale: 0.96 }), 192, 192, img("logo-192.png"), true);
+  await draw(browser, tile(180, { round: false, scale: 0.9 }), 180, 180, img("apple-touch-icon.png"));
+  // Maskable: everything that matters stays inside the central 80 % circle, so the mark is smaller.
+  await draw(browser, tile(512, { round: false, scale: 0.7 }), 512, 512, img("logo-maskable-512.png"));
+  await draw(browser, tile(96, { round: true, scale: 0.96 }), 96, 96, img("email-logo.png"), true);
+  await draw(browser, markOnly(512, C.ink), 512, 512, poster("mark-ink.png"), true);
+  await draw(browser, markOnly(512, C.gold), 512, 512, poster("mark-gold.png"), true);
   await browser.close();
 })();

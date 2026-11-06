@@ -1,0 +1,1242 @@
+{
+  "id": "listening-23",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 23",
+  "shortTitle": "Practice Test 23",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 23,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "jenny": {
+      "name": "Jenny",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "marco": {
+      "name": "Marco",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "dennis": {
+      "name": "Mr Whitaker",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "anna": {
+      "name": "Anna",
+      "voice": "af_heart",
+      "lang": "en-us"
+    },
+    "kofi": {
+      "name": "Kofi",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Booking a walking holiday",
+      "context": "A man phones a travel company to ask about walking holidays.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a man phoning a travel company to ask about walking holidays. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.94
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.94,
+          "end": 39.01
+        },
+        {
+          "speaker": "jenny",
+          "text": "Hillcrest Walking Holidays, Jenny speaking.",
+          "start": 39.91,
+          "end": 42.68
+        },
+        {
+          "speaker": "marco",
+          "text": "Hello. I'd like some information about your walking holidays, please. A friend of mine went on one of your trips last year and recommended it.",
+          "start": 43.18,
+          "end": 51.89
+        },
+        {
+          "speaker": "jenny",
+          "text": "That's good to hear. I'll take a few details first, and then I can tell you about our routes.",
+          "start": 52.39,
+          "end": 57.17
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller heard about the company from a friend, so 'friend' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 58.07,
+          "end": 73.64
+        },
+        {
+          "speaker": "jenny",
+          "text": "Could I have your name, please?",
+          "start": 74.54,
+          "end": 76.59
+        },
+        {
+          "speaker": "marco",
+          "text": "Yes, it's Marco Alvarez. That's A-L-V-A-R-E-Z.",
+          "start": 77.09,
+          "end": 83.25
+        },
+        {
+          "speaker": "jenny",
+          "text": "Thank you, Mr Alvarez. And how many people would be in your group?",
+          "start": 83.75,
+          "end": 87.54
+        },
+        {
+          "speaker": "marco",
+          "text": "There were going to be five of us, but one friend can't come now, so it's four.",
+          "start": 88.04,
+          "end": 92.67
+        },
+        {
+          "speaker": "jenny",
+          "text": "That's fine. When would you like to travel?",
+          "start": 93.17,
+          "end": 95.58
+        },
+        {
+          "speaker": "marco",
+          "text": "We're thinking of September, when the weather is cooler. We could only manage the first two weeks.",
+          "start": 96.08,
+          "end": 101.74
+        },
+        {
+          "speaker": "jenny",
+          "text": "September is lovely. Now, would you prefer to stay in hotels or in smaller places?",
+          "start": 102.24,
+          "end": 107.29
+        },
+        {
+          "speaker": "marco",
+          "text": "Smaller places, I think, preferably guesthouses. Hotels feel a bit impersonal.",
+          "start": 107.79,
+          "end": 113.17
+        },
+        {
+          "speaker": "jenny",
+          "text": "We can arrange that. And how fit are you? How far do you usually walk in a day?",
+          "start": 113.67,
+          "end": 118.13
+        },
+        {
+          "speaker": "marco",
+          "text": "We're not professionals, but we do about fifteen kilometres on a normal weekend walk.",
+          "start": 118.63,
+          "end": 124.32
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 125.22,
+          "end": 130.94
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 150.94,
+          "end": 154.27
+        },
+        {
+          "speaker": "jenny",
+          "text": "Let me tell you about our three routes. The Lakeside Trail is the easiest. It's twenty-two kilometres in total, and the path stays beside the water most of the way. You pass an old mill, which is now a café, so it's a good place to stop. It used to be sixty pounds a night, but the price went up this year, and it's now sixty-five.",
+          "start": 155.17,
+          "end": 172.49
+        },
+        {
+          "speaker": "marco",
+          "text": "That sounds nice. What about something harder?",
+          "start": 172.99,
+          "end": 175.98
+        },
+        {
+          "speaker": "jenny",
+          "text": "The High Ridge route is twenty-eight kilometres, with some steep climbs, and the views over the valley are spectacular. That one is eighty-two pounds a night.",
+          "start": 176.48,
+          "end": 185.2
+        },
+        {
+          "speaker": "marco",
+          "text": "And the third?",
+          "start": 185.7,
+          "end": 186.86
+        },
+        {
+          "speaker": "jenny",
+          "text": "Forest Way is forty-five kilometres, and it's mostly through woodland. You often see deer early in the morning, if you're quiet. It's fifty-eight pounds a night.",
+          "start": 187.36,
+          "end": 196.19
+        },
+        {
+          "speaker": "marco",
+          "text": "Which would you recommend for people who walk fifteen kilometres at weekends?",
+          "start": 196.69,
+          "end": 201.23
+        },
+        {
+          "speaker": "jenny",
+          "text": "I'd say the Lakeside Trail. You can do it comfortably in three days, and it's the best value, too.",
+          "start": 201.73,
+          "end": 207.06
+        },
+        {
+          "speaker": "marco",
+          "text": "Then I'll talk to my friends and call you back. Thank you very much.",
+          "start": 207.56,
+          "end": 211.53
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 212.43,
+          "end": 216.96
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Hillcrest Walking Holidays – booking enquiry",
+          "content": [
+            "Example: Heard about the company from a **friend**",
+            "## Customer details",
+            "• Name: Marco {{1}}",
+            "• Number in group: {{2}}",
+            "• Month: {{3}}",
+            "• Accommodation: prefers a {{4}}",
+            "• Usually walks about {{5}} kilometres"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Alvarez"
+              ],
+              "explanation": "He spells his surname: ‘A-L-V-A-R-E-Z’.",
+              "cue": "A-L-V-A-R-E-Z"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "4",
+                "four"
+              ],
+              "explanation": "There were going to be five, ‘but one friend can't come now, so it's four’.",
+              "cue": "so it's four"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "September"
+              ],
+              "explanation": "‘We're thinking of September, when the weather is cooler.’",
+              "cue": "We're thinking of September"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "guesthouse",
+                "guesthouses"
+              ],
+              "explanation": "‘Smaller places, I think, preferably guesthouses.’",
+              "cue": "preferably guesthouses"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "15",
+                "fifteen"
+              ],
+              "explanation": "‘We do about fifteen kilometres on a normal weekend walk.’",
+              "cue": "we do about fifteen kilometres"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Walking routes",
+          "content": {
+            "headers": [
+              "Route",
+              "Length",
+              "Highlights",
+              "Price per night"
+            ],
+            "rows": [
+              [
+                "Lakeside Trail",
+                "{{6}} km",
+                "path beside the water; passes an old {{7}}",
+                "£{{8}}"
+              ],
+              [
+                "High Ridge",
+                "28 km",
+                "steep climbs; views over the {{9}}",
+                "£82"
+              ],
+              [
+                "Forest Way",
+                "45 km",
+                "woodland; chance to see {{10}}",
+                "£58"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "22",
+                "twenty-two"
+              ],
+              "explanation": "‘The Lakeside Trail … is twenty-two kilometres in total.’",
+              "cue": "It's twenty-two kilometres in total"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "mill"
+              ],
+              "explanation": "‘You pass an old mill, which is now a café.’",
+              "cue": "You pass an old mill"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "65",
+                "sixty-five"
+              ],
+              "explanation": "It used to be sixty pounds, but ‘it's now sixty-five’.",
+              "cue": "it's now sixty-five"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "valley"
+              ],
+              "explanation": "‘The views over the valley are spectacular.’",
+              "cue": "the views over the valley are spectacular"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "deer"
+              ],
+              "explanation": "‘You often see deer early in the morning, if you're quiet.’",
+              "cue": "You often see deer early in the morning"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-23/part1.mp3",
+        "duration": 247.76
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A visit to a cheese dairy",
+      "context": "The manager of a dairy talks to visitors before a tour.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear the manager of a cheese dairy giving a talk to visitors. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 10.05
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 35.05,
+          "end": 39.32
+        },
+        {
+          "speaker": "dennis",
+          "text": "Good afternoon, everybody, and welcome to Hollin Dairy. I'm Dennis Whitaker, the manager. Before we start the tour, a little background. The farm has been in the family for two hundred years, but the cheese is newer. My great-grandfather started making it in nineteen twenty-six, so we've been doing it for almost a hundred years.",
+          "start": 40.22,
+          "end": 57.03
+        },
+        {
+          "speaker": "dennis",
+          "text": "Our cows spend nine months of the year in the fields. Some farms do that to save money on feed, but for us the reason is flavour. The grass changes the taste of the milk, and you can taste the difference in the cheese.",
+          "start": 57.38,
+          "end": 68.88
+        },
+        {
+          "speaker": "dennis",
+          "text": "Now, how do we make it? The milk comes straight from the milking parlour and is gently warmed. The first thing we add is a starter, which is a kind of friendly bacteria, and an hour later we add rennet, which makes the milk set. The solid part, called curd, is then cut and left to drain.",
+          "start": 69.23,
+          "end": 83.82
+        },
+        {
+          "speaker": "dennis",
+          "text": "Most of our cheeses are ready after about three months, but the hard cheese called Old Barn is different. It's kept in the cold store for a full year, and some customers prefer it after two, but we don't sell it that old.",
+          "start": 84.17,
+          "end": 95.75
+        },
+        {
+          "speaker": "dennis",
+          "text": "A word about hygiene. In the production area you'll need to wear a white coat and a hairnet, which you'll find on the hooks by the door. You don't need boots, because the floor is dry, and please don't bring any food in with you.",
+          "start": 96.1,
+          "end": 107.35
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 108.25,
+          "end": 113.96
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 138.96,
+          "end": 142.85
+        },
+        {
+          "speaker": "dennis",
+          "text": "Afterwards we'll go to the shop, where you can taste all five of our cheeses, and I'd like to tell you how to enjoy them at home.",
+          "start": 143.75,
+          "end": 150.72
+        },
+        {
+          "speaker": "dennis",
+          "text": "Meadow White is our mildest cheese, and it's lovely crumbled into a salad. Old Barn is the strongest and the hardest. It's too dry for sandwiches, but it's perfect grated over pasta.",
+          "start": 151.07,
+          "end": 161.55
+        },
+        {
+          "speaker": "dennis",
+          "text": "Blue Ridge, our blue cheese, is rich and salty, so many people like it with fruit, especially pears. Smoked Oak has a smoky flavour, which is wonderful melted on toast.",
+          "start": 161.9,
+          "end": 172.01
+        },
+        {
+          "speaker": "dennis",
+          "text": "And finally Hollin Red, which is our bestseller. It's soft enough to spread, so it's the one to choose for a sandwich.",
+          "start": 172.36,
+          "end": 178.89
+        },
+        {
+          "speaker": "dennis",
+          "text": "If you buy cheese today, it will keep for two weeks in the fridge. Wrap it in paper, not plastic, because cheese needs to breathe. And please do ask me any questions as we walk. If you'd like to follow me.",
+          "start": 179.24,
+          "end": 189.82
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 190.72,
+          "end": 195.05
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "How long has the Hollin family been making cheese?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "for about forty years"
+                },
+                {
+                  "key": "B",
+                  "text": "for almost a hundred years"
+                },
+                {
+                  "key": "C",
+                  "text": "for two hundred years"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The farm has been in the family for two hundred years, but the cheese began in 1926: ‘we've been doing it for almost a hundred years’.",
+              "cue": "so we've been doing it for almost a hundred years"
+            },
+            {
+              "number": 12,
+              "prompt": "Why do the cows spend most of the year in the fields?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It improves the flavour of the milk."
+                },
+                {
+                  "key": "B",
+                  "text": "It saves money on feed."
+                },
+                {
+                  "key": "C",
+                  "text": "The barn is too small."
+                }
+              ],
+              "answer": "A",
+              "explanation": "Some farms do it to save money, but ‘for us the reason is flavour’.",
+              "cue": "for us the reason is flavour"
+            },
+            {
+              "number": 13,
+              "prompt": "What is added to the warm milk first?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "rennet"
+                },
+                {
+                  "key": "B",
+                  "text": "salt"
+                },
+                {
+                  "key": "C",
+                  "text": "a starter"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘The first thing we add is a starter’. Rennet comes an hour later.",
+              "cue": "The first thing we add is a starter"
+            },
+            {
+              "number": 14,
+              "prompt": "How long is Old Barn cheese kept in the cold store?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "six months"
+                },
+                {
+                  "key": "B",
+                  "text": "one year"
+                },
+                {
+                  "key": "C",
+                  "text": "two years"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘It's kept in the cold store for a full year.’ Some customers prefer it after two, but it is not sold that old.",
+              "cue": "It's kept in the cold store for a full year"
+            },
+            {
+              "number": 15,
+              "prompt": "What must visitors wear in the production area?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "gloves"
+                },
+                {
+                  "key": "B",
+                  "text": "boots"
+                },
+                {
+                  "key": "C",
+                  "text": "a hairnet"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘You'll need to wear a white coat and a hairnet.’ Boots are not needed.",
+              "cue": "a white coat and a hairnet"
+            }
+          ]
+        },
+        {
+          "type": "matching_features",
+          "instruction": "Which way of eating does Mr Whitaker recommend for each cheese? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 16–20.",
+          "optionsTitle": "Ways of eating",
+          "options": [
+            {
+              "key": "A",
+              "text": "on toast"
+            },
+            {
+              "key": "B",
+              "text": "in a salad"
+            },
+            {
+              "key": "C",
+              "text": "with fruit"
+            },
+            {
+              "key": "D",
+              "text": "in a sandwich"
+            },
+            {
+              "key": "E",
+              "text": "with crackers"
+            },
+            {
+              "key": "F",
+              "text": "grated on pasta"
+            },
+            {
+              "key": "G",
+              "text": "on its own"
+            }
+          ],
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "Meadow White",
+              "answer": "B",
+              "explanation": "‘It's lovely crumbled into a salad.’",
+              "cue": "it's lovely crumbled into a salad"
+            },
+            {
+              "number": 17,
+              "prompt": "Old Barn",
+              "answer": "F",
+              "explanation": "It is too dry for sandwiches, but ‘it's perfect grated over pasta’.",
+              "cue": "it's perfect grated over pasta"
+            },
+            {
+              "number": 18,
+              "prompt": "Blue Ridge",
+              "answer": "C",
+              "explanation": "‘Many people like it with fruit, especially pears.’",
+              "cue": "many people like it with fruit"
+            },
+            {
+              "number": 19,
+              "prompt": "Smoked Oak",
+              "answer": "A",
+              "explanation": "‘Wonderful melted on toast.’",
+              "cue": "wonderful melted on toast"
+            },
+            {
+              "number": 20,
+              "prompt": "Hollin Red",
+              "answer": "D",
+              "explanation": "‘It's the one to choose for a sandwich.’",
+              "cue": "it's the one to choose for a sandwich"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-23/part2.mp3",
+        "duration": 225.85
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "An experiment on music and memory",
+      "context": "Two psychology students plan an experiment on music and memory.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two psychology students, Anna and Kofi, planning an experiment on music and memory. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.25
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.25,
+          "end": 41.96
+        },
+        {
+          "speaker": "anna",
+          "text": "Right, Kofi. We need to finalise the design of our experiment today. I've been wondering whether we should test memory or concentration.",
+          "start": 42.86,
+          "end": 51.23
+        },
+        {
+          "speaker": "kofi",
+          "text": "I'd stick with memory. Concentration is much harder to measure, and Dr Lane said we should choose something we can score objectively.",
+          "start": 51.73,
+          "end": 59.02
+        },
+        {
+          "speaker": "anna",
+          "text": "True. And for the music, I was thinking of pop, because that's what most students listen to while they study.",
+          "start": 59.52,
+          "end": 65.26
+        },
+        {
+          "speaker": "kofi",
+          "text": "But pop has words, and words might get in the way of remembering words. Why don't we use music without singing?",
+          "start": 65.76,
+          "end": 71.8
+        },
+        {
+          "speaker": "anna",
+          "text": "Good point. Classical it is. And we'll need a silent condition to compare it with.",
+          "start": 72.3,
+          "end": 76.88
+        },
+        {
+          "speaker": "kofi",
+          "text": "How many participants do we need? Dr Lane said at least thirty.",
+          "start": 77.38,
+          "end": 81.14
+        },
+        {
+          "speaker": "anna",
+          "text": "I'd prefer forty, twenty in each group, but we've only got two weeks, so thirty is realistic. That's fifteen in each group.",
+          "start": 81.64,
+          "end": 89.08
+        },
+        {
+          "speaker": "kofi",
+          "text": "Fine. And where should we do it? The library's quiet, but we can't play music in there.",
+          "start": 89.58,
+          "end": 94.13
+        },
+        {
+          "speaker": "anna",
+          "text": "We can book the psychology lab. It has headphones, so nobody else is disturbed, and a classroom would be far too noisy.",
+          "start": 94.63,
+          "end": 101.86
+        },
+        {
+          "speaker": "kofi",
+          "text": "Good. What about the list of words? Twenty nouns?",
+          "start": 102.36,
+          "end": 105.03
+        },
+        {
+          "speaker": "anna",
+          "text": "Twenty common nouns, yes, but we should avoid words that are related, like 'table' and 'chair', because people tend to remember them together.",
+          "start": 105.53,
+          "end": 113.87
+        },
+        {
+          "speaker": "kofi",
+          "text": "Of course. I hadn't thought of that.",
+          "start": 114.37,
+          "end": 116.35
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 117.25,
+          "end": 123.4
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 143.4,
+          "end": 147.24
+        },
+        {
+          "speaker": "anna",
+          "text": "Now the procedure. First, we'll give everyone written instructions, so every participant gets exactly the same information, and a consent form to sign.",
+          "start": 148.14,
+          "end": 158.06
+        },
+        {
+          "speaker": "kofi",
+          "text": "Then they put on headphones. In one group they hear the classical piece, and in the other group it's just silence.",
+          "start": 158.56,
+          "end": 164.36
+        },
+        {
+          "speaker": "anna",
+          "text": "They'll have two minutes to study the list. We'll use a timer so it's exactly the same every time. I can use my phone.",
+          "start": 164.86,
+          "end": 171.62
+        },
+        {
+          "speaker": "kofi",
+          "text": "Then should they do the test straight away?",
+          "start": 172.12,
+          "end": 174.38
+        },
+        {
+          "speaker": "anna",
+          "text": "No. If we test them immediately they'll just repeat the words in their heads, so we'll give them a five-minute break first, and ask them to do a puzzle.",
+          "start": 174.88,
+          "end": 182.97
+        },
+        {
+          "speaker": "kofi",
+          "text": "And the test is writing down all the words they can remember?",
+          "start": 183.47,
+          "end": 186.86
+        },
+        {
+          "speaker": "anna",
+          "text": "Yes, in any order, and we'll count how many they get right. Then we compare the scores of the two groups to see whether the music made a difference.",
+          "start": 187.36,
+          "end": 195.36
+        },
+        {
+          "speaker": "kofi",
+          "text": "Let's hope it did, or our results will be boring.",
+          "start": 195.86,
+          "end": 198.59
+        },
+        {
+          "speaker": "anna",
+          "text": "Even no difference is a result, Kofi. Dr Lane said so.",
+          "start": 199.09,
+          "end": 202.67
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 203.57,
+          "end": 208.03
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "Why does Kofi prefer to test memory?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is easier to score."
+                },
+                {
+                  "key": "B",
+                  "text": "It is a more popular topic."
+                },
+                {
+                  "key": "C",
+                  "text": "It needs less equipment."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Concentration is much harder to measure, and Dr Lane said we should choose something we can score objectively.’",
+              "cue": "Concentration is much harder to measure"
+            },
+            {
+              "number": 22,
+              "prompt": "What kind of music do the students decide to use?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "pop"
+                },
+                {
+                  "key": "B",
+                  "text": "classical"
+                },
+                {
+                  "key": "C",
+                  "text": "jazz"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Pop has words, so they choose music without singing: ‘Classical it is.’",
+              "cue": "Classical it is"
+            },
+            {
+              "number": 23,
+              "prompt": "How many participants will there be in each group?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "fifteen"
+                },
+                {
+                  "key": "B",
+                  "text": "twenty"
+                },
+                {
+                  "key": "C",
+                  "text": "thirty"
+                }
+              ],
+              "answer": "A",
+              "explanation": "Thirty is realistic, ‘That's fifteen in each group.’ Twenty in each group would be better but takes too long.",
+              "cue": "That's fifteen in each group"
+            },
+            {
+              "number": 24,
+              "prompt": "Where will the experiment take place?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in the library"
+                },
+                {
+                  "key": "B",
+                  "text": "in the psychology lab"
+                },
+                {
+                  "key": "C",
+                  "text": "in a classroom"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The library is quiet but music is not allowed; ‘We can book the psychology lab.’",
+              "cue": "We can book the psychology lab"
+            },
+            {
+              "number": 25,
+              "prompt": "What does Anna say about the list of words?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The words should be unrelated."
+                },
+                {
+                  "key": "B",
+                  "text": "The words should be short."
+                },
+                {
+                  "key": "C",
+                  "text": "The words should be unusual."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We should avoid words that are related, like ‘table’ and ‘chair’.’",
+              "cue": "we should avoid words that are related"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "How the experiment will work",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "questionnaire"
+            },
+            {
+              "key": "B",
+              "text": "headphones"
+            },
+            {
+              "key": "C",
+              "text": "timer"
+            },
+            {
+              "key": "D",
+              "text": "scores"
+            },
+            {
+              "key": "E",
+              "text": "break"
+            },
+            {
+              "key": "F",
+              "text": "silence"
+            },
+            {
+              "key": "G",
+              "text": "instructions"
+            }
+          ],
+          "content": [
+            "Participants read the {{26}} and sign a consent form.",
+            "They put on {{27}}. One group hears classical music.",
+            "They study the list for two minutes, using a {{28}}.",
+            "They have a five-minute {{29}} and do a puzzle.",
+            "The researchers compare the {{30}} of the two groups."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "G"
+              ],
+              "explanation": "‘We'll give everyone written instructions … and a consent form to sign.’",
+              "cue": "we'll give everyone written instructions"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "B"
+              ],
+              "explanation": "‘Then they put on headphones.’",
+              "cue": "Then they put on headphones"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘We'll use a timer so it's exactly the same every time.’",
+              "cue": "We'll use a timer"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "E"
+              ],
+              "explanation": "‘We'll give them a five-minute break first, and ask them to do a puzzle.’",
+              "cue": "a five-minute break first"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "D"
+              ],
+              "explanation": "‘We compare the scores of the two groups.’",
+              "cue": "we compare the scores of the two groups"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-23/part3.mp3",
+        "duration": 238.83
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how bats find their way",
+      "context": "A biology lecture on echolocation in bats.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how bats find their way. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.81
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.81,
+          "end": 43.23
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Bats are the only mammals that can truly fly, and about one in five of all mammal species is a bat. Most of them hunt at night, which raises an obvious question: how do they find their way in the dark?",
+          "start": 44.13,
+          "end": 57.68
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The answer is echolocation. A bat makes a sound that is too high for humans to hear, and listens to the echo that comes back from the objects around it. From the delay of the echo, the bat can work out how far away something is, and from the quality of the echo it can tell what the object is.",
+          "start": 58.03,
+          "end": 75.52
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The sounds are made in the larynx, or voice box, and in most species they come out of the mouth. But horseshoe bats send their calls out through the nose, which has a strange leaf-shaped structure that helps to focus the sound into a narrow beam.",
+          "start": 75.87,
+          "end": 90.21
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Echolocation is extremely precise. A bat can detect a wire as thin as a human hair, and a small bat can catch hundreds of insects in an hour. As it gets close to its prey, the calls become much faster, until they form what is called a feeding buzz, of up to two hundred calls a second.",
+          "start": 90.56,
+          "end": 108.92
+        },
+        {
+          "speaker": "lecturer",
+          "text": "But some insects have evolved defences. Tiger moths, for example, can hear the bat's calls, and they respond by producing clicking sounds of their own, which seem to confuse the bat and make it miss.",
+          "start": 109.27,
+          "end": 121.67
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Not all bats use echolocation. Fruit bats, which feed on fruit and nectar, mostly rely on their large eyes and a very good sense of smell to find food.",
+          "start": 122.02,
+          "end": 132.0
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Bats are also important to people. Many plants depend on them to carry their pollen, including the agave, which is used to make tequila. And their droppings, called guano, have been collected for centuries and used as fertiliser.",
+          "start": 132.35,
+          "end": 147.05
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Sadly, many bat species are now under threat, from the loss of the places where they roost, and from diseases. So the next time you see a bat at dusk, remember how much they do for us. Next week, we'll look at owls.",
+          "start": 147.4,
+          "end": 160.71
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 161.61,
+          "end": 166.01
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 196.01,
+          "end": 198.72
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "How bats find their way",
+          "content": [
+            "## Echolocation",
+            "• A bat makes a sound too {{31}} for humans to hear",
+            "• The delay of the {{32}} shows how far away an object is",
+            "• Sounds are made in the {{33}} (voice box)",
+            "• Horseshoe bats send their calls out through the {{34}}",
+            "## Hunting",
+            "• A bat can detect a wire as thin as a human {{35}}",
+            "• Near its prey, the calls become much {{36}}",
+            "• Tiger moths produce {{37}} sounds of their own to confuse bats",
+            "## Other facts",
+            "• Fruit bats rely on large eyes and a good sense of {{38}}",
+            "• The {{39}} plant, used to make tequila, depends on bats",
+            "• Their droppings, called guano, are used as {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "high"
+              ],
+              "explanation": "‘A sound that is too high for humans to hear.’",
+              "cue": "too high for humans to hear"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "echo"
+              ],
+              "explanation": "‘From the delay of the echo, the bat can work out how far away something is.’",
+              "cue": "From the delay of the echo"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "larynx"
+              ],
+              "explanation": "‘The sounds are made in the larynx, or voice box.’",
+              "cue": "The sounds are made in the larynx"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "nose"
+              ],
+              "explanation": "‘Horseshoe bats send their calls out through the nose.’",
+              "cue": "send their calls out through the nose"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "hair"
+              ],
+              "explanation": "‘A bat can detect a wire as thin as a human hair.’",
+              "cue": "a wire as thin as a human hair"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "faster",
+                "quicker"
+              ],
+              "explanation": "‘As it gets close to its prey, the calls become much faster.’",
+              "cue": "the calls become much faster"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "clicking",
+                "click",
+                "clicks"
+              ],
+              "explanation": "‘They respond by producing clicking sounds of their own.’",
+              "cue": "producing clicking sounds of their own"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "smell"
+              ],
+              "explanation": "‘Fruit bats mostly rely on their large eyes and a very good sense of smell.’",
+              "cue": "a very good sense of smell"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "agave"
+              ],
+              "explanation": "‘Many plants depend on them to carry their pollen, including the agave, which is used to make tequila.’",
+              "cue": "including the agave"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "fertiliser",
+                "fertilizer"
+              ],
+              "explanation": "‘Their droppings, called guano, … used as fertiliser.’",
+              "cue": "used as fertiliser"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-23/part4.mp3",
+        "duration": 199.52
+      }
+    }
+  ],
+  "durationMinutes": 15
+}

@@ -20,6 +20,7 @@ import logging
 import re
 
 from .db import iso, now
+from .dbcache import gather
 
 log = logging.getLogger("mockexam.analytics")
 
@@ -101,8 +102,22 @@ def client_event(body):
 
 def funnel(db, days):
     """Event counts for the last `days` days, in funnel order (deduplicated as described above)."""
-    since = iso(now() - datetime.timedelta(days=days))
-    return {name: db.count("product_events", {"name": name, "created_at": ("gte", since)}) for name in FUNNEL}
+    return funnels(db, (days,))[days]
+
+
+def funnels(db, windows=(7, 30)):
+    """{days: {step: count}} for each window. Every count is its own query, so they all run side by side:
+    ten sequential round trips to a far-away database would take ten times as long as one."""
+    keys, calls = [], []
+    for days in windows:
+        since = iso(now() - datetime.timedelta(days=days))
+        for name in FUNNEL:
+            keys.append((days, name))
+            calls.append(lambda n=name, s=since: db.count("product_events", {"name": n, "created_at": ("gte", s)}))
+    out = {days: {} for days in windows}
+    for (days, name), total in zip(keys, gather(*calls)):
+        out[days][name] = total
+    return out
 
 
 # --------------------------------------------------------------------------

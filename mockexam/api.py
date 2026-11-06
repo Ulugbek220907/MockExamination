@@ -92,7 +92,7 @@ def account_payload(db, profile):
         lambda: checks.get_examiner(db, uid) if staff else None,
         lambda: len(db.select("checks", {"examiner_id": uid, "status": ("in", ["waiting", "in_progress"])}, limit=100))
         if staff else 0,
-        lambda: len(db.select("orders", {"status": "awaiting_confirmation"}, limit=100)) if role == "admin" else 0,
+        lambda: db.count("orders", {"status": "awaiting_confirmation"}) if role == "admin" else 0,
     )
     out = {"user": _public_user(profile), "plan": plan, "examiner": None, "todo": {}}
     if examiner:
@@ -816,8 +816,9 @@ class AdminUsersHandler(AdminHandler):
 
         def load():
             rows = self.db.select("profiles", {"email": ("ilike", q)} if q else {}, order=[("created_at", "desc")], limit=50)
+            plans = accounts.plan_statuses(self.db, [r["id"] for r in rows])  # one query for all of them
             return [dict(_public_user(dict(r, role=accounts.profile_role(r))), createdAt=r.get("created_at"),
-                         plan=accounts.plan_status(self.db, r["id"])) for r in rows]
+                         plan=plans[r["id"]]) for r in rows]
         self.send_json({"users": await in_thread(load)})
 
 

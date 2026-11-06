@@ -89,3 +89,66 @@ services:
         sync: false
       - key: TELEGRAM_ADMIN_CHAT_ID
         sync: false
+
+  # ---------------------------------------------------------------------------------------------------
+  # The social poster: a separate small service that posts one TestDay post a day to YouTube, TikTok,
+  # Instagram, Threads and Facebook (see social-poster/README.md). It is its own service with its own
+  # deploys, disk and settings; the website does not use it. It has to stay awake to post on time and keeps
+  # its records on a disk, so it needs a paid instance (Starter). Every platform key below is optional.
+  # ---------------------------------------------------------------------------------------------------
+  - type: web
+    name: testday-social
+    runtime: python
+    rootDir: social-poster
+    region: frankfurt
+    plan: starter
+    branch: main
+    autoDeploy: true
+    # Redeploy only when this folder changes (the website's changes do not touch the poster).
+    buildFilter:
+      paths:
+        - social-poster/**
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /healthz
+    disk:
+      name: social-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DATA_DIR
+        value: /var/data
+      - key: TIMEZONE
+        value: Asia/Tashkent
+      - key: POST_TIME
+        value: "10:00"
+      - key: SITE_URL
+        value: https://www.testday.uz
+      # Leave off until you have tried "Dry run" on every platform on the admin page.
+      - key: POSTING_ENABLED
+        value: "0"
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CRON_TOKEN
+        generateValue: true
+      # The apps you register with each platform (see README.md). Leave any you do not use empty.
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: TIKTOK_CLIENT_KEY
+        sync: false
+      - key: TIKTOK_CLIENT_SECRET
+        sync: false
+      - key: THREADS_APP_ID
+        sync: false
+      - key: THREADS_APP_SECRET
+        sync: false
+      - key: META_APP_ID
+        sync: false
+      - key: META_APP_SECRET
+        sync: false

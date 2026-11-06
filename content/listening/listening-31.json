@@ -1,0 +1,1204 @@
+{
+  "id": "listening-31",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 31",
+  "shortTitle": "Practice Test 31",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 31,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "callum": {
+      "name": "Callum",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "anita": {
+      "name": "Anita",
+      "voice": "af_nova",
+      "lang": "en-us"
+    },
+    "wright": {
+      "name": "Ms Wright",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    },
+    "ali": {
+      "name": "Ali",
+      "voice": "am_michael",
+      "lang": "en-us"
+    },
+    "freya": {
+      "name": "Freya",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Reporting a broadband fault",
+      "context": "A customer phones an internet company about a connection problem.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a customer phoning an internet company to report a fault. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.79
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.79,
+          "end": 38.86
+        },
+        {
+          "speaker": "callum",
+          "text": "Good afternoon, Skyline Broadband, Callum speaking. How can I help?",
+          "start": 39.76,
+          "end": 44.26
+        },
+        {
+          "speaker": "anita",
+          "text": "Hello. My internet keeps dropping out, and it's making it impossible to work from home.",
+          "start": 44.76,
+          "end": 49.84
+        },
+        {
+          "speaker": "callum",
+          "text": "I'm sorry to hear that. I'll take some details and see what we can do.",
+          "start": 50.34,
+          "end": 54.61
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller's connection keeps dropping out, so 'dropping' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 55.51,
+          "end": 70.99
+        },
+        {
+          "speaker": "callum",
+          "text": "Could I have your surname, please?",
+          "start": 71.89,
+          "end": 73.73
+        },
+        {
+          "speaker": "anita",
+          "text": "It's Brightwell. That's B-R-I-G-H-T-W-E-L-L.",
+          "start": 74.23,
+          "end": 82.21
+        },
+        {
+          "speaker": "callum",
+          "text": "Thank you, Ms Brightwell. Can you look at your router for me? What colour is the light on the front?",
+          "start": 82.71,
+          "end": 88.36
+        },
+        {
+          "speaker": "anita",
+          "text": "It was green, but today it's flashing red.",
+          "start": 88.86,
+          "end": 91.63
+        },
+        {
+          "speaker": "callum",
+          "text": "That tells me the line has a fault. When did the problem start?",
+          "start": 92.13,
+          "end": 95.95
+        },
+        {
+          "speaker": "anita",
+          "text": "On Monday evening. It was fine on Sunday, and I thought it would fix itself.",
+          "start": 96.45,
+          "end": 100.76
+        },
+        {
+          "speaker": "callum",
+          "text": "Have you tried anything yet?",
+          "start": 101.26,
+          "end": 103.14
+        },
+        {
+          "speaker": "anita",
+          "text": "Yes, I've turned the router off and on again, and I've also reset it with a pin, but nothing changed.",
+          "start": 103.64,
+          "end": 109.12
+        },
+        {
+          "speaker": "callum",
+          "text": "Good. Does anyone else on your street have the same problem?",
+          "start": 109.62,
+          "end": 113.06
+        },
+        {
+          "speaker": "anita",
+          "text": "I asked my neighbour, but she's with a different provider, and hers is working perfectly.",
+          "start": 113.56,
+          "end": 118.31
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 119.21,
+          "end": 124.93
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 144.93,
+          "end": 148.26
+        },
+        {
+          "speaker": "callum",
+          "text": "In that case, I'd like to send an engineer. The earliest appointment is on the seventh of May.",
+          "start": 149.16,
+          "end": 154.92
+        },
+        {
+          "speaker": "anita",
+          "text": "That's fine. What time would that be?",
+          "start": 155.42,
+          "end": 157.87
+        },
+        {
+          "speaker": "callum",
+          "text": "It's a morning visit, between eight o'clock and twelve. The engineer will call you half an hour before.",
+          "start": 158.37,
+          "end": 164.56
+        },
+        {
+          "speaker": "anita",
+          "text": "OK. Will I need to be at home?",
+          "start": 165.06,
+          "end": 167.47
+        },
+        {
+          "speaker": "callum",
+          "text": "Yes, an adult must be there. The engineer will need access to the loft, because that's where the cable comes into the house, so please make sure the way is clear.",
+          "start": 167.97,
+          "end": 177.55
+        },
+        {
+          "speaker": "anita",
+          "text": "I'll move the boxes. Will there be a charge?",
+          "start": 178.05,
+          "end": 180.89
+        },
+        {
+          "speaker": "callum",
+          "text": "If the fault is in our network, it's free. If it's in your own wiring, there's a charge of sixty pounds, but I don't think that's likely in your case.",
+          "start": 181.39,
+          "end": 190.41
+        },
+        {
+          "speaker": "anita",
+          "text": "Understood. How will I know the appointment is confirmed?",
+          "start": 190.91,
+          "end": 194.39
+        },
+        {
+          "speaker": "callum",
+          "text": "You'll get a text message in the next few minutes, and another one an hour before the engineer arrives.",
+          "start": 194.89,
+          "end": 200.43
+        },
+        {
+          "speaker": "anita",
+          "text": "Great. Thank you for your help.",
+          "start": 200.93,
+          "end": 203.05
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 203.95,
+          "end": 208.47
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Skyline Broadband – fault report",
+          "content": [
+            "Example: Problem: connection keeps **dropping** out",
+            "## The fault",
+            "• Customer's surname: {{1}}",
+            "• Router light: flashing {{2}}",
+            "• Problem started on {{3}} evening",
+            "• Already tried switching off and on the {{4}}",
+            "• Her neighbour has a different {{5}}",
+            "## The visit",
+            "• Date: {{6}} May",
+            "• Time: between 8 a.m. and {{7}}",
+            "• The engineer needs access to the {{8}}",
+            "• Charge if the fault is in her own wiring: £{{9}}",
+            "• She will get a {{10}} message an hour before the engineer arrives"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Brightwell"
+              ],
+              "explanation": "She spells her surname: ‘B-R-I-G-H-T-W-E-L-L’.",
+              "cue": "B-R-I-G-H-T-W-E-L-L"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "red"
+              ],
+              "explanation": "‘It was green, but today it's flashing red.’",
+              "cue": "today it's flashing red"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "Monday"
+              ],
+              "explanation": "‘On Monday evening. It was fine on Sunday.’",
+              "cue": "On Monday evening"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "router"
+              ],
+              "explanation": "‘I've turned the router off and on again.’",
+              "cue": "I've turned the router off and on again"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "provider"
+              ],
+              "explanation": "‘She's with a different provider, and hers is working perfectly.’",
+              "cue": "she's with a different provider"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "7",
+                "seventh",
+                "7th"
+              ],
+              "explanation": "‘The earliest appointment is on the seventh of May.’",
+              "cue": "on the seventh of May"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "12",
+                "twelve",
+                "noon"
+              ],
+              "explanation": "‘It's a morning visit, between eight o'clock and twelve.’",
+              "cue": "between eight o'clock and twelve"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "loft"
+              ],
+              "explanation": "‘The engineer will need access to the loft.’",
+              "cue": "access to the loft"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "60",
+                "sixty"
+              ],
+              "explanation": "‘If it's in your own wiring, there's a charge of sixty pounds.’",
+              "cue": "a charge of sixty pounds"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "text"
+              ],
+              "explanation": "‘You'll get a text message in the next few minutes, and another one an hour before the engineer arrives.’",
+              "cue": "You'll get a text message"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-31/part1.mp3",
+        "duration": 239.27
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A chocolate factory tour",
+      "context": "A guide explains the stages of chocolate making before a tour.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a guide introducing a tour of a chocolate factory. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 9.82
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 34.82,
+          "end": 39.08
+        },
+        {
+          "speaker": "wright",
+          "text": "Welcome to Ashby's Chocolate Factory. I'm Julie Wright, and I'll be taking you round the production floor today. We follow the same route as the cocoa beans, so I'll tell you what happens in each area as we reach it.",
+          "start": 39.98,
+          "end": 51.93
+        },
+        {
+          "speaker": "wright",
+          "text": "The first stop is the roasting hall. The beans are heated there for about thirty minutes, and the smell is wonderful. Roasting is what gives chocolate its flavour.",
+          "start": 52.28,
+          "end": 60.62
+        },
+        {
+          "speaker": "wright",
+          "text": "Before roasting, in a separate room, the shells are removed from the beans, but we don't visit that room because it is very noisy and dusty.",
+          "start": 60.97,
+          "end": 68.42
+        },
+        {
+          "speaker": "wright",
+          "text": "Next is the grinding room. Here the cleaned beans are crushed into a thick, dark paste, which is the base of all chocolate. It's bitter, so you wouldn't want to eat it as it is.",
+          "start": 68.77,
+          "end": 78.0
+        },
+        {
+          "speaker": "wright",
+          "text": "In the mixing room, sugar is added, and for milk chocolate, milk powder as well. The mixture is then stirred and kneaded in huge machines, and this is the secret of our chocolate. The mixing goes on for up to three days, which is far longer than most other factories, and it makes our chocolate unusually smooth.",
+          "start": 78.35,
+          "end": 95.31
+        },
+        {
+          "speaker": "wright",
+          "text": "Then the warm chocolate goes to the moulding hall, where it is poured into moulds to give it its shape. They cool in a long tunnel, and then they come out.",
+          "start": 95.66,
+          "end": 103.54
+        },
+        {
+          "speaker": "wright",
+          "text": "And finally the packing area, where machines wrap the bars, and the boxes are sealed.",
+          "start": 103.89,
+          "end": 108.15
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 109.05,
+          "end": 114.77
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 139.77,
+          "end": 143.65
+        },
+        {
+          "speaker": "wright",
+          "text": "A few facts. The factory makes about fifty tonnes of chocolate every week, which sounds a lot, but it's small compared with the big companies. Our dark bars are the most popular, though the milk bars sell well in the shop.",
+          "start": 144.55,
+          "end": 156.24
+        },
+        {
+          "speaker": "wright",
+          "text": "Some of you will have allergies. If you are allergic to nuts, please tell me before we go into the production area. I'll give you a green sticker, so that our staff know, and we keep nut products in a separate part of the building.",
+          "start": 156.59,
+          "end": 168.05
+        },
+        {
+          "speaker": "wright",
+          "text": "At the end of the tour, you'll taste three pieces of chocolate, in the tasting room. You'll be asked to describe the flavour of each one, and there are no wrong answers.",
+          "start": 168.4,
+          "end": 176.59
+        },
+        {
+          "speaker": "wright",
+          "text": "And if you like what you taste, you'll get twenty percent off in our shop if you show your ticket, but only today. Right. Please put on your hairnets, and follow me.",
+          "start": 176.94,
+          "end": 185.52
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 186.42,
+          "end": 190.75
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "What happens in each part of the factory? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 11–15.",
+          "optionsTitle": "Processes",
+          "options": [
+            {
+              "key": "A",
+              "text": "The cocoa is cleaned and sorted."
+            },
+            {
+              "key": "B",
+              "text": "The beans are heated."
+            },
+            {
+              "key": "C",
+              "text": "The shells are removed."
+            },
+            {
+              "key": "D",
+              "text": "The beans are turned into paste."
+            },
+            {
+              "key": "E",
+              "text": "Sugar and milk are added."
+            },
+            {
+              "key": "F",
+              "text": "The chocolate is shaped."
+            },
+            {
+              "key": "G",
+              "text": "The bars are wrapped by machine."
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "the roasting hall",
+              "answer": "B",
+              "explanation": "‘The beans are heated there for about thirty minutes.’",
+              "cue": "The beans are heated there"
+            },
+            {
+              "number": 12,
+              "prompt": "the grinding room",
+              "answer": "D",
+              "explanation": "‘The cleaned beans are crushed into a thick, dark paste.’ The shells were removed earlier, in a room that visitors do not see.",
+              "cue": "crushed into a thick, dark paste"
+            },
+            {
+              "number": 13,
+              "prompt": "the mixing room",
+              "answer": "E",
+              "explanation": "‘In the mixing room, sugar is added, and for milk chocolate, milk powder as well.’",
+              "cue": "sugar is added, and for milk chocolate, milk powder as well"
+            },
+            {
+              "number": 14,
+              "prompt": "the moulding hall",
+              "answer": "F",
+              "explanation": "‘It is poured into moulds to give it its shape.’",
+              "cue": "poured into moulds to give it its shape"
+            },
+            {
+              "number": 15,
+              "prompt": "the packing area",
+              "answer": "G",
+              "explanation": "‘The packing area, where machines wrap the bars.’",
+              "cue": "machines wrap the bars"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How much chocolate does the factory make each week?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about twenty tonnes"
+                },
+                {
+                  "key": "B",
+                  "text": "about fifty tonnes"
+                },
+                {
+                  "key": "C",
+                  "text": "about two hundred tonnes"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The factory makes about fifty tonnes of chocolate every week.’",
+              "cue": "about fifty tonnes of chocolate every week"
+            },
+            {
+              "number": 17,
+              "prompt": "What is said to make the chocolate unusually smooth?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "rare beans"
+                },
+                {
+                  "key": "B",
+                  "text": "a long mixing time"
+                },
+                {
+                  "key": "C",
+                  "text": "a secret recipe for milk"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The mixing goes on for up to three days, … and it makes our chocolate unusually smooth.’",
+              "cue": "The mixing goes on for up to three days"
+            },
+            {
+              "number": 18,
+              "prompt": "What should visitors with a nut allergy do?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "stay outside the production area"
+                },
+                {
+                  "key": "B",
+                  "text": "tell the guide before the tour"
+                },
+                {
+                  "key": "C",
+                  "text": "wear a red wristband"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Please tell me before we go into the production area. I'll give you a green sticker.’",
+              "cue": "please tell me before we go into the production area"
+            },
+            {
+              "number": 19,
+              "prompt": "How many pieces of chocolate will visitors taste?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "two"
+                },
+                {
+                  "key": "B",
+                  "text": "three"
+                },
+                {
+                  "key": "C",
+                  "text": "five"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘You'll taste three pieces of chocolate, in the tasting room.’",
+              "cue": "you'll taste three pieces of chocolate"
+            },
+            {
+              "number": 20,
+              "prompt": "What discount do visitors get in the shop today?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ten percent"
+                },
+                {
+                  "key": "B",
+                  "text": "twenty percent"
+                },
+                {
+                  "key": "C",
+                  "text": "thirty percent"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘You'll get twenty percent off in our shop if you show your ticket.’",
+              "cue": "twenty percent off in our shop"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-31/part2.mp3",
+        "duration": 221.55
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A project on water filters",
+      "context": "Two engineering students write up the design and testing of a water filter.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two engineering students, Ali and Freya, discussing a project to build a water filter. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.61
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.61,
+          "end": 42.33
+        },
+        {
+          "speaker": "freya",
+          "text": "Ali, shall we go through the design of the filter for the report? I'd like to describe it from the top to the bottom.",
+          "start": 43.23,
+          "end": 49.52
+        },
+        {
+          "speaker": "ali",
+          "text": "Sure. The water goes into the tank at the top first. That's a plastic container, which holds about ten litres.",
+          "start": 50.02,
+          "end": 57.06
+        },
+        {
+          "speaker": "freya",
+          "text": "Then it flows down through a layer of gravel, which stops the big particles, like leaves and stones.",
+          "start": 57.56,
+          "end": 63.13
+        },
+        {
+          "speaker": "ali",
+          "text": "After that comes the sand. It's the main filter, and it traps the smaller particles. We used fine sand, which we washed first.",
+          "start": 63.63,
+          "end": 72.14
+        },
+        {
+          "speaker": "freya",
+          "text": "Below the sand is a layer of charcoal, which removes the bad taste and smell. It doesn't remove bacteria, though, which is one limitation.",
+          "start": 72.64,
+          "end": 80.89
+        },
+        {
+          "speaker": "ali",
+          "text": "And right at the bottom there's a piece of cloth, which catches any fine pieces of charcoal that might come through.",
+          "start": 81.39,
+          "end": 88.26
+        },
+        {
+          "speaker": "freya",
+          "text": "That's the whole design. We should add a diagram, shouldn't we?",
+          "start": 88.76,
+          "end": 92.09
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 92.99,
+          "end": 99.14
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 119.14,
+          "end": 122.98
+        },
+        {
+          "speaker": "ali",
+          "text": "Now the testing. How did we check the water quality?",
+          "start": 123.88,
+          "end": 127.14
+        },
+        {
+          "speaker": "freya",
+          "text": "We used a testing kit from the laboratory. It measures cloudiness, which is the main thing, and acidity.",
+          "start": 127.64,
+          "end": 133.55
+        },
+        {
+          "speaker": "ali",
+          "text": "The results were good. The dirty water was very cloudy, and after filtering it was almost clear.",
+          "start": 134.05,
+          "end": 140.39
+        },
+        {
+          "speaker": "freya",
+          "text": "Yes, the cloudiness fell by about ninety percent. But it's important to say that cloudy water isn't necessarily unsafe, and clear water isn't necessarily safe.",
+          "start": 140.89,
+          "end": 150.93
+        },
+        {
+          "speaker": "ali",
+          "text": "Right. So in the conclusion we should say that the filter improves the appearance and taste, but the water still has to be boiled before drinking.",
+          "start": 151.43,
+          "end": 160.12
+        },
+        {
+          "speaker": "freya",
+          "text": "And how long did it take to filter a litre?",
+          "start": 160.62,
+          "end": 163.24
+        },
+        {
+          "speaker": "ali",
+          "text": "About four minutes at the start, but it got slower with each use, as the sand clogged up.",
+          "start": 163.74,
+          "end": 169.22
+        },
+        {
+          "speaker": "freya",
+          "text": "So in the recommendations, we should say that the sand needs to be replaced every month.",
+          "start": 169.72,
+          "end": 174.84
+        },
+        {
+          "speaker": "ali",
+          "text": "Good point. Also, we ought to mention the cost. The whole filter cost less than five pounds to build.",
+          "start": 175.34,
+          "end": 182.02
+        },
+        {
+          "speaker": "freya",
+          "text": "That's a strong selling point for villages without clean water. Shall I write that part?",
+          "start": 182.52,
+          "end": 187.47
+        },
+        {
+          "speaker": "ali",
+          "text": "Please. And I'll draw the diagram tonight.",
+          "start": 187.97,
+          "end": 190.34
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 191.24,
+          "end": 195.7
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 21–25.",
+          "title": "How the water filter works",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "sand"
+            },
+            {
+              "key": "B",
+              "text": "charcoal"
+            },
+            {
+              "key": "C",
+              "text": "gravel"
+            },
+            {
+              "key": "D",
+              "text": "cloth"
+            },
+            {
+              "key": "E",
+              "text": "pump"
+            },
+            {
+              "key": "F",
+              "text": "tank"
+            },
+            {
+              "key": "G",
+              "text": "valve"
+            }
+          ],
+          "content": [
+            "Dirty water is poured into the {{21}} at the top.",
+            "It flows through a layer of {{22}}, which stops large particles.",
+            "Smaller particles are trapped by {{23}}.",
+            "A layer of {{24}} removes the bad taste and smell.",
+            "A piece of {{25}} at the bottom catches fine pieces of charcoal."
+          ],
+          "questions": [
+            {
+              "number": 21,
+              "answer": [
+                "F"
+              ],
+              "explanation": "‘The water goes into the tank at the top first.’",
+              "cue": "The water goes into the tank at the top first"
+            },
+            {
+              "number": 22,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘Then it flows down through a layer of gravel, which stops the big particles.’",
+              "cue": "a layer of gravel, which stops the big particles"
+            },
+            {
+              "number": 23,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘After that comes the sand. It's the main filter, and it traps the smaller particles.’",
+              "cue": "After that comes the sand"
+            },
+            {
+              "number": 24,
+              "answer": [
+                "B"
+              ],
+              "explanation": "‘Below the sand is a layer of charcoal, which removes the bad taste and smell.’",
+              "cue": "a layer of charcoal, which removes the bad taste and smell"
+            },
+            {
+              "number": 25,
+              "answer": [
+                "D"
+              ],
+              "explanation": "‘Right at the bottom there's a piece of cloth.’",
+              "cue": "there's a piece of cloth"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 26,
+              "prompt": "How did the students test the water?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "with a kit from the laboratory"
+                },
+                {
+                  "key": "B",
+                  "text": "by tasting it"
+                },
+                {
+                  "key": "C",
+                  "text": "by sending samples away"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘We used a testing kit from the laboratory.’",
+              "cue": "We used a testing kit from the laboratory"
+            },
+            {
+              "number": 27,
+              "prompt": "By how much did the cloudiness fall?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about half"
+                },
+                {
+                  "key": "B",
+                  "text": "about ninety percent"
+                },
+                {
+                  "key": "C",
+                  "text": "completely"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The cloudiness fell by about ninety percent.’",
+              "cue": "the cloudiness fell by about ninety percent"
+            },
+            {
+              "number": 28,
+              "prompt": "What will they say in the conclusion about the filtered water?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is safe to drink."
+                },
+                {
+                  "key": "B",
+                  "text": "It must still be boiled."
+                },
+                {
+                  "key": "C",
+                  "text": "It tastes worse."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The filter improves the appearance and taste, but the water still has to be boiled before drinking.’",
+              "cue": "the water still has to be boiled before drinking"
+            },
+            {
+              "number": 29,
+              "prompt": "How often should the sand be replaced?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "every week"
+                },
+                {
+                  "key": "B",
+                  "text": "every month"
+                },
+                {
+                  "key": "C",
+                  "text": "every year"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The sand needs to be replaced every month.’",
+              "cue": "the sand needs to be replaced every month"
+            },
+            {
+              "number": 30,
+              "prompt": "What will Ali do that evening?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "write the report"
+                },
+                {
+                  "key": "B",
+                  "text": "draw the diagram"
+                },
+                {
+                  "key": "C",
+                  "text": "buy materials"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Freya will write the cost section; ‘I'll draw the diagram tonight.’",
+              "cue": "I'll draw the diagram tonight"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-31/part3.mp3",
+        "duration": 226.5
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the history of the postal service",
+      "context": "A lecture on how postal services developed, from Persia to postcodes.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of the postal service. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.58
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.58,
+          "end": 44.0
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Sending messages over long distances has always mattered to governments, and so the postal service is one of the oldest public services in the world.",
+          "start": 44.9,
+          "end": 53.96
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Early empires needed to control distant provinces. In ancient Persia, a network of roads allowed royal messengers to travel hundreds of kilometres, changing horses at stations along the way. The Romans later built their own system, called the cursus publicus, which was only for official messages. Ordinary people had to rely on friends or servants.",
+          "start": 54.31,
+          "end": 73.3
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In Europe, the first services open to the public developed in the seventeenth century. Even then, the system was not what we know today. The recipient, not the sender, paid for the letter, and the price depended on the distance and the number of pages. People sometimes refused a letter, because they couldn't afford it.",
+          "start": 73.65,
+          "end": 89.48
+        },
+        {
+          "speaker": "lecturer",
+          "text": "This was changed by a British teacher called Rowland Hill, who argued that a letter should cost the same, wherever in the country it was sent, and that the sender should pay in advance. His idea led to the world's first adhesive postage stamp, the Penny Black, in eighteen forty. It showed a portrait of Queen Victoria.",
+          "start": 89.83,
+          "end": 106.17
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The result was dramatic. The number of letters sent more than doubled within a few years, because the cost fell so far.",
+          "start": 106.52,
+          "end": 112.96
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Letters still had to cross borders, and each country had its own rules and charges. In eighteen seventy-four, an international agreement was signed in Bern, creating what became the Universal Postal Union, so that a letter could cross several countries with a single stamp.",
+          "start": 113.31,
+          "end": 128.14
+        },
+        {
+          "speaker": "lecturer",
+          "text": "One more innovation was the postcode, which sorts mail by location, so machines could read the address. In Britain, postcodes were fully introduced in the early nineteen seventies. Today, email has reduced the number of letters, but online shopping has created a boom in parcels. Next week we'll look at the history of the telephone.",
+          "start": 128.49,
+          "end": 145.49
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 146.39,
+          "end": 150.79
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 180.79,
+          "end": 183.5
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The history of the postal service",
+          "content": [
+            "## Early systems",
+            "• Ancient Persia: messengers changed {{31}} at stations along the road",
+            "• The Roman system, the cursus publicus, was for {{32}} messages only",
+            "## Europe",
+            "• Seventeenth century: services became open to the {{33}}",
+            "• The recipient paid, and the price depended on distance and number of {{34}}",
+            "## Reform",
+            "• Rowland Hill, a British {{35}}, wanted the sender to pay in advance",
+            "• The Penny Black (1840) showed a portrait of Queen {{36}}",
+            "• The number of letters more than {{37}} within a few years",
+            "## International and modern developments",
+            "• 1874: an agreement signed in {{38}} created the Universal Postal Union",
+            "• Postcodes were fully introduced in Britain in the early {{39}}",
+            "• Online shopping has caused a boom in {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "horses"
+              ],
+              "explanation": "‘Royal messengers … changing horses at stations along the way.’",
+              "cue": "changing horses at stations"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "official"
+              ],
+              "explanation": "‘Which was only for official messages.’",
+              "cue": "only for official messages"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "public"
+              ],
+              "explanation": "‘The first services open to the public developed in the seventeenth century.’",
+              "cue": "open to the public"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "pages"
+              ],
+              "explanation": "‘The price depended on the distance and the number of pages.’",
+              "cue": "the number of pages"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "teacher"
+              ],
+              "explanation": "‘A British teacher called Rowland Hill.’",
+              "cue": "a British teacher called Rowland Hill"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "Victoria"
+              ],
+              "explanation": "‘It showed a portrait of Queen Victoria.’",
+              "cue": "a portrait of Queen Victoria"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "doubled"
+              ],
+              "explanation": "‘The number of letters sent more than doubled within a few years.’",
+              "cue": "more than doubled within a few years"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "Bern"
+              ],
+              "explanation": "‘An international agreement was signed in Bern.’",
+              "cue": "signed in Bern"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "1970s",
+                "seventies"
+              ],
+              "explanation": "‘In Britain, postcodes were fully introduced in the early nineteen seventies.’",
+              "cue": "early nineteen seventies"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "parcels"
+              ],
+              "explanation": "‘Online shopping has created a boom in parcels.’",
+              "cue": "a boom in parcels"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-31/part4.mp3",
+        "duration": 184.3
+      }
+    }
+  ],
+  "durationMinutes": 15
+}

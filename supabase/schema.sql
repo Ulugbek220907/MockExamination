@@ -586,3 +586,12 @@ alter table public.profiles add column if not exists target_band numeric(2,1)
 alter table public.profiles add column if not exists exam_date date;
 alter table public.subscription_periods add column if not exists reminded_at timestamptz;
 create index if not exists subscription_periods_ends_idx on public.subscription_periods (ends_at);
+
+-- ============================================================================
+-- Admin pages. Safe to run again on an existing database.
+--   The Users tab lists the newest accounts; the revenue numbers read the orders paid in the last 30 days.
+--   Both were scans of the whole table, which gets slower as the site grows.
+-- ============================================================================
+
+create index if not exists profiles_created_idx on public.profiles (created_at desc);
+create index if not exists orders_paid_idx on public.orders (paid_at) where status = 'paid';

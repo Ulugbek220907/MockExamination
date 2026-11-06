@@ -1,0 +1,1245 @@
+{
+  "id": "listening-26",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 26",
+  "shortTitle": "Practice Test 26",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 26,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "kelly": {
+      "name": "Kelly",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "omar": {
+      "name": "Omar",
+      "voice": "am_puck",
+      "lang": "en-us"
+    },
+    "hartley": {
+      "name": "Ms Hartley",
+      "voice": "bf_isabella",
+      "lang": "en-gb"
+    },
+    "isla": {
+      "name": "Isla",
+      "voice": "af_nicole",
+      "lang": "en-us"
+    },
+    "mensah": {
+      "name": "Dr Mensah",
+      "voice": "bm_lewis",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Joining a fitness club",
+      "context": "A student phones a fitness club to ask about membership.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a student phoning a fitness club to ask about membership. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.56
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.56,
+          "end": 38.63
+        },
+        {
+          "speaker": "kelly",
+          "text": "Riverside Fitness Club, Kelly speaking.",
+          "start": 39.53,
+          "end": 42.13
+        },
+        {
+          "speaker": "omar",
+          "text": "Hello. I'd like some information about joining, please. I've been a bit lazy lately, and I want to get fitter.",
+          "start": 42.63,
+          "end": 49.24
+        },
+        {
+          "speaker": "kelly",
+          "text": "Well, you've come to the right place. I'll take a few details first, and then I'll explain our memberships.",
+          "start": 49.74,
+          "end": 55.12
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller wants to get fitter, so 'fitter' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 56.02,
+          "end": 70.61
+        },
+        {
+          "speaker": "kelly",
+          "text": "Could I have your name, please?",
+          "start": 71.51,
+          "end": 73.56
+        },
+        {
+          "speaker": "omar",
+          "text": "It's Omar Haddad. That's H-A-D-D-A-D.",
+          "start": 74.06,
+          "end": 78.89
+        },
+        {
+          "speaker": "kelly",
+          "text": "Thank you, Omar. And what do you do? Are you working?",
+          "start": 79.39,
+          "end": 82.23
+        },
+        {
+          "speaker": "omar",
+          "text": "No, I'm a student at the university. I'm in my second year.",
+          "start": 82.73,
+          "end": 86.4
+        },
+        {
+          "speaker": "kelly",
+          "text": "That's useful to know, because we have a special rate for students. Is there anything in particular you'd like to try?",
+          "start": 86.9,
+          "end": 93.28
+        },
+        {
+          "speaker": "omar",
+          "text": "I used to do boxing, but I'd rather try something new. My sister recommended your yoga classes, so I'd like to start with those.",
+          "start": 93.78,
+          "end": 101.59
+        },
+        {
+          "speaker": "kelly",
+          "text": "They're very popular. And when would you be most likely to come?",
+          "start": 102.09,
+          "end": 105.56
+        },
+        {
+          "speaker": "omar",
+          "text": "Mostly in the mornings, before my lectures start. The evenings are difficult because of my part-time job.",
+          "start": 106.06,
+          "end": 112.51
+        },
+        {
+          "speaker": "kelly",
+          "text": "That's fine; the club opens at six. Have you been a member of a gym before?",
+          "start": 113.01,
+          "end": 117.36
+        },
+        {
+          "speaker": "omar",
+          "text": "Yes, in Leeds, before I moved here, but that was two years ago.",
+          "start": 117.86,
+          "end": 121.49
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 122.39,
+          "end": 128.1
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 148.1,
+          "end": 151.43
+        },
+        {
+          "speaker": "kelly",
+          "text": "Right, I'll tell you about our memberships. Basic membership is twenty-five pounds a month, and that's for the gym only. Standard membership is thirty-five pounds, and as well as the gym, it includes any of our classes.",
+          "start": 152.33,
+          "end": 164.85
+        },
+        {
+          "speaker": "omar",
+          "text": "And the student rate?",
+          "start": 165.35,
+          "end": 166.48
+        },
+        {
+          "speaker": "kelly",
+          "text": "That's thirty pounds a month, and it includes the gym, the classes and the swimming pool, so for you it's the best value. You'll need to show your student card when you join.",
+          "start": 166.98,
+          "end": 176.03
+        },
+        {
+          "speaker": "omar",
+          "text": "That sounds good. Is there a joining fee?",
+          "start": 176.53,
+          "end": 178.66
+        },
+        {
+          "speaker": "kelly",
+          "text": "Yes. It's normally fifty pounds, but we're reducing it to forty pounds this month. You pay it once, when you join, and it doesn't come back.",
+          "start": 179.16,
+          "end": 186.74
+        },
+        {
+          "speaker": "omar",
+          "text": "Can I try the club before I decide?",
+          "start": 187.24,
+          "end": 189.24
+        },
+        {
+          "speaker": "kelly",
+          "text": "Of course. We can give you a free day pass. Just bring some identification, and come at any time that suits you. Shall I book you in for tomorrow morning?",
+          "start": 189.74,
+          "end": 197.87
+        },
+        {
+          "speaker": "omar",
+          "text": "Yes, please. Thank you for your help.",
+          "start": 198.37,
+          "end": 200.1
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 201.0,
+          "end": 205.52
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "Riverside Fitness Club – enquiry",
+          "content": [
+            "Example: Reason for joining: to get **fitter**",
+            "## Details",
+            "• Name: Omar {{1}}",
+            "• Occupation: {{2}}",
+            "• Wants to try the {{3}} classes",
+            "• Best time to visit: the {{4}}",
+            "• Previously a member of a gym in {{5}}"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Haddad"
+              ],
+              "explanation": "He spells his surname: ‘H-A-D-D-A-D’.",
+              "cue": "H-A-D-D-A-D"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "student"
+              ],
+              "explanation": "‘I'm a student at the university.’",
+              "cue": "I'm a student at the university"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "yoga"
+              ],
+              "explanation": "He used to do boxing, but ‘my sister recommended your yoga classes, so I'd like to start with those’.",
+              "cue": "I'd like to start with those"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "mornings",
+                "morning"
+              ],
+              "explanation": "‘Mostly in the mornings, before my lectures start.’",
+              "cue": "Mostly in the mornings"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "Leeds"
+              ],
+              "explanation": "‘Yes, in Leeds, before I moved here.’",
+              "cue": "in Leeds, before I moved here"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Memberships",
+          "content": {
+            "headers": [
+              "Membership",
+              "Price per month",
+              "Includes"
+            ],
+            "rows": [
+              [
+                "Basic",
+                "£{{6}}",
+                "gym only"
+              ],
+              [
+                "Standard",
+                "£35",
+                "gym and {{7}}"
+              ],
+              [
+                "Student",
+                "£{{8}}",
+                "gym, classes and the {{9}}"
+              ],
+              [
+                "Joining fee",
+                "£{{10}}",
+                "paid once, when you join"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "25",
+                "twenty-five"
+              ],
+              "explanation": "‘Basic membership is twenty-five pounds a month, and that's for the gym only.’",
+              "cue": "Basic membership is twenty-five pounds a month"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "classes"
+              ],
+              "explanation": "‘As well as the gym, it includes any of our classes.’",
+              "cue": "it includes any of our classes"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "30",
+                "thirty"
+              ],
+              "explanation": "‘That's thirty pounds a month, and it includes the gym, the classes and the swimming pool.’",
+              "cue": "That's thirty pounds a month"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "pool"
+              ],
+              "explanation": "‘It includes the gym, the classes and the swimming pool.’",
+              "cue": "the classes and the swimming pool"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "40",
+                "forty"
+              ],
+              "explanation": "It is normally fifty pounds, but ‘we're reducing it to forty pounds this month’.",
+              "cue": "we're reducing it to forty pounds this month"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-26/part1.mp3",
+        "duration": 236.32
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A science festival",
+      "context": "An organiser tells visitors where events take place and how the festival works.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear an organiser telling visitors about a science festival. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 9.99
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 34.99,
+          "end": 39.25
+        },
+        {
+          "speaker": "hartley",
+          "text": "Good morning, everyone, and welcome to the Riverside Science Festival. I'm Jean Hartley, one of the organisers. Let me tell you what's happening, and where.",
+          "start": 40.15,
+          "end": 48.58
+        },
+        {
+          "speaker": "hartley",
+          "text": "Our most popular event is the robot football tournament, which takes place in the Main Hall. Teams from six schools have built their own robots, and the final is at three o'clock.",
+          "start": 48.93,
+          "end": 58.89
+        },
+        {
+          "speaker": "hartley",
+          "text": "If you'd like to learn about the stars, there's a space show in the Planetarium, which is the round building behind the car park. It's a twenty-minute film, shown every hour.",
+          "start": 59.24,
+          "end": 68.39
+        },
+        {
+          "speaker": "hartley",
+          "text": "For those who prefer to get their hands dirty, the chemistry workshop will be held in Lab One. Please wear the safety glasses that are provided, and no running in the lab.",
+          "start": 68.74,
+          "end": 77.94
+        },
+        {
+          "speaker": "hartley",
+          "text": "The dinosaur talk is in the Atrium, which is the glass-roofed area at the entrance. A real palaeontologist will bring some fossils, and you may touch them, if you're careful.",
+          "start": 78.29,
+          "end": 87.78
+        },
+        {
+          "speaker": "hartley",
+          "text": "And for the younger visitors, there's a coding game in Room Twelve, on the first floor. No experience is needed. The Garden, by the way, is where the picnic area is, but there are no events there, and the Library is closed for the whole festival.",
+          "start": 88.13,
+          "end": 100.85
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 101.75,
+          "end": 107.46
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 132.46,
+          "end": 136.35
+        },
+        {
+          "speaker": "hartley",
+          "text": "Now, some practical information. Entry to the festival is free, and so are all the workshops. Please don't pay anybody at the gate, because there's no charge, although donations are welcome.",
+          "start": 137.25,
+          "end": 147.83
+        },
+        {
+          "speaker": "hartley",
+          "text": "The one exception is the space show. Because the Planetarium only has eighty seats, you need to book a ticket in advance at the information desk, and tickets go quickly, so I'd suggest doing that straight away.",
+          "start": 148.18,
+          "end": 159.61
+        },
+        {
+          "speaker": "hartley",
+          "text": "We're open from ten until five every day, except on Saturday, when the festival stays open until nine, with a special science night. There'll be live music and a talk by an astronaut.",
+          "start": 159.96,
+          "end": 170.63
+        },
+        {
+          "speaker": "hartley",
+          "text": "If you've brought large bags or a pushchair, you can leave them in the cloakroom, next to the information desk. The cloakroom is free, and it's staffed all day.",
+          "start": 170.98,
+          "end": 179.04
+        },
+        {
+          "speaker": "hartley",
+          "text": "Finally, there's a quiz trail around the festival. Pick up a form at the entrance and answer ten questions. Everyone who completes it receives a badge, and the best forms win a book. Have a wonderful day.",
+          "start": 179.39,
+          "end": 190.42
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 191.32,
+          "end": 195.65
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "Where will each event take place? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 11–15.",
+          "optionsTitle": "Places",
+          "options": [
+            {
+              "key": "A",
+              "text": "the Main Hall"
+            },
+            {
+              "key": "B",
+              "text": "the Planetarium"
+            },
+            {
+              "key": "C",
+              "text": "Lab One"
+            },
+            {
+              "key": "D",
+              "text": "the Atrium"
+            },
+            {
+              "key": "E",
+              "text": "the Garden"
+            },
+            {
+              "key": "F",
+              "text": "Room Twelve"
+            },
+            {
+              "key": "G",
+              "text": "the Library"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "robot football",
+              "answer": "A",
+              "explanation": "‘The robot football tournament … takes place in the Main Hall.’",
+              "cue": "the robot football tournament, which takes place in the Main Hall"
+            },
+            {
+              "number": 12,
+              "prompt": "the space show",
+              "answer": "B",
+              "explanation": "‘There's a space show in the Planetarium.’",
+              "cue": "there's a space show in the Planetarium"
+            },
+            {
+              "number": 13,
+              "prompt": "the chemistry workshop",
+              "answer": "C",
+              "explanation": "‘The chemistry workshop will be held in Lab One.’",
+              "cue": "the chemistry workshop will be held in Lab One"
+            },
+            {
+              "number": 14,
+              "prompt": "the dinosaur talk",
+              "answer": "D",
+              "explanation": "‘The dinosaur talk is in the Atrium.’",
+              "cue": "The dinosaur talk is in the Atrium"
+            },
+            {
+              "number": 15,
+              "prompt": "the coding game",
+              "answer": "F",
+              "explanation": "‘There's a coding game in Room Twelve, on the first floor.’ There are no events in the Garden, and the Library is closed.",
+              "cue": "there's a coding game in Room Twelve"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How much does entry to the festival cost?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "nothing"
+                },
+                {
+                  "key": "B",
+                  "text": "five pounds"
+                },
+                {
+                  "key": "C",
+                  "text": "ten pounds"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Entry to the festival is free, and so are all the workshops.’",
+              "cue": "Entry to the festival is free"
+            },
+            {
+              "number": 17,
+              "prompt": "What must visitors do to see the space show?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "arrive early"
+                },
+                {
+                  "key": "B",
+                  "text": "book a ticket"
+                },
+                {
+                  "key": "C",
+                  "text": "pay a small fee"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘You need to book a ticket in advance at the information desk.’",
+              "cue": "you need to book a ticket in advance at the information desk"
+            },
+            {
+              "number": 18,
+              "prompt": "What is different on Saturday?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The festival closes later."
+                },
+                {
+                  "key": "B",
+                  "text": "The festival opens earlier."
+                },
+                {
+                  "key": "C",
+                  "text": "Adults go in free."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Except on Saturday, when the festival stays open until nine.’",
+              "cue": "on Saturday, when the festival stays open until nine"
+            },
+            {
+              "number": 19,
+              "prompt": "Where can visitors leave large bags?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the entrance"
+                },
+                {
+                  "key": "B",
+                  "text": "in the cloakroom"
+                },
+                {
+                  "key": "C",
+                  "text": "in the library"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘You can leave them in the cloakroom, next to the information desk.’",
+              "cue": "you can leave them in the cloakroom"
+            },
+            {
+              "number": 20,
+              "prompt": "What will everyone who completes the quiz trail receive?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "a certificate"
+                },
+                {
+                  "key": "B",
+                  "text": "a badge"
+                },
+                {
+                  "key": "C",
+                  "text": "a book"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Everyone who completes it receives a badge.’ Only the best forms win a book.",
+              "cue": "Everyone who completes it receives a badge"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-26/part2.mp3",
+        "duration": 226.45
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A dissertation on urban green spaces",
+      "context": "A student discusses her dissertation with her supervisor.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear a student, Isla, discussing her dissertation on urban green spaces with her supervisor, Dr Mensah. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 13.95
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 38.95,
+          "end": 43.67
+        },
+        {
+          "speaker": "mensah",
+          "text": "Isla, thanks for coming in. I've read the draft of your first chapters, and overall it's coming along well. Tell me how the survey went.",
+          "start": 44.57,
+          "end": 53.12
+        },
+        {
+          "speaker": "isla",
+          "text": "I wanted two hundred responses, and I got two hundred and twelve in the end. The problem was getting people to finish. Most of the paper forms came back half-empty, so I switched to an online version, and that worked much better.",
+          "start": 53.62,
+          "end": 74.51
+        },
+        {
+          "speaker": "mensah",
+          "text": "Good. And the sample? Are the residents representative?",
+          "start": 75.01,
+          "end": 78.4
+        },
+        {
+          "speaker": "isla",
+          "text": "Mostly older people answered. Only about ten percent were under thirty, which isn't ideal.",
+          "start": 78.9,
+          "end": 87.67
+        },
+        {
+          "speaker": "mensah",
+          "text": "Then say so clearly in the limitations section. Don't hide it. A weakness that you explain is much better than one that I have to find.",
+          "start": 88.17,
+          "end": 96.51
+        },
+        {
+          "speaker": "isla",
+          "text": "OK. Another problem is the literature review. There's a huge amount published on parks and health, and I don't know how much to include.",
+          "start": 97.01,
+          "end": 109.15
+        },
+        {
+          "speaker": "mensah",
+          "text": "Focus on studies from cities similar to yours, in the last ten years. Don't try to cover everything.",
+          "start": 109.65,
+          "end": 116.24
+        },
+        {
+          "speaker": "isla",
+          "text": "I've found one study that says the opposite of my results. Should I leave it out?",
+          "start": 116.74,
+          "end": 123.99
+        },
+        {
+          "speaker": "mensah",
+          "text": "Certainly not. Explain why your results are different. That's the kind of discussion that earns marks.",
+          "start": 124.49,
+          "end": 130.64
+        },
+        {
+          "speaker": "isla",
+          "text": "And the deadline is the fifteenth of April, isn't it?",
+          "start": 131.14,
+          "end": 135.62
+        },
+        {
+          "speaker": "mensah",
+          "text": "That's right, but I'd like to see a full draft by the end of March, so I can give you proper feedback.",
+          "start": 136.12,
+          "end": 141.64
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 142.54,
+          "end": 148.69
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 168.69,
+          "end": 172.53
+        },
+        {
+          "speaker": "mensah",
+          "text": "Let's go through your structure, so I know what to expect. What's in the first chapter?",
+          "start": 173.43,
+          "end": 178.38
+        },
+        {
+          "speaker": "isla",
+          "text": "A summary of the existing literature on green spaces and health, as you suggested.",
+          "start": 178.88,
+          "end": 186.49
+        },
+        {
+          "speaker": "mensah",
+          "text": "And the second?",
+          "start": 186.99,
+          "end": 187.97
+        },
+        {
+          "speaker": "isla",
+          "text": "That's the survey: how I designed it, who answered, and what they said.",
+          "start": 188.47,
+          "end": 194.09
+        },
+        {
+          "speaker": "mensah",
+          "text": "Then?",
+          "start": 194.59,
+          "end": 195.2
+        },
+        {
+          "speaker": "isla",
+          "text": "Chapter three has maps of the five parks I visited. I've marked where people sit, walk and meet, using different colours.",
+          "start": 195.7,
+          "end": 206.99
+        },
+        {
+          "speaker": "mensah",
+          "text": "That could be striking. And chapter four?",
+          "start": 207.49,
+          "end": 209.96
+        },
+        {
+          "speaker": "isla",
+          "text": "Interviews. I talked to the park managers, to find out why people use some parks more than others.",
+          "start": 210.46,
+          "end": 218.7
+        },
+        {
+          "speaker": "mensah",
+          "text": "Good, that will help to explain your results. And the end?",
+          "start": 219.2,
+          "end": 222.51
+        },
+        {
+          "speaker": "isla",
+          "text": "A short conclusion, with three recommendations for the council. I've cut my photographs, to keep the word count down.",
+          "start": 223.01,
+          "end": 233.84
+        },
+        {
+          "speaker": "mensah",
+          "text": "Sensible. Send me chapter one by Friday.",
+          "start": 234.34,
+          "end": 237.31
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 238.21,
+          "end": 242.67
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "What did Isla do when many paper questionnaires were incomplete?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She shortened the questionnaire."
+                },
+                {
+                  "key": "B",
+                  "text": "She used an online version."
+                },
+                {
+                  "key": "C",
+                  "text": "She asked friends to help."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Most of the paper forms came back half-empty, so I switched to an online version.’",
+              "cue": "so I switched to an online version"
+            },
+            {
+              "number": 22,
+              "prompt": "What does Dr Mensah advise about the lack of young respondents?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ignore it"
+                },
+                {
+                  "key": "B",
+                  "text": "mention it in the limitations"
+                },
+                {
+                  "key": "C",
+                  "text": "repeat the survey"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Then say so clearly in the limitations section.’",
+              "cue": "say so clearly in the limitations section"
+            },
+            {
+              "number": 23,
+              "prompt": "How should Isla approach the literature review?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "include every study"
+                },
+                {
+                  "key": "B",
+                  "text": "focus on similar cities in recent years"
+                },
+                {
+                  "key": "C",
+                  "text": "use only studies from her own country"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Focus on studies from cities similar to yours, in the last ten years.’",
+              "cue": "Focus on studies from cities similar to yours"
+            },
+            {
+              "number": 24,
+              "prompt": "What does Dr Mensah say about the study that contradicts Isla's results?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She should leave it out."
+                },
+                {
+                  "key": "B",
+                  "text": "She should discuss it."
+                },
+                {
+                  "key": "C",
+                  "text": "She should repeat it."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Certainly not. Explain why your results are different.’",
+              "cue": "Explain why your results are different"
+            },
+            {
+              "number": 25,
+              "prompt": "When does Dr Mensah want to see a full draft?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the end of February"
+                },
+                {
+                  "key": "B",
+                  "text": "at the end of March"
+                },
+                {
+                  "key": "C",
+                  "text": "on the fifteenth of April"
+                }
+              ],
+              "answer": "B",
+              "explanation": "The deadline is the fifteenth of April, but he wants ‘a full draft by the end of March’.",
+              "cue": "a full draft by the end of March"
+            }
+          ]
+        },
+        {
+          "type": "flow_chart_completion",
+          "instruction": "Complete the flow-chart below. Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 26–30.",
+          "title": "Isla's plan for her dissertation",
+          "optionsTitle": "Words",
+          "options": [
+            {
+              "key": "A",
+              "text": "interviews"
+            },
+            {
+              "key": "B",
+              "text": "survey"
+            },
+            {
+              "key": "C",
+              "text": "literature"
+            },
+            {
+              "key": "D",
+              "text": "maps"
+            },
+            {
+              "key": "E",
+              "text": "conclusion"
+            },
+            {
+              "key": "F",
+              "text": "photographs"
+            },
+            {
+              "key": "G",
+              "text": "budget"
+            }
+          ],
+          "content": [
+            "Chapter 1 summarises the existing {{26}} on green spaces and health.",
+            "Chapter 2 describes the {{27}} of local residents.",
+            "Chapter 3 shows {{28}} of the five parks.",
+            "Chapter 4 uses {{29}} with park managers to explain the results.",
+            "The final chapter is a short {{30}} with recommendations."
+          ],
+          "questions": [
+            {
+              "number": 26,
+              "answer": [
+                "C"
+              ],
+              "explanation": "‘A summary of the existing literature on green spaces and health.’",
+              "cue": "A summary of the existing literature"
+            },
+            {
+              "number": 27,
+              "answer": [
+                "B"
+              ],
+              "explanation": "‘That's the survey: how I designed it, who answered, and what they said.’",
+              "cue": "That's the survey"
+            },
+            {
+              "number": 28,
+              "answer": [
+                "D"
+              ],
+              "explanation": "‘Chapter three has maps of the five parks I visited.’",
+              "cue": "Chapter three has maps of the five parks"
+            },
+            {
+              "number": 29,
+              "answer": [
+                "A"
+              ],
+              "explanation": "‘Interviews. I talked to the park managers.’",
+              "cue": "Interviews. I talked to the park managers"
+            },
+            {
+              "number": 30,
+              "answer": [
+                "E"
+              ],
+              "explanation": "‘A short conclusion, with three recommendations for the council.’ The photographs were cut.",
+              "cue": "A short conclusion, with three recommendations"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-26/part3.mp3",
+        "duration": 273.47
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: how animals sleep",
+      "context": "A biology lecture on sleep in animals, from bats to dolphins.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about how animals sleep. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 8.58
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 38.58,
+          "end": 42.99
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good afternoon. Sleep is one of the great puzzles of biology. Every animal that has been carefully studied seems to sleep in some way, yet they do it in remarkably different ways.",
+          "start": 43.89,
+          "end": 53.88
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Take the amount of sleep. Bats are the champions: some species sleep for up to twenty hours a day, hanging upside down in caves. At the other extreme, giraffes need only a few hours, and they often take short naps while standing up.",
+          "start": 54.23,
+          "end": 66.2
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Then there's the problem of safety, because a sleeping animal is vulnerable. Dolphins have found a solution. They sleep with only half of the brain at a time, while the other half stays awake. That way a dolphin can keep swimming and come to the surface to breathe, and the two halves take turns.",
+          "start": 66.55,
+          "end": 81.31
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Some birds do something similar. Frigatebirds spend weeks at sea without landing, and researchers have recorded them sleeping while flying, in naps that last a few seconds. Altogether, they sleep for less than an hour a day, much less than on land.",
+          "start": 81.66,
+          "end": 94.48
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A more recent discovery concerns fur seals. In the water they sleep with half of the brain, like dolphins, but when they come on to land, they sleep with both halves, just as we do.",
+          "start": 94.83,
+          "end": 104.52
+        },
+        {
+          "speaker": "lecturer",
+          "text": "So why do animals sleep at all? There are two main theories. One says that sleep gives the brain a chance to clear away waste products that build up during the day. The other says that sleep helps the brain to store memories, by going over the day's experiences. There is evidence for both.",
+          "start": 104.87,
+          "end": 119.54
+        },
+        {
+          "speaker": "lecturer",
+          "text": "What we do know is that sleep is essential. In a famous experiment, rats that were kept awake died within about three weeks, which is sooner than they would have died of hunger. But research continues, because many questions remain unanswered. For next week, please read the chapter on dreaming.",
+          "start": 119.89,
+          "end": 134.59
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 135.49,
+          "end": 139.89
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 169.89,
+          "end": 172.6
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "How animals sleep",
+          "content": [
+            "## The amount of sleep",
+            "• Some bats sleep for up to {{31}} hours a day",
+            "• Giraffes need very little sleep and often nap {{32}} up",
+            "## Staying safe",
+            "• Dolphins sleep with half of the {{33}} at a time",
+            "• This allows them to keep swimming to the {{34}} to breathe",
+            "• Frigatebirds sleep while {{35}}, for under an hour a day",
+            "• Fur seals sleep with half of the brain in the {{36}}, but both halves on land",
+            "## Why animals sleep",
+            "• One theory: sleep helps the brain to clear away {{37}}",
+            "• Another theory: sleep helps to store {{38}}",
+            "• In an experiment, {{39}} that were kept awake died within about three weeks",
+            "• Research continues because many {{40}} remain unanswered"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "20",
+                "twenty"
+              ],
+              "explanation": "‘Some species sleep for up to twenty hours a day.’",
+              "cue": "up to twenty hours a day"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "standing"
+              ],
+              "explanation": "‘They often take short naps while standing up.’",
+              "cue": "while standing up"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "brain"
+              ],
+              "explanation": "‘They sleep with only half of the brain at a time.’",
+              "cue": "with only half of the brain at a time"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "surface"
+              ],
+              "explanation": "‘A dolphin can keep swimming and come to the surface to breathe.’",
+              "cue": "come to the surface to breathe"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "flying"
+              ],
+              "explanation": "‘Researchers have recorded them sleeping while flying.’",
+              "cue": "sleeping while flying"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "water"
+              ],
+              "explanation": "‘In the water they sleep with half of the brain, like dolphins.’",
+              "cue": "In the water they sleep with half of the brain"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "waste"
+              ],
+              "explanation": "‘Sleep gives the brain a chance to clear away waste products.’",
+              "cue": "clear away waste products"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "memories"
+              ],
+              "explanation": "‘Sleep helps the brain to store memories.’",
+              "cue": "helps the brain to store memories"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "rats"
+              ],
+              "explanation": "‘Rats that were kept awake died within about three weeks.’",
+              "cue": "rats that were kept awake died within about three weeks"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "questions"
+              ],
+              "explanation": "‘Research continues, because many questions remain unanswered.’",
+              "cue": "many questions remain unanswered"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-26/part4.mp3",
+        "duration": 173.4
+      }
+    }
+  ],
+  "durationMinutes": 15
+}

@@ -73,7 +73,8 @@ class Config:
         platforms = tuple(p for p in (x.strip().lower() for x in _text("PLATFORMS", ",".join(PLATFORM_NAMES)).split(","))
                           if p in PLATFORM_NAMES)
         return cls(
-            public_url=_text("PUBLIC_URL").rstrip("/"),
+            # Render tells each web service its own address (RENDER_EXTERNAL_URL), so nothing has to be typed in there.
+            public_url=(_text("PUBLIC_URL") or _text("RENDER_EXTERNAL_URL")).rstrip("/"),
             site_url=_text("SITE_URL", "https://www.testday.uz").rstrip("/"),
             data_dir=_text("DATA_DIR", os.path.join(BASE_DIR, "runtime")),
             port=_number("PORT", 10000),

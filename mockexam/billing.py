@@ -596,10 +596,23 @@ def _to_int(value):
         return None
 
 
-def revenue(db, days, at=None):
-    """Money from orders paid in the last `days` days (refunded orders no longer count), by kind."""
-    since = (at or now()) - datetime.timedelta(days=days)
-    rows = db.select("orders", {"status": "paid", "paid_at": ("gte", iso(since))}, limit=10000)
+def _revenue_of(rows):
     plan = sum(int(r["amount"]) for r in rows if r["kind"] == "plan")
     total = sum(int(r["amount"]) for r in rows)
     return {"total": total, "plan": plan, "checks": total - plan, "orders": len(rows)}
+
+
+def revenue(db, days, at=None):
+    """Money from orders paid in the last `days` days (refunded orders no longer count), by kind."""
+    return revenues(db, (days,), at)[days]
+
+
+def revenues(db, windows=(7, 30), at=None):
+    """{days: revenue} for several windows from ONE query: the longest window's orders, split by date."""
+    at = at or now()
+    rows = db.select("orders", {"status": "paid", "paid_at": ("gte", iso(at - datetime.timedelta(days=max(windows))))}, limit=10000)
+    out = {}
+    for days in windows:
+        since = iso(at - datetime.timedelta(days=days))
+        out[days] = _revenue_of([r for r in rows if iso(parse_time(r["paid_at"])) >= since])
+    return out

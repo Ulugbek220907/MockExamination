@@ -17,6 +17,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONT = os.path.join(BASE_DIR, "assets", "fonts", "SchibstedGrotesk-Variable.ttf")
+# The logo mark (the website's sun-medallion), drawn by scripts/make_og_image.js in the website's repository folder.
+MARK_INK = os.path.join(BASE_DIR, "assets", "mark-ink.png")
+MARK_GOLD = os.path.join(BASE_DIR, "assets", "mark-gold.png")
 GROUND = (233, 232, 226)
 INK = (15, 26, 48)
 MUTED = (96, 106, 124)
@@ -71,6 +74,18 @@ def fit_paragraphs(draw, paragraphs, width, height, start, low):
         size -= 2
 
 
+_marks = {}
+
+
+def mark(dark, height):
+    """The logo mark, `height` pixels tall: gold on the dark ground, ink on the light one."""
+    key = (dark, height)
+    if key not in _marks:
+        picture = Image.open(MARK_GOLD if dark else MARK_INK).convert("RGBA")
+        _marks[key] = picture.resize((height, height), Image.LANCZOS)
+    return _marks[key]
+
+
 def spaced(draw, xy, text, fnt, fill, tracking):
     x, y = xy
     for ch in text:
@@ -87,9 +102,14 @@ def draw_canvas(size, kicker, headline, lines, dark=False, wordmark=True, footer
     inner = w - 2 * m
     scale = w / 1080
     tall = h > 1500                 # the 9:16 video frame; the 4:5 card is shorter
-    # top: the wordmark
+    # top: the mark and the wordmark
     if wordmark:
-        d.text((m, round(m * 0.9)), "TestDay", font=font(round(44 * scale), 700), fill=fg)
+        wf = font(round(44 * scale), 700)
+        x0, y0 = m, round(m * 0.9)
+        left, top, right, bottom = d.textbbox((0, 0), "TestDay", font=wf)
+        size = round(66 * scale)
+        img.paste(mark(dark, size), (x0 - round(size * 0.06), y0 + (top + bottom) // 2 - size // 2), mark(dark, size))
+        d.text((x0 + size + round(8 * scale), y0), "TestDay", font=wf, fill=fg)
     # the text block (kicker, headline, body) sits in the middle zone, a little above the centre
     zone_top, zone_bottom = round(h * 0.15), round(h * 0.82)
     zone = zone_bottom - zone_top

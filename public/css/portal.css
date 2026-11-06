@@ -45,6 +45,7 @@
   --rule: #c7c6be;        /* hairlines */
   --rule-soft: #d6d5ce;
   --edge: #767f90;        /* the border of a form field: 3.3:1 on the ground */
+  --gold: #e0a93b;        /* ornament on ink, nothing else: 8.1:1 on ink */
 
   /* States */
   --ok: #1a6b3a;
@@ -183,6 +184,7 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
   font-weight: 650; font-size: 1.375rem; letter-spacing: -0.02em; text-decoration: none; margin-right: auto;
   min-height: 44px; display: inline-flex; align-items: center;
 }
+.brand-mark { width: 30px; height: 30px; flex: none; margin-right: 9px; }
 .site-links { display: flex; }
 .site-links a {
   min-height: 44px; padding: 0 12px; display: inline-flex; align-items: center; text-decoration: none; font-weight: 500;
@@ -194,8 +196,8 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
 
 /* Footer: at the very end ------------------------------------------------------------ */
 .site-footer {
-  background: var(--ink); color: var(--ground); margin-top: var(--section);
-  padding-top: clamp(3.5rem, 2rem + 4vw, 6rem); font-size: 1rem;
+  position: relative; background: var(--ink); color: var(--ground); margin-top: var(--section);
+  padding-top: clamp(1.75rem, 1rem + 2vw, 2.75rem); font-size: 1rem;
 }
 .site-footer .wrap { container-type: inline-size; }
 .footer-top { row-gap: 40px; display: grid; }
@@ -213,6 +215,77 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
   font-size: calc((100vw - 2 * var(--gutter)) / 3.7); font-size: calc(100cqi / 3.7);
   font-weight: 650; letter-spacing: -0.045em; line-height: 0.9; margin-top: clamp(3rem, 2rem + 4vw, 6rem);
   padding-bottom: 0.14em; white-space: nowrap; user-select: none; overflow: hidden;
+}
+
+/* The mark and the ornament --------------------------------------------------------------------
+   The mark is one drawing (the <symbol id="td-mark"> in index.html, made by scripts/make_ornaments.py) that every
+   copy draws with <use>. A copy is recoloured by custom properties on its <svg>: --pf fills every petal,
+   --pa --pb --pc --pd fill one long petal (the four papers: Listening, Reading, Writing, Speaking), --pk and --pw
+   outline the petals, --rw is the ring's width. With none set it is the solid mark in the text colour.
+   The bands are masks cut from small black SVG tiles in img/orn/, so each can be any colour.
+   This is for the website only: the exam screens (cd-ielts.css) do not use it. */
+.pl { fill: var(--pf, currentColor); stroke: var(--pk, none); stroke-width: var(--pw, 0); stroke-linejoin: round; transition: fill 0.3s; }
+.pl-a { fill: var(--pa, var(--pf, currentColor)); }
+.pl-b { fill: var(--pb, var(--pf, currentColor)); }
+.pl-c { fill: var(--pc, var(--pf, currentColor)); }
+.pl-d { fill: var(--pd, var(--pf, currentColor)); }
+.rg { fill: none; stroke: currentColor; stroke-width: var(--rw, 0.055); }
+.dt { fill: currentColor; }
+
+.orn-belt::before, .footer-frieze, .site-footer::before, .page.prose > h1::after, .catalog-head h1::after {
+  content: ""; display: block; background: currentColor;
+  -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x; -webkit-mask-size: auto 100%; mask-size: auto 100%;
+}
+/* The belt above the header: a row of eight-point stars of tile work, gold on ink. */
+.orn-belt { position: relative; height: 22px; background: var(--ink); color: var(--gold); }
+.orn-belt::before {
+  position: absolute; inset: 4px 0; -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-image: url("../img/orn/girih.svg"); mask-image: url("../img/orn/girih.svg");
+}
+/* The footer: pointed arches along its top edge, then a scrolling vine across it. */
+.site-footer { --arch: clamp(12px, 0.5rem + 1.1vw, 22px); }
+.site-footer::before {
+  position: absolute; left: 0; right: 0; bottom: 100%; margin-bottom: -1px; height: var(--arch); color: var(--ink);
+  -webkit-mask-position: center bottom; mask-position: center bottom;
+  -webkit-mask-image: url("../img/orn/arches.svg"); mask-image: url("../img/orn/arches.svg");
+}
+.footer-frieze {
+  height: clamp(48px, 2.25rem + 3.2vw, 88px); margin-bottom: clamp(2.25rem, 1.25rem + 3.5vw, 4.5rem); color: var(--gold); opacity: 0.92;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-image: url("../img/orn/islimi.svg"); mask-image: url("../img/orn/islimi.svg");
+}
+/* A short row of tile-work stars under the heading of a static page and of a list of tests. */
+.page.prose > h1::after, .catalog-head h1::after {
+  /* Four whole stars: the tile (56 by 44) starts on a lozenge, so it is shifted to start on a star's edge. */
+  --d: 20px; width: calc(var(--d) * 4.7); height: var(--d); margin-top: 22px; opacity: 0.92;
+  -webkit-mask-position: calc(var(--d) * -0.19) center; mask-position: calc(var(--d) * -0.19) center;
+  -webkit-mask-image: url("../img/orn/girih.svg"); mask-image: url("../img/orn/girih.svg");
+}
+.catalog-head h1::after { margin-bottom: 14px; }
+/* The last line of every page: a key meander in gold, the answer to the belt at the top. */
+.footer-belt {
+  height: 26px; margin-top: clamp(1.5rem, 1rem + 2vw, 2.5rem); background: var(--gold); opacity: 0.92;
+  -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x; -webkit-mask-size: auto 100%; mask-size: auto 100%;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-image: url("../img/orn/key.svg"); mask-image: url("../img/orn/key.svg");
+}
+
+/* Home: the mark drawn large in hairlines beside the four papers; pointing at a paper fills its petal. */
+.home-medallion { display: none; }
+@keyframes bloom { from { opacity: 0; transform: scale(0.86) rotate(-16deg); } to { opacity: 1; transform: none; } }
+@media (min-width: 1024px) {
+  .home-medallion {
+    display: block; grid-column: 1 / 5; grid-row: 2 / span 4; align-self: start; position: sticky; top: 28px;
+    margin-top: clamp(1.75rem, 1rem + 3vw, 4rem); width: min(100%, 25rem); aspect-ratio: 1; color: var(--ink);
+    --pf: transparent; --pk: currentColor; --pw: 0.012; --rw: 0.012;
+  }
+  /* The drawing has a margin of 0.12 on 1.12 around its tips; grow it by that so the tips touch the box. */
+  .home-medallion svg { display: block; width: 112%; height: 112%; margin: -6% 0 0 -6%; overflow: visible; }
+  .home-medallion.bloom svg { animation: bloom 1.3s var(--ease-out) both; }
+  .home:has([data-mod="listening"]:is(:hover, :focus-within)) .home-medallion { --pa: currentColor; }
+  .home:has([data-mod="reading"]:is(:hover, :focus-within)) .home-medallion { --pb: currentColor; }
+  .home:has([data-mod="writing"]:is(:hover, :focus-within)) .home-medallion { --pc: currentColor; }
+  .home:has([data-mod="speaking"]:is(:hover, :focus-within)) .home-medallion { --pd: currentColor; }
 }
 
 /* Home ----------------------------------------------------------------------------------- */

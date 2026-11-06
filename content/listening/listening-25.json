@@ -1,0 +1,1401 @@
+{
+  "id": "listening-25",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 25",
+  "shortTitle": "Practice Test 25",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 25,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "antonio": {
+      "name": "Antonio",
+      "voice": "am_eric",
+      "lang": "en-us"
+    },
+    "chloe": {
+      "name": "Chloe",
+      "voice": "af_bella",
+      "lang": "en-us"
+    },
+    "guide": {
+      "name": "Guide",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "maya": {
+      "name": "Maya",
+      "voice": "af_jessica",
+      "lang": "en-us"
+    },
+    "luke": {
+      "name": "Luke",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bf_emma",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Buying a cookery course as a gift",
+      "context": "A woman phones a cookery school to buy a gift voucher.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a woman phoning a cookery school to book a course as a present. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 9.88
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 29.88,
+          "end": 38.95
+        },
+        {
+          "speaker": "antonio",
+          "text": "Good afternoon, Taste of Italy Cookery School, Antonio speaking.",
+          "start": 39.85,
+          "end": 43.26
+        },
+        {
+          "speaker": "chloe",
+          "text": "Hello. I'd like to buy a cookery course as a gift for someone. Is it possible to pay now and let them choose the date later?",
+          "start": 43.76,
+          "end": 51.03
+        },
+        {
+          "speaker": "antonio",
+          "text": "Yes, we sell gift vouchers. Let me take a few details first.",
+          "start": 51.53,
+          "end": 55.05
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller wants to buy a course as a gift, so 'gift' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 55.95,
+          "end": 71.29
+        },
+        {
+          "speaker": "antonio",
+          "text": "Could I have your name, please?",
+          "start": 72.19,
+          "end": 74.01
+        },
+        {
+          "speaker": "chloe",
+          "text": "Chloe Brennan. That's B-R-E-N-N-A-N.",
+          "start": 74.51,
+          "end": 79.97
+        },
+        {
+          "speaker": "antonio",
+          "text": "Thank you, Chloe. And who is the course for?",
+          "start": 80.47,
+          "end": 82.71
+        },
+        {
+          "speaker": "chloe",
+          "text": "It's for my father. He's retiring in June, and I'd like to give him something to do with his time. He's always said he'd like to learn to cook properly.",
+          "start": 83.21,
+          "end": 91.87
+        },
+        {
+          "speaker": "antonio",
+          "text": "What a lovely idea. When is the retirement date, so we can send the voucher in time?",
+          "start": 92.37,
+          "end": 96.68
+        },
+        {
+          "speaker": "chloe",
+          "text": "His birthday is on the ninth of June, and he retires the week after. So the voucher should be here by the ninth, really.",
+          "start": 97.18,
+          "end": 104.09
+        },
+        {
+          "speaker": "antonio",
+          "text": "We can easily do that. Does he have any food allergies we should know about?",
+          "start": 104.59,
+          "end": 108.39
+        },
+        {
+          "speaker": "chloe",
+          "text": "Yes, he's allergic to nuts, so please make sure the chef knows. Everything else is fine.",
+          "start": 108.89,
+          "end": 114.33
+        },
+        {
+          "speaker": "antonio",
+          "text": "Of course. One more thing: our vouchers are valid for six months from the date of purchase, so he'll need to book before the end of the year.",
+          "start": 114.83,
+          "end": 121.49
+        },
+        {
+          "speaker": "chloe",
+          "text": "That's fine. He'll have plenty of time.",
+          "start": 121.99,
+          "end": 124.14
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 125.04,
+          "end": 130.76
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 150.76,
+          "end": 154.09
+        },
+        {
+          "speaker": "antonio",
+          "text": "Now, shall I tell you about our courses? The first is Italian basics, which is on Saturdays. You learn to make fresh pasta and two sauces, and it costs eighty-five pounds. That includes lunch.",
+          "start": 154.99,
+          "end": 164.93
+        },
+        {
+          "speaker": "chloe",
+          "text": "That sounds good. What else do you have?",
+          "start": 165.43,
+          "end": 167.54
+        },
+        {
+          "speaker": "antonio",
+          "text": "There's a bread-making course on Fridays. You make a large loaf and some sweet buns, and take everything home with you. That's seventy-five pounds.",
+          "start": 168.04,
+          "end": 175.68
+        },
+        {
+          "speaker": "chloe",
+          "text": "He'd like that one too, I think. Is it a full day?",
+          "start": 176.18,
+          "end": 178.91
+        },
+        {
+          "speaker": "antonio",
+          "text": "Yes, from ten until four. And on Sundays we do Thai cooking, where you make a curry and a salad. That one is ninety pounds, because the ingredients are more expensive.",
+          "start": 179.41,
+          "end": 188.11
+        },
+        {
+          "speaker": "chloe",
+          "text": "I think the first one is the best for a complete beginner. Can I buy the voucher for Italian basics now?",
+          "start": 188.61,
+          "end": 194.78
+        },
+        {
+          "speaker": "antonio",
+          "text": "Certainly. I'll just need your card details, and I'll post it to you today.",
+          "start": 195.28,
+          "end": 198.78
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 199.68,
+          "end": 204.2
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Taste of Italy Cookery School – gift voucher",
+          "content": [
+            "Example: Reason for booking: a **gift**",
+            "## Details",
+            "• Name: Chloe {{1}}",
+            "• The course is for her {{2}}",
+            "• His birthday: {{3}} June",
+            "• He is allergic to {{4}}",
+            "• Voucher is valid for {{5}} months"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Brennan"
+              ],
+              "explanation": "She spells her surname: ‘B-R-E-N-N-A-N’.",
+              "cue": "B-R-E-N-N-A-N"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "father"
+              ],
+              "explanation": "‘It's for my father. He's retiring in June.’",
+              "cue": "It's for my father"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "9",
+                "ninth",
+                "9th"
+              ],
+              "explanation": "‘His birthday is on the ninth of June.’",
+              "cue": "His birthday is on the ninth of June"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "nuts"
+              ],
+              "explanation": "‘He's allergic to nuts, so please make sure the chef knows.’",
+              "cue": "he's allergic to nuts"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "6",
+                "six"
+              ],
+              "explanation": "‘Our vouchers are valid for six months from the date of purchase.’",
+              "cue": "valid for six months"
+            }
+          ]
+        },
+        {
+          "type": "table_completion",
+          "instruction": "Complete the table below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Courses",
+          "content": {
+            "headers": [
+              "Course",
+              "Day",
+              "Price",
+              "You will make"
+            ],
+            "rows": [
+              [
+                "Italian basics",
+                "Saturday",
+                "£{{6}}",
+                "fresh {{7}} and two sauces"
+              ],
+              [
+                "Bread making",
+                "{{8}}",
+                "£75",
+                "a large loaf and sweet {{9}}"
+              ],
+              [
+                "Thai cooking",
+                "Sunday",
+                "£{{10}}",
+                "a curry and a salad"
+              ]
+            ]
+          },
+          "questions": [
+            {
+              "number": 6,
+              "answer": [
+                "85",
+                "eighty-five"
+              ],
+              "explanation": "‘It costs eighty-five pounds. That includes lunch.’",
+              "cue": "it costs eighty-five pounds"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "pasta"
+              ],
+              "explanation": "‘You learn to make fresh pasta and two sauces.’",
+              "cue": "You learn to make fresh pasta"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "Friday",
+                "Fridays"
+              ],
+              "explanation": "‘There's a bread-making course on Fridays.’",
+              "cue": "a bread-making course on Fridays"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "buns"
+              ],
+              "explanation": "‘You make a large loaf and some sweet buns.’",
+              "cue": "some sweet buns"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "90",
+                "ninety"
+              ],
+              "explanation": "‘That one is ninety pounds, because the ingredients are more expensive.’",
+              "cue": "That one is ninety pounds"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-25/part1.mp3",
+        "duration": 235.0
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "A river cruise through a historic city",
+      "context": "A guide tells passengers what they will see on a river cruise.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear a guide on a river boat telling passengers about a cruise through a historic city. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 11.69
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 36.69,
+          "end": 40.96
+        },
+        {
+          "speaker": "guide",
+          "text": "Good morning, ladies and gentlemen, and welcome aboard. My name's Harry, and I'll be your guide for the next fifty minutes. Please look at the map on the back of your ticket. We're leaving the pier, on the left of the map, and we'll be travelling east along the River Calder.",
+          "start": 41.86,
+          "end": 55.47
+        },
+        {
+          "speaker": "guide",
+          "text": "As we set off, on the north bank, you'll see the old hospital, which closed twenty years ago and is now apartments. Directly opposite, on the south bank, close to the pier, is the market, which has been held every Saturday since the twelfth century.",
+          "start": 55.82,
+          "end": 68.94
+        },
+        {
+          "speaker": "guide",
+          "text": "A little further on, on the north bank, just before the old bridge, is the cathedral, with the tall tower. Directly opposite the cathedral, on the south bank, is the railway station, which has the largest clock in the county.",
+          "start": 69.29,
+          "end": 81.22
+        },
+        {
+          "speaker": "guide",
+          "text": "We'll pass under the old bridge in a moment. Please keep your heads down, as it's quite low. Once we're through, on the north bank, you'll see the castle, which was built in the thirteenth century and is now a hotel.",
+          "start": 81.57,
+          "end": 92.42
+        },
+        {
+          "speaker": "guide",
+          "text": "On the south bank, just after the bridge, is the museum, which has a wonderful collection of old boats. And at the far end of the south bank, by the last bend in the river, is the old brewery. It stopped making beer in nineteen sixty, and it's now a theatre.",
+          "start": 92.77,
+          "end": 106.47
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 107.37,
+          "end": 113.09
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 138.09,
+          "end": 141.97
+        },
+        {
+          "speaker": "guide",
+          "text": "Now, a few things you might like to know. The cruise lasts fifty minutes, although in the summer we sometimes add ten minutes to see the old docks. Today, however, it's a standard cruise, and we'll be back at the pier by half past eleven.",
+          "start": 142.87,
+          "end": 155.16
+        },
+        {
+          "speaker": "guide",
+          "text": "My commentary is in English, but if you would prefer another language, you can borrow a set of headphones from the desk by the door. They offer French, German and Spanish, and they're free.",
+          "start": 155.51,
+          "end": 165.24
+        },
+        {
+          "speaker": "guide",
+          "text": "Please keep an eye on your children. Anyone under five travels free, but they must stay with an adult at all times, and life jackets are available in all sizes.",
+          "start": 165.59,
+          "end": 174.78
+        },
+        {
+          "speaker": "guide",
+          "text": "If you'd like to take photographs, the best place is the upper deck, where there's nothing in the way. The front of the boat is crowded, and the back is wet when the engine is running.",
+          "start": 175.13,
+          "end": 184.35
+        },
+        {
+          "speaker": "guide",
+          "text": "Finally, if we have to cancel a cruise because of strong wind, which doesn't happen often, you'll receive a full refund. Light rain won't stop us, and there's a covered area on the lower deck. So, sit back and enjoy the trip.",
+          "start": 184.7,
+          "end": 196.28
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 197.18,
+          "end": 201.51
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "map_labelling",
+          "instruction": "Label the map below. Choose the correct letter, **A–G**, next to Questions 11–15.",
+          "map": {
+            "title": "The river cruise route",
+            "width": 640,
+            "height": 440,
+            "items": [
+              {
+                "type": "area",
+                "x": 10,
+                "y": 10,
+                "w": 620,
+                "h": 420,
+                "style": "grass"
+              },
+              {
+                "type": "rect",
+                "x": 10,
+                "y": 160,
+                "w": 620,
+                "h": 100,
+                "style": "water",
+                "label": "River Calder",
+                "lx": 150,
+                "ly": 0
+              },
+              {
+                "type": "rect",
+                "x": 10,
+                "y": 175,
+                "w": 56,
+                "h": 70,
+                "style": "sand",
+                "label": "Pier"
+              },
+              {
+                "type": "rect",
+                "x": 335,
+                "y": 150,
+                "w": 34,
+                "h": 120,
+                "style": "building",
+                "label": "Old Bridge",
+                "ly": -84
+              },
+              {
+                "type": "compass",
+                "x": 598,
+                "y": 60
+              },
+              {
+                "type": "rect",
+                "x": 60,
+                "y": 66,
+                "w": 84,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 226,
+                "y": 66,
+                "w": 84,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 420,
+                "y": 66,
+                "w": 100,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 146,
+                "y": 288,
+                "w": 84,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 250,
+                "y": 288,
+                "w": 72,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 400,
+                "y": 288,
+                "w": 84,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "rect",
+                "x": 520,
+                "y": 288,
+                "w": 84,
+                "h": 70,
+                "style": "building"
+              },
+              {
+                "type": "letter",
+                "x": 102,
+                "y": 101,
+                "letter": "A"
+              },
+              {
+                "type": "letter",
+                "x": 268,
+                "y": 101,
+                "letter": "B"
+              },
+              {
+                "type": "letter",
+                "x": 470,
+                "y": 101,
+                "letter": "C"
+              },
+              {
+                "type": "letter",
+                "x": 188,
+                "y": 323,
+                "letter": "D"
+              },
+              {
+                "type": "letter",
+                "x": 442,
+                "y": 323,
+                "letter": "E"
+              },
+              {
+                "type": "letter",
+                "x": 562,
+                "y": 323,
+                "letter": "F"
+              },
+              {
+                "type": "letter",
+                "x": 286,
+                "y": 323,
+                "letter": "G"
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            },
+            {
+              "key": "E",
+              "text": "E"
+            },
+            {
+              "key": "F",
+              "text": "F"
+            },
+            {
+              "key": "G",
+              "text": "G"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Cathedral",
+              "answer": "B",
+              "explanation": "‘On the north bank, just before the old bridge, is the cathedral.’",
+              "cue": "on the north bank, just before the old bridge, is the cathedral"
+            },
+            {
+              "number": 12,
+              "prompt": "Market",
+              "answer": "D",
+              "explanation": "‘Directly opposite, on the south bank, close to the pier, is the market.’",
+              "cue": "on the south bank, close to the pier, is the market"
+            },
+            {
+              "number": 13,
+              "prompt": "Castle",
+              "answer": "C",
+              "explanation": "After the bridge, ‘on the north bank, you'll see the castle’.",
+              "cue": "on the north bank, you'll see the castle"
+            },
+            {
+              "number": 14,
+              "prompt": "Museum",
+              "answer": "E",
+              "explanation": "‘On the south bank, just after the bridge, is the museum.’",
+              "cue": "on the south bank, just after the bridge, is the museum"
+            },
+            {
+              "number": 15,
+              "prompt": "Old brewery",
+              "answer": "F",
+              "explanation": "‘At the far end of the south bank, by the last bend in the river, is the old brewery.’",
+              "cue": "at the far end of the south bank, by the last bend in the river, is the old brewery"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "How long does today's cruise last?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "forty minutes"
+                },
+                {
+                  "key": "B",
+                  "text": "fifty minutes"
+                },
+                {
+                  "key": "C",
+                  "text": "an hour"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The cruise lasts fifty minutes.’ Ten minutes are added only in summer.",
+              "cue": "the cruise lasts fifty minutes"
+            },
+            {
+              "number": 17,
+              "prompt": "How can passengers hear the commentary in another language?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by downloading an app"
+                },
+                {
+                  "key": "B",
+                  "text": "by borrowing headphones"
+                },
+                {
+                  "key": "C",
+                  "text": "by reading a printed guide"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘You can borrow a set of headphones from the desk by the door.’",
+              "cue": "you can borrow a set of headphones from the desk by the door"
+            },
+            {
+              "number": 18,
+              "prompt": "What is the rule for children under five?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They travel free."
+                },
+                {
+                  "key": "B",
+                  "text": "They pay half price."
+                },
+                {
+                  "key": "C",
+                  "text": "They cannot travel."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Anyone under five travels free, but they must stay with an adult.’",
+              "cue": "Anyone under five travels free"
+            },
+            {
+              "number": 19,
+              "prompt": "Where is the best place to take photographs?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "at the front of the boat"
+                },
+                {
+                  "key": "B",
+                  "text": "on the upper deck"
+                },
+                {
+                  "key": "C",
+                  "text": "at the back of the boat"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘The best place is the upper deck, where there's nothing in the way.’",
+              "cue": "the best place is the upper deck"
+            },
+            {
+              "number": 20,
+              "prompt": "When will passengers receive a refund?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "if it rains"
+                },
+                {
+                  "key": "B",
+                  "text": "if the cruise is cancelled because of wind"
+                },
+                {
+                  "key": "C",
+                  "text": "if the boat is late back"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘If we have to cancel a cruise because of strong wind … you'll receive a full refund.’ Light rain won't stop the cruise.",
+              "cue": "if we have to cancel a cruise because of strong wind"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-25/part2.mp3",
+        "duration": 232.31
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "A report on coastal erosion",
+      "context": "Two geography students plan the final sections of a field-trip report.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two geography students, Maya and Luke, discussing a report on coastal erosion. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.27
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.27,
+          "end": 41.98
+        },
+        {
+          "speaker": "maya",
+          "text": "Luke, have you finished your section on the methods for our coastal erosion report?",
+          "start": 42.88,
+          "end": 47.04
+        },
+        {
+          "speaker": "luke",
+          "text": "Nearly. I've described how we measured the cliff retreat, but I can't remember how many measuring points we used.",
+          "start": 47.54,
+          "end": 53.35
+        },
+        {
+          "speaker": "maya",
+          "text": "Twelve. Three on each of four sections of the cliff.",
+          "start": 53.85,
+          "end": 56.58
+        },
+        {
+          "speaker": "luke",
+          "text": "Right. And we used a tape measure, not the GPS device, because the signal was weak.",
+          "start": 57.08,
+          "end": 61.88
+        },
+        {
+          "speaker": "maya",
+          "text": "That's right. The tape was the only thing that worked well. The GPS gave a different reading every time we checked it.",
+          "start": 62.38,
+          "end": 68.46
+        },
+        {
+          "speaker": "luke",
+          "text": "What did we find? On the first section, the cliff has retreated by about two metres since last year.",
+          "start": 68.96,
+          "end": 74.35
+        },
+        {
+          "speaker": "maya",
+          "text": "Yes, and the section by the harbour had hardly changed, because of the sea wall.",
+          "start": 74.85,
+          "end": 78.99
+        },
+        {
+          "speaker": "luke",
+          "text": "Dr Ahmed expected the soft clay to erode fastest, and it did. But what surprised me is that most of the loss happened after the storm in February, not gradually through the year.",
+          "start": 79.49,
+          "end": 89.43
+        },
+        {
+          "speaker": "maya",
+          "text": "I know. We should highlight that in the results section.",
+          "start": 89.93,
+          "end": 92.75
+        },
+        {
+          "speaker": "luke",
+          "text": "For the discussion, I'd like to suggest some solutions. What about planting grass on the cliff top?",
+          "start": 93.25,
+          "end": 98.29
+        },
+        {
+          "speaker": "maya",
+          "text": "That helps against rainwater, but it doesn't do anything against the waves. And Dr Ahmed said we shouldn't recommend a new sea wall, because it would be far too expensive for a small village.",
+          "start": 98.79,
+          "end": 108.58
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 109.48,
+          "end": 115.62
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 135.62,
+          "end": 139.46
+        },
+        {
+          "speaker": "luke",
+          "text": "So what should we recommend instead?",
+          "start": 140.36,
+          "end": 142.52
+        },
+        {
+          "speaker": "maya",
+          "text": "Moving the footpath back from the edge is cheap and sensible, so I'd put that first.",
+          "start": 143.02,
+          "end": 147.11
+        },
+        {
+          "speaker": "luke",
+          "text": "And some signs, warning people about the danger near the worst sections. The council could do that this month.",
+          "start": 147.61,
+          "end": 153.59
+        },
+        {
+          "speaker": "maya",
+          "text": "Yes. We might mention trees, but I don't think they'd help enough.",
+          "start": 154.09,
+          "end": 157.09
+        },
+        {
+          "speaker": "luke",
+          "text": "And closing the car park would upset local businesses, so I'd leave that out.",
+          "start": 157.59,
+          "end": 161.77
+        },
+        {
+          "speaker": "maya",
+          "text": "Agreed. Now, the practical side. When's the report due?",
+          "start": 162.27,
+          "end": 165.26
+        },
+        {
+          "speaker": "luke",
+          "text": "Friday at noon. Dr Ahmed said there would be no extensions, even if there are technical problems.",
+          "start": 165.76,
+          "end": 171.52
+        },
+        {
+          "speaker": "maya",
+          "text": "Should we include all the photographs?",
+          "start": 172.02,
+          "end": 174.07
+        },
+        {
+          "speaker": "luke",
+          "text": "I'd use only the best six, in an appendix at the end, rather than in the main text.",
+          "start": 174.57,
+          "end": 179.03
+        },
+        {
+          "speaker": "maya",
+          "text": "Good idea. I'll upload the report on the day, but could you proofread it first? You're much better at spelling than I am.",
+          "start": 179.53,
+          "end": 185.2
+        },
+        {
+          "speaker": "luke",
+          "text": "Of course. Send it to me on Thursday night and I'll have it back to you by the morning.",
+          "start": 185.7,
+          "end": 189.88
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 190.78,
+          "end": 195.24
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 21,
+              "prompt": "How many measuring points did the group use altogether?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "nine"
+                },
+                {
+                  "key": "B",
+                  "text": "twelve"
+                },
+                {
+                  "key": "C",
+                  "text": "sixteen"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Twelve. Three on each of four sections of the cliff.’",
+              "cue": "Twelve. Three on each of four sections of the cliff"
+            },
+            {
+              "number": 22,
+              "prompt": "Why did the group use a tape measure rather than a GPS device?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The tape was cheaper."
+                },
+                {
+                  "key": "B",
+                  "text": "The GPS signal was weak."
+                },
+                {
+                  "key": "C",
+                  "text": "Dr Ahmed insisted on it."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘We used a tape measure, not the GPS device, because the signal was weak.’",
+              "cue": "because the signal was weak"
+            },
+            {
+              "number": 23,
+              "prompt": "What did the group find near the harbour?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The cliff had retreated by two metres."
+                },
+                {
+                  "key": "B",
+                  "text": "The cliff had hardly changed."
+                },
+                {
+                  "key": "C",
+                  "text": "The cliff had collapsed."
+                }
+              ],
+              "answer": "B",
+              "explanation": "The section by the harbour ‘had hardly changed, because of the sea wall’.",
+              "cue": "had hardly changed, because of the sea wall"
+            },
+            {
+              "number": 24,
+              "prompt": "When did most of the erosion happen?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "after a storm"
+                },
+                {
+                  "key": "B",
+                  "text": "in the summer"
+                },
+                {
+                  "key": "C",
+                  "text": "gradually through the year"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Most of the loss happened after the storm in February, not gradually through the year.’",
+              "cue": "most of the loss happened after the storm in February"
+            },
+            {
+              "number": 25,
+              "prompt": "What does Maya say about planting grass on the cliff top?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It would protect the cliff from waves."
+                },
+                {
+                  "key": "B",
+                  "text": "It would help against rain but not waves."
+                },
+                {
+                  "key": "C",
+                  "text": "It would be too expensive."
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘That helps against rainwater, but it doesn't do anything against the waves.’",
+              "cue": "That helps against rainwater, but it doesn't do anything against the waves"
+            }
+          ]
+        },
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO things do the students decide to recommend?",
+          "options": [
+            {
+              "key": "A",
+              "text": "building a sea wall"
+            },
+            {
+              "key": "B",
+              "text": "moving the footpath back"
+            },
+            {
+              "key": "C",
+              "text": "putting up warning signs"
+            },
+            {
+              "key": "D",
+              "text": "planting trees"
+            },
+            {
+              "key": "E",
+              "text": "closing the car park"
+            }
+          ],
+          "answer": [
+            "B",
+            "C"
+          ],
+          "explanation": "They recommend moving the footpath back (B) and putting up warning signs (C). A sea wall is too expensive, trees would not help enough, and closing the car park would upset local businesses.",
+          "questions": [
+            {
+              "number": 26,
+              "cue": "Moving the footpath back from the edge is cheap and sensible"
+            },
+            {
+              "number": 27,
+              "cue": "some signs, warning people about the danger"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 28,
+              "prompt": "When is the report due?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "on Wednesday"
+                },
+                {
+                  "key": "B",
+                  "text": "on Friday"
+                },
+                {
+                  "key": "C",
+                  "text": "on Monday"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Friday at noon.’ There will be no extensions.",
+              "cue": "Friday at noon"
+            },
+            {
+              "number": 29,
+              "prompt": "Where will the photographs go?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in the main text"
+                },
+                {
+                  "key": "B",
+                  "text": "in an appendix"
+                },
+                {
+                  "key": "C",
+                  "text": "on the front cover"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Only the best six, in an appendix at the end, rather than in the main text.’",
+              "cue": "in an appendix at the end"
+            },
+            {
+              "number": 30,
+              "prompt": "What will Luke do before the report is submitted?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "upload it"
+                },
+                {
+                  "key": "B",
+                  "text": "proofread it"
+                },
+                {
+                  "key": "C",
+                  "text": "print it"
+                }
+              ],
+              "answer": "B",
+              "explanation": "Maya will upload it; she asks Luke to proofread it: ‘You're much better at spelling than I am.’ He agrees.",
+              "cue": "could you proofread it first"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-25/part3.mp3",
+        "duration": 226.04
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the history of the printing press",
+      "context": "A history lecture on printing from China and Korea to Gutenberg and its effects.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the history of the printing press. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.28
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.28,
+          "end": 43.7
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Today we're going to look at one of the most important inventions in history: the printing press, and the way it changed the world.",
+          "start": 44.6,
+          "end": 52.19
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Before printing, every book had to be copied by hand, usually by monks, working in a quiet room called a scriptorium. It was slow work. A scribe could take more than a year to copy a single Bible, and so books were rare and extremely expensive. Only churches, universities and very rich people owned them.",
+          "start": 52.54,
+          "end": 69.95
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Printing did not begin in Europe. In China, printing from carved wooden blocks was in use from about the eighth century. In the eleventh century, a man named Bi Sheng invented movable type, in which each character is a separate piece, made from clay. And in Korea, movable metal type was being used by thirteen seventy-seven, to print a Buddhist text, which is the oldest surviving book printed in this way.",
+          "start": 70.3,
+          "end": 92.87
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In Europe, the key figure was Johannes Gutenberg, who worked in the German city of Mainz around fourteen fifty. Gutenberg did not invent everything from nothing. He combined several ideas. His press was adapted from the kind used for making wine, with a heavy screw that pressed paper against the inked type. He developed an oil-based ink, which stuck to metal much better than the water-based inks used by scribes. And he made his type from a metal alloy, a mixture of lead, tin and another metal called antimony, which melted easily, set hard and could be cast in large quantities.",
+          "start": 93.22,
+          "end": 125.94
+        },
+        {
+          "speaker": "lecturer",
+          "text": "His most famous book was a Bible, of which about a hundred and eighty copies were printed, each with forty-two lines on a page. By fourteen hundred and ninety-nine, presses were working in more than two hundred towns across Europe.",
+          "start": 126.29,
+          "end": 138.94
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The effects were enormous. Books became much cheaper, so more and more people learned to read. Ideas could spread faster than ever before. When Martin Luther criticised the church in fifteen seventeen, his pamphlets were printed and sold by the thousand, and that was a major reason why the Reformation spread so quickly. Printing also helped to standardise spelling and grammar, and scientists could share their results exactly, which helped science to progress. Next week we'll look at the origins of the newspaper.",
+          "start": 139.29,
+          "end": 168.11
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 169.01,
+          "end": 173.4
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 203.4,
+          "end": 206.11
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD ONLY** for each answer.",
+          "maxWords": 1,
+          "title": "The history of the printing press",
+          "content": [
+            "## Before printing",
+            "• Books were copied by hand, usually by {{31}}",
+            "• Copying one Bible could take more than a {{32}}",
+            "## Early printing in Asia",
+            "• China: woodblock printing from about the {{33}} century",
+            "• Bi Sheng invented movable type made of {{34}}",
+            "• Korea: metal type used to print a {{35}} text in 1377",
+            "## Gutenberg",
+            "• Worked in the German city of {{36}}",
+            "• His press was adapted from a {{37}} press",
+            "• His type was made from a metal {{38}}",
+            "## Effects",
+            "• Books became cheaper and more people learned to {{39}}",
+            "• Printed pamphlets spread the ideas of Martin {{40}}"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "monks"
+              ],
+              "explanation": "‘Every book had to be copied by hand, usually by monks.’",
+              "cue": "usually by monks"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "year"
+              ],
+              "explanation": "‘A scribe could take more than a year to copy a single Bible.’",
+              "cue": "more than a year to copy a single Bible"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "eighth"
+              ],
+              "explanation": "‘In China, printing from carved wooden blocks was in use from about the eighth century.’",
+              "cue": "from about the eighth century"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "clay"
+              ],
+              "explanation": "‘Bi Sheng invented movable type … made from clay.’",
+              "cue": "made from clay"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "Buddhist"
+              ],
+              "explanation": "‘In Korea, movable metal type was being used by thirteen seventy-seven, to print a Buddhist text.’",
+              "cue": "to print a Buddhist text"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "Mainz"
+              ],
+              "explanation": "‘Gutenberg … worked in the German city of Mainz around fourteen fifty.’",
+              "cue": "in the German city of Mainz"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "wine"
+              ],
+              "explanation": "‘His press was adapted from the kind used for making wine.’",
+              "cue": "the kind used for making wine"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "alloy"
+              ],
+              "explanation": "‘He made his type from a metal alloy, a mixture of lead, tin and antimony.’",
+              "cue": "a metal alloy"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "read"
+              ],
+              "explanation": "‘Books became much cheaper, so more and more people learned to read.’",
+              "cue": "more and more people learned to read"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "Luther"
+              ],
+              "explanation": "‘When Martin Luther criticised the church in fifteen seventeen, his pamphlets were printed and sold by the thousand.’",
+              "cue": "When Martin Luther criticised the church"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-25/part4.mp3",
+        "duration": 206.91
+      }
+    }
+  ],
+  "durationMinutes": 15
+}
