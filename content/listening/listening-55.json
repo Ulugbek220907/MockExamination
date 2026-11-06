@@ -1,0 +1,1232 @@
+{
+  "id": "listening-55",
+  "module": "listening",
+  "variant": "academic",
+  "title": "Listening Practice Test 55",
+  "shortTitle": "Practice Test 55",
+  "checkMinutes": 2,
+  "totalQuestions": 40,
+  "sortOrder": 55,
+  "access": "premium",
+  "license": "Original work written for this project. Audio generated with the Kokoro-82M text-to-speech model (Apache-2.0). All rights reserved by the site owner.",
+  "speakers": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "bm_george",
+      "lang": "en-gb"
+    },
+    "rosa": {
+      "name": "Rosa",
+      "voice": "bf_lily",
+      "lang": "en-gb"
+    },
+    "jake": {
+      "name": "Jake",
+      "voice": "am_puck",
+      "lang": "en-us"
+    },
+    "hale": {
+      "name": "Mr Hale",
+      "voice": "bm_fable",
+      "lang": "en-gb"
+    },
+    "cara": {
+      "name": "Cara",
+      "voice": "bf_alice",
+      "lang": "en-gb"
+    },
+    "dev": {
+      "name": "Dev",
+      "voice": "am_liam",
+      "lang": "en-us"
+    },
+    "lecturer": {
+      "name": "Lecturer",
+      "voice": "bm_daniel",
+      "lang": "en-gb"
+    }
+  },
+  "pronunciations": {},
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Volunteering abroad",
+      "context": "A student asks about a volunteering project in Peru.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 1. You will hear a student phoning an organisation about volunteering abroad. First, you have some time to look at questions 1 to 5.",
+          "start": 0.6,
+          "end": 10.33
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "You will see that there is an example that has been done for you. On this occasion only, the conversation relating to this will be played first.",
+          "start": 30.33,
+          "end": 39.39
+        },
+        {
+          "speaker": "rosa",
+          "text": "Global Helpers, Rosa speaking.",
+          "start": 40.29,
+          "end": 42.45
+        },
+        {
+          "speaker": "jake",
+          "text": "Hello. I'm interested in volunteering abroad this summer. I'd like to find out how it works.",
+          "start": 42.95,
+          "end": 48.26
+        },
+        {
+          "speaker": "rosa",
+          "text": "Great. I'll take some details first, and then I'll explain the projects.",
+          "start": 48.76,
+          "end": 52.6
+        },
+        {
+          "speaker": "narrator",
+          "text": "The caller wants to volunteer abroad, so 'abroad' has been written in the space. Now we shall begin. You should answer the questions as you listen, because you will not hear the recording a second time. Listen carefully and answer questions 1 to 5.",
+          "start": 53.5,
+          "end": 68.8
+        },
+        {
+          "speaker": "rosa",
+          "text": "Could I have your name, please?",
+          "start": 69.7,
+          "end": 71.75
+        },
+        {
+          "speaker": "jake",
+          "text": "Jake Holmes. That's H-O-L-M-E-S.",
+          "start": 72.25,
+          "end": 76.76
+        },
+        {
+          "speaker": "rosa",
+          "text": "Thank you, Jake. How old are you?",
+          "start": 77.26,
+          "end": 79.44
+        },
+        {
+          "speaker": "jake",
+          "text": "I'm twenty.",
+          "start": 79.94,
+          "end": 80.83
+        },
+        {
+          "speaker": "rosa",
+          "text": "And what do you do?",
+          "start": 81.33,
+          "end": 82.91
+        },
+        {
+          "speaker": "jake",
+          "text": "I'm a student. I'm studying geography at university, and I'd like to do something useful in the holidays.",
+          "start": 83.41,
+          "end": 89.77
+        },
+        {
+          "speaker": "rosa",
+          "text": "Do you have a country in mind?",
+          "start": 90.27,
+          "end": 92.27
+        },
+        {
+          "speaker": "jake",
+          "text": "Peru, because I speak some Spanish, and I've always wanted to see the Andes.",
+          "start": 92.77,
+          "end": 97.19
+        },
+        {
+          "speaker": "rosa",
+          "text": "And when would you be available?",
+          "start": 97.69,
+          "end": 99.78
+        },
+        {
+          "speaker": "jake",
+          "text": "From June, once my exams have finished.",
+          "start": 100.28,
+          "end": 102.46
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the conversation, you have some time to look at questions 6 to 10.",
+          "start": 103.36,
+          "end": 109.07
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 6 to 10.",
+          "start": 129.07,
+          "end": 132.4
+        },
+        {
+          "speaker": "rosa",
+          "text": "We have several projects in Peru. The most popular is building a clinic for a mountain village, where the nearest doctor is a day's walk away.",
+          "start": 133.3,
+          "end": 141.13
+        },
+        {
+          "speaker": "jake",
+          "text": "That sounds worthwhile. How long does it last?",
+          "start": 141.63,
+          "end": 144.0
+        },
+        {
+          "speaker": "rosa",
+          "text": "Eight weeks. We also have shorter projects, but the clinic needs a long commitment, because the building takes time.",
+          "start": 144.5,
+          "end": 150.71
+        },
+        {
+          "speaker": "jake",
+          "text": "What's the cost? I know that volunteers usually pay something.",
+          "start": 151.21,
+          "end": 154.75
+        },
+        {
+          "speaker": "rosa",
+          "text": "Yes, there's a fee that covers accommodation and food, which we'll explain. To reserve a place, you pay a deposit of ninety-five pounds, which is deducted from the fee.",
+          "start": 155.25,
+          "end": 164.72
+        },
+        {
+          "speaker": "jake",
+          "text": "Do I need any vaccinations?",
+          "start": 165.22,
+          "end": 166.86
+        },
+        {
+          "speaker": "rosa",
+          "text": "Yes, you'll need to check with your doctor, but the one that's compulsory is yellow fever, because of the region you'll be visiting.",
+          "start": 167.36,
+          "end": 174.08
+        },
+        {
+          "speaker": "jake",
+          "text": "And what's the deadline for applying?",
+          "start": 174.58,
+          "end": 176.33
+        },
+        {
+          "speaker": "rosa",
+          "text": "The thirty-first of March. After that, the places are usually full, and we start a waiting list.",
+          "start": 176.83,
+          "end": 182.42
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 1. You now have half a minute to check your answers.",
+          "start": 183.32,
+          "end": 187.84
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "Global Helpers – volunteer enquiry",
+          "content": [
+            "Example: The caller wants to volunteer **abroad**",
+            "## Details",
+            "• Name: Jake {{1}}",
+            "• Age: {{2}}",
+            "• Studying {{3}} at university",
+            "• Preferred country: {{4}}",
+            "• Available from {{5}}",
+            "## The project",
+            "• Project: building a {{6}} for a mountain village",
+            "• Length: {{7}} weeks",
+            "• Deposit: £{{8}}",
+            "• Compulsory vaccination: yellow {{9}}",
+            "• Application deadline: {{10}} March"
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "answer": [
+                "Holmes"
+              ],
+              "explanation": "‘H-O-L-M-E-S.’",
+              "cue": "H-O-L-M-E-S"
+            },
+            {
+              "number": 2,
+              "answer": [
+                "20",
+                "twenty"
+              ],
+              "explanation": "‘I'm twenty.’",
+              "cue": "I'm twenty"
+            },
+            {
+              "number": 3,
+              "answer": [
+                "geography"
+              ],
+              "explanation": "‘I'm studying geography at university.’",
+              "cue": "I'm studying geography at university"
+            },
+            {
+              "number": 4,
+              "answer": [
+                "Peru"
+              ],
+              "explanation": "‘Peru, because I speak some Spanish.’",
+              "cue": "Peru, because I speak some Spanish"
+            },
+            {
+              "number": 5,
+              "answer": [
+                "June"
+              ],
+              "explanation": "‘From June, once my exams have finished.’",
+              "cue": "From June, once my exams have finished"
+            },
+            {
+              "number": 6,
+              "answer": [
+                "clinic"
+              ],
+              "explanation": "‘Building a clinic for a mountain village.’",
+              "cue": "building a clinic for a mountain village"
+            },
+            {
+              "number": 7,
+              "answer": [
+                "8",
+                "eight"
+              ],
+              "explanation": "‘Eight weeks.’",
+              "cue": "Eight weeks"
+            },
+            {
+              "number": 8,
+              "answer": [
+                "95",
+                "ninety-five"
+              ],
+              "explanation": "‘A deposit of ninety-five pounds.’",
+              "cue": "a deposit of ninety-five pounds"
+            },
+            {
+              "number": 9,
+              "answer": [
+                "fever"
+              ],
+              "explanation": "‘Yellow fever.’",
+              "cue": "yellow fever"
+            },
+            {
+              "number": 10,
+              "answer": [
+                "31",
+                "thirty-first",
+                "31st"
+              ],
+              "explanation": "‘The thirty-first of March.’",
+              "cue": "The thirty-first of March"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-55/part1.mp3",
+        "duration": 218.64
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "University accommodation",
+      "context": "An accommodation officer describes the halls of residence at an open day.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 2. You will hear an accommodation officer giving a talk to prospective students at a university open day. First, you have some time to look at questions 11 to 15.",
+          "start": 0.6,
+          "end": 12.46
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 11 to 15.",
+          "start": 37.46,
+          "end": 41.73
+        },
+        {
+          "speaker": "hale",
+          "text": "Good afternoon, everyone, and welcome to the open day. I'm Gareth Hale, the accommodation officer, and I'll tell you about the halls of residence, because first-year students are guaranteed a place.",
+          "start": 42.63,
+          "end": 53.68
+        },
+        {
+          "speaker": "hale",
+          "text": "Ashdown Hall is the closest to the library, only a two-minute walk, so it's the favourite with students who like to study late. It's also where the older students tend to live.",
+          "start": 54.03,
+          "end": 63.69
+        },
+        {
+          "speaker": "hale",
+          "text": "Birch Court has the most comfortable rooms, and all of them have private bathrooms, which is a big attraction. It's also the quietest hall, and the most expensive.",
+          "start": 64.04,
+          "end": 73.13
+        },
+        {
+          "speaker": "hale",
+          "text": "Cedar House is the cheapest option, and it's popular with students on a tight budget. The rooms are small, but the community is friendly, and it has a large kitchen on every floor.",
+          "start": 73.48,
+          "end": 83.42
+        },
+        {
+          "speaker": "hale",
+          "text": "Dunmore Lodge has its own gym and a swimming pool, which residents can use free. And Elm Park is the newest building, only two years old, with modern rooms and the best wifi on the campus.",
+          "start": 83.77,
+          "end": 94.61
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the talk, you have some time to look at questions 16 to 20.",
+          "start": 95.51,
+          "end": 101.23
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 16 to 20.",
+          "start": 126.23,
+          "end": 130.11
+        },
+        {
+          "speaker": "hale",
+          "text": "Now, some practical information. To be sure of a room, you must apply by the first of July, and not the first of August as it says in some of the older leaflets. After that, we allocate rooms in the order that we receive applications.",
+          "start": 131.01,
+          "end": 144.0
+        },
+        {
+          "speaker": "hale",
+          "text": "The campus is about three miles from the city centre. There's a bus every ten minutes, and it's free for students, so most people never need a car.",
+          "start": 144.35,
+          "end": 152.42
+        },
+        {
+          "speaker": "hale",
+          "text": "The rent includes bills, such as electricity and heating, and also internet access, so there are no nasty surprises. Meals are not included, except in Birch Court, where breakfast is provided.",
+          "start": 152.77,
+          "end": 163.84
+        },
+        {
+          "speaker": "hale",
+          "text": "Contracts last for forty-two weeks, which covers the whole academic year, including most of the holidays. If you want to leave earlier, you must give four weeks' notice.",
+          "start": 164.19,
+          "end": 173.55
+        },
+        {
+          "speaker": "hale",
+          "text": "Finally, if you'd like to share with a friend, you should apply together, using the same reference number, and we'll do our best to put you next to each other. I'll be here all afternoon for questions.",
+          "start": 173.9,
+          "end": 183.93
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 2. You now have half a minute to check your answers.",
+          "start": 184.83,
+          "end": 189.16
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "matching_features",
+          "instruction": "What is the main feature of each hall of residence? Choose **FIVE** answers from the box and write the correct letter, **A–G**, next to Questions 11–15.",
+          "optionsTitle": "Features",
+          "options": [
+            {
+              "key": "A",
+              "text": "closest to the library"
+            },
+            {
+              "key": "B",
+              "text": "private bathrooms in all rooms"
+            },
+            {
+              "key": "C",
+              "text": "the cheapest"
+            },
+            {
+              "key": "D",
+              "text": "has a gym"
+            },
+            {
+              "key": "E",
+              "text": "quiet floors for study"
+            },
+            {
+              "key": "F",
+              "text": "self-catered flats"
+            },
+            {
+              "key": "G",
+              "text": "the newest building"
+            }
+          ],
+          "questions": [
+            {
+              "number": 11,
+              "prompt": "Ashdown Hall",
+              "answer": "A",
+              "explanation": "‘The closest to the library.’",
+              "cue": "the closest to the library"
+            },
+            {
+              "number": 12,
+              "prompt": "Birch Court",
+              "answer": "B",
+              "explanation": "‘All of them have private bathrooms.’",
+              "cue": "all of them have private bathrooms"
+            },
+            {
+              "number": 13,
+              "prompt": "Cedar House",
+              "answer": "C",
+              "explanation": "‘Is the cheapest option.’",
+              "cue": "is the cheapest option"
+            },
+            {
+              "number": 14,
+              "prompt": "Dunmore Lodge",
+              "answer": "D",
+              "explanation": "‘Has its own gym.’",
+              "cue": "has its own gym"
+            },
+            {
+              "number": 15,
+              "prompt": "Elm Park",
+              "answer": "G",
+              "explanation": "‘Is the newest building.’",
+              "cue": "is the newest building"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 16,
+              "prompt": "By when must students apply for a room?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the first of June"
+                },
+                {
+                  "key": "B",
+                  "text": "the first of July"
+                },
+                {
+                  "key": "C",
+                  "text": "the first of August"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘You must apply by the first of July.’",
+              "cue": "you must apply by the first of July"
+            },
+            {
+              "number": 17,
+              "prompt": "How far is the campus from the city centre?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "one mile"
+                },
+                {
+                  "key": "B",
+                  "text": "three miles"
+                },
+                {
+                  "key": "C",
+                  "text": "five miles"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘About three miles from the city centre.’",
+              "cue": "about three miles from the city centre"
+            },
+            {
+              "number": 18,
+              "prompt": "What is included in the rent?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "bills and internet"
+                },
+                {
+                  "key": "B",
+                  "text": "only the room"
+                },
+                {
+                  "key": "C",
+                  "text": "all meals"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Bills, such as electricity and heating, and also internet access.’",
+              "cue": "bills, such as electricity and heating, and also internet access"
+            },
+            {
+              "number": 19,
+              "prompt": "How long do contracts last?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "thirty-eight weeks"
+                },
+                {
+                  "key": "B",
+                  "text": "forty-two weeks"
+                },
+                {
+                  "key": "C",
+                  "text": "fifty-one weeks"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Contracts last for forty-two weeks.’",
+              "cue": "Contracts last for forty-two weeks"
+            },
+            {
+              "number": 20,
+              "prompt": "What should students do if they want to share with a friend?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "apply together"
+                },
+                {
+                  "key": "B",
+                  "text": "ask in September"
+                },
+                {
+                  "key": "C",
+                  "text": "it is not possible"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘You should apply together.’",
+              "cue": "you should apply together"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-55/part2.mp3",
+        "duration": 219.96
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "An experiment on multitasking",
+      "context": "Two psychology students discuss the results of their experiment.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 3. You will hear two psychology students, Cara and Dev, discussing an experiment on multitasking. First, you have some time to look at questions 21 to 25.",
+          "start": 0.6,
+          "end": 12.61
+        },
+        {
+          "pause": 25
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 21 to 25.",
+          "start": 37.61,
+          "end": 42.33
+        },
+        {
+          "speaker": "cara",
+          "text": "Dev, I've been through the results of our multitasking experiment. Some of them surprised me.",
+          "start": 43.23,
+          "end": 48.62
+        },
+        {
+          "speaker": "dev",
+          "text": "Me too. The one I didn't expect was that the people who said they were good at multitasking actually performed worst.",
+          "start": 49.12,
+          "end": 54.69
+        },
+        {
+          "speaker": "cara",
+          "text": "And I didn't expect the age result. We assumed younger participants would do better, because they're used to using several screens at once, but they did no better than the older ones.",
+          "start": 55.19,
+          "end": 65.75
+        },
+        {
+          "speaker": "dev",
+          "text": "Did the music make a difference? I expected it would.",
+          "start": 66.25,
+          "end": 69.13
+        },
+        {
+          "speaker": "cara",
+          "text": "It didn't, no. The task took about as long as we'd planned, and the women and the men performed the same.",
+          "start": 69.63,
+          "end": 75.22
+        },
+        {
+          "speaker": "dev",
+          "text": "How many participants did we have in the end?",
+          "start": 75.72,
+          "end": 78.13
+        },
+        {
+          "speaker": "cara",
+          "text": "Forty-eight. We planned for sixty, but twelve dropped out.",
+          "start": 78.63,
+          "end": 81.83
+        },
+        {
+          "speaker": "dev",
+          "text": "And what was the main task?",
+          "start": 82.33,
+          "end": 84.04
+        },
+        {
+          "speaker": "cara",
+          "text": "Memorising a list of words, while answering simple questions that appeared on the screen.",
+          "start": 84.54,
+          "end": 89.68
+        },
+        {
+          "speaker": "dev",
+          "text": "We measured both errors and the time taken, didn't we?",
+          "start": 90.18,
+          "end": 92.99
+        },
+        {
+          "speaker": "cara",
+          "text": "Yes, both, and the results agreed with each other.",
+          "start": 93.49,
+          "end": 96.29
+        },
+        {
+          "speaker": "narrator",
+          "text": "Before you hear the rest of the discussion, you have some time to look at questions 26 to 30.",
+          "start": 97.19,
+          "end": 103.33
+        },
+        {
+          "pause": 20
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen and answer questions 26 to 30.",
+          "start": 123.33,
+          "end": 127.17
+        },
+        {
+          "speaker": "cara",
+          "text": "What do you think the results show?",
+          "start": 128.07,
+          "end": 130.01
+        },
+        {
+          "speaker": "dev",
+          "text": "That the brain doesn't really do two things at once. It switches quickly between them, and each switch costs a little time, and causes errors.",
+          "start": 130.51,
+          "end": 137.49
+        },
+        {
+          "speaker": "cara",
+          "text": "That fits the theory. What limitations should we mention?",
+          "start": 137.99,
+          "end": 141.36
+        },
+        {
+          "speaker": "dev",
+          "text": "That the experiment was done in a laboratory, which isn't realistic. In real life, people multitask in noisy, distracting places.",
+          "start": 141.86,
+          "end": 149.43
+        },
+        {
+          "speaker": "cara",
+          "text": "So for future research, we'd recommend including real-life tasks, such as writing emails while answering the phone.",
+          "start": 149.93,
+          "end": 157.02
+        },
+        {
+          "speaker": "dev",
+          "text": "I agree. Shall I analyse the error data tonight?",
+          "start": 157.52,
+          "end": 160.27
+        },
+        {
+          "speaker": "cara",
+          "text": "Please. I'll draft the introduction.",
+          "start": 160.77,
+          "end": 162.95
+        },
+        {
+          "speaker": "dev",
+          "text": "And when is the report due?",
+          "start": 163.45,
+          "end": 165.37
+        },
+        {
+          "speaker": "cara",
+          "text": "On Monday, so we have the weekend.",
+          "start": 165.87,
+          "end": 168.17
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 3. You now have half a minute to check your answers.",
+          "start": 169.07,
+          "end": 173.53
+        },
+        {
+          "pause": 30
+        }
+      ],
+      "groups": [
+        {
+          "type": "choose_multiple",
+          "instruction": "Choose **TWO** letters, **A–E**.",
+          "prompt": "Which TWO results of the experiment surprised the students?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Participants made more mistakes with music playing."
+            },
+            {
+              "key": "B",
+              "text": "People who thought they were good multitaskers performed worst."
+            },
+            {
+              "key": "C",
+              "text": "Women performed better than men."
+            },
+            {
+              "key": "D",
+              "text": "Younger participants did no better than older ones."
+            },
+            {
+              "key": "E",
+              "text": "The task took longer than expected."
+            }
+          ],
+          "answer": [
+            "B",
+            "D"
+          ],
+          "explanation": "People who said they were good at it performed worst (B), and younger people did no better than older ones (D).",
+          "questions": [
+            {
+              "number": 21,
+              "cue": "the people who said they were good at multitasking actually performed worst"
+            },
+            {
+              "number": 22,
+              "cue": "they did no better than the older ones"
+            }
+          ]
+        },
+        {
+          "type": "multiple_choice",
+          "instruction": "Choose the correct letter, **A, B or C**.",
+          "questions": [
+            {
+              "number": 23,
+              "prompt": "How many participants completed the experiment?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "twenty-four"
+                },
+                {
+                  "key": "B",
+                  "text": "forty-eight"
+                },
+                {
+                  "key": "C",
+                  "text": "a hundred"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘Forty-eight.’",
+              "cue": "Forty-eight"
+            },
+            {
+              "number": 24,
+              "prompt": "What was the main task?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "memorising words while answering questions"
+                },
+                {
+                  "key": "B",
+                  "text": "using a driving simulator"
+                },
+                {
+                  "key": "C",
+                  "text": "reading aloud"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Memorising a list of words, while answering simple questions.’",
+              "cue": "Memorising a list of words, while answering simple questions"
+            },
+            {
+              "number": 25,
+              "prompt": "How did they measure multitasking performance?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "by counting errors only"
+                },
+                {
+                  "key": "B",
+                  "text": "by timing only"
+                },
+                {
+                  "key": "C",
+                  "text": "by errors and time"
+                }
+              ],
+              "answer": "C",
+              "explanation": "‘We measured both errors and the time taken.’",
+              "cue": "We measured both errors and the time taken"
+            },
+            {
+              "number": 26,
+              "prompt": "What does Dev think the results show?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The brain switches between tasks."
+                },
+                {
+                  "key": "B",
+                  "text": "The brain can do two things at once."
+                },
+                {
+                  "key": "C",
+                  "text": "Practice removes the problem."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘It switches quickly between them.’",
+              "cue": "It switches quickly between them"
+            },
+            {
+              "number": 27,
+              "prompt": "What limitation does Dev mention?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The experiment was done in a laboratory."
+                },
+                {
+                  "key": "B",
+                  "text": "There were too few women."
+                },
+                {
+                  "key": "C",
+                  "text": "The equipment was faulty."
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘The experiment was done in a laboratory.’",
+              "cue": "the experiment was done in a laboratory"
+            },
+            {
+              "number": 28,
+              "prompt": "What do they recommend for future research?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "using real-life tasks"
+                },
+                {
+                  "key": "B",
+                  "text": "using a larger sample"
+                },
+                {
+                  "key": "C",
+                  "text": "using longer sessions"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Including real-life tasks.’",
+              "cue": "including real-life tasks"
+            },
+            {
+              "number": 29,
+              "prompt": "What will Cara do that evening?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "analyse the error data"
+                },
+                {
+                  "key": "B",
+                  "text": "draft the introduction"
+                },
+                {
+                  "key": "C",
+                  "text": "book a room"
+                }
+              ],
+              "answer": "A",
+              "explanation": "‘Shall I analyse the error data tonight.’",
+              "cue": "Shall I analyse the error data tonight"
+            },
+            {
+              "number": 30,
+              "prompt": "When is the report due?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "on Friday"
+                },
+                {
+                  "key": "B",
+                  "text": "on Monday"
+                },
+                {
+                  "key": "C",
+                  "text": "in two weeks"
+                }
+              ],
+              "answer": "B",
+              "explanation": "‘On Monday, so we have the weekend.’",
+              "cue": "On Monday, so we have the weekend"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-55/part3.mp3",
+        "duration": 204.33
+      }
+    },
+    {
+      "partNumber": 4,
+      "title": "Lecture: the physics of musical instruments",
+      "context": "A physics lecture on how instruments make sound.",
+      "script": [
+        {
+          "speaker": "narrator",
+          "text": "Part 4. You will hear a lecture about the physics of musical instruments. First, you have some time to look at questions 31 to 40.",
+          "start": 0.6,
+          "end": 9.41
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "Now listen carefully and answer questions 31 to 40.",
+          "start": 39.41,
+          "end": 43.83
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Good morning. Whether it's a violin, a flute or a drum, every musical instrument works on the same principle: it produces sound by making something vibrate. Today I'll explain the physics behind that.",
+          "start": 44.73,
+          "end": 56.16
+        },
+        {
+          "speaker": "lecturer",
+          "text": "The first idea is pitch, which means how high or low a note sounds. Pitch depends on frequency, that is, how many vibrations occur each second. The faster the vibration, the higher the note.",
+          "start": 56.51,
+          "end": 67.07
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Take a stringed instrument. A shorter string vibrates faster, so it produces a higher note. That's why a guitarist presses a string against the fingerboard, to shorten the part that vibrates. Tightening a string also raises the note, and a thicker string vibrates more slowly, so it gives a lower note, which is why the bass strings of a guitar are thicker.",
+          "start": 67.42,
+          "end": 85.15
+        },
+        {
+          "speaker": "lecturer",
+          "text": "In a wind instrument, such as a flute, what vibrates is a column of air inside the tube. A longer column vibrates more slowly, so the note is lower. Opening holes along the tube makes the column effectively shorter, which raises the pitch.",
+          "start": 85.5,
+          "end": 98.64
+        },
+        {
+          "speaker": "lecturer",
+          "text": "A string on its own makes very little sound, because it moves very little air. That's why instruments have a body. The wooden body of a guitar or a violin vibrates along with the strings, and amplifies the sound through a process called resonance.",
+          "start": 98.99,
+          "end": 111.98
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Why does a trumpet sound different from a violin, even when they play the same note? Because each instrument produces not just the main note but also a mixture of higher notes, called harmonics, and the mixture is different for each instrument. This is what gives each its own character.",
+          "start": 112.33,
+          "end": 126.6
+        },
+        {
+          "speaker": "lecturer",
+          "text": "Another useful fact is that if you double the frequency of a note, you raise it by one octave. Orchestras normally tune to the note A, which has a frequency of four hundred and forty hertz.",
+          "start": 126.95,
+          "end": 137.15
+        },
+        {
+          "speaker": "lecturer",
+          "text": "And percussion? A drum produces sound when its stretched skin is struck, and vibrates. A tighter skin gives a higher note. Next week we'll look at the physics of the human voice.",
+          "start": 137.5,
+          "end": 146.78
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of Part 4. You now have half a minute to check your answers.",
+          "start": 147.68,
+          "end": 152.08
+        },
+        {
+          "pause": 30
+        },
+        {
+          "speaker": "narrator",
+          "text": "That is the end of the Listening test.",
+          "start": 182.08,
+          "end": 184.79
+        }
+      ],
+      "groups": [
+        {
+          "type": "note_completion",
+          "instruction": "Complete the notes below. Write **ONE WORD AND/OR A NUMBER** for each answer.",
+          "maxWords": 1,
+          "title": "The physics of musical instruments",
+          "content": [
+            "## Basic ideas",
+            "• Instruments produce sound by making something {{31}}",
+            "• The pitch of a note depends on its {{32}}",
+            "## Strings and wind",
+            "• A shorter string produces a {{33}} note",
+            "• A thicker string produces a {{34}} note",
+            "• In a flute, a column of {{35}} vibrates",
+            "## Sound quality",
+            "• The body of a guitar amplifies sound by {{36}}",
+            "• Instruments differ because each makes different {{37}}",
+            "• Doubling the frequency raises a note by one {{38}}",
+            "• Orchestras tune to A, at 440 {{39}}",
+            "• A drum produces sound when its stretched {{40}} vibrates"
+          ],
+          "questions": [
+            {
+              "number": 31,
+              "answer": [
+                "vibrate",
+                "vibrates",
+                "vibrations"
+              ],
+              "explanation": "‘It produces sound by making something vibrate.’",
+              "cue": "it produces sound by making something vibrate"
+            },
+            {
+              "number": 32,
+              "answer": [
+                "frequency"
+              ],
+              "explanation": "‘Pitch depends on frequency.’",
+              "cue": "Pitch depends on frequency"
+            },
+            {
+              "number": 33,
+              "answer": [
+                "higher"
+              ],
+              "explanation": "‘So it produces a higher note.’",
+              "cue": "so it produces a higher note"
+            },
+            {
+              "number": 34,
+              "answer": [
+                "lower"
+              ],
+              "explanation": "‘So it gives a lower note.’",
+              "cue": "so it gives a lower note"
+            },
+            {
+              "number": 35,
+              "answer": [
+                "air"
+              ],
+              "explanation": "‘A column of air inside the tube.’",
+              "cue": "a column of air inside the tube"
+            },
+            {
+              "number": 36,
+              "answer": [
+                "resonance"
+              ],
+              "explanation": "‘Through a process called resonance.’",
+              "cue": "through a process called resonance"
+            },
+            {
+              "number": 37,
+              "answer": [
+                "harmonics"
+              ],
+              "explanation": "‘Called harmonics.’",
+              "cue": "called harmonics"
+            },
+            {
+              "number": 38,
+              "answer": [
+                "octave"
+              ],
+              "explanation": "‘You raise it by one octave.’",
+              "cue": "you raise it by one octave"
+            },
+            {
+              "number": 39,
+              "answer": [
+                "hertz",
+                "Hz"
+              ],
+              "explanation": "‘Four hundred and forty hertz.’",
+              "cue": "four hundred and forty hertz"
+            },
+            {
+              "number": 40,
+              "answer": [
+                "skin",
+                "membrane"
+              ],
+              "explanation": "‘Its stretched skin is struck.’",
+              "cue": "its stretched skin is struck"
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "audio/listening-55/part4.mp3",
+        "duration": 185.59
+      }
+    }
+  ],
+  "durationMinutes": 14
+}
