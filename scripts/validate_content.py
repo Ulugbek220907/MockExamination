@@ -72,7 +72,9 @@ def main():
     for test in content.load_json_dir(os.path.join(CONTENT_DIR, "speaking")):
         problems += content.validate_speaking_test(test, public_dir=os.path.join(BASE_DIR, "public"))
         questions = sum(len(part.get("questions") or []) for part in test.get("parts") or [])
-        print(f"\n{test['id']}  —  {test['title']}: {questions} recorded questions")
+        extra = sum(1 for _, q in content.speaking_questions(test) if q.get("adaptiveOnly"))
+        print(f"\n{test['id']}  —  {test['title']}: {questions} recorded questions"
+              + (f" ({questions - extra} in the usual test, {extra} more for the adaptive examiner)" if extra else ""))
 
     print()
     if problems:

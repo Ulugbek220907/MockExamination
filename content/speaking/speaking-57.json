@@ -261,6 +261,54 @@
             "src": "audio/speaking-57/p3-6.mp3",
             "duration": 3.51
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Art education",
+          "text": "Do you think the value of a work of art depends on who made it?",
+          "say": "Do you think the value of a work of art depends on who made it?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-57/p3-7.mp3",
+            "duration": 3.64
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Art education",
+          "text": "Should museums and galleries be free for everyone to enter?",
+          "say": "Should museums and galleries be free for everyone to enter?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-57/p3-8.mp3",
+            "duration": 3.66
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Art education",
+          "text": "If you could decorate every public building with one kind of art, what would you choose?",
+          "say": "If you could decorate every public building with one kind of art, what would you choose?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-57/p3-9.mp3",
+            "duration": 5.04
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Art education",
+          "text": "How might digital technology change the way people create and enjoy art?",
+          "say": "How might digital technology change the way people create and enjoy art?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-57/p3-10.mp3",
+            "duration": 5.02
+          }
         }
       ]
     }

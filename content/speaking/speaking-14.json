@@ -261,6 +261,54 @@
             "src": "audio/speaking-14/p3-6.mp3",
             "duration": 3.83
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Old and new buildings",
+          "text": "How can a city grow and still keep its history?",
+          "say": "How can a city grow and still keep its history?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-14/p3-7.mp3",
+            "duration": 3.51
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Old and new buildings",
+          "text": "Do you think the design of buildings can affect the way people behave? In what way?",
+          "say": "Do you think the design of buildings can affect the way people behave? In what way?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-14/p3-8.mp3",
+            "duration": 6.08
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Old and new buildings",
+          "text": "If a historic building stood where a new hospital was needed, how should the decision be made?",
+          "say": "If a historic building stood where a new hospital was needed, how should the decision be made?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-14/p3-9.mp3",
+            "duration": 6.05
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Old and new buildings",
+          "text": "What do the buildings of a city tell us about the people who live there?",
+          "say": "What do the buildings of a city tell us about the people who live there?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-14/p3-10.mp3",
+            "duration": 4.28
+          }
         }
       ]
     }

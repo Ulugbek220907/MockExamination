@@ -261,6 +261,54 @@
             "src": "audio/speaking-20/p3-6.mp3",
             "duration": 4.55
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Success",
+          "text": "Do you think that luck or hard work is more important in achieving success?",
+          "say": "Do you think that luck or hard work is more important in achieving success?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-20/p3-7.mp3",
+            "duration": 5.34
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Success",
+          "text": "Is it right for a society to measure success mostly in terms of money?",
+          "say": "Is it right for a society to measure success mostly in terms of money?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-20/p3-8.mp3",
+            "duration": 5.07
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Success",
+          "text": "If you could change what success means for young people, what would you say to them?",
+          "say": "If you could change what success means for young people, what would you say to them?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-20/p3-9.mp3",
+            "duration": 5.09
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Success",
+          "text": "How might the way people think about success change as work becomes more flexible?",
+          "say": "How might the way people think about success change as work becomes more flexible?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-20/p3-10.mp3",
+            "duration": 5.62
+          }
         }
       ]
     }

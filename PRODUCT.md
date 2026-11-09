@@ -21,6 +21,7 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 - The exam screens reproduce the computer-delivered IELTS: split screen, timer, question navigator, Review flags, highlighting and notes, contrast and text-size options, a sound check, and listening that plays once in timed mode.
 - Listening, Writing and Speaking tests and Reading tests 1–6 are written for the site. See Content status below for the rest of the Reading bank.
 - Human examiners (rated by students) mark Writing and Speaking checks for a small fee, paid locally with Payme or Click.
+- The Speaking AI examiner (needs `OPENROUTER_API_KEY`) is face to face and adapts the test to the candidate: it listens to every answer as the test goes on and asks 7 to 9 questions in Part 1, the cue card in Part 2, and 3 to 10 questions in Part 3, fewer when the candidate is struggling and more when they are doing well. The report says how long the test was and why.
 - Launch: five full tests of every module are free and the rest show "Coming soon…" (blurred); prices, the pass, refunds and examiner checks are hidden (`COMMERCE_ENABLED=0`). When selling starts (`COMMERCE_ENABLED=1`) the monthly plan is 39,000 so'm (first payment gives two months, no automatic renewal).
 
 ## Operating Context

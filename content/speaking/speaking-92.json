@@ -261,6 +261,54 @@
             "src": "audio/speaking-92/p3-6.mp3",
             "duration": 2.97
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Laws",
+          "text": "How do laws reflect the values of a society?",
+          "say": "How do laws reflect the values of a society?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-92/p3-7.mp3",
+            "duration": 3.25
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Laws",
+          "text": "Should people be allowed to break a law if they believe it is unjust?",
+          "say": "Should people be allowed to break a law if they believe it is unjust?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-92/p3-8.mp3",
+            "duration": 3.89
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Laws",
+          "text": "If there were no laws at all for a week, what do you think would happen?",
+          "say": "If there were no laws at all for a week, what do you think would happen?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-92/p3-9.mp3",
+            "duration": 3.76
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Laws",
+          "text": "How might laws need to change to deal with new technology?",
+          "say": "How might laws need to change to deal with new technology?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-92/p3-10.mp3",
+            "duration": 3.44
+          }
         }
       ]
     }

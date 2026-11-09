@@ -249,6 +249,66 @@
             "src": "audio/speaking-01/p3-5.mp3",
             "duration": 4.11
           }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Travel and tourism",
+          "text": "What are the main differences between people who plan every detail of a trip and people who prefer to travel without a plan?",
+          "say": "What are the main differences between people who plan every detail of a trip and people who prefer to travel without a plan?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-01/p3-6.mp3",
+            "duration": 6.99
+          }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Travel and tourism",
+          "text": "Do you think travelling to other countries makes people more open-minded? Why or why not?",
+          "say": "Do you think travelling to other countries makes people more open-minded? Why or why not?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-01/p3-7.mp3",
+            "duration": 6.25
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Travel and tourism",
+          "text": "Who should be responsible for protecting popular tourist places: the visitors, the local people or the government?",
+          "say": "Who should be responsible for protecting popular tourist places: the visitors, the local people or the government?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-01/p3-8.mp3",
+            "duration": 6.73
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Travel and tourism",
+          "text": "If the number of tourists at famous places were limited each year, what effect do you think this would have?",
+          "say": "If the number of tourists at famous places were limited each year, what effect do you think this would have?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-01/p3-9.mp3",
+            "duration": 6.05
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Travel and tourism",
+          "text": "Some people believe that virtual tours could one day replace real travel. How realistic do you think that is?",
+          "say": "Some people believe that virtual tours could one day replace real travel. How realistic do you think that is?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-01/p3-10.mp3",
+            "duration": 6.93
+          }
         }
       ]
     }

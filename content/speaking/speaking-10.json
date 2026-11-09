@@ -261,6 +261,54 @@
             "src": "audio/speaking-10/p3-6.mp3",
             "duration": 4.19
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Patience and modern life",
+          "text": "Do you think people are less willing to wait for results in their careers than they were in the past?",
+          "say": "Do you think people are less willing to wait for results in their careers than they were in the past?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-10/p3-7.mp3",
+            "duration": 5.75
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Patience and modern life",
+          "text": "What are the advantages of being a patient person, and are there any disadvantages?",
+          "say": "What are the advantages of being a patient person, and are there any disadvantages?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-10/p3-8.mp3",
+            "duration": 5.56
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Patience and modern life",
+          "text": "If everything could be delivered instantly, how do you think it would affect the way people live?",
+          "say": "If everything could be delivered instantly, how do you think it would affect the way people live?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-10/p3-9.mp3",
+            "duration": 5.75
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Patience and modern life",
+          "text": "Is it more important for a society to be fast and efficient or to be patient and thoughtful?",
+          "say": "Is it more important for a society to be fast and efficient or to be patient and thoughtful?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-10/p3-10.mp3",
+            "duration": 5.94
+          }
         }
       ]
     }

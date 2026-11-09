@@ -261,6 +261,54 @@
             "src": "audio/speaking-60/p3-6.mp3",
             "duration": 5.34
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Climate and the future",
+          "text": "Who should take the most responsibility for dealing with climate change: individuals, companies or governments?",
+          "say": "Who should take the most responsibility for dealing with climate change: individuals, companies or governments?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-60/p3-7.mp3",
+            "duration": 7.8
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Climate and the future",
+          "text": "Do you think richer countries should help poorer countries to cope with climate change?",
+          "say": "Do you think richer countries should help poorer countries to cope with climate change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-60/p3-8.mp3",
+            "duration": 5.68
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Climate and the future",
+          "text": "If a country had to choose between economic growth and reducing its carbon emissions, what should it do?",
+          "say": "If a country had to choose between economic growth and reducing its carbon emissions, what should it do?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-60/p3-9.mp3",
+            "duration": 7.33
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Climate and the future",
+          "text": "How might daily life change if the climate continues to get warmer?",
+          "say": "How might daily life change if the climate continues to get warmer?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-60/p3-10.mp3",
+            "duration": 5.07
+          }
         }
       ]
     }

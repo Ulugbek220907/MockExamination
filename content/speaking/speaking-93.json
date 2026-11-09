@@ -261,6 +261,54 @@
             "src": "audio/speaking-93/p3-6.mp3",
             "duration": 4.32
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Trees in cities",
+          "text": "How can green spaces affect people's health and happiness in a city?",
+          "say": "How can green spaces affect people's health and happiness in a city?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-93/p3-7.mp3",
+            "duration": 4.53
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Trees in cities",
+          "text": "Is it more important to build homes or to protect green areas in a growing city?",
+          "say": "Is it more important to build homes or to protect green areas in a growing city?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-93/p3-8.mp3",
+            "duration": 5.19
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Trees in cities",
+          "text": "If every building in a city had to have a garden on its roof, what might change?",
+          "say": "If every building in a city had to have a garden on its roof, what might change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-93/p3-9.mp3",
+            "duration": 4.98
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Trees in cities",
+          "text": "How might cities look in fifty years if they become much greener?",
+          "say": "How might cities look in fifty years if they become much greener?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-93/p3-10.mp3",
+            "duration": 4.15
+          }
         }
       ]
     }

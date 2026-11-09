@@ -261,6 +261,54 @@
             "src": "audio/speaking-91/p3-6.mp3",
             "duration": 4.04
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Handmade and mass-produced goods",
+          "text": "Do people value things more when they know how they were made?",
+          "say": "Do people value things more when they know how they were made?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-91/p3-7.mp3",
+            "duration": 3.83
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Handmade and mass-produced goods",
+          "text": "How has mass production changed the way people think about repairing things?",
+          "say": "How has mass production changed the way people think about repairing things?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-91/p3-8.mp3",
+            "duration": 4.94
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Handmade and mass-produced goods",
+          "text": "If everything had to be made locally, how might life be different?",
+          "say": "If everything had to be made locally, how might life be different?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-91/p3-9.mp3",
+            "duration": 4.25
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Handmade and mass-produced goods",
+          "text": "How might new technology such as 3D printing change the way things are made?",
+          "say": "How might new technology such as 3D printing change the way things are made?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-91/p3-10.mp3",
+            "duration": 5.32
+          }
         }
       ]
     }

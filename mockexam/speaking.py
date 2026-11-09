@@ -15,7 +15,7 @@ import datetime
 import os
 import uuid
 
-from . import content
+from . import content, speaking_adaptive
 from .db import iso, now, parse_time
 
 AUDIO_TYPES = {
@@ -70,6 +70,8 @@ def start_submission(db, user_id, test, candidate_name, mode):
            "mode": mode if mode in ("practice", "ai") else "exam", "status": "recording"}
     if mode == "ai":
         row["ai_review"] = {"status": "recording"}
+        if speaking_adaptive.enabled():  # the examiner decides how many questions to ask from how the candidate speaks
+            row["ai_review"]["adaptive"] = speaking_adaptive.initial_state(test)
     return db.insert("speaking_submissions", row)
 
 
@@ -160,6 +162,9 @@ def submission_view(db, store, sub):
     """The test's questions with the candidate's recordings, for the results and check pages."""
     test = store.get_test(sub["test_id"]) or {"parts": []}
     recs = {r["question_key"]: public_recording(r) for r in recordings_for(db, sub["id"])}
+    # A test asks only some of the questions it has (the examiner of an adaptive test chooses them, and the extra Part 3
+    # questions are for the adaptive test alone): the others are not part of it.
+    asked = speaking_adaptive.asked_keys(test, speaking_adaptive.state_of(sub)) if test.get("parts") else None
     parts = []
     for part in test.get("parts", []):
         parts.append({
@@ -168,7 +173,7 @@ def submission_view(db, store, sub):
             "cueCard": part.get("cueCard"),
             "questions": [{"key": q["key"], "text": q["text"], "topic": q.get("topic"), "type": q.get("type"),
                            "answerSeconds": q.get("answerSeconds"), "recording": recs.get(q["key"])}
-                          for q in part.get("questions", [])],
+                          for q in part.get("questions", []) if asked is None or q["key"] in asked or q["key"] in recs],
         })
     total = sum(1 for p in parts for _ in p["questions"])
     return {

@@ -261,6 +261,54 @@
             "src": "audio/speaking-48/p3-6.mp3",
             "duration": 4.81
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Big companies",
+          "text": "How does competition between companies benefit ordinary customers?",
+          "say": "How does competition between companies benefit ordinary customers?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-48/p3-7.mp3",
+            "duration": 5.0
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Big companies",
+          "text": "Do you think large companies should be allowed to buy smaller ones?",
+          "say": "Do you think large companies should be allowed to buy smaller ones?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-48/p3-8.mp3",
+            "duration": 4.4
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Big companies",
+          "text": "If a big company left a small town, what effect would that have on the people who live there?",
+          "say": "If a big company left a small town, what effect would that have on the people who live there?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-48/p3-9.mp3",
+            "duration": 5.9
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Big companies",
+          "text": "How might the relationship between companies and the societies they work in change in the future?",
+          "say": "How might the relationship between companies and the societies they work in change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-48/p3-10.mp3",
+            "duration": 6.6
+          }
         }
       ]
     }

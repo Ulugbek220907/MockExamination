@@ -261,6 +261,54 @@
             "src": "audio/speaking-63/p3-6.mp3",
             "duration": 3.29
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Taking risks",
+          "text": "How do people decide whether a risk is worth taking?",
+          "say": "How do people decide whether a risk is worth taking?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-63/p3-7.mp3",
+            "duration": 3.89
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Taking risks",
+          "text": "Do you think a society that takes more risks makes more progress?",
+          "say": "Do you think a society that takes more risks makes more progress?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-63/p3-8.mp3",
+            "duration": 4.23
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Taking risks",
+          "text": "If you could take one big risk with no chance of failure, what would you try?",
+          "say": "If you could take one big risk with no chance of failure, what would you try?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-63/p3-9.mp3",
+            "duration": 4.81
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Taking risks",
+          "text": "How might the way people think about risk change as technology develops?",
+          "say": "How might the way people think about risk change as technology develops?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-63/p3-10.mp3",
+            "duration": 4.89
+          }
         }
       ]
     }

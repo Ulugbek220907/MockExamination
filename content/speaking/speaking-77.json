@@ -261,6 +261,54 @@
             "src": "audio/speaking-77/p3-6.mp3",
             "duration": 5.35
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Politeness in society",
+          "text": "Why do some forms of politeness seem unnecessary to young people?",
+          "say": "Why do some forms of politeness seem unnecessary to young people?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-77/p3-7.mp3",
+            "duration": 4.75
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Politeness in society",
+          "text": "How can politeness help to prevent conflict between people?",
+          "say": "How can politeness help to prevent conflict between people?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-77/p3-8.mp3",
+            "duration": 4.19
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Politeness in society",
+          "text": "If everyone were always polite, would honest communication become more difficult?",
+          "say": "If everyone were always polite, would honest communication become more difficult?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-77/p3-9.mp3",
+            "duration": 5.26
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Politeness in society",
+          "text": "How might the rules of politeness change as communication becomes more informal?",
+          "say": "How might the rules of politeness change as communication becomes more informal?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-77/p3-10.mp3",
+            "duration": 5.43
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-46/p3-6.mp3",
             "duration": 5.21
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Public services",
+          "text": "What happens to a community when public services are reduced?",
+          "say": "What happens to a community when public services are reduced?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-46/p3-7.mp3",
+            "duration": 4.66
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Public services",
+          "text": "Do you think some public services work better when they are run by private companies?",
+          "say": "Do you think some public services work better when they are run by private companies?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-46/p3-8.mp3",
+            "duration": 5.88
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Public services",
+          "text": "If you had to cut one public service in order to save money, which would you choose, and why?",
+          "say": "If you had to cut one public service in order to save money, which would you choose, and why?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-46/p3-9.mp3",
+            "duration": 6.52
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Public services",
+          "text": "How might technology change the way public services are provided in the future?",
+          "say": "How might technology change the way public services are provided in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-46/p3-10.mp3",
+            "duration": 5.83
+          }
         }
       ]
     }

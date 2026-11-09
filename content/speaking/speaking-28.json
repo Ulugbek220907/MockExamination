@@ -261,6 +261,54 @@
             "src": "audio/speaking-28/p3-6.mp3",
             "duration": 5.49
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Advertising",
+          "text": "Do you think advertising creates needs that people did not have before?",
+          "say": "Do you think advertising creates needs that people did not have before?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-28/p3-7.mp3",
+            "duration": 4.81
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Advertising",
+          "text": "Is it acceptable for advertisements to use celebrities to sell products?",
+          "say": "Is it acceptable for advertisements to use celebrities to sell products?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-28/p3-8.mp3",
+            "duration": 4.89
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Advertising",
+          "text": "If advertising were banned completely, what effects would that have on society?",
+          "say": "If advertising were banned completely, what effects would that have on society?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-28/p3-9.mp3",
+            "duration": 5.26
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Advertising",
+          "text": "How might advertising change as technology learns more about each person?",
+          "say": "How might advertising change as technology learns more about each person?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-28/p3-10.mp3",
+            "duration": 5.13
+          }
         }
       ]
     }

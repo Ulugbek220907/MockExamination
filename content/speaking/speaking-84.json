@@ -261,6 +261,54 @@
             "src": "audio/speaking-84/p3-6.mp3",
             "duration": 5.6
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Remembering and technology",
+          "text": "Why do some memories stay with us for a lifetime while others fade quickly?",
+          "say": "Why do some memories stay with us for a lifetime while others fade quickly?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-84/p3-7.mp3",
+            "duration": 4.72
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Remembering and technology",
+          "text": "Do you think it is healthy to keep every photo and message from the past?",
+          "say": "Do you think it is healthy to keep every photo and message from the past?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-84/p3-8.mp3",
+            "duration": 4.66
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Remembering and technology",
+          "text": "If people could record and replay every moment of their lives, how might that affect them?",
+          "say": "If people could record and replay every moment of their lives, how might that affect them?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-84/p3-9.mp3",
+            "duration": 5.68
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Remembering and technology",
+          "text": "How might technology change the way people remember things in the future?",
+          "say": "How might technology change the way people remember things in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-84/p3-10.mp3",
+            "duration": 4.83
+          }
         }
       ]
     }

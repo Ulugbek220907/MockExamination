@@ -261,6 +261,54 @@
             "src": "audio/speaking-67/p3-6.mp3",
             "duration": 3.34
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Service jobs",
+          "text": "Why do you think customer service jobs are not always respected as much as they should be?",
+          "say": "Why do you think customer service jobs are not always respected as much as they should be?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-67/p3-7.mp3",
+            "duration": 6.0
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Service jobs",
+          "text": "Do you think the quality of service in a country says something about its culture?",
+          "say": "Do you think the quality of service in a country says something about its culture?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-67/p3-8.mp3",
+            "duration": 5.17
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Service jobs",
+          "text": "If all shops became fully automatic, what would be the effect on the people who work in them?",
+          "say": "If all shops became fully automatic, what would be the effect on the people who work in them?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-67/p3-9.mp3",
+            "duration": 6.43
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Service jobs",
+          "text": "How might service jobs change over the next twenty years?",
+          "say": "How might service jobs change over the next twenty years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-67/p3-10.mp3",
+            "duration": 4.34
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-66/p3-6.mp3",
             "duration": 5.11
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Discussion and debate",
+          "text": "Why do some discussions end in an argument while others lead to agreement?",
+          "say": "Why do some discussions end in an argument while others lead to agreement?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-66/p3-7.mp3",
+            "duration": 4.98
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Discussion and debate",
+          "text": "Is it more important to win an argument or to understand the other person's point of view?",
+          "say": "Is it more important to win an argument or to understand the other person's point of view?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-66/p3-8.mp3",
+            "duration": 5.9
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Discussion and debate",
+          "text": "If everyone had to listen to the opposite opinion for an hour each day, how might society change?",
+          "say": "If everyone had to listen to the opposite opinion for an hour each day, how might society change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-66/p3-9.mp3",
+            "duration": 6.54
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Discussion and debate",
+          "text": "How might social media change the way societies make decisions?",
+          "say": "How might social media change the way societies make decisions?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-66/p3-10.mp3",
+            "duration": 4.77
+          }
         }
       ]
     }

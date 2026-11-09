@@ -261,6 +261,54 @@
             "src": "audio/speaking-94/p3-6.mp3",
             "duration": 4.6
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Languages in the world",
+          "text": "How does speaking more than one language affect the way a person thinks?",
+          "say": "How does speaking more than one language affect the way a person thinks?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-94/p3-7.mp3",
+            "duration": 4.45
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Languages in the world",
+          "text": "Do you think translation technology will make learning foreign languages unnecessary?",
+          "say": "Do you think translation technology will make learning foreign languages unnecessary?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-94/p3-8.mp3",
+            "duration": 5.79
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Languages in the world",
+          "text": "If a language disappears, what do its community and the rest of the world lose?",
+          "say": "If a language disappears, what do its community and the rest of the world lose?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-94/p3-9.mp3",
+            "duration": 5.09
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Languages in the world",
+          "text": "How might the languages that people use change as the world becomes more connected?",
+          "say": "How might the languages that people use change as the world becomes more connected?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-94/p3-10.mp3",
+            "duration": 5.34
+          }
         }
       ]
     }

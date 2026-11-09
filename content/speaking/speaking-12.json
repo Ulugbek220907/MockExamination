@@ -261,6 +261,54 @@
             "src": "audio/speaking-12/p3-6.mp3",
             "duration": 3.83
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Professional sport",
+          "text": "Should governments spend public money on hosting large international sports events?",
+          "say": "Should governments spend public money on hosting large international sports events?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-12/p3-7.mp3",
+            "duration": 5.32
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Professional sport",
+          "text": "Do you think competition in sport is good for children, or does it put too much pressure on them?",
+          "say": "Do you think competition in sport is good for children, or does it put too much pressure on them?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-12/p3-8.mp3",
+            "duration": 5.51
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Professional sport",
+          "text": "If professional athletes were paid the same as other workers, how might sport be different?",
+          "say": "If professional athletes were paid the same as other workers, how might sport be different?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-12/p3-9.mp3",
+            "duration": 5.36
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Professional sport",
+          "text": "How might new technology change the way sports are played and watched in the future?",
+          "say": "How might new technology change the way sports are played and watched in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-12/p3-10.mp3",
+            "duration": 4.83
+          }
         }
       ]
     }

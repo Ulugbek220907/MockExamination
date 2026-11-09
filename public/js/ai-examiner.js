@@ -463,6 +463,7 @@
             this.uploader = new S.Uploader(this.submissionId, () => this.renderSaving());
             submission.parts.forEach((p) => p.questions.forEach((q) => { if (q.recording) this.uploader.state[q.key] = "done"; }));
             this.renderSaving();
+            await this.resumePlan();
             return;
           }
         } catch (e) { /* start a new attempt below */ }
@@ -477,7 +478,56 @@
       if (res.notice) U.toast(res.notice, "warn");
       this.submissionId = res.submissionId;
       this.uploader = new S.Uploader(this.submissionId, () => this.renderSaving());
+      if (res.plan && this.applyPlan(res.plan)) {  // the examiner decides how long Parts 1 and 3 are, as the test goes on
+        this.adaptive = true;
+        this.step = 0;
+      }
       this.saveProgress();
+    }
+
+    /**
+     * Take the examiner's plan (the ordered question keys of a test that adapts to the candidate) as this test's steps.
+     * False when it cannot be used, and the test keeps its fixed list of questions.
+     */
+    applyPlan(plan) {
+      if (!plan || !Array.isArray(plan.keys) || !plan.keys.length) return false;
+      const byKey = new Map();
+      this.test.parts.forEach((part) => part.questions.forEach((q, index) => byKey.set(q.key, { part, q, index })));
+      const steps = plan.keys.map((key) => byKey.get(key));
+      if (steps.some((x) => !x)) return false;
+      this.steps = steps;
+      return true;
+    }
+
+    /** After a reload: the plan is on the server (a test that does not adapt answers 409 and keeps its fixed questions). */
+    async resumePlan() {
+      if (!this.rated) return;
+      try {
+        const { plan } = await U.api(`/api/speaking/submissions/${this.submissionId}/plan`, { method: "POST", body: "{}" });
+        if (!this.applyPlan(plan)) return;
+        this.adaptive = true;
+        const at = this.savedKey ? this.steps.findIndex((x) => x.q.key === this.savedKey) : -1;
+        this.step = at >= 0 ? at : Math.min(this.step, this.steps.length - 1);
+      } catch (e) { /* not an adaptive test: nothing to do */ }
+    }
+
+    /**
+     * At the end of the questions planned in Part 1 or Part 3 the server says whether the examiner wants one more (it has
+     * listened to the answers so far). If the server cannot be asked, the test simply goes on as planned.
+     */
+    async adapt(step) {
+      const partNo = step.part.partNumber;
+      const next = this.steps[this.step];
+      if ((partNo !== 1 && partNo !== 3) || (next && next.part.partNumber === partNo)) return;
+      try {
+        const { plan } = await U.api(`/api/speaking/submissions/${this.submissionId}/plan`, {
+          method: "POST", body: JSON.stringify({ after: step.q.key }),
+        });
+        if (plan && Array.isArray(plan.keys) && plan.keys.length > this.steps.length && this.applyPlan(plan)) {
+          this.saveProgress();
+          this.preloadAfter(this.step - 1);
+        }
+      } catch (e) { /* the examiner carries on with what was planned */ }
     }
 
     helpHTML() {
@@ -488,6 +538,7 @@
           <li>When you stop talking, the examiner moves on to the next question. If you need a moment to think, that is fine: the examiner waits a few seconds.</li>
           <li><strong>Repeat</strong> asks the examiner to say the question again (once per question, in Parts 1 and 3).</li>
           <li>Part 2: one minute to prepare (you can type notes), then up to two minutes to talk. The examiner stops you at two minutes.</li>
+          ${this.adaptive ? "<li>The examiner listens to how you are speaking and chooses how many questions to ask in Parts 1 and 3: more when you are doing well.</li>" : ""}
           <li>The examiner does not answer you or comment, just like a real examiner.</li>
           ${this.rated ? "<li>At the end, the AI examiner listens to your whole test and gives you an estimated band for each criterion, with feedback.</li>" : "<li>Your answers are saved to your account, so you can listen to them afterwards.</li>"}
         </ul>`;
@@ -524,9 +575,11 @@
         this.face.setState("idle");
         await this.sleep(1200); // the examiner looks up and is ready
         while (this.step < this.steps.length && !this.finishing) {
-          await this.runStep(this.steps[this.step]);
+          const step = this.steps[this.step];
+          await this.runStep(step);
           this.step++;
           this.saveProgress();
+          if (this.adaptive && !this.finishing) await this.adapt(step);
         }
         if (this.finishing) return;
         this.controls("");
@@ -856,6 +909,19 @@
     return `<div class="ai-answer">${transcriptHTML(answer.transcript)}${facts ? `<p class="ai-answer-facts">${esc(facts)}</p>` : ""}</div>`;
   }
 
+  /** What the report says about how the examiner chose the length of the test (only for a test that adapted). */
+  function adaptiveHTML(a) {
+    if (!a || !a.part1Questions) return "";
+    const impressions = a.parts && Object.keys(a.parts).length
+      ? ` The examiner's first impressions while you were speaking: ${Object.keys(a.parts).sort().map((n) => `Part ${n}: ${IeltsScoring.formatBand(a.parts[n])}`).join(", ")}. Your band above comes from the rating of the whole test.`
+      : "";
+    const more = a.part3Questions > (a.part3Core || 3);
+    return `<p class="muted-text small-text ai-adapt">${esc(
+      `Your examiner chose the length of this test from how you spoke: ${a.part1Questions} questions in Part 1 (from ${a.part1Core || 7} to ${a.part1Most}) and ${a.part3Questions} in Part 3 (from ${a.part3Core} to ${a.part3Most}). `
+      + (more ? "Part 3 went on beyond the core questions because your answers kept showing a higher level." : "Part 3 stayed at the core questions: the examiner asks more when your answers show a higher level.")
+      + impressions)}</p>`;
+  }
+
   function doneHTML(r) {
     const P = Results.parts;
     const partNames = { 1: "Part 1", 2: "Part 2", 3: "Part 3" };
@@ -869,6 +935,7 @@
           <div class="ai-band"><span class="ai-band-val">${IeltsScoring.formatBand(r.overallBand)}</span><span class="ai-band-lbl">Estimated band</span></div>
         </div>
         ${r.summary ? `<p class="lead-text">${esc(r.summary)}</p>` : ""}
+        ${adaptiveHTML(r.adaptive)}
         ${P.criteriaHTML(r)}
         <div class="feedback-columns">${P.listBlock("What you did well", r.strengths, "good")}${P.listBlock("How to improve", r.improvements, "improve")}</div>
         ${r.stats ? `<h3 class="ai-sub">Your speaking in numbers</h3>${statsHTML(r.stats)}` : ""}

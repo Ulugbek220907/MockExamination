@@ -836,7 +836,11 @@
       const instructions = module === "speaking" && withAi
         ? [
           `You talk with the <strong>examiner</strong>, face to face on screen, as in the real test. The examiner asks every question out loud; you answer by speaking. Like a real examiner, it does not reply to your answers.`,
-          `<strong>Part 1:</strong> questions about familiar topics. <strong>Part 2:</strong> a topic card, <strong>1 minute</strong> to prepare and up to
+          this.config.aiSpeakingAdaptive
+            ? `<strong>Part 1:</strong> 7 to 9 questions about familiar topics. <strong>Part 2:</strong> a topic card, <strong>1 minute</strong> to prepare and up to
+            <strong>2 minutes</strong> to speak. <strong>Part 3:</strong> a discussion of wider questions, 3 to 10 of them. The examiner listens to how you are speaking and
+            asks more questions when you are doing well, so the test takes about <strong>10–17 minutes</strong>.`
+            : `<strong>Part 1:</strong> questions about familiar topics. <strong>Part 2:</strong> a topic card, <strong>1 minute</strong> to prepare and up to
             <strong>2 minutes</strong> to speak. <strong>Part 3:</strong> a discussion of wider questions. The test takes <strong>11–14 minutes</strong>.`,
           `Answer fully and naturally. When you stop talking for a few seconds the examiner moves on, so take a short breath to think if you need to, but do not stop for long. You may ask for a question to be repeated once.`,
           rated

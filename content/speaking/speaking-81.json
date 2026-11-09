@@ -261,6 +261,54 @@
             "src": "audio/speaking-81/p3-6.mp3",
             "duration": 4.83
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Traditional arts",
+          "text": "Why do some traditional art forms survive for centuries while others disappear?",
+          "say": "Why do some traditional art forms survive for centuries while others disappear?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-81/p3-7.mp3",
+            "duration": 5.88
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Traditional arts",
+          "text": "Do you think traditional arts should be changed to appeal to modern audiences?",
+          "say": "Do you think traditional arts should be changed to appeal to modern audiences?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-81/p3-8.mp3",
+            "duration": 5.71
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Traditional arts",
+          "text": "If a traditional art form is kept only in recordings, can it still be called alive?",
+          "say": "If a traditional art form is kept only in recordings, can it still be called alive?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-81/p3-9.mp3",
+            "duration": 6.26
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Traditional arts",
+          "text": "How might traditional arts and modern technology work together in the future?",
+          "say": "How might traditional arts and modern technology work together in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-81/p3-10.mp3",
+            "duration": 5.53
+          }
         }
       ]
     }

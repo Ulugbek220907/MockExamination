@@ -261,6 +261,54 @@
             "src": "audio/speaking-47/p3-6.mp3",
             "duration": 3.64
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Learning about the past",
+          "text": "How do the stories that societies tell about their past affect the way they see themselves?",
+          "say": "How do the stories that societies tell about their past affect the way they see themselves?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-47/p3-7.mp3",
+            "duration": 5.51
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Learning about the past",
+          "text": "Do you think people can learn from history, or do they keep making the same mistakes?",
+          "say": "Do you think people can learn from history, or do they keep making the same mistakes?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-47/p3-8.mp3",
+            "duration": 4.98
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Learning about the past",
+          "text": "If you could witness one historical event with your own eyes, which would you choose, and what might you learn?",
+          "say": "If you could witness one historical event with your own eyes, which would you choose, and what might you learn?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-47/p3-9.mp3",
+            "duration": 6.2
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Learning about the past",
+          "text": "How might future generations remember the time that we are living in now?",
+          "say": "How might future generations remember the time that we are living in now?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-47/p3-10.mp3",
+            "duration": 4.55
+          }
         }
       ]
     }

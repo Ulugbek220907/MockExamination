@@ -261,6 +261,54 @@
             "src": "audio/speaking-69/p3-6.mp3",
             "duration": 4.98
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Adapting to new places",
+          "text": "What can a town or city do to make newcomers feel welcome?",
+          "say": "What can a town or city do to make newcomers feel welcome?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-69/p3-7.mp3",
+            "duration": 4.34
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Adapting to new places",
+          "text": "Do you think people who move abroad should adapt to the local culture or keep their own?",
+          "say": "Do you think people who move abroad should adapt to the local culture or keep their own?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-69/p3-8.mp3",
+            "duration": 5.58
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Adapting to new places",
+          "text": "If you had to start a new life in an unfamiliar country, what would you find most difficult?",
+          "say": "If you had to start a new life in an unfamiliar country, what would you find most difficult?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-69/p3-9.mp3",
+            "duration": 5.9
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Adapting to new places",
+          "text": "How might migration change the way cities look and feel in the future?",
+          "say": "How might migration change the way cities look and feel in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-69/p3-10.mp3",
+            "duration": 5.21
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-13/p3-6.mp3",
             "duration": 4.08
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Spending and saving",
+          "text": "Why do some people find it easy to save money while others find it very difficult?",
+          "say": "Why do some people find it easy to save money while others find it very difficult?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-13/p3-7.mp3",
+            "duration": 5.41
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Spending and saving",
+          "text": "Do you think social media encourages people to spend more than they can afford?",
+          "say": "Do you think social media encourages people to spend more than they can afford?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-13/p3-8.mp3",
+            "duration": 5.3
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Spending and saving",
+          "text": "If everyone saved a larger part of their income, what effect might this have on the economy?",
+          "say": "If everyone saved a larger part of their income, what effect might this have on the economy?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-13/p3-9.mp3",
+            "duration": 6.07
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Spending and saving",
+          "text": "How might the way people pay for things change over the next twenty years?",
+          "say": "How might the way people pay for things change over the next twenty years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-13/p3-10.mp3",
+            "duration": 4.45
+          }
         }
       ]
     }

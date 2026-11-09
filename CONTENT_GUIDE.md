@@ -133,12 +133,13 @@ The build writes `public/audio/<id>/part<N>.mp3` and records the start and end t
 
 ## Adding a speaking test
 
-A speaking test is three parts of examiner questions. Copy `content/speaking/speaking-01.json` and change the questions. Each question has:
+A speaking test is three parts of examiner questions. Copy `content/speaking/speaking-01.json` and change the questions. The AI examiner adapts the length of the test to the candidate, so a test needs **10 questions in Part 1** (the examiner asks 7 to 9 of them) and **10 in Part 3** (it asks 3 to 10). Each question has:
 
 - `key`: a short unique id such as `p1-3` (the recordings are filed under it, so do not rename keys of a published test)
 - `text`: the question as shown in practice mode and to the examiner
 - `say`: what the examiner says, which becomes the audio. The first question of a topic can start with a lead-in ("Now let's talk about music.")
 - `answerSeconds`: 30 in Part 1, 120 for the Part 2 long turn, 60 in Part 3
+- `adaptiveOnly`: `true` on the Part 3 questions that only the adaptive AI examiner may ask (the extra ones, which go last in the part). Without the AI examiner (practice, no AI key) the test is the questions without this flag: 5 or 6 in Part 3. Order Part 3 from the opening questions to the most demanding, because the examiner asks them in order and goes further only when the candidate is doing well
 
 Part 2 has a `cueCard` (`topic`, `points`, `explain`) and one question with `"type": "long_turn"` and `"prepSeconds": 60`. The test's `prompts` hold the two fixed lines, `p2-start` ("…start speaking now") and `end`.
 

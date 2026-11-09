@@ -261,6 +261,54 @@
             "src": "audio/speaking-54/p3-6.mp3",
             "duration": 3.81
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Other cultures",
+          "text": "Do you think people understand each other better now that it is easy to travel and communicate?",
+          "say": "Do you think people understand each other better now that it is easy to travel and communicate?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-54/p3-7.mp3",
+            "duration": 5.66
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Other cultures",
+          "text": "What responsibilities do visitors have towards the culture of the place they are visiting?",
+          "say": "What responsibilities do visitors have towards the culture of the place they are visiting?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-54/p3-8.mp3",
+            "duration": 5.53
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Other cultures",
+          "text": "If everyone had to live in another country for one year, what effect might that have on the world?",
+          "say": "If everyone had to live in another country for one year, what effect might that have on the world?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-54/p3-9.mp3",
+            "duration": 5.73
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Other cultures",
+          "text": "How might a shared global culture affect the identity of smaller nations?",
+          "say": "How might a shared global culture affect the identity of smaller nations?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-54/p3-10.mp3",
+            "duration": 5.15
+          }
         }
       ]
     }

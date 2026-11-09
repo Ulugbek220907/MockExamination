@@ -261,6 +261,54 @@
             "src": "audio/speaking-45/p3-6.mp3",
             "duration": 4.49
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Noise",
+          "text": "Why do people accept a high level of noise in some places but not in others?",
+          "say": "Why do people accept a high level of noise in some places but not in others?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-45/p3-7.mp3",
+            "duration": 5.21
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Noise",
+          "text": "Do you think people's ability to concentrate is affected by the noise around them?",
+          "say": "Do you think people's ability to concentrate is affected by the noise around them?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-45/p3-8.mp3",
+            "duration": 5.32
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Noise",
+          "text": "If cities had to be silent for one hour every day, how might people react?",
+          "say": "If cities had to be silent for one hour every day, how might people react?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-45/p3-9.mp3",
+            "duration": 4.96
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Noise",
+          "text": "How might cities be designed in the future to reduce noise?",
+          "say": "How might cities be designed in the future to reduce noise?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-45/p3-10.mp3",
+            "duration": 4.43
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-62/p3-6.mp3",
             "duration": 4.57
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Recognition",
+          "text": "Does public praise motivate people more than a private thank you?",
+          "say": "Does public praise motivate people more than a private thank you?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-62/p3-7.mp3",
+            "duration": 4.38
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Recognition",
+          "text": "Is it fair that some people receive more recognition than others for the same work?",
+          "say": "Is it fair that some people receive more recognition than others for the same work?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-62/p3-8.mp3",
+            "duration": 5.49
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Recognition",
+          "text": "If prizes for achievement were abolished, what effect would that have on society?",
+          "say": "If prizes for achievement were abolished, what effect would that have on society?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-62/p3-9.mp3",
+            "duration": 5.39
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Recognition",
+          "text": "How might the way achievements are recognised change in the future?",
+          "say": "How might the way achievements are recognised change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-62/p3-10.mp3",
+            "duration": 4.72
+          }
         }
       ]
     }

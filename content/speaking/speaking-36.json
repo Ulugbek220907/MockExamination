@@ -261,6 +261,54 @@
             "src": "audio/speaking-36/p3-6.mp3",
             "duration": 4.73
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Raising children",
+          "text": "How do you think the way parents raise their children today is different from the way they were raised themselves?",
+          "say": "How do you think the way parents raise their children today is different from the way they were raised themselves?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-36/p3-7.mp3",
+            "duration": 6.11
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Raising children",
+          "text": "Is it better for parents to be strict or to be flexible with their children? Why?",
+          "say": "Is it better for parents to be strict or to be flexible with their children? Why?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-36/p3-8.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Raising children",
+          "text": "If children could choose the rules of their own household, what rules do you think they would make?",
+          "say": "If children could choose the rules of their own household, what rules do you think they would make?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-36/p3-9.mp3",
+            "duration": 5.51
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Raising children",
+          "text": "How might the pressure on children to succeed affect them when they become adults?",
+          "say": "How might the pressure on children to succeed affect them when they become adults?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-36/p3-10.mp3",
+            "duration": 4.47
+          }
         }
       ]
     }

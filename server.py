@@ -66,7 +66,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, ai, analytics, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, speaking, speaking_ai, storage, writing  # noqa: E402
+from mockexam import accounts, ai, analytics, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, speaking, speaking_adaptive, speaking_ai, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -396,6 +396,7 @@ class ConfigHandler(BaseHandler):
             "aiMarking": writing.ai_configured(),
             "aiSpeaking": speaking_ai.configured(),
             "aiSpeakingPerDay": speaking_ai.PER_USER_PER_DAY,
+            "aiSpeakingAdaptive": speaking_adaptive.enabled(),
             "contactEmail": CONTACT_EMAIL,
             "social": SOCIAL_LINKS,
             "storage": STORE.name,

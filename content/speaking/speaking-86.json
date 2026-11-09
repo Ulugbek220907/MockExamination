@@ -261,6 +261,54 @@
             "src": "audio/speaking-86/p3-6.mp3",
             "duration": 4.47
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Keeping things",
+          "text": "Why do objects from the past often have a special meaning for people?",
+          "say": "Why do objects from the past often have a special meaning for people?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-86/p3-7.mp3",
+            "duration": 4.47
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Keeping things",
+          "text": "Will digital photographs and messages ever become as precious as old letters and photo albums?",
+          "say": "Will digital photographs and messages ever become as precious as old letters and photo albums?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-86/p3-8.mp3",
+            "duration": 6.41
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Keeping things",
+          "text": "If you could keep only five objects for the rest of your life, how would you choose them?",
+          "say": "If you could keep only five objects for the rest of your life, how would you choose them?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-86/p3-9.mp3",
+            "duration": 4.96
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Keeping things",
+          "text": "How might the way families keep their history change in the future?",
+          "say": "How might the way families keep their history change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-86/p3-10.mp3",
+            "duration": 4.13
+          }
         }
       ]
     }

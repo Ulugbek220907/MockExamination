@@ -261,6 +261,54 @@
             "src": "audio/speaking-32/p3-6.mp3",
             "duration": 3.96
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Images in the media",
+          "text": "How do pictures in advertisements affect the way people see themselves?",
+          "say": "How do pictures in advertisements affect the way people see themselves?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-32/p3-7.mp3",
+            "duration": 5.41
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Images in the media",
+          "text": "Do you think people can be misled more easily by pictures than by words?",
+          "say": "Do you think people can be misled more easily by pictures than by words?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-32/p3-8.mp3",
+            "duration": 5.51
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Images in the media",
+          "text": "If it became impossible to tell real photographs from computer-made ones, what would the consequences be?",
+          "say": "If it became impossible to tell real photographs from computer-made ones, what would the consequences be?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-32/p3-9.mp3",
+            "duration": 7.22
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Images in the media",
+          "text": "Why might a picture be more powerful than a written description in some situations?",
+          "say": "Why might a picture be more powerful than a written description in some situations?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-32/p3-10.mp3",
+            "duration": 5.94
+          }
         }
       ]
     }

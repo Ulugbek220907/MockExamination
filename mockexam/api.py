@@ -27,6 +27,7 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
 
   POST /api/speaking/<test>/start     start a Speaking test (signed in)
   POST /api/speaking/submissions/<id>/answers/<key>   upload one recorded answer (raw audio body)
+  POST /api/speaking/submissions/<id>/plan            the questions so far; after an answer, one more if the AI examiner wants it
   POST /api/speaking/submissions/<id>/complete        finish the test (an AI-examiner test is then rated)
   POST /api/speaking/submissions/<id>/ai-review       rate an AI-examiner test again after a failure
   GET  /api/speaking/submissions/<id> the questions and recordings (owner, its examiner, admin)
@@ -44,7 +45,7 @@ import re
 
 import tornado.web
 
-from . import accounts, analytics, auth, billing, checks, notify, speaking, speaking_ai
+from . import accounts, analytics, auth, billing, checks, notify, speaking, speaking_adaptive, speaking_ai
 from .dbcache import gather
 from .web import BaseHandler, in_thread
 
@@ -540,7 +541,9 @@ class SpeakingStartHandler(BaseHandler):
             sub = await in_thread(start)
         except (speaking.SpeakingError, speaking_ai.ReviewError) as e:
             _raise(e)
-        self.send_json({"submissionId": sub["id"], "mode": sub.get("mode"), "notice": notice})
+        state = speaking_adaptive.state_of(sub)
+        self.send_json({"submissionId": sub["id"], "mode": sub.get("mode"), "notice": notice,
+                        "plan": speaking_adaptive.public_plan(test, state) if state else None})
 
 
 @tornado.web.stream_request_body
@@ -579,12 +582,41 @@ class SpeakingAnswerHandler(BaseHandler):
             test = self.store.get_test(sub["test_id"])
             if not test:
                 raise speaking.SpeakingError("Speaking test not found.", 404)
-            return speaking.save_recording(self.db, self.store.files, sub, test, key, data, mime, duration)
+            rec = speaking.save_recording(self.db, self.store.files, sub, test, key, data, mime, duration)
+            try:  # a test that adapts to the candidate listens to each answer as it arrives
+                speaking_adaptive.queue_analysis(self.db, self.store.files, self.store, sub, key, rec["id"])
+            except Exception:
+                log.exception("Could not start the analysis of an answer")
+            return rec
         try:
             rec = await in_thread(save)
         except speaking.SpeakingError as e:
             _raise(e)
         self.send_json({"recording": rec})
+
+
+class SpeakingPlanHandler(BaseHandler):
+    """
+    The questions an AI-examiner test has so far. Sent after the candidate answers the last question planned in Part 1
+    or Part 3 ({"after": key}), it adds one more question when the AI examiner wants it (speaking_adaptive.py).
+    """
+
+    async def post(self, submission_id):
+        profile = await self.require_profile()
+        after = self.body_json().get("after")
+        after = after if isinstance(after, str) and re.match(r"^[a-z0-9][a-z0-9\-]{0,30}$", after) else None
+
+        def plan():
+            sub = speaking.own_submission(self.db, submission_id, profile["id"])
+            test = self.store.get_test(sub["test_id"])
+            if not test:
+                raise speaking.SpeakingError("Speaking test not found.", 404)
+            return speaking_adaptive.next_plan(self.db, self.store.files, self.store, sub, test, after)
+        try:
+            result = await in_thread(plan)
+        except (speaking.SpeakingError, speaking_adaptive.AdaptiveError) as e:
+            _raise(e)
+        self.send_json({"plan": result})
 
 
 class SpeakingCompleteHandler(BaseHandler):
@@ -903,6 +935,7 @@ def routes():
         (r"/api/examiner/checks/(\d+)/(start|result)", commerce_only(ExaminerCheckActionHandler)),
         (r"/api/speaking/([a-z0-9][a-z0-9\-]{0,80})/start", SpeakingStartHandler),
         (r"/api/speaking/submissions/(\d+)/answers/([a-z0-9][a-z0-9\-]{0,30})", SpeakingAnswerHandler),
+        (r"/api/speaking/submissions/(\d+)/plan", SpeakingPlanHandler),
         (r"/api/speaking/submissions/(\d+)/complete", SpeakingCompleteHandler),
         (r"/api/speaking/submissions/(\d+)/ai-review", SpeakingAiReviewHandler),
         (r"/api/speaking/submissions/(\d+)", SpeakingSubmissionHandler),

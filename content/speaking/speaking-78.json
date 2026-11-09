@@ -261,6 +261,54 @@
             "src": "audio/speaking-78/p3-6.mp3",
             "duration": 3.89
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Money and young people",
+          "text": "Do you think young people feel more pressure to spend money than previous generations did?",
+          "say": "Do you think young people feel more pressure to spend money than previous generations did?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-78/p3-7.mp3",
+            "duration": 4.92
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Money and young people",
+          "text": "What responsibility do banks have to help young people avoid debt?",
+          "say": "What responsibility do banks have to help young people avoid debt?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-78/p3-8.mp3",
+            "duration": 4.19
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Money and young people",
+          "text": "If everyone used only digital money, how might that change people's attitudes to spending?",
+          "say": "If everyone used only digital money, how might that change people's attitudes to spending?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-78/p3-9.mp3",
+            "duration": 5.51
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Money and young people",
+          "text": "How might the way young people earn and manage money change in the future?",
+          "say": "How might the way young people earn and manage money change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-78/p3-10.mp3",
+            "duration": 4.06
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-73/p3-6.mp3",
             "duration": 4.79
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Entertainment and attention",
+          "text": "How do you think constant entertainment affects children's ability to use their imagination?",
+          "say": "How do you think constant entertainment affects children's ability to use their imagination?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-73/p3-7.mp3",
+            "duration": 6.17
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Entertainment and attention",
+          "text": "Is it a problem if people use entertainment to avoid thinking about their difficulties?",
+          "say": "Is it a problem if people use entertainment to avoid thinking about their difficulties?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-73/p3-8.mp3",
+            "duration": 5.58
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Entertainment and attention",
+          "text": "If there were no screens for a year, what would people do with their free time?",
+          "say": "If there were no screens for a year, what would people do with their free time?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-73/p3-9.mp3",
+            "duration": 4.72
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Entertainment and attention",
+          "text": "How might entertainment change as technology becomes more realistic?",
+          "say": "How might entertainment change as technology becomes more realistic?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-73/p3-10.mp3",
+            "duration": 4.72
+          }
         }
       ]
     }

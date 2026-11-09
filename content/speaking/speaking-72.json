@@ -261,6 +261,54 @@
             "src": "audio/speaking-72/p3-6.mp3",
             "duration": 4.81
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Emotions",
+          "text": "Do you think people are encouraged to hide their feelings too much in your culture?",
+          "say": "Do you think people are encouraged to hide their feelings too much in your culture?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-72/p3-7.mp3",
+            "duration": 4.81
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Emotions",
+          "text": "How do emotions affect the decisions that people make?",
+          "say": "How do emotions affect the decisions that people make?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-72/p3-8.mp3",
+            "duration": 3.76
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Emotions",
+          "text": "If people could always see how others were feeling, would life be better or worse?",
+          "say": "If people could always see how others were feeling, would life be better or worse?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-72/p3-9.mp3",
+            "duration": 4.94
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Emotions",
+          "text": "How might technology change the way people express and understand emotions?",
+          "say": "How might technology change the way people express and understand emotions?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-72/p3-10.mp3",
+            "duration": 4.98
+          }
         }
       ]
     }

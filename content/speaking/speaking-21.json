@@ -261,6 +261,54 @@
             "src": "audio/speaking-21/p3-6.mp3",
             "duration": 3.89
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Criticism and feedback",
+          "text": "Is it easier to accept criticism from a friend or from a stranger? Why?",
+          "say": "Is it easier to accept criticism from a friend or from a stranger? Why?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-21/p3-7.mp3",
+            "duration": 5.99
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Criticism and feedback",
+          "text": "Do you think people learn more from praise or from criticism?",
+          "say": "Do you think people learn more from praise or from criticism?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-21/p3-8.mp3",
+            "duration": 3.93
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Criticism and feedback",
+          "text": "If schools stopped giving marks and gave only written comments, how might students react?",
+          "say": "If schools stopped giving marks and gave only written comments, how might students react?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-21/p3-9.mp3",
+            "duration": 5.51
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Criticism and feedback",
+          "text": "Why might it be difficult for a society to listen to honest criticism of itself?",
+          "say": "Why might it be difficult for a society to listen to honest criticism of itself?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-21/p3-10.mp3",
+            "duration": 5.41
+          }
         }
       ]
     }

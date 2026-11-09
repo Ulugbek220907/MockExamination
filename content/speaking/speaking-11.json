@@ -261,6 +261,54 @@
             "src": "audio/speaking-11/p3-6.mp3",
             "duration": 5.68
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Communication and technology",
+          "text": "How do you think the language people use online is affecting the way they speak in real life?",
+          "say": "How do you think the language people use online is affecting the way they speak in real life?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-11/p3-7.mp3",
+            "duration": 6.54
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Communication and technology",
+          "text": "Is it ever better to communicate in writing than to speak face to face?",
+          "say": "Is it ever better to communicate in writing than to speak face to face?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-11/p3-8.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Communication and technology",
+          "text": "If you could not use any technology to communicate for a month, what difficulties would you expect?",
+          "say": "If you could not use any technology to communicate for a month, what difficulties would you expect?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-11/p3-9.mp3",
+            "duration": 6.69
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Communication and technology",
+          "text": "How might communication between people who speak different languages change if translation becomes perfect?",
+          "say": "How might communication between people who speak different languages change if translation becomes perfect?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-11/p3-10.mp3",
+            "duration": 7.71
+          }
         }
       ]
     }

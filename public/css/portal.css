@@ -692,6 +692,7 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .google-slot .btn-google { min-height: 40px; padding-block: 0; }
 .google-slot.is-busy { opacity: 0.5; pointer-events: none; }
 .google-block .form-error { margin-top: 8px; }
+.ai-adapt { margin: 4px 0 18px; max-width: 70ch; }
 .auth-or { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 0.85em; margin: 16px 0; }
 .auth-or::before, .auth-or::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 .auth-form { display: flex; flex-direction: column; gap: 8px; }

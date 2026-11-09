@@ -261,6 +261,54 @@
             "src": "audio/speaking-99/p3-6.mp3",
             "duration": 3.32
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Communication skills",
+          "text": "How do body language and tone of voice affect the way a message is understood?",
+          "say": "How do body language and tone of voice affect the way a message is understood?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-99/p3-7.mp3",
+            "duration": 4.75
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Communication skills",
+          "text": "Do you think people who are good at speaking are always good at listening?",
+          "say": "Do you think people who are good at speaking are always good at listening?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-99/p3-8.mp3",
+            "duration": 3.81
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Communication skills",
+          "text": "If everyone had to speak formally in every situation, how might relationships be affected?",
+          "say": "If everyone had to speak formally in every situation, how might relationships be affected?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-99/p3-9.mp3",
+            "duration": 5.77
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Communication skills",
+          "text": "How might the skills needed to communicate well change in the future?",
+          "say": "How might the skills needed to communicate well change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-99/p3-10.mp3",
+            "duration": 3.93
+          }
         }
       ]
     }

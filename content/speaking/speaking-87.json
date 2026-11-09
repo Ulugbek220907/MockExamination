@@ -261,6 +261,54 @@
             "src": "audio/speaking-87/p3-6.mp3",
             "duration": 4.57
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Play and technology",
+          "text": "How does play help children to develop the skills they need as adults?",
+          "say": "How does play help children to develop the skills they need as adults?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-87/p3-7.mp3",
+            "duration": 4.75
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Play and technology",
+          "text": "Do you think parents should play with their children as much as possible?",
+          "say": "Do you think parents should play with their children as much as possible?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-87/p3-8.mp3",
+            "duration": 4.19
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Play and technology",
+          "text": "If children no longer had any free time to play, what effect would that have on society?",
+          "say": "If children no longer had any free time to play, what effect would that have on society?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-87/p3-9.mp3",
+            "duration": 5.83
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Play and technology",
+          "text": "How might toys and games change as technology develops?",
+          "say": "How might toys and games change as technology develops?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-87/p3-10.mp3",
+            "duration": 4.11
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-89/p3-6.mp3",
             "duration": 3.72
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Streaming",
+          "text": "How does having thousands of programmes to choose from affect the way people watch?",
+          "say": "How does having thousands of programmes to choose from affect the way people watch?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-89/p3-7.mp3",
+            "duration": 4.87
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Streaming",
+          "text": "Do you think programmes made in one country can be enjoyed by people everywhere?",
+          "say": "Do you think programmes made in one country can be enjoyed by people everywhere?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-89/p3-8.mp3",
+            "duration": 4.83
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Streaming",
+          "text": "If everyone watched different programmes at different times, how might society's shared experiences change?",
+          "say": "If everyone watched different programmes at different times, how might society's shared experiences change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-89/p3-9.mp3",
+            "duration": 6.37
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Streaming",
+          "text": "How might the way people watch stories on screen change in the future?",
+          "say": "How might the way people watch stories on screen change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-89/p3-10.mp3",
+            "duration": 4.15
+          }
         }
       ]
     }
