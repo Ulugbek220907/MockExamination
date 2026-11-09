@@ -1,7 +1,10 @@
 # Prompt for Claude Cowork: get TestDay's Google credentials
 
-**How to use it.** Open Claude Cowork on the computer where your browser is already signed in to Google (the account that
-should own the project) and to Render. Let it use your browser, then paste everything below the line.
+**How to use it.**
+1. In Chrome, open two tabs and **sign in yourself** (Cowork never types passwords): <https://console.cloud.google.com>
+   (the Google account that should own TestDay) and <https://dashboard.render.com>. Close the extension's own settings tab.
+2. Open Claude Cowork, let it use that browser, and paste **everything below the line in one go**, down to the last line
+   ("MY ANSWERS TO STEP 0"). If Cowork says the text begins in the middle of a step, paste it again from the top.
 
 What you get: the **Client ID** for "Continue with Google" on the website (the website needs *only* the Client ID, no
 secret), and, if you say yes to the optional job, a **Client ID and Client secret** for the social poster that uploads
@@ -19,11 +22,16 @@ site hosted on Render). Work in my browser, in my own accounts, step by step. Be
 | **A** (needed) | A Google OAuth *Web application* client for **"Continue with Google" sign-in**. Only the **Client ID** is used. There is no secret to copy for this job. | Render, the **website** service (called `testday`), variable `GOOGLE_CLIENT_ID` |
 | **B** (optional, only if I say yes) | A second OAuth *Web application* client for the **social poster** (uploads YouTube Shorts). It needs the **Client ID and the Client secret**. | Render, the **poster** service (called `testday-social`), variables `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` |
 
+Known addresses (confirm them in the Render dashboard): the website service's Render address is
+`https://testday-m46c.onrender.com`, and the site is served at `https://www.testday.uz` (and `https://testday.uz`).
+
 Use **two separate Google Cloud projects**: `TestDay` for Job A and `TestDay Social` for Job B. This keeps the YouTube
 permission, which Google treats as sensitive, away from my students' sign-in.
 
 ## Rules you must follow
 
+0. **Missing text.** If any part of these instructions seems to be missing (for example they begin in the middle of a
+   step), stop and ask me to paste them again from the top. Do not guess.
 1. **Passwords and verification.** Never type or ask for my passwords. If Google or Render asks me to sign in, for a
    2-step code, a captcha, a phone or ID check, stop and tell me, and wait until I say it is done.
 2. **Secrets.** The only secret in this task is the Job B **client secret** (also treat Render's values and the poster's
@@ -40,12 +48,12 @@ permission, which Google treats as sensitive, away from my students' sign-in.
 6. **If the screen does not match this prompt** (Google renames things often), find the equivalent. If you are not sure,
    stop and ask me instead of guessing.
 
-## Step 0: ask me these questions in one message, then wait
+## Step 0: the questions below are answered at the very end ("MY ANSWERS TO STEP 0"). Read my answers and ask me only about what is still unclear
 
 1. Is Chrome signed in to the Google account that should own the project? (Tell me which email you see in the top-right
    corner so I can confirm it.)
-2. Which addresses serve the site? Default: `https://www.testday.uz` and `https://testday.uz`. Also read the website
-   service's own Render address (`https://<name>.onrender.com`) from the Render dashboard and tell me what you found.
+2. Which addresses serve the site? `https://www.testday.uz`, `https://testday.uz` and the website service's own Render
+   address (`https://testday-m46c.onrender.com`; check that the dashboard shows the same).
 3. Do I want **Job B** (the YouTube poster)? If yes, read the poster service's Render address
    (probably `https://testday-social.onrender.com`).
 4. For the Job B secret: should you paste it into Render yourself, or will I do that step? (If I choose to do it myself,
@@ -117,3 +125,10 @@ permission, which Google treats as sensitive, away from my students' sign-in.
 - Google shows "The given client ID is not found" on the button: the Client ID in Render has a typo or an extra space.
 - The website still shows no Google button after the deploy: confirm the variable is on the **website** service (not the
   poster), then wait for the deploy to finish and reload with the cache cleared.
+
+## MY ANSWERS TO STEP 0
+
+1. Account: use the Google account that is signed in in this Chrome. I will confirm the email you read out.
+2. Addresses: `https://testday-m46c.onrender.com`, `https://www.testday.uz` and `https://testday.uz`.
+3. Job B (YouTube poster): **NO, not now.** Do Job A only. (To do both, I will say so and give you the poster's Render address.)
+4. Client secret: not needed for Job A, so do not copy one.
