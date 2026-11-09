@@ -261,6 +261,54 @@
             "src": "audio/speaking-19/p3-6.mp3",
             "duration": 3.72
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Food and culture",
+          "text": "How do you think the growth of international food chains has affected local food traditions?",
+          "say": "How do you think the growth of international food chains has affected local food traditions?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-19/p3-7.mp3",
+            "duration": 5.64
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Food and culture",
+          "text": "Do you think people are more interested in healthy food than they used to be?",
+          "say": "Do you think people are more interested in healthy food than they used to be?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-19/p3-8.mp3",
+            "duration": 4.45
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Food and culture",
+          "text": "If people could only eat food grown in their own region, how would their lives change?",
+          "say": "If people could only eat food grown in their own region, how would their lives change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-19/p3-9.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Food and culture",
+          "text": "What might people eat in the future if it becomes harder to produce food?",
+          "say": "What might people eat in the future if it becomes harder to produce food?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-19/p3-10.mp3",
+            "duration": 4.53
+          }
         }
       ]
     }

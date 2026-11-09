@@ -261,6 +261,54 @@
             "src": "audio/speaking-42/p3-6.mp3",
             "duration": 4.02
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Sport and young people",
+          "text": "How can sport help young people develop skills that are useful outside sport?",
+          "say": "How can sport help young people develop skills that are useful outside sport?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-42/p3-7.mp3",
+            "duration": 5.11
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Sport and young people",
+          "text": "Do you think young people today are under too much pressure to win?",
+          "say": "Do you think young people today are under too much pressure to win?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-42/p3-8.mp3",
+            "duration": 4.0
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Sport and young people",
+          "text": "If schools gave sport the same importance as academic subjects, what might happen?",
+          "say": "If schools gave sport the same importance as academic subjects, what might happen?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-42/p3-9.mp3",
+            "duration": 5.41
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Sport and young people",
+          "text": "How might the way young people take part in sport change as technology develops?",
+          "say": "How might the way young people take part in sport change as technology develops?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-42/p3-10.mp3",
+            "duration": 5.15
+          }
         }
       ]
     }

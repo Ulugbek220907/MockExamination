@@ -261,6 +261,54 @@
             "src": "audio/speaking-35/p3-6.mp3",
             "duration": 4.79
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Generations",
+          "text": "Do you think older people have a different idea of a good life from young people?",
+          "say": "Do you think older people have a different idea of a good life from young people?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-35/p3-7.mp3",
+            "duration": 5.04
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Generations",
+          "text": "How might the way people live in old age be different in the future?",
+          "say": "How might the way people live in old age be different in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-35/p3-8.mp3",
+            "duration": 4.43
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Generations",
+          "text": "If young people and older people lived together more often, how might society benefit?",
+          "say": "If young people and older people lived together more often, how might society benefit?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-35/p3-9.mp3",
+            "duration": 5.79
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Generations",
+          "text": "Is it fair to ask people who are working to pay more tax to support a growing number of older people?",
+          "say": "Is it fair to ask people who are working to pay more tax to support a growing number of older people?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-35/p3-10.mp3",
+            "duration": 6.3
+          }
         }
       ]
     }

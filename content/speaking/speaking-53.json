@@ -261,6 +261,54 @@
             "src": "audio/speaking-53/p3-6.mp3",
             "duration": 5.53
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Living arrangements",
+          "text": "How does the area where people live affect their quality of life?",
+          "say": "How does the area where people live affect their quality of life?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-53/p3-7.mp3",
+            "duration": 4.66
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Living arrangements",
+          "text": "Do you think people should be free to build whatever kind of home they want?",
+          "say": "Do you think people should be free to build whatever kind of home they want?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-53/p3-8.mp3",
+            "duration": 4.94
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Living arrangements",
+          "text": "If you could live anywhere in the world without worrying about cost, where would you choose, and why?",
+          "say": "If you could live anywhere in the world without worrying about cost, where would you choose, and why?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-53/p3-9.mp3",
+            "duration": 6.64
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Living arrangements",
+          "text": "How might the way people live together change over the next fifty years?",
+          "say": "How might the way people live together change over the next fifty years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-53/p3-10.mp3",
+            "duration": 5.04
+          }
         }
       ]
     }

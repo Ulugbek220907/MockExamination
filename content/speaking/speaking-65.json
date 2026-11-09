@@ -261,6 +261,54 @@
             "src": "audio/speaking-65/p3-6.mp3",
             "duration": 4.4
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Living without technology",
+          "text": "Do you think constant access to technology makes people more stressed or more relaxed?",
+          "say": "Do you think constant access to technology makes people more stressed or more relaxed?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-65/p3-7.mp3",
+            "duration": 5.41
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Living without technology",
+          "text": "What would be the biggest challenge for a modern city if all electricity suddenly stopped?",
+          "say": "What would be the biggest challenge for a modern city if all electricity suddenly stopped?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-65/p3-8.mp3",
+            "duration": 5.41
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Living without technology",
+          "text": "If every home had one day each week without screens, how might family life change?",
+          "say": "If every home had one day each week without screens, how might family life change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-65/p3-9.mp3",
+            "duration": 5.34
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Living without technology",
+          "text": "How might people's relationship with technology change over the next generation?",
+          "say": "How might people's relationship with technology change over the next generation?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-65/p3-10.mp3",
+            "duration": 5.11
+          }
         }
       ]
     }

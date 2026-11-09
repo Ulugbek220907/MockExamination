@@ -261,6 +261,54 @@
             "src": "audio/speaking-22/p3-6.mp3",
             "duration": 3.27
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Information and privacy",
+          "text": "How can people protect themselves from false information on the internet?",
+          "say": "How can people protect themselves from false information on the internet?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-22/p3-7.mp3",
+            "duration": 4.36
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Information and privacy",
+          "text": "Should companies be allowed to collect personal data in return for free services?",
+          "say": "Should companies be allowed to collect personal data in return for free services?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-22/p3-8.mp3",
+            "duration": 4.89
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Information and privacy",
+          "text": "If people had complete control over all the information about them online, how might things change?",
+          "say": "If people had complete control over all the information about them online, how might things change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-22/p3-9.mp3",
+            "duration": 5.81
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Information and privacy",
+          "text": "How might the balance between privacy and security change in the future?",
+          "say": "How might the balance between privacy and security change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-22/p3-10.mp3",
+            "duration": 4.47
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-90/p3-6.mp3",
             "duration": 3.98
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Video games",
+          "text": "In what ways can video games be good for people, and in what ways can they be harmful?",
+          "say": "In what ways can video games be good for people, and in what ways can they be harmful?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-90/p3-7.mp3",
+            "duration": 5.66
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Video games",
+          "text": "Do you think professional video-game players should be regarded as athletes?",
+          "say": "Do you think professional video-game players should be regarded as athletes?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-90/p3-8.mp3",
+            "duration": 4.87
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Video games",
+          "text": "If video games were designed to be more educational, would young people still want to play them?",
+          "say": "If video games were designed to be more educational, would young people still want to play them?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-90/p3-9.mp3",
+            "duration": 5.79
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Video games",
+          "text": "How might video games change the way people socialise in the future?",
+          "say": "How might video games change the way people socialise in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-90/p3-10.mp3",
+            "duration": 4.57
+          }
         }
       ]
     }

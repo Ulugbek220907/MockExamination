@@ -261,6 +261,54 @@
             "src": "audio/speaking-26/p3-6.mp3",
             "duration": 2.93
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Protecting water",
+          "text": "Why do you think people sometimes care less about the environment when it is far from their home?",
+          "say": "Why do you think people sometimes care less about the environment when it is far from their home?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-26/p3-7.mp3",
+            "duration": 5.28
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Protecting water",
+          "text": "Should industries that pollute water be forced to pay for cleaning it up?",
+          "say": "Should industries that pollute water be forced to pay for cleaning it up?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-26/p3-8.mp3",
+            "duration": 4.3
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Protecting water",
+          "text": "If fresh water became very expensive, how might people's habits change?",
+          "say": "If fresh water became very expensive, how might people's habits change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-26/p3-9.mp3",
+            "duration": 4.98
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Protecting water",
+          "text": "How might a shortage of clean water affect relations between countries in the future?",
+          "say": "How might a shortage of clean water affect relations between countries in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-26/p3-10.mp3",
+            "duration": 5.34
+          }
         }
       ]
     }

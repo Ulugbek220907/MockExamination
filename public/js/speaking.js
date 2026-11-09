@@ -324,7 +324,8 @@
      ==================================================================== */
   function buildSteps(test) {
     const steps = [];
-    test.parts.forEach((part) => part.questions.forEach((q, i) => steps.push({ part, q, index: i })));
+    // The questions marked adaptiveOnly are for the AI examiner alone (it asks them when the candidate is speaking well).
+    test.parts.forEach((part) => part.questions.forEach((q, i) => { if (!q.adaptiveOnly) steps.push({ part, q, index: i }); }));
     return steps;
   }
 
@@ -335,6 +336,7 @@
       this.steps = buildSteps(this.test);
       this.step = saved ? Math.max(0, Math.min(saved.step || 0, this.steps.length - 1)) : 0;
       this.submissionId = saved ? saved.submissionId : null;
+      this.savedKey = saved ? saved.key || null : null;  // the question the candidate was on (a test that adapts has no fixed numbering)
       this.notes = saved ? saved.notes || "" : "";
       this.cancelled = false;
       this.waiters = new Set();
@@ -412,7 +414,8 @@
     }
 
     progressData() {
-      return { submissionId: this.submissionId, step: this.step, notes: this.notes };
+      const current = this.steps[this.step];
+      return { submissionId: this.submissionId, step: this.step, key: current ? current.q.key : null, notes: this.notes };
     }
 
     renderPartTabs() {
@@ -462,7 +465,7 @@
       const { part, q } = step;
       $("sp-part").textContent = `Part ${part.partNumber}`;
       $("sp-part-title").textContent = part.title || "";
-      const inPart = part.questions.length;
+      const inPart = this.steps.filter((x) => x.part === part).length;
       $("sp-count").textContent = q.type === "long_turn" ? "Long turn" : `Question ${step.index + 1} of ${inPart}`;
       this.renderPartTabs();
       this.renderQuestionText(step, this.mode === "practice");

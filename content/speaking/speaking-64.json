@@ -261,6 +261,54 @@
             "src": "audio/speaking-64/p3-6.mp3",
             "duration": 3.59
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Teamwork at work",
+          "text": "What can leaders do to help a team with very different personalities to work well together?",
+          "say": "What can leaders do to help a team with very different personalities to work well together?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-64/p3-7.mp3",
+            "duration": 5.15
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Teamwork at work",
+          "text": "Do you think people work harder in a team or on their own?",
+          "say": "Do you think people work harder in a team or on their own?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-64/p3-8.mp3",
+            "duration": 3.51
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Teamwork at work",
+          "text": "If everyone in a company worked alone, what might be lost?",
+          "say": "If everyone in a company worked alone, what might be lost?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-64/p3-9.mp3",
+            "duration": 3.57
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Teamwork at work",
+          "text": "How might teamwork change when colleagues live in different countries?",
+          "say": "How might teamwork change when colleagues live in different countries?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-64/p3-10.mp3",
+            "duration": 3.83
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-98/p3-6.mp3",
             "duration": 2.8
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Space exploration",
+          "text": "Why do you think people are curious about places they will probably never visit?",
+          "say": "Why do you think people are curious about places they will probably never visit?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-98/p3-7.mp3",
+            "duration": 5.02
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Space exploration",
+          "text": "Is it right to spend large sums on space when there are problems on Earth?",
+          "say": "Is it right to spend large sums on space when there are problems on Earth?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-98/p3-8.mp3",
+            "duration": 4.77
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Space exploration",
+          "text": "If life were discovered on another planet, how might people's attitudes change?",
+          "say": "If life were discovered on another planet, how might people's attitudes change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-98/p3-9.mp3",
+            "duration": 5.19
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Space exploration",
+          "text": "How might space travel change life on Earth in the future?",
+          "say": "How might space travel change life on Earth in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-98/p3-10.mp3",
+            "duration": 4.06
+          }
         }
       ]
     }

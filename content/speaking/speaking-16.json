@@ -261,6 +261,54 @@
             "src": "audio/speaking-16/p3-6.mp3",
             "duration": 4.15
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Decisions at work",
+          "text": "How does experience affect the quality of the decisions that people make?",
+          "say": "How does experience affect the quality of the decisions that people make?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-16/p3-7.mp3",
+            "duration": 4.7
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Decisions at work",
+          "text": "Is it better to make a quick decision or to wait until you have all the information? Why?",
+          "say": "Is it better to make a quick decision or to wait until you have all the information? Why?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-16/p3-8.mp3",
+            "duration": 6.33
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Decisions at work",
+          "text": "If a company suffered because of a bad decision, who should take the responsibility?",
+          "say": "If a company suffered because of a bad decision, who should take the responsibility?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-16/p3-9.mp3",
+            "duration": 5.43
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Decisions at work",
+          "text": "How might artificial intelligence change the way important decisions are made in society?",
+          "say": "How might artificial intelligence change the way important decisions are made in society?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-16/p3-10.mp3",
+            "duration": 6.05
+          }
         }
       ]
     }

@@ -249,6 +249,66 @@
             "src": "audio/speaking-02/p3-5.mp3",
             "duration": 4.49
           }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Learning and skills",
+          "text": "Why do some people learn new skills more quickly than others?",
+          "say": "Why do some people learn new skills more quickly than others?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-02/p3-6.mp3",
+            "duration": 3.76
+          }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Learning and skills",
+          "text": "Should employers pay for their staff to learn new skills, or is that the worker's own responsibility?",
+          "say": "Should employers pay for their staff to learn new skills, or is that the worker's own responsibility?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-02/p3-7.mp3",
+            "duration": 6.11
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Learning and skills",
+          "text": "How is learning a skill together with other people different from learning it alone?",
+          "say": "How is learning a skill together with other people different from learning it alone?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-02/p3-8.mp3",
+            "duration": 4.75
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Learning and skills",
+          "text": "If you could change one thing about the way people learn skills in your country, what would it be?",
+          "say": "If you could change one thing about the way people learn skills in your country, what would it be?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-02/p3-9.mp3",
+            "duration": 5.49
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Learning and skills",
+          "text": "As technology develops, do you think some traditional skills will be lost? How much would that matter?",
+          "say": "As technology develops, do you think some traditional skills will be lost? How much would that matter?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-02/p3-10.mp3",
+            "duration": 6.78
+          }
         }
       ]
     }

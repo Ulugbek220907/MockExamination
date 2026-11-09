@@ -261,6 +261,54 @@
             "src": "audio/speaking-88/p3-6.mp3",
             "duration": 4.34
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "The music industry",
+          "text": "How has the way people discover new music changed in recent years?",
+          "say": "How has the way people discover new music changed in recent years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-88/p3-7.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "The music industry",
+          "text": "Do you think music from different countries helps people to understand each other?",
+          "say": "Do you think music from different countries helps people to understand each other?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-88/p3-8.mp3",
+            "duration": 5.19
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "The music industry",
+          "text": "If all music were free, how might that affect the music that artists create?",
+          "say": "If all music were free, how might that affect the music that artists create?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-88/p3-9.mp3",
+            "duration": 5.36
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "The music industry",
+          "text": "How might artificial intelligence change the way music is made and enjoyed?",
+          "say": "How might artificial intelligence change the way music is made and enjoyed?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-88/p3-10.mp3",
+            "duration": 5.83
+          }
         }
       ]
     }

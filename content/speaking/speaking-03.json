@@ -249,6 +249,66 @@
             "src": "audio/speaking-03/p3-5.mp3",
             "duration": 5.07
           }
+        },
+        {
+          "key": "p3-6",
+          "topic": "Role models and influence",
+          "text": "Why do some people become role models without wanting to?",
+          "say": "Why do some people become role models without wanting to?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-03/p3-6.mp3",
+            "duration": 4.15
+          }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Role models and influence",
+          "text": "Is it fair to expect public figures to behave perfectly in their private lives?",
+          "say": "Is it fair to expect public figures to behave perfectly in their private lives?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-03/p3-7.mp3",
+            "duration": 5.28
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Role models and influence",
+          "text": "In what ways can a person's influence on others be harmful as well as helpful?",
+          "say": "In what ways can a person's influence on others be harmful as well as helpful?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-03/p3-8.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Role models and influence",
+          "text": "Do you think the qualities that people admire in others have changed over the past fifty years?",
+          "say": "Do you think the qualities that people admire in others have changed over the past fifty years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-03/p3-9.mp3",
+            "duration": 6.11
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Role models and influence",
+          "text": "If young people admired only the people they saw online, what effect might that have on society?",
+          "say": "If young people admired only the people they saw online, what effect might that have on society?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-03/p3-10.mp3",
+            "duration": 6.6
+          }
         }
       ]
     }

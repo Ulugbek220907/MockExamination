@@ -261,6 +261,54 @@
             "src": "audio/speaking-75/p3-6.mp3",
             "duration": 3.42
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "The sharing economy",
+          "text": "Do you think sharing things helps to build a stronger community?",
+          "say": "Do you think sharing things helps to build a stronger community?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-75/p3-7.mp3",
+            "duration": 3.93
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "The sharing economy",
+          "text": "How might sharing services affect traditional businesses such as hotels and taxis?",
+          "say": "How might sharing services affect traditional businesses such as hotels and taxis?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-75/p3-8.mp3",
+            "duration": 5.6
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "The sharing economy",
+          "text": "If nobody owned a car and everyone shared, how might cities be different?",
+          "say": "If nobody owned a car and everyone shared, how might cities be different?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-75/p3-9.mp3",
+            "duration": 4.55
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "The sharing economy",
+          "text": "How might ideas about ownership change over the next fifty years?",
+          "say": "How might ideas about ownership change over the next fifty years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-75/p3-10.mp3",
+            "duration": 4.21
+          }
         }
       ]
     }

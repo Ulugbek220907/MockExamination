@@ -261,6 +261,54 @@
             "src": "audio/speaking-09/p3-6.mp3",
             "duration": 3.61
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Children and nature",
+          "text": "Why do some children today seem less interested in the natural world than children in the past?",
+          "say": "Why do some children today seem less interested in the natural world than children in the past?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-09/p3-7.mp3",
+            "duration": 5.96
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Children and nature",
+          "text": "Do you think contact with nature has any effect on people's mental health? In what way?",
+          "say": "Do you think contact with nature has any effect on people's mental health? In what way?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-09/p3-8.mp3",
+            "duration": 6.18
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Children and nature",
+          "text": "If you were responsible for designing a school, how would you bring nature into it?",
+          "say": "If you were responsible for designing a school, how would you bring nature into it?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-09/p3-9.mp3",
+            "duration": 4.89
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Children and nature",
+          "text": "How might growing cities change the relationship between people and nature in the future?",
+          "say": "How might growing cities change the relationship between people and nature in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-09/p3-10.mp3",
+            "duration": 5.66
+          }
         }
       ]
     }

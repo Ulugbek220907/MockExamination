@@ -261,6 +261,54 @@
             "src": "audio/speaking-34/p3-6.mp3",
             "duration": 3.25
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Food and convenience",
+          "text": "Do you think convenience is becoming more important to people than the quality of the food they eat?",
+          "say": "Do you think convenience is becoming more important to people than the quality of the food they eat?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-34/p3-7.mp3",
+            "duration": 6.41
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Food and convenience",
+          "text": "Who should be responsible for making sure children eat a healthy diet: parents, schools or the government?",
+          "say": "Who should be responsible for making sure children eat a healthy diet: parents, schools or the government?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-34/p3-8.mp3",
+            "duration": 7.2
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Food and convenience",
+          "text": "If every meal could be made by a machine at home, what might people lose?",
+          "say": "If every meal could be made by a machine at home, what might people lose?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-34/p3-9.mp3",
+            "duration": 4.75
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Food and convenience",
+          "text": "How might the way we produce and sell food change if more people live in cities?",
+          "say": "How might the way we produce and sell food change if more people live in cities?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-34/p3-10.mp3",
+            "duration": 5.56
+          }
         }
       ]
     }

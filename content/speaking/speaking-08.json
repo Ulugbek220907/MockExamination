@@ -261,6 +261,54 @@
             "src": "audio/speaking-08/p3-6.mp3",
             "duration": 3.42
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Family traditions",
+          "text": "How can families keep traditions alive when the younger generation moves to other cities or countries?",
+          "say": "How can families keep traditions alive when the younger generation moves to other cities or countries?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-08/p3-7.mp3",
+            "duration": 6.26
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Family traditions",
+          "text": "Do you think traditions are more important to families who live far from their home country?",
+          "say": "Do you think traditions are more important to families who live far from their home country?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-08/p3-8.mp3",
+            "duration": 4.98
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Family traditions",
+          "text": "If a tradition is no longer useful, is it still worth keeping? Why or why not?",
+          "say": "If a tradition is no longer useful, is it still worth keeping? Why or why not?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-08/p3-9.mp3",
+            "duration": 5.69
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Family traditions",
+          "text": "What role should schools play in teaching children about the traditions of their culture?",
+          "say": "What role should schools play in teaching children about the traditions of their culture?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-08/p3-10.mp3",
+            "duration": 4.75
+          }
         }
       ]
     }

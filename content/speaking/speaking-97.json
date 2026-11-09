@@ -261,6 +261,54 @@
             "src": "audio/speaking-97/p3-6.mp3",
             "duration": 3.06
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Science and research",
+          "text": "Why might it be difficult to know whether a new invention will be good for society?",
+          "say": "Why might it be difficult to know whether a new invention will be good for society?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-97/p3-7.mp3",
+            "duration": 5.19
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Science and research",
+          "text": "Do you think scientists should have the freedom to research anything they wish?",
+          "say": "Do you think scientists should have the freedom to research anything they wish?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-97/p3-8.mp3",
+            "duration": 4.68
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Science and research",
+          "text": "If you could make sure that one problem was solved by science within ten years, which would you choose?",
+          "say": "If you could make sure that one problem was solved by science within ten years, which would you choose?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-97/p3-9.mp3",
+            "duration": 6.56
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Science and research",
+          "text": "How might scientific discoveries change the way people live over the next century?",
+          "say": "How might scientific discoveries change the way people live over the next century?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-97/p3-10.mp3",
+            "duration": 5.62
+          }
         }
       ]
     }

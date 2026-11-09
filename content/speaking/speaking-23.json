@@ -261,6 +261,54 @@
             "src": "audio/speaking-23/p3-6.mp3",
             "duration": 3.98
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Festivals and tourism",
+          "text": "How do festivals bring together people who would not normally meet?",
+          "say": "How do festivals bring together people who would not normally meet?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-23/p3-7.mp3",
+            "duration": 4.32
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Festivals and tourism",
+          "text": "Should local communities have the right to limit the number of visitors to their festivals?",
+          "say": "Should local communities have the right to limit the number of visitors to their festivals?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-23/p3-8.mp3",
+            "duration": 5.39
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Festivals and tourism",
+          "text": "If a traditional festival changed in order to attract more tourists, would that be a good or a bad thing?",
+          "say": "If a traditional festival changed in order to attract more tourists, would that be a good or a bad thing?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-23/p3-9.mp3",
+            "duration": 6.6
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Festivals and tourism",
+          "text": "How might festivals look different in the future as people spend more time online?",
+          "say": "How might festivals look different in the future as people spend more time online?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-23/p3-10.mp3",
+            "duration": 5.3
+          }
         }
       ]
     }

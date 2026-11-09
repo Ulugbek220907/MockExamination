@@ -261,6 +261,54 @@
             "src": "audio/speaking-59/p3-6.mp3",
             "duration": 3.85
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Time and technology",
+          "text": "Why do some people feel that time passes faster as they get older?",
+          "say": "Why do some people feel that time passes faster as they get older?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-59/p3-7.mp3",
+            "duration": 4.72
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Time and technology",
+          "text": "Is it better to plan every day carefully or to leave time free for the unexpected?",
+          "say": "Is it better to plan every day carefully or to leave time free for the unexpected?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-59/p3-8.mp3",
+            "duration": 5.49
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Time and technology",
+          "text": "If the working day were shortened by two hours, how might people use the time?",
+          "say": "If the working day were shortened by two hours, how might people use the time?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-59/p3-9.mp3",
+            "duration": 4.89
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Time and technology",
+          "text": "How might people's attitude to time change as technology makes everything faster?",
+          "say": "How might people's attitude to time change as technology makes everything faster?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-59/p3-10.mp3",
+            "duration": 5.56
+          }
         }
       ]
     }

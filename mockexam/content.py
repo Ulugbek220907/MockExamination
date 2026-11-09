@@ -262,6 +262,17 @@ def speaking_questions(test):
             yield part, q
 
 
+def fixed_speaking_questions(test):
+    """
+    The questions of the test as it is taken without the adaptive AI examiner (practice, no AI key, SPEAKING_ADAPTIVE=0).
+    The questions marked "adaptiveOnly" are extra Part 3 questions that only the adaptive examiner may ask, when the
+    candidate is speaking well, so that every other way of taking the test keeps its usual length.
+    """
+    for part, q in speaking_questions(test):
+        if not q.get("adaptiveOnly"):
+            yield part, q
+
+
 def public_test(test):
     module = test.get("module", "reading")
     if module == "writing":
@@ -331,7 +342,7 @@ def summarize_test(test):
         summary["totalQuestions"] = test.get("totalQuestions", 40)
         summary["parts"] = [{"number": p["partNumber"], "title": p.get("title", "")} for p in test.get("parts", [])]
     elif module == "speaking":
-        summary["totalQuestions"] = sum(1 for _ in speaking_questions(test))
+        summary["totalQuestions"] = sum(1 for _ in fixed_speaking_questions(test))
         summary["parts"] = [{"number": p["partNumber"], "title": p.get("title", ""),
                              "topics": p.get("topics") or ([p["cueCard"]["topic"]] if p.get("cueCard") else [])}
                             for p in test.get("parts", [])]
@@ -569,7 +580,16 @@ def validate_speaking_test(test, public_dir=None):
                 errors.append(f"{where}: missing {field}")
         if not 10 <= int(q.get("answerSeconds") or 0) <= 180:
             errors.append(f"{where}: answerSeconds must be 10-180")
+        if "adaptiveOnly" in q and q["adaptiveOnly"] is not True:
+            errors.append(f"{where}: adaptiveOnly is either true or left out")
         clips.append((where, q))
+    # The adaptive examiner asks the questions of Parts 1 and 3 in order, so the ones kept for it come last in their part.
+    for part in test["parts"]:
+        flags = [bool(q.get("adaptiveOnly")) for q in part.get("questions", [])]
+        if flags != sorted(flags):
+            errors.append(f"{tid} Part {part.get('partNumber')}: adaptiveOnly questions must come after the others")
+        if part.get("partNumber") == 2 and any(flags):
+            errors.append(f"{tid} Part 2: the cue card and its follow-up are always asked (no adaptiveOnly)")
     if len(keys) != len(set(keys)):
         errors.append(f"{tid}: duplicate question keys")
     part2 = next((p for p in test["parts"] if p.get("partNumber") == 2), {})

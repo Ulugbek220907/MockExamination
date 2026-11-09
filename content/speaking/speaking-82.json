@@ -261,6 +261,54 @@
             "src": "audio/speaking-82/p3-6.mp3",
             "duration": 4.47
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Protecting the environment",
+          "text": "Why do people often know about environmental problems but not change their behaviour?",
+          "say": "Why do people often know about environmental problems but not change their behaviour?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-82/p3-7.mp3",
+            "duration": 5.45
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Protecting the environment",
+          "text": "Do you think richer countries have a greater responsibility to protect the environment?",
+          "say": "Do you think richer countries have a greater responsibility to protect the environment?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-82/p3-8.mp3",
+            "duration": 5.28
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Protecting the environment",
+          "text": "If everyone had to pay a tax on the pollution they cause, how might life change?",
+          "say": "If everyone had to pay a tax on the pollution they cause, how might life change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-82/p3-9.mp3",
+            "duration": 5.04
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Protecting the environment",
+          "text": "How might the environment of your country look in fifty years if nothing changed?",
+          "say": "How might the environment of your country look in fifty years if nothing changed?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-82/p3-10.mp3",
+            "duration": 4.94
+          }
         }
       ]
     }

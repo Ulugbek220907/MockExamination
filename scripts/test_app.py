@@ -47,7 +47,7 @@ os.environ["ADMIN_STATS_SECONDS"] = "0"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import accounts, analytics, api, auth, billing, checks, content, google_signin, notify, scoring, speaking, storage, web, writing  # noqa: E402
+from mockexam import accounts, analytics, api, auth, billing, checks, content, google_signin, notify, scoring, speaking, speaking_adaptive, storage, web, writing  # noqa: E402
 from mockexam.db import SqliteDb, iso, now, parse_time  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
@@ -238,8 +238,10 @@ class ContentTests(unittest.TestCase):
         self.assertGreaterEqual(len(SPEAKING), 3)
         for t in SPEAKING:
             keys = [q["key"] for _, q in content.speaking_questions(t)]
+            usual = [q["key"] for _, q in content.speaking_questions(t) if not q.get("adaptiveOnly")]
             self.assertEqual(len(keys), len(set(keys)))
-            self.assertEqual(content.summarize_test(t)["totalQuestions"], len(keys))
+            self.assertLess(len(usual), len(keys))
+            self.assertEqual(content.summarize_test(t)["totalQuestions"], len(usual))   # the list shows the usual test
             for _, q in content.speaking_questions(t):
                 self.assertTrue(os.path.getsize(os.path.join(PUBLIC_DIR, q["audio"]["src"])) > 1000, q["key"])
         broken = json.loads(json.dumps(SPEAKING[0]))
@@ -247,6 +249,38 @@ class ContentTests(unittest.TestCase):
         broken["parts"][0]["questions"][1]["key"] = broken["parts"][0]["questions"][0]["key"]
         errors = content.validate_speaking_test(broken)
         self.assertTrue(any("cue card" in e for e in errors) and any("duplicate" in e for e in errors), errors)
+
+    def test_every_speaking_test_has_room_for_the_adaptive_examiner(self):
+        """The AI examiner asks 7-9 questions in Part 1 and 3-10 in Part 3, so every test needs that many, voiced."""
+        for t in SPEAKING:
+            parts = {p["partNumber"]: p["questions"] for p in t["parts"]}
+            self.assertGreaterEqual(len(parts[1]), speaking_adaptive.PART1_MAX, t["id"])
+            self.assertGreaterEqual(len(parts[3]), speaking_adaptive.PART3_MAX, t["id"])
+            self.assertEqual([q["key"] for q in parts[1]], [f"p1-{i}" for i in range(1, len(parts[1]) + 1)], t["id"])
+            self.assertEqual([q["key"] for q in parts[3]], [f"p3-{i}" for i in range(1, len(parts[3]) + 1)], t["id"])
+            # Without the adaptive examiner (practice, no AI key) the test keeps its usual length: the extra questions are its own.
+            usual3 = [q for q in parts[3] if not q.get("adaptiveOnly")]
+            self.assertIn(len(usual3), (5, 6), t["id"])
+            self.assertEqual(len(parts[1]), 10, t["id"])
+            self.assertEqual([q["key"] for q in usual3], [q["key"] for q in parts[3][:len(usual3)]], t["id"])
+            self.assertEqual(content.validate_speaking_test(t, PUBLIC_DIR), [], t["id"])
+
+    def test_adaptive_only_questions_are_checked(self):
+        t = json.loads(json.dumps(SPEAKING[0]))
+        part3 = t["parts"][2]["questions"]
+        self.assertTrue(part3[-1].get("adaptiveOnly"))
+        self.assertEqual(content.validate_speaking_test(t), [])
+        mixed = json.loads(json.dumps(t))
+        mixed["parts"][2]["questions"].insert(0, mixed["parts"][2]["questions"].pop())        # an extra one first
+        self.assertTrue(any("adaptiveOnly questions must come after" in e for e in content.validate_speaking_test(mixed)))
+        cue = json.loads(json.dumps(t))
+        cue["parts"][1]["questions"][-1]["adaptiveOnly"] = True                               # the follow-up is always asked
+        self.assertTrue(any("Part 2" in e and "adaptiveOnly" in e for e in content.validate_speaking_test(cue)))
+        odd = json.loads(json.dumps(t))
+        odd["parts"][2]["questions"][-1]["adaptiveOnly"] = "yes"
+        self.assertTrue(any("either true or left out" in e for e in content.validate_speaking_test(odd)))
+        self.assertEqual([q["key"] for _, q in content.fixed_speaking_questions(t)],
+                         [q["key"] for _, q in content.speaking_questions(t) if q["key"] not in {x["key"] for x in part3 if x.get("adaptiveOnly")}])
 
     def test_public_writing_view_has_no_model_answers(self):
         for t in WRITING:
@@ -1678,6 +1712,454 @@ class NotificationTests(AccountApiBase):
             self.assertFalse(notify.send_email("a@example.com", "Hi", "Text"))
             self.assertFalse(notify.send_telegram("Hi"))
         self.assertEqual(self.sent, [])
+
+
+# --------------------------------------------------------------------------------------------------
+# The adaptive Speaking test (mockexam/speaking_adaptive.py): the AI examiner asks more or fewer questions in Parts 1
+# and 3 from how the candidate speaks.
+# --------------------------------------------------------------------------------------------------
+
+def analysis(band=6, words=45, relevance="answers the question", rec="r", speaking_time=20, **notes):
+    """What speaking_ai.analyse_answer gives for one answer, with all four criteria at `band`."""
+    bands = {k: band for k in ("fluency_coherence", "lexical_resource", "grammar", "pronunciation")}
+    return {"rec": rec, "notes": {"bands": bands, "relevance": relevance, "english": True, **notes},
+            "stats": {"words": words, "speakingTime": speaking_time}}
+
+
+def synthetic_speaking_test(part1=10, part3=10):
+    """A test shaped like the real ones (a Part 2 long turn and its follow-up) with as many questions as asked for."""
+    def part(number, keys, **extra):
+        return {"partNumber": number, "title": f"Part {number}", "questions": [{"key": k, "text": k, "say": k, "answerSeconds": 30} for k in keys], **extra}
+    p2 = part(2, ["p2-talk", "p2-follow"])
+    p2["questions"][0]["type"] = "long_turn"
+    return {"id": "speaking-synthetic", "module": "speaking", "parts": [
+        part(1, [f"p1-{i}" for i in range(1, part1 + 1)]), p2, part(3, [f"p3-{i}" for i in range(1, part3 + 1)])]}
+
+
+class SpeakingAdaptivePolicyTests(unittest.TestCase):
+    """How performance becomes a number of questions (no database, no AI)."""
+
+    def setUp(self):
+        self.test = synthetic_speaking_test()
+
+    def records(self, band, upto_part1=0, part2=False, upto_part3=0, **kw):
+        out = {f"p1-{i}": analysis(band, rec=f"r{i}", **kw) for i in range(1, upto_part1 + 1)}
+        if part2:
+            out["p2-talk"] = analysis(band, rec="r-talk", speaking_time=90, **kw)
+        out.update({f"p3-{i}": analysis(band, rec=f"r3{i}", **kw) for i in range(1, upto_part3 + 1)})
+        return out
+
+    def test_one_answer_is_judged_from_what_the_examiner_heard(self):
+        self.assertEqual(speaking_adaptive.answer_band(analysis(6)), 6.0)
+        self.assertEqual(speaking_adaptive.answer_band({"notes": {"bands": {"a": 5, "b": 6, "c": 7, "d": 6}}, "stats": {"words": 20}}), 6.0)
+        self.assertEqual(speaking_adaptive.answer_band(analysis(8, relevance="partly answers")), 7.5)
+        self.assertEqual(speaking_adaptive.answer_band(analysis(8, relevance="off topic")), 4.0)
+        self.assertEqual(speaking_adaptive.answer_band(analysis(7, english=False)), 3.0)
+        self.assertEqual(speaking_adaptive.answer_band(analysis(7, relevance="no answer")), speaking_adaptive.NO_ANSWER_BAND)
+        self.assertEqual(speaking_adaptive.answer_band(analysis(7, words=0)), speaking_adaptive.NO_ANSWER_BAND)
+        self.assertIsNone(speaking_adaptive.answer_band({"error": True}))
+        self.assertIsNone(speaking_adaptive.answer_band({"notes": {"bands": {}}, "stats": {"words": 30}}))
+        self.assertIsNone(speaking_adaptive.answer_band(None))
+
+    def test_longer_answers_and_the_long_turn_count_more(self):
+        w = speaking_adaptive.answer_weight
+        self.assertLess(w(analysis(words=5), 1), w(analysis(words=30), 1))
+        self.assertEqual(w(analysis(words=300), 1), 1.5)       # but not without limit
+        self.assertEqual(w(analysis(words=0), 3), 0.35)        # and an empty answer still counts a little
+        self.assertGreater(w(analysis(speaking_time=90), 2, long_turn=True), 1.5)      # more than any ordinary answer
+        self.assertLess(w(analysis(speaking_time=10), 2, long_turn=True), w(analysis(speaking_time=90), 2, long_turn=True))
+
+    def test_a_single_answer_cannot_decide_the_test(self):
+        band, n = speaking_adaptive.weighted_band([(9.0, 1.0)])
+        self.assertLess(band, 8.0)
+        self.assertEqual(n, 1)
+        self.assertEqual(speaking_adaptive.weighted_band([(7.0, 1.0)] * 10)[0], 7.0)
+        self.assertEqual(speaking_adaptive.weighted_band([]), (None, 0))
+        self.assertEqual(speaking_adaptive.weighted_band([(None, 1.0)]), (None, 0))
+
+    def test_part1_has_7_8_or_9_questions(self):
+        t = speaking_adaptive.part1_target
+        self.assertEqual([t(b, 6) for b in (3.0, 4.5, 5.0)], [7, 7, 7])
+        self.assertEqual([t(b, 6) for b in (5.5, 6.0, 6.5)], [8, 8, 8])
+        self.assertEqual([t(b, 6) for b in (7.0, 8.0, 9.0)], [9, 9, 9])
+        self.assertEqual(t(8.0, 2), 7)       # too little evidence to ask for more
+        self.assertEqual(t(None, 0), 7)
+
+    def test_part3_stops_at_3_when_weak_and_goes_up_to_10_when_strong(self):
+        t = speaking_adaptive.part3_target
+        self.assertEqual([t(b, 8) for b in (2.0, 4.0, 4.5, 5.0)], [3, 3, 3, 3])     # "band 4-5: we stop"
+        self.assertEqual([t(b, 8) for b in (5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0)], [4, 5, 6, 7, 8, 9, 10, 10])
+        self.assertEqual(t(None, 0), speaking_adaptive.PART3_UNKNOWN)
+        self.assertEqual(t(9.0, 1), speaking_adaptive.PART3_UNKNOWN)               # one answer proves nothing
+
+    def test_the_plan_starts_with_7_and_3(self):
+        state = speaking_adaptive.initial_state(self.test)
+        self.assertEqual(state["plan"], {"part1": 7, "part3": 3})
+        keys = speaking_adaptive.plan_keys(self.test, state["plan"])
+        self.assertEqual(keys, [f"p1-{i}" for i in range(1, 8)] + ["p2-talk", "p2-follow", "p3-1", "p3-2", "p3-3"])
+        short = synthetic_speaking_test(part1=6, part3=2)
+        self.assertEqual(speaking_adaptive.initial_state(short)["plan"], {"part1": 6, "part3": 2})
+
+    def play(self, band, test=None, **kw):
+        """Answer the test as a candidate of this level, deciding after each answer; returns the final plan."""
+        test = test or self.test
+        plan = speaking_adaptive.initial_state(test)["plan"]
+        asked = []
+        for _ in range(60):
+            keys = speaking_adaptive.plan_keys(test, plan)
+            nxt = next((k for k in keys if k not in asked), None)
+            if nxt is None:
+                break
+            asked.append(nxt)
+            answered = {k: analysis(band, rec=f"r-{k}", speaking_time=90 if k == "p2-talk" else 20, **kw) for k in asked[:-1]}  # the newest answer is still being analysed
+            plan, _ = speaking_adaptive.decide(test, plan, nxt, answered)
+        return plan, asked
+
+    def test_a_weak_candidate_gets_the_short_test(self):
+        plan, asked = self.play(4)
+        self.assertEqual(plan, {"part1": 7, "part3": 3})
+        self.assertEqual(len(asked), 7 + 2 + 3)
+
+    def test_a_fair_candidate_gets_a_middle_test(self):
+        plan, _ = self.play(6)
+        self.assertEqual(plan["part1"], 8)
+        self.assertEqual(plan["part3"], 5)
+
+    def test_a_strong_candidate_gets_the_longest_test(self):
+        plan, asked = self.play(8)
+        self.assertEqual(plan, {"part1": 9, "part3": 9})   # 8 is 7.7 after the doubt, so 9 questions in Part 3
+        plan, asked = self.play(9)
+        self.assertEqual(plan, {"part1": 9, "part3": 10})
+        self.assertEqual(len(asked), 9 + 2 + 10)
+
+    def test_an_unknown_level_gets_the_ordinary_test(self):
+        state = speaking_adaptive.initial_state(self.test)["plan"]
+        plan, note = speaking_adaptive.decide(self.test, state, "p1-7", {})      # nothing analysed yet
+        self.assertEqual((plan["part1"], note["more"]), (7, False))
+        plan, note = speaking_adaptive.decide(self.test, state, "p3-3", {})
+        self.assertEqual((plan["part3"], note["more"]), (4, True))              # ask on towards 5
+        plan, note = speaking_adaptive.decide(self.test, {"part1": 7, "part3": 5}, "p3-5", {})
+        self.assertEqual((plan["part3"], note["more"]), (5, False))
+
+    def test_only_the_last_planned_question_of_a_part_asks_for_more(self):
+        records = self.records(8, upto_part1=6, part2=True, upto_part3=2)
+        state = speaking_adaptive.initial_state(self.test)["plan"]
+        for after in ("p1-3", "p1-6", "p2-talk", "p3-1", "p3-2", "p1-9", "nonsense", None):
+            plan, note = speaking_adaptive.decide(self.test, state, after, records)
+            self.assertEqual((plan, note), (state, None), after)
+
+    def test_asking_twice_adds_one_question_not_two(self):
+        records = self.records(8, upto_part1=6)
+        plan, note = speaking_adaptive.decide(self.test, speaking_adaptive.initial_state(self.test)["plan"], "p1-7", records)
+        self.assertEqual((plan["part1"], note["more"]), (8, True))
+        again, note = speaking_adaptive.decide(self.test, plan, "p1-7", records)   # the same answer, asked again
+        self.assertEqual((again["part1"], note), (8, None))
+
+    def test_the_plan_never_goes_beyond_the_questions_the_test_has(self):
+        short = synthetic_speaking_test(part1=8, part3=5)
+        plan, asked = self.play(9, test=short)
+        self.assertEqual(plan, {"part1": 8, "part3": 5})
+
+    def test_a_candidate_who_fades_in_part_3_is_stopped_early(self):
+        base = self.records(8, upto_part1=7, part2=True, upto_part3=3)
+        plan, _ = speaking_adaptive.decide(self.test, {"part1": 7, "part3": 3}, "p3-3", base)
+        self.assertEqual(plan["part3"], 4)             # a strong start: ask on
+        records = dict(base)
+        for n in range(4, 11):                         # then every new answer is poor
+            records[f"p3-{n}"] = analysis(3, rec=f"x{n}")
+            plan, note = speaking_adaptive.decide(self.test, plan, f"p3-{plan['part3']}", records)
+            if note and not note["more"]:
+                break
+        self.assertLess(plan["part3"], 9)              # a candidate who stayed strong gets 9
+
+    def test_which_questions_count_in_the_rating(self):
+        state = {"plan": {"part1": 8, "part3": 4}}
+        asked = speaking_adaptive.asked_keys(self.test, state)
+        self.assertEqual(len(asked), 8 + 2 + 4)
+        self.assertNotIn("p1-9", asked)
+        self.assertNotIn("p3-5", asked)
+        self.assertEqual(len(speaking_adaptive.asked_keys(self.test, None)), 10 + 2 + 10)  # a test that did not adapt: all
+
+    def test_the_summary_says_how_the_test_went(self):
+        state = {"plan": {"part1": 8, "part3": 3}}
+        out = speaking_adaptive.summary(self.test, state, self.records(6, upto_part1=8, part2=True, upto_part3=3))
+        self.assertEqual((out["part1Questions"], out["part3Questions"], out["part3Core"], out["part3Most"]), (8, 3, 3, 10))
+        self.assertEqual(sorted(out["parts"]), ["1", "2", "3"])
+        self.assertNotIn("transcript", json.dumps(out))   # nothing a candidate said is in the summary
+
+
+class SpeakingAdaptiveApiTests(AccountApiBase):
+    """A whole AI-examiner test through the HTTP API: the examiner asks more or fewer questions from how the candidate speaks."""
+
+    SAY = ("I really enjoy living in a quiet neighbourhood because it gives me time to relax after a long day and my neighbours "
+           "are friendly so I often stop to chat with them in the evening and sometimes we even have dinner together at weekends "
+           "which makes the whole street feel like a small village")
+
+    def setUp(self):
+        super().setUp()
+        self.calls, self.band = [], 6
+        self.speech = make_wav([(0.8, False), (5.0, True), (0.5, False)])
+
+    def fake_post(self, body, timeout):
+        self.calls.append(body)
+        name = body["response_format"]["json_schema"]["name"]
+        if name == "speaking_answer":
+            payload = {**SpeakingAiTests.LISTEN, "transcript": self.SAY, "pronunciationWords": [],
+                       "bands": {k: self.band for k in SpeakingAiTests.LISTEN["bands"]}}
+        else:
+            payload = SpeakingAiTests.MARK
+        return {"model": "google/gemini-3.8-flash", "choices": [{"finish_reason": "stop", "message": {"content": json.dumps(payload)}}]}
+
+    def listened(self):
+        return [c for c in self.calls if c["response_format"]["json_schema"]["name"] == "speaking_answer"]
+
+    def marked(self):
+        return [c for c in self.calls if c["response_format"]["json_schema"]["name"] == "speaking_assessment"]
+
+    def start(self, cookie, test):
+        r, data = self.call("POST", f"/api/speaking/{test['id']}/start", {"mode": "ai"}, cookie=cookie)
+        self.assertEqual(r.code, 200, data)
+        return data["submissionId"], data["plan"]
+
+    def answer(self, cookie, sub_id, key, body=None):
+        r = self.fetch(f"/api/speaking/submissions/{sub_id}/answers/{key}", method="POST", body=body or self.speech,
+                       headers={"Content-Type": "audio/wav", "X-Duration": "8", "Cookie": cookie})
+        self.assertEqual(r.code, 200, r.body)
+        speaking_adaptive.wait_for(sub_id, timeout=20)  # the analysis runs in the background; here we wait for it
+
+    def plan(self, cookie, sub_id, after=None):
+        r, data = self.call("POST", f"/api/speaking/submissions/{sub_id}/plan", {"after": after}, cookie=cookie)
+        self.assertEqual(r.code, 200, data)
+        return data["plan"]
+
+    def take(self, cookie, test, answer_all_extra=True):
+        """Take the test the way the browser does: answer, and ask for the plan at the end of what is planned."""
+        sub_id, plan = self.start(cookie, test)
+        asked = []
+        while True:
+            nxt = next((k for k in plan["keys"] if k not in asked), None)
+            if nxt is None:
+                break
+            self.answer(cookie, sub_id, nxt)
+            asked.append(nxt)
+            plan = self.plan(cookie, sub_id, nxt)
+        return sub_id, plan, asked
+
+    def finish(self, cookie, sub_id):
+        r, data = self.call("POST", f"/api/speaking/submissions/{sub_id}/complete", {"timeSpentSeconds": 900}, cookie=cookie)
+        self.assertEqual(r.code, 200, data)
+        for _ in range(200):
+            r, data = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=cookie)
+            review = data["submission"]["aiReview"]
+            if review["status"] in ("done", "error"):
+                return review
+            time.sleep(0.05)
+        self.fail("the review did not finish")
+
+    def test_a_strong_candidate_gets_more_questions_in_parts_1_and_3(self):
+        t = SPEAKING[0]
+        # Band 8 earns 9 questions in Part 3 (10 needs 8.5), as far as the test has them.
+        most3 = min(speaking_adaptive.part3_target(8.0, 9), len(speaking_adaptive.part_keys(t, 3)))
+        self.assertEqual(most3, 9)
+        cookie, _ = self.login("adaptive.strong@example.com")
+        self.band = 8
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post):
+            sub_id, plan, asked = self.take(cookie, t)
+            review = self.finish(cookie, sub_id)
+        self.assertEqual(review["status"], "done", review)
+        self.assertEqual(review["adaptive"]["part1Questions"], 9)
+        self.assertEqual(review["adaptive"]["part3Questions"], most3)
+        self.assertEqual(len(asked), 9 + 2 + most3)
+        # Every answer was listened to once, while the test was running, and the rating reused that.
+        self.assertEqual(len(self.listened()), len(asked))
+        self.assertEqual(len(self.marked()), 1)
+        message = self.marked()[0]["messages"][1]["content"]
+        self.assertIn(f"9 questions in Part 1 and {most3} in Part 3", message)
+        self.assertEqual({a["key"] for a in review["answers"]}, set(asked))
+
+    def test_a_weak_candidate_gets_the_short_test(self):
+        t = SPEAKING[1]
+        cookie, _ = self.login("adaptive.weak@example.com")
+        self.band = 4
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post):
+            sub_id, plan, asked = self.take(cookie, t)
+            review = self.finish(cookie, sub_id)
+        self.assertEqual((plan["part1"], plan["part3"]), (7, 3))
+        self.assertEqual(len(asked), 7 + 2 + 3)
+        self.assertEqual((review["adaptive"]["part1Questions"], review["adaptive"]["part3Questions"]), (7, 3))
+        self.assertEqual(len(self.listened()), 12)
+        self.assertIn("7 questions in Part 1 and 3 in Part 3", self.marked()[0]["messages"][1]["content"])
+        not_asked = {q["key"] for _, q in content.speaking_questions(t)} - set(asked)
+        self.assertTrue(not_asked)                                       # the questions the weak candidate was spared
+        self.assertFalse(not_asked & {a["key"] for a in review["answers"]})
+        self.assertNotIn("no answer was recorded", self.marked()[0]["messages"][1]["content"])
+
+    def test_a_slow_model_is_waited_for_when_there_is_too_little_to_go_on(self):
+        t = SPEAKING[1]
+        cookie, _ = self.login("adaptive.slow@example.com")
+        self.band = 8
+        slow_for = {"on": False}
+        real = self.fake_post
+
+        def slow(body, timeout):
+            if slow_for["on"] and body["response_format"]["json_schema"]["name"] == "speaking_answer":
+                time.sleep(0.6)
+            return real(body, timeout)
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", slow):
+            sub_id, plan = self.start(cookie, t)
+            for key in plan["keys"][:6]:                                  # six answers, all analysed
+                self.answer(cookie, sub_id, key)
+            slow_for["on"] = True
+            r = self.fetch(f"/api/speaking/submissions/{sub_id}/answers/p1-7", method="POST", body=self.speech,
+                           headers={"Content-Type": "audio/wav", "X-Duration": "8", "Cookie": cookie})
+            self.assertEqual(r.code, 200)
+            # asked at once, before the newest analysis is done: six earlier answers are enough to decide
+            self.assertEqual(self.plan(cookie, sub_id, "p1-7")["part1"], 8)
+        cookie, _ = self.login("adaptive.slow2@example.com")
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", slow):
+            slow_for["on"] = True
+            sub_id, plan = self.start(cookie, SPEAKING[2])
+            for key in plan["keys"][:7]:                                  # seven answers in a row, none analysed yet
+                r = self.fetch(f"/api/speaking/submissions/{sub_id}/answers/{key}", method="POST", body=self.speech,
+                               headers={"Content-Type": "audio/wav", "X-Duration": "8", "Cookie": cookie})
+                self.assertEqual(r.code, 200)
+            started = time.time()
+            self.assertEqual(self.plan(cookie, sub_id, "p1-7")["part1"], 8)  # it waited for the analyses instead of giving up
+            self.assertGreater(time.time() - started, 0.3)
+            speaking_adaptive.wait_for(sub_id, timeout=20)
+
+    def test_the_results_list_only_the_questions_that_were_asked(self):
+        t = SPEAKING[2]
+        cookie, _ = self.login("adaptive.view@example.com")
+        self.band = 4
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post):
+            sub_id, plan, asked = self.take(cookie, t)
+            self.finish(cookie, sub_id)
+        r, data = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=cookie)
+        sub = data["submission"]
+        listed = [q["key"] for p in sub["parts"] for q in p["questions"]]
+        self.assertEqual(listed, asked)
+        self.assertEqual((sub["answered"], sub["totalQuestions"]), (12, 12))     # 12 of 12, not 12 of 18
+        self.assertEqual(sub["aiReview"]["adaptive"]["part3Questions"], 3)
+
+    def test_a_fair_candidate_gets_a_middle_length_test(self):
+        t = SPEAKING[2]
+        cookie, _ = self.login("adaptive.fair@example.com")
+        self.band = 6
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post):
+            sub_id, plan, asked = self.take(cookie, t)
+            self.finish(cookie, sub_id)
+        self.assertEqual((plan["part1"], plan["part3"]), (8, min(5, len(speaking_adaptive.part_keys(t, 3)))))
+
+    def test_the_first_plan_and_who_may_ask_for_it(self):
+        t = SPEAKING[0]
+        cookie, _ = self.login("adaptive.owner@example.com")
+        other, _ = self.login("adaptive.other@example.com")
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post):
+            sub_id, plan = self.start(cookie, t)
+            self.assertEqual(plan["part1"], 7)
+            self.assertEqual(plan["keys"][:2], ["p1-1", "p1-2"])
+            self.assertEqual(len(plan["keys"]), 7 + 2 + 3)
+            self.assertEqual(self.call("POST", f"/api/speaking/submissions/{sub_id}/plan", {})[0].code, 401)
+            self.assertEqual(self.call("POST", f"/api/speaking/submissions/{sub_id}/plan", {}, cookie=other)[0].code, 404)
+            # The page is never given the plan's internals while the test is running.
+            r, data = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=cookie)
+            self.assertNotIn("adaptive", data["submission"]["aiReview"])
+            # A test that is not rated by the AI examiner does not adapt.
+            r, data = self.call("POST", f"/api/speaking/{SPEAKING[1]['id']}/start", {"mode": "exam"}, cookie=cookie)
+            self.assertIsNone(data["plan"])
+            r, data = self.call("POST", f"/api/speaking/submissions/{data['submissionId']}/plan", {}, cookie=cookie)
+            self.assertEqual(r.code, 409)
+
+    def test_it_can_be_switched_off(self):
+        cookie, _ = self.login("adaptive.off@example.com")
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post), \
+                mock.patch.object(speaking_adaptive, "ENABLED", False):
+            r, data = self.call("POST", f"/api/speaking/{SPEAKING[0]['id']}/start", {"mode": "ai"}, cookie=cookie)
+            self.assertEqual((r.code, data["plan"]), (200, None))
+            self.assertEqual(self.call("POST", f"/api/speaking/submissions/{data['submissionId']}/plan", {}, cookie=cookie)[0].code, 409)
+
+    def test_a_test_that_does_not_adapt_skips_the_extra_part_3_questions(self):
+        """Practice, no AI key or the kill switch: the usual test, without the questions kept for the adaptive examiner."""
+        t = SPEAKING[4]
+        extra = {q["key"] for _, q in content.speaking_questions(t) if q.get("adaptiveOnly")}
+        usual = [q["key"] for _, q in content.speaking_questions(t) if not q.get("adaptiveOnly")]
+        self.assertTrue(extra)
+        self.assertEqual(len(usual) + len(extra), sum(1 for _ in content.speaking_questions(t)))
+        cookie, _ = self.login("adaptive.fixed@example.com")
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post), \
+                mock.patch.object(speaking_adaptive, "ENABLED", False):
+            r, data = self.call("POST", f"/api/speaking/{t['id']}/start", {"mode": "ai"}, cookie=cookie)
+            sub_id = data["submissionId"]
+            self.assertIsNone(data["plan"])
+            for key in usual:
+                self.answer(cookie, sub_id, key)
+            r, data = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=cookie)
+            shown = [q["key"] for p in data["submission"]["parts"] for q in p["questions"]]
+            self.assertEqual(shown, usual)
+            self.assertFalse(extra & set(shown))
+            self.assertEqual(data["submission"]["totalQuestions"], len(usual))
+            review = self.finish(cookie, sub_id)
+        self.assertEqual(review["status"], "done", review)
+        self.assertEqual([a["key"] for a in review["answers"]], usual)
+        self.assertFalse(extra & {a["key"] for a in review["answers"]})
+        self.assertNotIn("adaptive", review)
+        self.assertEqual(len(self.listened()), len(usual))
+        self.assertNotIn("no answer was recorded", self.marked()[0]["messages"][1]["content"])
+        # A test taken in exam mode without the AI examiner is listed the same way (each free test can be taken once).
+        other = SPEAKING[3]
+        r, data = self.call("POST", f"/api/speaking/{other['id']}/start", {"mode": "exam"}, cookie=cookie)
+        self.assertEqual(r.code, 200, data)
+        r, view = self.call("GET", f"/api/speaking/submissions/{data['submissionId']}", cookie=cookie)
+        shown = [q["key"] for p in view["submission"]["parts"] for q in p["questions"]]
+        other_extra = {q["key"] for _, q in content.speaking_questions(other) if q.get("adaptiveOnly")}
+        self.assertTrue(other_extra)
+        self.assertFalse(other_extra & set(shown))
+        self.assertEqual(shown, [q["key"] for _, q in content.speaking_questions(other) if q["key"] not in other_extra])
+
+    def test_answers_are_analysed_again_after_a_restart_and_never_twice(self):
+        t = SPEAKING[3]
+        cookie, _ = self.login("adaptive.restart@example.com")
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post):
+            sub_id, plan = self.start(cookie, t)
+            for key in ("p1-1", "p1-2", "p1-3"):
+                self.answer(cookie, sub_id, key)
+            self.assertEqual(len(self.listened()), 3)
+            self.plan(cookie, sub_id)                                    # asking again does not analyse again
+            speaking_adaptive.wait_for(sub_id, timeout=20)
+            self.assertEqual(len(self.listened()), 3)
+            speaking_adaptive.forget(sub_id)                             # the server restarted: its memory is gone
+            self.plan(cookie, sub_id)                                    # the next plan request starts the analyses again
+            speaking_adaptive.wait_for(sub_id, timeout=20)
+            self.assertEqual(len(self.listened()), 6)
+            self.assertEqual(sorted(speaking_adaptive.analyses(sub_id)), ["p1-1", "p1-2", "p1-3"])
+            self.plan(cookie, sub_id)
+            self.assertEqual(len(self.listened()), 6)
+            review = self.finish(cookie, sub_id)                         # and the rating uses them: no more calls
+            self.assertEqual(review["status"], "done", review)
+            self.assertEqual(len(self.listened()), 6)
+        self.assertEqual(speaking_adaptive.analyses(sub_id), {})         # the memory is let go when the rating is done
+
+    def test_a_failed_analysis_is_made_again_by_the_rating(self):
+        t = SPEAKING[4]
+        cookie, _ = self.login("adaptive.fail@example.com")
+        from mockexam import ai
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch("mockexam.ai._post", self.fake_post):
+            sub_id, plan = self.start(cookie, t)
+            self.answer(cookie, sub_id, "p1-1")
+            real = self.fake_post
+
+            def down(body, timeout):
+                if body["response_format"]["json_schema"]["name"] == "speaking_answer":
+                    raise ai.AiError("The AI examiner took too long to answer.", retryable=False)
+                return real(body, timeout)
+            with mock.patch("mockexam.ai._post", down):
+                self.answer(cookie, sub_id, "p1-2")                      # this analysis fails ...
+            self.assertEqual(sorted(speaking_adaptive.analyses(sub_id)), ["p1-1", "p1-2"])
+            self.assertTrue(speaking_adaptive.analyses(sub_id)["p1-2"]["error"])
+            review = self.finish(cookie, sub_id)                         # ... and the rating listens to it again
+            self.assertEqual(review["status"], "done", review)
+            self.assertEqual({a["key"]: a["error"] for a in review["answers"]}, {"p1-1": False, "p1-2": False})
 
 
 class SpeakingCleanupTests(unittest.TestCase):

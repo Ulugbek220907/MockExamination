@@ -261,6 +261,54 @@
             "src": "audio/speaking-68/p3-6.mp3",
             "duration": 3.51
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Working hours",
+          "text": "Why do some people work late into the night even when they do not have to?",
+          "say": "Why do some people work late into the night even when they do not have to?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-68/p3-7.mp3",
+            "duration": 4.49
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Working hours",
+          "text": "How can companies help their staff to keep a healthy balance between work and rest?",
+          "say": "How can companies help their staff to keep a healthy balance between work and rest?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-68/p3-8.mp3",
+            "duration": 5.09
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Working hours",
+          "text": "If everyone were free to choose when to start and finish work, what problems might arise?",
+          "say": "If everyone were free to choose when to start and finish work, what problems might arise?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-68/p3-9.mp3",
+            "duration": 5.24
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Working hours",
+          "text": "How might the traditional working day change in the future?",
+          "say": "How might the traditional working day change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-68/p3-10.mp3",
+            "duration": 3.7
+          }
         }
       ]
     }

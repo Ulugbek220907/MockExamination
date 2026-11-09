@@ -261,6 +261,54 @@
             "src": "audio/speaking-43/p3-6.mp3",
             "duration": 4.15
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "The arts",
+          "text": "Do you think a person needs special training to appreciate art or music?",
+          "say": "Do you think a person needs special training to appreciate art or music?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-43/p3-7.mp3",
+            "duration": 4.3
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "The arts",
+          "text": "How do the arts help people to understand cultures that are different from their own?",
+          "say": "How do the arts help people to understand cultures that are different from their own?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-43/p3-8.mp3",
+            "duration": 4.53
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "The arts",
+          "text": "If the government stopped all funding for the arts, what would the long-term effect be?",
+          "say": "If the government stopped all funding for the arts, what would the long-term effect be?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-43/p3-9.mp3",
+            "duration": 4.83
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "The arts",
+          "text": "How might artificial intelligence change what people think of as creative work?",
+          "say": "How might artificial intelligence change what people think of as creative work?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-43/p3-10.mp3",
+            "duration": 4.75
+          }
         }
       ]
     }

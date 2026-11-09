@@ -261,6 +261,54 @@
             "src": "audio/speaking-40/p3-6.mp3",
             "duration": 4.45
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Leaders in society",
+          "text": "Why do some leaders succeed even when they make unpopular decisions?",
+          "say": "Why do some leaders succeed even when they make unpopular decisions?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-40/p3-7.mp3",
+            "duration": 4.64
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Leaders in society",
+          "text": "Do you think a leader should always do what the majority of people want?",
+          "say": "Do you think a leader should always do what the majority of people want?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-40/p3-8.mp3",
+            "duration": 4.02
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Leaders in society",
+          "text": "If leaders had to follow exactly the same rules as everyone else, what might change?",
+          "say": "If leaders had to follow exactly the same rules as everyone else, what might change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-40/p3-9.mp3",
+            "duration": 5.32
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Leaders in society",
+          "text": "What responsibilities will the leaders of the future have that today's leaders do not?",
+          "say": "What responsibilities will the leaders of the future have that today's leaders do not?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-40/p3-10.mp3",
+            "duration": 5.28
+          }
         }
       ]
     }

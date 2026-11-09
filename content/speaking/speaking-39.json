@@ -261,6 +261,54 @@
             "src": "audio/speaking-39/p3-6.mp3",
             "duration": 4.92
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Families today",
+          "text": "How can parents and children stay close when they have very different interests?",
+          "say": "How can parents and children stay close when they have very different interests?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-39/p3-7.mp3",
+            "duration": 5.41
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Families today",
+          "text": "Do you think the roles of the father and the mother in the family have changed in recent years?",
+          "say": "Do you think the roles of the father and the mother in the family have changed in recent years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-39/p3-8.mp3",
+            "duration": 6.41
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Families today",
+          "text": "If several generations of a family lived in the same building, what would the advantages and disadvantages be?",
+          "say": "If several generations of a family lived in the same building, what would the advantages and disadvantages be?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-39/p3-9.mp3",
+            "duration": 7.99
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Families today",
+          "text": "How might the idea of what makes a family change in the future?",
+          "say": "How might the idea of what makes a family change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-39/p3-10.mp3",
+            "duration": 4.77
+          }
         }
       ]
     }

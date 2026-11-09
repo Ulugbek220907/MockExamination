@@ -261,6 +261,54 @@
             "src": "audio/speaking-25/p3-6.mp3",
             "duration": 4.96
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Friendship and technology",
+          "text": "How can people stay close to friends who live in other countries?",
+          "say": "How can people stay close to friends who live in other countries?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-25/p3-7.mp3",
+            "duration": 4.62
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Friendship and technology",
+          "text": "Do you think spending time alone is as important as having friends?",
+          "say": "Do you think spending time alone is as important as having friends?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-25/p3-8.mp3",
+            "duration": 4.89
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Friendship and technology",
+          "text": "Would a person be happier with a few close friends or with many casual ones?",
+          "say": "Would a person be happier with a few close friends or with many casual ones?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-25/p3-9.mp3",
+            "duration": 5.53
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Friendship and technology",
+          "text": "How might the nature of friendship change if people spend more time with virtual companions?",
+          "say": "How might the nature of friendship change if people spend more time with virtual companions?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-25/p3-10.mp3",
+            "duration": 6.67
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-37/p3-6.mp3",
             "duration": 5.24
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Celebrities and the media",
+          "text": "Why do some people feel they know celebrities personally even though they have never met them?",
+          "say": "Why do some people feel they know celebrities personally even though they have never met them?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-37/p3-7.mp3",
+            "duration": 5.58
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Celebrities and the media",
+          "text": "Do you think the media has too much power to make or destroy a person's reputation?",
+          "say": "Do you think the media has too much power to make or destroy a person's reputation?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-37/p3-8.mp3",
+            "duration": 5.17
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Celebrities and the media",
+          "text": "If celebrities lived completely private lives, what effect would that have on society?",
+          "say": "If celebrities lived completely private lives, what effect would that have on society?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-37/p3-9.mp3",
+            "duration": 5.56
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Celebrities and the media",
+          "text": "How might the nature of fame change as new technology develops?",
+          "say": "How might the nature of fame change as new technology develops?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-37/p3-10.mp3",
+            "duration": 4.21
+          }
         }
       ]
     }

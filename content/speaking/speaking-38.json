@@ -261,6 +261,54 @@
             "src": "audio/speaking-38/p3-6.mp3",
             "duration": 3.93
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Job satisfaction",
+          "text": "How important is it for people to feel that their work is useful to others?",
+          "say": "How important is it for people to feel that their work is useful to others?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-38/p3-7.mp3",
+            "duration": 5.07
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Job satisfaction",
+          "text": "What are the benefits of having colleagues who are friendly as well as skilled?",
+          "say": "What are the benefits of having colleagues who are friendly as well as skilled?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-38/p3-8.mp3",
+            "duration": 4.53
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Job satisfaction",
+          "text": "If everyone were paid the same regardless of their job, how might people choose their careers?",
+          "say": "If everyone were paid the same regardless of their job, how might people choose their careers?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-38/p3-9.mp3",
+            "duration": 5.83
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Job satisfaction",
+          "text": "How might people's idea of a satisfying job change over the next few decades?",
+          "say": "How might people's idea of a satisfying job change over the next few decades?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-38/p3-10.mp3",
+            "duration": 5.56
+          }
         }
       ]
     }

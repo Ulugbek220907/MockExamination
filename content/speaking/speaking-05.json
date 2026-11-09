@@ -261,6 +261,54 @@
             "src": "audio/speaking-05/p3-6.mp3",
             "duration": 3.83
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Help from governments and businesses",
+          "text": "What makes it difficult for governments to decide which people most need help?",
+          "say": "What makes it difficult for governments to decide which people most need help?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-05/p3-7.mp3",
+            "duration": 4.6
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Help from governments and businesses",
+          "text": "Do you think people can become too dependent on help from the state?",
+          "say": "Do you think people can become too dependent on help from the state?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-05/p3-8.mp3",
+            "duration": 4.06
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Help from governments and businesses",
+          "text": "If companies were required to give part of their profits to the community, what effect might that have?",
+          "say": "If companies were required to give part of their profits to the community, what effect might that have?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-05/p3-9.mp3",
+            "duration": 5.96
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Help from governments and businesses",
+          "text": "How might the way societies look after people in need change over the next fifty years?",
+          "say": "How might the way societies look after people in need change over the next fifty years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-05/p3-10.mp3",
+            "duration": 5.15
+          }
         }
       ]
     }

@@ -261,6 +261,54 @@
             "src": "audio/speaking-56/p3-6.mp3",
             "duration": 4.53
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Population",
+          "text": "Do you think a country can have too many people or too few? Why?",
+          "say": "Do you think a country can have too many people or too few? Why?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-56/p3-7.mp3",
+            "duration": 4.97
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Population",
+          "text": "How can a city continue to provide good services when its population grows very quickly?",
+          "say": "How can a city continue to provide good services when its population grows very quickly?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-56/p3-8.mp3",
+            "duration": 5.88
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Population",
+          "text": "If everyone chose to have fewer children, what effects would you expect in fifty years?",
+          "say": "If everyone chose to have fewer children, what effects would you expect in fifty years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-56/p3-9.mp3",
+            "duration": 5.68
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Population",
+          "text": "How might the way people move around the world change in the future?",
+          "say": "How might the way people move around the world change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-56/p3-10.mp3",
+            "duration": 4.21
+          }
         }
       ]
     }

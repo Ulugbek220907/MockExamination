@@ -261,6 +261,54 @@
             "src": "audio/speaking-15/p3-6.mp3",
             "duration": 3.27
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Films and young people",
+          "text": "Do you think films should show the world as it is or as people would like it to be?",
+          "say": "Do you think films should show the world as it is or as people would like it to be?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-15/p3-7.mp3",
+            "duration": 4.68
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Films and young people",
+          "text": "How has the way people watch films changed the film industry?",
+          "say": "How has the way people watch films changed the film industry?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-15/p3-8.mp3",
+            "duration": 3.7
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Films and young people",
+          "text": "If films were no longer made in other languages, what would people lose?",
+          "say": "If films were no longer made in other languages, what would people lose?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-15/p3-9.mp3",
+            "duration": 4.49
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Films and young people",
+          "text": "Is it right for governments to support their national film industry with public money?",
+          "say": "Is it right for governments to support their national film industry with public money?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-15/p3-10.mp3",
+            "duration": 4.77
+          }
         }
       ]
     }

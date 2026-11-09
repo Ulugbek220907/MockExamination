@@ -261,6 +261,54 @@
             "src": "audio/speaking-29/p3-6.mp3",
             "duration": 3.87
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Sharing news",
+          "text": "Do you think people trust the news as much as they did in the past?",
+          "say": "Do you think people trust the news as much as they did in the past?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-29/p3-7.mp3",
+            "duration": 3.72
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Sharing news",
+          "text": "Is it the responsibility of the media or of the readers to check whether a story is true?",
+          "say": "Is it the responsibility of the media or of the readers to check whether a story is true?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-29/p3-8.mp3",
+            "duration": 5.49
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Sharing news",
+          "text": "If all news were free and paid for by the government, how might that affect what people read?",
+          "say": "If all news were free and paid for by the government, how might that affect what people read?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-29/p3-9.mp3",
+            "duration": 5.51
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Sharing news",
+          "text": "How might the way people learn about world events change over the next twenty years?",
+          "say": "How might the way people learn about world events change over the next twenty years?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-29/p3-10.mp3",
+            "duration": 4.57
+          }
         }
       ]
     }

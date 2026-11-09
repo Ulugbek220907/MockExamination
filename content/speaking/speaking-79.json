@@ -261,6 +261,54 @@
             "src": "audio/speaking-79/p3-6.mp3",
             "duration": 3.34
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Ways of learning",
+          "text": "Why do some people remember things better when they explain them to others?",
+          "say": "Why do some people remember things better when they explain them to others?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-79/p3-7.mp3",
+            "duration": 4.57
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Ways of learning",
+          "text": "Is it better for students to follow a fixed course or to follow their own interests?",
+          "say": "Is it better for students to follow a fixed course or to follow their own interests?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-79/p3-8.mp3",
+            "duration": 5.09
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Ways of learning",
+          "text": "If you could learn anything instantly, what would you choose and why?",
+          "say": "If you could learn anything instantly, what would you choose and why?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-79/p3-9.mp3",
+            "duration": 4.08
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Ways of learning",
+          "text": "How might lifelong learning become more important in the future?",
+          "say": "How might lifelong learning become more important in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-79/p3-10.mp3",
+            "duration": 4.15
+          }
         }
       ]
     }

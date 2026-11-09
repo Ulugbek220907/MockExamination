@@ -261,6 +261,54 @@
             "src": "audio/speaking-52/p3-6.mp3",
             "duration": 4.79
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Public health",
+          "text": "Why is it often difficult to persuade people to change habits that are bad for their health?",
+          "say": "Why is it often difficult to persuade people to change habits that are bad for their health?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-52/p3-7.mp3",
+            "duration": 5.58
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Public health",
+          "text": "Should people who live unhealthy lives pay more for their medical care?",
+          "say": "Should people who live unhealthy lives pay more for their medical care?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-52/p3-8.mp3",
+            "duration": 4.45
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Public health",
+          "text": "If healthy food were cheaper than unhealthy food, how might people's habits change?",
+          "say": "If healthy food were cheaper than unhealthy food, how might people's habits change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-52/p3-9.mp3",
+            "duration": 5.32
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Public health",
+          "text": "How might advances in medicine change the way societies think about health and old age?",
+          "say": "How might advances in medicine change the way societies think about health and old age?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-52/p3-10.mp3",
+            "duration": 6.15
+          }
         }
       ]
     }

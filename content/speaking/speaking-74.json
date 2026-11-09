@@ -261,6 +261,54 @@
             "src": "audio/speaking-74/p3-6.mp3",
             "duration": 4.11
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Charities",
+          "text": "How can people be sure that a charity uses their money well?",
+          "say": "How can people be sure that a charity uses their money well?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-74/p3-7.mp3",
+            "duration": 4.94
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Charities",
+          "text": "Why do people sometimes give more after a disaster than at other times?",
+          "say": "Why do people sometimes give more after a disaster than at other times?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-74/p3-8.mp3",
+            "duration": 5.49
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Charities",
+          "text": "If governments provided everything that charities do today, would charities still be needed?",
+          "say": "If governments provided everything that charities do today, would charities still be needed?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-74/p3-9.mp3",
+            "duration": 6.2
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Charities",
+          "text": "How might the way people support good causes change in the future?",
+          "say": "How might the way people support good causes change in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-74/p3-10.mp3",
+            "duration": 4.77
+          }
         }
       ]
     }

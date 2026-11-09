@@ -261,6 +261,54 @@
             "src": "audio/speaking-06/p3-6.mp3",
             "duration": 4.3
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Technology and work",
+          "text": "What skills do you think workers will need most as more tasks are done by machines?",
+          "say": "What skills do you think workers will need most as more tasks are done by machines?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-06/p3-7.mp3",
+            "duration": 5.75
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Technology and work",
+          "text": "Is it fair for a company to use machines if this means that many people lose their jobs?",
+          "say": "Is it fair for a company to use machines if this means that many people lose their jobs?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-06/p3-8.mp3",
+            "duration": 6.37
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Technology and work",
+          "text": "If you could ask the leaders of technology companies to change one thing, what would it be?",
+          "say": "If you could ask the leaders of technology companies to change one thing, what would it be?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-06/p3-9.mp3",
+            "duration": 5.9
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Technology and work",
+          "text": "How might technology change the way people think about work and retirement in the future?",
+          "say": "How might technology change the way people think about work and retirement in the future?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-06/p3-10.mp3",
+            "duration": 6.39
+          }
         }
       ]
     }

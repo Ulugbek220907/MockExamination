@@ -261,6 +261,54 @@
             "src": "audio/speaking-85/p3-6.mp3",
             "duration": 4.3
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Luxury and consumerism",
+          "text": "Why do people sometimes feel unhappy even when they own many things?",
+          "say": "Why do people sometimes feel unhappy even when they own many things?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-85/p3-7.mp3",
+            "duration": 4.49
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Luxury and consumerism",
+          "text": "Is it right for people to spend large sums on luxuries when others do not have enough?",
+          "say": "Is it right for people to spend large sums on luxuries when others do not have enough?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-85/p3-8.mp3",
+            "duration": 5.32
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Luxury and consumerism",
+          "text": "If luxury goods were banned, how might people show their success instead?",
+          "say": "If luxury goods were banned, how might people show their success instead?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-85/p3-9.mp3",
+            "duration": 4.49
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Luxury and consumerism",
+          "text": "How might people's attitudes to owning things change over the next few decades?",
+          "say": "How might people's attitudes to owning things change over the next few decades?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-85/p3-10.mp3",
+            "duration": 4.57
+          }
         }
       ]
     }

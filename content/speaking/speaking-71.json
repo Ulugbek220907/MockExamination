@@ -261,6 +261,54 @@
             "src": "audio/speaking-71/p3-6.mp3",
             "duration": 3.81
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Competition in education",
+          "text": "How might competition help students who are not usually motivated?",
+          "say": "How might competition help students who are not usually motivated?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-71/p3-7.mp3",
+            "duration": 4.17
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Competition in education",
+          "text": "Do you think competition makes people more creative or less creative?",
+          "say": "Do you think competition makes people more creative or less creative?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-71/p3-8.mp3",
+            "duration": 4.34
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Competition in education",
+          "text": "If schools replaced exams with projects, how might students' attitudes to learning change?",
+          "say": "If schools replaced exams with projects, how might students' attitudes to learning change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-71/p3-9.mp3",
+            "duration": 5.71
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Competition in education",
+          "text": "How might the role of competition in education change over the next few decades?",
+          "say": "How might the role of competition in education change over the next few decades?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-71/p3-10.mp3",
+            "duration": 4.85
+          }
         }
       ]
     }

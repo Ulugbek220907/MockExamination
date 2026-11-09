@@ -261,6 +261,54 @@
             "src": "audio/speaking-95/p3-6.mp3",
             "duration": 4.87
           }
+        },
+        {
+          "key": "p3-7",
+          "topic": "Health and the government",
+          "text": "How far should governments be allowed to control what people eat and drink?",
+          "say": "How far should governments be allowed to control what people eat and drink?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-95/p3-7.mp3",
+            "duration": 5.07
+          }
+        },
+        {
+          "key": "p3-8",
+          "topic": "Health and the government",
+          "text": "Do you think the cost of healthcare should be shared by everyone or paid by each person?",
+          "say": "Do you think the cost of healthcare should be shared by everyone or paid by each person?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-95/p3-8.mp3",
+            "duration": 5.77
+          }
+        },
+        {
+          "key": "p3-9",
+          "topic": "Health and the government",
+          "text": "If everyone had a doctor available at any time through a phone, how might health change?",
+          "say": "If everyone had a doctor available at any time through a phone, how might health change?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-95/p3-9.mp3",
+            "duration": 5.85
+          }
+        },
+        {
+          "key": "p3-10",
+          "topic": "Health and the government",
+          "text": "How might health systems need to change as people live longer?",
+          "say": "How might health systems need to change as people live longer?",
+          "answerSeconds": 60,
+          "adaptiveOnly": true,
+          "audio": {
+            "src": "audio/speaking-95/p3-10.mp3",
+            "duration": 4.64
+          }
         }
       ]
     }
