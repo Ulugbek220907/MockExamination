@@ -44,7 +44,7 @@ def _int_env(name, default):
 # The passes: {kind: {months: (price in so'm, price in US cents)}}. so'm for Payme, Click and card transfer; dollars for Dodo.
 # The USD prices are higher than the so'm ones because Dodo's fixed 40 cents weighs more on small sales.
 PLAN_PRICES = {
-    "full": {1: (_int_env("PLAN_PRICE", 79000), 799), 3: (199000, 1999)},
+    "full": {1: (79000, 799), 3: (199000, 1999)},   # the prices live here, not in environment variables
     "speaking": {1: (49000, 599), 3: (119000, 1499)},
     "writing": {1: (39000, 499), 3: (99000, 1199)},
     "lr": {1: (29000, 399), 3: (69000, 999)},

@@ -64,8 +64,6 @@ services:
         sync: false
       - key: ADMIN_EMAILS
         sync: false
-      - key: PLAN_PRICE
-        value: "39000"
       - key: WRITING_CHECK_PRICE
         value: "10000"
       - key: SPEAKING_CHECK_PRICE
