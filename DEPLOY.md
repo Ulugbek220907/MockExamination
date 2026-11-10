@@ -137,7 +137,7 @@ What to know:
 
 ### 4.2 Prices
 
-Change prices with environment variables (in so'm): `PLAN_PRICE` (the Full pass for one month, default 79000; the other passes and the dollar prices are in `PLAN_PRICES` in `mockexam/billing.py`), `WRITING_CHECK_PRICE` (10000), `SPEAKING_CHECK_PRICE` (20000). `PLAN_FIRST_BONUS_DAYS` (30) is the free extra month on a student's first payment.
+Change prices with environment variables (in so'm): the pass prices (so'm and dollars) are in `PLAN_PRICES` in `mockexam/billing.py` (the old `PLAN_PRICE` variable is no longer read), `WRITING_CHECK_PRICE` (10000), `SPEAKING_CHECK_PRICE` (20000). `PLAN_FIRST_BONUS_DAYS` (30) is the free extra month on a student's first payment.
 
 ### 4.3 Payments
 

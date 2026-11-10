@@ -15,7 +15,7 @@ the env vars below, never from the browser.
 | `SESSION_SECRET` | all | Long random string. Changing it signs everyone out. |
 | `ADMIN_EMAILS` | refunds | Your sign-in email. Admins see **Account → Admin → Orders**. |
 | `CONTACT_EMAIL` | receipts, refund policy | Shown to students for refund requests. |
-| `PLAN_PRICE`, `WRITING_CHECK_PRICE`, `SPEAKING_CHECK_PRICE` | prices | In so'm: the Full 1-month pass (default 79000) and the checks (10000 / 20000). The other passes are set in `billing.PLAN_PRICES`. |
+| `WRITING_CHECK_PRICE`, `SPEAKING_CHECK_PRICE` | prices | In so'm: the examiner checks (defaults 10000 / 20000). The passes are priced in `billing.PLAN_PRICES`; the old `PLAN_PRICE` variable is no longer read, so delete it on Render. |
 | `DODO_PAYMENTS_API_KEY`, `DODO_PAYMENTS_WEBHOOK_KEY`, `DODO_PRODUCTS` | Dodo (card, US dollars) | The API key (`dodo_test_...` or `dodo_live_...`), the webhook signing secret (`whsec_...`) and the product of each pass: `full-1=pdt_x,full-3=pdt_y,speaking-1=...` (kind of pass, a dash, the months). See section 7. |
 | `SPEAKING_AI_PER_MONTH`, `WRITING_AI_PER_MONTH` | AI caps | AI-rated Speaking tests and AI-marked Writing scripts in any 30 days (defaults 12 and 20): what the prices assume. |
 | `PLAN_DAYS`, `PLAN_FIRST_BONUS_DAYS` | plan length | Defaults 30 and 30. |
