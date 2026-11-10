@@ -48,6 +48,7 @@ def _int_env(name, default):
 
 
 PER_USER_PER_DAY = _int_env("SPEAKING_AI_PER_DAY", 3)
+PER_USER_PER_MONTH = _int_env("SPEAKING_AI_PER_MONTH", 12)   # the passes are priced for this many AI-rated tests a month
 DAILY_LIMIT = _int_env("SPEAKING_AI_DAILY_LIMIT", 150)
 PARALLEL_ANSWERS = _int_env("SPEAKING_AI_PARALLEL", 6)
 MAX_ATTEMPTS = 3
@@ -770,10 +771,16 @@ def check_can_start(db, user_id):
     from .dbcache import gather
 
     since = iso(now() - datetime.timedelta(days=1))
-    mine, everyone = gather(
+    since_month = iso(now() - datetime.timedelta(days=30))
+    mine, everyone, month = gather(
         lambda: db.select("speaking_submissions", {"user_id": user_id, "mode": "ai", "created_at": ("gte", since)},
                           limit=PER_USER_PER_DAY + 1),
-        lambda: db.select("speaking_submissions", {"mode": "ai", "created_at": ("gte", since)}, limit=DAILY_LIMIT + 1))
+        lambda: db.select("speaking_submissions", {"mode": "ai", "created_at": ("gte", since)}, limit=DAILY_LIMIT + 1),
+        lambda: db.select("speaking_submissions", {"user_id": user_id, "mode": "ai", "created_at": ("gte", since_month)},
+                          limit=PER_USER_PER_MONTH + 1))
+    if len(month) >= PER_USER_PER_MONTH:
+        raise ReviewError(f"You have had {PER_USER_PER_MONTH} tests rated by the AI examiner in the last 30 days, which is "
+                          "what a pass includes. This test is recorded without a band; your allowance comes back day by day.", 429)
     if len(mine) >= PER_USER_PER_DAY:
         raise ReviewError(f"You have had {PER_USER_PER_DAY} tests rated by the AI examiner today. This test is recorded "
                           "without a band; the AI examiner rates again tomorrow.", 429)

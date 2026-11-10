@@ -595,3 +595,27 @@ create index if not exists subscription_periods_ends_idx on public.subscription_
 
 create index if not exists profiles_created_idx on public.profiles (created_at desc);
 create index if not exists orders_paid_idx on public.orders (paid_at) where status = 'paid';
+
+-- ============================================================================
+-- Passes for one paper or two, for 1 or 3 months, and card payments through Dodo Payments.
+-- Safe to run again on an existing database. Run it BEFORE the version of the site that sells these passes.
+--   orders.scope / months / currency   which pass (full, speaking, writing, lr), how long, and in what money
+--                                      (UZS = so'm, USD = US cents)
+--   orders.external_id                 Dodo's payment id (to refund it, and to match Dodo's refund webhook)
+--   subscription_periods.scope         the kind of pass; every earlier period is a full pass
+-- ============================================================================
+
+alter table public.orders add column if not exists scope text not null default 'full';
+alter table public.orders add column if not exists months integer not null default 1;
+alter table public.orders add column if not exists currency text not null default 'UZS';
+alter table public.orders add column if not exists external_id text;
+alter table public.orders drop constraint if exists orders_scope_check;
+alter table public.orders add constraint orders_scope_check check (scope in ('full', 'speaking', 'writing', 'lr'));
+alter table public.orders drop constraint if exists orders_currency_check;
+alter table public.orders add constraint orders_currency_check check (currency in ('UZS', 'USD'));
+alter table public.orders drop constraint if exists orders_provider_check;
+alter table public.orders add constraint orders_provider_check check (provider in ('payme', 'click', 'manual', 'admin', 'dodo'));
+create index if not exists orders_external_idx on public.orders (external_id) where external_id is not null;
+alter table public.subscription_periods add column if not exists scope text not null default 'full';
+alter table public.subscription_periods drop constraint if exists subscription_periods_scope_check;
+alter table public.subscription_periods add constraint subscription_periods_scope_check check (scope in ('full', 'speaking', 'writing', 'lr'));

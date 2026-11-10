@@ -367,7 +367,7 @@ async def refuse_retake(handler, test, profile):
     if accounts.test_access(test) != "free":
         return
     plan = await in_thread(PLAN_CACHE.get, STORE.db, profile["id"]) if profile else None
-    if accounts.retakes_allowed(profile, plan):
+    if accounts.retakes_allowed(profile, plan, test.get("module")):
         return
     client_id = None if profile else clean_client_id(handler.get_query_argument("clientId", ""))
     taken = await in_thread(accounts.already_taken, STORE.db, test, profile["id"] if profile else None, client_id)
@@ -541,7 +541,8 @@ class WritingSubmitHandler(BaseHandler):
             if all(analyses[n]["wordCount"] < writing.MIN_WORDS_FOR_AI for n in (1, 2)):
                 status, message = "too_short", "Both responses are too short to be marked."
             else:
-                limited = AI_LIMITER.try_acquire(self.client_ip())
+                limited = await in_thread(writing.month_limit, STORE.db, profile["id"]) if profile else None
+                limited = limited or AI_LIMITER.try_acquire(self.client_ip())
                 if limited:
                     status, message = "rate_limited", limited
                 else:

@@ -750,6 +750,18 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .pay-method:hover { border-color: var(--ink-2); }
 .pay-method-name { font-weight: 750; font-size: 1.02em; color: var(--ink); }
 .pay-method-note { color: var(--muted); font-size: 0.88em; }
+
+/* The pass picker (which pass, for how long) and the table of passes on the Price page. */
+.pass-picker { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
+.pass-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding-bottom: 14px; border-bottom: 1px solid var(--rule-soft); }
+.pass-row:last-child { border-bottom: none; padding-bottom: 0; }
+.pass-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.pass-buttons .pay-method { min-width: 9.5rem; }
+.pass-table { margin-top: 8px; }
+.pass-table th[scope="row"] { font-size: 1rem; color: var(--ink); letter-spacing: 0; font-weight: 750; }
+.pass-table th[scope="row"] .small-text { font-weight: 400; margin-top: 2px; }
+.pass-table td .btn-sm { margin-top: 8px; }
+.pass-table + .plan-points { margin-top: 18px; }
 .transfer-steps { margin-left: 20px; display: flex; flex-direction: column; gap: 12px; }
 .card-number {
   display: flex; align-items: center; gap: 12px; margin: 8px 0 4px; font-variant-numeric: tabular-nums;

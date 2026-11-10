@@ -18,6 +18,19 @@
   const siteName = () => state.config.siteName || "TestDay";
 
   const money = (n) => U.money(n);
+  /** US cents as dollars. */
+  const usd = (cents) => `$${(Number(cents || 0) / 100).toFixed(2)}`;
+  /** An order's amount in its own money (card orders are kept in US cents). */
+  const orderMoney = (o) => (o.currency === "USD" ? usd(o.amount) : money(o.amount));
+  const PASSES = [
+    ["full", "Full pass", "All four papers: Listening, Reading, Writing and Speaking"],
+    ["speaking", "Speaking pass", "All Speaking tests with the AI examiner"],
+    ["writing", "Writing pass", "All Writing tests with AI marking"],
+    ["lr", "Listening and Reading pass", "All Listening and Reading tests"],
+  ];
+  const PASS_NAMES = Object.fromEntries(PASSES.map(([k, n]) => [k, n]));
+  const MODULE_NAMES = { listening: "Listening", reading: "Reading", writing: "Writing", speaking: "Speaking" };
+  const monthsText = (m) => (m === 1 ? "1 month" : `${m} months`);
   const longDate = (iso) => {
     const d = new Date(iso);
     if (isNaN(d)) return "";
@@ -55,6 +68,12 @@
   }
   function planActive() {
     return Boolean(state.me && state.me.plan && state.me.plan.active);
+  }
+  /** True if a pass the student has now opens this paper (an older plan with no list opens every paper). */
+  function hasModule(module) {
+    const plan = state.me && state.me.plan;
+    if (!plan || !plan.active) return false;
+    return !plan.modules || !module || plan.modules.includes(module);
   }
   function role() {
     return (user() && user().role) || "guest";
@@ -162,7 +181,7 @@
   }
 
   async function billing() {
-    if (!commerce()) return { prices: {}, providers: [] };
+    // The passes and their prices are public even before anything is for sale.
     if (!state.billing) state.billing = await U.api("/api/billing");
     return state.billing;
   }
@@ -441,22 +460,25 @@
   /* ================================================================ plan, paywall, checkout */
   async function paywall(test) {
     const b = await billing().catch(() => null);
-    const price = b ? money(b.prices.plan) : "";
+    const scope = test && ["speaking", "writing"].includes(test.module) ? test.module : test && ["listening", "reading"].includes(test.module) ? "lr" : "full";
+    const plans = (b && b.plans) || {};
+    const price = plans[scope] ? money(plans[scope]["1"].uzs) : "";
     const signedIn = Boolean(user());
-    const name = test ? `${test.module.charAt(0).toUpperCase()}${test.module.slice(1)} · ${test.shortTitle}` : "";
+    const name = test ? `${MODULE_NAMES[test.module] || test.module} · ${test.shortTitle}` : "";
     const ok = await U.modal({
-      title: t("This test comes with the monthly pass"),
+      title: t("This test needs a pass"),
       bodyHTML: `
-        <p>${t("paywall.text", { test: `<strong>${esc(name)}</strong>`, price: price ? esc(price) : "" })}</p>
+        <p>${t("{test} needs a pass that covers {module}.", { test: `<strong>${esc(name)}</strong>`, module: esc(test ? MODULE_NAMES[test.module] || test.module : "it") })}
+          ${price ? t("A {pass} is {price} a month.", { pass: esc(PASS_NAMES[scope].toLowerCase()), price: esc(price) }) : ""} ${t("Tests marked Free need no pass.")}</p>
         <ul class="plan-points">
-          <li>${t("All Listening, Reading, Writing and Speaking tests")}</li>
           <li>${t("Full results, answer explanations and listening transcripts")}</li>
-          <li>${t("Your first payment gives you two months")}</li>
+          <li>${t("1 or 3 months; nothing renews by itself")}</li>
+          <li>${t("The Full pass opens all four papers and costs less than buying the parts")}</li>
         </ul>
         ${signedIn ? "" : `<p class="muted-text">${t("Already have the pass? Sign in to continue.")}</p>`}`,
       buttons: [
         ...(signedIn ? [] : [{ label: t("Sign in"), className: "btn-secondary", value: "signin" }]),
-        { label: t("See the pass"), className: "btn-primary", value: "pricing" },
+        { label: t("See the passes"), className: "btn-primary", value: "pricing" },
       ],
     });
     if (ok === "signin") return login();
@@ -464,26 +486,51 @@
     return false;
   }
 
-  function chooseMethod(order, b) {
+  /** Which pass, for how long: the four passes with their prices; resolves {scope, months} or null. */
+  function choosePass(b) {
+    const plans = b.plans || {};
+    const row = ([key, name, what]) => `
+      <div class="pass-row">
+        <div><strong>${esc(t(name))}</strong><div class="muted-text small-text">${esc(t(what))}</div></div>
+        <div class="pass-buttons">${["1", "3"].map((m) => plans[key] && plans[key][m] ? `
+          <button type="button" class="pay-method" data-scope="${key}" data-months="${m}">
+            <span class="pay-method-name">${esc(monthsText(Number(m)))}</span>
+            <span class="pay-method-note">${esc(money(plans[key][m].uzs))} · ${esc(usd(plans[key][m].usd))}</span>
+          </button>` : "").join("")}</div>
+      </div>`;
+    return U.modal({
+      title: t("Choose your pass"),
+      bodyHTML: `<div class="pass-picker">${PASSES.map(row).join("")}</div>
+        <p class="muted-text small-text">${t("The first price is for payment in so'm, the second for payment by card in US dollars.")}</p>`,
+      buttons: [{ label: t("Cancel"), className: "btn-secondary", value: null }],
+      onOpen: (root, close) => root.querySelectorAll("[data-scope]").forEach((btn) =>
+        btn.addEventListener("click", () => close({ scope: btn.dataset.scope, months: Number(btn.dataset.months) }))),
+    });
+  }
+
+  /** The payment methods for what is being bought: {title, uzs (so'm), usd (US cents or null), kind}. Resolves the method or null. */
+  function chooseMethod(item, b) {
     const labels = {
       payme: ["Payme", t("Pay with the Payme app or any Uzcard / Humo card")],
       click: ["Click", t("Pay with the Click app or any Uzcard / Humo card")],
       manual: [t("Bank card transfer"), t("pay.manual.note")],
+      dodo: [t("Visa, Mastercard, Apple Pay, Google Pay"), t("Pay in US dollars with a foreign or international card")],
     };
-    if (!b.providers.length) {
+    const methods = b.providers.filter((p) => p !== "dodo" || (item.usd && (b.cardPasses || []).includes(item.cardKey)));
+    if (!methods.length) {
       const contact = state.config.contactEmail;
       U.modal({
         title: t("Payments are being set up"),
-        bodyHTML: `<p>${contact ? t("pay.setup.contact", { contact: `<a href="mailto:${esc(contact)}">${esc(contact)}</a>`, order: `<strong>#MX${order.id}</strong>` }) : t("pay.setup.later")}</p>`,
+        bodyHTML: `<p>${contact ? t("pay.setup.contact", { contact: `<a href="mailto:${esc(contact)}">${esc(contact)}</a>`, order: `<strong>${esc(item.title)}</strong>` }) : t("pay.setup.later")}</p>`,
       });
       return Promise.resolve(null);
     }
+    const amount = (p) => (p === "dodo" ? usd(item.usd) : money(item.uzs));
     return U.modal({
-      title: t("Pay {amount}", { amount: money(order.amount) }),
-      bodyHTML: `<p class="muted-text">${esc(order.title)} · ${t("order")} #MX${order.id}</p>
-        <div class="pay-methods">${b.providers.map((p) => `
+      title: t("Pay for {item}", { item: item.title }),
+      bodyHTML: `<div class="pay-methods">${methods.map((p) => `
           <button type="button" class="pay-method" data-method="${p}">
-            <span class="pay-method-name">${esc(labels[p][0])}</span><span class="pay-method-note">${esc(labels[p][1])}</span>
+            <span class="pay-method-name">${esc(labels[p][0])} · ${esc(amount(p))}</span><span class="pay-method-note">${esc(labels[p][1])}</span>
           </button>`).join("")}</div>
         <p class="pay-agree muted-text small-text">${t("pay.agree")}</p>`,
       buttons: [{ label: t("Cancel"), className: "btn-secondary", value: null }],
@@ -522,9 +569,21 @@
     if (!(await login(kind === "plan" ? t("signin.plan") : t("Sign in to order an examiner check.")))) return;
     try {
       const b = await billing();
-      const { order } = await U.api("/api/orders", { method: "POST", body: JSON.stringify({ kind, ...extra }) });
-      const method = await chooseMethod(order, b);
+      let item;
+      if (kind === "plan") {
+        let pick = extra.scope ? { scope: extra.scope, months: Number(extra.months) || 1 } : await choosePass(b);
+        if (!pick) return;
+        const price = ((b.plans || {})[pick.scope] || {})[String(pick.months)];
+        if (!price) throw new Error(t("This pass is not available."));
+        extra = { scope: pick.scope, months: pick.months };
+        item = { title: `${t(PASS_NAMES[pick.scope])}, ${monthsText(pick.months)}`, uzs: price.uzs, usd: price.usd, cardKey: `${pick.scope}-${pick.months}` };
+      } else {
+        item = { title: kind === "writing_check" ? t("Writing check") : t("Speaking check"), uzs: b.prices[kind], usd: null };
+      }
+      const method = await chooseMethod(item, b);
       if (!method) return;
+      const currency = method === "dodo" ? "USD" : "UZS";
+      const { order } = await U.api("/api/orders", { method: "POST", body: JSON.stringify({ kind, ...extra, currency }) });
       const res = await U.api(`/api/orders/${order.id}/pay`, { method: "POST", body: JSON.stringify({ method }) });
       if (res.redirect) {
         U.loadingOverlay(t("Opening the payment page…"), t("You will come back here after paying."));
@@ -541,46 +600,68 @@
   async function renderPricing(main) {
     document.title = `${t("Price")} – ${siteName()}`;
     main.innerHTML = loading();
-    const b = await billing().catch(() => ({ prices: {}, providers: [] }));
+    const b = await billing().catch(() => ({ prices: {}, providers: [], plans: {} }));
+    const selling = commerce();
     const plan = state.me.plan;
-    const methods = [["payme", "Payme"], ["click", "Click"], ["manual", t("a bank card transfer")]]
-      .filter(([k]) => b.providers.includes(k)).map(([, v]) => v);
+    const methods = [["payme", "Payme"], ["click", "Click"], ["manual", t("a bank card transfer")], ["dodo", t("Visa, Mastercard, Apple Pay or Google Pay (US dollars)")]]
+      .filter(([k]) => (b.providers || []).includes(k)).map(([, v]) => v);
     const tests = (window.app && window.app.tests) || [];
     const free = tests.filter((x) => x.access === "free").length;
-    const price = (n) => (n ? esc(money(n)) : "…");
+    const plans = b.plans || {};
+    const cell = (key, m) => {
+      const p = plans[key] && plans[key][m];
+      if (!p) return "<td></td>";
+      return `<td><strong>${esc(money(p.uzs))}</strong><div class="muted-text small-text">${esc(usd(p.usd))} ${t("by card")}</div>
+        ${selling ? `<button type="button" class="btn-secondary btn-sm" data-action="buy-plan" data-scope="${key}" data-months="${m}">${t("Choose")}</button>` : ""}</td>`;
+    };
     main.innerHTML = `
       <section class="page pricing-page">
         <div class="pricing-head">
           <h1>${t("Price")}</h1>
-          <p>${t("pricing.lead")}</p>
+          <p>${selling ? t("pricing.lead") : t("pricing.lead.soon")}</p>
         </div>
 
         <ul class="price-ledger">
           <li class="price-row"><h2 class="price-name">${t("Free tests")}</h2><p class="price-fig">${t("Free")}</p>
             <p class="price-note">${t("price.free.note", { n: esc(U.number(free)) })}</p></li>
-          <li class="price-row"><h2 class="price-name">${t("Monthly pass")}</h2><p class="price-fig">${price(b.prices.plan)}<small>/ ${t("month")}</small></p>
-            <p class="price-note">${t("price.pass.note", { n: esc(U.number(tests.length)) })}</p></li>
-          <li class="price-row"><h2 class="price-name">${t("Writing check")}</h2><p class="price-fig">${price(b.prices.writing_check)}</p>
-            <p class="price-note">${t("An examiner marks both tasks on the four official criteria")}</p></li>
-          <li class="price-row"><h2 class="price-name">${t("Speaking check")}</h2><p class="price-fig">${price(b.prices.speaking_check)}</p>
-            <p class="price-note">${t("An examiner listens to your answers and marks the four criteria")}</p></li>
         </ul>
+
+        <h2 class="section-title">${t("Passes")}</h2>
+        <div class="table-scroll"><table class="history-table pass-table">
+          <thead><tr><th scope="col">${t("Pass")}</th><th scope="col">${t("1 month")}</th><th scope="col">${t("3 months")}</th></tr></thead>
+          <tbody>${PASSES.map(([key, name, what]) => `<tr><th scope="row">${esc(t(name))}<div class="muted-text small-text">${esc(t(what))}</div></th>${cell(key, "1")}${cell(key, "3")}</tr>`).join("")}</tbody>
+        </table></div>
+        <ul class="plan-points">
+          <li>${t("price.pass.note", { n: esc(U.number(tests.length)) })}</li>
+          <li>${t("price.pass.ai")}</li>
+          <li>${t("price.pass.first")}</li>
+        </ul>
+        ${selling ? "" : `<p class="notice notice-info">${t("Passes are not on sale yet. The free tests are open now.")}</p>`}
+
+        ${selling ? `<ul class="price-ledger">
+          <li class="price-row"><h2 class="price-name">${t("Writing check")}</h2><p class="price-fig">${esc(money(b.prices.writing_check))}</p>
+            <p class="price-note">${t("An examiner marks both tasks on the four official criteria")}</p></li>
+          <li class="price-row"><h2 class="price-name">${t("Speaking check")}</h2><p class="price-fig">${esc(money(b.prices.speaking_check))}</p>
+            <p class="price-note">${t("An examiner listens to your answers and marks the four criteria")}</p></li>
+        </ul>` : ""}
 
         <div class="pricing-act">
           ${plan && plan.active
-            ? `<p class="plan-active">${t("Your pass is active until {date}.", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>
-               <div class="btn-row"><button type="button" class="btn-secondary btn-lg" data-action="buy-plan">${t("Add another month")}</button></div>`
-            : `<div class="btn-row"><button type="button" class="btn-primary btn-lg" data-action="buy-plan">${t("Get the pass")}</button>
-               <a class="btn-secondary btn-lg" href="#/">${t("Start a free test")}</a></div>`}
-          ${methods.length ? `<p class="price-foot">${t("Pay with {methods}. Prices include all fees.", { methods: esc(methods.join(", ")) })}</p>` : ""}
-          <p class="price-foot"><a href="#/examiners">${t("Meet the examiners")}</a></p>
+            ? `<p class="plan-active">${(plan.passes || []).map((p) => t("{pass} is active until {date}.", { pass: esc(t(PASS_NAMES[p.scope] || "Pass")), date: `<strong>${esc(longDate(p.endsAt))}</strong>` })).join("<br>") || t("Your pass is active until {date}.", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>`
+            : ""}
+          ${selling ? `<div class="btn-row"><button type="button" class="btn-primary btn-lg" data-action="buy-plan">${plan && plan.active ? t("Add a pass") : t("Get a pass")}</button>
+               <a class="btn-secondary btn-lg" href="#/">${t("Start a free test")}</a></div>` : `<div class="btn-row"><a class="btn-primary btn-lg" href="#/">${t("Start a free test")}</a></div>`}
+          ${methods.length ? `<p class="price-foot">${t("Pay with {methods}.", { methods: esc(methods.join(", ")) })} ${t("Prices include all fees. Card payments in US dollars are handled by Dodo Payments, which may add taxes where the law requires.")}</p>` : ""}
+          ${selling ? `<p class="price-foot"><a href="#/examiners">${t("Meet the examiners")}</a></p>` : ""}
+          <p class="price-foot"><a href="#/refunds">${t("Refund policy")}</a> · <a href="#/terms">${t("Terms of use")}</a> · <a href="#/privacy">${t("Privacy policy")}</a></p>
         </div>
 
         <div class="faq">
           <h2 class="section-title">${t("Questions")}</h2>
-          <details><summary>${t("Does the pass renew automatically?")}</summary><p>${t("faq.renew")}</p></details>
-          <details><summary>${t("How does an examiner check work?")}</summary><p>${t("faq.check")}</p></details>
-          <details><summary>${t("Do I need the pass to order an examiner check?")}</summary><p>${t("faq.checkfree")}</p></details>
+          <details><summary>${t("Does a pass renew automatically?")}</summary><p>${t("faq.renew")}</p></details>
+          <details><summary>${t("What does AI marking include?")}</summary><p>${t("faq.ai")}</p></details>
+          ${selling ? `<details><summary>${t("How does an examiner check work?")}</summary><p>${t("faq.check")}</p></details>
+          <details><summary>${t("Do I need the pass to order an examiner check?")}</summary><p>${t("faq.checkfree")}</p></details>` : ""}
           <details><summary>${t("Can I get a refund?")}</summary><p>${t("faq.refund")}</p></details>
         </div>
       </section>`;
@@ -624,18 +705,18 @@
         </div>
         ${planEndingHTML()}
         ${shop && waiting.length ? `<div class="notice notice-info"><strong>${t("We are checking your payment.")}</strong>
-          <span>${t("payment.waiting", { orders: waiting.map((o) => `#MX${o.id} (${esc(money(o.amount))})`).join(", ") })}</span></div>` : ""}
+          <span>${t("payment.waiting", { orders: waiting.map((o) => `#MX${o.id} (${esc(orderMoney(o))})`).join(", ") })}</span></div>` : ""}
 
         <div class="account-grid">
           ${shop ? `<div class="account-card">
             <h2>${t("Your pass")}</h2>
             ${plan && plan.active
-              ? `<p class="plan-active">${t("Active until {date}", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>
-                 <p class="muted-text">${t("Every test is open to you.")}</p>
-                 <button type="button" class="btn-secondary" data-action="buy-plan">${t("Add another month")}</button>`
+              ? `${(plan.passes || []).map((p) => `<p class="plan-active">${esc(t(PASS_NAMES[p.scope] || "Pass"))}: ${t("active until {date}", { date: `<strong>${esc(longDate(p.endsAt))}</strong>` })}</p>`).join("") || `<p class="plan-active">${t("Active until {date}", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>`}
+                 <p class="muted-text">${plan.modules ? t("Open to you: {papers}.", { papers: esc(plan.modules.map((m) => MODULE_NAMES[m] || m).join(", ")) }) : t("Every test is open to you.")}</p>
+                 <button type="button" class="btn-secondary" data-action="buy-plan">${t("Add a pass")}</button>`
               : `<p>${t("You are using the free tests.")}</p>
-                 <p class="muted-text">${plan && plan.hadPaidPlan ? t("Your pass has ended.") : t("Your first payment gives you two months")}</p>
-                 <button type="button" class="btn-primary" data-action="buy-plan">${t("Get the pass")}</button>`}
+                 <p class="muted-text">${plan && plan.hadPaidPlan ? t("Your pass has ended.") : t("Your first Full pass of one month brings an extra month")}</p>
+                 <button type="button" class="btn-primary" data-action="buy-plan">${t("Get a pass")}</button>`}
           </div>` : ""}
           <div class="account-card">
             <h2>${t("Your name")}</h2>
@@ -676,7 +757,7 @@
             <thead><tr><th scope="col">${t("Date")}</th><th scope="col">${t("Order")}</th><th scope="col">${t("Item")}</th><th scope="col">${t("Amount")}</th><th scope="col">${t("Status")}</th><th scope="col"><span class="sr-only">${t("Receipt")}</span></th></tr></thead>
             <tbody>${orders.map((o) => `
               <tr><td>${esc(U.formatDate(o.createdAt))}</td><td>#MX${o.id}</td><td>${esc(o.title)}</td>
-                <td>${esc(money(o.amount))}</td><td>${statusBadge(o.status)}</td>
+                <td>${esc(orderMoney(o))}</td><td>${statusBadge(o.status)}</td>
                 <td>${o.status === "paid" ? `<button type="button" class="btn-link" data-action="receipt" data-order="${o.id}">${t("Receipt")}</button>` : ""}</td></tr>`).join("")}</tbody>
           </table></div>` : `<p class="empty-inline">${t("No payments yet.")}</p>`}` : ""}
       </section>`;
@@ -1243,7 +1324,7 @@
           <tbody>${orders.map((o) => `<tr>
             <td>${esc(U.formatDate(o.createdAt))}</td><td>#MX${o.id}</td><td>${esc(o.userEmail || "")}</td>
             <td>${esc(o.title)}${o.examinerEmail ? `<br><span class="muted-text">${esc(o.examinerEmail)}</span>` : ""}</td>
-            <td>${esc(money(o.amount))}</td><td>${statusBadge(o.status)}${o.provider ? ` <span class="muted-text">${esc(o.provider)}</span>` : ""}</td>
+            <td>${esc(orderMoney(o))}</td><td>${statusBadge(o.status)}${o.provider ? ` <span class="muted-text">${esc(o.provider)}</span>` : ""}</td>
             <td class="row-actions">
               ${["pending", "awaiting_confirmation"].includes(o.status) ? `<button type="button" class="btn-primary btn-sm" data-confirm="${o.id}">Confirm payment</button>
                 <button type="button" class="btn-secondary btn-sm" data-cancel="${o.id}">Cancel</button>` : ""}
@@ -1352,7 +1433,7 @@
       </div>
       <div class="table-scroll"><table class="history-table funnel-table">
         <thead><tr><th scope="col"></th><th scope="col">Last 7 days</th><th scope="col">Last 30 days</th></tr></thead>
-        <tbody>${row("Monthly pass", "plan")}${row("Examiner checks", "checks")}${row("Total", "total")}
+        <tbody>${row("Passes", "plan")}${row("Examiner checks", "checks")}${row("Total", "total")}
           <tr><th scope="row">Paid orders</th><td>${U.number(revenue["7"].orders)}</td><td>${U.number(revenue["30"].orders)}</td></tr></tbody>
       </table></div>
       <p class="muted-text small-text revenue-note">Counted by payment date. Refunded orders are left out. "Ending" means no later month is bought yet; those students get a reminder email 3 days before.</p>`;
@@ -1388,7 +1469,7 @@
     const a = el.dataset.action;
     if (a === "signin") { login().then((ok) => ok && window.app && window.app.route()); return true; }
     if (a === "signout") { logout(); return true; }
-    if (a === "buy-plan") { buy("plan"); return true; }
+    if (a === "buy-plan") { buy("plan", el.dataset.scope ? { scope: el.dataset.scope, months: el.dataset.months } : {}); return true; }
     if (a === "examiner-reviews") { showReviews(el.dataset.id); return true; }
     if (a === "choose-examiner") {
       chooseExaminer(el.dataset.id, Number(el.dataset.submission) || null, el.dataset.kind === "speaking" ? "speaking" : "writing");
@@ -1406,7 +1487,7 @@
   function receiptHTML(o) {
     const u = o.unlocked || {};
     const unlocked = u.plan
-      ? t("Monthly pass: every test, {from} to {to}", { from: longDate(u.plan.startsAt), to: longDate(u.plan.endsAt) })
+      ? t("{pass}: {papers}, {from} to {to}", { pass: t(PASS_NAMES[u.plan.scope] || "Pass"), papers: ({ full: "every test", speaking: "every Speaking test", writing: "every Writing test", lr: "every Listening and Reading test" })[u.plan.scope || "full"], from: longDate(u.plan.startsAt), to: longDate(u.plan.endsAt) })
       : u.check
         ? `${t(u.check.kind === "speaking" ? "Speaking check" : "Writing check")} · <a href="#/check/${Number(u.check.id)}">${t("Open the check")}</a>`
         : esc(o.title);
@@ -1414,7 +1495,7 @@
     return `<table class="receipt-table"><tbody>
       ${row(t("Order"), `#MX${Number(o.id)}`)}
       ${row(t("Item"), esc(o.title))}
-      ${row(t("Amount"), esc(money(o.amount)))}
+      ${row(t("Amount"), esc(orderMoney(o)))}
       ${row(t("Paid on"), esc(longDate(o.paidAt || o.createdAt)))}
       ${row(t("Paid with"), esc(PAID_WITH[o.provider] || o.provider || "–"))}
       ${row(t("Unlocked"), u.plan ? esc(unlocked) : unlocked)}
@@ -1431,7 +1512,7 @@
   }
 
   window.Account = {
-    state, commerce, refreshMe, primeMe, user, planActive, role, goal, daysUntil, planEndingHTML, goalFormHTML, bindGoalForm, login, logout, paywall, buy, billing, money, onClick, renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
+    state, commerce, refreshMe, primeMe, user, planActive, hasModule, role, goal, daysUntil, planEndingHTML, goalFormHTML, bindGoalForm, login, logout, paywall, buy, billing, money, onClick, renderAccountSlot, renderPricing, renderAccount, renderExaminers, renderCheck, renderExaminerDashboard, renderAdmin,
     setConfig(config) { state.config = config || {}; armGoogleWarmUp(); },
   };
 })();
