@@ -13,12 +13,15 @@ Band scores produced here are practice estimates, not official IELTS results.
 """
 
 import asyncio
+import datetime
 import json
 import math
+import os
 import re
 from collections import Counter
 
 from . import ai
+from .db import iso, now
 
 # --------------------------------------------------------------------------
 # 1. Deterministic text analysis
@@ -342,6 +345,19 @@ CRITERION_LABELS = {
 }
 
 # Responses of 20 words or fewer are rated band 1 without asking the model.
+AI_PER_MONTH = int(os.environ.get("WRITING_AI_PER_MONTH", 20))   # the passes are priced for this many a month
+
+
+def month_limit(db, user_id):
+    """A message when a signed-in student has had their month's AI marking, else None."""
+    since = iso(now() - datetime.timedelta(days=30))
+    rows = db.select("writing_submissions", {"user_id": user_id, "created_at": ("gte", since)}, limit=AI_PER_MONTH * 3 + 50)
+    if sum(1 for r in rows if r.get("assessment")) >= AI_PER_MONTH:
+        return (f"You have had {AI_PER_MONTH} scripts marked by the AI examiner in the last 30 days, which is what a pass "
+                "includes. Your script is analysed without a band; your allowance comes back day by day.")
+    return None
+
+
 MIN_WORDS_FOR_AI = 21
 
 

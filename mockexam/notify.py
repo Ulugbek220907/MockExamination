@@ -36,7 +36,15 @@ import urllib.request
 
 log = logging.getLogger("mockexam.notify")
 
-KIND_LABELS = {"plan": "Monthly plan", "writing_check": "Writing check", "speaking_check": "Speaking check"}
+KIND_LABELS = {"plan": "Pass", "writing_check": "Writing check", "speaking_check": "Speaking check"}
+PASS_LABELS = {"full": "Full pass", "speaking": "Speaking pass", "writing": "Writing pass", "lr": "Listening and Reading pass"}
+
+
+def order_label(order):
+    if order["kind"] != "plan":
+        return KIND_LABELS.get(order["kind"], order["kind"])
+    months = int(order.get("months") or 1)
+    return f"{PASS_LABELS.get(order.get('scope') or 'full', 'Pass')}, {months} month{'s' if months != 1 else ''}"
 
 _POOL = concurrent.futures.ThreadPoolExecutor(max_workers=2, thread_name_prefix="notify")
 SYNC = False  # tests send immediately
@@ -66,8 +74,14 @@ def telegram_enabled():
     return bool(_env("TELEGRAM_BOT_TOKEN") and _env("TELEGRAM_ADMIN_CHAT_ID"))
 
 
-def money(amount):
+def money(amount, currency=None):
+    if currency == "USD":  # card sales are kept in US cents
+        return f"${int(amount or 0) / 100:,.2f}"
     return f"{int(amount or 0):,}".replace(",", " ") + " so'm"
+
+
+def order_money(order):
+    return money(order["amount"], order.get("currency"))
 
 
 # --------------------------------------------------------------------------
@@ -182,7 +196,7 @@ def payment_claimed(db, order):
     def job():
         who = _email_of(db, order["user_id"]) or "a student"
         _to_admins(f"Card transfer to confirm: #MX{order['id']}",
-                   f"{who} says they paid {money(order['amount'])} for: {KIND_LABELS.get(order['kind'], order['kind'])}.\n\n"
+                   f"{who} says they paid {order_money(order)} for: {order_label(order)}.\n\n"
                    f"Check your bank for a transfer with MX{order['id']} in the comment, then confirm it.",
                    ("Open payments", f"{site_url()}/#/admin?tab=payments"))
     _run(job)
@@ -191,17 +205,17 @@ def payment_claimed(db, order):
 def order_paid(db, order, provider, plan_ends=None):
     def job():
         email = _email_of(db, order["user_id"])
-        label = KIND_LABELS.get(order["kind"], order["kind"])
+        label = order_label(order)
         if order["kind"] == "plan":
-            detail = f"Your monthly plan is active{f' until {plan_ends}' if plan_ends else ''}. Every test is now open to you."
+            detail = f"Your pass is active{f' until {plan_ends}' if plan_ends else ''}."
             button = ("Start practising", f"{site_url()}/#/")
         else:
             detail = "Your examiner has your test in their queue. Most checks are finished within 48 hours; we will email you when the marks are ready."
             button = ("My account", f"{site_url()}/#/account")
         send_email(email, f"Payment received: {label}",
-                   f"Thank you! We received {money(order['amount'])} for order #MX{order['id']} ({label}).\n\n{detail}", button)
-        if provider in ("payme", "click"):
-            _to_admins(f"New payment: {money(order['amount'])} via {provider.title()}",
+                   f"Thank you! We received {order_money(order)} for order #MX{order['id']} ({label}).\n\n{detail}", button)
+        if provider in ("payme", "click", "dodo"):
+            _to_admins(f"New payment: {order_money(order)} via {provider.title()}",
                        f"#MX{order['id']} · {label} · {email or order['user_id']}")
     _run(job)
 

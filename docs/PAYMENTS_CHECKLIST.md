@@ -4,7 +4,7 @@ Run this once before taking real money, and again after any change to `mockexam/
 the prices, or the Payme / Click cabinet settings. It takes about 30 minutes and costs one plan
 payment, which you refund at the end.
 
-What is sold: the monthly plan (39 000 so'm, first payment gives two months, no automatic
+What is sold: passes for 1 or 3 months (no automatic renewal): Full (all four papers), Speaking, Writing, and Listening + Reading; plus Writing and Speaking checks by an examiner. A first Full pass of one month brings an extra month. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): Full 79 000 / 199 000 so'm ($7.99 / $19.99), Speaking 49 000 / 119 000 ($5.99 / $14.99), Writing 39 000 / 99 000 ($4.99 / $11.99), Listening + Reading 29 000 / 69 000 ($3.99 / $9.99); checks 10 000 and 20 000 so'm. (no automatic
 renewal), a Writing check (10 000 so'm) and a Speaking check (20 000 so'm). Prices come from
 the env vars below, never from the browser.
 
@@ -16,7 +16,9 @@ the env vars below, never from the browser.
 | `SESSION_SECRET` | all | Long random string. Changing it signs everyone out. |
 | `ADMIN_EMAILS` | refunds, card transfers | Your sign-in email. Admins see **Account → Admin → Orders**. |
 | `CONTACT_EMAIL` | receipts, refund policy | Shown to students for refund requests. |
-| `PLAN_PRICE`, `WRITING_CHECK_PRICE`, `SPEAKING_CHECK_PRICE` | prices | In so'm. Defaults 39000 / 10000 / 20000. |
+| `PLAN_PRICE`, `WRITING_CHECK_PRICE`, `SPEAKING_CHECK_PRICE` | prices | In so'm: the Full 1-month pass (default 79000) and the checks (10000 / 20000). The other passes are set in `billing.PLAN_PRICES`. |
+| `DODO_PAYMENTS_API_KEY`, `DODO_PAYMENTS_WEBHOOK_KEY`, `DODO_PRODUCTS` | Dodo (card, US dollars) | The API key (`dodo_test_...` or `dodo_live_...`), the webhook signing secret (`whsec_...`) and the product of each pass: `full-1=pdt_x,full-3=pdt_y,speaking-1=...` (kind of pass, a dash, the months). See section 7. |
+| `SPEAKING_AI_PER_MONTH`, `WRITING_AI_PER_MONTH` | AI caps | AI-rated Speaking tests and AI-marked Writing scripts in any 30 days (defaults 12 and 20): what the prices assume. |
 | `PLAN_DAYS`, `PLAN_FIRST_BONUS_DAYS` | plan length | Defaults 30 and 30. |
 | `PAYME_MERCHANT_ID`, `PAYME_KEY` | Payme | From the Payme business cabinet. `PAYME_KEY` is the **production** key. |
 | `PAYME_TEST` | Payme | `1` only while testing in the Payme sandbox. Remove it (or set `0`) for real money. |
@@ -78,6 +80,7 @@ not started. It does **not** send money anywhere. The money goes back through th
 | Payme | Payme cabinet → the transaction → Cancel (refund) | Nothing: Payme calls the site, and the order becomes Refunded automatically. |
 | Click | Click cabinet or Click support | Admin → Orders → Refund. |
 | Card transfer | Transfer the money back yourself | Admin → Orders → Refund. |
+| Dodo (card, USD) | Nothing to do in Dodo | Admin → Orders → Refund asks Dodo to refund the card, then takes the pass back. A refund made in the Dodo dashboard reaches the site through the webhook (`refund.succeeded`). |
 
 Check after a refund:
 - Reading Test 16 is locked again immediately, and so is Listening Test 2's audio;
@@ -98,3 +101,27 @@ was started; an examiner check until the examiner starts it.
   that is already being marked;
 - paid tests and their audio open the moment an order is paid, and lock again the moment
   it is refunded.
+
+## 7. Dodo Payments (card payments in US dollars)
+
+Dodo is the merchant of record: it sells the pass to the student, handles taxes and pays you out in USD
+(Payoneer or a bank). It takes foreign Visa and Mastercard, Apple Pay and Google Pay; it does not take
+Uzcard or Humo and cannot charge in so'm.
+
+1. **Supabase first.** Run the last block of `supabase/schema.sql` ("Passes for one paper or two ... Dodo") in the
+   SQL editor, before the site with the new passes is live. It is safe to run again.
+2. **Dodo dashboard (test mode).** Create the 8 products (One-Time, USD, tax inclusive): Full, Speaking, Writing and
+   Listening and Reading, each for 1 and 3 months. Create an API key (Developer → API Keys) and a webhook
+   (Developer → Webhooks) at `https://www.testday.uz/api/pay/dodo/webhook` for `payment.succeeded`,
+   `payment.failed`, `payment.cancelled`, `refund.succeeded` and `refund.failed`.
+3. **Render.** Set the three `DODO_*` variables of section 1. The key's prefix decides test or live:
+   `dodo_test_` talks to test.dodopayments.com, `dodo_live_` to live.dodopayments.com. The pass of a kind that
+   has no product in `DODO_PRODUCTS` cannot be paid by card.
+4. **Test.** With `COMMERCE_ENABLED=1`, buy a pass with Dodo's test card `4242 4242 4242 4242` (any future expiry,
+   CVV 123). The order becomes Paid with provider `dodo`; **Account** shows the pass and its papers.
+5. **Live.** Switch the Dodo dashboard to live mode, make the live products, key and webhook, and replace the three
+   variables (a new product id for each pass). Repeat step 4 with a real card and refund it.
+
+How it is protected: the webhook is verified (HMAC-SHA256, timestamp within 5 minutes), the payment is fetched
+from Dodo again and must be `succeeded`, in USD, for at least the order's amount, and carry the order id in its
+metadata; a repeated webhook changes nothing twice (see `DodoTests` in `scripts/test_app.py`).

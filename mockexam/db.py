@@ -74,7 +74,11 @@ CREATE TABLE IF NOT EXISTS orders (
     note TEXT,
     created_at TEXT,
     paid_at TEXT,
-    cancelled_at TEXT
+    cancelled_at TEXT,
+    scope TEXT,
+    months INTEGER,
+    currency TEXT,
+    external_id TEXT
 );
 CREATE TABLE IF NOT EXISTS subscription_periods (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -85,7 +89,8 @@ CREATE TABLE IF NOT EXISTS subscription_periods (
     source TEXT NOT NULL,
     note TEXT,
     created_at TEXT,
-    reminded_at TEXT
+    reminded_at TEXT,
+    scope TEXT
 );
 CREATE TABLE IF NOT EXISTS payme_transactions (
     id TEXT PRIMARY KEY,
@@ -207,6 +212,11 @@ _ADDED_COLUMNS = [
     ("profiles", "target_band", "REAL"),
     ("profiles", "exam_date", "TEXT"),
     ("subscription_periods", "reminded_at", "TEXT"),
+    ("subscription_periods", "scope", "TEXT"),
+    ("orders", "scope", "TEXT"),
+    ("orders", "months", "INTEGER"),
+    ("orders", "currency", "TEXT"),
+    ("orders", "external_id", "TEXT"),
     ("speaking_submissions", "ai_review", "TEXT"),
 ]
 

@@ -148,17 +148,40 @@ def public_goal(profile):
 
 
 # --------------------------------------------------------------------------
-# The monthly plan
+# The plan (a pass for every paper, or for some of them)
 # --------------------------------------------------------------------------
 
+# What each kind of pass opens. A period without a scope is a full pass (every period made before there were scopes).
+PLAN_SCOPES = {
+    "full": ("listening", "reading", "writing", "speaking"),
+    "speaking": ("speaking",),
+    "writing": ("writing",),
+    "lr": ("listening", "reading"),
+}
+
+
+def scope_of(period):
+    scope = period.get("scope") or "full"
+    return scope if scope in PLAN_SCOPES else "full"
+
+
 def _plan_from_periods(periods, at):
-    active = any(parse_time(p["starts_at"]) <= at < parse_time(p["ends_at"]) for p in periods)
+    live = [p for p in periods if parse_time(p["starts_at"]) <= at < parse_time(p["ends_at"])]
+    active = bool(live)
     ends = max((parse_time(p["ends_at"]) for p in periods), default=None)
+    # Per kind of pass: when the pass running now ends, counting the months bought after it.
+    passes = {}
+    for p in live:
+        end = max((parse_time(q["ends_at"]) for q in periods if scope_of(q) == scope_of(p)), default=parse_time(p["ends_at"]))
+        passes[scope_of(p)] = max(end, passes.get(scope_of(p), end))
     return {
         "active": active,
         "endsAt": iso(ends) if active and ends and ends > at else None,
         "hadPlan": bool(periods),
         "hadPaidPlan": any(p["source"] == "payment" for p in periods),
+        # The papers the passes open now, and each pass with its end.
+        "modules": sorted({m for scope in passes for m in PLAN_SCOPES[scope]}),
+        "passes": [{"scope": scope, "endsAt": iso(end)} for scope, end in sorted(passes.items())],
     }
 
 
@@ -181,9 +204,9 @@ def plan_statuses(db, user_ids, at=None):
     return {u: _plan_from_periods(grouped[u], at) for u in ids}
 
 
-def grant_plan_period(db, user_id, days, source, order_id=None, note=None):
+def grant_plan_period(db, user_id, days, source, order_id=None, note=None, scope="full"):
     """
-    Add `days` of plan to a user, starting when their current plan ends (or now).
+    Add `days` of a pass to a user, starting when their current pass of the same kind ends (or now).
     Idempotent per order: a second call for the same order_id changes nothing.
     """
     with _plan_lock:
@@ -192,10 +215,13 @@ def grant_plan_period(db, user_id, days, source, order_id=None, note=None):
             if existing:
                 return existing[0]
         current = now()
-        periods = db.select("subscription_periods", {"user_id": user_id}, order=[("ends_at", "desc")], limit=1)
+        periods = [p for p in db.select("subscription_periods", {"user_id": user_id}, order=[("ends_at", "desc")], limit=50)
+                   if scope_of(p) == scope]
         start = max(current, parse_time(periods[0]["ends_at"])) if periods else current
         end = start + datetime.timedelta(days=days)
         row = {"user_id": user_id, "starts_at": iso(start), "ends_at": iso(end), "source": source, "note": note}
+        if scope != "full":  # a full pass needs no column, so a database made before scopes still works
+            row["scope"] = scope
         if order_id is not None:
             row["order_id"] = order_id
             period = db.insert("subscription_periods", row, ignore_conflict="order_id") or \
@@ -222,7 +248,7 @@ def revoke_plan_period(db, order_id):
         unused = end - max(start, now())
         if unused.total_seconds() > 0:
             for p in db.select("subscription_periods", {"user_id": gone["user_id"]}, order=[("starts_at", "asc")], limit=50):
-                if parse_time(p["starts_at"]) >= end:  # queued after the refunded period
+                if scope_of(p) == scope_of(gone) and parse_time(p["starts_at"]) >= end:  # queued after the refunded period
                     db.update("subscription_periods", {"id": p["id"]}, {
                         "starts_at": iso(parse_time(p["starts_at"]) - unused),
                         "ends_at": iso(parse_time(p["ends_at"]) - unused),
@@ -305,8 +331,16 @@ ATTEMPT_TABLES = {"reading": "reading_attempts", "listening": "listening_attempt
                   "writing": "writing_submissions", "speaking": "speaking_submissions"}
 
 
-def retakes_allowed(profile, plan):
-    return profile_role(profile) in ("admin", "examiner") or bool(plan and plan.get("active"))
+def has_module(plan, module):
+    """True if a pass of this plan opens the paper. A plan from before scopes has no list and opens every paper."""
+    if not (plan and plan.get("active")):
+        return False
+    modules = plan.get("modules")
+    return True if modules is None or module is None else module in modules
+
+
+def retakes_allowed(profile, plan, module=None):
+    return profile_role(profile) in ("admin", "examiner") or has_module(plan, module)
 
 
 def already_taken(db, test, user_id=None, client_id=None):
@@ -331,4 +365,4 @@ def can_open_test(test, profile, plan):
         return False
     if profile_role(profile) in ("admin", "examiner"):
         return True
-    return access == "premium" and bool(plan and plan.get("active"))
+    return access == "premium" and has_module(plan, test.get("module"))

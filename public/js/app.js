@@ -192,7 +192,8 @@
       this.setNav(hash);
       const [path, query] = hash.slice(1).split("?");
       const params = new URLSearchParams(query || "");
-      if (!this.commerce() && /^\/(pricing|refunds|examiners?|check\/\d+)$/.test(path)) return location.replace("#/");
+      // Price and Refunds are public before anything is for sale (payment services want to see them); examiners are not.
+      if (!this.commerce() && /^\/(examiners?|check\/\d+)$/.test(path)) return location.replace("#/");
       const check = path.match(/^\/check\/(\d+)$/);
       const spoken = path.match(/^\/speaking\/(\d+)$/);
       window.scrollTo(0, 0);
@@ -388,8 +389,9 @@
       const list = document.getElementById("ledger");
       if (!list) return;
       const commerce = this.commerce();
-      const everything = commerce && (Account.planActive() || ["admin", "examiner"].includes(Account.role()));
+      const staff = ["admin", "examiner"].includes(Account.role());
       list.innerHTML = MODULES.map((module) => {
+        const everything = commerce && (Account.hasModule(module) || staff);
         const tests = this.testsOf(module);
         if (!tests.length) return "";
         const free = tests.filter((x) => x.access === "free").length;
@@ -438,10 +440,12 @@
     }
 
     async loadPrices() {
-      if (this.prices || !this.commerce()) return;
+      if (this.prices) return;
       try {
         const b = await Account.billing();
         this.prices = b.prices || null;
+        this.plans = b.plans || null;
+        this.aiCaps = b.aiCaps || null;
       } catch (e) { return; }
       const price = this.main.querySelector('[data-price="plan"]');
       if (price && this.prices) price.innerHTML = this.priceText();
@@ -453,12 +457,12 @@
 
     canOpen(t) {
       if (t.access === "free" || ["admin", "examiner"].includes(Account.role())) return true;
-      return t.access === "premium" && Account.planActive();
+      return t.access === "premium" && Account.hasModule(t.module);
     }
 
     /** Without the pass, each free test can be taken once (the server says the same). */
     canRetake(t) {
-      return t.access !== "free" || Account.planActive() || ["admin", "examiner"].includes(Account.role());
+      return t.access !== "free" || Account.hasModule(t.module) || ["admin", "examiner"].includes(Account.role());
     }
 
     /** A free test this visitor has finished and may not take again. */
@@ -772,7 +776,8 @@
           const signedIn = await Account.paywall(this.tests.find((x) => x.id === testId));
           if (signedIn) {
             this.renderIfHome();
-            if (Account.planActive()) return this.prepare(testId, mode);
+            const wanted = this.tests.find((x) => x.id === testId);
+            if (Account.hasModule(wanted && wanted.module)) return this.prepare(testId, mode);
           }
           return;
         }
@@ -1060,7 +1065,8 @@
             data-track="next_practice">${t("Practise this type")}</button></div>` : ""}
         </div>` : "";
       const name = next ? this.testName(next) : "";
-      const price = this.prices && this.prices.plan ? U.money(this.prices.plan) : "";
+      const cheapest = this.plans ? Math.min(...Object.values(this.plans).map((x) => x["1"].uzs)) : 0;   // the lowest price of a pass
+      const price = cheapest ? U.money(cheapest) : "";
       const card = next ? `
         <div class="next-card">
           <h3>${esc(MODULE_LABELS[module])}, ${esc(name)}</h3>
@@ -1157,23 +1163,26 @@
       const contact = this.contactHTML();
       const days = Number(this.config.speakingKeepDays) || 60;
       const p = this.prices || {};
+      const plans = this.plans || {};
+      const caps = this.aiCaps || { speaking: 12, writing: 20 };
       const price = (n) => (n ? esc(U.money(n)) : "…");
       const commerce = this.commerce();
-      const v = (key) => (commerce ? key : `${key}.free`); // the wording for a site that sells nothing yet
+      const v = (key) => (commerce ? key : `${key}.free`); // the wording for a site that does not sell examiner checks yet
+      // Passes are described (and priced) before they go on sale; examiner checks only once they are.
       const section = (key, vars, bodyKey = key) => `<h2>${t(`${key}.h`, { name })}</h2><p>${t(bodyKey, { name, ...vars })}</p>`;
       const pages = {
         terms: [t("Terms of use"), `
-          <p class="lead-text">${t(v("terms.lead"), { name })}</p>
+          <p class="lead-text">${t(commerce ? "terms.lead" : "terms.lead.pass", { name })}</p>
           ${section("terms.service")}
-          ${section("terms.account", {}, v("terms.account"))}
-          ${commerce ? `${section("terms.pass", { price: price(p.plan) })}
-          ${section("terms.checks", { writing: price(p.writing_check), speaking: price(p.speaking_check) })}
+          ${section("terms.account", {}, "terms.account")}
+          ${section("terms.pass", { full: price(plans.full && plans.full["1"].uzs), speakingCap: caps.speaking, writingCap: caps.writing })}
+          ${commerce ? section("terms.checks", { writing: price(p.writing_check), speaking: price(p.speaking_check) }) : ""}
           ${section("terms.payment")}
-          ${section("terms.refunds")}` : ""}
+          ${section("terms.refunds")}
           ${section("terms.use", {}, v("terms.use"))}
           ${section("terms.work", { days }, v("terms.work"))}
           ${section("terms.availability", {}, v("terms.availability"))}
-          ${section("terms.liability", {}, v("terms.liability"))}
+          ${section("terms.liability", {}, commerce ? "terms.liability" : "terms.liability.free")}
           ${section("terms.law")}`],
         privacy: [t("Privacy policy"), `
           <p class="lead-text">${t("privacy.lead", { name })}</p>
@@ -1197,7 +1206,7 @@
         refunds: [t("Refund policy"), `
           <p class="lead-text">${t("refund.lead")}</p>
           ${section("refund.pass")}
-          ${section("refund.checks")}
+          ${commerce ? section("refund.checks") : ""}
           ${section("refund.how", { contact })}
           ${section("refund.money")}`],
       };
@@ -1242,12 +1251,12 @@
           <h2>${t("Independent website")}</h2>
           <p>${t("about.independent", { name })}</p>
 
-          <h2>${this.commerce() ? t("Privacy, terms and refunds") : t("Privacy and terms")}</h2>
-          <p>${t(this.commerce() ? "about.legal" : "about.legal.free", { name })}</p>
+          <h2>${t("Privacy, terms and refunds")}</h2>
+          <p>${t("about.legal", { name })}</p>
           <ul class="legal-links">
             <li><a href="#/privacy">${t("Privacy policy")}</a></li>
             <li><a href="#/terms">${t("Terms of use")}</a></li>
-            ${this.commerce() ? `<li><a href="#/refunds">${t("Refund policy")}</a></li>` : ""}
+            <li><a href="#/refunds">${t("Refund policy")}</a></li>
           </ul>
           <h2>${t("Contact")}</h2>
           <p>${this.contactHTML()}</p>

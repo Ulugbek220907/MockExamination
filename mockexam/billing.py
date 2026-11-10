@@ -2,12 +2,13 @@
 Billing: prices, orders, fulfilment, and the Payme and Click merchant APIs.
 
 What can be bought
-  plan            – the monthly plan (all tests). The first paid month comes
-                    with an extra free month.
+  plan            – a pass for 1 or 3 months: "full" (every paper), "speaking", "writing" or "lr" (Listening and
+                    Reading). A student's first full 1-month pass comes with an extra free month.
   writing_check   – an examiner marks one Writing submission.
   speaking_check  – an examiner marks one Speaking submission.
 
 How money arrives
+  Dodo   – foreign cards in US dollars: the student pays on Dodo's page and Dodo calls POST /api/pay/dodo/webhook.
   Payme  – Payme calls POST /api/pay/payme (JSON-RPC, Merchant API).
   Click  – Click calls POST /api/pay/click/prepare and /complete (SHOP API).
   Manual – the student transfers to a card and presses "I have paid";
@@ -27,7 +28,7 @@ import os
 import time
 import urllib.parse
 
-from . import accounts, analytics, checks, notify
+from . import accounts, analytics, checks, dodo, notify
 from .db import iso, now, parse_time
 
 log = logging.getLogger("mockexam.billing")
@@ -40,14 +41,24 @@ def _int_env(name, default):
         return default
 
 
+# The passes: {kind: {months: (price in so'm, price in US cents)}}. so'm for Payme, Click and card transfer; dollars for Dodo.
+# The USD prices are higher than the so'm ones because Dodo's fixed 40 cents weighs more on small sales.
+PLAN_PRICES = {
+    "full": {1: (_int_env("PLAN_PRICE", 79000), 799), 3: (199000, 1999)},
+    "speaking": {1: (49000, 599), 3: (119000, 1499)},
+    "writing": {1: (39000, 499), 3: (99000, 1199)},
+    "lr": {1: (29000, 399), 3: (69000, 999)},
+}
+PLAN_MONTHS = (1, 3)
 PRICES = {
-    "plan": _int_env("PLAN_PRICE", 39000),
+    "plan": PLAN_PRICES["full"][1][0],
     "writing_check": _int_env("WRITING_CHECK_PRICE", 10000),
     "speaking_check": _int_env("SPEAKING_CHECK_PRICE", 20000),
 }
-PLAN_DAYS = _int_env("PLAN_DAYS", 30)
+PLAN_DAYS = _int_env("PLAN_DAYS", 30)   # days in one month of a pass
 PLAN_FIRST_BONUS_DAYS = _int_env("PLAN_FIRST_BONUS_DAYS", 30)
 CURRENCY = "so'm"
+PASS_TITLES = {"full": "Full pass", "speaking": "Speaking pass", "writing": "Writing pass", "lr": "Listening and Reading pass"}
 
 PAYME = {
     "merchant_id": os.environ.get("PAYME_MERCHANT_ID", "").strip(),
@@ -68,7 +79,7 @@ MANUAL = {
 }
 
 KIND_TITLES = {
-    "plan": "Monthly plan",
+    "plan": "Pass",
     "writing_check": "Writing check by an examiner",
     "speaking_check": "Speaking check by an examiner",
 }
@@ -89,18 +100,41 @@ def providers():
         out.append("click")
     if MANUAL["card_number"]:
         out.append("manual")
+    if dodo.configured():
+        out.append("dodo")
     return out
 
 
-def public_config():
+def plan_table():
+    """The passes and their prices for the Price page: {kind: {months: {"uzs": so'm, "usd": US cents}}}."""
+    return {kind: {str(m): {"uzs": uzs, "usd": usd} for m, (uzs, usd) in months.items()} for kind, months in PLAN_PRICES.items()}
+
+
+def public_config(enabled=True):
+    """What the Price page needs. The passes and their prices are shown even before anything is for sale."""
     return {
+        "enabled": bool(enabled),
         "currency": CURRENCY,
-        "prices": PRICES,
+        "plans": plan_table(),
+        "prices": PRICES if enabled else {},
         "planDays": PLAN_DAYS,
         "firstBonusDays": PLAN_FIRST_BONUS_DAYS,
-        "providers": providers(),
-        "manual": {"cardNumber": MANUAL["card_number"], "cardHolder": MANUAL["card_holder"]} if MANUAL["card_number"] else None,
+        "aiCaps": ai_caps(),
+        "providers": providers() if enabled else [],
+        # The passes that can be paid by card, as "full-1", "speaking-3", ...
+        "cardPasses": sorted(f"{scope}-{months}" for (scope, months) in dodo.products()) if enabled and dodo.configured() else [],
+        "manual": {"cardNumber": MANUAL["card_number"], "cardHolder": MANUAL["card_holder"]} if enabled and MANUAL["card_number"] else None,
     }
+
+
+def ai_caps():
+    """What a pass includes of AI marking in any 30 days."""
+    from . import speaking_ai, writing
+    return {"speaking": speaking_ai.PER_USER_PER_MONTH, "writing": writing.AI_PER_MONTH}
+
+
+def plan_title(scope, months):
+    return f"{PASS_TITLES.get(scope, 'Pass')}, {months} month{'s' if months != 1 else ''}"
 
 
 # --------------------------------------------------------------------------
@@ -116,13 +150,28 @@ def get_order(db, order_id):
     return rows[0] if rows else None
 
 
+def order_scope(order):
+    return order.get("scope") or "full"
+
+
+def order_months(order):
+    return int(order.get("months") or 1)
+
+
+def order_currency(order):
+    return order.get("currency") or "UZS"
+
+
 def public_order(order):
+    plan = order["kind"] == "plan"
     return {
         "id": order["id"],
         "kind": order["kind"],
-        "title": KIND_TITLES.get(order["kind"], order["kind"]),
+        "title": plan_title(order_scope(order), order_months(order)) if plan else KIND_TITLES.get(order["kind"], order["kind"]),
+        "scope": order_scope(order) if plan else None,
+        "months": order_months(order) if plan else None,
         "amount": order["amount"],
-        "currency": CURRENCY,
+        "currency": "USD" if order_currency(order) == "USD" else CURRENCY,
         "status": order["status"],
         "provider": order.get("provider"),
         "examinerId": order.get("examiner_id"),
@@ -147,7 +196,7 @@ def user_orders(db, user_id, limit=50):
         if order["status"] == "paid":
             if order["kind"] == "plan" and order["id"] in periods:
                 p = periods[order["id"]]
-                item["unlocked"] = {"plan": {"startsAt": p["starts_at"], "endsAt": p["ends_at"]}}
+                item["unlocked"] = {"plan": {"startsAt": p["starts_at"], "endsAt": p["ends_at"], "scope": accounts.scope_of(p)}}
             elif order["id"] in paid_checks:
                 c = paid_checks[order["id"]]
                 item["unlocked"] = {"check": {"id": c["id"], "kind": c["kind"], "status": c["status"]}}
@@ -155,13 +204,35 @@ def user_orders(db, user_id, limit=50):
     return out
 
 
-def create_order(db, user_id, kind, examiner_id=None, submission_id=None):
+def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope="full", months=1, currency="UZS"):
     if kind not in PRICES:
         raise BillingError("Unknown product.")
     pending = db.select("orders", {"user_id": user_id, "status": "pending"}, limit=15)
     if len(pending) >= 15:
         raise BillingError("You have too many unpaid orders. Please complete or wait for previous orders.")
     row = {"user_id": user_id, "kind": kind, "amount": PRICES[kind], "status": "pending"}
+    if kind == "plan":
+        try:
+            months = int(months)
+        except (TypeError, ValueError):
+            raise BillingError("Unknown pass.")
+        if scope not in PLAN_PRICES or months not in PLAN_PRICES[scope]:
+            raise BillingError("Unknown pass.")
+        uzs, usd = PLAN_PRICES[scope][months]
+        if currency == "USD":
+            if not dodo.product_id(scope, months) or not dodo.configured():
+                raise BillingError("This pass cannot be paid by card yet.")
+            row["amount"] = usd
+        elif currency != "UZS":
+            raise BillingError("Unknown currency.")
+        else:
+            row["amount"] = uzs
+        # What is the usual (a full pass, 1 month, in so'm) needs no extra column, so an older database still works.
+        for key, value, usual in (("scope", scope, "full"), ("months", months, 1), ("currency", currency, "UZS")):
+            if value != usual:
+                row[key] = value
+    elif currency != "UZS":
+        raise BillingError("Examiner checks are paid in so'm.")
     if kind in ("writing_check", "speaking_check"):
         check_kind = "writing" if kind == "writing_check" else "speaking"
         checks.validate_new_check(db, user_id, check_kind, examiner_id, submission_id)
@@ -169,12 +240,22 @@ def create_order(db, user_id, kind, examiner_id=None, submission_id=None):
     return db.insert("orders", row)
 
 
-def checkout(order, method, return_url):
+def checkout(order, method, return_url, profile=None):
     """What the browser should do to pay: a redirect URL, or manual transfer details."""
     if order["status"] != "pending":
         raise BillingError("This order cannot be paid any more.")
     if method not in providers():
         raise BillingError("This payment method is not available.")
+    if (method == "dodo") != (order_currency(order) == "USD"):
+        raise BillingError("This payment method is not available for this order.")
+    if method == "dodo":
+        profile = profile or {}
+        try:
+            url = dodo.create_checkout(order["id"], order_scope(order), order_months(order), profile.get("email") or "",
+                                       profile.get("name") or "", return_url)
+        except dodo.DodoError as e:
+            raise BillingError(str(e), e.status)
+        return {"redirect": url}
     if method == "payme":
         params = [
             f"m={PAYME['merchant_id']}",
@@ -216,7 +297,7 @@ def mark_manual_paid(db, order, user_id):
     return updated[0]
 
 
-def fulfil_order(db, order_id, provider):
+def fulfil_order(db, order_id, provider, external_id=None):
     """Give the customer what they paid for, then mark the order paid. Safe to repeat."""
     order = get_order(db, order_id)
     if not order:
@@ -224,15 +305,19 @@ def fulfil_order(db, order_id, provider):
     if order["status"] in ("cancelled", "refunded"):
         raise BillingError("This order was cancelled.")
     if order["kind"] == "plan":
-        first = not accounts.plan_status(db, order["user_id"])["hadPaidPlan"]
-        days = PLAN_DAYS + (PLAN_FIRST_BONUS_DAYS if first else 0)
+        # The first full pass of one month comes with a free month; other passes are what they say.
+        first = (order_scope(order) == "full" and order_months(order) == 1
+                 and not accounts.plan_status(db, order["user_id"])["hadPaidPlan"])
+        days = PLAN_DAYS * order_months(order) + (PLAN_FIRST_BONUS_DAYS if first else 0)
         accounts.grant_plan_period(db, order["user_id"], days, "payment", order_id=order["id"],
-                                   note="first month + bonus" if first else None)
+                                   note="first month + bonus" if first else None, scope=order_scope(order))
     else:
         check = checks.create_check(db, order)
     if order["status"] != "paid":
-        updated = db.update("orders", {"id": order["id"], "status": ("in", ["pending", "awaiting_confirmation"])},
-                            {"status": "paid", "paid_at": iso(now()), "provider": provider})
+        fields = {"status": "paid", "paid_at": iso(now()), "provider": provider}
+        if external_id:
+            fields["external_id"] = str(external_id)
+        updated = db.update("orders", {"id": order["id"], "status": ("in", ["pending", "awaiting_confirmation"])}, fields)
         order = updated[0] if updated else get_order(db, order["id"])
         if updated:  # tell people once, when the order changes to paid
             ends = None
@@ -265,10 +350,72 @@ def refund_order(db, order):
     return updated[0] if updated else order
 
 
+def refund_at_provider(order):
+    """Ask the payment provider to give the money back (only Dodo needs it: Payme and Click cancel on their side)."""
+    if order.get("provider") == "dodo" and order.get("external_id"):
+        try:
+            dodo.refund(order["external_id"])
+        except dodo.DodoError as e:
+            raise BillingError(str(e), e.status)
+
+
 def cancel_unpaid_order(db, order):
     if order["status"] in ("pending", "awaiting_confirmation"):
         db.update("orders", {"id": order["id"], "status": ("in", ["pending", "awaiting_confirmation"])},
                   {"status": "cancelled", "cancelled_at": iso(now())})
+
+
+# --------------------------------------------------------------------------
+# Dodo webhook (see dodo.py)
+# --------------------------------------------------------------------------
+
+def handle_dodo_webhook(db, headers, body):
+    """
+    Check a webhook from Dodo and act on it. Returns a short note for the log. Raises BillingError(401) when the
+    signature is wrong, so that Dodo does not think the call was taken; anything we cannot use is answered with a note
+    (not an error), because Dodo would only send it again.
+    """
+    if not dodo.verify_signature(headers, body):
+        raise BillingError("Bad signature.", 401)
+    try:
+        event = json.loads(body.decode("utf-8"))
+    except ValueError:
+        raise BillingError("Unreadable webhook.", 400)
+    kind = str(event.get("type") or "")
+    data = event.get("data") or {}
+    payment_id = data.get("payment_id")
+    if kind not in ("payment.succeeded", "refund.succeeded") or not payment_id:
+        return f"ignored {kind or 'event'}"
+    if kind == "payment.succeeded":
+        # Never trust the webhook alone: ask Dodo for the payment, and use what Dodo says.
+        try:
+            payment = dodo.get_payment(payment_id)
+        except dodo.DodoError as e:
+            raise BillingError(str(e), 503)  # Dodo will send the webhook again
+        order = get_order(db, (payment.get("metadata") or {}).get("order_id"))
+        if payment.get("status") != "succeeded" or not order:
+            return f"payment {payment_id}: not paid or no order"
+        if order_currency(order) != "USD" or str(payment.get("currency") or "").upper() != "USD":
+            return f"payment {payment_id}: wrong currency"
+        if int(payment.get("total_amount") or 0) < int(order["amount"]):
+            log.warning("Dodo payment %s is %s, less than order %s (%s)", payment_id, payment.get("total_amount"),
+                        order["id"], order["amount"])
+            return f"payment {payment_id}: amount too small"
+        try:
+            fulfil_order(db, order["id"], "dodo", external_id=payment_id)
+        except BillingError as e:
+            log.warning("Dodo payment %s for order %s not applied: %s", payment_id, order["id"], e)
+            return f"payment {payment_id}: {e}"
+        return f"order {order['id']} paid"
+    rows = db.select("orders", {"external_id": str(payment_id)}, limit=1)
+    order = rows[0] if rows else None
+    if not order or order["status"] != "paid":
+        return f"refund {payment_id}: no paid order"
+    if not can_refund(db, order):
+        log.warning("Dodo refunded order %s but its examiner check had started", order["id"])
+        return f"refund {payment_id}: check already started"
+    refund_order(db, order)
+    return f"order {order['id']} refunded"
 
 
 # --------------------------------------------------------------------------
@@ -597,9 +744,12 @@ def _to_int(value):
 
 
 def _revenue_of(rows):
+    usd = [r for r in rows if order_currency(r) == "USD"]
+    rows = [r for r in rows if order_currency(r) != "USD"]   # the so'm figures are so'm only; card sales are counted apart
     plan = sum(int(r["amount"]) for r in rows if r["kind"] == "plan")
     total = sum(int(r["amount"]) for r in rows)
-    return {"total": total, "plan": plan, "checks": total - plan, "orders": len(rows)}
+    return {"total": total, "plan": plan, "checks": total - plan, "orders": len(rows),
+            "usdCents": sum(int(r["amount"]) for r in usd), "usdOrders": len(usd)}
 
 
 def revenue(db, days, at=None):

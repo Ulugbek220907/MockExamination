@@ -11,7 +11,10 @@ The AI examiner is tested against a fake OpenRouter, so no API key is needed.
 """
 
 import asyncio
+import base64
 import datetime
+import hashlib
+import hmac
 import io
 import json
 import os
@@ -47,7 +50,7 @@ os.environ["ADMIN_STATS_SECONDS"] = "0"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import accounts, analytics, api, auth, billing, checks, content, google_signin, notify, scoring, speaking, speaking_adaptive, storage, web, writing  # noqa: E402
+from mockexam import accounts, analytics, api, auth, billing, checks, content, dodo, google_signin, notify, scoring, speaking, speaking_adaptive, speaking_ai, storage, web, writing  # noqa: E402
 from mockexam.db import SqliteDb, iso, now, parse_time  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
@@ -1040,11 +1043,11 @@ class ApiTests(AsyncHTTPTestCase):
         page = self.fetch("/").body.decode()
         footer = page[page.index('<nav class="footer-nav"'):]
         footer = footer[:footer.index("</nav>")]
-        for link in ("#/terms", "#/privacy"):
-            self.assertIn(link, footer)
-        # Price, Examiners and Refunds are in the page but hidden until the site sells something.
-        for link in ("#/pricing", "#/examiners", "#/refunds"):
-            self.assertRegex(footer, rf'<a href="{re.escape(link)}" data-commerce hidden>')
+        # Price, Terms, Privacy and Refunds are always visible (payment services check for them); Examiners are in the
+        # page but hidden until the site sells examiner checks.
+        for link in ("#/pricing", "#/terms", "#/privacy", "#/refunds"):
+            self.assertRegex(footer, rf'<a href="{re.escape(link)}">')
+        self.assertRegex(footer, r'<a href="#/examiners" data-commerce hidden>')
 
     def test_sitemap_and_robots(self):
         r = self.fetch("/sitemap.xml")
@@ -2538,7 +2541,8 @@ class CommerceOffTests(AccountApiBase):
     def test_config_says_nothing_is_for_sale_and_prices_are_empty(self):
         self.assertFalse(json.loads(self.fetch("/api/config").body)["commerce"])
         r, data = self.call("GET", "/api/billing")
-        self.assertEqual((r.code, data), (200, {"enabled": False, "prices": {}, "providers": []}))
+        self.assertEqual((r.code, data["enabled"], data["prices"], data["providers"]), (200, False, {}, []))
+        self.assertEqual(sorted(data["plans"]), ["full", "lr", "speaking", "writing"])   # the passes are shown anyway
         with mock.patch.dict(os.environ, {"COMMERCE_ENABLED": "1"}):
             self.assertTrue(json.loads(self.fetch("/api/config").body)["commerce"])
 
@@ -2584,9 +2588,12 @@ class CommerceOffTests(AccountApiBase):
             r, data = self.call(method, path, body, cookie=cookie)
             self.assertEqual(r.code, 404, f"{method} {path}")
 
-    def test_the_site_shell_hides_price_and_refund_links_until_commerce_is_on(self):
+    def test_the_site_shell_shows_price_and_refund_links_and_hides_examiners_until_commerce_is_on(self):
         page = self.fetch("/").body.decode()
-        self.assertRegex(page, r'<a href="#/pricing" data-nav="pricing" data-commerce hidden>')
+        self.assertRegex(page, r'<a href="#/pricing" data-nav="pricing">')
+        self.assertNotRegex(page, r'<a href="#/pricing"[^>]*data-commerce')
+        self.assertNotRegex(page, r'<a href="#/refunds"[^>]*data-commerce')
+        self.assertRegex(page, r'<a href="#/examiners" data-commerce hidden>')
         js = open(os.path.join(PUBLIC_DIR, "js", "app.js"), encoding="utf-8").read()
         self.assertIn("applyCommerce", js)
 
@@ -2707,6 +2714,291 @@ class PaymentAccessTests(AccountApiBase):
         self.assertEqual(audio(), 402)  # no minute of free access after a refund
         r, data = self.call("GET", "/api/orders", cookie=cookie)
         self.assertNotIn("unlocked", next(o for o in data["orders"] if o["id"] == order["id"]))
+
+
+def _paid_test(module):
+    """A test of this paper that needs a pass."""
+    return next(t for t in TESTS if t["module"] == module and accounts.declared_access(t) == "premium")
+
+
+class PassTests(AccountApiBase):
+    """Passes for one paper or two, for 1 or 3 months."""
+
+    def setUp(self):
+        super().setUp()
+        self.db = self._app.settings["store"].db
+
+    def buy(self, email, scope, months=1):
+        cookie, data = self.login(email)
+        order = billing.create_order(self.db, data["user"]["id"], "plan", scope=scope, months=months)
+        billing.fulfil_order(self.db, order["id"], "payme")
+        return cookie, data["user"]["id"], billing.get_order(self.db, order["id"])
+
+    def opens(self, cookie, module):
+        return self.call("GET", f"/api/tests/{_paid_test(module)['id']}", cookie=cookie)[0].code == 200
+
+    def test_each_pass_opens_only_its_papers(self):
+        expected = {"full": {"listening", "reading", "writing", "speaking"}, "speaking": {"speaking"}, "writing": {"writing"},
+                    "lr": {"listening", "reading"}}
+        for scope, papers in expected.items():
+            cookie, uid, _ = self.buy(f"scope.{scope}@example.com", scope)
+            got = {m for m in ("listening", "reading", "writing", "speaking") if self.opens(cookie, m)}
+            self.assertEqual(got, papers, scope)
+            self.assertEqual(set(accounts.plan_status(self.db, uid)["modules"]), papers)
+
+    def test_prices_and_lengths(self):
+        for scope, months in billing.PLAN_PRICES.items():
+            for m, (uzs, usd) in months.items():
+                self.assertGreater(uzs, 0)
+                self.assertGreater(usd, 0)
+            self.assertLess(months[3][0], 3 * months[1][0], scope)   # three months cost less than three times one
+            self.assertLess(months[3][1], 3 * months[1][1], scope)
+        one = {k: v[1][0] for k, v in billing.PLAN_PRICES.items()}
+        self.assertLess(one["full"], one["speaking"] + one["writing"] + one["lr"])   # the full pass is the better deal
+        db = _fresh_db()
+        user = _profile(db, "lengths@example.com")
+        three = billing.create_order(db, user["id"], "plan", scope="writing", months=3)
+        self.assertEqual((three["amount"], three["scope"], three["months"]), (billing.PLAN_PRICES["writing"][3][0], "writing", 3))
+        billing.fulfil_order(db, three["id"], "payme")
+        period = db.select("subscription_periods", {"order_id": three["id"]})[0]
+        days = (parse_time(period["ends_at"]) - parse_time(period["starts_at"])).days
+        self.assertEqual(days, 3 * billing.PLAN_DAYS)           # no bonus on a 3-month or a partial pass
+        first = _profile(db, "firstbonus@example.com")                # the bonus is for a first purchase, not a second one
+        full = billing.create_order(db, first["id"], "plan")         # the usual order stores no extra columns
+        self.assertEqual((full.get("scope"), full.get("months"), full.get("currency")), (None, None, None))   # nothing extra stored
+        billing.fulfil_order(db, full["id"], "payme")
+        period = db.select("subscription_periods", {"order_id": full["id"]})[0]
+        self.assertEqual((parse_time(period["ends_at"]) - parse_time(period["starts_at"])).days,
+                         billing.PLAN_DAYS + billing.PLAN_FIRST_BONUS_DAYS)   # the first full month brings the bonus
+        for bad in ({"scope": "everything"}, {"months": 2}, {"months": "x"}, {"currency": "EUR"}):
+            with self.assertRaises(billing.BillingError):
+                billing.create_order(db, user["id"], "plan", **bad)
+
+    def test_passes_queue_per_kind(self):
+        db = _fresh_db()
+        user = _profile(db, "queue@example.com")
+        for scope in ("speaking", "speaking", "writing"):
+            billing.fulfil_order(db, billing.create_order(db, user["id"], "plan", scope=scope)["id"], "payme")
+        status = accounts.plan_status(db, user["id"])
+        ends = {p["scope"]: parse_time(p["endsAt"]) for p in status["passes"]}
+        self.assertEqual(set(ends), {"speaking", "writing"})
+        self.assertAlmostEqual((ends["speaking"] - ends["writing"]).days, billing.PLAN_DAYS, delta=1)   # two months of Speaking, one of Writing
+        self.assertEqual(status["modules"], ["speaking", "writing"])
+        # Refunding the first Speaking month moves the second one up, and leaves the Writing pass alone.
+        first = db.select("orders", {"user_id": user["id"], "scope": "speaking"}, order=[("id", "asc")])[0]
+        billing.refund_order(db, first)
+        status = accounts.plan_status(db, user["id"])
+        self.assertEqual(status["modules"], ["speaking", "writing"])
+        self.assertAlmostEqual((parse_time(next(p["endsAt"] for p in status["passes"] if p["scope"] == "speaking")) - now()).days,
+                               billing.PLAN_DAYS, delta=1)
+
+    def test_a_plan_from_before_scopes_is_a_full_pass(self):
+        db = _fresh_db()
+        user = _profile(db, "old@example.com")
+        db.insert("subscription_periods", {"user_id": user["id"], "starts_at": iso(now() - datetime.timedelta(days=1)),
+                                           "ends_at": iso(now() + datetime.timedelta(days=5)), "source": "payment"})
+        status = accounts.plan_status(db, user["id"])
+        self.assertEqual(status["modules"], ["listening", "reading", "speaking", "writing"])
+        self.assertTrue(accounts.has_module({"active": True}, "speaking"))   # a plan with no list opens everything
+        self.assertFalse(accounts.has_module({"active": False, "modules": ["speaking"]}, "speaking"))
+
+    def test_the_wording_matches_the_passes(self):
+        strings = open(os.path.join(PUBLIC_DIR, "js", "strings.js"), encoding="utf-8").read()
+        self.assertNotIn("free of charge", strings)          # a site with passes is not "free of charge"
+        for word in ("Dodo Payments", "US dollars", "Speaking pass"):
+            self.assertIn(word, strings + open(os.path.join(PUBLIC_DIR, "js", "account.js"), encoding="utf-8").read())
+
+    def test_prices_are_public_before_anything_is_for_sale(self):
+        cfg = billing.public_config(False)
+        self.assertEqual((cfg["enabled"], cfg["providers"], cfg["prices"]), (False, [], {}))
+        self.assertEqual(cfg["plans"]["full"]["1"], {"uzs": billing.PLAN_PRICES["full"][1][0], "usd": billing.PLAN_PRICES["full"][1][1]})
+
+
+DODO_ENV = {"DODO_PAYMENTS_API_KEY": "dodo_test_abc", "DODO_PAYMENTS_WEBHOOK_KEY": "whsec_" + base64.b64encode(b"secret-bytes").decode(),
+            "DODO_PRODUCTS": "full-1=pdt_f1, full-3=pdt_f3\nspeaking-1=pdt_s1;writing-1=pdt_w1,lr-1=pdt_l1"}
+
+
+class DodoTests(AccountApiBase):
+    """Card payments in US dollars through Dodo Payments: checkout, the signed webhook, refunds."""
+
+    def setUp(self):
+        super().setUp()
+        self.db = self._app.settings["store"].db
+        patcher = mock.patch.dict(os.environ, DODO_ENV)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        self.calls = []
+
+    def signed(self, event, secret=None, stamp=None, msg_id="msg_1"):
+        body = json.dumps(event).encode()
+        stamp = str(stamp if stamp is not None else int(time.time()))
+        return {"webhook-id": msg_id, "webhook-timestamp": stamp,
+                "webhook-signature": dodo.sign(secret or DODO_ENV["DODO_PAYMENTS_WEBHOOK_KEY"], msg_id, stamp, body),
+                "Content-Type": "application/json"}, body
+
+    def webhook(self, event, **kw):
+        headers, body = self.signed(event, **kw)
+        return self.fetch("/api/pay/dodo/webhook", method="POST", headers=headers, body=body)
+
+    def usd_order(self, email, scope="full", months=1):
+        cookie, data = self.login(email)
+        order = billing.create_order(self.db, data["user"]["id"], "plan", scope=scope, months=months, currency="USD")
+        return cookie, data["user"]["id"], order
+
+    def fake_api(self, payment):
+        def request(method, path, payload=None):
+            self.calls.append((method, path, payload))
+            if path == "/checkouts":
+                return {"session_id": "cks_1", "checkout_url": "https://test.checkout.dodopayments.com/session/cks_1"}
+            if path.startswith("/payments/"):
+                return payment
+            return {"refund_id": "ref_1", "status": "succeeded"}
+        return mock.patch.object(dodo, "_request", request)
+
+    def test_signature(self):
+        body = b'{"type":"payment.succeeded"}'
+        now_s = int(time.time())
+        headers = {"webhook-id": "m", "webhook-timestamp": str(now_s), "webhook-signature": dodo.sign(DODO_ENV["DODO_PAYMENTS_WEBHOOK_KEY"], "m", now_s, body)}
+        self.assertTrue(dodo.verify_signature(headers, body))
+        self.assertFalse(dodo.verify_signature(headers, body + b" "))                      # the body was changed
+        self.assertFalse(dodo.verify_signature(dict(headers, **{"webhook-timestamp": str(now_s - 3600)}), body))   # too old
+        other = dict(headers, **{"webhook-signature": "v1,AAAA " + headers["webhook-signature"]})   # several signatures: one is right
+        self.assertTrue(dodo.verify_signature(other, body))
+        self.assertFalse(dodo.verify_signature({}, body))
+        # The documented way: HMAC-SHA256 over "id.timestamp.body" with the decoded secret.
+        mac = hmac.new(b"secret-bytes", f"m.{now_s}.".encode() + body, hashlib.sha256).digest()
+        self.assertEqual(headers["webhook-signature"], "v1," + base64.b64encode(mac).decode())
+
+    def test_products_and_modes(self):
+        self.assertEqual(dodo.product_id("full", 3), "pdt_f3")
+        self.assertEqual(dodo.product_id("lr", 1), "pdt_l1")
+        self.assertIsNone(dodo.product_id("lr", 3))
+        self.assertEqual(dodo.base_url(), dodo.TEST_URL)
+        with mock.patch.dict(os.environ, {"DODO_PAYMENTS_API_KEY": "dodo_live_x"}):
+            self.assertEqual(dodo.base_url(), dodo.LIVE_URL)
+        self.assertIn("dodo", billing.providers())
+        with mock.patch.dict(os.environ, {"DODO_PAYMENTS_WEBHOOK_KEY": ""}):
+            self.assertNotIn("dodo", billing.providers())
+
+    def test_checkout_makes_a_session_with_the_order_in_it(self):
+        cookie, uid, order = self.usd_order("dodo.checkout@example.com", "writing", 1)
+        self.assertEqual((order["amount"], order["currency"]), (billing.PLAN_PRICES["writing"][1][1], "USD"))
+        with self.fake_api({}):
+            r, data = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "dodo"}, cookie=cookie)
+        self.assertEqual((r.code, data["redirect"]), (200, "https://test.checkout.dodopayments.com/session/cks_1"))
+        method, path, payload = self.calls[0]
+        self.assertEqual((method, path), ("POST", "/checkouts"))
+        self.assertEqual(payload["product_cart"], [{"product_id": "pdt_w1", "quantity": 1}])
+        self.assertEqual(payload["metadata"], {"order_id": str(order["id"])})
+        self.assertEqual(payload["customer"]["email"], "dodo.checkout@example.com")
+        self.assertTrue(payload["return_url"].endswith("/#/account"))
+        # Card orders are paid by card, and so'm orders by the so'm methods.
+        uzs = billing.create_order(self.db, uid, "plan")
+        self.assertEqual(self.call("POST", f"/api/orders/{uzs['id']}/pay", {"method": "dodo"}, cookie=cookie)[0].code, 400)
+        self.assertEqual(self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "manual"}, cookie=cookie)[0].code, 400)
+        # A pass with no Dodo product cannot be ordered by card; examiner checks are only in so'm.
+        with self.assertRaises(billing.BillingError):
+            billing.create_order(self.db, uid, "plan", scope="lr", months=3, currency="USD")
+        with self.assertRaises(billing.BillingError):
+            billing.create_order(self.db, uid, "writing_check", currency="USD")
+
+    def test_a_paid_webhook_unlocks_the_pass_once(self):
+        cookie, uid, order = self.usd_order("dodo.paid@example.com", "speaking", 1)
+        payment = {"status": "succeeded", "currency": "USD", "total_amount": order["amount"], "metadata": {"order_id": str(order["id"])}}
+        event = {"type": "payment.succeeded", "data": {"payment_id": "pay_1", "total_amount": order["amount"]}}
+        self.assertFalse(accounts.has_module(accounts.plan_status(self.db, uid), "speaking"))
+        with self.fake_api(payment):
+            r = self.webhook(event)
+            self.assertEqual(r.code, 200, r.body)
+            self.assertEqual(self.webhook(event).code, 200)           # Dodo sends it again: nothing happens twice
+        self.assertEqual(self.calls[0][:2], ("GET", "/payments/pay_1"))   # the payment is checked with Dodo, not taken from the webhook
+        paid = billing.get_order(self.db, order["id"])
+        self.assertEqual((paid["status"], paid["provider"], paid["external_id"]), ("paid", "dodo", "pay_1"))
+        self.assertEqual(len(self.db.select("subscription_periods", {"order_id": order["id"]})), 1)
+        self.assertEqual(accounts.plan_status(self.db, uid)["modules"], ["speaking"])
+        self.assertTrue(self.call("GET", f"/api/tests/{_paid_test('speaking')['id']}", cookie=cookie)[0].code == 200)
+        self.assertEqual(self.call("GET", f"/api/tests/{_paid_test('reading')['id']}", cookie=cookie)[0].code, 402)
+        self.assertEqual(billing.revenue(self.db, 7)["usdCents"], order["amount"])
+
+    def test_webhooks_that_must_not_pay(self):
+        cookie, uid, order = self.usd_order("dodo.nopay@example.com")
+        good = {"status": "succeeded", "currency": "USD", "total_amount": order["amount"], "metadata": {"order_id": str(order["id"])}}
+        event = {"type": "payment.succeeded", "data": {"payment_id": "pay_2"}}
+        headers, body = self.signed(event, secret="whsec_" + base64.b64encode(b"someone else").decode())
+        self.assertEqual(self.fetch("/api/pay/dodo/webhook", method="POST", headers=headers, body=body).code, 401)   # not signed by Dodo
+        old_headers, old_body = self.signed(event, stamp=int(time.time()) - 3600)
+        self.assertEqual(self.fetch("/api/pay/dodo/webhook", method="POST", headers=old_headers, body=old_body).code, 401)
+        for payment in (dict(good, status="failed"), dict(good, currency="UZS"), dict(good, total_amount=order["amount"] - 1),
+                        dict(good, metadata={"order_id": "999999"}), dict(good, metadata={})):
+            with self.fake_api(payment):
+                self.assertEqual(self.webhook(event).code, 200)       # answered, so Dodo does not retry, but not paid
+            self.assertEqual(billing.get_order(self.db, order["id"])["status"], "pending")
+        with self.fake_api(good):
+            self.assertEqual(self.webhook({"type": "payment.failed", "data": {"payment_id": "pay_2"}}).code, 200)
+        self.assertEqual(billing.get_order(self.db, order["id"])["status"], "pending")
+        # A card order paid after it was cancelled is not applied either.
+        billing.cancel_unpaid_order(self.db, billing.get_order(self.db, order["id"]))
+        with self.fake_api(good):
+            self.assertEqual(self.webhook(event).code, 200)
+        self.assertEqual(billing.get_order(self.db, order["id"])["status"], "cancelled")
+        self.assertFalse(accounts.plan_status(self.db, uid)["active"])
+
+    def test_dodo_refunds(self):
+        cookie, uid, order = self.usd_order("dodo.refund@example.com", "full", 3)
+        payment = {"status": "succeeded", "currency": "USD", "total_amount": order["amount"], "metadata": {"order_id": str(order["id"])}}
+        with self.fake_api(payment):
+            self.webhook({"type": "payment.succeeded", "data": {"payment_id": "pay_3"}})
+            self.assertTrue(accounts.plan_status(self.db, uid)["active"])
+            # Refunded on Dodo's side: the pass is taken back.
+            self.assertEqual(self.webhook({"type": "refund.succeeded", "data": {"payment_id": "pay_3"}}, msg_id="msg_2").code, 200)
+        self.assertEqual(billing.get_order(self.db, order["id"])["status"], "refunded")
+        self.assertFalse(accounts.plan_status(self.db, uid)["active"])
+        # An admin's refund asks Dodo first, then takes the pass back.
+        cookie2, uid2, order2 = self.usd_order("dodo.refund2@example.com", "lr", 1)
+        pay2 = dict(payment, total_amount=order2["amount"], metadata={"order_id": str(order2["id"])})
+        admin, _ = self.login("owner@example.com")
+        with self.fake_api(pay2):
+            self.webhook({"type": "payment.succeeded", "data": {"payment_id": "pay_4"}}, msg_id="msg_3")
+            r, data = self.call("POST", f"/api/admin/orders/{order2['id']}/refund", {}, cookie=admin)
+        self.assertEqual((r.code, data["order"]["status"]), (200, "refunded"))
+        self.assertIn(("POST", "/refunds", {"payment_id": "pay_4", "reason": "Refund requested on TestDay"}), self.calls)
+        self.assertFalse(accounts.plan_status(self.db, uid2)["active"])
+
+    def test_notice_shows_dollars(self):
+        self.assertEqual(notify.money(799, "USD"), "$7.99")
+        self.assertEqual(notify.money(79000), "79 000 so'm")
+        self.assertEqual(notify.order_label({"kind": "plan", "scope": "lr", "months": 3}), "Listening and Reading pass, 3 months")
+
+
+class AiMonthlyCapTests(AccountApiBase):
+    """What a pass includes: so many AI-rated Speaking tests and Writing scripts in 30 days."""
+
+    def test_speaking_cap(self):
+        db = _fresh_db()
+        user = _profile(db, "cap.speaking@example.com")
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch.object(speaking_ai, "PER_USER_PER_DAY", 99):
+            for i in range(speaking_ai.PER_USER_PER_MONTH):
+                speaking_ai.check_can_start(db, user["id"])    # still allowed
+                db.insert("speaking_submissions", {"user_id": user["id"], "test_id": "speaking-01", "status": "completed", "mode": "ai",
+                                                   "created_at": iso(now() - datetime.timedelta(days=2 + i))})
+            with self.assertRaises(speaking_ai.ReviewError) as caught:
+                speaking_ai.check_can_start(db, user["id"])
+            self.assertEqual(caught.exception.status, 429)
+            self.assertIn("30 days", str(caught.exception))
+            other = _profile(db, "cap.other@example.com")
+            speaking_ai.check_can_start(db, other["id"])        # someone else is not affected
+
+    def test_writing_cap(self):
+        db = self._app.settings["store"].db
+        user = _profile(db, "cap.writing@example.com")
+        self.assertIsNone(writing.month_limit(db, user["id"]))
+        for i in range(writing.AI_PER_MONTH):
+            db.insert("writing_submissions", {"user_id": user["id"], "test_id": "academic-writing-01", "assessment": {"overallBand": 6},
+                                              "created_at": iso(now() - datetime.timedelta(days=1))})
+        self.assertIn("30 days", writing.month_limit(db, user["id"]))
+        db.insert("writing_submissions", {"user_id": user["id"], "test_id": "academic-writing-01", "assessment": None,
+                                          "created_at": iso(now() - datetime.timedelta(days=1))})   # one without marking does not count
+        self.assertIsNone(writing.month_limit(db, _profile(db, "cap.fresh@example.com")["id"]))
 
 
 class AnalyticsApiTests(AccountApiBase):
@@ -3061,8 +3353,9 @@ class AdminRevenueTests(AccountApiBase):
                                            ("speaking_check", 20000, "paid", old), ("plan", 39000, "refunded", recent),
                                            ("plan", 39000, "pending", None)):
             db.insert("orders", {"user_id": buyer["id"], "kind": kind, "amount": amount, "status": status, "paid_at": paid})
-        self.assertEqual(billing.revenue(db, 7), {"total": 49000, "plan": 39000, "checks": 10000, "orders": 2})
-        self.assertEqual(billing.revenue(db, 30), {"total": 69000, "plan": 39000, "checks": 30000, "orders": 3})
+        self.assertEqual(billing.revenue(db, 7)["usdCents"], 0)
+        self.assertEqual(billing.revenue(db, 7), {"total": 49000, "plan": 39000, "checks": 10000, "orders": 2, "usdCents": 0, "usdOrders": 0})
+        self.assertEqual(billing.revenue(db, 30), {"total": 69000, "plan": 39000, "checks": 30000, "orders": 3, "usdCents": 0, "usdOrders": 0})
         accounts.grant_plan_period(db, buyer["id"], 5, "admin")
         long_one = _profile(db, "long@example.com")
         accounts.grant_plan_period(db, long_one["id"], 30, "admin")

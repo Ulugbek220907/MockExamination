@@ -14,6 +14,7 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
   GET  /api/orders, POST /api/orders  your orders / create an order
   POST /api/orders/<id>/pay           start paying (redirect URL or card details)
   POST /api/orders/<id>/manual-paid   "I have transferred the money"
+  POST /api/pay/dodo/webhook          Dodo Payments tells us a card payment or refund happened
   POST /api/pay/payme                 Payme Merchant API callback
   POST /api/pay/click/(prepare|complete)  Click SHOP API callbacks
 
@@ -309,9 +310,8 @@ class ProgressHandler(BaseHandler):
 
 class BillingConfigHandler(BaseHandler):
     def get(self):
-        if not accounts.commerce_enabled():
-            return self.send_json({"enabled": False, "prices": {}, "providers": []})
-        self.send_json({"enabled": True, **billing.public_config()})
+        # The passes and their prices are public even before anything is for sale (payment services want to see them).
+        self.send_json(billing.public_config(accounts.commerce_enabled()))
 
 
 async def _own_order(handler, order_id):
@@ -333,7 +333,8 @@ class OrdersHandler(BaseHandler):
         body = self.body_json()
         try:
             order = await in_thread(billing.create_order, self.db, profile["id"], str(body.get("kind") or ""),
-                                    _uuid(body.get("examinerId")), body.get("submissionId"))
+                                    _uuid(body.get("examinerId")), body.get("submissionId"),
+                                    str(body.get("scope") or "full"), body.get("months") or 1, str(body.get("currency") or "UZS"))
         except (billing.BillingError, checks.CheckError) as e:
             _raise(e)
         self.send_json({"order": billing.public_order(order)})
@@ -341,10 +342,10 @@ class OrdersHandler(BaseHandler):
 
 class OrderPayHandler(BaseHandler):
     async def post(self, order_id):
-        _, order = await _own_order(self, order_id)
+        profile, order = await _own_order(self, order_id)
         method = str(self.body_json().get("method") or "")
         try:
-            result = billing.checkout(order, method, self.site_url() + "/#/account")
+            result = await in_thread(billing.checkout, order, method, self.site_url() + "/#/account", profile)
         except billing.BillingError as e:
             _raise(e)
         self.send_json(result)
@@ -368,6 +369,17 @@ class PaymeHandler(BaseHandler):
         api = billing.PaymeApi(self.db)
         result = await in_thread(api.handle, self.request.body, self.request.headers.get("Authorization", ""))
         self.send_json(result)
+
+
+class DodoWebhookHandler(BaseHandler):
+    """Dodo Payments calls this when a card payment or a refund happens (billing.handle_dodo_webhook checks it)."""
+
+    async def post(self):
+        try:
+            note = await in_thread(billing.handle_dodo_webhook, self.db, self.request.headers, self.request.body)
+        except billing.BillingError as e:
+            _raise(e)
+        self.send_json({"ok": True, "note": note})
 
 
 class ClickHandler(BaseHandler):
@@ -520,7 +532,7 @@ class SpeakingStartHandler(BaseHandler):
                 if accounts.test_access(test) == "soon":
                     raise ApiError(403, "This test is coming soon.", "coming_soon")
                 raise ApiError(402, "This test is part of the monthly plan.", "plan_required")
-        elif not accounts.retakes_allowed(profile, plan) and await in_thread(accounts.already_taken, self.db, test, profile["id"]):
+        elif not accounts.retakes_allowed(profile, plan, test.get("module")) and await in_thread(accounts.already_taken, self.db, test, profile["id"]):
             raise ApiError(409, "You have already taken this test. Each free test can be taken once.", "already_taken")
         body = self.body_json()
         mode = body.get("mode")
@@ -823,6 +835,9 @@ class AdminOrderActionHandler(AdminHandler):
             elif action == "refund":
                 if order["status"] != "paid":
                     raise billing.BillingError("Only paid orders can be refunded.")
+                if not billing.can_refund(self.db, order):
+                    raise billing.BillingError("The examiner has already started this check, so it cannot be refunded.")
+                await in_thread(billing.refund_at_provider, order)   # Dodo gives the money back; Payme and Click do it themselves
                 order = await in_thread(billing.refund_order, self.db, order)
             else:
                 await in_thread(billing.cancel_unpaid_order, self.db, order)
@@ -926,6 +941,7 @@ def routes():
         (r"/api/orders/(\d+)/manual-paid", commerce_only(OrderManualPaidHandler)),
         (r"/api/pay/payme", commerce_only(PaymeHandler)),
         (r"/api/pay/click/(prepare|complete)", commerce_only(ClickHandler)),
+        (r"/api/pay/dodo/webhook", DodoWebhookHandler),
         (r"/api/examiners", commerce_only(ExaminersHandler)),
         (r"/api/examiners/([0-9a-f\-]{36})", commerce_only(ExaminerDetailHandler)),
         (r"/api/checks", commerce_only(MyChecksHandler)),
