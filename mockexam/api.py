@@ -13,7 +13,7 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
   GET  /api/billing                   prices and payment methods
   GET  /api/orders, POST /api/orders  your orders / create an order
   POST /api/orders/<id>/pay           start paying (redirect URL or card details)
-  POST /api/orders/<id>/manual-paid   "I have transferred the money"
+  POST /api/subscriptions/cancel      stop the renewals of a pass
   POST /api/pay/dodo/webhook          Dodo Payments tells us a card payment or refund happened
   POST /api/pay/payme                 Payme Merchant API callback
   POST /api/pay/click/(prepare|complete)  Click SHOP API callbacks
@@ -351,17 +351,17 @@ class OrderPayHandler(BaseHandler):
         self.send_json(result)
 
 
-class OrderManualPaidHandler(BaseHandler):
-    async def post(self, order_id):
-        profile, order = await _own_order(self, order_id)
-        was = order["status"]
+class SubscriptionCancelHandler(BaseHandler):
+    """The student stops the renewals of a pass. The days already paid for stay."""
+
+    async def post(self):
+        profile = await self.require_profile()
+        scope = str(self.body_json().get("scope") or "") or None
         try:
-            order = await in_thread(billing.mark_manual_paid, self.db, order, profile["id"])
+            done = await in_thread(billing.cancel_subscriptions, self.db, profile["id"], scope)
         except billing.BillingError as e:
             _raise(e)
-        if was == "pending" and order["status"] == "awaiting_confirmation":
-            notify.payment_claimed(self.db, order)
-        self.send_json({"order": billing.public_order(order)})
+        self.send_json({"cancelled": done, "plan": await in_thread(accounts.plan_status, self.db, profile["id"])})
 
 
 class PaymeHandler(BaseHandler):
@@ -938,7 +938,7 @@ def routes():
         (r"/api/billing", BillingConfigHandler),
         (r"/api/orders", commerce_only(OrdersHandler)),
         (r"/api/orders/(\d+)/pay", commerce_only(OrderPayHandler)),
-        (r"/api/orders/(\d+)/manual-paid", commerce_only(OrderManualPaidHandler)),
+        (r"/api/subscriptions/cancel", commerce_only(SubscriptionCancelHandler)),
         (r"/api/pay/payme", commerce_only(PaymeHandler)),
         (r"/api/pay/click/(prepare|complete)", commerce_only(ClickHandler)),
         (r"/api/pay/dodo/webhook", DodoWebhookHandler),

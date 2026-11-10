@@ -21,7 +21,7 @@
 - **Selling mode** (`COMMERCE_ENABLED=1`): the same `"premium"` tests need a pass that covers their paper, the Examiners pages and examiner checks come back, and the server enforces the pass. The Price page (with the passes and their prices) and the Refunds page are public in both modes, because payment services check for them. Passes: **Full** (all four papers), **Speaking**, **Writing** and **Listening + Reading**, for 1 or 3 months, in so'm (Payme, Click, card transfer) or in US dollars by card through Dodo Payments (`mockexam/dodo.py`, see docs/PAYMENTS_CHECKLIST.md). AI marking is capped per 30 days (`SPEAKING_AI_PER_MONTH`, `WRITING_AI_PER_MONTH`).
 - The plan costs 39,000 so'm a month (configurable). The first payment gives two months, and nothing renews automatically.
 - Sign-in uses a 6-digit email code, or Google in one click. Google's own button appears when `GOOGLE_CLIENT_ID` is set (see DEPLOY.md, "Sign in with Google"); the server checks Google's signed ID token itself. The older route, through Supabase's Google provider, still works when that is the one switched on. Attempts made before signing in are added to the account.
-- Payments: Payme and Click (merchant APIs built in, switched on by environment variables), or a card transfer confirmed by an admin.
+- Payments: Payme and Click (merchant APIs built in, switched on by environment variables), or a card in US dollars through Dodo Payments (subscriptions that renew until the student cancels).
 - Admin panel for confirming payments, refunds, adding examiners and giving plan days, with revenue for the last 7 and 30 days (pass vs. examiner checks), passes active now and passes ending within 7 days.
 - Progress page: the latest band per module with the change since the previous test, and a chart of band scores over time (timed Listening/Reading, marked Writing/Speaking), with a table view.
 - Study goal: a target band and exam date, shown on the home page (days to the exam), on the progress tiles and as a dashed line on the chart.
@@ -87,7 +87,7 @@ mockexam/
   google_signin.py        "Continue with Google": checks Google's ID token (RS256, issuer, audience, expiry, verified email)
   accounts.py             profiles, roles, the passes (by paper), which tests a user may open
   dodo.py                 Dodo Payments: checkout, payment lookup, refunds and the webhook signature
-  billing.py              prices, orders, Payme Merchant API, Click SHOP API, card transfers
+  billing.py              prices, orders, Dodo subscriptions, Payme Merchant API, Click SHOP API
   checks.py               examiner profiles, paid checks, marking, one review per check
   speaking.py             Speaking submissions, recorded answers, who may listen, clean-up of old recordings
   speaking_ai.py          the AI Speaking examiner: measures pauses, listens to each answer, rates the test

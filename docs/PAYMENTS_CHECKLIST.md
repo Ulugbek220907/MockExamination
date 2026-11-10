@@ -4,8 +4,7 @@ Run this once before taking real money, and again after any change to `mockexam/
 the prices, or the Payme / Click cabinet settings. It takes about 30 minutes and costs one plan
 payment, which you refund at the end.
 
-What is sold: passes for 1 or 3 months (no automatic renewal): Full (all four papers), Speaking, Writing, and Listening + Reading; plus Writing and Speaking checks by an examiner. A first Full pass of one month brings an extra month. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): Full 79 000 / 199 000 so'm ($7.99 / $19.99), Speaking 49 000 / 119 000 ($5.99 / $14.99), Writing 39 000 / 99 000 ($4.99 / $11.99), Listening + Reading 29 000 / 69 000 ($3.99 / $9.99); checks 10 000 and 20 000 so'm. (no automatic
-renewal), a Writing check (10 000 so'm) and a Speaking check (20 000 so'm). Prices come from
+What is sold: passes for 1 or 3 months (no automatic renewal): Full (all four papers), Speaking, Writing, and Listening + Reading; plus Writing and Speaking checks by an examiner. Passes are subscriptions: they renew every 1 or 3 months on the student's card until the student cancels. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): Full 79 000 / 199 000 so'm ($7.99 / $19.99), Speaking 49 000 / 119 000 ($5.99 / $14.99), Writing 39 000 / 99 000 ($4.99 / $11.99), Listening + Reading 29 000 / 69 000 ($3.99 / $9.99); checks 10 000 and 20 000 so'm. , a Writing check (10 000 so'm) and a Speaking check (20 000 so'm). Prices come from
 the env vars below, never from the browser.
 
 ## 1. Environment variables (Render → the testday service → Environment)
@@ -14,7 +13,7 @@ the env vars below, never from the browser.
 |---|---|---|
 | `SITE_URL` | all | `https://www.testday.uz` (the address the site ends up on; testday.uz redirects there). Return links after payment use it. |
 | `SESSION_SECRET` | all | Long random string. Changing it signs everyone out. |
-| `ADMIN_EMAILS` | refunds, card transfers | Your sign-in email. Admins see **Account → Admin → Orders**. |
+| `ADMIN_EMAILS` | refunds | Your sign-in email. Admins see **Account → Admin → Orders**. |
 | `CONTACT_EMAIL` | receipts, refund policy | Shown to students for refund requests. |
 | `PLAN_PRICE`, `WRITING_CHECK_PRICE`, `SPEAKING_CHECK_PRICE` | prices | In so'm: the Full 1-month pass (default 79000) and the checks (10000 / 20000). The other passes are set in `billing.PLAN_PRICES`. |
 | `DODO_PAYMENTS_API_KEY`, `DODO_PAYMENTS_WEBHOOK_KEY`, `DODO_PRODUCTS` | Dodo (card, US dollars) | The API key (`dodo_test_...` or `dodo_live_...`), the webhook signing secret (`whsec_...`) and the product of each pass: `full-1=pdt_x,full-3=pdt_y,speaking-1=...` (kind of pass, a dash, the months). See section 7. |
@@ -25,7 +24,6 @@ the env vars below, never from the browser.
 | `PAYME_ACCOUNT_FIELD` | Payme | Leave empty (`order_id`) unless the cabinet uses another account field name. |
 | `PAYME_IKPU`, `PAYME_PACKAGE_CODE` | Payme fiscal receipts | Set both to send receipt details (ИКПУ / package code). |
 | `CLICK_SERVICE_ID`, `CLICK_MERCHANT_ID`, `CLICK_SECRET_KEY` | Click | From the Click merchant cabinet. |
-| `PAYMENT_CARD_NUMBER`, `PAYMENT_CARD_HOLDER` | card transfer | Optional. Without them the card option is hidden. |
 
 A provider shows on the Prices page only when all of its variables are set.
 
@@ -79,7 +77,6 @@ not started. It does **not** send money anywhere. The money goes back through th
 |---|---|---|
 | Payme | Payme cabinet → the transaction → Cancel (refund) | Nothing: Payme calls the site, and the order becomes Refunded automatically. |
 | Click | Click cabinet or Click support | Admin → Orders → Refund. |
-| Card transfer | Transfer the money back yourself | Admin → Orders → Refund. |
 | Dodo (card, USD) | Nothing to do in Dodo | Admin → Orders → Refund asks Dodo to refund the card, then takes the pass back. A refund made in the Dodo dashboard reaches the site through the webhook (`refund.succeeded`). |
 
 Check after a refund:
@@ -110,10 +107,10 @@ Uzcard or Humo and cannot charge in so'm.
 
 1. **Supabase first.** Run the last block of `supabase/schema.sql` ("Passes for one paper or two ... Dodo") in the
    SQL editor, before the site with the new passes is live. It is safe to run again.
-2. **Dodo dashboard (test mode).** Create the 8 products (One-Time, USD, tax inclusive): Full, Speaking, Writing and
+2. **Dodo dashboard (test mode).** Create the 8 products as **Subscription** products (USD, tax inclusive; repeat payment every 1 month or every 3 months; Subscription Period 20 years; no trial). The pricing model cannot be changed later, so a one-time product cannot be reused: Full, Speaking, Writing and
    Listening and Reading, each for 1 and 3 months. Create an API key (Developer → API Keys) and a webhook
    (Developer → Webhooks) at `https://www.testday.uz/api/pay/dodo/webhook` for `payment.succeeded`,
-   `payment.failed`, `payment.cancelled`, `refund.succeeded` and `refund.failed`.
+   `payment.failed`, `payment.cancelled`, `refund.succeeded`, `refund.failed`, `subscription.cancelled` and `subscription.expired`. In Settings → Subscriptions turn on the grace period, and in Settings → Recovery turn on Payment Retries, so a declined renewal is retried before access stops.
 3. **Render.** Set the three `DODO_*` variables of section 1. The key's prefix decides test or live:
    `dodo_test_` talks to test.dodopayments.com, `dodo_live_` to live.dodopayments.com. The pass of a kind that
    has no product in `DODO_PRODUCTS` cannot be paid by card.
@@ -125,3 +122,5 @@ Uzcard or Humo and cannot charge in so'm.
 How it is protected: the webhook is verified (HMAC-SHA256, timestamp within 5 minutes), the payment is fetched
 from Dodo again and must be `succeeded`, in USD, for at least the order's amount, and carry the order id in its
 metadata; a repeated webhook changes nothing twice (see `DodoTests` in `scripts/test_app.py`).
+
+How renewals work: every charge, the first and each renewal, calls the webhook. The first pays the order made at checkout; each renewal makes an order of its own and adds one period (30 or 90 days) to the pass, so a failed or cancelled renewal simply lets the pass run out. The student cancels in Account (the site asks Dodo to stop at the end of the period). A refund of one charge takes back that period only.

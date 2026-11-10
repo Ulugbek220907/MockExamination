@@ -80,10 +80,6 @@ services:
         sync: false
       - key: CLICK_SECRET_KEY
         sync: false
-      - key: PAYMENT_CARD_NUMBER
-        sync: false
-      - key: PAYMENT_CARD_HOLDER
-        sync: false
       # Optional notifications (see DEPLOY.md 4.6).
       - key: RESEND_API_KEY
         sync: false

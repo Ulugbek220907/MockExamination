@@ -22,12 +22,12 @@ TestDay (testday.uz) lets candidates rehearse the real computer-delivered IELTS:
 - Listening, Writing and Speaking tests and Reading tests 1–6 are written for the site. See Content status below for the rest of the Reading bank.
 - Human examiners (rated by students) mark Writing and Speaking checks for a small fee, paid locally with Payme or Click.
 - The Speaking AI examiner (needs `OPENROUTER_API_KEY`) is face to face and adapts the test to the candidate: it listens to every answer as the test goes on and asks 7 to 9 questions in Part 1, the cue card in Part 2, and 3 to 10 questions in Part 3, fewer when the candidate is struggling and more when they are doing well. The report says how long the test was and why.
-- Launch: five full tests of every module are free and the rest show "Coming soon…" (blurred); the passes are not on sale and examiner checks are hidden (`COMMERCE_ENABLED=0`), but the Price page (with the prices) and the Refund policy are public. When selling starts (`COMMERCE_ENABLED=1`) there are four passes for 1 or 3 months: Full (79,000 so'm a month), Speaking (49,000), Writing (39,000) and Listening + Reading (29,000), or in US dollars by card through Dodo Payments ($7.99, $5.99, $4.99, $3.99); a first Full pass of one month brings an extra month, nothing renews automatically, and AI marking is capped at 12 Speaking tests and 20 Writing scripts per 30 days.
+- Launch: five full tests of every module are free and the rest show "Coming soon…" (blurred); the passes are not on sale and examiner checks are hidden (`COMMERCE_ENABLED=0`), but the Price page (with the prices) and the Refund policy are public. When selling starts (`COMMERCE_ENABLED=1`) there are four passes for 1 or 3 months: Full (79,000 so'm a month), Speaking (49,000), Writing (39,000) and Listening + Reading (29,000), or in US dollars by card through Dodo Payments ($7.99, $5.99, $4.99, $3.99); passes are subscriptions that renew until cancelled, and AI marking is capped at 12 Speaking tests and 20 Writing scripts per 30 days.
 
 ## Operating Context
 
 - Free Listening, Reading and Writing tests need no account; Speaking needs a free account because recordings are saved to it.
-- Payment through Payme, Click, or a card transfer confirmed by an admin. Prices in so'm.
+- Payment by card in US dollars through Dodo Payments: a pass is a subscription that renews every 1 or 3 months until the student cancels (Payme, Click or other local methods can be added). No payment is confirmed by hand.
 - Sign-in by a 6-digit email code, or in one click with Google (when `GOOGLE_CLIENT_ID` is set).
 - Answers and essays autosave in the browser so an attempt survives a refresh.
 - Hosted on Render with Supabase; pages must load fast on mobile data in Uzbekistan.

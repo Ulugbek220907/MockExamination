@@ -4,7 +4,7 @@
  * Account.refreshMe()     – load the signed-in user (GET /api/me) and update the header
  * Account.login()         – sign-in window (email code or Google); resolves true when signed in
  * Account.paywall(test)   – explain a locked test and offer the plan
- * Account.buy(kind, ...)  – create an order and pay (Payme, Click or card transfer)
+ * Account.buy(kind, ...)  – create an order and pay (Payme, Click or a card through Dodo)
  * Pages: pricing, account, examiners, check, examiner dashboard, admin.
  *
  * Student-facing text goes through t() (see i18n.js); the examiner and admin
@@ -30,7 +30,7 @@
   ];
   const PASS_NAMES = Object.fromEntries(PASSES.map(([k, n]) => [k, n]));
   const MODULE_NAMES = { listening: "Listening", reading: "Reading", writing: "Writing", speaking: "Speaking" };
-  const monthsText = (m) => (m === 1 ? "1 month" : `${m} months`);
+  const monthsText = (m) => (m === 1 ? "every month" : `every ${m} months`);
   const longDate = (iso) => {
     const d = new Date(iso);
     if (isNaN(d)) return "";
@@ -100,7 +100,7 @@
   /** The "your pass ends soon" notice, or "". */
   function planEndingHTML() {
     const left = planEndingIn();
-    if (left === null) return "";
+    if (left === null || (state.me.plan && state.me.plan.renews)) return "";   // a pass that renews needs no reminder
     const when = left <= 1 ? t("Your pass ends tomorrow.") : t("Your pass ends in {n} days.", { n: left });
     return `<div class="notice notice-warn plan-ending" role="status"><strong>${when}</strong>
       <span>${t("plan.ending", { date: esc(longDate(state.me.plan.endsAt)) })}</span>
@@ -472,7 +472,7 @@
           ${price ? t("A {pass} is {price} a month.", { pass: esc(PASS_NAMES[scope].toLowerCase()), price: esc(price) }) : ""} ${t("Tests marked Free need no pass.")}</p>
         <ul class="plan-points">
           <li>${t("Full results, answer explanations and listening transcripts")}</li>
-          <li>${t("1 or 3 months; nothing renews by itself")}</li>
+          <li>${t("Renews every 1 or 3 months until you cancel; cancel any time in your account")}</li>
           <li>${t("The Full pass opens all four papers and costs less than buying the parts")}</li>
         </ul>
         ${signedIn ? "" : `<p class="muted-text">${t("Already have the pass? Sign in to continue.")}</p>`}`,
@@ -501,7 +501,7 @@
     return U.modal({
       title: t("Choose your pass"),
       bodyHTML: `<div class="pass-picker">${PASSES.map(row).join("")}</div>
-        <p class="muted-text small-text">${t("The first price is for payment in so'm, the second for payment by card in US dollars.")}</p>`,
+        <p class="muted-text small-text">${t("Card payments are in US dollars and renew automatically until you cancel. Prices in so'm are shown for reference; they open with local payment methods.")}</p>`,
       buttons: [{ label: t("Cancel"), className: "btn-secondary", value: null }],
       onOpen: (root, close) => root.querySelectorAll("[data-scope]").forEach((btn) =>
         btn.addEventListener("click", () => close({ scope: btn.dataset.scope, months: Number(btn.dataset.months) }))),
@@ -513,8 +513,7 @@
     const labels = {
       payme: ["Payme", t("Pay with the Payme app or any Uzcard / Humo card")],
       click: ["Click", t("Pay with the Click app or any Uzcard / Humo card")],
-      manual: [t("Bank card transfer"), t("pay.manual.note")],
-      dodo: [t("Visa, Mastercard, Apple Pay, Google Pay"), t("Pay in US dollars with a foreign or international card")],
+      dodo: [t("Visa, Mastercard, Apple Pay, Google Pay"), t("Subscribe in US dollars; it renews until you cancel")],
     };
     const methods = b.providers.filter((p) => p !== "dodo" || (item.usd && (b.cardPasses || []).includes(item.cardKey)));
     if (!methods.length) {
@@ -537,32 +536,6 @@
       onOpen: (root, close) => root.querySelectorAll("[data-method]").forEach((btn) =>
         btn.addEventListener("click", () => close(btn.dataset.method))),
     });
-  }
-
-  async function manualTransfer(order, info) {
-    const ok = await U.modal({
-      title: t("Pay by card transfer"),
-      bodyHTML: `
-        <ol class="transfer-steps">
-          <li>${t("transfer.1", { amount: `<strong>${esc(money(info.amount))}</strong>` })}
-            <div class="card-number"><span>${esc(info.cardNumber)}</span>
-              <button type="button" class="btn-link" data-copy="${esc(info.cardNumber.replace(/\s+/g, ""))}">${t("Copy")}</button></div>
-            ${info.cardHolder ? `<div class="muted-text">${t("Card holder: {name}", { name: esc(info.cardHolder) })}</div>` : ""}</li>
-          <li>${t("transfer.2", { ref: `<strong>${esc(info.reference)}</strong>` })}</li>
-          <li>${t("transfer.3")}</li>
-        </ol>`,
-      buttons: [
-        { label: t("Later"), className: "btn-secondary", value: false },
-        { label: t("I have paid"), className: "btn-primary", value: true },
-      ],
-      onOpen: (root) => root.querySelectorAll("[data-copy]").forEach((b) => b.addEventListener("click", () => {
-        navigator.clipboard && navigator.clipboard.writeText(b.dataset.copy).then(() => U.toast(t("Card number copied.")));
-      })),
-    });
-    if (!ok) return;
-    await U.api(`/api/orders/${order.id}/manual-paid`, { method: "POST", body: "{}" });
-    U.toast(t("Thank you! We will confirm your payment soon."));
-    location.hash = "#/account";
   }
 
   async function buy(kind, extra = {}) {
@@ -588,11 +561,28 @@
       if (res.redirect) {
         U.loadingOverlay(t("Opening the payment page…"), t("You will come back here after paying."));
         location.href = res.redirect;
-      } else if (res.manual) {
-        await manualTransfer(order, res.manual);
       }
     } catch (err) {
       U.modal({ title: t("Could not start the payment"), bodyHTML: `<p>${esc(err.message)}</p>` });
+    }
+  }
+
+  /** Stop the renewals of a pass; the days already paid for stay. */
+  async function cancelRenewal(scope) {
+    const ok = await U.modal({
+      title: t("Cancel the renewal?"),
+      bodyHTML: `<p>${t("Your {pass} stays open until the end of the days you paid for, and then it stops. You will not be charged again.", { pass: esc(t(PASS_NAMES[scope] || "pass").toLowerCase()) })}</p>`,
+      buttons: [{ label: t("Keep it"), className: "btn-secondary", value: false }, { label: t("Cancel the renewal"), className: "btn-danger", value: true }],
+    });
+    if (!ok) return;
+    try {
+      const res = await U.api("/api/subscriptions/cancel", { method: "POST", body: JSON.stringify({ scope }) });
+      state.me.plan = res.plan;
+      U.store.set(ME_KEY, state.me);
+      U.toast(t("The renewal is cancelled."));
+      if (window.app) window.app.route();
+    } catch (err) {
+      U.modal({ title: t("Could not cancel"), bodyHTML: `<p>${esc(err.message)}</p>` });
     }
   }
 
@@ -603,7 +593,7 @@
     const b = await billing().catch(() => ({ prices: {}, providers: [], plans: {} }));
     const selling = commerce();
     const plan = state.me.plan;
-    const methods = [["payme", "Payme"], ["click", "Click"], ["manual", t("a bank card transfer")], ["dodo", t("Visa, Mastercard, Apple Pay or Google Pay (US dollars)")]]
+    const methods = [["payme", "Payme"], ["click", "Click"], ["dodo", t("Visa, Mastercard, Apple Pay or Google Pay (US dollars)")]]
       .filter(([k]) => (b.providers || []).includes(k)).map(([, v]) => v);
     const tests = (window.app && window.app.tests) || [];
     const free = tests.filter((x) => x.access === "free").length;
@@ -628,13 +618,13 @@
 
         <h2 class="section-title">${t("Passes")}</h2>
         <div class="table-scroll"><table class="history-table pass-table">
-          <thead><tr><th scope="col">${t("Pass")}</th><th scope="col">${t("1 month")}</th><th scope="col">${t("3 months")}</th></tr></thead>
+          <thead><tr><th scope="col">${t("Pass")}</th><th scope="col">${t("Every month")}</th><th scope="col">${t("Every 3 months")}</th></tr></thead>
           <tbody>${PASSES.map(([key, name, what]) => `<tr><th scope="row">${esc(t(name))}<div class="muted-text small-text">${esc(t(what))}</div></th>${cell(key, "1")}${cell(key, "3")}</tr>`).join("")}</tbody>
         </table></div>
         <ul class="plan-points">
           <li>${t("price.pass.note", { n: esc(U.number(tests.length)) })}</li>
           <li>${t("price.pass.ai")}</li>
-          <li>${t("price.pass.first")}</li>
+          <li>${t("price.pass.renews")}</li>
         </ul>
         ${selling ? "" : `<p class="notice notice-info">${t("Passes are not on sale yet. The free tests are open now.")}</p>`}
 
@@ -711,11 +701,13 @@
           ${shop ? `<div class="account-card">
             <h2>${t("Your pass")}</h2>
             ${plan && plan.active
-              ? `${(plan.passes || []).map((p) => `<p class="plan-active">${esc(t(PASS_NAMES[p.scope] || "Pass"))}: ${t("active until {date}", { date: `<strong>${esc(longDate(p.endsAt))}</strong>` })}</p>`).join("") || `<p class="plan-active">${t("Active until {date}", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>`}
+              ? `${(plan.passes || []).map((p) => `<p class="plan-active">${esc(t(PASS_NAMES[p.scope] || "Pass"))}: ${p.renews
+                    ? t("renews on {date}", { date: `<strong>${esc(longDate(p.endsAt))}</strong>` }) + ` <button type="button" class="btn-link" data-action="cancel-sub" data-scope="${esc(p.scope)}">${t("Cancel renewal")}</button>`
+                    : t("active until {date}", { date: `<strong>${esc(longDate(p.endsAt))}</strong>` })}</p>`).join("") || `<p class="plan-active">${t("Active until {date}", { date: `<strong>${esc(longDate(plan.endsAt))}</strong>` })}</p>`}
                  <p class="muted-text">${plan.modules ? t("Open to you: {papers}.", { papers: esc(plan.modules.map((m) => MODULE_NAMES[m] || m).join(", ")) }) : t("Every test is open to you.")}</p>
                  <button type="button" class="btn-secondary" data-action="buy-plan">${t("Add a pass")}</button>`
               : `<p>${t("You are using the free tests.")}</p>
-                 <p class="muted-text">${plan && plan.hadPaidPlan ? t("Your pass has ended.") : t("Your first Full pass of one month brings an extra month")}</p>
+                 <p class="muted-text">${plan && plan.hadPaidPlan ? t("Your pass has ended.") : t("Subscribe to open the other tests.")}</p>
                  <button type="button" class="btn-primary" data-action="buy-plan">${t("Get a pass")}</button>`}
           </div>` : ""}
           <div class="account-card">
@@ -1330,8 +1322,7 @@
                 <button type="button" class="btn-secondary btn-sm" data-cancel="${o.id}">Cancel</button>` : ""}
               ${o.status === "paid" ? `<button type="button" class="btn-secondary btn-sm" data-refund="${o.id}">Refund</button>` : ""}
             </td></tr>`).join("")}</tbody></table></div>`
-          : `<p class="empty-inline">${tab === "payments" ? "No payments are waiting for confirmation." : "No orders."}</p>`}
-        ${tab === "payments" ? `<p class="muted-text small-text">Confirm a card transfer only after you see the money arrive, with the order number (MX…) in the comment.</p>` : ""}`;
+          : `<p class="empty-inline">${tab === "payments" ? "No payments are waiting for confirmation." : "No orders."}</p>`}`;
       body.querySelectorAll("[data-confirm]").forEach((b) => b.addEventListener("click", () => act(`/api/admin/orders/${b.dataset.confirm}/confirm`, "Payment confirmed.")));
       body.querySelectorAll("[data-cancel]").forEach((b) => b.addEventListener("click", () => act(`/api/admin/orders/${b.dataset.cancel}/cancel`, "Order cancelled.")));
       body.querySelectorAll("[data-refund]").forEach((b) => b.addEventListener("click", async () => {
@@ -1469,6 +1460,7 @@
     const a = el.dataset.action;
     if (a === "signin") { login().then((ok) => ok && window.app && window.app.route()); return true; }
     if (a === "signout") { logout(); return true; }
+    if (a === "cancel-sub") { cancelRenewal(el.dataset.scope); return true; }
     if (a === "buy-plan") { buy("plan", el.dataset.scope ? { scope: el.dataset.scope, months: el.dataset.months } : {}); return true; }
     if (a === "examiner-reviews") { showReviews(el.dataset.id); return true; }
     if (a === "choose-examiner") {
@@ -1481,7 +1473,7 @@
   }
 
   /* ================================================================ receipts */
-  const PAID_WITH = { payme: "Payme", click: "Click", manual: "Card transfer" };
+  const PAID_WITH = { payme: "Payme", click: "Click", manual: "Card transfer", dodo: "Card (Dodo)" };
 
   /** What a paid order bought: the amount, when, how, and what it opened. */
   function receiptHTML(o) {

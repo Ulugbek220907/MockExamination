@@ -160,6 +160,17 @@ PLAN_SCOPES = {
 }
 
 
+# A period bought by a subscription carries this mark (and the subscription's id) in its note; "...;cancelled" after the
+# student stopped the renewals.
+SUBSCRIPTION_MARK = "dodo-sub:"
+CANCELLED_SUFFIX = ";cancelled"
+
+
+def renews(period):
+    note = period.get("note") or ""
+    return note.startswith(SUBSCRIPTION_MARK) and not note.endswith(CANCELLED_SUFFIX)
+
+
 def scope_of(period):
     scope = period.get("scope") or "full"
     return scope if scope in PLAN_SCOPES else "full"
@@ -170,10 +181,14 @@ def _plan_from_periods(periods, at):
     active = bool(live)
     ends = max((parse_time(p["ends_at"]) for p in periods), default=None)
     # Per kind of pass: when the pass running now ends, counting the months bought after it.
-    passes = {}
+    passes, renewing = {}, {}
     for p in live:
-        end = max((parse_time(q["ends_at"]) for q in periods if scope_of(q) == scope_of(p)), default=parse_time(p["ends_at"]))
+        same = [q for q in periods if scope_of(q) == scope_of(p)]
+        end = max((parse_time(q["ends_at"]) for q in same), default=parse_time(p["ends_at"]))
         passes[scope_of(p)] = max(end, passes.get(scope_of(p), end))
+        # Renewing: the last period of this kind came from a subscription that has not been cancelled.
+        latest = max(same, key=lambda q: parse_time(q["ends_at"]))
+        renewing[scope_of(p)] = renews(latest)
     return {
         "active": active,
         "endsAt": iso(ends) if active and ends and ends > at else None,
@@ -181,7 +196,8 @@ def _plan_from_periods(periods, at):
         "hadPaidPlan": any(p["source"] == "payment" for p in periods),
         # The papers the passes open now, and each pass with its end.
         "modules": sorted({m for scope in passes for m in PLAN_SCOPES[scope]}),
-        "passes": [{"scope": scope, "endsAt": iso(end)} for scope, end in sorted(passes.items())],
+        "passes": [{"scope": scope, "endsAt": iso(end), "renews": renewing[scope]} for scope, end in sorted(passes.items())],
+        "renews": any(renewing.values()),
     }
 
 

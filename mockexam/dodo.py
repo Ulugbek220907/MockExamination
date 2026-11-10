@@ -5,10 +5,11 @@ in US dollars and pays the seller out. No SDK: plain HTTPS with the standard lib
   DODO_PAYMENTS_API_KEY      the API key; "dodo_test_..." talks to the test servers, "dodo_live_..." to the live ones
   DODO_PAYMENTS_WEBHOOK_KEY  the webhook signing secret ("whsec_...")
   DODO_PRODUCTS              the product of each pass: "full-1=pdt_x, full-3=pdt_y, speaking-1=pdt_z, ..."
-                             (kind of pass, a dash, the number of months)
+                             (kind of pass, a dash, the number of months). Each is a SUBSCRIPTION product in Dodo that
+                             charges every 1 or 3 months until the student cancels.
 
 Flow: the server makes a checkout session for an order (the order id travels in the metadata), the student pays on
-Dodo's page, and Dodo calls POST /api/pay/dodo/webhook. The webhook is verified (Standard Webhooks: HMAC-SHA256 over
+Dodo's page, and Dodo calls POST /api/pay/dodo/webhook, for the first payment and again for every renewal. The webhook is verified (Standard Webhooks: HMAC-SHA256 over
 "<id>.<timestamp>.<body>"), the payment is fetched from Dodo again, and only then is the order paid
 (billing.handle_dodo_webhook).
 """
@@ -121,6 +122,16 @@ def create_checkout(order_id, scope, months, email, name, return_url):
 
 def get_payment(payment_id):
     return _request("GET", f"/payments/{urllib.request.quote(str(payment_id), safe='')}")
+
+
+def get_subscription(subscription_id):
+    return _request("GET", f"/subscriptions/{urllib.request.quote(str(subscription_id), safe='')}")
+
+
+def cancel_subscription(subscription_id):
+    """Stop renewing at the end of the period already paid for (the student keeps the pass until then)."""
+    return _request("PATCH", f"/subscriptions/{urllib.request.quote(str(subscription_id), safe='')}",
+                    {"cancel_at_next_billing_date": True, "cancel_reason": "cancelled_by_customer"})
 
 
 def refund(payment_id, reason="Refund requested on TestDay"):
