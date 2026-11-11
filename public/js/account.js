@@ -551,7 +551,11 @@
 
   async function buy(kind, extra = {}) {
     if (kind === "plan" && !extra.scope) { location.hash = "#/pricing"; return; }   // every "Get a pass" button leads to the plans
+    if (state.buying) return;                                     // a second press while the first is working
     if (!(await login(kind === "plan" ? t("signin.plan") : t("Sign in to order an examiner check.")))) return;
+    state.buying = true;
+    // The box goes up at once: creating the order and Dodo's checkout take a second or two.
+    let closeBusy = U.loadingOverlay(t("Opening the payment page…"), t("You will come back here after paying."));
     try {
       const b = await billing();
       let item;
@@ -565,17 +569,26 @@
       }
       const methods = (b.providers || []).filter((p) => p !== "dodo" || (item.usd && (b.cardPasses || []).includes(item.cardKey)));
       // One way to pay: go straight to it. Several: ask. None: say so.
-      const method = methods.length === 1 ? methods[0] : await chooseMethod(item, b);
-      if (!method) return;
+      let method = methods[0];
+      if (methods.length !== 1) {
+        closeBusy();
+        method = await chooseMethod(item, b);
+        if (!method) { state.buying = false; return; }
+        closeBusy = U.loadingOverlay(t("Opening the payment page…"), t("You will come back here after paying."));
+      }
       const currency = method === "dodo" ? "USD" : "UZS";
       const { order } = await U.api("/api/orders", { method: "POST", body: JSON.stringify({ kind, ...extra, currency }) });
       const res = await U.api(`/api/orders/${order.id}/pay`, { method: "POST", body: JSON.stringify({ method }) });
       if (res.redirect) {
-        U.loadingOverlay(t("Opening the payment page…"), t("You will come back here after paying."));
-        try { sessionStorage.setItem("td:paying", "1"); } catch (e) { /* private mode: the overlay is removed another way */ }
-        location.href = res.redirect;
+        location.href = res.redirect;                              // the box stays until the page changes
+        setTimeout(() => { state.buying = false; }, 4000);
+        return;
       }
+      closeBusy();
+      state.buying = false;
     } catch (err) {
+      closeBusy();
+      state.buying = false;
       U.modal({ title: t("Could not start the payment"), bodyHTML: `<p>${esc(err.message)}</p>` });
     }
   }
@@ -583,6 +596,7 @@
   // Coming back with the browser's Back button from the payment page shows this page as it was left, with the
   // "Opening the payment page" box still on it: take the box away.
   window.addEventListener("pageshow", () => {
+    state.buying = false;
     document.querySelectorAll(".loading-card").forEach((card) => { const o = card.closest(".modal-overlay"); if (o) o.remove(); });
   });
 
@@ -657,6 +671,7 @@
           <article class="plan-card">
             <h2>${t("Monthly")}</h2>
             <p class="plan-price"><span>${esc(usd(month.usd))}</span> <small>${t("/ month")}</small></p>
+            <p class="plan-per is-plain">${t("Pay month by month")}</p>
             ${soum(month)}
             ${act(1, false)}
             ${list}

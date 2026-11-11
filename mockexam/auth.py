@@ -202,11 +202,10 @@ class EmailCodeAuth:
             try:
                 notify.send_login_code(email, code)
             except urllib.error.HTTPError as e:
+                # Never tell the caller: "undeliverable" versus "sent" would show which addresses exist. Logged for the owner.
                 log.warning("Resend refused the sign-in email (%s): %s", e.code, e.read()[:300])
-                raise AuthError("We could not send the code. Please check the address and try again.", 503) from e
-            except Exception as e:
+            except Exception:
                 log.exception("Could not send the sign-in email")
-                raise AuthError("We could not send the code. Please try again in a minute.", 503) from e
 
         # Storing the code (in the database, far away) and sending the email happen at the same time.
         gather(lambda: self.db.upsert("login_codes", row, "email"), send)

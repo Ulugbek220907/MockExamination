@@ -23,6 +23,18 @@ AUDIO_TYPES = {
     "audio/aac": "aac", "audio/mpeg": "mp3", "audio/wav": "wav",
 }
 MAX_RECORDING_BYTES = 4 * 1024 * 1024
+
+
+def looks_like_audio(data):
+    """True if the bytes start like a real audio container (the Content-Type a client sends proves nothing)."""
+    head = bytes(data[:16])
+    return bool(
+        (head[:4] == b"RIFF" and head[8:12] == b"WAVE")                       # WAV
+        or head[:4] == b"\x1aE\xdf\xa3"                                        # WebM / Matroska
+        or head[:4] == b"OggS"                                                 # Ogg
+        or head[4:8] == b"ftyp"                                                # MP4 / M4A
+        or head[:3] == b"ID3"                                                  # MP3 with a tag
+        or (len(head) > 1 and head[0] == 0xFF and head[1] & 0xE0 == 0xE0))     # MP3 or ADTS AAC frames
 MIN_RECORDING_BYTES = 200
 MAX_NOTES = 2000
 
@@ -103,6 +115,8 @@ def save_recording(db, files, sub, test, key, data, mime, duration):
         raise SpeakingError("This audio format is not supported.", 415)
     if len(data) < MIN_RECORDING_BYTES:
         raise SpeakingError("The recording is empty. Check your microphone.", 400)
+    if not looks_like_audio(data):
+        raise SpeakingError("This file is not audio.", 415)
     if len(data) > MAX_RECORDING_BYTES:
         raise SpeakingError("The recording is too long.", 413)
     from .dbcache import gather

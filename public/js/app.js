@@ -14,8 +14,6 @@
 
   const esc = (v) => U.escapeHtml(v);
 
-  // Shown on the legal pages when the server has no CONTACT_EMAIL (never a blank).
-  const SUPPORT_EMAIL = "ulugbekisoqov22@gmail.com";
   const MODULE_LABELS = { reading: "Reading", listening: "Listening", writing: "Writing", speaking: "Speaking" };
   const CATALOG_PAGE = 24;
   // The test list and settings from the last visit (see init); bump the version when their shape changes.
@@ -31,7 +29,7 @@
 
   class App {
     constructor() {
-      this.config = { siteName: "TestDay", aiMarking: false, contactEmail: SUPPORT_EMAIL, commerce: false };
+      this.config = { siteName: "TestDay", aiMarking: false, contactEmail: "", commerce: false };
       this.tests = [];
       this.exam = null;
       this.pending = null;
@@ -1157,10 +1155,10 @@
 
     /* Static pages ----------------------------------------------------- */
 
-    /** The site's email for support and requests: CONTACT_EMAIL, or the owner's address. */
+    /** The site's email for support and requests (the server sends CONTACT_EMAIL, or the owner's address until it is set). */
     contactHTML() {
-      const email = this.config.contactEmail || SUPPORT_EMAIL;
-      return `<a href="mailto:${esc(email)}">${esc(email)}</a>`;
+      const email = this.config.contactEmail;
+      return email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>` : esc(t("the address in the footer"));
     }
 
     /** Terms of use, privacy policy and refund policy. The wording lives in strings.js. */

@@ -765,6 +765,7 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .plan-price s { font-size: 1.15rem; color: var(--muted); text-decoration-thickness: 2px; }
 .plan-price small { color: var(--muted); font-size: 0.95rem; }
 .plan-per { margin: 0; color: #1a6b3a; font-weight: 700; font-size: 0.95rem; }
+.plan-per.is-plain { color: var(--muted); font-weight: 500; }
 .plan-local { margin: 0; color: var(--muted); font-size: 0.9rem; }
 .plan-btn { width: 100%; margin: 6px 0 4px; justify-content: center; }
 .plan-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
@@ -787,7 +788,7 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .single-btn strong { font-size: 1.1rem; }
 .single-btn:hover, .single-btn:focus-visible { background: var(--ink); color: var(--ground); }
 .single-btn:hover span, .single-btn:focus-visible span { color: var(--ground); }
-.site-links a.nav-cta { border: 1.5px solid var(--ink); border-radius: 999px; padding: 6px 16px; font-weight: 700; text-decoration: none; }
+.site-links a.nav-cta { border: 1.5px solid var(--ink); border-radius: 999px; padding: 0 18px; margin-left: 4px; font-weight: 600; text-decoration: none; }
 .site-links a.nav-cta:hover { background: var(--ink); color: var(--ground); }
 
 /* The pass picker (which pass, for how long) and the table of passes on the Price page. */

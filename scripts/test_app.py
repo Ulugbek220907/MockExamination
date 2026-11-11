@@ -2232,13 +2232,11 @@ class EmailCodeAuthTests(unittest.TestCase):
         with self.assertRaises(auth.AuthError):
             self.auth.verify_code("b@example.com", self.code())
 
-    def test_send_failure_is_reported(self):
+    def test_send_failure_is_not_reported(self):
         def refuse(url, payload, headers=None):
             raise urllib.error.HTTPError(url, 422, "bad", {}, io.BytesIO(b'{"message":"invalid"}'))
         with mock.patch.object(notify, "_post_json", refuse):
-            with self.assertRaises(auth.AuthError) as ctx:
-                self.auth.send_code("c@example.com", "")
-        self.assertEqual(ctx.exception.status, 503)
+            self.auth.send_code("c@example.com", "")   # no error: the caller must not learn whether an address can receive mail
 
 
 class SupabaseAuthTests(unittest.TestCase):
@@ -2583,6 +2581,89 @@ class CommerceOffTests(AccountApiBase):
         self.assertRegex(page, r'<a href="#/examiners" data-commerce hidden>')
         js = open(os.path.join(PUBLIC_DIR, "js", "app.js"), encoding="utf-8").read()
         self.assertIn("applyCommerce", js)
+
+
+class SecurityReviewTests(AccountApiBase):
+    """Findings of the security review: each one must stay fixed."""
+
+    ANSWERS = lambda self, t: {"1": t["tasks"][0]["modelAnswer"], "2": t["tasks"][1]["modelAnswer"]}
+
+    def test_ai_writing_marking_needs_a_sign_in(self):
+        t = WRITING[0]
+        calls = []
+
+        async def marker(*args, **kwargs):
+            calls.append(1)
+            raise AssertionError("an anonymous visitor must not reach the AI")
+        with mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "sk-or-test"}), mock.patch.object(writing, "assess_with_ai", marker):
+            r, data = self.call("POST", f"/api/writing/{t['id']}/submit", {"responses": self.ANSWERS(t), "clientId": CLIENT_ID,
+                                                                           "requestAssessment": True})
+            code = r.code
+        self.assertEqual((code, data["assessmentStatus"], data["assessment"], calls), (200, "login_required", None, []))
+        self.assertTrue(data["tasks"][0]["modelAnswer"])           # the essay's analysis and the model answers are still given
+        self.assertGreater(data["tasks"][0]["analysis"]["wordCount"], 150)
+
+    def test_the_public_billing_config_has_no_card_number(self):
+        with mock.patch.dict(os.environ, {"PAYMENT_CARD_NUMBER": "8600 1111 2222 3333", "PAYMENT_CARD_HOLDER": "X Y"}):
+            r = self.fetch("/api/billing")
+        self.assertEqual(r.code, 200)
+        self.assertNotIn(b"8600", r.body)
+        self.assertNotIn(b"cardNumber", r.body)
+        self.assertNotIn(b"manual", r.body)
+
+    def test_sign_in_answers_the_same_for_every_address(self):
+        def refuse(url, payload, headers=None):
+            raise urllib.error.HTTPError(url, 422, "bad", {}, io.BytesIO(b'{"message":"invalid"}'))
+        auth_obj = auth.EmailCodeAuth(self._app.settings["store"].db, "secret")
+        with mock.patch.dict(self._app.settings, {"auth": auth_obj}), mock.patch.object(notify, "_post_json", refuse), \
+                mock.patch.dict(os.environ, {"RESEND_API_KEY": "re_test", "EMAIL_FROM": "TestDay <noreply@example.com>"}):
+            bad = self.fetch("/api/auth/code", method="POST", headers={"Content-Type": "application/json"},
+                             body=json.dumps({"email": "nobody@undeliverable.example"}))
+            with mock.patch.object(notify, "_post_json", lambda *a, **k: None):
+                good = self.fetch("/api/auth/code", method="POST", headers={"Content-Type": "application/json"},
+                                  body=json.dumps({"email": "somebody@example.com"}))
+        self.assertEqual((bad.code, good.code), (200, 200))
+        self.assertEqual(set(json.loads(bad.body)), set(json.loads(good.body)))
+        self.assertNotIn("devCode", json.loads(bad.body))
+
+    def test_a_live_site_refuses_dev_sign_in_codes(self):
+        for env, refused in (({"SITE_URL": "https://www.testday.uz", "AUTH_DEV_CODES": "1"}, True),
+                             ({"RENDER": "true", "AUTH_DEV_CODES": "1"}, True),
+                             ({"SITE_URL": "https://www.testday.uz", "AUTH_DEV_CODES": "0"}, False),
+                             ({"SITE_URL": "http://localhost:8000", "AUTH_DEV_CODES": "1"}, False),
+                             ({"SITE_URL": "", "AUTH_DEV_CODES": "1"}, False)):
+            with mock.patch.dict(os.environ, {"SITE_URL": "", "RENDER": "", **env}):
+                if refused:
+                    with self.assertRaises(SystemExit):
+                        server.refuse_unsafe_production()
+                else:
+                    server.refuse_unsafe_production()
+
+    def test_speaking_uploads_must_be_audio(self):
+        for good in (FAKE_AUDIO, b"RIFF\x00\x00\x00\x00WAVE" + bytes(300), b"OggS" + bytes(300), b"\x00\x00\x00\x18ftypM4A " + bytes(300),
+                     b"ID3" + bytes(300), b"\xff\xfb" + bytes(300)):
+            self.assertTrue(speaking.looks_like_audio(good), good[:8])
+        for bad in (b"<script>alert(1)</script>" + bytes(300), b"MZ" + bytes(300), b"PK\x03\x04" + bytes(300), bytes(400), b"%PDF-1.7" + bytes(300)):
+            self.assertFalse(speaking.looks_like_audio(bad), bad[:8])
+        cookie, _ = self.login("sniff@example.com")
+        r, data = self.call("POST", "/api/speaking/speaking-01/start", {"mode": "exam"}, cookie=cookie)
+        sub_id = data["submissionId"]
+        r = self.fetch(f"/api/speaking/submissions/{sub_id}/answers/p1-1", method="POST", body=b"<html>" + bytes(400),
+                       headers={"Content-Type": "audio/webm", "X-Duration": "5", "Cookie": cookie})
+        self.assertEqual(r.code, 415)                              # not audio, whatever the Content-Type says
+        r = self.fetch(f"/api/speaking/submissions/{sub_id}/answers/p1-1", method="POST", body=FAKE_AUDIO,
+                       headers={"Content-Type": "audio/webm", "X-Duration": "5", "Cookie": cookie})
+        self.assertEqual(r.code, 200)
+
+    def test_security_txt_and_no_personal_address_in_the_source(self):
+        r = self.fetch("/.well-known/security.txt")
+        self.assertEqual(r.code, 200)
+        self.assertRegex(r.body.decode(), r"(?m)^Contact: mailto:\S+@\S+$")
+        self.assertRegex(r.body.decode(), r"(?m)^Expires: \d{4}-\d\d-\d\dT")
+        root = os.path.dirname(PUBLIC_DIR)
+        for rel in ("server.py", os.path.join("public", "js", "app.js"), os.path.join("mockexam", "billing.py")):
+            with open(os.path.join(root, rel), encoding="utf-8") as f:
+                self.assertNotIn("@gmail.com", f.read(), rel)
 
 
 class ChecksOffTests(AccountApiBase):
