@@ -356,6 +356,7 @@
     const messages = {
       not_configured: ["info", tr("AI examiner feedback is not switched on for this site yet."), tr("writing.notice.review")],
       not_requested: ["info", tr("You chose not to request AI feedback."), tr("writing.notice.review")],
+      login_required: ["info", tr("Sign in to get your script marked by the AI examiner."), tr("Your analysis and the model answers are below. Sign in and write again to get the AI examiner's bands and feedback.")],
       rate_limited: ["warn", tr("AI marking is not available right now."), data.assessmentMessage],
       too_short: ["warn", tr("Your responses were too short to be marked."), tr("writing.notice.short")],
       error: ["warn", tr("The AI examiner could not mark this script."), data.assessmentMessage],

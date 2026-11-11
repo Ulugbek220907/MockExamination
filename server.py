@@ -78,9 +78,10 @@ PORT = int(os.environ.get("PORT", 8080))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 SITE_NAME = os.environ.get("SITE_NAME", "TestDay")
-# Support address on the legal pages and receipts. Never blank: the owner's address until CONTACT_EMAIL is set.
-DEFAULT_CONTACT_EMAIL = "ulugbekisoqov22@gmail.com"
-CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "").strip() or DEFAULT_CONTACT_EMAIL
+# Support address on the legal pages and receipts: CONTACT_EMAIL, or until it is set the first address in ADMIN_EMAILS (the
+# owner's, from the environment: no personal address is kept in the source).
+CONTACT_EMAIL = (os.environ.get("CONTACT_EMAIL", "").strip()
+                 or next((e.strip() for e in os.environ.get("ADMIN_EMAILS", "").split(",") if e.strip()), ""))
 # The public address of the site, for links that must be absolute: canonical, share image, sitemap.
 PUBLIC_URL = (os.environ.get("SITE_URL") or "https://testday.uz").strip().rstrip("/")
 # Social links in the footer, in this order. Each shows only when its env var holds an https:// address.
@@ -539,10 +540,14 @@ class WritingSubmitHandler(BaseHandler):
         if not writing.ai_configured():
             status, message = "not_configured", "AI marking is not enabled on this site yet."
         elif body.get("requestAssessment", True):
-            if all(analyses[n]["wordCount"] < writing.MIN_WORDS_FOR_AI for n in (1, 2)):
+            if not profile:
+                # AI marking costs money: only signed-in students (and their monthly allowance) get it. The analysis
+                # and model answers are still returned, so nobody loses their essay.
+                status, message = "login_required", "Sign in to get your script marked by the AI examiner."
+            elif all(analyses[n]["wordCount"] < writing.MIN_WORDS_FOR_AI for n in (1, 2)):
                 status, message = "too_short", "Both responses are too short to be marked."
             else:
-                limited = await in_thread(writing.month_limit, STORE.db, profile["id"]) if profile else None
+                limited = await in_thread(writing.month_limit, STORE.db, profile["id"])
                 limited = limited or AI_LIMITER.try_acquire(self.client_ip())
                 if limited:
                     status, message = "rate_limited", limited
@@ -837,6 +842,19 @@ class RobotsHandler(BaseHandler):
         self.finish(f"User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: {PUBLIC_URL}/sitemap.xml\n")
 
 
+class SecurityTxtHandler(BaseHandler):
+    """/.well-known/security.txt (RFC 9116): where to report a vulnerability."""
+
+    def get(self):
+        if not CONTACT_EMAIL:
+            raise tornado.web.HTTPError(404)
+        expires = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=330)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        self.set_header("Content-Type", "text/plain; charset=utf-8")
+        self.set_header("Cache-Control", "public, max-age=3600")
+        self.finish(f"Contact: mailto:{CONTACT_EMAIL}\nExpires: {expires}\nPreferred-Languages: en, uz, ru\n"
+                    f"Canonical: {PUBLIC_URL}/.well-known/security.txt\n")
+
+
 class SitemapHandler(BaseHandler):
     """
     The pages search engines should index. The site is one page whose sections are #/ addresses,
@@ -923,6 +941,7 @@ def make_app():
             (r"/audio/(.*)", AudioHandler, {"path": os.path.join(PUBLIC_DIR, "audio")}),
             (r"/(?:index\.html)?", IndexHandler),
             (r"/robots\.txt", RobotsHandler),
+            (r"/\.well-known/security\.txt", SecurityTxtHandler),
             (r"/sitemap\.xml", SitemapHandler),
             (r"/(.*)", StaticHandler, {"path": PUBLIC_DIR, "default_filename": "index.html"}),
         ],
@@ -956,8 +975,23 @@ async def send_plan_reminders():
         log.exception("Pass reminders failed")
 
 
+def refuse_unsafe_production():
+    """
+    A live site must never run with AUTH_DEV_CODES=1: the sign-in API would return each one-time code in its answer, so
+    anyone could sign in as anyone. "Live" means a real https SITE_URL or a Render service.
+    """
+    site = os.environ.get("SITE_URL", "").strip().lower()
+    live = bool(os.environ.get("RENDER")) or (site.startswith("https://") and not any(h in site for h in ("localhost", "127.0.0.1")))
+    if live and os.environ.get("AUTH_DEV_CODES", "").strip() == "1":
+        raise SystemExit("Refusing to start: AUTH_DEV_CODES=1 on a live site would return sign-in codes to anyone. "
+                         "Remove AUTH_DEV_CODES from the environment.")
+    if live and AUTH.name == "dev":
+        log.error("Sign-in is in development mode on a live site: nobody can receive a code. Set RESEND_API_KEY and EMAIL_FROM.")
+
+
 def main():
     global _CATALOG
+    refuse_unsafe_production()
     logging.getLogger().addHandler(notify.ErrorAlerts())  # errors reach the owner on Telegram (if configured)
     tests = STORE.list_tests()
     # Build the API responses and asset hashes before taking traffic.
