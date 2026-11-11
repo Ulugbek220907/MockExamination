@@ -751,6 +751,45 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .pay-method-name { font-weight: 750; font-size: 1.02em; color: var(--ink); }
 .pay-method-note { color: var(--muted); font-size: 0.88em; }
 
+/* The Price page: two plans, one choice. */
+.plans-page { max-width: 880px; margin: 0 auto; }
+.plans-page h1 { font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem); margin-bottom: 0.4rem; }
+.plans-sub { color: var(--muted); margin: 0 0 1.6rem; font-size: 1.05rem; }
+.plan-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; align-items: stretch; }
+.plan-card { position: relative; background: var(--paper); border: 1px solid var(--rule); border-radius: 18px; padding: 26px 24px 22px; display: flex; flex-direction: column; gap: 10px; }
+.plan-card.is-best { border: 2px solid var(--ink); }
+.plan-card h2 { font-size: 1.15rem; margin: 0; }
+.plan-badge { position: absolute; top: -13px; left: 20px; background: var(--ink); color: var(--ground); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; padding: 5px 12px; border-radius: 999px; }
+.plan-price { margin: 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.plan-price span { font-size: 2.4rem; font-weight: 750; letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
+.plan-price s { font-size: 1.15rem; color: var(--muted); text-decoration-thickness: 2px; }
+.plan-price small { color: var(--muted); font-size: 0.95rem; }
+.plan-per { margin: 0; color: #1a6b3a; font-weight: 700; font-size: 0.95rem; }
+.plan-local { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.plan-btn { width: 100%; margin: 6px 0 4px; justify-content: center; }
+.plan-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+.plan-list li { position: relative; padding-left: 24px; color: var(--ink-2); font-size: 0.96rem; }
+.plan-list li::before { content: ""; position: absolute; left: 2px; top: 0.38em; width: 6px; height: 11px; border: solid #1a6b3a; border-width: 0 2.5px 2.5px 0; transform: rotate(40deg); }
+.plans-alt { margin: 22px 0 0; text-align: center; }
+.plans-alt .btn-link { text-decoration: underline; text-underline-offset: 0.25em; font-size: 1rem; color: var(--ink); }
+.plans-foot { margin: 18px 0 0; text-align: center; color: var(--muted); font-size: 0.86rem; }
+.plans-foot a { color: var(--muted); }
+/* The "one paper" chooser. */
+.single-list { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
+.single-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 14px; padding: 14px 0; border-bottom: 1px solid var(--rule-soft); }
+.single-row:last-child { border-bottom: none; }
+.single-name { display: flex; flex-direction: column; gap: 2px; min-width: 12rem; flex: 1; }
+.single-name strong { color: var(--ink); font-size: 1.02rem; }
+.single-name span { color: var(--muted); font-size: 0.88rem; }
+.single-buttons { display: flex; gap: 8px; }
+.single-btn { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 6.4rem; padding: 9px 14px; border: 1.5px solid var(--ink); border-radius: 12px; background: var(--paper); color: var(--ink); font: inherit; cursor: pointer; }
+.single-btn span { font-size: 0.82rem; color: var(--ink-2); }
+.single-btn strong { font-size: 1.1rem; }
+.single-btn:hover, .single-btn:focus-visible { background: var(--ink); color: var(--ground); }
+.single-btn:hover span, .single-btn:focus-visible span { color: var(--ground); }
+.site-links a.nav-cta { border: 1.5px solid var(--ink); border-radius: 999px; padding: 6px 16px; font-weight: 700; text-decoration: none; }
+.site-links a.nav-cta:hover { background: var(--ink); color: var(--ground); }
+
 /* The pass picker (which pass, for how long) and the table of passes on the Price page. */
 .pass-picker { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
 .pass-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding-bottom: 14px; border-bottom: 1px solid var(--rule-soft); }

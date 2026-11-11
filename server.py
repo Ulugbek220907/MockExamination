@@ -406,6 +406,7 @@ class ConfigHandler(BaseHandler):
                      "google": google.enabled or await in_thread(AUTH.google_enabled)},
             "speakingKeepDays": speaking.KEEP_DAYS,
             "commerce": accounts.commerce_enabled(),
+            "checks": accounts.checks_enabled(),
         })
 
 

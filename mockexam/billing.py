@@ -111,7 +111,7 @@ def public_config(enabled=True):
         "enabled": bool(enabled),
         "currency": CURRENCY,
         "plans": plan_table(),
-        "prices": PRICES if enabled else {},
+        "prices": {k: v for k, v in PRICES.items() if k != "plan"} if accounts.checks_enabled() and enabled else {},
         "planDays": PLAN_DAYS,
         "firstBonusDays": PLAN_FIRST_BONUS_DAYS,
         "aiCaps": ai_caps(),
@@ -201,6 +201,8 @@ def user_orders(db, user_id, limit=50):
 def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope="full", months=1, currency="UZS"):
     if kind not in PRICES:
         raise BillingError("Unknown product.")
+    if kind != "plan" and not accounts.checks_enabled():
+        raise BillingError("Examiner checks are not available yet.")
     pending = db.select("orders", {"user_id": user_id, "status": "pending"}, limit=15)
     if len(pending) >= 15:
         raise BillingError("You have too many unpaid orders. Please complete or wait for previous orders.")
@@ -234,7 +236,7 @@ def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope=
     return db.insert("orders", row)
 
 
-def checkout(order, method, return_url, profile=None):
+def checkout(order, method, return_url, profile=None, cancel_url=None):
     """What the browser should do to pay: a redirect URL."""
     if order["status"] != "pending":
         raise BillingError("This order cannot be paid any more.")
@@ -246,7 +248,7 @@ def checkout(order, method, return_url, profile=None):
         profile = profile or {}
         try:
             url = dodo.create_checkout(order["id"], order_scope(order), order_months(order), profile.get("email") or "",
-                                       profile.get("name") or "", return_url)
+                                       profile.get("name") or "", return_url, cancel_url)
         except dodo.DodoError as e:
             raise BillingError(str(e), e.status)
         return {"redirect": url}

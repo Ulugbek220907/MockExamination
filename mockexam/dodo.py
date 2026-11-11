@@ -102,7 +102,7 @@ def _request(method, path, payload=None):
         raise DodoError("The card payment service sent an answer we could not read.", 502) from e
 
 
-def create_checkout(order_id, scope, months, email, name, return_url):
+def create_checkout(order_id, scope, months, email, name, return_url, cancel_url=None):
     """A checkout session for one pass; returns the address of Dodo's payment page."""
     pid = product_id(scope, months)
     if not pid:
@@ -114,6 +114,8 @@ def create_checkout(order_id, scope, months, email, name, return_url):
         "metadata": {"order_id": str(order_id)},
         "allowed_payment_method_types": ["credit", "debit", "apple_pay", "google_pay"],
     }
+    if cancel_url:
+        body["cancel_url"] = cancel_url
     res = _request("POST", "/checkouts", body)
     if not res.get("checkout_url"):
         raise DodoError("The card payment service did not give a payment page.", 502)

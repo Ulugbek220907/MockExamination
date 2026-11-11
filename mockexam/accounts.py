@@ -331,6 +331,11 @@ def commerce_enabled():
     return os.environ.get("COMMERCE_ENABLED", "").strip().lower() in ("1", "true", "yes", "on")
 
 
+def checks_enabled():
+    """True once examiner checks (a paid review by a human examiner) are offered: only with selling on AND EXAMINER_CHECKS_ENABLED."""
+    return commerce_enabled() and os.environ.get("EXAMINER_CHECKS_ENABLED", "").strip().lower() in ("1", "true", "yes", "on")
+
+
 def declared_access(test):
     """What the test file says: "free" or "premium" (a test may also say "soon" outright)."""
     return test.get("access") or ("free" if test.get("sortOrder", 1) <= FREE_TESTS_PER_MODULE else "premium")

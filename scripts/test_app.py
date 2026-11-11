@@ -44,6 +44,7 @@ os.environ["ADMIN_EMAILS"] = "owner@example.com"
 # Most tests cover buying the pass and examiner checks, which the live site hides until COMMERCE_ENABLED is on.
 # CommerceOffTests below switches it off to check the launch setting.
 os.environ["COMMERCE_ENABLED"] = "1"
+os.environ["EXAMINER_CHECKS_ENABLED"] = "1"   # most tests cover examiner checks; ChecksOffTests turns them off
 # The admin insights are kept for a minute; the tests that count things need them read afresh each time.
 os.environ["ADMIN_STATS_SECONDS"] = "0"
 
@@ -2584,6 +2585,29 @@ class CommerceOffTests(AccountApiBase):
         self.assertIn("applyCommerce", js)
 
 
+class ChecksOffTests(AccountApiBase):
+    """Examiner checks are not offered until EXAMINER_CHECKS_ENABLED: passes are, and nothing about examiners shows."""
+
+    def setUp(self):
+        super().setUp()
+        patcher = mock.patch.dict(os.environ, {"EXAMINER_CHECKS_ENABLED": "0"})
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def test_nothing_about_examiner_checks(self):
+        cookie, data = self.login("nochecks@example.com")
+        r, data = self.call("GET", "/api/config")
+        self.assertEqual((data["commerce"], data["checks"]), (True, False))
+        r, data = self.call("GET", "/api/billing")
+        self.assertEqual(data["prices"], {})                       # no check prices
+        self.assertEqual(sorted(data["plans"]), ["full", "lr", "speaking", "writing"])
+        for path in ("/api/examiners", "/api/checks", "/api/examiner/me"):
+            self.assertEqual(self.call("GET", path, cookie=cookie)[0].code, 404, path)
+        r, data = self.call("POST", "/api/orders", {"kind": "writing_check"}, cookie=cookie)
+        self.assertEqual(r.code, 400)
+        self.assertEqual(self.call("POST", "/api/orders", {"kind": "plan"}, cookie=cookie)[0].code, 200)   # passes still sell
+
+
 class ContentSyncTests(unittest.TestCase):
     """Production reads tests from Supabase; the sync uploads only what is new or changed, and only if every file is valid."""
 
@@ -2880,7 +2904,8 @@ class DodoTests(AccountApiBase):
         self.assertEqual(payload["product_cart"], [{"product_id": "pdt_w1", "quantity": 1}])
         self.assertEqual(payload["metadata"], {"order_id": str(order["id"])})
         self.assertEqual(payload["customer"]["email"], "dodo.checkout@example.com")
-        self.assertTrue(payload["return_url"].endswith("/#/account"))
+        self.assertTrue(payload["return_url"].endswith("/#/account?paid=1"))
+        self.assertTrue(payload["cancel_url"].endswith("/#/pricing"))
         # Card orders are paid by card, and so'm orders by the so'm methods.
         uzs = billing.create_order(self.db, uid, "plan")
         self.assertEqual(self.call("POST", f"/api/orders/{uzs['id']}/pay", {"method": "dodo"}, cookie=cookie)[0].code, 400)

@@ -345,7 +345,8 @@ class OrderPayHandler(BaseHandler):
         profile, order = await _own_order(self, order_id)
         method = str(self.body_json().get("method") or "")
         try:
-            result = await in_thread(billing.checkout, order, method, self.site_url() + "/#/account", profile)
+            result = await in_thread(billing.checkout, order, method, self.site_url() + "/#/account?paid=1", profile,
+                                     self.site_url() + "/#/pricing")
         except billing.BillingError as e:
             _raise(e)
         self.send_json(result)
@@ -926,6 +927,20 @@ def commerce_only(handler_class):
     return Gated
 
 
+def checks_only(handler_class):
+    """The same handler, but answering 404 while examiner checks are not offered (EXAMINER_CHECKS_ENABLED is off)."""
+    class Gated(handler_class):
+        async def prepare(self):
+            if not accounts.checks_enabled():
+                raise ApiError(404, "Not available.")
+            result = super().prepare()
+            if result is not None:
+                await result
+
+    Gated.__name__ = handler_class.__name__
+    return Gated
+
+
 def routes():
     return [
         (r"/api/auth/code", AuthCodeHandler),
@@ -942,13 +957,13 @@ def routes():
         (r"/api/pay/payme", commerce_only(PaymeHandler)),
         (r"/api/pay/click/(prepare|complete)", commerce_only(ClickHandler)),
         (r"/api/pay/dodo/webhook", DodoWebhookHandler),
-        (r"/api/examiners", commerce_only(ExaminersHandler)),
-        (r"/api/examiners/([0-9a-f\-]{36})", commerce_only(ExaminerDetailHandler)),
-        (r"/api/checks", commerce_only(MyChecksHandler)),
-        (r"/api/checks/(\d+)", commerce_only(CheckHandler)),
-        (r"/api/checks/(\d+)/rate", commerce_only(CheckRateHandler)),
-        (r"/api/examiner/me", commerce_only(ExaminerMeHandler)),
-        (r"/api/examiner/checks/(\d+)/(start|result)", commerce_only(ExaminerCheckActionHandler)),
+        (r"/api/examiners", checks_only(ExaminersHandler)),
+        (r"/api/examiners/([0-9a-f\-]{36})", checks_only(ExaminerDetailHandler)),
+        (r"/api/checks", checks_only(MyChecksHandler)),
+        (r"/api/checks/(\d+)", checks_only(CheckHandler)),
+        (r"/api/checks/(\d+)/rate", checks_only(CheckRateHandler)),
+        (r"/api/examiner/me", checks_only(ExaminerMeHandler)),
+        (r"/api/examiner/checks/(\d+)/(start|result)", checks_only(ExaminerCheckActionHandler)),
         (r"/api/speaking/([a-z0-9][a-z0-9\-]{0,80})/start", SpeakingStartHandler),
         (r"/api/speaking/submissions/(\d+)/answers/([a-z0-9][a-z0-9\-]{0,30})", SpeakingAnswerHandler),
         (r"/api/speaking/submissions/(\d+)/plan", SpeakingPlanHandler),
