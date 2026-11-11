@@ -64,8 +64,6 @@ services:
         sync: false
       - key: ADMIN_EMAILS
         sync: false
-      - key: PLAN_PRICE
-        value: "39000"
       - key: WRITING_CHECK_PRICE
         value: "10000"
       - key: SPEAKING_CHECK_PRICE
@@ -79,10 +77,6 @@ services:
       - key: CLICK_MERCHANT_ID
         sync: false
       - key: CLICK_SECRET_KEY
-        sync: false
-      - key: PAYMENT_CARD_NUMBER
-        sync: false
-      - key: PAYMENT_CARD_HOLDER
         sync: false
       # Optional notifications (see DEPLOY.md 4.6).
       - key: RESEND_API_KEY

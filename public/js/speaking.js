@@ -987,7 +987,7 @@
     const review = sub.aiReview;
     const aiAnswers = review && review.status === "done"
       ? Object.fromEntries((review.answers || []).map((a) => [a.key, a])) : null;
-    const shop = Account.commerce();
+    const shop = Account.checks();
     const b = shop ? await Account.billing().catch(() => ({ prices: {} })) : { prices: {} };
     const check = sub.check;
     const offer = check

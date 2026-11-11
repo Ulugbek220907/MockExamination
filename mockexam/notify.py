@@ -10,7 +10,6 @@ configuration nothing is sent and the site works exactly the same.
   ADMIN_EMAILS                    admins who get the admin emails
 
 Events
-  payment_claimed   a student says they paid by card transfer   -> admins
   order_paid        payment received (Payme, Click or confirmed) -> the student; admins for Payme/Click
   check_assigned    a paid check is in an examiner's queue       -> the examiner; admins
   check_completed   the examiner sent the marks                  -> the student
@@ -191,16 +190,6 @@ class ErrorAlerts(logging.Handler):
 # --------------------------------------------------------------------------
 # Events
 # --------------------------------------------------------------------------
-
-def payment_claimed(db, order):
-    def job():
-        who = _email_of(db, order["user_id"]) or "a student"
-        _to_admins(f"Card transfer to confirm: #MX{order['id']}",
-                   f"{who} says they paid {order_money(order)} for: {order_label(order)}.\n\n"
-                   f"Check your bank for a transfer with MX{order['id']} in the comment, then confirm it.",
-                   ("Open payments", f"{site_url()}/#/admin?tab=payments"))
-    _run(job)
-
 
 def order_paid(db, order, provider, plan_ends=None):
     def job():

@@ -13,7 +13,7 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
   GET  /api/billing                   prices and payment methods
   GET  /api/orders, POST /api/orders  your orders / create an order
   POST /api/orders/<id>/pay           start paying (redirect URL or card details)
-  POST /api/orders/<id>/manual-paid   "I have transferred the money"
+  POST /api/subscriptions/cancel      stop the renewals of a pass
   POST /api/pay/dodo/webhook          Dodo Payments tells us a card payment or refund happened
   POST /api/pay/payme                 Payme Merchant API callback
   POST /api/pay/click/(prepare|complete)  Click SHOP API callbacks
@@ -345,23 +345,24 @@ class OrderPayHandler(BaseHandler):
         profile, order = await _own_order(self, order_id)
         method = str(self.body_json().get("method") or "")
         try:
-            result = await in_thread(billing.checkout, order, method, self.site_url() + "/#/account", profile)
+            result = await in_thread(billing.checkout, order, method, self.site_url() + "/#/account?paid=1", profile,
+                                     self.site_url() + "/#/pricing")
         except billing.BillingError as e:
             _raise(e)
         self.send_json(result)
 
 
-class OrderManualPaidHandler(BaseHandler):
-    async def post(self, order_id):
-        profile, order = await _own_order(self, order_id)
-        was = order["status"]
+class SubscriptionCancelHandler(BaseHandler):
+    """The student stops the renewals of a pass. The days already paid for stay."""
+
+    async def post(self):
+        profile = await self.require_profile()
+        scope = str(self.body_json().get("scope") or "") or None
         try:
-            order = await in_thread(billing.mark_manual_paid, self.db, order, profile["id"])
+            done = await in_thread(billing.cancel_subscriptions, self.db, profile["id"], scope)
         except billing.BillingError as e:
             _raise(e)
-        if was == "pending" and order["status"] == "awaiting_confirmation":
-            notify.payment_claimed(self.db, order)
-        self.send_json({"order": billing.public_order(order)})
+        self.send_json({"cancelled": done, "plan": await in_thread(accounts.plan_status, self.db, profile["id"])})
 
 
 class PaymeHandler(BaseHandler):
@@ -926,6 +927,20 @@ def commerce_only(handler_class):
     return Gated
 
 
+def checks_only(handler_class):
+    """The same handler, but answering 404 while examiner checks are not offered (EXAMINER_CHECKS_ENABLED is off)."""
+    class Gated(handler_class):
+        async def prepare(self):
+            if not accounts.checks_enabled():
+                raise ApiError(404, "Not available.")
+            result = super().prepare()
+            if result is not None:
+                await result
+
+    Gated.__name__ = handler_class.__name__
+    return Gated
+
+
 def routes():
     return [
         (r"/api/auth/code", AuthCodeHandler),
@@ -938,17 +953,17 @@ def routes():
         (r"/api/billing", BillingConfigHandler),
         (r"/api/orders", commerce_only(OrdersHandler)),
         (r"/api/orders/(\d+)/pay", commerce_only(OrderPayHandler)),
-        (r"/api/orders/(\d+)/manual-paid", commerce_only(OrderManualPaidHandler)),
+        (r"/api/subscriptions/cancel", commerce_only(SubscriptionCancelHandler)),
         (r"/api/pay/payme", commerce_only(PaymeHandler)),
         (r"/api/pay/click/(prepare|complete)", commerce_only(ClickHandler)),
         (r"/api/pay/dodo/webhook", DodoWebhookHandler),
-        (r"/api/examiners", commerce_only(ExaminersHandler)),
-        (r"/api/examiners/([0-9a-f\-]{36})", commerce_only(ExaminerDetailHandler)),
-        (r"/api/checks", commerce_only(MyChecksHandler)),
-        (r"/api/checks/(\d+)", commerce_only(CheckHandler)),
-        (r"/api/checks/(\d+)/rate", commerce_only(CheckRateHandler)),
-        (r"/api/examiner/me", commerce_only(ExaminerMeHandler)),
-        (r"/api/examiner/checks/(\d+)/(start|result)", commerce_only(ExaminerCheckActionHandler)),
+        (r"/api/examiners", checks_only(ExaminersHandler)),
+        (r"/api/examiners/([0-9a-f\-]{36})", checks_only(ExaminerDetailHandler)),
+        (r"/api/checks", checks_only(MyChecksHandler)),
+        (r"/api/checks/(\d+)", checks_only(CheckHandler)),
+        (r"/api/checks/(\d+)/rate", checks_only(CheckRateHandler)),
+        (r"/api/examiner/me", checks_only(ExaminerMeHandler)),
+        (r"/api/examiner/checks/(\d+)/(start|result)", checks_only(ExaminerCheckActionHandler)),
         (r"/api/speaking/([a-z0-9][a-z0-9\-]{0,80})/start", SpeakingStartHandler),
         (r"/api/speaking/submissions/(\d+)/answers/([a-z0-9][a-z0-9\-]{0,30})", SpeakingAnswerHandler),
         (r"/api/speaking/submissions/(\d+)/plan", SpeakingPlanHandler),

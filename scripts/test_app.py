@@ -41,10 +41,10 @@ for var in ("SUPABASE_URL", "SUPABASE_KEY", "SUPABASE_SERVICE_ROLE_KEY", "SUPABA
 # Accounts: development sign-in codes, one admin, and card-transfer payments switched on.
 os.environ["AUTH_DEV_CODES"] = "1"
 os.environ["ADMIN_EMAILS"] = "owner@example.com"
-os.environ["PAYMENT_CARD_NUMBER"] = "8600 0000 0000 0000"
 # Most tests cover buying the pass and examiner checks, which the live site hides until COMMERCE_ENABLED is on.
 # CommerceOffTests below switches it off to check the launch setting.
 os.environ["COMMERCE_ENABLED"] = "1"
+os.environ["EXAMINER_CHECKS_ENABLED"] = "1"   # most tests cover examiner checks; ChecksOffTests turns them off
 # The admin insights are kept for a minute; the tests that count things need them read afresh each time.
 os.environ["ADMIN_STATS_SECONDS"] = "0"
 
@@ -1199,29 +1199,28 @@ class AccountApiTests(AccountApiBase):
         r, data = self.call("GET", "/api/admin/sync-content", cookie=admin)
         self.assertEqual((r.code, data["source"]), (200, "files"))
 
-    def test_buy_plan_by_card_transfer(self):
+    def test_orders_and_the_admin_tools(self):
         cookie, _ = self.login("buyer@example.com")
         r, data = self.call("GET", "/api/billing")
-        self.assertIn("manual", data["providers"])
+        self.assertNotIn("manual", data["providers"])      # no payment is confirmed by hand any more
+        self.assertNotIn("manual", data)
         r, data = self.call("POST", "/api/orders", {"kind": "plan"}, cookie=cookie)
         order = data["order"]
         self.assertEqual((order["status"], order["amount"]), ("pending", billing.PRICES["plan"]))
-        r, data = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "manual"}, cookie=cookie)
-        self.assertEqual(data["manual"]["reference"], f"MX{order['id']}")
-        r, data = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "payme"}, cookie=cookie)
-        self.assertEqual(r.code, 400)  # Payme not configured in tests
-        r, data = self.call("POST", f"/api/orders/{order['id']}/manual-paid", {}, cookie=cookie)
-        self.assertEqual(data["order"]["status"], "awaiting_confirmation")
+        for method in ("manual", "payme"):
+            r, data = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": method}, cookie=cookie)
+            self.assertEqual(r.code, 400, method)          # not offered, or not configured in tests
+        self.assertEqual(self.call("POST", f"/api/orders/{order['id']}/manual-paid", {}, cookie=cookie)[0].code, 404)
         # Someone else's order is invisible.
         other, _ = self.login("other@example.com")
-        r, _ = self.call("POST", f"/api/orders/{order['id']}/manual-paid", {}, cookie=other)
+        r, _ = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "dodo"}, cookie=other)
         self.assertEqual(r.code, 404)
         # Students cannot use admin endpoints; the owner can.
         r, _ = self.call("GET", "/api/admin/orders", cookie=cookie)
         self.assertEqual(r.code, 403)
         admin, data = self.login("owner@example.com")
         self.assertEqual(data["user"]["role"], "admin")
-        r, data = self.call("GET", "/api/admin/orders?status=awaiting_confirmation", cookie=admin)
+        r, data = self.call("GET", "/api/admin/orders?status=pending", cookie=admin)
         self.assertTrue(any(o["id"] == order["id"] and o["userEmail"] == "buyer@example.com" for o in data["orders"]))
         r, data = self.call("POST", f"/api/admin/orders/{order['id']}/confirm", {}, cookie=admin)
         self.assertEqual(data["order"]["status"], "paid")
@@ -1293,7 +1292,6 @@ class AccountApiTests(AccountApiBase):
                             cookie=student)
         order = data["order"]
         self.assertEqual(order["amount"], billing.PRICES["writing_check"])
-        self.call("POST", f"/api/orders/{order['id']}/manual-paid", {}, cookie=student)
         self.call("POST", f"/api/admin/orders/{order['id']}/confirm", {}, cookie=admin)
 
         r, data = self.call("GET", "/api/checks", cookie=student)
@@ -1422,7 +1420,6 @@ class SpeakingApiTests(AccountApiBase):
                             cookie=student)
         order = data["order"]
         self.assertEqual(order["amount"], billing.PRICES["speaking_check"])
-        self.call("POST", f"/api/orders/{order['id']}/manual-paid", {}, cookie=student)
         self.call("POST", f"/api/admin/orders/{order['id']}/confirm", {}, cookie=admin)
         r, data = self.call("GET", f"/api/speaking/submissions/{sub_id}", cookie=student)
         self.assertEqual(data["submission"]["check"]["status"], "waiting")
@@ -1678,16 +1675,6 @@ class NotificationTests(AccountApiBase):
                             cookie=student)
         order_id = data["order"]["id"]
         self.sent.clear()
-        self.call("POST", f"/api/orders/{order_id}/manual-paid", {}, cookie=student)
-        self.call("POST", f"/api/orders/{order_id}/manual-paid", {}, cookie=student)  # repeated press: one message
-        claimed = self.emails("owner@example.com")
-        self.assertEqual(len(claimed), 1)
-        self.assertIn(f"MX{order_id}", claimed[0]["subject"])
-        self.assertIn("https://mock.example/#/admin?tab=payments", claimed[0]["text"])
-        self.assertTrue(any(f"MX{order_id}" in m for m in self.telegrams()))
-        r, data = self.call("GET", "/api/me", cookie=admin)
-        self.assertGreaterEqual(data["todo"]["payments"], 1)
-
         self.sent.clear()
         self.call("POST", f"/api/admin/orders/{order_id}/confirm", {}, cookie=admin)
         self.call("POST", f"/api/admin/orders/{order_id}/confirm", {}, cookie=admin)  # repeated: no second round
@@ -2598,6 +2585,29 @@ class CommerceOffTests(AccountApiBase):
         self.assertIn("applyCommerce", js)
 
 
+class ChecksOffTests(AccountApiBase):
+    """Examiner checks are not offered until EXAMINER_CHECKS_ENABLED: passes are, and nothing about examiners shows."""
+
+    def setUp(self):
+        super().setUp()
+        patcher = mock.patch.dict(os.environ, {"EXAMINER_CHECKS_ENABLED": "0"})
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def test_nothing_about_examiner_checks(self):
+        cookie, data = self.login("nochecks@example.com")
+        r, data = self.call("GET", "/api/config")
+        self.assertEqual((data["commerce"], data["checks"]), (True, False))
+        r, data = self.call("GET", "/api/billing")
+        self.assertEqual(data["prices"], {})                       # no check prices
+        self.assertEqual(sorted(data["plans"]), ["full", "lr", "speaking", "writing"])
+        for path in ("/api/examiners", "/api/checks", "/api/examiner/me"):
+            self.assertEqual(self.call("GET", path, cookie=cookie)[0].code, 404, path)
+        r, data = self.call("POST", "/api/orders", {"kind": "writing_check"}, cookie=cookie)
+        self.assertEqual(r.code, 400)
+        self.assertEqual(self.call("POST", "/api/orders", {"kind": "plan"}, cookie=cookie)[0].code, 200)   # passes still sell
+
+
 class ContentSyncTests(unittest.TestCase):
     """Production reads tests from Supabase; the sync uploads only what is new or changed, and only if every file is valid."""
 
@@ -2845,13 +2855,16 @@ class DodoTests(AccountApiBase):
         order = billing.create_order(self.db, data["user"]["id"], "plan", scope=scope, months=months, currency="USD")
         return cookie, data["user"]["id"], order
 
-    def fake_api(self, payment):
+    def fake_api(self, payment, subscription=None):
+        """Dodo's API: `payment` for every payment id (or a dict of payment id -> payment), `subscription` for subscriptions."""
         def request(method, path, payload=None):
             self.calls.append((method, path, payload))
             if path == "/checkouts":
                 return {"session_id": "cks_1", "checkout_url": "https://test.checkout.dodopayments.com/session/cks_1"}
             if path.startswith("/payments/"):
-                return payment
+                return payment.get(path.rsplit("/", 1)[1], {}) if payment and "status" not in payment and all(isinstance(v, dict) for v in payment.values()) else payment
+            if path.startswith("/subscriptions/"):
+                return {} if method == "PATCH" else (subscription or {})
             return {"refund_id": "ref_1", "status": "succeeded"}
         return mock.patch.object(dodo, "_request", request)
 
@@ -2891,7 +2904,8 @@ class DodoTests(AccountApiBase):
         self.assertEqual(payload["product_cart"], [{"product_id": "pdt_w1", "quantity": 1}])
         self.assertEqual(payload["metadata"], {"order_id": str(order["id"])})
         self.assertEqual(payload["customer"]["email"], "dodo.checkout@example.com")
-        self.assertTrue(payload["return_url"].endswith("/#/account"))
+        self.assertTrue(payload["return_url"].endswith("/#/account?paid=1"))
+        self.assertTrue(payload["cancel_url"].endswith("/#/pricing"))
         # Card orders are paid by card, and so'm orders by the so'm methods.
         uzs = billing.create_order(self.db, uid, "plan")
         self.assertEqual(self.call("POST", f"/api/orders/{uzs['id']}/pay", {"method": "dodo"}, cookie=cookie)[0].code, 400)
@@ -2963,6 +2977,67 @@ class DodoTests(AccountApiBase):
         self.assertEqual((r.code, data["order"]["status"]), (200, "refunded"))
         self.assertIn(("POST", "/refunds", {"payment_id": "pay_4", "reason": "Refund requested on TestDay"}), self.calls)
         self.assertFalse(accounts.plan_status(self.db, uid2)["active"])
+
+    def test_a_subscription_pays_first_and_renews_by_itself(self):
+        cookie, uid, order = self.usd_order("dodo.sub@example.com", "full", 1)
+        first = {"status": "succeeded", "currency": "USD", "total_amount": order["amount"], "subscription_id": "sub_1",
+                 "metadata": {"order_id": str(order["id"])}}
+        renewal = {"status": "succeeded", "currency": "USD", "total_amount": order["amount"], "subscription_id": "sub_1", "metadata": {}}
+        payments = {"pay_a": first, "pay_b": renewal}
+        event = lambda pid: {"type": "payment.succeeded", "data": {"payment_id": pid}}
+        with self.fake_api(payments):
+            self.assertEqual(self.webhook(event("pay_a"), msg_id="m1").code, 200)
+            plan = accounts.plan_status(self.db, uid)
+            self.assertTrue(plan["active"] and plan["renews"])
+            self.assertEqual(plan["passes"][0]["renews"], True)
+            ends_first = parse_time(plan["endsAt"])
+            self.assertAlmostEqual((ends_first - now()).days, billing.PLAN_DAYS, delta=1)   # no free month on a subscription
+            self.assertEqual(self.webhook(event("pay_b"), msg_id="m2").code, 200)           # the renewal: no order id in it
+            self.assertEqual(self.webhook(event("pay_b"), msg_id="m3").code, 200)           # sent twice: counted once
+            self.assertEqual(self.webhook(event("pay_a"), msg_id="m4").code, 200)
+        orders = self.db.select("orders", {"user_id": uid}, order=[("id", "asc")])
+        self.assertEqual([(o["status"], o["external_id"], o["scope"] or "full", o["months"] or 1, o["currency"]) for o in orders],
+                         [("paid", "pay_a", "full", 1, "USD"), ("paid", "pay_b", "full", 1, "USD")])
+        self.assertEqual(len(self.db.select("subscription_periods", {"user_id": uid})), 2)
+        self.assertAlmostEqual((parse_time(accounts.plan_status(self.db, uid)["endsAt"]) - ends_first).days, billing.PLAN_DAYS, delta=1)
+        # Refunding one charge takes back that month only.
+        with self.fake_api(payments):
+            self.webhook({"type": "refund.succeeded", "data": {"payment_id": "pay_b"}}, msg_id="m5")
+        self.assertEqual([o["status"] for o in self.db.select("orders", {"user_id": uid}, order=[("id", "asc")])], ["paid", "refunded"])
+        self.assertEqual(len(self.db.select("subscription_periods", {"user_id": uid})), 1)
+        # The student stops the renewals: the days paid for stay, nothing renews, and a second press does nothing.
+        with self.fake_api(payments):
+            r, data = self.call("POST", "/api/subscriptions/cancel", {}, cookie=cookie)
+        self.assertEqual((r.code, data["cancelled"]), (200, 1))
+        self.assertTrue(data["plan"]["active"])
+        self.assertFalse(data["plan"]["renews"])
+        patch = next(c for c in self.calls if c[0] == "PATCH")
+        self.assertEqual((patch[1], patch[2]["cancel_at_next_billing_date"]), ("/subscriptions/sub_1", True))
+        with self.fake_api(payments):
+            self.assertEqual(self.call("POST", "/api/subscriptions/cancel", {}, cookie=cookie)[1]["cancelled"], 0)
+        self.assertEqual(self.call("POST", "/api/subscriptions/cancel", {}, cookie=None)[0].code, 401)
+
+    def test_the_first_payment_may_not_carry_the_order(self):
+        cookie, uid, order = self.usd_order("dodo.sub2@example.com", "speaking", 1)
+        bare = {"status": "succeeded", "currency": "USD", "total_amount": order["amount"], "subscription_id": "sub_9", "metadata": {}}
+        event = {"type": "payment.succeeded", "data": {"payment_id": "pay_x"}}
+        with self.fake_api(bare, subscription={}):            # nothing says whose it is: not paid
+            self.assertEqual(self.webhook(event).code, 200)
+        self.assertEqual(billing.get_order(self.db, order["id"])["status"], "pending")
+        with self.fake_api(bare, subscription={"metadata": {"order_id": str(order["id"])}}):   # the subscription knows
+            self.assertEqual(self.webhook(event, msg_id="m2").code, 200)
+        self.assertEqual(billing.get_order(self.db, order["id"])["status"], "paid")
+        self.assertEqual(accounts.plan_status(self.db, uid)["modules"], ["speaking"])
+        small = dict(bare, subscription_id="sub_10", total_amount=1)   # too little for the order
+        cookie2, uid2, order2 = self.usd_order("dodo.sub3@example.com", "writing", 1)
+        with self.fake_api(dict(small, metadata={"order_id": str(order2["id"])})):
+            self.webhook({"type": "payment.succeeded", "data": {"payment_id": "pay_y"}}, msg_id="m3")
+        self.assertEqual(billing.get_order(self.db, order2["id"])["status"], "pending")
+        # Dodo says the subscription ended: it is no longer 'renewing'.
+        self.assertTrue(accounts.plan_status(self.db, uid)["renews"])
+        self.webhook({"type": "subscription.cancelled", "data": {"subscription_id": "sub_9"}}, msg_id="m4")
+        self.assertFalse(accounts.plan_status(self.db, uid)["renews"])
+        self.assertTrue(accounts.plan_status(self.db, uid)["active"])
 
     def test_notice_shows_dollars(self):
         self.assertEqual(notify.money(799, "USD"), "$7.99")
@@ -3184,8 +3259,6 @@ class SecurityAndHardeningTests(AccountApiBase):
         order_id = data["order"]["id"]
 
         r, _ = self.call("POST", f"/api/orders/{order_id}/pay", {"method": "manual"}, cookie=cookie_b)
-        self.assertEqual(r.code, 404)
-        r, _ = self.call("POST", f"/api/orders/{order_id}/manual-paid", {}, cookie=cookie_b)
         self.assertEqual(r.code, 404)
 
         r, sdata = self.call("POST", "/api/speaking/speaking-01/start", {"candidateName": "Alice"}, cookie=cookie_a)

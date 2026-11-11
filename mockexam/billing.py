@@ -8,11 +8,11 @@ What can be bought
   speaking_check  – an examiner marks one Speaking submission.
 
 How money arrives
-  Dodo   – foreign cards in US dollars: the student pays on Dodo's page and Dodo calls POST /api/pay/dodo/webhook.
+  Dodo   – foreign cards in US dollars, as a SUBSCRIPTION that renews every 1 or 3 months until the student cancels:
+           the student pays on Dodo's page and Dodo calls POST /api/pay/dodo/webhook for every charge. Each charge is
+           an order of its own (the later ones are made by the webhook) and adds one period to the pass.
   Payme  – Payme calls POST /api/pay/payme (JSON-RPC, Merchant API).
   Click  – Click calls POST /api/pay/click/prepare and /complete (SHOP API).
-  Manual – the student transfers to a card and presses "I have paid";
-           an admin confirms the payment in the admin panel.
 
 Fulfilment is idempotent: the plan period and the examiner check are keyed
 by the order id, so a repeated callback never gives anything twice.
@@ -25,6 +25,7 @@ import hmac
 import json
 import logging
 import os
+import threading
 import time
 import urllib.parse
 
@@ -41,10 +42,10 @@ def _int_env(name, default):
         return default
 
 
-# The passes: {kind: {months: (price in so'm, price in US cents)}}. so'm for Payme, Click and card transfer; dollars for Dodo.
+# The passes: {kind: {months: (price in so'm, price in US cents)}}. so'm for Payme and Click when they are connected; dollars for Dodo.
 # The USD prices are higher than the so'm ones because Dodo's fixed 40 cents weighs more on small sales.
 PLAN_PRICES = {
-    "full": {1: (_int_env("PLAN_PRICE", 79000), 799), 3: (199000, 1999)},
+    "full": {1: (79000, 799), 3: (199000, 1999)},   # the prices live here, not in environment variables
     "speaking": {1: (49000, 599), 3: (119000, 1499)},
     "writing": {1: (39000, 499), 3: (99000, 1199)},
     "lr": {1: (29000, 399), 3: (69000, 999)},
@@ -73,10 +74,6 @@ CLICK = {
     "merchant_id": os.environ.get("CLICK_MERCHANT_ID", "").strip(),
     "secret_key": os.environ.get("CLICK_SECRET_KEY", "").strip(),
 }
-MANUAL = {
-    "card_number": os.environ.get("PAYMENT_CARD_NUMBER", "").strip(),
-    "card_holder": os.environ.get("PAYMENT_CARD_HOLDER", "").strip(),
-}
 
 KIND_TITLES = {
     "plan": "Pass",
@@ -98,8 +95,6 @@ def providers():
         out.append("payme")
     if CLICK["service_id"] and CLICK["merchant_id"] and CLICK["secret_key"]:
         out.append("click")
-    if MANUAL["card_number"]:
-        out.append("manual")
     if dodo.configured():
         out.append("dodo")
     return out
@@ -116,14 +111,13 @@ def public_config(enabled=True):
         "enabled": bool(enabled),
         "currency": CURRENCY,
         "plans": plan_table(),
-        "prices": PRICES if enabled else {},
+        "prices": {k: v for k, v in PRICES.items() if k != "plan"} if accounts.checks_enabled() and enabled else {},
         "planDays": PLAN_DAYS,
         "firstBonusDays": PLAN_FIRST_BONUS_DAYS,
         "aiCaps": ai_caps(),
         "providers": providers() if enabled else [],
         # The passes that can be paid by card, as "full-1", "speaking-3", ...
         "cardPasses": sorted(f"{scope}-{months}" for (scope, months) in dodo.products()) if enabled and dodo.configured() else [],
-        "manual": {"cardNumber": MANUAL["card_number"], "cardHolder": MANUAL["card_holder"]} if enabled and MANUAL["card_number"] else None,
     }
 
 
@@ -207,6 +201,8 @@ def user_orders(db, user_id, limit=50):
 def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope="full", months=1, currency="UZS"):
     if kind not in PRICES:
         raise BillingError("Unknown product.")
+    if kind != "plan" and not accounts.checks_enabled():
+        raise BillingError("Examiner checks are not available yet.")
     pending = db.select("orders", {"user_id": user_id, "status": "pending"}, limit=15)
     if len(pending) >= 15:
         raise BillingError("You have too many unpaid orders. Please complete or wait for previous orders.")
@@ -240,8 +236,8 @@ def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope=
     return db.insert("orders", row)
 
 
-def checkout(order, method, return_url, profile=None):
-    """What the browser should do to pay: a redirect URL, or manual transfer details."""
+def checkout(order, method, return_url, profile=None, cancel_url=None):
+    """What the browser should do to pay: a redirect URL."""
     if order["status"] != "pending":
         raise BillingError("This order cannot be paid any more.")
     if method not in providers():
@@ -252,7 +248,7 @@ def checkout(order, method, return_url, profile=None):
         profile = profile or {}
         try:
             url = dodo.create_checkout(order["id"], order_scope(order), order_months(order), profile.get("email") or "",
-                                       profile.get("name") or "", return_url)
+                                       profile.get("name") or "", return_url, cancel_url)
         except dodo.DodoError as e:
             raise BillingError(str(e), e.status)
         return {"redirect": url}
@@ -276,25 +272,7 @@ def checkout(order, method, return_url, profile=None):
             "return_url": return_url,
         })
         return {"redirect": f"https://my.click.uz/services/pay?{query}"}
-    return {"manual": {
-        "cardNumber": MANUAL["card_number"],
-        "cardHolder": MANUAL["card_holder"],
-        "amount": order["amount"],
-        "reference": f"MX{order['id']}",
-    }}
-
-
-def mark_manual_paid(db, order, user_id):
-    """The student says they transferred the money; an admin must confirm it."""
-    if order["user_id"] != user_id:
-        raise BillingError("Order not found.", 404)
-    if order["status"] == "awaiting_confirmation":
-        return order
-    updated = db.update("orders", {"id": order["id"], "status": "pending"},
-                        {"status": "awaiting_confirmation", "provider": "manual"})
-    if not updated:
-        raise BillingError("This order cannot be paid any more.")
-    return updated[0]
+    raise BillingError("This payment method is not available.")
 
 
 def fulfil_order(db, order_id, provider, external_id=None):
@@ -306,11 +284,14 @@ def fulfil_order(db, order_id, provider, external_id=None):
         raise BillingError("This order was cancelled.")
     if order["kind"] == "plan":
         # The first full pass of one month comes with a free month; other passes are what they say.
-        first = (order_scope(order) == "full" and order_months(order) == 1
+        subscribed = (order.get("note") or "").startswith(accounts.SUBSCRIPTION_MARK)
+        # The first full pass of one month comes with a free month; a subscription charges again each month, so no bonus.
+        first = (not subscribed and order_scope(order) == "full" and order_months(order) == 1
                  and not accounts.plan_status(db, order["user_id"])["hadPaidPlan"])
         days = PLAN_DAYS * order_months(order) + (PLAN_FIRST_BONUS_DAYS if first else 0)
         accounts.grant_plan_period(db, order["user_id"], days, "payment", order_id=order["id"],
-                                   note="first month + bonus" if first else None, scope=order_scope(order))
+                                   note=order["note"] if subscribed else "first month + bonus" if first else None,
+                                   scope=order_scope(order))
     else:
         check = checks.create_check(db, order)
     if order["status"] != "paid":
@@ -369,6 +350,56 @@ def cancel_unpaid_order(db, order):
 # Dodo webhook (see dodo.py)
 # --------------------------------------------------------------------------
 
+_subscription_lock = threading.Lock()
+
+
+def _mark_cancelled(db, subscription_id):
+    """The student stopped the renewals: the periods already paid for keep working, and are no longer 'renewing'."""
+    mark = accounts.SUBSCRIPTION_MARK + subscription_id
+    users = {p["user_id"] for p in db.select("subscription_periods", {"note": mark}, limit=200)}
+    db.update("subscription_periods", {"note": mark}, {"note": mark + accounts.CANCELLED_SUFFIX})
+    for user_id in users:
+        accounts._plan_changed(user_id)   # the server forgets the plan it remembered
+
+
+def _subscription_payment(db, payment, payment_id, subscription_id):
+    """A charge of a subscription: the first one pays the order made at checkout, each renewal makes an order of its own."""
+    mark = accounts.SUBSCRIPTION_MARK + subscription_id
+    total = int(payment.get("total_amount") or 0)
+    with _subscription_lock:
+        if db.select("orders", {"external_id": str(payment_id)}, limit=1):
+            return f"payment {payment_id}: already applied"
+        known = db.select("orders", {"note": mark}, order=[("id", "asc")], limit=1)
+        base = known[0] if known else None
+        if base is None:
+            order_id = (payment.get("metadata") or {}).get("order_id")
+            if not order_id:  # a payment may not carry what the checkout was given: the subscription does
+                try:
+                    order_id = (dodo.get_subscription(subscription_id).get("metadata") or {}).get("order_id")
+                except dodo.DodoError as e:
+                    raise BillingError(str(e), 503)
+            base = get_order(db, order_id)
+            if not base or order_currency(base) != "USD" or base["kind"] != "plan":
+                return f"payment {payment_id}: no order"
+            if total < int(base["amount"]):
+                log.warning("Dodo payment %s is %s, less than order %s (%s)", payment_id, total, base["id"], base["amount"])
+                return f"payment {payment_id}: amount too small"
+            db.update("orders", {"id": base["id"]}, {"note": mark})
+            order = get_order(db, base["id"])
+        elif base["status"] == "pending":   # the first payment's webhook was missed: this one pays that order
+            order = base
+        else:   # a renewal
+            order = db.insert("orders", {"user_id": base["user_id"], "kind": "plan", "amount": total or base["amount"],
+                                         "status": "pending", "scope": order_scope(base), "months": order_months(base),
+                                         "currency": "USD", "note": mark})
+        try:
+            fulfil_order(db, order["id"], "dodo", external_id=payment_id)
+        except BillingError as e:
+            log.warning("Dodo payment %s for order %s not applied: %s", payment_id, order["id"], e)
+            return f"payment {payment_id}: {e}"
+    return f"order {order['id']} paid"
+
+
 def handle_dodo_webhook(db, headers, body):
     """
     Check a webhook from Dodo and act on it. Returns a short note for the log. Raises BillingError(401) when the
@@ -384,6 +415,9 @@ def handle_dodo_webhook(db, headers, body):
     kind = str(event.get("type") or "")
     data = event.get("data") or {}
     payment_id = data.get("payment_id")
+    if kind in ("subscription.cancelled", "subscription.expired") and data.get("subscription_id"):
+        _mark_cancelled(db, str(data["subscription_id"]))
+        return f"{kind} {data['subscription_id']}"
     if kind not in ("payment.succeeded", "refund.succeeded") or not payment_id:
         return f"ignored {kind or 'event'}"
     if kind == "payment.succeeded":
@@ -392,10 +426,16 @@ def handle_dodo_webhook(db, headers, body):
             payment = dodo.get_payment(payment_id)
         except dodo.DodoError as e:
             raise BillingError(str(e), 503)  # Dodo will send the webhook again
+        if payment.get("status") != "succeeded":
+            return f"payment {payment_id}: not paid"
+        if str(payment.get("currency") or "").upper() != "USD":
+            return f"payment {payment_id}: wrong currency"
+        if payment.get("subscription_id"):
+            return _subscription_payment(db, payment, payment_id, str(payment["subscription_id"]))
         order = get_order(db, (payment.get("metadata") or {}).get("order_id"))
-        if payment.get("status") != "succeeded" or not order:
-            return f"payment {payment_id}: not paid or no order"
-        if order_currency(order) != "USD" or str(payment.get("currency") or "").upper() != "USD":
+        if not order:
+            return f"payment {payment_id}: no order"
+        if order_currency(order) != "USD":
             return f"payment {payment_id}: wrong currency"
         if int(payment.get("total_amount") or 0) < int(order["amount"]):
             log.warning("Dodo payment %s is %s, less than order %s (%s)", payment_id, payment.get("total_amount"),
@@ -416,6 +456,26 @@ def handle_dodo_webhook(db, headers, body):
         return f"refund {payment_id}: check already started"
     refund_order(db, order)
     return f"order {order['id']} refunded"
+
+
+def cancel_subscriptions(db, user_id, scope=None):
+    """Stop the renewals of a student's pass (of one kind, or all). The days already paid for stay. Returns how many."""
+    marks = set()
+    for o in db.select("orders", {"user_id": user_id, "provider": "dodo"}, limit=200):
+        note = o.get("note") or ""
+        if note.startswith(accounts.SUBSCRIPTION_MARK) and (scope is None or order_scope(o) == scope):
+            marks.add(note)
+    live = {p.get("note") for p in db.select("subscription_periods", {"user_id": user_id}, limit=200) if accounts.renews(p)}
+    done = 0
+    for mark in sorted(marks & live):
+        sid = mark[len(accounts.SUBSCRIPTION_MARK):]
+        try:
+            dodo.cancel_subscription(sid)
+        except dodo.DodoError as e:
+            raise BillingError(str(e), e.status)
+        _mark_cancelled(db, sid)
+        done += 1
+    return done
 
 
 # --------------------------------------------------------------------------

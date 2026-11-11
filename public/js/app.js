@@ -113,18 +113,24 @@
       this.loadError = false;
       Account.setConfig(this.config);
       this.applyCommerce();
+      Account.renderAccountSlot();   // the header's plan link depends on the config
       document.querySelectorAll("[data-site-name]").forEach((el) => { el.textContent = this.config.siteName; });
       this.renderFooter();
     }
 
     /** True once the site sells the pass and examiner checks. Until then visitors only take tests and sign in. */
+    /** Examiner checks (a paid review by a human examiner) are offered only when the server says so. */
+    checks() {
+      return Boolean(this.config.checks);
+    }
+
     commerce() {
       return Boolean(this.config.commerce);
     }
 
     /** Price, Examiners and Refunds links are in the page but hidden until commerce is on. */
     applyCommerce() {
-      const on = this.commerce();
+      const on = this.checks();
       document.querySelectorAll("[data-commerce]").forEach((el) => { el.hidden = !on; });
     }
 
@@ -193,7 +199,7 @@
       const [path, query] = hash.slice(1).split("?");
       const params = new URLSearchParams(query || "");
       // Price and Refunds are public before anything is for sale (payment services want to see them); examiners are not.
-      if (!this.commerce() && /^\/(examiners?|check\/\d+)$/.test(path)) return location.replace("#/");
+      if (!this.checks() && /^\/(examiners?|check\/\d+)$/.test(path)) return location.replace("#/");
       const check = path.match(/^\/check\/(\d+)$/);
       const spoken = path.match(/^\/speaking\/(\d+)$/);
       window.scrollTo(0, 0);
@@ -427,11 +433,11 @@
           <p class="fact-cap">${t("The length of a Reading test, as in the exam.")}</p></div>
         <div class="fact" data-fact="price"><p class="fact-fig" data-price="plan">${this.priceText()}</p>
           <p class="fact-cap">${t("facts.pass", { n: esc(U.number(this.tests.length)) })}</p></div>
-        <div class="fact"><p class="fact-fig">${t("About 48 hours")}</p>
-          <p class="fact-cap">${t("For an examiner to mark your Writing or Speaking test.")}</p></div>
+        ${this.checks() ? `<div class="fact"><p class="fact-fig">${t("About 48 hours")}</p>
+          <p class="fact-cap">${t("For an examiner to mark your Writing or Speaking test.")}</p></div>` : ""}
         <div class="facts-act">
-          <button type="button" class="btn-primary btn-lg" data-action="buy-plan" data-track="home_pass">${Account.planActive() ? t("Add another month") : t("Get the pass")}</button>
-          <a href="#/pricing">${t("Price")}</a>
+          <button type="button" class="btn-primary btn-lg" data-action="buy-plan" data-track="home_pass">${Account.planActive() ? t("Add a pass") : t("Get a pass")}</button>
+          <a href="#/pricing">${t("See the plans")}</a>
         </div>`;
     }
 
@@ -862,7 +868,7 @@
             ? `Recording starts automatically after each question and stops when the answer time is up. Press <strong>Finish answer</strong> when you have finished.`
             : `Practice mode shows each question, and lets you listen to your answer and record it again before you move on.`,
           `Use headphones in a quiet room, and test your microphone below.`,
-          this.commerce() ? `Only you can listen to your recordings, and an examiner if you order a check.` : `Only you can listen to your recordings.`,
+          this.checks() ? `Only you can listen to your recordings, and an examiner if you order a check.` : `Only you can listen to your recordings.`,
         ]
         : module === "listening"
         ? [
@@ -1033,7 +1039,7 @@
       if (r.module === "practice") return Results.renderPractice(r, this.main);
       await this.loadPrices();
       const extra = {
-        commerce: this.commerce(),
+        commerce: this.checks(),
         next: this.nextStopHTML(r.module, r.testId, r.typeBreakdown),
         checkPrice: this.prices && this.prices.writing_check ? U.money(this.prices.writing_check) : "",
         canRetake: this.canRetake(this.tests.find((x) => x.id === r.testId) || { access: "free" }),
@@ -1166,7 +1172,7 @@
       const plans = this.plans || {};
       const caps = this.aiCaps || { speaking: 12, writing: 20 };
       const price = (n) => (n ? esc(U.money(n)) : "…");
-      const commerce = this.commerce();
+      const commerce = this.checks();   // "commerce" here means: examiner checks are offered (passes are described either way)
       const v = (key) => (commerce ? key : `${key}.free`); // the wording for a site that does not sell examiner checks yet
       // Passes are described (and priced) before they go on sale; examiner checks only once they are.
       const section = (key, vars, bodyKey = key) => `<h2>${t(`${key}.h`, { name })}</h2><p>${t(bodyKey, { name, ...vars })}</p>`;
@@ -1245,7 +1251,7 @@
           <ul>
             <li>${t("about.scores.lr")}</li>
             <li>${this.config.aiMarking ? t("about.scores.writing.ai") : t("about.scores.writing")}</li>
-            <li>${t(this.commerce() ? "about.scores.speaking" : "about.scores.speaking.free")}</li>
+            <li>${t(this.checks() ? "about.scores.speaking" : "about.scores.speaking.free")}</li>
           </ul>
 
           <h2>${t("Independent website")}</h2>

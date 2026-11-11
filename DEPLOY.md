@@ -137,16 +137,13 @@ What to know:
 
 ### 4.2 Prices
 
-Change prices with environment variables (in so'm): `PLAN_PRICE` (the Full pass for one month, default 79000; the other passes and the dollar prices are in `PLAN_PRICES` in `mockexam/billing.py`), `WRITING_CHECK_PRICE` (10000), `SPEAKING_CHECK_PRICE` (20000). `PLAN_FIRST_BONUS_DAYS` (30) is the free extra month on a student's first payment.
+Change prices with environment variables (in so'm): the pass prices (so'm and dollars) are in `PLAN_PRICES` in `mockexam/billing.py` (the old `PLAN_PRICE` variable is no longer read), `WRITING_CHECK_PRICE` (10000), `SPEAKING_CHECK_PRICE` (20000). `PLAN_FIRST_BONUS_DAYS` (30) is the free extra month on a student's first payment.
 
 ### 4.3 Payments
 
 The site offers every payment method that is configured:
 
-- **Card transfer (works today)**:
-  - Set `PAYMENT_CARD_NUMBER` and `PAYMENT_CARD_HOLDER`.
-  - Students transfer the amount with the order number (for example `MX12`) in the comment, then press *I have paid*.
-  - When the money arrives, you press **Confirm payment** under Admin → Payments to confirm.
+- **Card in US dollars (Dodo Payments)**: see docs/PAYMENTS_CHECKLIST.md, section 7. Passes are subscriptions that renew until the student cancels.
 - **Payme**:
   - Sign a merchant agreement at <https://business.payme.uz> and create a cash desk (*kassa*).
   - In the cash desk settings, set the endpoint to `https://ielts-mock-exam.onrender.com/api/pay/payme` and the account field to `order_id`.
@@ -184,12 +181,12 @@ on **Admin** (payments to confirm) and **Examiner** (checks to mark) either way.
   - Create a free account at <https://resend.com>, add and verify your domain, and create an API key.
   - Set `RESEND_API_KEY` and `EMAIL_FROM` (for example `TestDay <noreply@testday.uz>`).
   - You can use the same Resend account as the SMTP sender for the sign-in codes (section 4.1).
-  - Students get "payment received" and "your check is ready". Examiners get "new check for you". Admins get "card transfer to confirm".
+  - Students get "payment received" and "your check is ready". Examiners get "new check for you". Admins get "new payment".
 - **Telegram** (instant messages to you):
   1. Talk to **@BotFather** in Telegram, send `/newbot`, and copy the token into `TELEGRAM_BOT_TOKEN`.
   2. Send any message to your new bot.
   3. Open `https://api.telegram.org/bot<TOKEN>/getUpdates` and copy the `chat` → `id` number into `TELEGRAM_ADMIN_CHAT_ID`.
-  4. You get a message for every card transfer to confirm, every Payme/Click payment and every new check.
+  4. You get a message for every Payme, Click or Dodo payment and every new check.
 
 ## 5. Before you announce the site
 
@@ -200,7 +197,7 @@ on **Admin** (payments to confirm) and **Examiner** (checks to mark) either way.
 - [ ] If you target users in the EU/UK, get a proper privacy policy and cookie review. The site uses one sign-in cookie and no trackers, plus local storage for autosave and preferences (with Google sign-in switched on, Google's own button is also loaded from Google, but only once someone opens the sign-in window). Speaking recordings are personal data (a voice): the About page explains who can hear them and when they are deleted.
 - [ ] Run `python scripts/test_app.py` and take one test of each module on the live URL (Speaking on a phone too).
 - [ ] If you set up *Sign in with Google* (4.1b): on the live address, sign in once with a Gmail account (one click, no code) and once with a Google account made with a non-Google address such as Yahoo (it should ask for the emailed code instead).
-- [ ] Sign in with your admin email, buy the plan once by card transfer and confirm it in Admin, then order and mark a Writing check and a Speaking check with a test examiner account.
+- [ ] Sign in with your admin email, buy a pass once (a Dodo test card in test mode), then order and mark a Writing check and a Speaking check with a test examiner account.
 
 ## Admin endpoints
 
