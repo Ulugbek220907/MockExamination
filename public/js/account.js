@@ -1349,29 +1349,66 @@
     if (tab === "payments" || tab === "orders") {
       const status = tab === "payments" ? "awaiting_confirmation" : params.get("status") || "";
       const { orders } = await U.api(`/api/admin/orders${status ? `?status=${status}` : ""}`);
+      const byId = new Map(orders.map((o) => [o.id, o]));
+      const emptyText = tab === "payments" ? "No payments are waiting for confirmation." : "No orders.";
+      const orderRow = (o) => `<tr data-row="${o.id}">
+            <td>${esc(U.formatDate(o.createdAt))}</td><td>#MX${o.id}</td><td>${esc(o.userEmail || "")}</td>
+            <td>${esc(o.title)}${o.examinerEmail ? `<br><span class="muted-text">${esc(o.examinerEmail)}</span>` : ""}</td>
+            <td>${esc(orderMoney(o))}</td><td>${statusBadge(o.status)}${o.provider ? ` <span class="muted-text">${esc(o.provider)}</span>` : ""}</td>
+            <td><div class="row-actions">
+              ${["pending", "awaiting_confirmation"].includes(o.status) ? `<button type="button" class="btn-primary btn-sm" data-confirm="${o.id}">Confirm payment</button>
+                <button type="button" class="btn-secondary btn-sm" data-cancel="${o.id}">Cancel</button>` : ""}
+              ${o.status === "paid" ? `<button type="button" class="btn-secondary btn-sm" data-refund="${o.id}">Refund</button>` : ""}
+            </div></td></tr>`;
       body.innerHTML = `
         ${tab === "orders" ? `<div class="admin-filter">Show:
           ${["", "pending", "awaiting_confirmation", "paid", "refunded", "cancelled"].map((s) =>
             `<a href="#/admin?tab=orders${s ? `&status=${s}` : ""}" class="${s === status ? "is-on" : ""}">${s ? esc((STATUS[s] || [s])[0]) : "All"}</a>`).join(" · ")}</div>` : ""}
-        ${orders.length ? `<div class="table-scroll"><table class="history-table">
+        <div id="orders-box">${orders.length ? `<div class="table-scroll"><table class="history-table">
           <thead><tr><th>Date</th><th>Order</th><th>Customer</th><th>Item</th><th>Amount</th><th>Status</th><th></th></tr></thead>
-          <tbody>${orders.map((o) => `<tr>
-            <td>${esc(U.formatDate(o.createdAt))}</td><td>#MX${o.id}</td><td>${esc(o.userEmail || "")}</td>
-            <td>${esc(o.title)}${o.examinerEmail ? `<br><span class="muted-text">${esc(o.examinerEmail)}</span>` : ""}</td>
-            <td>${esc(orderMoney(o))}</td><td>${statusBadge(o.status)}${o.provider ? ` <span class="muted-text">${esc(o.provider)}</span>` : ""}</td>
-            <td class="row-actions">
-              ${["pending", "awaiting_confirmation"].includes(o.status) ? `<button type="button" class="btn-primary btn-sm" data-confirm="${o.id}">Confirm payment</button>
-                <button type="button" class="btn-secondary btn-sm" data-cancel="${o.id}">Cancel</button>` : ""}
-              ${o.status === "paid" ? `<button type="button" class="btn-secondary btn-sm" data-refund="${o.id}">Refund</button>` : ""}
-            </td></tr>`).join("")}</tbody></table></div>`
-          : `<p class="empty-inline">${tab === "payments" ? "No payments are waiting for confirmation." : "No orders."}</p>`}`;
-      body.querySelectorAll("[data-confirm]").forEach((b) => b.addEventListener("click", () => act(`/api/admin/orders/${b.dataset.confirm}/confirm`, "Payment confirmed.")));
-      body.querySelectorAll("[data-cancel]").forEach((b) => b.addEventListener("click", () => act(`/api/admin/orders/${b.dataset.cancel}/cancel`, "Order cancelled.")));
-      body.querySelectorAll("[data-refund]").forEach((b) => b.addEventListener("click", async () => {
-        const ok = await U.modal({ title: "Refund this order?", bodyHTML: "<p>The plan time or the examiner check is removed. Return the money to the customer yourself (Payme/Click cabinet or bank).</p>",
-          buttons: [{ label: "No", className: "btn-secondary", value: false }, { label: "Refund", className: "btn-danger", value: true }] });
-        if (ok) act(`/api/admin/orders/${b.dataset.refund}/refund`, "Order refunded.");
-      }));
+          <tbody>${orders.map(orderRow).join("")}</tbody></table></div>`
+          : `<p class="empty-inline">${emptyText}</p>`}</div>`;
+      // One action on one row: the buttons answer at once ("Working…"), the row is redrawn from the server's answer, and
+      // nothing else on the page reloads.
+      const orderAct = async (id, action, label, pressed) => {
+        const row = body.querySelector(`tr[data-row="${id}"]`);
+        const buttons = row ? [...row.querySelectorAll("button")] : [];
+        const was = pressed ? pressed.textContent : "";
+        buttons.forEach((x) => { x.disabled = true; });
+        if (pressed) pressed.textContent = "Working…";
+        try {
+          const res = await U.api(`/api/admin/orders/${id}/${action}`, { method: "POST", body: "{}" });
+          U.toast(label);
+          refreshMe().then(() => {   // the counts in the menu and on the tab, in the background
+            const link = main.querySelector('a[href="#/admin?tab=payments"]');
+            if (link) link.textContent = paymentsLabel();
+          }).catch(() => {});
+          if (!row) return;
+          const merged = { ...byId.get(id), ...res.order };
+          byId.set(id, merged);
+          if (tab === "payments") {
+            row.remove();
+            if (!body.querySelector("tr[data-row]")) body.querySelector("#orders-box").innerHTML = `<p class="empty-inline">${emptyText}</p>`;
+          } else {
+            row.outerHTML = orderRow(merged);
+          }
+        } catch (err) {
+          buttons.forEach((x) => { x.disabled = false; });
+          if (pressed) pressed.textContent = was;
+          U.toast(err.message, "warn");
+        }
+      };
+      body.querySelector("#orders-box").addEventListener("click", async (ev) => {
+        const btn = ev.target.closest("button");
+        if (!btn || btn.disabled) return;
+        if (btn.dataset.confirm) orderAct(Number(btn.dataset.confirm), "confirm", "Payment confirmed.", btn);
+        else if (btn.dataset.cancel) orderAct(Number(btn.dataset.cancel), "cancel", "Order cancelled.", btn);
+        else if (btn.dataset.refund) {
+          const ok = await U.modal({ title: "Refund this order?", bodyHTML: "<p>The pass time or the examiner check is removed. A card payment through Dodo is refunded to the customer's card automatically; for any other payment, return the money yourself.</p>",
+            buttons: [{ label: "No", className: "btn-secondary", value: false }, { label: "Refund", className: "btn-danger", value: true }] });
+          if (ok) orderAct(Number(btn.dataset.refund), "refund", "Order refunded.", btn);
+        }
+      });
     } else if (tab === "examiners") {
       const { examiners } = await U.api("/api/admin/examiners");
       body.innerHTML = `
