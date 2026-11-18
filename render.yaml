@@ -20,9 +20,13 @@ services:
         value: 3.11.9
       - key: SITE_NAME
         value: TestDay
-      # Launch setting: five free tests per module, the rest "Coming soon…", no prices, pass, refunds or
-      # examiner checks. Set to 1 when the site starts selling.
+      # 1 = the site sells passes (Dodo Payments); 0 = launch mode: five free tests per module, the rest
+      # "Coming soon…", nothing for sale. A Blueprint writes this value back on every sync, so keep it equal to
+      # what the live service should have.
       - key: COMMERCE_ENABLED
+        value: "1"
+      # Examiner checks (a human marks a Writing or Speaking attempt) stay off until there are examiners.
+      - key: EXAMINER_CHECKS_ENABLED
         value: "0"
       # The AI examiner (Writing marking and Speaking with the AI examiner), through OpenRouter.
       - key: AI_MODEL
@@ -68,6 +72,16 @@ services:
         value: "10000"
       - key: SPEAKING_CHECK_PRICE
         value: "20000"
+      # Card payments in US dollars through Dodo Payments (docs/PAYMENTS_CHECKLIST.md, section 7). The key's prefix
+      # decides the servers: dodo_test_... is test mode, dodo_live_... is live. DODO_PRODUCTS is the eight
+      # subscription products: full-1=pdt_x,full-3=pdt_y,speaking-1=...,speaking-3=...,writing-1=...,writing-3=...,
+      # lr-1=...,lr-3=... Webhook address in Dodo: https://www.testday.uz/api/pay/dodo/webhook
+      - key: DODO_PAYMENTS_API_KEY
+        sync: false
+      - key: DODO_PAYMENTS_WEBHOOK_KEY
+        sync: false
+      - key: DODO_PRODUCTS
+        sync: false
       - key: PAYME_MERCHANT_ID
         sync: false
       - key: PAYME_KEY

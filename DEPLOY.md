@@ -111,7 +111,7 @@ In the Supabase dashboard:
 
 On Render, set `ADMIN_EMAILS` to your own email address. After you sign in with it you get the **Admin** page (`#/admin`).
 
-> **Launch setting.** While `COMMERCE_ENABLED` is `0` (the default, and what `render.yaml` sets), nothing below is visible: five tests per module are free, the others show "Coming soon…", and prices, the pass, refunds and examiner checks are hidden in the site and closed on the server. Everything in section 4 keeps working in the code; set `COMMERCE_ENABLED=1` on Render when you are ready to sell, and set the paid tests' `"access"` back to `"premium"` if you had set any to `"soon"`.
+> **Launch setting.** While `COMMERCE_ENABLED` is `0` (the code default), nothing below is visible: five tests per module are free, the others show "Coming soon…", and prices, the pass, refunds and examiner checks are hidden in the site and closed on the server. Everything in section 4 keeps working in the code; `render.yaml` now sets `COMMERCE_ENABLED=1`; set it to `0` there to go back to launch mode, and set the paid tests' `"access"` back to `"premium"` if you had set any to `"soon"`.
 >
 > The tests come from the site's own files, so the five-free-per-module setting takes effect with the deploy; there is nothing to upload.
 
