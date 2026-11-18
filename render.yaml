@@ -5,7 +5,7 @@ services:
     # Frankfurt is much closer to Central Asia than Oregon. The region is fixed
     # when a service is created; changing it here does not move an existing one.
     region: frankfurt
-    plan: free
+    plan: starter
     branch: main
     autoDeploy: true
     # The social poster (social-poster/) is a separate service: changes there do not redeploy the website.
