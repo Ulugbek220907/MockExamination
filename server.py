@@ -66,7 +66,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, ai, analytics, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, speaking, speaking_adaptive, speaking_ai, storage, writing  # noqa: E402
+from mockexam import accounts, ai, analytics, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, seo, speaking, speaking_adaptive, speaking_ai, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -839,7 +839,11 @@ class RobotsHandler(BaseHandler):
     def get(self):
         self.set_header("Content-Type", "text/plain; charset=utf-8")
         self.set_header("Cache-Control", "public, max-age=3600")
-        self.finish(f"User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: {PUBLIC_URL}/sitemap.xml\n")
+        # The pages load their tests, settings and sign-in state from these three answers, so a crawler that runs
+        # the page (Google, Bing, Yandex) must be allowed to ask for them, or it sees an empty page. The rest of
+        # the API stays closed. The longer Allow rule wins over the shorter Disallow.
+        self.finish("User-agent: *\nAllow: /\nAllow: /api/tests$\nAllow: /api/config$\nAllow: /api/me$\n"
+                    f"Disallow: /api/\n\nSitemap: {PUBLIC_URL}/sitemap.xml\n")
 
 
 class SecurityTxtHandler(BaseHandler):
@@ -857,17 +861,45 @@ class SecurityTxtHandler(BaseHandler):
 
 class SitemapHandler(BaseHandler):
     """
-    The pages search engines should index. The site is one page whose sections are #/ addresses,
-    which crawlers treat as the same URL, so the home page is the one entry.
+    The pages search engines should index: the home page (the app, whose sections are #/ addresses that crawlers
+    treat as one URL) and the pages of mockexam/seo.py, each with links to its other-language versions.
     """
 
     def get(self):
         self.set_header("Content-Type", "application/xml; charset=utf-8")
         self.set_header("Cache-Control", "public, max-age=3600")
-        self.finish('<?xml version="1.0" encoding="UTF-8"?>\n'
-                    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-                    f'  <url><loc>{html.escape(PUBLIC_URL)}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n'
-                    '</urlset>\n')
+        self.finish(seo.sitemap(PUBLIC_URL))
+
+
+class SeoPageHandler(BaseHandler):
+    """/en/<slug>, /uz/<slug>, /ru/<slug>: a page of mockexam/seo.py, as plain HTML."""
+
+    def get(self, lang, slug, slash=""):
+        page = seo.find(lang, slug)
+        if page is None:
+            raise tornado.web.HTTPError(404)
+        if slash:  # one address per page: /en/x/ goes to /en/x
+            return self.redirect(seo.path_of(page), permanent=True)
+        self.head(lang, slug)
+        self.finish(seo.render(page, PUBLIC_URL, versioned))
+
+    def head(self, lang, slug, slash=""):
+        self.set_header("Content-Type", "text/html; charset=utf-8")
+        self.set_header("Cache-Control", "public, max-age=600")
+
+
+class SeoLanguageHandler(BaseHandler):
+    """/en, /uz and /ru lead to the free-practice page of that language."""
+
+    def get(self, lang):
+        self.redirect(seo.landing_path(lang), permanent=True)
+
+
+class SectionRedirectHandler(BaseHandler):
+    """/pricing, /terms and the like lead to the same section of the app, so a plain address can be given out."""
+
+    def get(self, name):
+        self.redirect(f"/#/{name}")
 
 
 class StaticHandler(tornado.web.StaticFileHandler):
@@ -943,6 +975,9 @@ def make_app():
             (r"/robots\.txt", RobotsHandler),
             (r"/\.well-known/security\.txt", SecurityTxtHandler),
             (r"/sitemap\.xml", SitemapHandler),
+            (r"/(en|uz|ru)", SeoLanguageHandler),
+            (r"/(en|uz|ru)/([a-z0-9\-]+)(/?)", SeoPageHandler),
+            (r"/(pricing|about|terms|privacy|refunds)/?", SectionRedirectHandler),
             (r"/(.*)", StaticHandler, {"path": PUBLIC_DIR, "default_filename": "index.html"}),
         ],
         compress_response=True,

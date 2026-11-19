@@ -15,6 +15,7 @@ import base64
 import datetime
 import hashlib
 import hmac
+import html
 import io
 import json
 import os
@@ -4152,6 +4153,134 @@ class InstallAndMigrationTests(AccountApiBase):
             sql = f.read()
         for column in ("target_band", "exam_date", "reminded_at"):
             self.assertRegex(sql, rf"add column if not exists {column}\b")
+
+
+class SeoPageTests(AccountApiBase):
+    """The pages search engines land on (mockexam/seo.py), robots.txt, the sitemap, and the plain section addresses."""
+
+    def pages(self):
+        from mockexam import seo
+        return seo.PAGES
+
+    def test_every_page_is_plain_html_with_its_own_head(self):
+        titles, descriptions = set(), set()
+        for page in self.pages():
+            path = f"/{page['lang']}/{page['slug']}"
+            r = self.fetch(path)
+            self.assertEqual(r.code, 200, path)
+            self.assertTrue(r.headers["Content-Type"].startswith("text/html"), path)
+            body = r.body.decode()
+            self.assertIn(f'<html lang="{page["lang"]}">', body, path)
+            self.assertIn(f'<link rel="canonical" href="{server.PUBLIC_URL}{path}">', body, path)
+            self.assertEqual(body.count("<h1>"), 1, path)
+            self.assertIn(f"<title>{html.escape(page['title'])}</title>", body, path)
+            # Search results cut a title at about 60 characters and a description at about 155.
+            self.assertLessEqual(len(page["title"]), 60, path)
+            self.assertLessEqual(len(page["description"]), 155, path)
+            titles.add(page["title"])
+            descriptions.add(page["description"])
+            # The three language versions of one page link to each other, and to a default.
+            for lang in ("en", "uz", "ru", "x-default"):
+                self.assertIn(f'hreflang="{lang}"', body, path)
+            # The content security policy allows no inline script: only the data blocks and our own file.
+            self.assertNotRegex(body, r"<script(?![^>]*(?:src=|type=\"application/ld\+json\"))", path)
+            self.assertNotRegex(body, r"\son(?:click|submit|load)=", path)
+            self.assertIn("/css/landing.css?v=", body, path)
+        self.assertEqual(len(titles), len(self.pages()))
+        self.assertEqual(len(descriptions), len(self.pages()))
+
+    def test_the_slugs_are_the_planned_addresses(self):
+        for path in ("/en/free-ielts-computer-based-practice-test", "/uz/ielts-mock-test-bepul",
+                     "/ru/ielts-probnyj-test-onlajn-besplatno", "/en/ielts-band-score-calculator",
+                     "/uz/ielts-band-score-hisoblash", "/ru/ielts-kalkulyator-ballov",
+                     "/en/ielts-speaking-practice-ai-examiner", "/ru/ielts-writing-proverka-esse-onlajn"):
+            self.assertEqual(self.fetch(path).code, 200, path)
+
+    def test_unknown_pages_are_404_and_the_extra_slash_is_redirected(self):
+        self.assertEqual(self.fetch("/en/no-such-page").code, 404)
+        self.assertEqual(self.fetch("/de/free-ielts-computer-based-practice-test").code, 404)
+        r = self.fetch("/uz/ielts-mock-test-bepul/", follow_redirects=False)
+        self.assertEqual(r.code, 301)
+        self.assertEqual(r.headers["Location"], "/uz/ielts-mock-test-bepul")
+        r = self.fetch("/ru", follow_redirects=False)
+        self.assertEqual(r.code, 301)
+        self.assertEqual(r.headers["Location"], "/ru/ielts-probnyj-test-onlajn-besplatno")
+
+    def test_plain_section_addresses_lead_into_the_app(self):
+        for name in ("pricing", "about", "terms", "privacy", "refunds"):
+            r = self.fetch(f"/{name}", follow_redirects=False)
+            self.assertEqual(r.code, 302, name)
+            self.assertEqual(r.headers["Location"], f"/#/{name}")
+
+    def test_sitemap_lists_every_page_with_its_languages(self):
+        body = self.fetch("/sitemap.xml").body.decode()
+        self.assertIn(f"<loc>{server.PUBLIC_URL}/</loc>", body)
+        for page in self.pages():
+            self.assertIn(f"<loc>{server.PUBLIC_URL}/{page['lang']}/{page['slug']}</loc>", body)
+        self.assertEqual(body.count("<url>"), len(self.pages()) + 1)
+        self.assertEqual(body.count('hreflang="x-default"'), len(self.pages()))
+
+    def test_robots_lets_crawlers_load_the_home_page(self):
+        body = self.fetch("/robots.txt").body.decode()
+        for allowed in ("/api/tests$", "/api/config$", "/api/me$"):
+            self.assertIn(f"Allow: {allowed}", body)
+        self.assertIn("Disallow: /api/\n", body)
+        # The rest of the API is still closed: no other Allow rule opens it.
+        self.assertEqual([l for l in body.splitlines() if l.startswith("Allow: /api")],
+                         ["Allow: /api/tests$", "Allow: /api/config$", "Allow: /api/me$"])
+
+    def test_home_page_has_text_and_links_without_running_scripts(self):
+        body = self.fetch("/").body.decode()
+        self.assertEqual(body.count("<h1>"), 1)
+        for path in ("/en/free-ielts-computer-based-practice-test", "/uz/ielts-mock-test-bepul",
+                     "/ru/ielts-probnyj-test-onlajn-besplatno", "/en/ielts-band-score-calculator"):
+            self.assertIn(f'href="{path}"', body)
+
+    def test_pages_never_promise_an_official_score(self):
+        for page in self.pages():
+            body = html.unescape(self.fetch(f"/{page['lang']}/{page['slug']}").body.decode())
+            self.assertIn("TestDay", body)
+            self.assertRegex(body, r"(?i)not affiliated|не связан|aloqasi yo'q", page["slug"])
+
+    def test_overall_band_rounding(self):
+        from mockexam import seo
+        # Averages of .125, .25, .375, .625, .75 and .875: down, up to .5, .5, .5, up to whole, up to whole.
+        cases = [((6.0, 6.0, 6.0, 6.5), 6.0), ((6.0, 6.0, 6.5, 6.5), 6.5), ((6.5, 6.5, 6.5, 6.0), 6.5),
+                 ((7.0, 7.0, 7.0, 6.5), 7.0), ((7.0, 7.0, 6.5, 7.0), 7.0), ((6.5, 6.5, 6.5, 7.0), 6.5),
+                 ((9.0, 9.0, 9.0, 9.0), 9.0), ((4.0, 4.5, 5.0, 5.5), 5.0), ((5.5, 6.0, 6.5, 6.5), 6.0)]  # 6.125 -> 6.0
+        for bands, expected in cases:
+            self.assertEqual(seo.overall_band(*bands), expected, bands)
+        self.assertEqual(seo.overall_band(6.0, 6.0, 6.0, 6.5), 6.0)       # 6.125 -> 6.0
+        self.assertEqual(seo.overall_band(6.0, 6.5, 6.5, 7.0), 6.5)       # 6.5 stays
+        self.assertEqual(seo.overall_band(6.5, 7.0, 7.0, 7.0), 7.0)       # 6.875 -> 7.0
+        self.assertEqual(seo.overall_band(6.5, 6.5, 7.0, 7.0), 7.0)       # 6.75 -> 7.0
+        self.assertEqual(seo.overall_band(6.0, 6.5, 6.5, 6.0), 6.5)       # 6.25 -> 6.5
+
+    def test_score_tables_on_the_calculator_page(self):
+        body = self.fetch("/en/ielts-band-score-calculator").body.decode()
+        # Listening 30-31 is band 7; Academic Reading 30-32 is band 7 (the standard published tables).
+        self.assertRegex(body, r"<tr><td>30–31</td><td>7\.0</td></tr>")
+        self.assertRegex(body, r"<tr><td>30–32</td><td>7\.0</td></tr>")
+        self.assertRegex(body, r"<tr><td>39–40</td><td>9\.0</td></tr>")
+        self.assertIn('data-calc data-listening="', body)
+
+    def test_calculator_script_agrees_with_the_server(self):
+        import shutil
+        import subprocess
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("node is not installed")
+        from mockexam import scoring, seo
+        driver = os.path.join(BASE_DIR, "scripts", "seo_calc_check.js")
+        for l, r, w, sp in [(30, 30, 7.0, 7.0), (27, 23, 6.5, 6.0), (16, 15, 5.0, 5.5), (40, 40, 9.0, 9.0),
+                            (0, 0, 1.0, 1.0), (35, 32, 7.5, 8.0)]:
+            out = subprocess.run([node, driver, str(l), str(r), str(w), str(sp),
+                                  json.dumps(scoring.LISTENING_BANDS), json.dumps(scoring.ACADEMIC_READING_BANDS)],
+                                 capture_output=True, text=True, timeout=30)
+            self.assertEqual(out.returncode, 0, out.stderr)
+            lb, rb = scoring.band_for_raw_score(l, scoring.LISTENING_BANDS), scoring.band_for_raw_score(r, scoring.ACADEMIC_READING_BANDS)
+            expected = [f"{lb:.1f}", f"{rb:.1f}", f"{seo.overall_band(lb, rb, w, sp):.1f}"]
+            self.assertEqual(out.stdout.split(), expected, (l, r, w, sp))
 
 
 if __name__ == "__main__":
