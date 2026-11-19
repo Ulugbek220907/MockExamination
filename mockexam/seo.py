@@ -13,21 +13,25 @@ languages and say so. Nothing here claims an official score: the band from the A
 import html
 import json
 
-from . import scoring
+from . import scoring, seo_guides
 
 LANGS = ("en", "uz", "ru")
 LANG_NAMES = {"en": "English", "uz": "O'zbekcha", "ru": "Русский"}
 LOCALES = {"en": "en_GB", "uz": "uz_UZ", "ru": "ru_RU"}
-TOPICS = ("free", "listening", "reading", "calc", "writing", "speaking")
+TOPICS = ("free", "listening", "reading", "calc", "writing", "speaking", "format", "fees", "refund", "band7")
 
 # Where the button on each page leads inside the app.
 CTA_TARGET = {
     "free": "/#/", "listening": "/#/tests/listening", "reading": "/#/tests/reading",
     "calc": "/#/tests/listening", "writing": "/#/tests/writing", "speaking": "/#/tests/speaking",
+    "format": "/#/", "fees": "/#/", "refund": "/#/", "band7": "/#/",
 }
 
 UI = {
     "en": {
+        "checked": "Last checked", "sources": "Official sources",
+        "volatile": "Fees, dates and rules change. Check the official page before you pay or apply.",
+        "months": ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"),
         "free": "Free tests", "calc": "Band calculator", "price": "Price", "what": "What you get", "how": "How it works",
         "faq": "Questions and answers", "more": "More from TestDay", "langs": "Read this page in",
         "note": "", "terms": "Terms", "privacy": "Privacy", "refunds": "Refunds", "about": "About",
@@ -40,6 +44,9 @@ UI = {
         "col_raw": "Correct answers", "col_band": "Band", "low": "0–3", "approx": "Approximate: marks vary slightly between test versions.",
     },
     "uz": {
+        "checked": "Oxirgi tekshiruv", "sources": "Rasmiy manbalar",
+        "volatile": "Narxlar, sanalar va qoidalar o'zgaradi. To'lashdan yoki ariza berishdan oldin rasmiy sahifani tekshiring.",
+        "months": ("yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"),
         "free": "Bepul testlar", "calc": "Band kalkulyatori", "price": "Narx", "what": "Nimalar bor", "how": "Qanday ishlaydi",
         "faq": "Savol va javoblar", "more": "TestDay da yana", "langs": "Bu sahifani o'qing",
         "note": "Testlar va sayt haqiqiy imtihon kabi ingliz tilida; bu sahifa ularni o'zbek tilida tushuntiradi.",
@@ -53,6 +60,9 @@ UI = {
         "col_raw": "To'g'ri javoblar", "col_band": "Band", "low": "0–3", "approx": "Taxminiy: test versiyasiga qarab ballar biroz farq qiladi.",
     },
     "ru": {
+        "checked": "Проверено", "sources": "Официальные источники",
+        "volatile": "Цены, даты и правила меняются. Перед оплатой или подачей заявки проверьте официальную страницу.",
+        "months": ("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"),
         "free": "Бесплатные тесты", "calc": "Калькулятор баллов", "price": "Цена", "what": "Что внутри", "how": "Как это работает",
         "faq": "Вопросы и ответы", "more": "Ещё на TestDay", "langs": "Эта страница на языках",
         "note": "Тесты и сайт на английском, как и настоящий экзамен; эта страница объясняет их по-русски.",
@@ -579,8 +589,23 @@ CONTENT = {
         "Начать бесплатный тест Speaking"),
 }
 
-PAGES = [dict(CONTENT[(topic, lang)], topic=topic, lang=lang) for topic in TOPICS for lang in LANGS]
+CONTENT.update(seo_guides.GUIDES)
+PAGES = [dict(CONTENT[(topic, lang)], topic=topic, lang=lang) for topic in TOPICS for lang in LANGS
+         if (topic, lang) in CONTENT]
 BY_PATH = {(p["lang"], p["slug"]): p for p in PAGES}
+# The languages each topic exists in (the guides are not all in three) and the one search engines fall back to.
+LANGS_OF = {topic: [lang for lang in LANGS if (topic, lang) in CONTENT] for topic in TOPICS}
+
+
+def default_lang(topic):
+    return "en" if "en" in LANGS_OF[topic] else LANGS_OF[topic][0]
+
+
+def pretty_date(iso, lang):
+    """"2026-11-19" as 19 November 2026, 2026-yil 19-noyabr or 19 ноября 2026 г."""
+    year, month, day = (int(part) for part in iso.split("-"))
+    name = UI[lang]["months"][month - 1]
+    return {"en": f"{day} {name} {year}", "uz": f"{year}-yil {day}-{name}", "ru": f"{day} {name} {year} г."}[lang]
 
 
 def find(lang, slug):
@@ -681,12 +706,16 @@ def _json_ld(data):
 
 def _head(page, base, versioned):
     lang, url = page["lang"], f"{base}{path_of(page)}"
+    topic = page["topic"]
     alternates = "".join(
-        f'<link rel="alternate" hreflang="{l}" href="{_e(base + path_for(page["topic"], l))}">\n  ' for l in LANGS)
-    alternates += f'<link rel="alternate" hreflang="x-default" href="{_e(base + path_for(page["topic"], "en"))}">'
+        f'<link rel="alternate" hreflang="{l}" href="{_e(base + path_for(topic, l))}">\n  ' for l in LANGS_OF[topic])
+    alternates += (f'<link rel="alternate" hreflang="x-default" '
+                   f'href="{_e(base + path_for(topic, default_lang(topic)))}">')
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": page["title"], "url": url,
           "description": page["description"], "inLanguage": lang,
           "isPartOf": {"@type": "WebSite", "name": "TestDay", "url": base + "/"}}
+    if page.get("checked"):
+        ld["dateModified"] = page["checked"]
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "TestDay", "item": base + "/"},
         {"@type": "ListItem", "position": 2, "name": page["h1"], "item": url}]}
@@ -714,6 +743,49 @@ def _head(page, base, versioned):
   <script type="application/ld+json">{crumbs_json}</script>"""
 
 
+def _paragraphs(items):
+    return "".join(f"<p>{_e(text)}</p>" for text in items)
+
+
+def _bullets(items, tag="ul"):
+    return f"<{tag} class=\"ld-list\">" + "".join(f"<li>{_e(text)}</li>" for text in items) + f"</{tag}>"
+
+
+def _facts_table(table):
+    head = "".join(f'<th scope="col">{_e(h)}</th>' for h in table["head"])
+    rows = "".join("<tr>" + "".join(f"<td>{_e(cell)}</td>" for cell in row) + "</tr>" for row in table["rows"])
+    caption = f"<caption>{_e(table['caption'])}</caption>" if table.get("caption") else ""
+    return (f'<div class="ld-scroll"><table class="ld-table">{caption}<thead><tr>{head}</tr></thead>'
+            f"<tbody>{rows}</tbody></table></div>")
+
+
+def _section(sec):
+    """A guide section: a heading, then paragraphs, a table, bullets and numbered steps, each only if present."""
+    body = _paragraphs(sec.get("p", ()))
+    if sec.get("table"):
+        body += _facts_table(sec["table"])
+    if sec.get("ul"):
+        body += _bullets(sec["ul"])
+    if sec.get("steps"):
+        body += _bullets(sec["steps"], "ol")
+    if sec.get("p_after"):
+        body += _paragraphs(sec["p_after"])
+    return f"<section><h2>{_e(sec['h'])}</h2>{body}</section>"
+
+
+def _sources(page, ui):
+    """The date the facts were last checked and the official pages they come from."""
+    if not page.get("sources"):
+        return ""
+    links = "".join(
+        f'<li><a href="{_e(url)}" rel="noopener" target="_blank">{_e(label)}</a></li>' for label, url in page["sources"])
+    checked = ""
+    if page.get("checked"):
+        checked = (f'<p class="ld-small">{_e(ui["checked"])}: '
+                   f'<time datetime="{_e(page["checked"])}">{_e(pretty_date(page["checked"], page["lang"]))}</time></p>')
+    return f'<section aria-labelledby="src-h"><h2 id="src-h">{_e(ui["sources"])}</h2>{checked}<ul class="ld-more">{links}</ul></section>'
+
+
 def render(page, base, versioned):
     """The full HTML page. `base` is the public address of the site, `versioned` adds the cache hash to an asset."""
     lang, topic = page["lang"], page["topic"]
@@ -722,13 +794,23 @@ def render(page, base, versioned):
            f'<a href="{path_for("calc", lang)}">{_e(ui["calc"])}</a>'
            f'<a href="/#/pricing">{_e(ui["price"])}</a>')
     points = "".join(f"<li><h3>{_e(h)}</h3><p>{_e(t)}</p></li>" for h, t in page["points"])
+    points = (f'<section aria-labelledby="what-h"><h2 id="what-h">{_e(ui["how"] if topic == "calc" else ui["what"])}'
+              f'</h2><ul class="ld-points">{points}</ul></section>') if page["points"] else ""
     faq = "".join(f"<div class=\"ld-q\"><h3>{_e(q)}</h3><p>{_e(a)}</p></div>" for q, a in page["faq"])
+    languages = LANGS_OF[topic]
     switch = " · ".join(
         f'<span aria-current="page">{_e(LANG_NAMES[l])}</span>' if l == lang else
-        f'<a href="{path_for(topic, l)}" hreflang="{l}" lang="{l}">{_e(LANG_NAMES[l])}</a>' for l in LANGS)
+        f'<a href="{path_for(topic, l)}" hreflang="{l}" lang="{l}">{_e(LANG_NAMES[l])}</a>' for l in languages)
+    switch = f"<p>{_e(ui['langs'])}: {switch}</p>" if len(languages) > 1 else ""
     more = "".join(
-        f'<li><a href="{path_for(t, lang)}">{_e(CONTENT[(t, lang)]["h1"])}</a></li>' for t in TOPICS if t != topic)
-    note = f'<p class="ld-note">{_e(ui["note"])}</p>' if ui["note"] else ""
+        f'<li><a href="{path_for(t, lang)}">{_e(CONTENT[(t, lang)]["h1"])}</a></li>'
+        for t in TOPICS if t != topic and (t, lang) in CONTENT)
+    notes = [ui["note"]] if ui["note"] else []
+    if page.get("volatile"):
+        notes.append(ui["volatile"])
+    note = "".join(f'<p class="ld-note">{_e(n)}</p>' for n in notes)
+    sections = "".join(_section(sec) for sec in page.get("sections", ()))
+    sources = _sources(page, ui)
     calc = _calculator(ui) if topic == "calc" else ""
     script = f'<script src="/{_e(versioned("js/seo-calc.js"))}" defer></script>' if topic == "calc" else ""
     return f"""<!DOCTYPE html>
@@ -748,15 +830,14 @@ def render(page, base, versioned):
       <p><a class="btn-primary ld-cta" href="{CTA_TARGET[topic]}">{_e(page['cta'])}</a></p>
       {note}
       {calc}
-      <section aria-labelledby="what-h">
-        <h2 id="what-h">{_e(ui['how'] if topic == 'calc' else ui['what'])}</h2>
-        <ul class="ld-points">{points}</ul>
-      </section>
+      {sections}
+      {points}
       <section aria-labelledby="faq-h">
         <h2 id="faq-h">{_e(ui['faq'])}</h2>
         {faq}
       </section>
       <p><a class="btn-secondary ld-cta" href="{CTA_TARGET[topic]}">{_e(page['cta'])}</a></p>
+      {sources}
       <section aria-labelledby="more-h">
         <h2 id="more-h">{_e(ui['more'])}</h2>
         <ul class="ld-more">{more}</ul>
@@ -764,7 +845,7 @@ def render(page, base, versioned):
     </article>
   </main>
   <footer class="ld-foot">
-    <p>{_e(ui['langs'])}: {switch}</p>
+    {switch}
     <p><a href="/terms">{_e(ui['terms'])}</a> · <a href="/privacy">{_e(ui['privacy'])}</a> · <a href="/refunds">{_e(ui['refunds'])}</a> · <a href="/about">{_e(ui['about'])}</a></p>
     <p class="ld-small">{_e(ui['disclaimer'])}</p>
   </footer>
@@ -780,12 +861,14 @@ def sitemap(base):
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
            f'  <url><loc>{html.escape(base)}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>']
     for page in PAGES:
+        topic = page["topic"]
         alternates = "".join(
-            f'<xhtml:link rel="alternate" hreflang="{l}" href="{html.escape(base + path_for(page["topic"], l))}"/>'
-            for l in LANGS)
+            f'<xhtml:link rel="alternate" hreflang="{l}" href="{html.escape(base + path_for(topic, l))}"/>'
+            for l in LANGS_OF[topic])
         alternates += (f'<xhtml:link rel="alternate" hreflang="x-default" '
-                       f'href="{html.escape(base + path_for(page["topic"], "en"))}"/>')
-        out.append(f'  <url><loc>{html.escape(base + path_of(page))}</loc>{alternates}'
+                       f'href="{html.escape(base + path_for(topic, default_lang(topic)))}"/>')
+        lastmod = f'<lastmod>{page["checked"]}</lastmod>' if page.get("checked") else ""
+        out.append(f'  <url><loc>{html.escape(base + path_of(page))}</loc>{lastmod}{alternates}'
                    f'<changefreq>monthly</changefreq><priority>0.8</priority></url>')
     out.append("</urlset>")
     return "\n".join(out) + "\n"

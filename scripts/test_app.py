@@ -4180,8 +4180,10 @@ class SeoPageTests(AccountApiBase):
             titles.add(page["title"])
             descriptions.add(page["description"])
             # The three language versions of one page link to each other, and to a default.
-            for lang in ("en", "uz", "ru", "x-default"):
+            from mockexam import seo
+            for lang in (*seo.LANGS_OF[page["topic"]], "x-default"):
                 self.assertIn(f'hreflang="{lang}"', body, path)
+            self.assertEqual(body.count('rel="alternate" hreflang='), len(seo.LANGS_OF[page["topic"]]) + 1, path)
             # The content security policy allows no inline script: only the data blocks and our own file.
             self.assertNotRegex(body, r"<script(?![^>]*(?:src=|type=\"application/ld\+json\"))", path)
             self.assertNotRegex(body, r"\son(?:click|submit|load)=", path)
@@ -4193,7 +4195,11 @@ class SeoPageTests(AccountApiBase):
         for path in ("/en/free-ielts-computer-based-practice-test", "/uz/ielts-mock-test-bepul",
                      "/ru/ielts-probnyj-test-onlajn-besplatno", "/en/ielts-band-score-calculator",
                      "/uz/ielts-band-score-hisoblash", "/ru/ielts-kalkulyator-ballov",
-                     "/en/ielts-speaking-practice-ai-examiner", "/ru/ielts-writing-proverka-esse-onlajn"):
+                     "/en/ielts-speaking-practice-ai-examiner", "/ru/ielts-writing-proverka-esse-onlajn",
+                     "/uz/ielts-kompyuterda-topshirish", "/ru/ielts-na-kompyutere-format",
+                     "/en/computer-delivered-ielts-what-to-expect", "/uz/ielts-imtihon-narxi-2026",
+                     "/ru/ielts-stoimost-ekzamena-uzbekistan", "/uz/ielts-kompensatsiya-7-ball",
+                     "/en/how-to-get-band-7-in-ielts"):
             self.assertEqual(self.fetch(path).code, 200, path)
 
     def test_unknown_pages_are_404_and_the_extra_slash_is_redirected(self):
@@ -4241,6 +4247,55 @@ class SeoPageTests(AccountApiBase):
             body = html.unescape(self.fetch(f"/{page['lang']}/{page['slug']}").body.decode())
             self.assertIn("TestDay", body)
             self.assertRegex(body, r"(?i)not affiliated|не связан|aloqasi yo'q", page["slug"])
+
+    def test_guides_show_when_their_facts_were_checked_and_where_from(self):
+        """Pages that state facts about the real exam name their sources, all official, and the date of the check."""
+        from urllib.parse import urlparse
+        from mockexam import seo, seo_guides
+        official = {"ielts.org", "britishcouncil.uz", "takeielts.britishcouncil.org", "ielts.idp.com", "my.gov.uz",
+                    "gov.uz", "lex.uz", "gazeta.uz", "zamin.uz"}
+        guides = [p for p in self.pages() if p["topic"] in ("format", "fees", "refund", "band7")]
+        self.assertEqual(len(guides), 7)
+        for page in guides:
+            path = f"/{page['lang']}/{page['slug']}"
+            body = html.unescape(self.fetch(path).body.decode())
+            self.assertIn(f'<time datetime="{seo_guides.FACTS_CHECKED}">', body, path)
+            self.assertIn('"dateModified": "' + seo_guides.FACTS_CHECKED + '"', body, path)
+            self.assertGreaterEqual(len(page["sources"]), 5, path)
+            for label, url in page["sources"]:
+                host = (urlparse(url).hostname or "").removeprefix("www.")
+                self.assertTrue(url.startswith("https://") and host in official, url)
+            self.assertIn(f"<lastmod>{seo_guides.FACTS_CHECKED}</lastmod>", seo.sitemap("https://x.test"))
+            if page["topic"] in ("fees", "refund"):
+                self.assertIn('class="ld-note"', body, path)  # "fees and rules change: check the official page"
+
+    def test_fee_pages_use_the_checked_prices(self):
+        from mockexam import seo_guides as g
+        for lang, name in (("uz", "ielts-imtihon-narxi-2026"), ("ru", "ielts-stoimost-ekzamena-uzbekistan")):
+            body = html.unescape(self.fetch(f"/{lang}/{name}").body.decode())
+            for amount in (g.BC_FEE, g.IDP_FEE, g.BC_UKVI_FEE, g.BC_LIFE_SKILLS_FEE):
+                self.assertIn(g.money(amount, lang), body, (lang, amount))
+            # The old British Council price is named only as the price it rose from.
+            self.assertEqual(g.BC_FEE - g.BC_OLD_FEE, 134000)
+            for match in re.finditer(re.escape(g.money(g.BC_OLD_FEE, lang)), body):
+                around = body[max(0, match.start() - 160):match.end() + 160]
+                self.assertRegex(around, r"oshirilgan|oshgan|выросла|which-test|Старая|eski|старая|О старой|Eski narx|"
+                                         r"сентябре|sentabr", (lang, around))
+
+    def test_refund_page_follows_the_official_age_limit_and_names_the_service(self):
+        body = html.unescape(self.fetch("/uz/ielts-kompensatsiya-7-ball").body.decode())
+        self.assertIn("31 yoshga to'lmagan", body)
+        self.assertIn("https://my.gov.uz/uz/service/413", body)
+        self.assertIn("7.0", body)
+        # The British Council page's "under 30" is mentioned only as a discrepancy, never as the rule.
+        self.assertEqual(body.count("30 dan kichik"), 1)
+        self.assertIn("Diqqat", body)
+
+    def test_a_guide_without_other_languages_links_only_itself(self):
+        body = self.fetch("/uz/ielts-kompensatsiya-7-ball").body.decode()
+        self.assertEqual(body.count('rel="alternate" hreflang='), 2)       # uz and x-default
+        self.assertNotIn("Bu sahifani o'qing", body)                       # no language list for a one-language page
+        self.assertIn('hreflang="x-default" href="https://testday.uz/uz/ielts-kompensatsiya-7-ball"', body)
 
     def test_overall_band_rounding(self):
         from mockexam import seo
