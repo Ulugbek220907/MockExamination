@@ -674,6 +674,11 @@ def _calculator(ui):
     </section>"""
 
 
+def _json_ld(data):
+    """Structured data as JSON that cannot end its own <script> element early."""
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+
 def _head(page, base, versioned):
     lang, url = page["lang"], f"{base}{path_of(page)}"
     alternates = "".join(
@@ -685,6 +690,7 @@ def _head(page, base, versioned):
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "TestDay", "item": base + "/"},
         {"@type": "ListItem", "position": 2, "name": page["h1"], "item": url}]}
+    ld_json, crumbs_json = _json_ld(ld), _json_ld(crumbs)
     return f"""<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>{_e(page['title'])}</title>
@@ -704,8 +710,8 @@ def _head(page, base, versioned):
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
   <link rel="stylesheet" href="/{_e(versioned('css/portal.css'))}">
   <link rel="stylesheet" href="/{_e(versioned('css/landing.css'))}">
-  <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False).replace("</", "<\\/")}</script>
-  <script type="application/ld+json">{json.dumps(crumbs, ensure_ascii=False).replace("</", "<\\/")}</script>"""
+  <script type="application/ld+json">{ld_json}</script>
+  <script type="application/ld+json">{crumbs_json}</script>"""
 
 
 def render(page, base, versioned):
