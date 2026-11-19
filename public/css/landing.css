@@ -49,3 +49,12 @@
 .ld-foot { max-width: 760px; margin: 0 auto; padding: 0 16px 40px; border-top: 1px solid var(--rule); }
 .ld-foot p { margin: 14px 0 0; }
 .ld-small { font-size: 0.875rem; color: var(--muted); }
+
+/* Guide pages: lists, steps and wide tables */
+.ld-list { margin: 10px 0 0; padding-left: 1.3em; line-height: 1.65; }
+.ld-list li { margin: 0 0 8px; }
+.ld-scroll { overflow-x: auto; margin: 12px 0; }
+.ld-scroll .ld-table { font-size: 0.92rem; }
+@media (max-width: 520px) { .ld-scroll .ld-table th, .ld-scroll .ld-table td { padding: 6px 7px; overflow-wrap: break-word; } }
+.ld-table td { vertical-align: top; }
+.ld-table caption { caption-side: top; }
