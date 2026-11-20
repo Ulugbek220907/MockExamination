@@ -4297,6 +4297,19 @@ class SeoPageTests(AccountApiBase):
         self.assertNotIn("Bu sahifani o'qing", body)                       # no language list for a one-language page
         self.assertIn('hreflang="x-default" href="https://testday.uz/uz/ielts-kompensatsiya-7-ball"', body)
 
+    def test_the_guides_page_links_to_every_page_and_every_page_links_to_it(self):
+        from mockexam import seo
+        hub_path = f"/en/{seo.HUB_SLUG}"
+        hub = self.fetch(hub_path).body.decode()
+        for page in self.pages():
+            if page["topic"] != "hub":
+                self.assertIn(f'href="/{page["lang"]}/{page["slug"]}"', hub, page["slug"])
+        for lang in ("en", "uz", "ru"):
+            body = self.fetch(seo.landing_path(lang)).body.decode()
+            self.assertIn(f'<a href="{hub_path}">', body, lang)
+        self.assertIn(f'href="{hub_path}"', self.fetch("/").body.decode())
+        self.assertIn(f"<loc>{server.PUBLIC_URL}{hub_path}</loc>", self.fetch("/sitemap.xml").body.decode())
+
     def test_overall_band_rounding(self):
         from mockexam import seo
         # Averages of .125, .25, .375, .625, .75 and .875: down, up to .5, .5, .5, up to whole, up to whole.

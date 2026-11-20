@@ -18,17 +18,18 @@ from . import scoring, seo_guides
 LANGS = ("en", "uz", "ru")
 LANG_NAMES = {"en": "English", "uz": "O'zbekcha", "ru": "Русский"}
 LOCALES = {"en": "en_GB", "uz": "uz_UZ", "ru": "ru_RU"}
-TOPICS = ("free", "listening", "reading", "calc", "writing", "speaking", "format", "fees", "refund", "band7")
+TOPICS = ("free", "listening", "reading", "calc", "writing", "speaking", "format", "fees", "refund", "band7", "hub")
 
 # Where the button on each page leads inside the app.
 CTA_TARGET = {
     "free": "/#/", "listening": "/#/tests/listening", "reading": "/#/tests/reading",
     "calc": "/#/tests/listening", "writing": "/#/tests/writing", "speaking": "/#/tests/speaking",
-    "format": "/#/", "fees": "/#/", "refund": "/#/", "band7": "/#/",
+    "format": "/#/", "fees": "/#/", "refund": "/#/", "band7": "/#/", "hub": "/#/",
 }
 
 UI = {
     "en": {
+        "hub_link": "All guides",
         "checked": "Last checked", "sources": "Official sources",
         "volatile": "Fees, dates and rules change. Check the official page before you pay or apply.",
         "months": ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"),
@@ -44,6 +45,7 @@ UI = {
         "col_raw": "Correct answers", "col_band": "Band", "low": "0–3", "approx": "Approximate: marks vary slightly between test versions.",
     },
     "uz": {
+        "hub_link": "Barcha qo'llanmalar",
         "checked": "Oxirgi tekshiruv", "sources": "Rasmiy manbalar",
         "volatile": "Narxlar, sanalar va qoidalar o'zgaradi. To'lashdan yoki ariza berishdan oldin rasmiy sahifani tekshiring.",
         "months": ("yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"),
@@ -60,6 +62,7 @@ UI = {
         "col_raw": "To'g'ri javoblar", "col_band": "Band", "low": "0–3", "approx": "Taxminiy: test versiyasiga qarab ballar biroz farq qiladi.",
     },
     "ru": {
+        "hub_link": "Все материалы",
         "checked": "Проверено", "sources": "Официальные источники",
         "volatile": "Цены, даты и правила меняются. Перед оплатой или подачей заявки проверьте официальную страницу.",
         "months": ("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"),
@@ -590,6 +593,30 @@ CONTENT = {
 }
 
 CONTENT.update(seo_guides.GUIDES)
+
+HUB_SLUG = "ielts-practice-tests-and-guides"
+
+
+def _hub_page():
+    """One page that links to every other page, in all three languages: a way in for crawlers and for readers."""
+    sections = [{"h": LANG_NAMES[lang],
+                 "links": [(CONTENT[(t, lang)]["h1"], f"/{lang}/{CONTENT[(t, lang)]['slug']}", lang)
+                           for t in TOPICS if t != "hub" and (t, lang) in CONTENT]} for lang in LANGS]
+    page = _page(
+        HUB_SLUG,
+        "All IELTS Practice Tests, Tools and Guides | TestDay",
+        "Free IELTS practice tests, a band score calculator and exam guides in English, Uzbek and Russian: "
+        "Listening, Reading, Writing, Speaking, fees.",
+        "IELTS practice tests, tools and guides",
+        "Free computer-style IELTS practice tests for Listening, Reading, Writing and Speaking, a band score "
+        "calculator, and guides to the exam in English, Uzbek and Russian. The tests and the site are in English, "
+        "like the real exam.",
+        [], [], "Start a free test")
+    page["sections"] = sections
+    return page
+
+
+CONTENT[("hub", "en")] = _hub_page()
 PAGES = [dict(CONTENT[(topic, lang)], topic=topic, lang=lang) for topic in TOPICS for lang in LANGS
          if (topic, lang) in CONTENT]
 BY_PATH = {(p["lang"], p["slug"]): p for p in PAGES}
@@ -768,6 +795,10 @@ def _section(sec):
         body += _bullets(sec["ul"])
     if sec.get("steps"):
         body += _bullets(sec["steps"], "ol")
+    if sec.get("links"):
+        body += ('<ul class="ld-list">' + "".join(
+            f'<li><a href="{_e(href)}" hreflang="{l}" lang="{l}">{_e(label)}</a></li>' for label, href, l in sec["links"])
+                 + "</ul>")
     if sec.get("p_after"):
         body += _paragraphs(sec["p_after"])
     return f"<section><h2>{_e(sec['h'])}</h2>{body}</section>"
@@ -797,6 +828,7 @@ def render(page, base, versioned):
     points = (f'<section aria-labelledby="what-h"><h2 id="what-h">{_e(ui["how"] if topic == "calc" else ui["what"])}'
               f'</h2><ul class="ld-points">{points}</ul></section>') if page["points"] else ""
     faq = "".join(f"<div class=\"ld-q\"><h3>{_e(q)}</h3><p>{_e(a)}</p></div>" for q, a in page["faq"])
+    faq = f'<section aria-labelledby="faq-h"><h2 id="faq-h">{_e(ui["faq"])}</h2>{faq}</section>' if faq else ""
     languages = LANGS_OF[topic]
     switch = " · ".join(
         f'<span aria-current="page">{_e(LANG_NAMES[l])}</span>' if l == lang else
@@ -804,7 +836,9 @@ def render(page, base, versioned):
     switch = f"<p>{_e(ui['langs'])}: {switch}</p>" if len(languages) > 1 else ""
     more = "".join(
         f'<li><a href="{path_for(t, lang)}">{_e(CONTENT[(t, lang)]["h1"])}</a></li>'
-        for t in TOPICS if t != topic and (t, lang) in CONTENT)
+        for t in TOPICS if t != topic and (t, lang) in CONTENT and topic != "hub")
+    more = (f'<section aria-labelledby="more-h"><h2 id="more-h">{_e(ui["more"])}</h2><ul class="ld-more">{more}</ul></section>'
+            if more else "")
     notes = [ui["note"]] if ui["note"] else []
     if page.get("volatile"):
         notes.append(ui["volatile"])
@@ -832,21 +866,15 @@ def render(page, base, versioned):
       {calc}
       {sections}
       {points}
-      <section aria-labelledby="faq-h">
-        <h2 id="faq-h">{_e(ui['faq'])}</h2>
-        {faq}
-      </section>
+      {faq}
       <p><a class="btn-secondary ld-cta" href="{CTA_TARGET[topic]}">{_e(page['cta'])}</a></p>
       {sources}
-      <section aria-labelledby="more-h">
-        <h2 id="more-h">{_e(ui['more'])}</h2>
-        <ul class="ld-more">{more}</ul>
-      </section>
+      {more}
     </article>
   </main>
   <footer class="ld-foot">
     {switch}
-    <p><a href="/terms">{_e(ui['terms'])}</a> · <a href="/privacy">{_e(ui['privacy'])}</a> · <a href="/refunds">{_e(ui['refunds'])}</a> · <a href="/about">{_e(ui['about'])}</a></p>
+    <p><a href="/{LANGS[0]}/{HUB_SLUG}">{_e(ui['hub_link'])}</a> · <a href="/terms">{_e(ui['terms'])}</a> · <a href="/privacy">{_e(ui['privacy'])}</a> · <a href="/refunds">{_e(ui['refunds'])}</a> · <a href="/about">{_e(ui['about'])}</a></p>
     <p class="ld-small">{_e(ui['disclaimer'])}</p>
   </footer>
   {script}
