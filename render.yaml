@@ -92,6 +92,8 @@ services:
         sync: false
       - key: CLICK_SECRET_KEY
         sync: false
+      # Also set CLICK_MERCHANT_USER_ID (Click's merchant_user_id, for refunds from the admin page) in the Render
+      # dashboard. It is not listed here on purpose: a new secret in this file makes Render ask for its value at the sync.
       # Optional notifications (see DEPLOY.md 4.6).
       - key: RESEND_API_KEY
         sync: false

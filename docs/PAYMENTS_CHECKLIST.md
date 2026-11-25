@@ -4,8 +4,7 @@ Run this once before taking real money, and again after any change to `mockexam/
 the prices, or the Payme / Click cabinet settings. It takes about 30 minutes and costs one plan
 payment, which you refund at the end.
 
-What is sold: passes for 1 or 3 months (no automatic renewal): Full (all four papers), Speaking, Writing, and Listening + Reading; plus Writing and Speaking checks by an examiner. Passes are subscriptions: they renew every 1 or 3 months on the student's card until the student cancels. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): Full 79 000 / 199 000 so'm ($7.99 / $19.99), Speaking 49 000 / 119 000 ($5.99 / $14.99), Writing 39 000 / 99 000 ($4.99 / $11.99), Listening + Reading 29 000 / 69 000 ($3.99 / $9.99); checks 10 000 and 20 000 so'm. , a Writing check (10 000 so'm) and a Speaking check (20 000 so'm). Prices come from
-the env vars below, never from the browser.
+What is sold: passes for 1 or 3 months: Full (all four papers), Speaking, Writing, and Listening + Reading. A student pays by card in US dollars through Dodo (a subscription that renews every 1 or 3 months until the student cancels) or in so'm through Click (Uzcard and Humo: one payment that does not renew), and Payme works like Click. Examiner checks (Writing 10 000 so'm, Speaking 20 000 so'm) are sold only when `EXAMINER_CHECKS_ENABLED=1`. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): Full 79 000 / 199 000 so'm ($7.99 / $19.99), Speaking 49 000 / 119 000 ($5.99 / $14.99), Writing 39 000 / 99 000 ($4.99 / $11.99), Listening + Reading 29 000 / 69 000 ($3.99 / $9.99). Prices come from the server, never from the browser.
 
 ## 1. Environment variables (Render → the testday service → Environment)
 
@@ -24,17 +23,19 @@ the env vars below, never from the browser.
 | `PAYME_TEST` | Payme | `1` only while testing in the Payme sandbox. Remove it (or set `0`) for real money. |
 | `PAYME_ACCOUNT_FIELD` | Payme | Leave empty (`order_id`) unless the cabinet uses another account field name. |
 | `PAYME_IKPU`, `PAYME_PACKAGE_CODE` | Payme fiscal receipts | Set both to send receipt details (ИКПУ / package code). |
-| `CLICK_SERVICE_ID`, `CLICK_MERCHANT_ID`, `CLICK_SECRET_KEY` | Click | From the Click merchant cabinet. |
+| `CLICK_SERVICE_ID`, `CLICK_MERCHANT_ID`, `CLICK_SECRET_KEY` | Click | From Click (the message with your integration keys). Click shows on the Price page when all three are set. |
+| `CLICK_MERCHANT_USER_ID` | Click refunds | Also from Click (`MERCHANT_USER_ID`). Optional: it lets **Admin → Orders → Refund** return the money through Click's Merchant API. Without it the admin page tells you to return the money in the Click cabinet. Not listed in `render.yaml` on purpose (a new secret there makes Render ask for it at the next sync): add it in the Render dashboard. |
 
-A provider shows on the Prices page only when all of its variables are set.
+A provider shows on the Prices page only when all of its variables are set (for Click: the first three).
 
 ## 2. Cabinet settings
 
 - **Payme** business cabinet → the cash register (kassa) → endpoint URL:
   `https://www.testday.uz/api/pay/payme`. The login is `Paycom`; the password is `PAYME_KEY`.
-- **Click** merchant cabinet → the service → URLs:
+- **Click** merchant cabinet (merchant.click.uz) → *Сервисы* → the pencil in the *Действие* column → URLs:
   - Prepare: `https://www.testday.uz/api/pay/click/prepare`
   - Complete: `https://www.testday.uz/api/pay/click/complete`
+  - then ask Click to activate the service and to whitelist the server (section 8).
 - Use the **www** address. `testday.uz` without www answers with a redirect, and payment
   servers do not follow redirects for their callbacks, so a payment would never be confirmed.
 - Both must be HTTPS. No other URL is needed: the student is sent back to the site afterwards.
@@ -47,8 +48,8 @@ A provider shows on the Prices page only when all of its variables are set.
    CreateTransaction, PerformTransaction, CancelTransaction (before and after perform),
    CheckTransaction, GetStatement, wrong amount (-31001), unknown order (-31050) and wrong
    password (-32504).
-3. Click has no public sandbox. Ask Click support to run their test payments against your
-   service, or go straight to step 4 with a small real payment.
+3. Click has no public sandbox that we found. After you give Click the two URLs they switch the service
+   on; then go to step 4 with a small real payment and refund it (section 8).
 4. Put the production key back and remove `PAYME_TEST`, then redeploy.
 
 ## 4. One real purchase
@@ -72,12 +73,13 @@ Use a separate student account (not an admin email), on a phone, with mobile dat
 
 The **Refund** button in Admin → Orders takes back what the order bought: the pass days
 (later months move up, so no paid day is lost), or the examiner check while the examiner has
-not started. It does **not** send money anywhere. The money goes back through the provider:
+not started. For Dodo and Click it also asks the provider to give the money back; for Payme it
+does not, and says so. The money goes back through the provider:
 
 | Paid with | Send the money back | Then on the site |
 |---|---|---|
 | Payme | Payme cabinet → the transaction → Cancel (refund) | Nothing: Payme calls the site, and the order becomes Refunded automatically. |
-| Click | Click cabinet or Click support | Admin → Orders → Refund. |
+| Click | Nothing to do if `CLICK_MERCHANT_USER_ID` is set | Admin → Orders → Refund asks Click to reverse the payment (it looks the payment up by our order number, then reverses it), then takes the pass back. **Click returns a payment only in the month it was made** (one from last month only on the first day of this month), and Uzcard may refuse. If Click refuses, the admin page shows Click's reason and offers *Mark as refunded*, for when you returned the money by hand in the Click cabinet or with Click support. Without `CLICK_MERCHANT_USER_ID` the admin page tells you to return the money in the Click cabinet. |
 | Dodo (card, USD) | Nothing to do in Dodo | Admin → Orders → Refund asks Dodo to refund the card, then takes the pass back. A refund made in the Dodo dashboard reaches the site through the webhook (`refund.succeeded`). |
 
 Check after a refund:
@@ -98,7 +100,14 @@ was started; an examiner check until the examiner starts it.
 - a refund removes exactly what was bought, moves queued plan time up, and refuses a check
   that is already being marked;
 - paid tests and their audio open the moment an order is paid, and lock again the moment
-  it is refunded.
+  it is refunded;
+- Click: the payment link follows Click's documentation (amount as `N.NN`, order number as
+  `transaction_param`); Prepare and Complete over HTTP with the MD5 signature (wrong signature
+  -1, wrong amount -2, a Click number used for another order -8); Click's payment number is saved
+  at Complete; a payment that cannot be applied is logged as an error (which reaches Telegram);
+  the admin refund calls Click's Merchant API (`status_by_mti`, then `payment/reversal`) with the
+  `Auth` header, falls back to the saved number, keeps the order paid when Click refuses, and
+  never calls Click again for *Mark as refunded*.
 
 ## 7. Dodo Payments (card payments in US dollars)
 
@@ -125,3 +134,45 @@ from Dodo again and must be `succeeded`, in USD, for at least the order's amount
 metadata; a repeated webhook changes nothing twice (see `DodoTests` in `scripts/test_app.py`).
 
 How renewals work: every charge, the first and each renewal, calls the webhook. The first pays the order made at checkout; each renewal makes an order of its own and adds one period (30 or 90 days) to the pass, so a failed or cancelled renewal simply lets the pass run out. The student cancels in Account (the site asks Dodo to stop at the end of the period). A refund of one charge takes back that period only.
+
+## 8. Click (Uzcard and Humo, in so'm)
+
+A pass paid with Click is **one payment**: it opens the pass for the 1 or 3 months chosen and does not renew (a card
+payment through Dodo does). The first Full pass of one month paid this way comes with the extra free month, as with
+Payme. The site shows both ways of paying on the Price page and says which one renews.
+
+**What Click gives you:** the login of the merchant cabinet (merchant.click.uz) and, for the service, `SERVICE_ID`,
+`MERCHANT_ID`, `SECRET_KEY` and `MERCHANT_USER_ID`. Keep them out of chats and screenshots, and change the cabinet
+password at the first sign-in.
+
+1. **Render variables** (Environment tab of the `testday` service): `CLICK_SERVICE_ID`, `CLICK_MERCHANT_ID`,
+   `CLICK_SECRET_KEY` and `CLICK_MERCHANT_USER_ID`. Save: Render redeploys, and Click appears on the Price page.
+2. **Callback URLs** in the cabinet: Prepare `https://www.testday.uz/api/pay/click/prepare`, Complete
+   `https://www.testday.uz/api/pay/click/complete`. Use **www**: the address without www redirects, and Click does
+   not follow a redirect for a POST. Click calls them with `application/x-www-form-urlencoded`; the site answers JSON.
+3. **Ask Click to activate the service** (it is off by default) and to **whitelist the server** before the first real
+   payment: domain `www.testday.uz`, port 443 and its IP addresses (today 216.24.57.16 and 216.24.57.18; Render's are
+   shared and can change, so ask whether the domain is enough).
+4. **Fiscal receipts.** Click says fiscalization (the OFD API) is required only for a service that sells more than one
+   IKPU code. TestDay sells one kind of thing (access to an online practice platform), so one IKPU on the service is
+   enough and the site does not call the OFD API. Ask Click (or your accountant) which IKPU code applies and that it
+   is set on the service.
+5. **First payment.** From a second account, on a phone, buy the cheapest pass (Listening + Reading, 1 month, 29 000
+   so'm) with your own Uzcard or Humo card. Expected: you come back to the site, **Account** says the pass is active,
+   Admin → Orders shows the order **Paid** with provider `click`, and the Render log has no line starting
+   "Click payment ... cannot be applied".
+6. **Refund it** from Admin → Orders → Refund on the same day. Expected: the order says Refunded, the pass is gone, and
+   Click returns the money to the card (it can take a few banking days).
+
+What the site does for Click (`mockexam/billing.py`, `ClickApi`):
+- **Prepare** checks the signature (`md5(click_trans_id + service_id + SECRET_KEY + merchant_trans_id + amount + action +
+  sign_time)`), the service id, that the order exists and is unpaid, and that the amount is exactly the price; it stores
+  the Click transaction and answers its id. A repeated Prepare answers the same id.
+- **Complete** checks the signature (with `merchant_prepare_id`), then gives the pass and marks the order paid, once. A
+  repeat answers -4 (already paid). A Complete that carries an error from Click cancels the order (-9).
+- If Click has taken the money but the pass cannot be given (the order was cancelled in between, or the same order was
+  paid twice), the site answers Click with an error, **logs an error** (which also goes to the owner on Telegram) and the
+  money is returned from the Click cabinet or with Admin → Orders → Refund.
+
+Not built: paying by saved card (Click's `card_token`, for automatic renewals) and the OFD fiscal API. A local student
+who wants more time buys another pass when the first ends; the site emails a reminder 3 days before.

@@ -31,6 +31,25 @@
   const PASS_NAMES = Object.fromEntries(PASSES.map(([k, n]) => [k, n]));
   const MODULE_NAMES = { listening: "Listening", reading: "Reading", writing: "Writing", speaking: "Speaking" };
   const planPrice = (b, scope, months) => ((b.plans || {})[scope] || {})[String(months)];
+  /**
+   * How a pass can be paid: by card in US dollars (Dodo: it renews until the student cancels) and/or with a local method
+   * in so'm (Click, Payme: one payment, no renewal). `localOnly` means only so'm payments are switched on.
+   */
+  const payInfo = (b) => {
+    const providers = (b && b.providers) || [];
+    const cards = providers.includes("dodo") && ((b && b.cardPasses) || []).length > 0;
+    const local = providers.filter((p) => p === "click" || p === "payme").map((p) => (p === "click" ? "Click" : "Payme"));
+    return { cards, local, localOnly: !cards && local.length > 0, names: local.join(" or ") };
+  };
+  /** A pass price in the money people pay in: US dollars, or so'm when only local methods are on. */
+  const priceOf = (b, p) => (payInfo(b).localOnly ? money(p.uzs) : usd(p.usd));
+  /** One line on whether a pass renews, true for the ways of paying that are on. */
+  const renewalLine = (b) => {
+    const info = payInfo(b);
+    if (info.localOnly) return t("One payment for 1 or 3 months; buy again when it ends");
+    if (info.cards && info.local.length) return t("By card it renews until you cancel; with {methods} it is one payment", { methods: info.names });
+    return t("Renews every 1 or 3 months until you cancel; cancel any time in your account");
+  };
   const monthsText = (m) => (m === 1 ? "monthly" : `${m} months`);
   const longDate = (iso) => {
     const d = new Date(iso);
@@ -475,7 +494,7 @@
     const b = await billing().catch(() => null);
     const scope = test && ["speaking", "writing"].includes(test.module) ? test.module : test && ["listening", "reading"].includes(test.module) ? "lr" : "full";
     const plans = (b && b.plans) || {};
-    const price = plans[scope] ? money(plans[scope]["1"].uzs) : "";
+    const price = plans[scope] ? priceOf(b, plans[scope]["1"]) : "";
     const signedIn = Boolean(user());
     const name = test ? `${MODULE_NAMES[test.module] || test.module} · ${test.shortTitle}` : "";
     const ok = await U.modal({
@@ -485,7 +504,7 @@
           ${price ? t("A {pass} is {price} a month.", { pass: esc(PASS_NAMES[scope].toLowerCase()), price: esc(price) }) : ""} ${t("Tests marked Free need no pass.")}</p>
         <ul class="plan-points">
           <li>${t("Full results, answer explanations and listening transcripts")}</li>
-          <li>${t("Renews every 1 or 3 months until you cancel; cancel any time in your account")}</li>
+          <li>${esc(renewalLine(b))}</li>
           <li>${t("The Full pass opens all four papers and costs less than buying the parts")}</li>
         </ul>
         ${signedIn ? "" : `<p class="muted-text">${t("Already have the pass? Sign in to continue.")}</p>`}`,
@@ -506,13 +525,13 @@
         <div class="single-name"><strong>${esc(t(name.replace(" pass", "")))}</strong><span>${esc(t(what))}</span></div>
         <div class="single-buttons">${["1", "3"].map((m) => planPrice(b, key, m) ? `
           <button type="button" class="single-btn" data-scope="${key}" data-months="${m}">
-            <span>${m === "1" ? t("Monthly") : t("3 months")}</span><strong>${esc(usd(planPrice(b, key, m).usd))}</strong>
+            <span>${m === "1" ? t("Monthly") : t("3 months")}</span><strong>${esc(priceOf(b, planPrice(b, key, m)))}</strong>
           </button>` : "").join("")}</div>
       </div>`;
     return U.modal({
       title: t("Choose one paper"),
       bodyHTML: `<div class="single-list">${PASSES.filter(([k]) => k !== "full").map(row).join("")}</div>
-        <p class="muted-text small-text">${t("Renews until you cancel. Cancel any time in your account.")}</p>`,
+        <p class="muted-text small-text">${esc(renewalLine(b))}</p>`,
       buttons: [{ label: t("Cancel"), className: "btn-secondary", value: null }],
       onOpen: (root, close) => root.querySelectorAll("[data-scope]").forEach((btn) =>
         btn.addEventListener("click", () => close({ scope: btn.dataset.scope, months: Number(btn.dataset.months) }))),
@@ -522,8 +541,8 @@
   /** The payment methods for what is being bought: {title, uzs (so'm), usd (US cents or null), kind}. Resolves the method or null. */
   function chooseMethod(item, b) {
     const labels = {
-      payme: ["Payme", t("Pay with the Payme app or any Uzcard / Humo card")],
-      click: ["Click", t("Pay with the Click app or any Uzcard / Humo card")],
+      payme: ["Payme", t("Uzcard, Humo or the Payme app · one payment, no renewal")],
+      click: ["Click", t("Uzcard, Humo or the Click app · one payment, no renewal")],
       dodo: [t("Visa, Mastercard, Apple Pay, Google Pay"), t("Subscribe in US dollars; it renews until you cancel")],
     };
     const methods = b.providers.filter((p) => p !== "dodo" || (item.usd && (b.cardPasses || []).includes(item.cardKey)));
@@ -649,29 +668,38 @@
     const month = planPrice(b, "full", 1);
     const three = planPrice(b, "full", 3);
     if (!month || !three) { main.innerHTML = `<section class="page"><h1>${t("Price")}</h1></section>`; return; }
-    const local = (b.providers || []).some((p) => p === "payme" || p === "click");
-    const sum = month.usd * 3;                                   // what three monthly payments cost
-    const save = Math.round((1 - three.usd / sum) * 100);
+    const info = payInfo(b);
+    const inSoum = info.localOnly;                               // only so'm payments are on: prices are shown in so'm
+    const val = (p) => (inSoum ? p.uzs : p.usd);
+    const fmt = (n) => (inSoum ? money(n) : usd(n));
+    const sum = val(month) * 3;                                  // what three monthly payments cost
+    const save = Math.round((1 - val(three) / sum) * 100);
     const feats = [
       t("All 4 papers, {n} tests", { n: U.number(tests.length) }),
       t("AI marking for Speaking and Writing"),
       t("Explanations and listening transcripts"),
-      t("Cancel any time"),
+      inSoum ? t("One payment, no renewal") : t("Cancel any time"),
     ];
     const list = `<ul class="plan-list">${feats.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>`;
-    const soum = (p) => (local ? `<p class="plan-local">${t("or {price} with Payme or Click", { price: esc(money(p.uzs)) })}</p>` : "");
+    // Both ways of paying are on: the card price is the main one, and the so'm price (one payment) goes under it.
+    const soum = (p) => (info.cards && info.local.length
+      ? `<p class="plan-local">${t("or {price} with {methods} · one payment, no renewal", { price: esc(money(p.uzs)), methods: esc(info.names) })}</p>` : "");
+    const foot = inSoum ? t("Secure payment by {methods}. One payment, no renewal.", { methods: esc(info.names) })
+      : info.cards && info.local.length
+        ? t("Cards: secure payment by Dodo Payments, renews until you cancel. {methods}: one payment in so'm, no renewal.", { methods: esc(info.names) })
+        : t("Secure card payment by Dodo Payments. Renews until you cancel.");
     const act = (months, primary) => (selling
       ? `<button type="button" class="${primary ? "btn-primary" : "btn-secondary"} btn-lg plan-btn" data-action="buy-plan" data-scope="full" data-months="${months}">${t("Get Full pass")}</button>`
       : `<p class="muted-text">${t("Opening soon")}</p>`);
     main.innerHTML = `
       <section class="page plans-page">
         <h1>${t("Choose your plan")}</h1>
-        <p class="plans-sub">${t("Every test, AI marking and explanations. Cancel any time.")}</p>
+        <p class="plans-sub">${inSoum ? t("Every test, AI marking and explanations.") : t("Every test, AI marking and explanations. Cancel any time.")}</p>
         <div class="plan-cards">
           <article class="plan-card">
             <h2>${t("Monthly")}</h2>
-            <p class="plan-price"><span>${esc(usd(month.usd))}</span> <small>${t("/ month")}</small></p>
-            <p class="plan-per is-plain">${t("Pay month by month")}</p>
+            <p class="plan-price"><span>${esc(fmt(val(month)))}</span> <small>${inSoum ? t("/ 1 month") : t("/ month")}</small></p>
+            <p class="plan-per is-plain">${inSoum ? t("One payment, no renewal") : t("Pay month by month")}</p>
             ${soum(month)}
             ${act(1, false)}
             ${list}
@@ -679,15 +707,15 @@
           <article class="plan-card is-best">
             <span class="plan-badge">${t("Best value")} · ${t("Save {n}%", { n: save })}</span>
             <h2>${t("3 months")}</h2>
-            <p class="plan-price"><s>${esc(usd(sum))}</s> <span>${esc(usd(three.usd))}</span> <small>${t("/ 3 months")}</small></p>
-            <p class="plan-per">${t("Just {price} a month", { price: esc(usd(Math.round(three.usd / 3))) })}</p>
+            <p class="plan-price"><s>${esc(fmt(sum))}</s> <span>${esc(fmt(val(three)))}</span> <small>${t("/ 3 months")}</small></p>
+            <p class="plan-per">${t("Just {price} a month", { price: esc(fmt(Math.round(val(three) / 3))) })}</p>
             ${soum(three)}
             ${act(3, true)}
             ${list}
           </article>
         </div>
         ${selling ? `<p class="plans-alt"><button type="button" class="btn-link" data-action="single-pass">${t("Need only one paper? Choose Speaking, Writing or Listening and Reading")}</button></p>` : ""}
-        <p class="plans-foot">${t("Secure card payment by Dodo Payments. Renews until you cancel.")}
+        <p class="plans-foot">${foot}
           <a href="#/terms">${t("Terms of use")}</a> · <a href="#/refunds">${t("Refund policy")}</a></p>
       </section>`;
   }
@@ -1370,15 +1398,17 @@
           : `<p class="empty-inline">${emptyText}</p>`}</div>`;
       // One action on one row: the buttons answer at once ("Working…"), the row is redrawn from the server's answer, and
       // nothing else on the page reloads.
-      const orderAct = async (id, action, label, pressed) => {
+      const orderAct = async (id, action, label, pressed, payload = {}) => {
         const row = body.querySelector(`tr[data-row="${id}"]`);
         const buttons = row ? [...row.querySelectorAll("button")] : [];
         const was = pressed ? pressed.textContent : "";
         buttons.forEach((x) => { x.disabled = true; });
         if (pressed) pressed.textContent = "Working…";
         try {
-          const res = await U.api(`/api/admin/orders/${id}/${action}`, { method: "POST", body: "{}" });
+          const res = await U.api(`/api/admin/orders/${id}/${action}`, { method: "POST", body: JSON.stringify(payload) });
           U.toast(label);
+          // The money could not be returned from here (Payme, or Click without its Merchant API user): say what to do.
+          if (res.note) U.modal({ title: "Return the money yourself", bodyHTML: `<p>${esc(res.note)}</p>` });
           refreshMe().then(() => {   // the counts in the menu and on the tab, in the background
             const link = main.querySelector('a[href="#/admin?tab=payments"]');
             if (link) link.textContent = paymentsLabel();
@@ -1395,6 +1425,13 @@
         } catch (err) {
           buttons.forEach((x) => { x.disabled = false; });
           if (pressed) pressed.textContent = was;
+          if (action === "refund" && err.code === "provider_refund_failed") {
+            // Click refused (or could not be asked). If the money was returned in the Click cabinet, the order can be marked.
+            const manual = await U.modal({ title: "Click could not return the money", bodyHTML: `<p>${esc(err.message)}</p>`,
+              buttons: [{ label: "Close", className: "btn-secondary", value: false }, { label: "Mark as refunded", className: "btn-danger", value: true }] });
+            if (manual) orderAct(id, action, label, pressed, { manual: true });
+            return;
+          }
           U.toast(err.message, "warn");
         }
       };
@@ -1404,7 +1441,7 @@
         if (btn.dataset.confirm) orderAct(Number(btn.dataset.confirm), "confirm", "Payment confirmed.", btn);
         else if (btn.dataset.cancel) orderAct(Number(btn.dataset.cancel), "cancel", "Order cancelled.", btn);
         else if (btn.dataset.refund) {
-          const ok = await U.modal({ title: "Refund this order?", bodyHTML: "<p>The pass time or the examiner check is removed. A card payment through Dodo is refunded to the customer's card automatically; for any other payment, return the money yourself.</p>",
+          const ok = await U.modal({ title: "Refund this order?", bodyHTML: "<p>The pass time or the examiner check is removed, and the money goes back to the customer's card automatically for a payment through Dodo or Click (Click returns a payment only in the month it was made). For any other payment, return the money yourself.</p>",
             buttons: [{ label: "No", className: "btn-secondary", value: false }, { label: "Refund", className: "btn-danger", value: true }] });
           if (ok) orderAct(Number(btn.dataset.refund), "refund", "Order refunded.", btn);
         }

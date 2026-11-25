@@ -447,6 +447,7 @@
       if (this.prices) return;
       try {
         const b = await Account.billing();
+        this.billingConfig = b;   // which payment methods are on: the legal pages describe them
         this.prices = b.prices || null;
         this.plans = b.plans || null;
         this.aiCaps = b.aiCaps || null;
@@ -1171,6 +1172,17 @@
       const caps = this.aiCaps || { speaking: 12, writing: 20 };
       const price = (n) => (n ? esc(U.money(n)) : "…");
       const commerce = this.checks();   // "commerce" here means: examiner checks are offered (passes are described either way)
+      // The ways of paying that are on: Dodo (cards, US dollars) and/or Click or Payme (so'm, one payment). Until the
+      // server has answered (or while nothing is for sale) the pages describe card payments only.
+      const billing = this.billingConfig || {};
+      const providers = billing.providers || [];
+      const local = providers.filter((x) => x === "click" || x === "payme").map((x) => (x === "click" ? "Click" : "Payme")).join(" or ");
+      const cards = !providers.length || providers.includes("dodo");
+      const payNote = [cards ? t("Dodo Payments (cards, in US dollars; it receives your name and email address to take the payment and send a receipt)") : "",
+        ...providers.filter((x) => x === "click" || x === "payme").map((x) => (x === "click" ? t("Click (Uzcard and Humo, in so‘m)") : t("Payme (Uzcard and Humo, in so‘m)")))]
+        .filter(Boolean).join(" and ");
+      const partners = [cards ? t("Dodo Payments") : "", ...providers.filter((x) => x === "click" || x === "payme").map((x) => (x === "click" ? "Click" : "Payme"))]
+        .filter(Boolean).join(" and ");
       const v = (key) => (commerce ? key : `${key}.free`); // the wording for a site that does not sell examiner checks yet
       // Passes are described (and priced) before they go on sale; examiner checks only once they are.
       const section = (key, vars, bodyKey = key) => `<h2>${t(`${key}.h`, { name })}</h2><p>${t(bodyKey, { name, ...vars })}</p>`;
@@ -1179,9 +1191,12 @@
           <p class="lead-text">${t(commerce ? "terms.lead" : "terms.lead.pass", { name })}</p>
           ${section("terms.service")}
           ${section("terms.account", {}, "terms.account")}
-          ${section("terms.pass", { full: price(plans.full && plans.full["1"].uzs), speakingCap: caps.speaking, writingCap: caps.writing })}
+          ${section("terms.pass", {
+            full: price(plans.full && plans.full["1"].uzs), speakingCap: caps.speaking, writingCap: caps.writing,
+            localNote: local && cards ? t("terms.pass.local", { methods: esc(local) }) : "",
+          }, local && !cards ? "terms.pass.once" : "terms.pass")}
           ${commerce ? section("terms.checks", { writing: price(p.writing_check), speaking: price(p.speaking_check) }) : ""}
-          ${section("terms.payment")}
+          ${section("terms.payment", { methods: esc(local) }, !local ? "terms.payment" : cards ? "terms.payment.both" : "terms.payment.local")}
           ${section("terms.refunds")}
           ${section("terms.use", {}, v("terms.use"))}
           ${section("terms.work", { days }, v("terms.work"))}
@@ -1195,15 +1210,15 @@
             <li>${t("about.privacy.1")}</li>
             <li>${t(v("about.privacy.2"))}</li>
             <li>${t(v("about.privacy.3"), { days })}</li>
-            ${commerce ? `<li>${t("about.privacy.4")}</li>
-            <li>${t("about.privacy.5")}</li>` : ""}
+            ${commerce ? `<li>${t("about.privacy.4")}</li>` : ""}
+            ${this.commerce() ? `<li>${t("about.privacy.5", { partners })}</li>` : ""}
             ${this.config.aiMarking ? `<li>${t("about.privacy.ai")}</li>` : ""}
             <li>${t(v("privacy.analytics"))}</li>
             <li>${t("privacy.feedback")}</li>
             <li>${t("about.privacy.6")}</li>
             <li>${t("privacy.cookies")}</li>
           </ul>
-          <h2>${t("privacy.where.h")}</h2><p>${t(v("privacy.where"))}</p>
+          <h2>${t("privacy.where.h")}</h2><p>${t(v("privacy.where"), { payments: this.commerce() ? t("privacy.payments", { partners: payNote }) : "" })}</p>
           <h2>${t("privacy.keep.h")}</h2><p>${t(v("privacy.keep"), { days })}</p>
           <h2>${t("privacy.rights.h")}</h2><p>${t(v("privacy.rights"), { contact })}</p>
           <p>${t("privacy.children", { name })}</p>`],
@@ -1224,9 +1239,10 @@
           <p class="legal-contact">${t("legal.contact", { contact })}</p>
           <p class="muted-text small-text">${t("about.independent", { name })}</p>
         </section>`;
-      // The terms quote the prices; draw again once they arrive (only if they did, so a failure cannot loop).
-      if (!this.prices && page === "terms") {
-        this.loadPrices().then(() => { if (this.prices && location.hash === "#/terms") this.renderLegal(page); });
+      // The terms quote the prices and every page names the ways of paying: draw again once the server has said (only
+      // if it did, so a failure cannot loop).
+      if (!this.billingConfig) {
+        this.loadPrices().then(() => { if (this.billingConfig && location.hash === `#/${page}`) this.renderLegal(page); });
       }
     }
 

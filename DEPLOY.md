@@ -149,12 +149,12 @@ The site offers every payment method that is configured:
   - In the cash desk settings, set the endpoint to `https://ielts-mock-exam.onrender.com/api/pay/payme` and the account field to `order_id`.
   - Put the cash desk ID in `PAYME_MERCHANT_ID` and the key in `PAYME_KEY`. For testing, use the test key with `PAYME_TEST=1`, and run Payme's sandbox tests before going live.
   - If Payme asks for fiscal receipt details, add your MXIK code in `PAYME_IKPU` and the package code in `PAYME_PACKAGE_CODE`.
-- **Click**:
-  - Register a service at <https://merchant.click.uz>.
-  - Set the *Prepare URL* to `https://ielts-mock-exam.onrender.com/api/pay/click/prepare` and the *Complete URL* to `…/api/pay/click/complete`.
-  - Put the service ID, merchant ID and secret key in `CLICK_SERVICE_ID`, `CLICK_MERCHANT_ID` and `CLICK_SECRET_KEY`.
+- **Click** (Uzcard and Humo, in so'm; one payment per pass, no renewal): see docs/PAYMENTS_CHECKLIST.md, section 8.
+  - Click gives you a cabinet login (merchant.click.uz) and the keys of your service.
+  - In the cabinet set the *Prepare URL* to `https://www.testday.uz/api/pay/click/prepare` and the *Complete URL* to `https://www.testday.uz/api/pay/click/complete` (with **www**), then ask Click to activate the service and to whitelist the server.
+  - Put the service ID, merchant ID and secret key in `CLICK_SERVICE_ID`, `CLICK_MERCHANT_ID` and `CLICK_SECRET_KEY`, and the merchant user ID in `CLICK_MERCHANT_USER_ID` (it lets the admin page return money through Click).
 
-Payments are idempotent: a repeated callback never grants the plan or a check twice. A Payme or Click cancellation of a paid order refunds it automatically (it removes the plan time or cancels a check that has not started). Admins can also refund from the Admin page.
+Payments are idempotent: a repeated callback never grants the plan or a check twice. A Payme cancellation of a paid order refunds it automatically (it removes the plan time or cancels a check that has not started). Admins can also refund from the Admin page: for Dodo and Click the money goes back through the provider (Click needs `CLICK_MERCHANT_USER_ID`).
 
 ### 4.4 Examiners
 
