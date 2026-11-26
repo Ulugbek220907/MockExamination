@@ -619,3 +619,12 @@ create index if not exists orders_external_idx on public.orders (external_id) wh
 alter table public.subscription_periods add column if not exists scope text not null default 'full';
 alter table public.subscription_periods drop constraint if exists subscription_periods_scope_check;
 alter table public.subscription_periods add constraint subscription_periods_scope_check check (scope in ('full', 'speaking', 'writing', 'lr'));
+
+-- ============================================================================
+-- Telegram (@testdayuzbot): a student can connect their Telegram account to get results and reminders there.
+-- Safe to run again. Run it before (or right after) the version of the site with the Telegram bots.
+--   profiles.telegram_id   the student's Telegram user id, set when they connect from the Account page
+-- ============================================================================
+
+alter table public.profiles add column if not exists telegram_id bigint;
+create unique index if not exists profiles_telegram_idx on public.profiles (telegram_id) where telegram_id is not null;

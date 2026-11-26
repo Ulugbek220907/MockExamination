@@ -58,7 +58,7 @@ os.environ["ADMIN_STATS_SECONDS"] = "0"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import accounts, ai_safety, ai_usage, analytics, api, auth, guard, billing, checks, content, dodo, google_signin, notify, scoring, speaking, speaking_adaptive, speaking_ai, storage, web, writing  # noqa: E402
+from mockexam import accounts, ai_safety, ai_usage, analytics, api, auth, guard, telegram_bot, telegram_widgets, billing, checks, content, dodo, google_signin, notify, scoring, speaking, speaking_adaptive, speaking_ai, storage, web, writing  # noqa: E402
 from mockexam.db import SqliteDb, iso, now, parse_time  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
@@ -3450,6 +3450,159 @@ class AttackClaimsTests(AccountApiBase):
             r = self.fetch(path)
             self.assertNotIn(b"import ", r.body, path)
             self.assertNotIn(b"SESSION_SECRET", r.body, path)
+
+
+class TelegramTests(AccountApiBase):
+    """@testdayuzbot and @testdaysupportbot (mockexam/telegram_bot.py), with Telegram's API replaced by a recorder."""
+
+    ENV = {"TELEGRAM_STUDENT_BOT_TOKEN": "111:student", "TELEGRAM_SUPPORT_BOT_TOKEN": "222:support",
+           "TELEGRAM_ADMIN_CHAT_ID": "900"}
+
+    def setUp(self):
+        super().setUp()
+        self.calls = []
+        self.next_id = 1000
+
+        def fake(bot, method, payload=None, timeout=10):
+            self.calls.append((bot, method, payload or {}))
+            self.next_id += 1
+            return {"message_id": self.next_id}
+        for patcher in (mock.patch.dict(os.environ, self.ENV), mock.patch.object(telegram_bot, "call", fake)):
+            patcher.start()
+            self.addCleanup(patcher.stop)
+        telegram_bot._columns_cache.clear()
+
+    def hook(self, bot, update, secret=None):
+        return self.fetch(f"/api/telegram/hook/{bot}", method="POST", body=json.dumps(update),
+                          headers={"Content-Type": "application/json",
+                                   "X-Telegram-Bot-Api-Secret-Token": secret if secret is not None else telegram_bot.webhook_secret()})
+
+    def said(self, method):
+        return [p for b, m, p in self.calls if m == method]
+
+    def message(self, chat_id, text, lang="uz", **extra):
+        return {"update_id": 1, "message": {"message_id": 5, "chat": {"id": chat_id, "type": "private"},
+                                            "from": {"id": chat_id, "first_name": "Ali", "language_code": lang}, "text": text, **extra}}
+
+    def test_link_codes(self):
+        uid = str(uuid.uuid4())
+        code = telegram_bot.link_code(uid)
+        self.assertLessEqual(len(code), 64)
+        self.assertRegex(code, r"^[A-Za-z0-9_-]+$")
+        self.assertEqual(telegram_bot.user_from_code(code), uid)
+        broken = code[:-2] + ("AA" if code[-2:] != "AA" else "BB")
+        self.assertIsNone(telegram_bot.user_from_code(broken))
+        self.assertIsNone(telegram_bot.user_from_code(telegram_bot.link_code(uid, at=time.time() - 3 * 86400)))
+        self.assertIsNone(telegram_bot.user_from_code("../../etc"))
+
+    def test_webhook_needs_the_secret(self):
+        self.assertEqual(self.hook("student", self.message(5, "/start"), secret="wrong").code, 403)
+        self.assertEqual(self.hook("student", self.message(5, "/start"), secret="").code, 403)
+        self.assertEqual(self.hook("student", self.message(5, "/start")).code, 200)
+        self.assertEqual(self.said("sendMessage")[-1]["chat_id"], 5)
+
+    def test_connect_from_the_site_then_results_card(self):
+        cookie, data = self.login("tg.student@example.com")
+        self.assertTrue(data["user"]["telegram"]["available"])
+        self.assertFalse(data["user"]["telegram"]["connected"])
+        r, body = self.call("POST", "/api/telegram/link", {}, cookie=cookie)
+        self.assertTrue(body["url"].startswith("https://t.me/testdayuzbot?start="))
+        code = body["url"].split("start=")[1]
+        self.assertEqual(self.hook("student", self.message(4242, f"/start {code}")).code, 200)
+        self.assertTrue(self.call("GET", "/api/me", cookie=cookie)[1]["user"]["telegram"]["connected"])
+        widget = self.said("sendWidget")[-1]
+        self.assertTrue(widget["allow_queries"])
+        state = json.loads(widget["chat_data"])
+        self.assertEqual(set(state["b"]), {"l", "r", "w", "s"})
+        # The card asks for fresh numbers: the bot answers and updates the card.
+        self.hook("student", {"update_id": 2, "widget_query": {"id": "q1", "from": {"id": 4242}, "chat": {"id": 4242, "type": "private"},
+                                                               "message_id": 77, "chat_instance": "x", "data": "r"}})
+        answer = self.said("answerWidgetQuery")[-1]
+        self.assertEqual(answer["widget_query_id"], "q1")
+        self.assertIn('"b":', answer["data"])
+        self.assertEqual(self.said("editMessageWidgetData")[-1]["message_id"], 77)
+        # A stranger's card gets an empty answer, never someone else's numbers.
+        self.hook("student", {"update_id": 3, "widget_query": {"id": "q2", "from": {"id": 7}, "chat": {"id": 7, "type": "private"},
+                                                               "message_id": 78, "chat_instance": "y", "data": "r"}})
+        self.assertNotIn("data", self.said("answerWidgetQuery")[-1])
+        # Disconnect from the site.
+        self.call("DELETE", "/api/telegram/link", {}, cookie=cookie)
+        self.assertFalse(self.call("GET", "/api/me", cookie=cookie)[1]["user"]["telegram"]["connected"])
+
+    def test_a_bad_link_code_connects_nothing(self):
+        self.hook("student", self.message(31, "/start not-a-real-code", lang="ru"))
+        self.assertIn("Ссылка устарела", self.said("sendMessage")[-1]["text"])
+        self.assertEqual(server.STORE.db.select("profiles", {"telegram_id": 31}), [])
+
+    def test_calculator_and_menu(self):
+        self.hook("student", self.message(55, "/calc", lang="en"))
+        html_sent = self.said("sendWidget")[-1]["html"]
+        self.assertIn("IELTS band calculator", html_sent)
+        self.hook("student", {"update_id": 9, "callback_query": {"id": "c1", "from": {"id": 55, "language_code": "uz"},
+                                                                 "message": {"chat": {"id": 55}}, "data": "calc"}})
+        self.assertEqual(self.said("answerCallbackQuery")[-1]["callback_query_id"], "c1")
+        self.assertIn("kalkulyator", self.said("sendWidget")[-1]["html"])
+
+    def test_widgets_fit_telegrams_limits(self):
+        import zlib
+        for lang in ("uz", "ru", "en"):
+            for html_text in (telegram_widgets.calculator_html(lang), telegram_widgets.progress_html(lang)):
+                raw = html_text.encode("utf-8")
+                self.assertLessEqual(len(raw), 32768)
+                self.assertLessEqual(len(zlib.compress(raw, 9)), 4096)
+                self.assertNotIn("<input", html_text)          # widgets have no text boxes
+                self.assertNotIn("fetch(", html_text)          # and no network
+        state = telegram_widgets.progress_state({"name": "Ali " * 30, "target_band": 7, "exam_date": "2026-12-01"},
+                                                [{"module": m, "band": 6.5} for m in ("listening", "reading", "writing", "speaking")] * 50,
+                                                datetime.date(2026, 11, 26))
+        self.assertLessEqual(len(state.encode()), 1024)
+        self.assertEqual(json.loads(state)["o"], 6.5)
+        self.assertEqual(json.loads(state)["d"], 5)
+
+    def test_support_relay_both_ways(self):
+        self.hook("support", self.message(333, "Click to'lovi o'tmadi", first=True))
+        header = next(p for p in self.said("sendMessage") if p["chat_id"] == 900)
+        self.assertIn("#u333", header["text"])
+        self.assertEqual(self.said("copyMessage")[-1], {"chat_id": 900, "from_chat_id": 333, "message_id": 5})
+        self.assertTrue(any(p["chat_id"] == 333 and "Rahmat" in p["text"] for p in self.said("sendMessage")))
+        # The owner replies to the header line: the reply is copied to the student.
+        reply = self.message(900, "Assalomu alaykum, tekshiramiz")
+        reply["message"]["reply_to_message"] = {"message_id": 999999, "text": header["text"]}
+        self.hook("support", reply)
+        self.assertEqual(self.said("copyMessage")[-1]["chat_id"], 333)
+        # The owner writes without replying: told how to answer, nothing sent to anyone else.
+        before = len(self.said("copyMessage"))
+        self.hook("support", self.message(900, "hello?"))
+        self.assertEqual(len(self.said("copyMessage")), before)
+
+    def test_messages_to_a_connected_student(self):
+        db = server.STORE.db
+        student = _profile(db, "tg.notify@example.com")
+        telegram_bot.connect(db, student["id"], 777)
+        telegram_bot.speaking_result_ready(db, {"id": 12, "user_id": student["id"]}, {"overallBand": 6.5})
+        sent = self.said("sendMessage")[-1]
+        self.assertEqual(sent["chat_id"], 777)
+        self.assertIn("6.5", sent["text"])
+        telegram_bot.pass_ending(db, student["id"], "2026-12-01T00:00:00+00:00")
+        self.assertIn("2026-12-01", self.said("sendMessage")[-1]["text"])
+        db.update("profiles", {"id": student["id"]}, {"exam_date": "2026-12-03"})
+        telegram_bot._reminded.clear()
+        at = datetime.datetime(2026, 11, 26, 4, 10, tzinfo=datetime.timezone.utc)   # 9:10 in Tashkent
+        self.assertEqual(telegram_bot.exam_reminders(db, at), 1)
+        self.assertEqual(telegram_bot.exam_reminders(db, at), 0)                     # once
+        self.assertEqual(telegram_bot.exam_reminders(db, at.replace(hour=10)), 0)    # only at 9 in the morning
+        # A student who blocked the bot is disconnected.
+        def blocked(bot, method, payload=None, timeout=10):
+            raise telegram_bot.TelegramError("Forbidden: bot was blocked by the user", 403)
+        with mock.patch.object(telegram_bot, "call", blocked):
+            self.assertFalse(telegram_bot.notify(db, student["id"], "exam_1"))
+        self.assertIsNone(db.select("profiles", {"id": student["id"]})[0].get("telegram_id"))
+
+    def test_without_tokens_nothing_is_offered(self):
+        with mock.patch.dict(os.environ, {"TELEGRAM_STUDENT_BOT_TOKEN": ""}):
+            cookie, data = self.login("tg.off@example.com")
+            self.assertFalse(data["user"]["telegram"]["available"])
+            self.assertEqual(self.call("POST", "/api/telegram/link", {}, cookie=cookie)[0].code, 503)
 
 
 class GuardTests(AccountApiBase):

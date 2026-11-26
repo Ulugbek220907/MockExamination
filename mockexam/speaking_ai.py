@@ -648,6 +648,10 @@ def collect_answers(test, recordings, only=None):
     return answers
 
 
+# Called with (db, submission, result) once a test is rated; server.py adds the Telegram message.
+RESULT_HOOKS = []
+
+
 def review(db, files, store, submission_id):
     """Rate one finished AI-examiner test. Runs in a background thread; never raises."""
     started = time.monotonic()
@@ -734,6 +738,11 @@ def review(db, files, store, submission_id):
         }
         _save(db, submission_id, result)
         log.info("Speaking AI: submission %s rated %.1f in %ds", submission_id, assessment["overallBand"], result["seconds"])
+        for hook in RESULT_HOOKS:   # e.g. the Telegram bot tells the student
+            try:
+                hook(db, sub, result)
+            except Exception:  # noqa: BLE001
+                log.exception("A Speaking result hook failed")
     except Exception as e:
         if isinstance(e, (ai.AiError, ReviewError)):
             message = str(e)

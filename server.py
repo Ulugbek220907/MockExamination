@@ -66,7 +66,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, ai, ai_safety, ai_usage, analytics, guard, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, seo, speaking, speaking_adaptive, speaking_ai, storage, writing  # noqa: E402
+from mockexam import accounts, ai, ai_safety, ai_usage, analytics, guard, telegram_bot, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, seo, speaking, speaking_adaptive, speaking_ai, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -1005,6 +1005,7 @@ class AudioHandler(StaticHandler):
 
 
 def make_app():
+    telegram_bot.set_server_secret(cookie_secret())   # the bots' webhook secret and link codes derive from it
     return tornado.web.Application(
         [
             (r"/api/health", HealthHandler),
@@ -1052,12 +1053,26 @@ async def clean_up_recordings():
         log.exception("Speaking clean-up failed")
 
 
+def _pass_ending(db, user_id, ends_at):
+    """A pass ends soon: email, and Telegram if the student connected it."""
+    if notify.email_enabled():
+        notify.plan_ending(db, user_id, ends_at)
+    telegram_bot.pass_ending(db, user_id, ends_at)
+
+
 async def send_plan_reminders():
-    """Emails students whose pass ends within 3 days (see accounts.send_plan_reminders); runs every hour."""
-    if not notify.email_enabled():
+    """Tells students whose pass ends within 3 days (see accounts.send_plan_reminders); runs every hour."""
+    if not notify.email_enabled() and not telegram_bot.configured("student"):
         return
+    if telegram_bot.configured("student"):
+        try:
+            sent = await in_thread(telegram_bot.exam_reminders, STORE.db)
+            if sent:
+                log.info("Sent %d exam reminders on Telegram", sent)
+        except Exception:
+            log.exception("Exam reminders failed")
     try:
-        sent = await in_thread(accounts.send_plan_reminders, STORE.db, notify.plan_ending)
+        sent = await in_thread(accounts.send_plan_reminders, STORE.db, _pass_ending)
         if sent:
             log.info("Sent %d pass reminders", sent)
     except Exception:
@@ -1112,6 +1127,10 @@ def main():
     loop.call_later(60, clean_up_recordings)
     tornado.ioloop.PeriodicCallback(clean_up_recordings, 6 * 3600 * 1000).start()
     loop.call_later(120, send_plan_reminders)
+    # Point the Telegram bots at this server (safe to repeat; does nothing without their tokens).
+    speaking_ai.RESULT_HOOKS.append(telegram_bot.speaking_result_ready)
+    if telegram_bot.configured("student") or telegram_bot.configured("support"):
+        loop.call_later(20, lambda: loop.run_in_executor(None, telegram_bot.setup, PUBLIC_URL))
     tornado.ioloop.PeriodicCallback(send_plan_reminders, 3600 * 1000).start()
     loop.start()
 
