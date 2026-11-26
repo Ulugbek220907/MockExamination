@@ -2432,6 +2432,47 @@ class ClickTests(unittest.TestCase):
         self.assertEqual(self.api.complete(self.form(1, 999))["error"], -6)
 
 
+class PaymeReceiptTests(unittest.TestCase):
+    """The fiscal receipt Payme passes to the tax office: the `detail` object of CheckPerformTransaction."""
+
+    def setUp(self):
+        self.db, self.uid, _ = _db_with_order()
+        self.api = billing.PaymeApi(self.db, key="secret-key")
+
+    def check(self, order):
+        return _payme(self.api, "CheckPerformTransaction", {"amount": order["amount"] * 100,
+                                                            "account": {"order_id": str(order["id"])}})["result"]
+
+    def test_no_detail_until_the_codes_are_set(self):
+        order = billing.create_order(self.db, self.uid, "plan", scope="speaking", months=1)
+        with mock.patch.dict(billing.PAYME, {"ikpu": "", "package_code": ""}):
+            self.assertEqual(self.check(order), {"allow": True})
+
+    def test_detail_names_the_pass_and_carries_the_codes(self):
+        order = billing.create_order(self.db, self.uid, "plan", scope="speaking", months=1)
+        with mock.patch.dict(billing.PAYME, {"ikpu": "10305008003000000", "package_code": "1514296", "vat_percent": "0", "units": ""}):
+            detail = self.check(order)["detail"]
+        self.assertEqual(detail["receipt_type"], 0)
+        item = detail["items"][0]
+        self.assertEqual(item, {"title": "TestDay: IELTS tayyorgarlik, Speaking (1 oy)", "price": 5900000, "count": 1,
+                                "code": "10305008003000000", "package_code": "1514296", "vat_percent": 0})
+        full = billing.create_order(self.db, _profile(self.db, "receipt.full@example.com")["id"], "plan", scope="full", months=1)
+        with mock.patch.dict(billing.PAYME, {"ikpu": "1", "package_code": "2", "vat_percent": "12", "units": "1501"}):
+            item = self.check(full)["detail"]["items"][0]
+        self.assertEqual((item["vat_percent"], item["units"], item["price"]), (12, 1501, 7900000))
+        self.assertIn("barcha bo'limlar", item["title"])
+
+    def test_the_payment_link_follows_the_get_method(self):
+        order = billing.create_order(self.db, self.uid, "plan", scope="lr", months=1)
+        with mock.patch.dict(billing.PAYME, {"merchant_id": "587f72c72cac0d162c722ae2", "key": "k", "test": False}), \
+                mock.patch.object(billing, "providers", lambda: ["payme"]):
+            res = billing.checkout(order, "payme", "https://www.testday.uz/#/account?paid=1")
+        url = res["redirect"]
+        self.assertTrue(url.startswith("https://checkout.paycom.uz/"))
+        params = base64.b64decode(url.rsplit("/", 1)[1]).decode()
+        self.assertEqual(params.split(";")[:3], ["m=587f72c72cac0d162c722ae2", f"ac.order_id={order['id']}", f"a={39000 * 100}"])
+
+
 class PaymentHardeningTests(unittest.TestCase):
     """Replayed callbacks change nothing twice; refunds take back exactly what was bought."""
 

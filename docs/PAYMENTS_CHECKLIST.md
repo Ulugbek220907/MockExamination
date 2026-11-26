@@ -22,7 +22,8 @@ What is sold: monthly passes: All-in-one (all four papers), Speaking, Writing, a
 | `PAYME_MERCHANT_ID`, `PAYME_KEY` | Payme | From the Payme business cabinet. `PAYME_KEY` is the **production** key. |
 | `PAYME_TEST` | Payme | `1` only while testing in the Payme sandbox. Remove it (or set `0`) for real money. |
 | `PAYME_ACCOUNT_FIELD` | Payme | Leave empty (`order_id`) unless the cabinet uses another account field name. |
-| `PAYME_IKPU`, `PAYME_PACKAGE_CODE` | Payme fiscal receipts | Set both to send receipt details (ИКПУ / package code). |
+| `PAYME_IKPU`, `PAYME_PACKAGE_CODE` | Payme fiscal receipts | The MXIK (ИКПУ) code of the service and its package code, from tasnif.soliq.uz (section 9). Without them Payme receives no `detail`, and the receipts do not reach the tax turnover. |
+| `PAYME_VAT_PERCENT`, `PAYME_UNITS` | Payme fiscal receipts | VAT on the receipt: `0` for a business on turnover tax (ask the accountant); `PAYME_UNITS` only if the MXIK entry lists a unit code. |
 | `CLICK_SERVICE_ID`, `CLICK_MERCHANT_ID`, `CLICK_SECRET_KEY` | Click | From Click (the message with your integration keys). Click shows on the Price page when all three are set. |
 | `CLICK_MERCHANT_USER_ID` | Click refunds | Also from Click (`MERCHANT_USER_ID`). Optional: it lets **Admin → Orders → Refund** return the money through Click's Merchant API. Without it the admin page tells you to return the money in the Click cabinet. Not listed in `render.yaml` on purpose (a new secret there makes Render ask for it at the next sync): add it in the Render dashboard. |
 
@@ -218,3 +219,26 @@ What the site does for Click (`mockexam/billing.py`, `ClickApi`):
 
 Not built: paying by saved card (Click's `card_token`, for automatic renewals) and the OFD fiscal API. A local student
 who wants more time buys another pass when the first ends; the site emails a reminder 3 days before.
+
+## 9. Payme (Merchant API) and the fiscal receipt
+
+What Payme needs, from their specialist (26 November 2026), and where it is in the site:
+
+| Payme asks for | In the site |
+|---|---|
+| Merchant API methods CheckPerformTransaction, CreateTransaction, PerformTransaction, CancelTransaction, CheckTransaction, GetStatement | `billing.PaymeApi`, at `https://www.testday.uz/api/pay/payme` (login `Paycom`, password `PAYME_KEY`); tested against the protocol in `PaymeTests` |
+| The payment page ("chek yaratish"), GET or POST | GET: `https://checkout.paycom.uz/` + base64 of `m=<merchant id>;ac.order_id=<order>;a=<amount in tiyin>;c=<return address>;l=uz` (`billing.checkout`). POST is not needed. |
+| PerformTransaction confirms the payment | the pass opens at that moment, once, however many times Payme repeats it |
+| `detail` in the CheckPerformTransaction answer, so receipts reach the tax turnover: `title`, `price` (tiyin), `count`, `code` (MXIK), `package_code`, `vat_percent` | `billing.payme_receipt`: the title names the pass in Uzbek ("TestDay: IELTS tayyorgarlik, Speaking (1 oy)"), the price is the order's, count 1, and the codes come from `PAYME_IKPU`, `PAYME_PACKAGE_CODE`, `PAYME_VAT_PERCENT` (and `PAYME_UNITS` if needed) |
+
+Steps for the owner:
+
+1. **Choose the MXIK code with the accountant** on tasnif.soliq.uz (search education services, for example
+   "ta'lim xizmatlari" / "masofaviy ta'lim" / "o'quv kurslari"). Open the code: its page
+   (`https://tasnif.soliq.uz/attribute/<MXIK code>`) lists the package code (o'lchov birligi / упаковка) tied to it.
+   The same code is needed for Click receipts later. Do not guess it: a wrong code on tax receipts is worse than none.
+2. On Render set `PAYME_MERCHANT_ID`, the **test** `PAYME_KEY`, `PAYME_TEST=1`, `PAYME_IKPU`, `PAYME_PACKAGE_CODE` and
+   `PAYME_VAT_PERCENT` (0 unless the business pays VAT).
+3. In the Payme business cabinet set the endpoint `https://www.testday.uz/api/pay/payme` and the account field
+   `order_id`, then run all of Payme's sandbox checks (section 3).
+4. Put the production key, remove `PAYME_TEST`, redeploy, and make one small real purchase and a refund (section 4).

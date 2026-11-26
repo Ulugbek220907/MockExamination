@@ -73,9 +73,46 @@ PAYME = {
     "key": os.environ.get("PAYME_KEY", "").strip(),
     "test": os.environ.get("PAYME_TEST", "0") == "1",
     "account_field": os.environ.get("PAYME_ACCOUNT_FIELD", "order_id").strip() or "order_id",
+    # The fiscal receipt (Payme sends it to the tax office's turnover): the MXIK (ИКПУ) code of the service and the
+    # package code tied to it (both from tasnif.soliq.uz), the VAT rate (0 for a business that pays turnover tax and
+    # not VAT), and, if the MXIK entry asks for one, the unit code.
     "ikpu": os.environ.get("PAYME_IKPU", "").strip(),
     "package_code": os.environ.get("PAYME_PACKAGE_CODE", "").strip(),
+    "vat_percent": os.environ.get("PAYME_VAT_PERCENT", "0").strip() or "0",
+    "units": os.environ.get("PAYME_UNITS", "").strip(),
 }
+# What the fiscal receipt calls each thing sold (Uzbek, as receipts in Uzbekistan are read).
+RECEIPT_TITLES = {
+    "full": "TestDay: IELTS tayyorgarlik, barcha bo'limlar (1 oy)",
+    "speaking": "TestDay: IELTS tayyorgarlik, Speaking (1 oy)",
+    "writing": "TestDay: IELTS tayyorgarlik, Writing (1 oy)",
+    "lr": "TestDay: IELTS tayyorgarlik, Listening va Reading (1 oy)",
+    "writing_check": "TestDay: Writing ishini imtihonchi tekshiruvi",
+    "speaking_check": "TestDay: Speaking ishini imtihonchi tekshiruvi",
+}
+
+
+def receipt_title(order):
+    if order.get("kind") == "plan":
+        months = order_months(order)
+        title = RECEIPT_TITLES.get(order_scope(order), RECEIPT_TITLES["full"])
+        return title.replace("(1 oy)", f"({months} oy)")
+    return RECEIPT_TITLES.get(order.get("kind"), "TestDay xizmati")
+
+
+def payme_receipt(order):
+    """The `detail` object of CheckPerformTransaction: what the fiscal receipt shows (Payme's Merchant API docs)."""
+    if not (PAYME["ikpu"] and PAYME["package_code"]):
+        return None
+    try:
+        vat = int(float(PAYME["vat_percent"]))
+    except ValueError:
+        vat = 0
+    item = {"title": receipt_title(order), "price": int(order["amount"]) * 100, "count": 1,
+            "code": PAYME["ikpu"], "package_code": PAYME["package_code"], "vat_percent": vat}
+    if PAYME["units"].isdigit():
+        item["units"] = int(PAYME["units"])
+    return {"receipt_type": 0, "items": [item]}
 CLICK = {
     "service_id": os.environ.get("CLICK_SERVICE_ID", "").strip(),
     "merchant_id": os.environ.get("CLICK_MERCHANT_ID", "").strip(),
@@ -740,11 +777,9 @@ class PaymeApi:
         if active:
             raise PaymeError(-31052, self.field)
         result = {"allow": True}
-        if PAYME["ikpu"] and PAYME["package_code"]:
-            result["detail"] = {"receipt_type": 0, "items": [{
-                "title": KIND_TITLES.get(order["kind"], "Service"), "price": order["amount"] * 100, "count": 1,
-                "code": PAYME["ikpu"], "package_code": PAYME["package_code"], "vat_percent": 0,
-            }]}
+        detail = payme_receipt(order)
+        if detail:
+            result["detail"] = detail
         return result
 
     def create(self, params):
