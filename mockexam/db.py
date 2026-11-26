@@ -218,6 +218,7 @@ _ADDED_COLUMNS = [
     ("orders", "currency", "TEXT"),
     ("orders", "external_id", "TEXT"),
     ("speaking_submissions", "ai_review", "TEXT"),
+    ("profiles", "telegram_id", "INTEGER"),
 ]
 
 

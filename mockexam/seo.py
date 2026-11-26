@@ -847,6 +847,9 @@ def render(page, base, versioned):
     sources = _sources(page, ui)
     calc = _calculator(ui) if topic == "calc" else ""
     script = f'<script src="/{_e(versioned("js/seo-calc.js"))}" defer></script>' if topic == "calc" else ""
+    # The same smooth scrolling as the app (public/js/smooth.js), so the guides do not feel different.
+    script += (f'<script src="/{_e(versioned("js/vendor/lenis.min.js"))}" defer></script>'
+               f'<script src="/{_e(versioned("js/smooth.js"))}" defer></script>')
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>

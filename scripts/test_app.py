@@ -58,7 +58,7 @@ os.environ["ADMIN_STATS_SECONDS"] = "0"
 
 from tornado.testing import AsyncHTTPTestCase  # noqa: E402
 
-from mockexam import accounts, ai_safety, ai_usage, analytics, api, auth, guard, billing, checks, content, dodo, google_signin, notify, scoring, speaking, speaking_adaptive, speaking_ai, storage, web, writing  # noqa: E402
+from mockexam import accounts, ai_safety, ai_usage, analytics, api, auth, guard, telegram_bot, telegram_widgets, billing, checks, content, dodo, google_signin, notify, scoring, speaking, speaking_adaptive, speaking_ai, storage, web, writing  # noqa: E402
 from mockexam.db import SqliteDb, iso, now, parse_time  # noqa: E402
 from mockexam.files import LocalFiles  # noqa: E402
 import server  # noqa: E402
@@ -2432,6 +2432,47 @@ class ClickTests(unittest.TestCase):
         self.assertEqual(self.api.complete(self.form(1, 999))["error"], -6)
 
 
+class PaymeReceiptTests(unittest.TestCase):
+    """The fiscal receipt Payme passes to the tax office: the `detail` object of CheckPerformTransaction."""
+
+    def setUp(self):
+        self.db, self.uid, _ = _db_with_order()
+        self.api = billing.PaymeApi(self.db, key="secret-key")
+
+    def check(self, order):
+        return _payme(self.api, "CheckPerformTransaction", {"amount": order["amount"] * 100,
+                                                            "account": {"order_id": str(order["id"])}})["result"]
+
+    def test_no_detail_until_the_codes_are_set(self):
+        order = billing.create_order(self.db, self.uid, "plan", scope="speaking", months=1)
+        with mock.patch.dict(billing.PAYME, {"ikpu": "", "package_code": ""}):
+            self.assertEqual(self.check(order), {"allow": True})
+
+    def test_detail_names_the_pass_and_carries_the_codes(self):
+        order = billing.create_order(self.db, self.uid, "plan", scope="speaking", months=1)
+        with mock.patch.dict(billing.PAYME, {"ikpu": "10305008003000000", "package_code": "1514296", "vat_percent": "0", "units": ""}):
+            detail = self.check(order)["detail"]
+        self.assertEqual(detail["receipt_type"], 0)
+        item = detail["items"][0]
+        self.assertEqual(item, {"title": "TestDay: IELTS tayyorgarlik, Speaking (1 oy)", "price": 5900000, "count": 1,
+                                "code": "10305008003000000", "package_code": "1514296", "vat_percent": 0})
+        full = billing.create_order(self.db, _profile(self.db, "receipt.full@example.com")["id"], "plan", scope="full", months=1)
+        with mock.patch.dict(billing.PAYME, {"ikpu": "1", "package_code": "2", "vat_percent": "12", "units": "1501"}):
+            item = self.check(full)["detail"]["items"][0]
+        self.assertEqual((item["vat_percent"], item["units"], item["price"]), (12, 1501, 7900000))
+        self.assertIn("barcha bo'limlar", item["title"])
+
+    def test_the_payment_link_follows_the_get_method(self):
+        order = billing.create_order(self.db, self.uid, "plan", scope="lr", months=1)
+        with mock.patch.dict(billing.PAYME, {"merchant_id": "587f72c72cac0d162c722ae2", "key": "k", "test": False}), \
+                mock.patch.object(billing, "providers", lambda: ["payme"]):
+            res = billing.checkout(order, "payme", "https://www.testday.uz/#/account?paid=1")
+        url = res["redirect"]
+        self.assertTrue(url.startswith("https://checkout.paycom.uz/"))
+        params = base64.b64decode(url.rsplit("/", 1)[1]).decode()
+        self.assertEqual(params.split(";")[:3], ["m=587f72c72cac0d162c722ae2", f"ac.order_id={order['id']}", f"a={39000 * 100}"])
+
+
 class PaymentHardeningTests(unittest.TestCase):
     """Replayed callbacks change nothing twice; refunds take back exactly what was bought."""
 
@@ -3337,6 +3378,231 @@ class ModelStepTests(unittest.TestCase):
                 ai._post({"model": "m", "provider": {}}, 5)
         self.assertTrue(caught.exception.retryable and caught.exception.blocked)
         self.assertNotIn("key", str(caught.exception))
+
+
+class AttackClaimsTests(AccountApiBase):
+    """
+    The attacks an independent model (Venice, 26 November 2026) claimed would work, each tried against the server.
+    None of them does; these tests keep it that way.
+    """
+
+    def test_a_changed_session_cookie_is_not_accepted(self):
+        cookie, data = self.login("claims.alice@example.com")
+        name, value = cookie.split("=", 1)
+        parts = value.split("|")
+        payload = json.dumps({"uid": str(uuid.uuid4())}).encode()
+        forged = base64.b64encode(payload).decode()
+        parts[4] = f"{len(forged)}:{forged}"            # someone else's id, the old signature
+        r, me = self.call("GET", "/api/me", cookie=f"{name}={'|'.join(parts)}")
+        self.assertIsNone(me.get("user"))
+
+    def test_another_students_speaking_test_and_recording_stay_private(self):
+        db = server.STORE.db
+        alice = _profile(db, "claims.owner@example.com")
+        t = SPEAKING[0]
+        sub = speaking.start_submission(db, alice["id"], t, "Alice", "exam")
+        rec = db.insert("recordings", {"id": str(uuid.uuid4()), "user_id": alice["id"], "submission_id": sub["id"],
+                                       "question_key": "p1-1", "mime": "audio/webm", "duration": 3, "size": 300,
+                                       "path": f"{alice['id']}/{sub['id']}/p1-1-x.webm"})
+        cookie, _ = self.login("claims.mallory@example.com")
+        for method, path in (("GET", f"/api/speaking/submissions/{sub['id']}"), ("GET", f"/api/speaking/recordings/{rec['id']}"),
+                             ("POST", f"/api/speaking/submissions/{sub['id']}/complete"),
+                             ("POST", f"/api/speaking/submissions/{sub['id']}/ai-review")):
+            r, _ = self.call(method, path, {} if method == "POST" else None, cookie=cookie)
+            self.assertEqual(r.code, 404, path)
+
+    def test_another_students_order_cannot_be_paid_or_seen(self):
+        db = server.STORE.db
+        alice = _profile(db, "claims.buyer@example.com")
+        order = billing.create_order(db, alice["id"], "plan", scope="lr", months=1)
+        cookie, _ = self.login("claims.thief@example.com")
+        r, _ = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "click"}, cookie=cookie)
+        self.assertIn(r.code, (403, 404))
+        r, mine = self.call("GET", "/api/orders", cookie=cookie)
+        self.assertNotIn(order["id"], [o["id"] for o in mine["orders"]])
+
+    def test_admin_pages_need_an_admin(self):
+        cookie, _ = self.login("claims.student@example.com")
+        for path in ("/api/admin/orders", "/api/admin/users", "/api/admin/feedback", "/api/admin/ai-usage", "/api/admin/click"):
+            self.assertEqual(self.call("GET", path, cookie=cookie)[0].code, 403, path)
+        self.assertEqual(self.call("POST", "/api/admin/plan", {"email": "claims.student@example.com", "days": 30}, cookie=cookie)[0].code, 403)
+
+    def test_a_pass_test_needs_a_pass(self):
+        premium = next(x for x in READING if accounts.test_access(x) == "premium")
+        cookie, _ = self.login("claims.nopass@example.com")
+        self.assertIn(self.call("GET", f"/api/tests/{premium['id']}", cookie=cookie)[0].code, (402, 403))
+
+    def test_a_made_up_forwarded_address_does_not_escape_the_limits(self):
+        api.CODE_PER_IP.hits.clear()
+        api.CODE_PER_EMAIL.hits.clear()
+        codes = []
+        for i in range(12):   # a different "first" address each time; the proxy's own last entry is what counts
+            r = self.fetch("/api/auth/code", method="POST", body=json.dumps({"email": f"claims.flood{i}@example.com"}),
+                           headers={"Content-Type": "application/json", "X-Forwarded-For": f"10.0.{i}.1, 198.51.100.20"})
+            codes.append(r.code)
+        self.assertEqual(codes.count(200), 10)
+        self.assertEqual(codes[-1], 429)
+        api.CODE_PER_IP.hits.clear()
+
+    def test_no_files_outside_the_site_folder(self):
+        for path in ("/audio/../../server.py", "/audio/%2e%2e/%2e%2e/server.py", "/..%2fserver.py", "/%2e%2e/.env",
+                     "/css/../../mockexam/auth.py", "/audio/..%5c..%5cserver.py"):
+            r = self.fetch(path)
+            self.assertNotIn(b"import ", r.body, path)
+            self.assertNotIn(b"SESSION_SECRET", r.body, path)
+
+
+class TelegramTests(AccountApiBase):
+    """@testdayuzbot and @testdaysupportbot (mockexam/telegram_bot.py), with Telegram's API replaced by a recorder."""
+
+    ENV = {"TELEGRAM_STUDENT_BOT_TOKEN": "111:student", "TELEGRAM_SUPPORT_BOT_TOKEN": "222:support",
+           "TELEGRAM_ADMIN_CHAT_ID": "900"}
+
+    def setUp(self):
+        super().setUp()
+        self.calls = []
+        self.next_id = 1000
+
+        def fake(bot, method, payload=None, timeout=10):
+            self.calls.append((bot, method, payload or {}))
+            self.next_id += 1
+            return {"message_id": self.next_id}
+        for patcher in (mock.patch.dict(os.environ, self.ENV), mock.patch.object(telegram_bot, "call", fake)):
+            patcher.start()
+            self.addCleanup(patcher.stop)
+        telegram_bot._columns_cache.clear()
+
+    def hook(self, bot, update, secret=None):
+        return self.fetch(f"/api/telegram/hook/{bot}", method="POST", body=json.dumps(update),
+                          headers={"Content-Type": "application/json",
+                                   "X-Telegram-Bot-Api-Secret-Token": secret if secret is not None else telegram_bot.webhook_secret()})
+
+    def said(self, method):
+        return [p for b, m, p in self.calls if m == method]
+
+    def message(self, chat_id, text, lang="uz", **extra):
+        return {"update_id": 1, "message": {"message_id": 5, "chat": {"id": chat_id, "type": "private"},
+                                            "from": {"id": chat_id, "first_name": "Ali", "language_code": lang}, "text": text, **extra}}
+
+    def test_link_codes(self):
+        uid = str(uuid.uuid4())
+        code = telegram_bot.link_code(uid)
+        self.assertLessEqual(len(code), 64)
+        self.assertRegex(code, r"^[A-Za-z0-9_-]+$")
+        self.assertEqual(telegram_bot.user_from_code(code), uid)
+        broken = code[:-2] + ("AA" if code[-2:] != "AA" else "BB")
+        self.assertIsNone(telegram_bot.user_from_code(broken))
+        self.assertIsNone(telegram_bot.user_from_code(telegram_bot.link_code(uid, at=time.time() - 3 * 86400)))
+        self.assertIsNone(telegram_bot.user_from_code("../../etc"))
+
+    def test_webhook_needs_the_secret(self):
+        self.assertEqual(self.hook("student", self.message(5, "/start"), secret="wrong").code, 403)
+        self.assertEqual(self.hook("student", self.message(5, "/start"), secret="").code, 403)
+        self.assertEqual(self.hook("student", self.message(5, "/start")).code, 200)
+        self.assertEqual(self.said("sendMessage")[-1]["chat_id"], 5)
+
+    def test_connect_from_the_site_then_results_card(self):
+        cookie, data = self.login("tg.student@example.com")
+        self.assertTrue(data["user"]["telegram"]["available"])
+        self.assertFalse(data["user"]["telegram"]["connected"])
+        r, body = self.call("POST", "/api/telegram/link", {}, cookie=cookie)
+        self.assertTrue(body["url"].startswith("https://t.me/testdayuzbot?start="))
+        code = body["url"].split("start=")[1]
+        self.assertEqual(self.hook("student", self.message(4242, f"/start {code}")).code, 200)
+        self.assertTrue(self.call("GET", "/api/me", cookie=cookie)[1]["user"]["telegram"]["connected"])
+        widget = self.said("sendWidget")[-1]
+        self.assertTrue(widget["allow_queries"])
+        state = json.loads(widget["chat_data"])
+        self.assertEqual(set(state["b"]), {"l", "r", "w", "s"})
+        # The card asks for fresh numbers: the bot answers and updates the card.
+        self.hook("student", {"update_id": 2, "widget_query": {"id": "q1", "from": {"id": 4242}, "chat": {"id": 4242, "type": "private"},
+                                                               "message_id": 77, "chat_instance": "x", "data": "r"}})
+        answer = self.said("answerWidgetQuery")[-1]
+        self.assertEqual(answer["widget_query_id"], "q1")
+        self.assertIn('"b":', answer["data"])
+        self.assertEqual(self.said("editMessageWidgetData")[-1]["message_id"], 77)
+        # A stranger's card gets an empty answer, never someone else's numbers.
+        self.hook("student", {"update_id": 3, "widget_query": {"id": "q2", "from": {"id": 7}, "chat": {"id": 7, "type": "private"},
+                                                               "message_id": 78, "chat_instance": "y", "data": "r"}})
+        self.assertNotIn("data", self.said("answerWidgetQuery")[-1])
+        # Disconnect from the site.
+        self.call("DELETE", "/api/telegram/link", {}, cookie=cookie)
+        self.assertFalse(self.call("GET", "/api/me", cookie=cookie)[1]["user"]["telegram"]["connected"])
+
+    def test_a_bad_link_code_connects_nothing(self):
+        self.hook("student", self.message(31, "/start not-a-real-code", lang="ru"))
+        self.assertIn("Ссылка устарела", self.said("sendMessage")[-1]["text"])
+        self.assertEqual(server.STORE.db.select("profiles", {"telegram_id": 31}), [])
+
+    def test_calculator_and_menu(self):
+        self.hook("student", self.message(55, "/calc", lang="en"))
+        html_sent = self.said("sendWidget")[-1]["html"]
+        self.assertIn("IELTS band calculator", html_sent)
+        self.hook("student", {"update_id": 9, "callback_query": {"id": "c1", "from": {"id": 55, "language_code": "uz"},
+                                                                 "message": {"chat": {"id": 55}}, "data": "calc"}})
+        self.assertEqual(self.said("answerCallbackQuery")[-1]["callback_query_id"], "c1")
+        self.assertIn("kalkulyator", self.said("sendWidget")[-1]["html"])
+
+    def test_widgets_fit_telegrams_limits(self):
+        import zlib
+        for lang in ("uz", "ru", "en"):
+            for html_text in (telegram_widgets.calculator_html(lang), telegram_widgets.progress_html(lang)):
+                raw = html_text.encode("utf-8")
+                self.assertLessEqual(len(raw), 32768)
+                self.assertLessEqual(len(zlib.compress(raw, 9)), 4096)
+                self.assertNotIn("<input", html_text)          # widgets have no text boxes
+                self.assertNotIn("fetch(", html_text)          # and no network
+        state = telegram_widgets.progress_state({"name": "Ali " * 30, "target_band": 7, "exam_date": "2026-12-01"},
+                                                [{"module": m, "band": 6.5} for m in ("listening", "reading", "writing", "speaking")] * 50,
+                                                datetime.date(2026, 11, 26))
+        self.assertLessEqual(len(state.encode()), 1024)
+        self.assertEqual(json.loads(state)["o"], 6.5)
+        self.assertEqual(json.loads(state)["d"], 5)
+
+    def test_support_relay_both_ways(self):
+        self.hook("support", self.message(333, "Click to'lovi o'tmadi", first=True))
+        header = next(p for p in self.said("sendMessage") if p["chat_id"] == 900)
+        self.assertIn("#u333", header["text"])
+        self.assertEqual(self.said("copyMessage")[-1], {"chat_id": 900, "from_chat_id": 333, "message_id": 5})
+        self.assertTrue(any(p["chat_id"] == 333 and "Rahmat" in p["text"] for p in self.said("sendMessage")))
+        # The owner replies to the header line: the reply is copied to the student.
+        reply = self.message(900, "Assalomu alaykum, tekshiramiz")
+        reply["message"]["reply_to_message"] = {"message_id": 999999, "text": header["text"]}
+        self.hook("support", reply)
+        self.assertEqual(self.said("copyMessage")[-1]["chat_id"], 333)
+        # The owner writes without replying: told how to answer, nothing sent to anyone else.
+        before = len(self.said("copyMessage"))
+        self.hook("support", self.message(900, "hello?"))
+        self.assertEqual(len(self.said("copyMessage")), before)
+
+    def test_messages_to_a_connected_student(self):
+        db = server.STORE.db
+        student = _profile(db, "tg.notify@example.com")
+        telegram_bot.connect(db, student["id"], 777)
+        telegram_bot.speaking_result_ready(db, {"id": 12, "user_id": student["id"]}, {"overallBand": 6.5})
+        sent = self.said("sendMessage")[-1]
+        self.assertEqual(sent["chat_id"], 777)
+        self.assertIn("6.5", sent["text"])
+        telegram_bot.pass_ending(db, student["id"], "2026-12-01T00:00:00+00:00")
+        self.assertIn("2026-12-01", self.said("sendMessage")[-1]["text"])
+        db.update("profiles", {"id": student["id"]}, {"exam_date": "2026-12-03"})
+        telegram_bot._reminded.clear()
+        at = datetime.datetime(2026, 11, 26, 4, 10, tzinfo=datetime.timezone.utc)   # 9:10 in Tashkent
+        self.assertEqual(telegram_bot.exam_reminders(db, at), 1)
+        self.assertEqual(telegram_bot.exam_reminders(db, at), 0)                     # once
+        self.assertEqual(telegram_bot.exam_reminders(db, at.replace(hour=10)), 0)    # only at 9 in the morning
+        # A student who blocked the bot is disconnected.
+        def blocked(bot, method, payload=None, timeout=10):
+            raise telegram_bot.TelegramError("Forbidden: bot was blocked by the user", 403)
+        with mock.patch.object(telegram_bot, "call", blocked):
+            self.assertFalse(telegram_bot.notify(db, student["id"], "exam_1"))
+        self.assertIsNone(db.select("profiles", {"id": student["id"]})[0].get("telegram_id"))
+
+    def test_without_tokens_nothing_is_offered(self):
+        with mock.patch.dict(os.environ, {"TELEGRAM_STUDENT_BOT_TOKEN": ""}):
+            cookie, data = self.login("tg.off@example.com")
+            self.assertFalse(data["user"]["telegram"]["available"])
+            self.assertEqual(self.call("POST", "/api/telegram/link", {}, cookie=cookie)[0].code, 503)
 
 
 class GuardTests(AccountApiBase):

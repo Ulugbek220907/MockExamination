@@ -42,13 +42,14 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
 """
 
 import asyncio
+import json
 import logging
 import os
 import re
 
 import tornado.web
 
-from . import accounts, ai_usage, analytics, auth, billing, checks, guard, notify, speaking, speaking_adaptive, speaking_ai
+from . import accounts, ai_usage, analytics, auth, billing, checks, guard, notify, speaking, speaking_adaptive, speaking_ai, telegram_bot
 from .dbcache import gather
 from .web import BaseHandler, in_thread
 
@@ -72,7 +73,9 @@ def _uuid(value):
 
 def _public_user(profile):
     return {"id": profile["id"], "email": profile["email"], "name": profile.get("name") or "", "role": profile["role"],
-            "goal": accounts.public_goal(profile)}
+            "goal": accounts.public_goal(profile),
+            "telegram": {"available": telegram_bot.configured("student"), "connected": bool(profile.get("telegram_id")),
+                         "bot": telegram_bot.student_username()}}
 
 
 def clean_name(value):
@@ -867,6 +870,37 @@ class AdminClickCheckHandler(AdminHandler):
         self.send_json(await in_thread(billing.click_check))
 
 
+class TelegramLinkHandler(BaseHandler):
+    """POST: a link that opens @testdayuzbot and connects this account. DELETE: disconnect Telegram."""
+
+    async def post(self):
+        profile = await self.require_profile()
+        if not telegram_bot.configured("student"):
+            raise ApiError(503, "Telegram is not set up on this site yet.")
+        self.send_json({"url": telegram_bot.link_url(profile["id"])})
+
+    async def delete(self):
+        profile = await self.require_profile()
+        await in_thread(telegram_bot.disconnect, self.db, profile["id"])
+        self.send_json({"connected": False})
+
+
+class TelegramHookHandler(BaseHandler):
+    """Updates from Telegram for one of the bots. Only Telegram knows the secret header."""
+
+    async def post(self, bot):
+        if not telegram_bot.secret_ok(self.request.headers.get("X-Telegram-Bot-Api-Secret-Token")):
+            raise ApiError(403, "Not allowed.")
+        try:
+            update = json.loads(self.request.body or b"{}")
+        except ValueError:
+            raise ApiError(400, "Not JSON.")
+        if isinstance(update, dict):
+            store, db = self.store, self.db
+            await in_thread(telegram_bot.handle_update, bot, db, lambda uid: progress_points(store, db, uid), update)
+        self.send_json({"ok": True})
+
+
 class AdminAiUsageHandler(AdminHandler):
     """Admin → AI: jobs and their cost per paper in the last 30 days, and the people who used the AI examiner most."""
 
@@ -1058,6 +1092,8 @@ def routes():
         (r"/api/admin/click", AdminClickHandler),
         (r"/api/admin/click/check", AdminClickCheckHandler),
         (r"/api/admin/ai-usage", AdminAiUsageHandler),
+        (r"/api/telegram/link", TelegramLinkHandler),
+        (r"/api/telegram/hook/(student|support)", TelegramHookHandler),
         (r"/api/admin/orders", AdminOrdersHandler),
         (r"/api/admin/orders/(\d+)/(confirm|refund|cancel)", AdminOrderActionHandler),
         (r"/api/admin/feedback", AdminFeedbackHandler),

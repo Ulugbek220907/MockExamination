@@ -883,6 +883,7 @@
             ${goalFormHTML()}
             <p class="muted-text small-text">${t("goal.help")}</p>
           </div>
+          ${telegramCardHTML(u)}
         </div>
 
         <section class="progress-section" id="progress-section">${seen ? "" : `<div class="skeleton" style="height:28px;width:min(280px,70%)"></div>
@@ -931,8 +932,50 @@
       });
     }).catch(() => { /* U.need has shown a toast */ });
     bindGoalForm(main, () => progress.then((res) => draw(res, false)));
+    bindTelegramCard(main);
     fresh.then(() => renderAccountSlot());
     if (window.app) window.app.loadHistory();
+  }
+
+  /** Telegram (@testdayuzbot): results, band calculator and reminders in Telegram, once the account is connected. */
+  function telegramCardHTML(u) {
+    const tg = u.telegram || {};
+    if (!tg.available) return "";
+    return `
+          <div class="account-card" id="telegram-card">
+            <h2>${t("Telegram")}</h2>
+            ${tg.connected
+              ? `<p>${t("Connected to {bot}: your results, the band calculator and reminders come there.", { bot: `<a href="https://t.me/${esc(tg.bot)}" target="_blank" rel="noopener">@${esc(tg.bot)}</a>` })}</p>
+                 <button type="button" class="btn-secondary" data-telegram="off">${t("Disconnect")}</button>`
+              : `<p>${t("Get your results, the band calculator and reminders before your exam in Telegram.")}</p>
+                 <button type="button" class="btn-primary" data-telegram="on">${t("Connect Telegram")}</button>`}
+          </div>`;
+  }
+
+  function bindTelegramCard(root) {
+    const btn = root.querySelector("[data-telegram]");
+    if (!btn) return;
+    btn.addEventListener("click", async () => {
+      // The window is opened at once, inside the tap, so phones do not block it; its address follows.
+      const win = btn.dataset.telegram === "on" ? window.open("", "_blank") : null;
+      try {
+        if (btn.dataset.telegram === "on") {
+          const { url } = await U.api("/api/telegram/link", { method: "POST", body: "{}" });
+          if (win) win.location.href = url; else location.href = url;
+          U.toast(t("Press Start in Telegram to finish."));
+        } else {
+          await U.api("/api/telegram/link", { method: "DELETE", body: "{}" });
+          await refreshMe();
+          const card = root.querySelector("#telegram-card");
+          if (card) card.outerHTML = telegramCardHTML(user());
+          bindTelegramCard(root);
+          U.toast(t("Telegram is disconnected."));
+        }
+      } catch (err) {
+        if (win) win.close();
+        U.toast(err.message, "warn");
+      }
+    });
   }
 
   /* ================================================================ examiners */
