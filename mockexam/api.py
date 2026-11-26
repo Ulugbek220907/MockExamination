@@ -35,6 +35,7 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
   GET  /api/speaking/recordings/<id>  play one recording (same people)
 
   GET  /api/admin/orders, POST /api/admin/orders/<id>/(confirm|refund|cancel)
+  GET  /api/admin/click, POST /api/admin/click/check   Click settings, recent callbacks, and a check of the keys
   GET  /api/admin/examiners, POST     list / add or update an examiner by email
   GET  /api/admin/users?q=, POST /api/admin/plan   find users / give plan days
 """
@@ -389,7 +390,7 @@ class ClickHandler(BaseHandler):
     async def post(self, action):
         fields = {k: self.get_body_argument(k, "") for k in self.request.body_arguments}
         api = billing.ClickApi(self.db)
-        result = await in_thread(api.prepare if action == "prepare" else api.complete, fields)
+        result = await in_thread(api.prepare if action == "prepare" else api.complete, fields, self.client_ip())
         self.send_json(result)
 
 
@@ -803,6 +804,23 @@ def _emails_for(db, user_ids):
     return {p["id"]: p["email"] for p in db.select("profiles", {"id": ("in", ids)}, limit=len(ids))}
 
 
+class AdminClickHandler(AdminHandler):
+    """Admin → Click: the settings (never the secret key), the two addresses Click must call, and what Click has sent."""
+
+    async def get(self):
+        await self.require_admin()
+        info = billing.click_status()
+        base = billing.CLICK["callback_base"] or self.site_url()
+        info["urls"] = {"prepare": f"{base}/api/pay/click/prepare", "complete": f"{base}/api/pay/click/complete"}
+        self.send_json(info)
+
+
+class AdminClickCheckHandler(AdminHandler):
+    async def post(self):
+        await self.require_admin()
+        self.send_json(await in_thread(billing.click_check))
+
+
 class AdminOrdersHandler(AdminHandler):
     async def get(self):
         await self.require_admin()
@@ -974,6 +992,8 @@ def routes():
         (r"/api/speaking/submissions/(\d+)/ai-review", SpeakingAiReviewHandler),
         (r"/api/speaking/submissions/(\d+)", SpeakingSubmissionHandler),
         (r"/api/speaking/recordings/([0-9a-f\-]{36})", RecordingHandler),
+        (r"/api/admin/click", AdminClickHandler),
+        (r"/api/admin/click/check", AdminClickCheckHandler),
         (r"/api/admin/orders", AdminOrdersHandler),
         (r"/api/admin/orders/(\d+)/(confirm|refund|cancel)", AdminOrderActionHandler),
         (r"/api/admin/feedback", AdminFeedbackHandler),

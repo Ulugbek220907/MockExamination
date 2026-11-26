@@ -29,10 +29,11 @@ TIMEOUT = 20
 
 
 class ClickMerchantError(Exception):
-    def __init__(self, message, status=502, code=None):
+    def __init__(self, message, status=502, code=None, http=None):
         super().__init__(message)
         self.status = status
         self.code = code        # Click's own error_code, when it sent one
+        self.http = http        # the HTTP status Click answered with, when it answered at all
 
 
 class MerchantApi:
@@ -63,7 +64,7 @@ class MerchantApi:
         except urllib.error.HTTPError as e:
             detail = e.read()[:300].decode("utf-8", "replace")
             log.warning("Click %s %s answered %s: %s", method, path, e.code, detail)
-            raise ClickMerchantError(f"Click did not accept the request (HTTP {e.code}).", 502) from e
+            raise ClickMerchantError(f"Click did not accept the request (HTTP {e.code}).", 502, http=e.code) from e
         except (urllib.error.URLError, TimeoutError, OSError) as e:
             log.warning("Click %s failed: %s", method, e)
             raise ClickMerchantError("Click is not answering. Please try again in a minute.", 503) from e

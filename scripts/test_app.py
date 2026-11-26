@@ -4410,6 +4410,83 @@ class ClickIntegrationTests(AccountApiBase):
         self.assertEqual(len(fake.calls), calls)                                                          # Click was not asked again
         self.assertFalse(accounts.plan_status(self.db, uid)["active"])
 
+    def test_every_click_request_is_logged_and_listed_for_the_admin(self):
+        billing.CLICK_RECENT.clear()
+        cookie, data = self.login("click.watch@example.com")
+        order = billing.create_order(self.db, data["user"]["id"], "plan")
+        with self.assertLogs("mockexam.billing", level="INFO") as logs:
+            self.assertEqual(self.click_says(self.form(order, 0, secret="wrong"), "prepare")["error"], -1)
+            prep = self.click_says(self.form(order, 0), "prepare")
+            self.assertEqual(self.click_says(self.form(order, 1, prepare_id=prep["merchant_prepare_id"]), "complete")["error"], 0)
+        lines = [l for l in logs.output if "Click " in l]
+        self.assertEqual(len(lines), 3)
+        self.assertIn(f"Click prepare: order={order['id']} ", lines[0])
+        self.assertIn("-> -1 SIGN CHECK FAILED!", lines[0])
+        self.assertIn("-> 0 Success", lines[2])
+        self.assertNotIn("sign_string", "".join(lines))                       # the signature and the secret never reach the log
+        self.assertNotIn("click-secret", "".join(lines))
+        r, info = self.call("GET", "/api/admin/click", cookie=self.admin())
+        self.assertEqual(r.code, 200)
+        self.assertEqual((info["serviceId"], info["merchantId"], info["merchantUserId"]), ("777", "4242", "55"))
+        self.assertEqual(info["secretKey"], {"set": True, "length": len("click-secret")})   # only whether it is there and how long
+        self.assertNotIn("click-secret", json.dumps(info))
+        self.assertTrue(info["urls"]["prepare"].endswith("/api/pay/click/prepare") and info["urls"]["complete"].endswith("/api/pay/click/complete"))
+        with mock.patch.dict(billing.CLICK, {"callback_base": "https://click.example.uz"}):    # Click calls a relay in front of the site
+            urls = self.call("GET", "/api/admin/click", cookie=self.admin())[1]["urls"]
+        self.assertEqual(urls, {"prepare": "https://click.example.uz/api/pay/click/prepare",
+                                "complete": "https://click.example.uz/api/pay/click/complete"})
+        newest, middle, oldest = info["recent"]                               # newest first
+        self.assertEqual((newest["action"], newest["error"], newest["order"]), ("complete", 0, str(order["id"])))
+        self.assertEqual((middle["action"], middle["error"]), ("prepare", 0))
+        self.assertEqual((oldest["action"], oldest["error"], oldest["note"]), ("prepare", -1, "SIGN CHECK FAILED!"))
+        self.assertEqual(newest["amount"], f"{float(order['amount']):.1f}")
+        self.assertTrue(newest["ip"])
+        # Only the admin sees it.
+        student = self.login("click.watch2@example.com")[0]
+        self.assertEqual(self.call("GET", "/api/admin/click", cookie=student)[0].code, 403)
+        self.assertEqual(self.call("GET", "/api/admin/click")[0].code, 401)
+        self.assertEqual(self.call("POST", "/api/admin/click/check", {}, cookie=student)[0].code, 403)
+
+    def test_text_sent_by_a_caller_cannot_break_the_log_or_the_list(self):
+        billing.CLICK_RECENT.clear()
+        order = billing.create_order(self.db, self.login("click.inject@example.com")[1]["user"]["id"], "plan")
+        f = self.form(order, 0)
+        f["merchant_trans_id"] = "22\nINFO fake line <script>"
+        with self.assertLogs("mockexam.billing", level="INFO") as logs:
+            self.click_says(f, "prepare")
+        self.assertEqual(len(logs.output), 1)                                  # one request, one line
+        self.assertNotIn("<", billing.CLICK_RECENT[0]["order"])
+        self.assertNotIn("\n", billing.CLICK_RECENT[0]["order"])
+
+    def test_the_keys_check_tells_accepted_refused_and_unclear_apart(self):
+        admin = self.admin()
+        fake = self.fake_click(lambda m, path: (200, {"error_code": -5, "error_note": "Payment not found"}))
+        r, out = self.call("POST", "/api/admin/click/check", {}, cookie=admin)
+        self.assertEqual((r.code, out["ok"]), (200, True))
+        self.assertIn("accepted the keys", out["message"])
+        self.assertRegex(fake.calls[0][1], r"^/v2/merchant/payment/status_by_mti/777/connection-check/\d{4}-\d{2}-\d{2}$")
+        self.fake_click(lambda m, path: (401, {"error": "Not Authorized"}))
+        out = self.call("POST", "/api/admin/click/check", {}, cookie=admin)[1]
+        self.assertEqual(out["ok"], False)
+        self.assertIn("refused the keys", out["message"])
+        self.assertNotIn("click-secret", json.dumps(out))
+        self.fake_click(lambda m, path: (404, {}))
+        out = self.call("POST", "/api/admin/click/check", {}, cookie=admin)[1]
+        self.assertIsNone(out["ok"])                                          # a 404 does not say whether the keys are right
+        gone = self.fake_click(lambda m, path: (200, {}))
+        gone.close()
+        out = self.call("POST", "/api/admin/click/check", {}, cookie=admin)[1]
+        self.assertEqual(out["ok"], False)
+        self.assertIn("not answering", out["message"])
+        with mock.patch.dict(billing.CLICK, {"merchant_user_id": ""}):
+            out = self.call("POST", "/api/admin/click/check", {}, cookie=admin)[1]
+        self.assertEqual(out["ok"], False)
+        self.assertIn("CLICK_MERCHANT_USER_ID", out["message"])
+        with mock.patch.dict(billing.CLICK, {"secret_key": ""}):
+            out = self.call("POST", "/api/admin/click/check", {}, cookie=admin)[1]
+        self.assertEqual(out["ok"], False)
+        self.assertIn("CLICK_SECRET_KEY", out["message"])
+
     def test_without_the_merchant_user_the_admin_is_told_to_return_the_money_in_the_cabinet(self):
         cookie, uid, order = self.paid_order("click.refund4@example.com", paydoc="5550004")
         with mock.patch.dict(billing.CLICK, {"merchant_user_id": ""}):
