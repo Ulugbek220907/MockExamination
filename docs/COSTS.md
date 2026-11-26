@@ -41,6 +41,16 @@ the current model). Total cost of the test: $0.82.
 | DeepSeek V4.1 Flash | cannot hear audio | | | | |
 | Gemini 2.5 Flash | retired on 1 December 2026 | | | | |
 
+Round 2 (the same 8 recordings): Gemini 3.5 Flash-Lite 22.7% / 0.86 / $0.0021 (no better than 3.1, a little dearer);
+Perceptron Mk1.5 34% and broken answers; GPT-Audio-Mini refused the structured answer with audio; Nemotron Nano Omni
+(free) is not allowed by our data policy (free endpoints keep data); 3.1 Flash-Lite with shortened instructions saved
+only 11% and lost some accuracy (r 0.84). Amazon Nova 2 Omni is not on OpenRouter.
+
+Outside OpenRouter (prices from the providers, November 2026): Azure pronunciation assessment about $1–1.32 an hour
+(~$0.20 a test); SpeechSuper about $0.006 an answer (~$0.12 a test); Groq Whisper speech-to-text $0.04 an hour, but it
+cleans away fillers and pauses and does not judge pronunciation. Listening with Gemini 3.1 Flash-Lite (~$0.03 a test,
+pronunciation included) is cheaper than all of them.
+
 ("Words wrong" includes the speakers' own reading slips, so compare the models with each other.)
 
 **Rating the whole Speaking test** (text: transcripts and listening notes; one call per test), against the official

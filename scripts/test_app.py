@@ -3339,6 +3339,78 @@ class ModelStepTests(unittest.TestCase):
         self.assertNotIn("key", str(caught.exception))
 
 
+class AttackClaimsTests(AccountApiBase):
+    """
+    The attacks an independent model (Venice, 26 November 2026) claimed would work, each tried against the server.
+    None of them does; these tests keep it that way.
+    """
+
+    def test_a_changed_session_cookie_is_not_accepted(self):
+        cookie, data = self.login("claims.alice@example.com")
+        name, value = cookie.split("=", 1)
+        parts = value.split("|")
+        payload = json.dumps({"uid": str(uuid.uuid4())}).encode()
+        forged = base64.b64encode(payload).decode()
+        parts[4] = f"{len(forged)}:{forged}"            # someone else's id, the old signature
+        r, me = self.call("GET", "/api/me", cookie=f"{name}={'|'.join(parts)}")
+        self.assertIsNone(me.get("user"))
+
+    def test_another_students_speaking_test_and_recording_stay_private(self):
+        db = server.STORE.db
+        alice = _profile(db, "claims.owner@example.com")
+        t = SPEAKING[0]
+        sub = speaking.start_submission(db, alice["id"], t, "Alice", "exam")
+        rec = db.insert("recordings", {"id": str(uuid.uuid4()), "user_id": alice["id"], "submission_id": sub["id"],
+                                       "question_key": "p1-1", "mime": "audio/webm", "duration": 3, "size": 300,
+                                       "path": f"{alice['id']}/{sub['id']}/p1-1-x.webm"})
+        cookie, _ = self.login("claims.mallory@example.com")
+        for method, path in (("GET", f"/api/speaking/submissions/{sub['id']}"), ("GET", f"/api/speaking/recordings/{rec['id']}"),
+                             ("POST", f"/api/speaking/submissions/{sub['id']}/complete"),
+                             ("POST", f"/api/speaking/submissions/{sub['id']}/ai-review")):
+            r, _ = self.call(method, path, {} if method == "POST" else None, cookie=cookie)
+            self.assertEqual(r.code, 404, path)
+
+    def test_another_students_order_cannot_be_paid_or_seen(self):
+        db = server.STORE.db
+        alice = _profile(db, "claims.buyer@example.com")
+        order = billing.create_order(db, alice["id"], "plan", scope="lr", months=1)
+        cookie, _ = self.login("claims.thief@example.com")
+        r, _ = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "click"}, cookie=cookie)
+        self.assertIn(r.code, (403, 404))
+        r, mine = self.call("GET", "/api/orders", cookie=cookie)
+        self.assertNotIn(order["id"], [o["id"] for o in mine["orders"]])
+
+    def test_admin_pages_need_an_admin(self):
+        cookie, _ = self.login("claims.student@example.com")
+        for path in ("/api/admin/orders", "/api/admin/users", "/api/admin/feedback", "/api/admin/ai-usage", "/api/admin/click"):
+            self.assertEqual(self.call("GET", path, cookie=cookie)[0].code, 403, path)
+        self.assertEqual(self.call("POST", "/api/admin/plan", {"email": "claims.student@example.com", "days": 30}, cookie=cookie)[0].code, 403)
+
+    def test_a_pass_test_needs_a_pass(self):
+        premium = next(x for x in READING if accounts.test_access(x) == "premium")
+        cookie, _ = self.login("claims.nopass@example.com")
+        self.assertIn(self.call("GET", f"/api/tests/{premium['id']}", cookie=cookie)[0].code, (402, 403))
+
+    def test_a_made_up_forwarded_address_does_not_escape_the_limits(self):
+        api.CODE_PER_IP.hits.clear()
+        api.CODE_PER_EMAIL.hits.clear()
+        codes = []
+        for i in range(12):   # a different "first" address each time; the proxy's own last entry is what counts
+            r = self.fetch("/api/auth/code", method="POST", body=json.dumps({"email": f"claims.flood{i}@example.com"}),
+                           headers={"Content-Type": "application/json", "X-Forwarded-For": f"10.0.{i}.1, 198.51.100.20"})
+            codes.append(r.code)
+        self.assertEqual(codes.count(200), 10)
+        self.assertEqual(codes[-1], 429)
+        api.CODE_PER_IP.hits.clear()
+
+    def test_no_files_outside_the_site_folder(self):
+        for path in ("/audio/../../server.py", "/audio/%2e%2e/%2e%2e/server.py", "/..%2fserver.py", "/%2e%2e/.env",
+                     "/css/../../mockexam/auth.py", "/audio/..%5c..%5cserver.py"):
+            r = self.fetch(path)
+            self.assertNotIn(b"import ", r.body, path)
+            self.assertNotIn(b"SESSION_SECRET", r.body, path)
+
+
 class GuardTests(AccountApiBase):
     """mockexam/guard.py: the limits that stop a script from taking the site down or running up its bills."""
 

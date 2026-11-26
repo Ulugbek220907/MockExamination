@@ -30,6 +30,24 @@ served only to their owner, the examiner marking them, or an admin; the admin pa
 admin token (compared in constant time); errors never show internals; no secrets are in the repository; the browser
 never gets a database key.
 
+## Second opinion (26 November 2026)
+
+The security-relevant code (sign-in, sessions, every API handler, uploads, payments, file serving) was also given to
+an uncensored model (Venice's Dolphin Mistral 24B, through OpenRouter) acting as an attacker. It listed 36 issues,
+most of them "critical" or "high". Each was checked against the code; none is real:
+
+- "Change the user id inside the session cookie": the cookie is signed, a changed one is not accepted.
+- "Fake X-Forwarded-For to dodge the limits": only the last address, added by Render's own proxy, is used.
+- "Read another student's Speaking test, recording or order by guessing its number" (about 20 variants): every one
+  of these checks that the viewer owns it, marks it as its examiner, or is an admin; otherwise "not found".
+- "Admin pages" (several variants): all need an admin account or the admin token.
+- "Turn on AUTH_DEV_CODES": an environment setting only the owner can change, and the server refuses to start with it
+  on the live site. "Path traversal in /audio/": Tornado's file handler keeps requests inside the site folder.
+  "No HTTPS": Render forces HTTPS and the site sends HSTS.
+
+Each claimed attack is now a test that tries it against the server (`AttackClaimsTests` in scripts/test_app.py).
+A model saying "critical" is not evidence: check the code, then keep the check as a test.
+
 ## What only you can switch on (in this order)
 
 1. **Two-factor sign-in everywhere.** Your Google account (it receives the admin sign-in codes: whoever reads that
