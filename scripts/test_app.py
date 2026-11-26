@@ -4496,6 +4496,68 @@ class ClickIntegrationTests(AccountApiBase):
         self.assertFalse(accounts.plan_status(self.db, uid)["active"])
 
 
+class PassBoughtTwiceTests(AccountApiBase):
+    """A pass that renews on its own is not sold a second time (that would charge twice); a one-time pass can be added to."""
+
+    def setUp(self):
+        super().setUp()
+        self.db = self._app.settings["store"].db
+        patcher = mock.patch.dict(os.environ, DODO_ENV)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        patcher = mock.patch.dict(billing.CLICK, CLICK_ENV)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def subscribe(self, uid, scope, sub="sub_1"):
+        order = billing.create_order(self.db, uid, "plan", scope=scope, months=1, currency="USD")
+        self.db.update("orders", {"id": order["id"]}, {"note": accounts.SUBSCRIPTION_MARK + sub})   # a card subscription
+        billing.fulfil_order(self.db, order["id"], "dodo", external_id="pay_" + sub)
+        return order
+
+    def test_a_renewing_pass_cannot_be_bought_again_by_card_or_by_click(self):
+        cookie, data = self.login("twice.sub@example.com")
+        uid = data["user"]["id"]
+        self.subscribe(uid, "lr")
+        for currency in ("USD", "UZS"):
+            with self.assertRaises(billing.BillingError) as cm:
+                billing.create_order(self.db, uid, "plan", scope="lr", months=3, currency=currency)
+            self.assertIn("renews on its own", str(cm.exception))
+        r, body = self.call("POST", "/api/orders", {"kind": "plan", "scope": "lr", "months": 1, "currency": "USD"}, cookie=cookie)
+        self.assertEqual(r.code, 400)
+        self.assertIn("Cancel the renewal", body["error"])
+        # Another paper is another pass.
+        self.assertEqual(billing.create_order(self.db, uid, "plan", scope="speaking", months=1, currency="USD")["scope"], "speaking")
+        # Once the renewal is cancelled, the same pass can be bought again.
+        billing._mark_cancelled(self.db, "sub_1")
+        self.assertEqual(billing.create_order(self.db, uid, "plan", scope="lr", months=1, currency="UZS")["scope"], "lr")
+
+    def test_a_renewing_full_pass_already_opens_every_paper(self):
+        cookie, data = self.login("twice.full@example.com")
+        uid = data["user"]["id"]
+        self.subscribe(uid, "full", sub="sub_full")
+        with self.assertRaises(billing.BillingError) as cm:
+            billing.create_order(self.db, uid, "plan", scope="writing", months=1, currency="UZS")
+        self.assertIn("Full pass already opens every paper", str(cm.exception))
+
+    def test_a_one_time_pass_can_be_added_to(self):
+        cookie, data = self.login("twice.click@example.com")
+        uid = data["user"]["id"]
+        first = billing.create_order(self.db, uid, "plan", scope="lr", months=1)
+        billing.fulfil_order(self.db, first["id"], "click", external_id="1")
+        second = billing.create_order(self.db, uid, "plan", scope="lr", months=1)       # allowed: Click passes do not renew
+        billing.fulfil_order(self.db, second["id"], "click", external_id="2")
+        a, b = self.db.select("subscription_periods", {"user_id": uid}, order=[("starts_at", "asc")])
+        self.assertEqual(b["starts_at"], a["ends_at"])                                   # the new one starts when the first ends
+
+    def test_the_screens_say_what_the_student_holds(self):
+        with open(os.path.join(PUBLIC_DIR, "js", "account.js"), encoding="utf-8") as f:
+            account = f.read()
+        for text in ("const ownedPass", "Included in your Full pass until {date}", "You have this: renews on {date}",
+                     "A new one starts when it ends.", "plans-held", "Add Full pass"):
+            self.assertIn(text, account, text)
+
+
 class PaymentWordingTests(unittest.TestCase):
     """The pages say what each way of paying does: a card renews, Click is one payment."""
 

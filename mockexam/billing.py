@@ -282,6 +282,12 @@ def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope=
             raise BillingError("Unknown pass.")
         if scope not in PLAN_PRICES or months not in PLAN_PRICES[scope]:
             raise BillingError("Unknown pass.")
+        # A pass that renews on its own (a card subscription) is not bought a second time: that would charge twice.
+        for held in accounts.plan_status(db, user_id)["passes"]:
+            if held["renews"] and held["scope"] in (scope, "full"):
+                raise BillingError(
+                    "Your Full pass already opens every paper, and it renews on its own." if held["scope"] == "full" and scope != "full"
+                    else "You already have this pass, and it renews on its own. Cancel the renewal in your account first if you want to change it.")
         uzs, usd = PLAN_PRICES[scope][months]
         if currency == "USD":
             if not dodo.product_id(scope, months) or not dodo.configured():
