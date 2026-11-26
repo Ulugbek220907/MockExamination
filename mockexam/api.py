@@ -36,6 +36,7 @@ HTTP API for accounts, plans and payments, examiners and checks, and admin.
 
   GET  /api/admin/orders, POST /api/admin/orders/<id>/(confirm|refund|cancel)
   GET  /api/admin/click, POST /api/admin/click/check   Click settings, recent callbacks, and a check of the keys
+  GET  /api/admin/ai-usage                       what the AI examiner cost in the last 30 days, and who used it most
   GET  /api/admin/examiners, POST     list / add or update an examiner by email
   GET  /api/admin/users?q=, POST /api/admin/plan   find users / give plan days
 """
@@ -47,7 +48,7 @@ import re
 
 import tornado.web
 
-from . import accounts, analytics, auth, billing, checks, notify, speaking, speaking_adaptive, speaking_ai
+from . import accounts, ai_usage, analytics, auth, billing, checks, notify, speaking, speaking_adaptive, speaking_ai
 from .dbcache import gather
 from .web import BaseHandler, in_thread
 
@@ -540,23 +541,31 @@ class SpeakingStartHandler(BaseHandler):
         mode = body.get("mode")
         notice = None
 
+        notice_code = None
+
         def start():
-            nonlocal mode, notice
+            nonlocal mode, notice, notice_code
+            tier = None
             if mode == "ai":
                 try:
-                    speaking_ai.check_can_start(self.db, profile["id"])
+                    tier = speaking_ai.check_can_start(self.db, profile, plan)
                 except speaking_ai.ReviewError as e:
                     if not body.get("fallback"):
                         raise
-                    # The test goes ahead without the AI's band (not configured, or today's limit reached).
-                    mode, notice = "exam", (str(e) if e.status == 429 else None)
-            return speaking.start_submission(self.db, profile["id"], test, clean_name(body.get("candidateName")), mode)
+                    # The test goes ahead without the AI's band (not configured, or the allowance is used).
+                    mode, notice, notice_code = "exam", (str(e) if e.status == 429 else None), getattr(e, "code", None)
+            try:
+                return speaking.start_submission(self.db, profile["id"], test, clean_name(body.get("candidateName")), mode,
+                                                 usage={"tier": tier} if tier else None)
+            except Exception:
+                ai_usage.release("speaking", tier)
+                raise
         try:
             sub = await in_thread(start)
         except (speaking.SpeakingError, speaking_ai.ReviewError) as e:
             _raise(e)
         state = speaking_adaptive.state_of(sub)
-        self.send_json({"submissionId": sub["id"], "mode": sub.get("mode"), "notice": notice,
+        self.send_json({"submissionId": sub["id"], "mode": sub.get("mode"), "notice": notice, "noticeCode": notice_code,
                         "plan": speaking_adaptive.public_plan(test, state) if state else None})
 
 
@@ -821,6 +830,23 @@ class AdminClickCheckHandler(AdminHandler):
         self.send_json(await in_thread(billing.click_check))
 
 
+class AdminAiUsageHandler(AdminHandler):
+    """Admin → AI: jobs and their cost per paper in the last 30 days, and the people who used the AI examiner most."""
+
+    async def get(self):
+        await self.require_admin()
+        data = await in_thread(ai_usage.summary, self.db)
+        ids = [p["userId"] for p in data["top"]]
+        if ids:
+            profiles = await in_thread(lambda: self.db.select("profiles", {"id": ("in", ids)}, limit=len(ids)))
+            plans = await in_thread(accounts.plan_statuses, self.db, ids)
+            emails = {p["id"]: p.get("email") for p in profiles}
+            for p in data["top"]:
+                p["email"] = emails.get(p["userId"])
+                p["modules"] = (plans.get(p["userId"]) or {}).get("modules") or []
+        self.send_json(data)
+
+
 class AdminOrdersHandler(AdminHandler):
     async def get(self):
         await self.require_admin()
@@ -994,6 +1020,7 @@ def routes():
         (r"/api/speaking/recordings/([0-9a-f\-]{36})", RecordingHandler),
         (r"/api/admin/click", AdminClickHandler),
         (r"/api/admin/click/check", AdminClickCheckHandler),
+        (r"/api/admin/ai-usage", AdminAiUsageHandler),
         (r"/api/admin/orders", AdminOrdersHandler),
         (r"/api/admin/orders/(\d+)/(confirm|refund|cancel)", AdminOrderActionHandler),
         (r"/api/admin/feedback", AdminFeedbackHandler),

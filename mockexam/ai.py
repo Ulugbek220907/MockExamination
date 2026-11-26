@@ -5,11 +5,15 @@ in front of many model providers.
     OPENROUTER_API_KEY    turns AI marking on (Writing, and Speaking with the AI examiner)
     AI_MODEL              the model, default google/gemini-3.8-flash (must accept audio for Speaking)
     AI_REASONING          how hard the model thinks: low, medium (default) or high
+    AI_DATA_COLLECTION    deny (default): only model providers that do not store or train on what we send. If no
+                          provider of the model qualifies, the request goes the normal way and the log says so loudly.
+                          strict: the same, but never the normal way (AI marking stops instead). allow: any provider.
     OPENROUTER_BASE_URL   default https://openrouter.ai/api/v1 (tests point it at a local fake)
 
 complete_json() sends a system prompt and a user message (text and audio parts),
 asks for JSON that follows a JSON Schema, and returns the parsed object. Every
-call is logged with its token use and cost, never with the content.
+call is logged with its token use and cost, never with the content, and the cost of
+every attempt (a retried answer costs too) is returned, so each job's cost can be kept.
 """
 
 import base64
@@ -41,6 +45,11 @@ class AiError(Exception):
     def __init__(self, message, retryable=False):
         super().__init__(message)
         self.retryable = retryable
+        self.cost = 0.0   # US dollars the failed attempts still cost
+
+
+class NoEndpoint(AiError):
+    """No provider of the model meets the request's conditions (for example the data policy)."""
 
 
 def _env(name, default=""):
@@ -58,6 +67,11 @@ def model_name():
 def reasoning_level():
     level = _env("AI_REASONING", "medium").lower()
     return level if level in REASONING_LEVELS else "medium"
+
+
+def data_policy():
+    value = _env("AI_DATA_COLLECTION", "deny").lower()
+    return value if value in ("deny", "strict", "allow") else "deny"
 
 
 def text_part(text):
@@ -116,6 +130,8 @@ def _post(body, timeout):
             raise AiError("AI marking is paused: the site's AI credit has run out.") from e
         if e.code == 413:
             raise AiError("The recording is too long to be assessed.") from e
+        if e.code == 404 and (body.get("provider") or {}).get("data_collection") == "deny":
+            raise NoEndpoint("AI marking is not available right now.") from e
         retry = e.code in (408, 500, 502, 503, 504)
         raise AiError(f"The AI examiner returned an error ({e.code}).", retryable=retry) from e
     except urllib.error.URLError as e:
@@ -126,27 +142,56 @@ def _post(body, timeout):
         raise AiError("The AI examiner sent an answer that could not be read.", retryable=True) from e
 
 
+def _cost(usage):
+    try:
+        return max(0.0, float((usage or {}).get("cost") or 0))
+    except (TypeError, ValueError):
+        return 0.0
+
+
+_fallback_logged = False
+
+
 def complete_json(system, content, schema, name, max_tokens=8000, reasoning=None, timeout=180, attempts=3):
     """
     Ask the model for JSON that follows `schema`. `content` is a string or a list of
-    parts (text_part, audio_part). Returns (data, meta) where meta has the model and usage.
+    parts (text_part, audio_part). Returns (data, meta): meta has the model, the last
+    answer's usage, and "cost" (US dollars for every attempt, retries included).
     Retries busy, timed-out and unreadable answers with a short back-off.
     """
+    global _fallback_logged
     if not configured():
         raise AiError("AI marking is not enabled on this site yet.")
+    policy = data_policy()
     body = {
         "model": model_name(),
         "messages": [{"role": "system", "content": system}, {"role": "user", "content": content}],
         "response_format": {"type": "json_schema", "json_schema": {"name": name, "strict": True, "schema": schema}},
         "reasoning": {"effort": reasoning or reasoning_level(), "exclude": True},
         "max_tokens": max_tokens,
-        "provider": {"require_parameters": True},
+        "provider": {"require_parameters": True, **({} if policy == "allow" else {"data_collection": "deny"})},
     }
-    last = None
+    last, spent, tokens_in, tokens_out = None, 0.0, 0, 0
     for attempt in range(1, attempts + 1):
         started = time.monotonic()
         try:
-            data = _post(body, timeout)
+            try:
+                data = _post(body, timeout)
+            except NoEndpoint:
+                if policy == "strict":
+                    raise
+                # No provider of this model promises not to keep the data: say so where the owner will see it, and
+                # carry on the normal way rather than stop marking (AI_DATA_COLLECTION=strict stops instead).
+                if not _fallback_logged:
+                    log.error("No provider of %s meets data_collection=deny; using the default routing. Set "
+                              "AI_DATA_COLLECTION=strict to stop instead, or choose another AI_MODEL.", body["model"])
+                    _fallback_logged = True
+                body["provider"].pop("data_collection", None)
+                data = _post(body, timeout)
+            usage = data.get("usage") or {}
+            spent += _cost(usage)
+            tokens_in += int(usage.get("prompt_tokens") or 0)
+            tokens_out += int(usage.get("completion_tokens") or 0)
             if data.get("error"):
                 err = data["error"]
                 code = err.get("code") if isinstance(err, dict) else None
@@ -162,12 +207,13 @@ def complete_json(system, content, schema, name, max_tokens=8000, reasoning=None
             if finish in ("content_filter", "safety", "refusal"):
                 raise AiError("The AI examiner declined to assess this response.")
             result = parse_json(_message_text(choice.get("message") or {}))
-            usage = data.get("usage") or {}
             log.info("AI %s: model=%s %.1fs tokens in=%s out=%s cost=%s", name, data.get("model"),
                      time.monotonic() - started, usage.get("prompt_tokens"), usage.get("completion_tokens"), usage.get("cost"))
-            return result, {"model": data.get("model") or model_name(), "usage": usage}
+            return result, {"model": data.get("model") or model_name(), "usage": usage, "cost": round(spent, 6),
+                            "tokensIn": tokens_in, "tokensOut": tokens_out, "attempts": attempt}
         except AiError as e:
             last = e
+            e.cost = round(spent, 6)
             if not e.retryable or attempt == attempts:
                 raise
             time.sleep(2 * attempt)

@@ -221,21 +221,21 @@
     const slot = document.getElementById("account-slot");
     if (!slot) return;
     const u = user();
-    document.body.classList.toggle("signed-in", Boolean(u)); // the header drops "About" for signed-in students
-    const planLink = document.querySelector('.site-links a[data-nav="pricing"]');
-    if (planLink && commerce()) {
-      const subscribed = planActive() && (state.me.plan.modules || []).length >= 4;
-      planLink.hidden = subscribed;                       // someone with every paper has no use for the link
-      planLink.textContent = t("Get a pass");
-      planLink.classList.add("nav-cta");
-    }
+    // Signed in, the header drops "Price" and "About": the pass is offered by a small pill next to the account instead,
+    // and only to someone who does not hold every paper yet.
+    document.body.classList.toggle("signed-in", Boolean(u));
     if (!u) {
       slot.innerHTML = `<button type="button" class="nav-signin" data-action="signin">${t("Sign in")}</button>`;
       return;
     }
     const todo = state.me.todo || {};
+    const held = (planActive() && state.me.plan.modules) || [];
+    const pill = commerce() && held.length < 4 && !["admin", "examiner"].includes(u.role)
+      ? `<a href="#/pricing" class="nav-pass" data-nav="pricing" data-track="nav_pass"><span class="nav-pass-mark" aria-hidden="true">✦</span>
+          <span class="nav-pass-long">${held.length ? t("Add a pass") : t("Get more with a pass")}</span><span class="nav-pass-short">${t("Pass")}</span></a>`
+      : "";
     const count = (n, what) => (n ? ` <span class="nav-count" title="${n} ${what}">${n > 99 ? "99+" : n}</span>` : "");
-    slot.innerHTML = `
+    slot.innerHTML = `${pill}
       ${checks() && (u.role === "examiner" || u.role === "admin") ? `<a href="#/examiner" class="nav-extra" data-nav="examiner">Examiner${count(todo.checks, "checks to mark")}</a>` : ""}
       ${u.role === "admin" ? `<a href="#/admin" class="nav-extra" data-nav="admin">Admin${count(todo.payments, "payments to confirm")}</a>` : ""}
       <a href="#/account" class="nav-account" data-nav="account" title="${esc(u.email)}" aria-label="${esc(t("My account"))}">
@@ -525,7 +525,8 @@
   }
 
   /** A single paper instead of the Full pass: Speaking, Writing, or Listening and Reading, monthly or for 3 months. Resolves {scope, months} or null. */
-  function chooseSinglePass(b) {
+  /** The passes for one paper at a time; with `focus` ("writing", "speaking", "lr") that paper's pass and the Full pass. */
+  function chooseSinglePass(b, focus) {
     const info = payInfo(b);
     const both = info.cards && info.local.length > 0;     // dollars for a card, so'm for Click: show both
     const row = ([key, name, what]) => {
@@ -546,9 +547,14 @@
           </button>` : "").join("")}</div>
       </div>`;
     };
+    const caps = b.aiCaps || {};
+    const rows = focus ? [PASSES.find(([k]) => k === focus), PASSES.find(([k]) => k === "full")].filter(Boolean)
+      : PASSES.filter(([k]) => k !== "full");
+    const ai = focus === "writing" && caps.writing ? t("{n} Writing scripts marked by the AI examiner a month.", { n: caps.writing })
+      : focus === "speaking" && caps.speaking ? t("{n} Speaking tests rated by the AI examiner a month.", { n: caps.speaking }) : "";
     return U.modal({
-      title: t("Choose one paper"),
-      bodyHTML: `<div class="single-list">${PASSES.filter(([k]) => k !== "full").map(row).join("")}</div>
+      title: focus ? t("Get more with a pass") : t("Choose one paper"),
+      bodyHTML: `${ai ? `<p class="single-ai">${esc(ai)}</p>` : ""}<div class="single-list">${rows.map(row).join("")}</div>
         <p class="muted-text small-text">${esc(renewalLine(b))}</p>`,
       buttons: [{ label: t("Cancel"), className: "btn-secondary", value: null }],
       onOpen: (root, close) => root.querySelectorAll("[data-scope]").forEach((btn) =>
@@ -695,7 +701,8 @@
     const save = Math.round((1 - val(three) / sum) * 100);
     const feats = [
       t("All 4 papers, {n} tests", { n: U.number(tests.length) }),
-      t("AI marking for Speaking and Writing"),
+      b.aiCaps && b.aiCaps.writing ? t("AI marking: {w} Writing scripts and {s} Speaking tests a month", { w: b.aiCaps.writing, s: b.aiCaps.speaking })
+        : t("AI marking for Speaking and Writing"),
       t("Explanations and listening transcripts"),
       inSoum ? t("One payment, no renewal") : t("Cancel any time"),
     ];
@@ -1341,7 +1348,7 @@
     const tab = params.get("tab") || "payments";
     const paymentsLabel = () => { const n = (state.me.todo || {}).payments || 0; return `Payments to confirm${n ? ` (${n})` : ""}`; };
     const tabs = [["payments", paymentsLabel()], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"],
-      ["insights", "Revenue, funnel & feedback"], ["click", "Click"], ["tests", "Tests"]];
+      ["insights", "Revenue, funnel & feedback"], ["ai", "AI"], ["click", "Click"], ["tests", "Tests"]];
     main.innerHTML = `
       <section class="page admin-page">
         <h1>Admin</h1>
@@ -1510,6 +1517,27 @@
           renderAdmin(main, params);
         } catch (err) { U.toast(err.message, "warn"); }
       });
+    } else if (tab === "ai") {
+      // What the AI examiner cost (as OpenRouter reported it for each job) and who used it most: docs/AI_COSTS.md.
+      const d = await U.api("/api/admin/ai-usage", { fresh: true });
+      const dollars = (n) => (n == null ? "–" : `$${Number(n).toFixed(n < 1 ? 3 : 2)}`);
+      const a = d.allowances || {};
+      const line = (m) => { const x = d.modules[m] || {}; return `<tr><th scope="row">${m === "writing" ? "Writing scripts" : "Speaking tests"}</th>
+        <td>${U.number(x.jobs || 0)}</td><td>${U.number(x.free || 0)}</td><td>${dollars(x.cost)}</td><td>${dollars(x.average)}</td>
+        <td>${U.number((d.freeToday || {})[m] || 0)} of ${U.number((d.freePerDay || {})[m] || 0)}</td></tr>`; };
+      body.innerHTML = `
+        <p class="lead-text">The AI examiner in the last ${d.days} days. Costs are what OpenRouter reported for each job (jobs from before costs were kept show none).</p>
+        <div class="table-scroll"><table class="history-table funnel-table">
+          <thead><tr><th scope="col">Jobs</th><th scope="col">All</th><th scope="col">Free accounts</th><th scope="col">Cost</th><th scope="col">Average</th><th scope="col">Free today</th></tr></thead>
+          <tbody>${line("writing")}${line("speaking")}</tbody></table></div>
+        <p class="muted-text small-text">Allowances in any 30 days: with a pass ${a.pass ? `${a.pass.writing.month} Writing (${a.pass.writing.day} a day) and ${a.pass.speaking.month} Speaking (${a.pass.speaking.day} a day)` : "–"};
+          free account ${a.free ? `${a.free.writing.month} Writing and ${a.free.speaking.month} Speaking` : "–"}. Change them with environment variables (docs/AI_COSTS.md).</p>
+        <h2 class="section-title">Who used it most</h2>
+        ${d.top.length ? `<div class="table-scroll"><table class="history-table">
+          <thead><tr><th>Account</th><th>Passes</th><th>Writing</th><th>Speaking</th><th>Cost</th></tr></thead>
+          <tbody>${d.top.map((p) => `<tr><td>${esc(p.email || p.userId)}</td><td>${esc((p.modules || []).join(", ") || "free")}</td>
+            <td>${U.number(p.writing)}</td><td>${U.number(p.speaking)}</td><td>${dollars(p.cost)}</td></tr>`).join("")}</tbody></table></div>`
+          : `<p class="empty-inline">No AI marking in the last ${d.days} days.</p>`}`;
     } else if (tab === "click") {
       // What the site has for Click and what Click has sent it: tells a payment that failed on Click's side from one that never reached us.
       const c = await U.api("/api/admin/click", { fresh: true });
@@ -1640,7 +1668,7 @@
     const a = el.dataset.action;
     if (a === "signin") { login().then((ok) => ok && window.app && window.app.route()); return true; }
     if (a === "signout") { logout(); return true; }
-    if (a === "single-pass") { billing().then(chooseSinglePass).then((pick) => pick && buy("plan", pick)); return true; }
+    if (a === "single-pass") { billing().then((b) => chooseSinglePass(b, el.dataset.scope)).then((pick) => pick && buy("plan", pick)); return true; }
     if (a === "cancel-sub") { cancelRenewal(el.dataset.scope); return true; }
     if (a === "buy-plan") { buy("plan", el.dataset.scope ? { scope: el.dataset.scope, months: el.dataset.months } : {}); return true; }
     if (a === "examiner-reviews") { showReviews(el.dataset.id); return true; }

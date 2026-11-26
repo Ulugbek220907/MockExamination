@@ -66,7 +66,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, ai, analytics, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, seo, speaking, speaking_adaptive, speaking_ai, storage, writing  # noqa: E402
+from mockexam import accounts, ai, ai_safety, ai_usage, analytics, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, seo, speaking, speaking_adaptive, speaking_ai, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -396,7 +396,7 @@ class ConfigHandler(BaseHandler):
             "siteName": SITE_NAME,
             "aiMarking": writing.ai_configured(),
             "aiSpeaking": speaking_ai.configured(),
-            "aiSpeakingPerDay": speaking_ai.PER_USER_PER_DAY,
+            "aiAllowances": ai_usage.allowances(),
             "aiSpeakingAdaptive": speaking_adaptive.enabled(),
             "contactEmail": CONTACT_EMAIL,
             "social": SOCIAL_LINKS,
@@ -526,7 +526,8 @@ class WritingSubmitHandler(BaseHandler):
             text = text if isinstance(text, str) else ""
             if len(text) > MAX_ESSAY_CHARS:
                 return self.send_error_json(413, f"Task {n} is too long.")
-            responses[n] = text.replace("\r\n", "\n").strip()
+            # Invisible characters (which can hide instructions to the AI) are taken out; nothing visible changes.
+            responses[n] = ai_safety.clean_text(text.replace("\r\n", "\n"))[0].strip()
 
         tasks = {t["taskNumber"]: t for t in test["tasks"]}
         analyses = {
@@ -536,7 +537,7 @@ class WritingSubmitHandler(BaseHandler):
         name = clean_name(body.get("candidateName"))
         seconds = clean_seconds(body.get("timeSpentSeconds"))
 
-        assessment, status, message = None, "not_requested", ""
+        assessment, status, message, code = None, "not_requested", "", None
         if not writing.ai_configured():
             status, message = "not_configured", "AI marking is not enabled on this site yet."
         elif body.get("requestAssessment", True):
@@ -547,20 +548,7 @@ class WritingSubmitHandler(BaseHandler):
             elif all(analyses[n]["wordCount"] < writing.MIN_WORDS_FOR_AI for n in (1, 2)):
                 status, message = "too_short", "Both responses are too short to be marked."
             else:
-                limited = await in_thread(writing.month_limit, STORE.db, profile["id"])
-                limited = limited or AI_LIMITER.try_acquire(self.client_ip())
-                if limited:
-                    status, message = "rate_limited", limited
-                else:
-                    try:
-                        async with AI_SEMAPHORE:
-                            assessment = await writing.assess_with_ai(test, responses, analyses)
-                        status = "complete"
-                    except writing.AssessmentUnavailable as e:
-                        status, message = "error", str(e)
-                    except Exception:
-                        log.exception("AI assessment failed")
-                        status, message = "error", "The AI examiner could not mark this script. Please try again later."
+                assessment, status, message, code = await self.assess(test, responses, analyses, profile)
 
         result = {
             "testId": test["id"],
@@ -580,9 +568,10 @@ class WritingSubmitHandler(BaseHandler):
                 }
                 for n in (1, 2)
             ],
-            "assessment": assessment,
+            "assessment": writing.public_assessment(assessment),
             "assessmentStatus": status,
             "assessmentMessage": message,
+            "assessmentCode": code,
             "overallBand": assessment["overallBand"] if assessment else None,
             "signedIn": bool(profile),
         }
@@ -609,6 +598,39 @@ class WritingSubmitHandler(BaseHandler):
         self.send_json(result)
         self.track("test_finished", client_id=record["client_id"], user_id=record["user_id"],
                    module="writing", test_id=test["id"])
+
+    async def assess(self, test, responses, analyses, profile):
+        """(assessment, status, message, code) for a signed-in student's script, within their AI allowance."""
+        plan = await in_thread(PLAN_CACHE.get, STORE.db, profile["id"])
+        try:
+            tier = await in_thread(ai_usage.check, STORE.db, profile, plan, "writing")
+        except ai_usage.Refused as e:
+            return None, "rate_limited", str(e), e.code
+        key = ("writing", profile["id"])
+        if not ai_usage.IN_FLIGHT.take(key):   # the same student sending a script from two tabs at once
+            ai_usage.release("writing", tier)
+            return None, "rate_limited", "Your previous script is still with the AI examiner. Please wait for it.", "busy"
+        ran = False
+        try:
+            limited = AI_LIMITER.try_acquire(self.client_ip())
+            if limited:
+                return None, "rate_limited", limited, "busy"
+            async with AI_SEMAPHORE:
+                assessment = await writing.assess_with_ai(test, responses, analyses)
+            ran = assessment["usage"]["calls"] > 0
+            assessment["usage"]["tier"] = tier
+            return assessment, "complete", "", None
+        except writing.AssessmentUnavailable as e:
+            ran = True
+            return None, "error", str(e), None
+        except Exception:
+            ran = True
+            log.exception("AI assessment failed")
+            return None, "error", "The AI examiner could not mark this script. Please try again later.", None
+        finally:
+            ai_usage.IN_FLIGHT.release(key)
+            if not ran:
+                ai_usage.release("writing", tier)
 
 
 async def openable_tests(handler, tests):

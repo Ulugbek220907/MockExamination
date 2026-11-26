@@ -73,7 +73,7 @@ def _id(value):
 # Submissions
 # --------------------------------------------------------------------------
 
-def start_submission(db, user_id, test, candidate_name, mode):
+def start_submission(db, user_id, test, candidate_name, mode, usage=None):
     since = now() - datetime.timedelta(days=1)
     recent = db.select("speaking_submissions", {"user_id": user_id, "created_at": ("gte", iso(since))}, limit=STARTS_PER_DAY + 1)
     if len(recent) >= STARTS_PER_DAY:
@@ -81,7 +81,7 @@ def start_submission(db, user_id, test, candidate_name, mode):
     row = {"user_id": user_id, "test_id": test["id"], "candidate_name": candidate_name,
            "mode": mode if mode in ("practice", "ai") else "exam", "status": "recording"}
     if mode == "ai":
-        row["ai_review"] = {"status": "recording"}
+        row["ai_review"] = {"status": "recording", **({"usage": usage} if usage else {})}
         if speaking_adaptive.enabled():  # the examiner decides how many questions to ask from how the candidate speaks
             row["ai_review"]["adaptive"] = speaking_adaptive.initial_state(test)
     return db.insert("speaking_submissions", row)

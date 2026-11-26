@@ -22,6 +22,9 @@
 
   // The four modules, in the order of the real test day.
   const MODULES = ["listening", "reading", "writing", "speaking"];
+  // The pass that opens each paper, and how the cards name it.
+  const PASS_SCOPE = { listening: "lr", reading: "lr", writing: "writing", speaking: "speaking" };
+  const PASS_LABEL = { lr: "Listening and Reading", writing: "Writing", speaking: "Speaking" };
 
   const ICON_BACK = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H4M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const ICON_CHECK = `<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -315,6 +318,7 @@
       const list = document.getElementById("dash-modules");
       if (!list) return;
       const commerce = this.commerce();
+      const staff = ["admin", "examiner"].includes(Account.role());
       list.innerHTML = MODULES.map((module) => {
         const tests = this.testsOf(module);
         if (!tests.length) return "";
@@ -328,12 +332,20 @@
         const counted = commerce && open.some((x) => x.access !== "free")
           ? t("{n} of {total} tests taken", { n: taken, total: open.length })
           : t("{n} of {total} free tests taken", { n: taken, total: open.length });
+        // Without a pass for this paper (and with passes on sale): how many more tests a pass opens, under the free ones
+        // the student is working through, and a clear offer once the free ones are done.
+        const scope = PASS_SCOPE[module];
+        const locked = commerce && !staff && !Account.hasModule(module) ? tests.filter((x) => x.access === "premium").length : 0;
+        const offer = locked ? `<button type="button" class="btn-primary" data-action="single-pass" data-scope="${scope}" data-track="dash_pass_${module}">${t("Get {name} pass", { name: PASS_LABEL[scope] })}</button>` : "";
         const action = next
           ? `<button type="button" class="btn-primary" data-action="start" data-test="${esc(next.id)}" data-mode="exam"
               aria-label="${esc(t("Start {name}", { name: `${label}, ${this.testName(next)}` }))}">${t("Start {name}", { name: esc(this.testName(next)) })}</button>`
-          : "";
-        const doneNote = next ? "" : `<p class="dash-done">${this.canRetake(open[0] || { access: "free" })
-          ? t("You have taken every test here.") : t("You have taken every free test here. More are coming soon.")}</p>`;
+          : offer;
+        const more = locked && next ? `<p class="dash-more"><button type="button" class="dash-more-btn" data-action="single-pass" data-scope="${scope}" data-track="dash_more_${module}">
+            <span class="dash-more-mark" aria-hidden="true">✦</span><span class="dash-more-text">${t("{n} more tests with a pass", { n: U.number(locked) })}</span></button></p>` : "";
+        const doneNote = next ? "" : `<p class="dash-done">${locked
+          ? t("You have taken the free tests. {n} more are in the {name} pass.", { n: U.number(locked), name: PASS_LABEL[scope] })
+          : this.canRetake(open[0] || { access: "free" }) ? t("You have taken every test here.") : t("You have taken every free test here. More are coming soon.")}</p>`;
         return `
           <li class="dash-card">
             <div class="dash-card-top">
@@ -343,6 +355,7 @@
             <p class="dash-fmt">${esc(this.formatOf(module))}</p>
             <div class="dash-meter" role="img" aria-label="${esc(counted)}"><span style="width:${pct}%"></span></div>
             <p class="dash-count">${esc(counted)}</p>
+            ${more}
             ${doneNote}
             <div class="dash-act">
               ${action}
@@ -842,7 +855,10 @@
           a.src = test.parts[0].questions[0].audio.src;
         } catch (e) {}
       }
-      const perDay = Number(this.config.aiSpeakingPerDay) || 3;
+      const allow = this.config.aiAllowances || { pass: { speaking: { month: 12, day: 3 } }, free: { speaking: { month: 1 } } };
+      const allowance = Account.hasModule("speaking") || ["admin", "examiner"].includes(Account.role())
+        ? t("Your pass includes {month} rated tests in any 30 days, up to {day} a day.", allow.pass.speaking)
+        : t("A free account includes {n} rated test in any 30 days; a Speaking pass includes {m}.", { n: allow.free.speaking.month, m: allow.pass.speaking.month });
       const instructions = module === "speaking" && withAi
         ? [
           `You talk with the <strong>examiner</strong>, face to face on screen, as in the real test. The examiner asks every question out loud; you answer by speaking. Like a real examiner, it does not reply to your answers.`,
@@ -854,7 +870,7 @@
             <strong>2 minutes</strong> to speak. <strong>Part 3:</strong> a discussion of wider questions. The test takes <strong>11–14 minutes</strong>.`,
           `Answer fully and naturally. When you stop talking for a few seconds the examiner moves on, so take a short breath to think if you need to, but do not stop for long. You may ask for a question to be repeated once.`,
           rated
-            ? `At the end the AI examiner listens to your whole test: fluency, pauses and hesitation ("um", "er"), vocabulary, grammar and pronunciation. You get an <strong>estimated band</strong> for each official criterion, with feedback, in about a minute. You can have ${perDay} tests rated a day.`
+            ? `At the end the AI examiner listens to your whole test: fluency, pauses and hesitation ("um", "er"), vocabulary, grammar and pronunciation. You get an <strong>estimated band</strong> for each official criterion, with feedback, in about a minute. ${esc(allowance)}`
             : `Your answers are recorded and saved to your account, so you can listen to them afterwards.`,
           `Use headphones in a quiet room, and test your microphone below.`,
         ]
@@ -1169,7 +1185,7 @@
       const days = Number(this.config.speakingKeepDays) || 60;
       const p = this.prices || {};
       const plans = this.plans || {};
-      const caps = this.aiCaps || { speaking: 12, writing: 20 };
+      const caps = this.aiCaps || { speaking: 12, writing: 30, free: { speaking: 1, writing: 2 } };
       const price = (n) => (n ? esc(U.money(n)) : "…");
       const commerce = this.checks();   // "commerce" here means: examiner checks are offered (passes are described either way)
       // The ways of paying that are on: Dodo (cards, US dollars) and/or Click or Payme (so'm, one payment). Until the
@@ -1193,6 +1209,7 @@
           ${section("terms.account", {}, "terms.account")}
           ${section("terms.pass", {
             full: price(plans.full && plans.full["1"].uzs), speakingCap: caps.speaking, writingCap: caps.writing,
+            freeSpeakingCap: (caps.free || {}).speaking ?? 1, freeWritingCap: (caps.free || {}).writing ?? 2,
             localNote: local && cards ? t("terms.pass.local", { methods: esc(local) }) : "",
           }, local && !cards ? "terms.pass.once" : "terms.pass")}
           ${commerce ? section("terms.checks", { writing: price(p.writing_check), speaking: price(p.speaking_check) }) : ""}

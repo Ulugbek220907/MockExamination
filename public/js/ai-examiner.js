@@ -934,6 +934,7 @@
           </div>
           <div class="ai-band"><span class="ai-band-val">${IeltsScoring.formatBand(r.overallBand)}</span><span class="ai-band-lbl">Estimated band</span></div>
         </div>
+        ${(r.checks || []).map((c) => `<p class="notice notice-warn check-note">${esc(c)}</p>`).join("")}
         ${r.summary ? `<p class="lead-text">${esc(r.summary)}</p>` : ""}
         ${adaptiveHTML(r.adaptive)}
         ${P.criteriaHTML(r)}
