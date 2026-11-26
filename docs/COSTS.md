@@ -66,6 +66,17 @@ examiner bands of the 12 IELTS samples:
 | Claude Haiku 5.5 | 1.50 | −1.42 | 2 of 12 | 0.62 | $0.003 | 19 s |
 | GPT-5.6 Luna | 1.58 | −1.58 | 1 of 12 | 0.73 | $0.003 | 18 s |
 | Muse Ember | 1.79 | −1.79 | 1 of 12 | 0.76 | $0.002 | 9 s |
+| *Round 2, all with the calibrated prompt:* | | | | | | |
+| MiMo v2.6 Flash | 0.95 | −0.95 | 6 of 11 | 0.80 | $0.001 | 18 s |
+| DeepSeek V4.1 Flash | 1.00 | −0.90 | 5 of 10 | 0.57 | $0.005 | 48 s |
+| GPT-5 Mini | 1.12 | −0.88 | 5 of 12 | 0.59 | $0.008 | 38 s |
+| DeepSeek V4.1 Flash 1017 | 1.29 | −1.12 | 2 of 12 | 0.68 | $0.005 | 54 s |
+| Gemini 3.5 Flash-Lite | 1.50 | −1.50 | 2 of 12 | 0.72 | $0.007 | 8 s |
+| Mistral Small 2603 | 1.67 | −1.58 | 2 of 12 | 0.62 | $0.002 | 16 s |
+
+A cheaper model for beginners only was considered too: the rating is one call per test ($0.013), so the most it could
+save is about one cent a test, while every cheaper rater above was about a band too low, which a beginner reads as
+failing. Beginners already cost less on their own: shorter answers, and the adaptive test asks them fewer questions.
 
 Every model rated real candidates too low with the old prompt ("most candidates score 5 to 7", "fully fits"), so the
 prompt was recalibrated. A small low bias remains, mostly for the strongest candidates (bands 8–9), partly because
