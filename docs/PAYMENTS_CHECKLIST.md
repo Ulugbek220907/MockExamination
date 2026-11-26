@@ -103,6 +103,8 @@ was started; an examiner check until the examiner starts it.
   that is already being marked;
 - paid tests and their audio open the moment an order is paid, and lock again the moment
   it is refunded;
+- a pass that renews on its own (a card subscription) is not sold a second time, by card or by Click, and a Full pass that
+  renews blocks every single-paper pass; a one-time pass (Click) can be added to, and the new one starts when the first ends;
 - Click: the payment link follows Click's documentation (amount as `N.NN`, order number as
   `transaction_param`); Prepare and Complete over HTTP with the MD5 signature (wrong signature
   -1, wrong amount -2, a Click number used for another order -8); Click's payment number is saved

@@ -41,6 +41,12 @@
     const local = providers.filter((p) => p === "click" || p === "payme").map((p) => (p === "click" ? "Click" : "Payme"));
     return { cards, local, localOnly: !cards && local.length > 0, names: local.join(" or ") };
   };
+  /** The pass the student holds that opens `scope` (the same pass, or the Full pass), or null. */
+  const ownedPass = (scope) => {
+    const plan = state.me && state.me.plan;
+    const passes = (plan && plan.active && plan.passes) || [];
+    return passes.find((p) => p.scope === scope) || passes.find((p) => p.scope === "full") || null;
+  };
   /** A pass price in the money people pay in: US dollars, or so'm when only local methods are on. */
   const priceOf = (b, p) => (payInfo(b).localOnly ? money(p.uzs) : usd(p.usd));
   /** One line on whether a pass renews, true for the ways of paying that are on. */
@@ -520,14 +526,26 @@
 
   /** A single paper instead of the Full pass: Speaking, Writing, or Listening and Reading, monthly or for 3 months. Resolves {scope, months} or null. */
   function chooseSinglePass(b) {
-    const row = ([key, name, what]) => `
+    const info = payInfo(b);
+    const both = info.cards && info.local.length > 0;     // dollars for a card, so'm for Click: show both
+    const row = ([key, name, what]) => {
+      const own = ownedPass(key);
+      // A pass already held says so. Inside a Full pass, or on a card plan that renews by itself, buying it again would
+      // only pay twice; a one-time pass (Click) can be added to, and the new one starts when the current one ends.
+      const blocked = Boolean(own && (own.renews || own.scope === "full"));
+      const date = own ? `<strong>${esc(longDate(own.endsAt))}</strong>` : "";
+      const note = !own ? "" : `<em class="single-own">${own.scope === "full" ? t("Included in your Full pass until {date}", { date })
+        : own.renews ? t("You have this: renews on {date}", { date }) : t("You have this: active until {date}. A new one starts when it ends.", { date })}</em>`;
+      return `
       <div class="single-row">
-        <div class="single-name"><strong>${esc(t(name.replace(" pass", "")))}</strong><span>${esc(t(what))}</span></div>
-        <div class="single-buttons">${["1", "3"].map((m) => planPrice(b, key, m) ? `
+        <div class="single-name"><strong>${esc(t(name.replace(" pass", "")))}</strong><span>${esc(t(what))}</span>${note}</div>
+        <div class="single-buttons">${blocked ? "" : ["1", "3"].map((m) => planPrice(b, key, m) ? `
           <button type="button" class="single-btn" data-scope="${key}" data-months="${m}">
             <span>${m === "1" ? t("Monthly") : t("3 months")}</span><strong>${esc(priceOf(b, planPrice(b, key, m)))}</strong>
+            ${both ? `<small>${esc(money(planPrice(b, key, m).uzs))}</small>` : ""}
           </button>` : "").join("")}</div>
       </div>`;
+    };
     return U.modal({
       title: t("Choose one paper"),
       bodyHTML: `<div class="single-list">${PASSES.filter(([k]) => k !== "full").map(row).join("")}</div>
@@ -668,6 +686,7 @@
     const month = planPrice(b, "full", 1);
     const three = planPrice(b, "full", 3);
     if (!month || !three) { main.innerHTML = `<section class="page"><h1>${t("Price")}</h1></section>`; return; }
+    if (user()) await refreshMe().catch(() => {});             // what the student holds is shown, and not offered twice
     const info = payInfo(b);
     const inSoum = info.localOnly;                               // only so'm payments are on: prices are shown in so'm
     const val = (p) => (inSoum ? p.uzs : p.usd);
@@ -688,13 +707,19 @@
       : info.cards && info.local.length
         ? t("Cards: secure payment by Dodo Payments, renews until you cancel. {methods}: one payment in so'm, no renewal.", { methods: esc(info.names) })
         : t("Secure card payment by Dodo Payments. Renews until you cancel.");
-    const act = (months, primary) => (selling
-      ? `<button type="button" class="${primary ? "btn-primary" : "btn-secondary"} btn-lg plan-btn" data-action="buy-plan" data-scope="full" data-months="${months}">${t("Get Full pass")}</button>`
-      : `<p class="muted-text">${t("Opening soon")}</p>`);
+    const fullOwned = ownedPass("full") && ownedPass("full").scope === "full" ? ownedPass("full") : null;
+    const heldPasses = (state.me && state.me.plan && state.me.plan.active && state.me.plan.passes) || [];
+    const held = heldPasses.length ? `<p class="plans-held">${t("You have")}: ${heldPasses.map((p) => `${esc(t(PASS_NAMES[p.scope] || "Pass"))}, ${p.renews
+      ? t("renews on {date}", { date: `<strong>${esc(longDate(p.endsAt))}</strong>` }) : t("active until {date}", { date: `<strong>${esc(longDate(p.endsAt))}</strong>` })}`).join(" · ")}.
+      ${heldPasses.some((p) => !p.renews) ? t("A pass you add starts when the current one of the same kind ends.") : ""}</p>` : "";
+    const act = (months, primary) => (!selling ? `<p class="muted-text">${t("Opening soon")}</p>`
+      : fullOwned && fullOwned.renews ? `<p class="plan-held">${t("You have this pass: it renews on {date}", { date: `<strong>${esc(longDate(fullOwned.endsAt))}</strong>` })}</p>`
+      : `<button type="button" class="${primary ? "btn-primary" : "btn-secondary"} btn-lg plan-btn" data-action="buy-plan" data-scope="full" data-months="${months}">${fullOwned ? t("Add Full pass") : t("Get Full pass")}</button>`);
     main.innerHTML = `
       <section class="page plans-page">
         <h1>${t("Choose your plan")}</h1>
         <p class="plans-sub">${inSoum ? t("Every test, AI marking and explanations.") : t("Every test, AI marking and explanations. Cancel any time.")}</p>
+        ${held}
         <div class="plan-cards">
           <article class="plan-card">
             <h2>${t("Monthly")}</h2>
