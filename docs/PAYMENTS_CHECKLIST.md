@@ -38,7 +38,9 @@ A provider shows on the Prices page only when all of its variables are set (for 
   - then ask Click to activate the service and to whitelist the server (section 8).
 - Use the **www** address. `testday.uz` without www answers with a redirect, and payment
   servers do not follow redirects for their callbacks, so a payment would never be confirmed.
-- Both must be HTTPS. No other URL is needed: the student is sent back to the site afterwards.
+- Use HTTPS. (Click's documentation allows plain HTTP too, which can be acceptable for a relay: the callbacks carry no secrets
+  and the site checks every signature. Ask Click whether the cabinet accepts an `http://` address.) No other URL is needed: the
+  student is sent back to the site afterwards.
 
 ## 3. Sandbox first (no real money)
 
