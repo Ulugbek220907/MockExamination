@@ -20,12 +20,14 @@ by the order id, so a repeated callback never gives anything twice.
 """
 
 import base64
+import collections
 import datetime
 import hashlib
 import hmac
 import json
 import logging
 import os
+import re
 import threading
 import time
 import urllib.parse
@@ -76,11 +78,69 @@ CLICK = {
     "secret_key": os.environ.get("CLICK_SECRET_KEY", "").strip(),
     # The Merchant API user (to give money back from the admin page); without it refunds are done in Click's cabinet.
     "merchant_user_id": os.environ.get("CLICK_MERCHANT_USER_ID", "").strip(),
+    # Only for display in Admin → Click: the address Click is given when it calls a relay in front of the site (for
+    # example https://click.testday.uz) instead of the site itself. Empty: the site's own address.
+    "callback_base": os.environ.get("CLICK_CALLBACK_BASE", "").strip().rstrip("/"),
 }
 
 
 def click_merchant_api():
     return click_merchant.MerchantApi(CLICK["service_id"], CLICK["merchant_user_id"], CLICK["secret_key"])
+
+
+# What Click last sent and what we answered, newest first (memory only: it starts empty after every restart). Admin → Click
+# shows it, so that a payment that fails on Click's side can be told from one that never reached the site.
+CLICK_RECENT = collections.deque(maxlen=40)
+
+
+def _safe(value, limit=40):
+    """Text from the network, made harmless for the log and the admin page."""
+    return re.sub(r"[^\w\-. :,/]", "?", str(value if value is not None else ""))[:limit]
+
+
+def _click_seen(action, f, result, ip=None):
+    entry = {"at": iso(now()), "action": action, "order": _safe(f.get("merchant_trans_id")),
+             "clickTransId": _safe(f.get("click_trans_id"), 20), "amount": _safe(f.get("amount"), 20),
+             "clickError": _safe(f.get("error"), 12) if action == "complete" else None,
+             "error": result.get("error"), "note": result.get("error_note"), "ip": _safe(ip, 45) or None}
+    CLICK_RECENT.appendleft(entry)
+    log.info("Click %s: order=%s trans=%s amount=%s from=%s -> %s %s", action, entry["order"], entry["clickTransId"],
+             entry["amount"], entry["ip"] or "?", entry["error"], entry["note"])
+
+
+def click_status():
+    """The Click settings the admin page shows. The secret key is never shown, only whether it is there and how long it is."""
+    return {
+        "configured": "click" in providers(),
+        "serviceId": CLICK["service_id"], "merchantId": CLICK["merchant_id"], "merchantUserId": CLICK["merchant_user_id"],
+        "secretKey": {"set": bool(CLICK["secret_key"]), "length": len(CLICK["secret_key"])},
+        "recent": list(CLICK_RECENT),
+    }
+
+
+def click_check():
+    """
+    Does Click accept our keys? Asks its Merchant API about an order that does not exist: Click either answers about the
+    order (so it accepted the merchant user and the secret key) or refuses the keys (HTTP 401 or 403).
+    Returns {"ok": True | False | None, "message": ...}; None means the answer proves nothing.
+    """
+    if not (CLICK["service_id"] and CLICK["merchant_id"] and CLICK["secret_key"]):
+        return {"ok": False, "message": "CLICK_SERVICE_ID, CLICK_MERCHANT_ID and CLICK_SECRET_KEY are not all set on the server."}
+    api = click_merchant_api()
+    if not api.configured:
+        return {"ok": False, "message": "CLICK_MERCHANT_USER_ID is not set, so the keys cannot be checked against Click "
+                                        "(and refunds have to be done in the Click cabinet)."}
+    try:
+        api.payment_by_merchant_trans_id("connection-check", _click_days(now())[0])
+        return {"ok": True, "message": "Click accepted the keys."}
+    except click_merchant.ClickMerchantError as e:
+        if e.http in (401, 403):
+            return {"ok": False, "message": f"Click refused the keys (HTTP {e.http}): CLICK_MERCHANT_USER_ID or CLICK_SECRET_KEY is wrong."}
+        if e.code is not None:    # Click answered about the order: it had accepted the keys
+            return {"ok": True, "message": f"Click accepted the keys. It answered: {e}"}
+        if e.http is not None:
+            return {"ok": None, "message": f"Click answered HTTP {e.http}, which does not say whether the keys are right."}
+        return {"ok": False, "message": str(e)}
 
 KIND_TITLES = {
     "plan": "Pass",
@@ -801,7 +861,17 @@ class ClickApi:
             return -2
         return 0
 
-    def prepare(self, f):
+    def prepare(self, f, ip=None):
+        result = self._prepare(f)
+        _click_seen("prepare", f, result, ip)
+        return result
+
+    def complete(self, f, ip=None):
+        result = self._complete(f)
+        _click_seen("complete", f, result, ip)
+        return result
+
+    def _prepare(self, f):
         try:
             if str(f.get("action")) != "0":
                 return self._reply(f, -3)
@@ -824,7 +894,7 @@ class ClickApi:
             log.exception("Click prepare failed")
             return self._reply(f, -7)
 
-    def complete(self, f):
+    def _complete(self, f):
         try:
             if str(f.get("action")) != "1":
                 return self._reply(f, -3)

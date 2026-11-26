@@ -1433,3 +1433,6 @@ body.signed-in .site-links [data-nav="about"] { display: none; }
 .speak-tips li { margin-top: 4px; }
 .bc-stats { flex-wrap: wrap; gap: 6px 18px; }
 .bc-stats div { white-space: nowrap; }
+
+/* Admin → Click: the keys check sits clear of the list below it */
+.click-check { margin: 18px 0 28px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }

@@ -1316,7 +1316,7 @@
     const tab = params.get("tab") || "payments";
     const paymentsLabel = () => { const n = (state.me.todo || {}).payments || 0; return `Payments to confirm${n ? ` (${n})` : ""}`; };
     const tabs = [["payments", paymentsLabel()], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"],
-      ["insights", "Revenue, funnel & feedback"], ["tests", "Tests"]];
+      ["insights", "Revenue, funnel & feedback"], ["click", "Click"], ["tests", "Tests"]];
     main.innerHTML = `
       <section class="page admin-page">
         <h1>Admin</h1>
@@ -1484,6 +1484,45 @@
           U.toast("Examiner saved.");
           renderAdmin(main, params);
         } catch (err) { U.toast(err.message, "warn"); }
+      });
+    } else if (tab === "click") {
+      // What the site has for Click and what Click has sent it: tells a payment that failed on Click's side from one that never reached us.
+      const c = await U.api("/api/admin/click", { fresh: true });
+      const row = (k, v) => `<tr><th scope="row">${esc(k)}</th><td>${v}</td></tr>`;
+      const none = (text) => `<span class="muted-text">${esc(text)}</span>`;
+      const answer = (r) => (r.error === 0 ? "OK" : `${r.error} ${esc(r.note || "")}`);
+      body.innerHTML = `
+        <p class="lead-text">Click (Uzcard and Humo, in so'm): the settings the site has, and the requests Click has made to it.</p>
+        <div class="table-scroll"><table class="history-table click-settings"><tbody>
+          ${row("Service ID", c.serviceId ? esc(c.serviceId) : none("not set"))}
+          ${row("Merchant ID", c.merchantId ? esc(c.merchantId) : none("not set"))}
+          ${row("Merchant user ID", c.merchantUserId ? esc(c.merchantUserId) : none("not set: refunds are done in the Click cabinet"))}
+          ${row("Secret key", c.secretKey.set ? `set (${c.secretKey.length} characters)` : none("not set"))}
+          ${row("Prepare address, for Click", `<code>${esc(c.urls.prepare)}</code>`)}
+          ${row("Complete address, for Click", `<code>${esc(c.urls.complete)}</code>`)}
+        </tbody></table></div>
+        <p class="click-check"><button type="button" class="btn-primary" id="click-check">Check that Click accepts the keys</button>
+          <span id="click-check-result" class="muted-text" role="status"></span></p>
+        <h2 class="section-title">What Click has sent</h2>
+        <p class="muted-text small-text">The last 40 requests since the site last restarted. If a payment failed on Click's page and nothing is listed here,
+          Click never reached the site: ask Click whether the service is active and the server whitelisted, and check that the two addresses above are saved in its cabinet.</p>
+        ${c.recent.length ? `<div class="table-scroll"><table class="history-table">
+          <thead><tr><th>Time</th><th>Request</th><th>Order</th><th>Amount</th><th>Click number</th><th>Our answer</th><th>From</th></tr></thead>
+          <tbody>${c.recent.map((r) => `<tr><td>${esc(U.formatDate(r.at))}</td><td>${esc(r.action)}</td><td>${esc(r.order)}</td>
+            <td>${esc(r.amount)}</td><td>${esc(r.clickTransId)}</td><td>${answer(r)}${r.clickError && r.clickError !== "0" ? ` <span class="muted-text">(Click's error ${esc(r.clickError)})</span>` : ""}</td>
+            <td>${esc(r.ip || "")}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty-inline">Nothing from Click yet.</p>`}`;
+      const check = body.querySelector("#click-check");
+      const result = body.querySelector("#click-check-result");
+      check.addEventListener("click", async () => {
+        check.disabled = true;
+        result.textContent = "Asking Click…";
+        try {
+          const r = await U.api("/api/admin/click/check", { method: "POST", body: "{}" });
+          result.textContent = `${r.ok === true ? "Yes. " : r.ok === false ? "No. " : "Unclear. "}${r.message}`;
+        } catch (err) {
+          result.textContent = err.message;
+        }
+        check.disabled = false;
       });
     } else if (tab === "insights") {
       const [stats, { feedback }] = await Promise.all([

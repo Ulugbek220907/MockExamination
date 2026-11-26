@@ -153,6 +153,27 @@ password at the first sign-in.
 3. **Ask Click to activate the service** (it is off by default) and to **whitelist the server** before the first real
    payment: domain `www.testday.uz`, port 443 and its IP addresses (today 216.24.57.16 and 216.24.57.18; Render's are
    shared and can change, so ask whether the domain is enough).
+   **Render has no fixed inbound IP** (its static addresses are for outbound traffic only; `216.24.57.1` is the documented
+   address for a root domain's A record, and the CNAME address of `www` is a pool that can change). If Click wants a static
+   IP, or will not whitelist a domain, put a small **relay** in front of the site, on a server in Uzbekistan (inside TAS-IX, so
+   Click needs no whitelist, or at least with an IP that never changes): `click.testday.uz` (A record to the relay's IP)
+   forwards only the two callback paths to `https://www.testday.uz`. With Caddy on the relay:
+
+   ```
+   click.testday.uz {
+       handle /api/pay/click/prepare {
+           reverse_proxy https://www.testday.uz { header_up Host {upstream_hostport} }
+       }
+       handle /api/pay/click/complete {
+           reverse_proxy https://www.testday.uz { header_up Host {upstream_hostport} }
+       }
+       handle { respond "Not found" 404 }
+   }
+   ```
+
+   The relay holds no secrets (every callback is signed and checked by the site). Give Click the relay's addresses instead
+   (`https://click.testday.uz/api/pay/click/prepare` and `/complete`), and set `CLICK_CALLBACK_BASE=https://click.testday.uz`
+   in Render so that Admin → Click shows them.
 4. **Fiscal receipts.** Click says fiscalization (the OFD API) is required only for a service that sells more than one
    IKPU code. TestDay sells one kind of thing (access to an online practice platform), so one IKPU on the service is
    enough and the site does not call the OFD API. Ask Click (or your accountant) which IKPU code applies and that it
@@ -163,6 +184,23 @@ password at the first sign-in.
    "Click payment ... cannot be applied".
 6. **Refund it** from Admin → Orders → Refund on the same day. Expected: the order says Refunded, the pass is gone, and
    Click returns the money to the card (it can take a few banking days).
+
+**Admin → Click** shows what the site has (service id, merchant id, merchant user id, how long the secret key is, never the key
+itself), the two addresses to give Click, and the last 40 requests Click has made to the site with our answer to each (kept
+in memory: the list is empty after a restart). **Check that Click accepts the keys** asks Click's Merchant API about an order that
+does not exist: "Click accepted the keys" means `CLICK_MERCHANT_USER_ID` and `CLICK_SECRET_KEY` are right (the secret key is also
+what signs Prepare and Complete). Every request is also logged: `Click prepare: order=22 trans=... amount=... from=<ip> -> 0 Success`.
+
+**If the first payment fails on Click's page** (for example *Оплата временно невозможна. Недостаточно информации от поставщика*):
+open Admin → Click (or the Render log, search `click`).
+- **Nothing listed / no `Click prepare` line**: Click never reached the site. The cause is on Click's side or in the cabinet: the
+  service is not activated yet, the server is not whitelisted (Click asks for the domain, port and IP of any server outside TAS-IX
+  before the first payment), or the cabinet addresses are not saved exactly as above (with **www**; a redirect from the bare domain
+  is not followed). Send Click the time, the order number and this finding.
+- **A line with `-1 SIGN CHECK FAILED!`**: Click reached the site but `CLICK_SECRET_KEY` or `CLICK_SERVICE_ID` in Render is not the one
+  Click uses (a typo, a space). Use the keys check, and compare the service id on the page with the one Click gave you.
+- **A line with `-5` or `-2`**: the order or the amount does not match: send me the line.
+- **`0 Success` for prepare but no complete**: the payment was not finished by the student.
 
 What the site does for Click (`mockexam/billing.py`, `ClickApi`):
 - **Prepare** checks the signature (`md5(click_trans_id + service_id + SECRET_KEY + merchant_trans_id + amount + action +
