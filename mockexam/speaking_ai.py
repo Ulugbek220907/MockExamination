@@ -305,7 +305,7 @@ HOW TO JUDGE THE EVIDENCE
 - Pronunciation is about intelligibility and phonological control, NOT accent: never lower a band because an accent is noticeable if the speech is easy to understand. Judge individual sounds, word stress, sentence stress, rhythm (stress-timing), chunking, intonation and connected speech, and how much effort the listener needs.
 - Little speech gives little evidence: when the candidate says very little, the bands must stay low because the higher-band features have not been shown.
 - The audio measurements were made by a machine and the transcripts by a listener. Use them as evidence alongside each other, not mechanically.
-- Be honest and calibrated. Most candidates score between 5 and 7. Bands 8 and 9 need near-effortless, precise, natural speech. Do not inflate bands to encourage the candidate."""
+- Be calibrated like a certified examiner: neither harsher nor kinder. Rate what the candidate shows against the descriptors. Occasional slips, some hesitation while thinking about ideas, and a noticeable accent are all compatible with bands 7 to 9: do not hold a band back for small faults that its description allows. Do not inflate bands to encourage the candidate either. (Checked against official IELTS examiner ratings: a stricter reading put candidates about one band too low.)"""
 
 
 LISTEN_SYSTEM = """You are an experienced IELTS Speaking examiner. You will hear ONE answer from a recorded Speaking test, together with the question the candidate was answering. Listen carefully, then (1) transcribe it and (2) note what you hear for each of the four criteria. The overall rating is done later from all the answers; your notes are the evidence.
@@ -337,7 +337,7 @@ MARK_SYSTEM = """You are a senior, certified IELTS Speaking examiner. You have t
 HOW TO DECIDE EACH BAND
 - Rate each criterion independently, on the average performance across all three parts, not on the best or the worst answer.
 - The per-answer bands are only first impressions from single answers. Weigh the longer answers (Part 2 and Part 3) more heavily, because they show what the candidate can sustain.
-- For each criterion, check the band above and the band below and decide which one the candidate fully fits.
+- For each criterion, compare the band above and the band below, and choose the one whose description fits the performance best. A few lapses that a band's description allows do not pull the candidate below it.
 
 FEEDBACK
 - Address the candidate as "you", in clear, simple English for an intermediate learner.
@@ -474,7 +474,7 @@ def listen_to_answer(part, q, data, mime, metrics):
         ai.audio_part(data, mime),
     ]
     result, meta = ai.complete_json(LISTEN_SYSTEM, content_parts, LISTEN_SCHEMA, "speaking_answer",
-                                    max_tokens=8000, reasoning="low", timeout=150)
+                                    max_tokens=8000, reasoning="low", timeout=150, step="listen")
     result["_cost"] = meta.get("cost", 0.0)   # summed into the test's cost; never shown
     # Instructions to the marker heard in the answer, whether or not the model noticed them.
     if ai_safety.instructions_in(result.get("transcript")):
@@ -552,7 +552,8 @@ def mark_test(test, answers, overall, adaptive=None):
         + "\n\n".join(_answer_block(a, (opening, closing)) for a in answers),
         "Rate the whole test on the four criteria, applying the security rules, then write the feedback.",
     ] if block)
-    data, meta = ai.complete_json(MARK_SYSTEM, message, MARK_SCHEMA, "speaking_assessment", max_tokens=16000, timeout=240)
+    data, meta = ai.complete_json(MARK_SYSTEM, message, MARK_SCHEMA, "speaking_assessment", max_tokens=16000, timeout=240,
+                                  step="rate")
     return data, meta
 
 

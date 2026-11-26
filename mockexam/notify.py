@@ -36,7 +36,7 @@ import urllib.request
 log = logging.getLogger("mockexam.notify")
 
 KIND_LABELS = {"plan": "Pass", "writing_check": "Writing check", "speaking_check": "Speaking check"}
-PASS_LABELS = {"full": "Full pass", "speaking": "Speaking pass", "writing": "Writing pass", "lr": "Listening and Reading pass"}
+PASS_LABELS = {"full": "All-in-one pass", "speaking": "Speaking pass", "writing": "Writing pass", "lr": "Listening and Reading pass"}
 
 
 def order_label(order):

@@ -18,7 +18,7 @@ from urllib.parse import urlparse
 import tornado.ioloop
 import tornado.web
 
-from . import accounts, analytics, google_signin
+from . import accounts, analytics, google_signin, guard
 
 TRUST_PROXY = os.environ.get("TRUST_PROXY", "1") != "0"
 ADMIN_TOKEN = os.environ.get("ADMIN_TOKEN", "")
@@ -30,7 +30,10 @@ SESSION_DAYS = 30
 GSI = "https://accounts.google.com/gsi/"  # what Google's sign-in button loads from (its own documented addresses)
 
 
-def security_headers(google=False):
+TURNSTILE = "https://challenges.cloudflare.com"   # Cloudflare's CAPTCHA, when TURNSTILE_SITE_KEY is set (guard.py)
+
+
+def security_headers(google=False, turnstile=False):
     """
     The headers every page and API answer carries. The content security policy lets the page load only its own files.
     With `google` (GOOGLE_CLIENT_ID is set) it also lets the page load Google's sign-in script, show its button and
@@ -40,12 +43,12 @@ def security_headers(google=False):
     own = ["'self'"]
     directives = [
         ("default-src", own),
-        ("script-src", own + ([GSI + "client"] if google else [])),
+        ("script-src", own + ([GSI + "client"] if google else []) + ([TURNSTILE] if turnstile else [])),
         ("style-src", own + ["'unsafe-inline'"] + ([GSI + "style"] if google else [])),
         ("img-src", own + ["data:"]),
         ("media-src", own + ["blob:"]),
-        ("connect-src", own + ([GSI] if google else [])),
-        *([("frame-src", own + [GSI])] if google else []),
+        ("connect-src", own + ([GSI] if google else []) + ([TURNSTILE] if turnstile else [])),
+        *([("frame-src", own + ([GSI] if google else []) + ([TURNSTILE] if turnstile else []))] if google or turnstile else []),
         ("font-src", own),
         ("frame-ancestors", ["'none'"]),
         ("base-uri", own),
@@ -66,7 +69,7 @@ def security_headers(google=False):
     }
 
 
-SECURITY_HEADERS = security_headers(bool(google_signin.configured()))
+SECURITY_HEADERS = security_headers(bool(google_signin.configured()), guard.turnstile_on())
 
 
 async def in_thread(fn, *args):
@@ -111,6 +114,9 @@ class BaseHandler(tornado.web.RequestHandler):
         return origin_host in expected
 
     def prepare(self):
+        # Behind Cloudflare with ORIGIN_SECRET set: refuse requests that went around Cloudflare to Render directly.
+        if not guard.origin_allowed(self.request.headers, self.request.path):
+            raise tornado.web.HTTPError(403, "Please use the site's address")
         # Defend against cross-site request forgery:
         # 1. Fetch Metadata (Sec-Fetch-Site): allow same-origin, same-site, and top-level navigation.
         #    Reject cross-site API fetches, subresource requests, and cross-site state-changing requests.
@@ -176,14 +182,20 @@ class BaseHandler(tornado.web.RequestHandler):
         Real client IP for rate limiting. Behind a proxy (Render, Docker ingress) the
         proxy appends the address it saw as the LAST X-Forwarded-For entry, which a
         client cannot forge. Set TRUST_PROXY=0 when the server is exposed directly.
+        IPv6 addresses come back as their /64 network (guard.visitor_key).
         """
+        ip = self.request.remote_ip
         if TRUST_PROXY:
             forwarded = self.request.headers.get("X-Forwarded-For", "")
-            if forwarded:
-                parts = [p.strip() for p in forwarded.split(",") if p.strip()]
-                if parts:
-                    return parts[-1]
-        return self.request.remote_ip
+            parts = [p.strip() for p in forwarded.split(",") if p.strip()]
+            if parts:
+                ip = parts[-1]
+        # Behind Cloudflare the address above is Cloudflare's; the visitor's is in CF-Connecting-IP, believed only when
+        # the request came from Cloudflare's own network (anyone can send the header).
+        cf = self.request.headers.get("CF-Connecting-IP", "").strip()
+        if cf and guard.trust_cloudflare() and guard.from_cloudflare(ip):
+            ip = cf
+        return guard.visitor_key(ip)
 
     def site_url(self):
         if SITE_URL:

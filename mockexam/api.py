@@ -48,7 +48,7 @@ import re
 
 import tornado.web
 
-from . import accounts, ai_usage, analytics, auth, billing, checks, notify, speaking, speaking_adaptive, speaking_ai
+from . import accounts, ai_usage, analytics, auth, billing, checks, guard, notify, speaking, speaking_adaptive, speaking_ai
 from .dbcache import gather
 from .web import BaseHandler, in_thread
 
@@ -138,6 +138,13 @@ class AuthCodeHandler(BaseHandler):
             _raise(e)
         if not CODE_PER_IP.allow(self.client_ip()) or not CODE_PER_EMAIL.allow(email):
             raise ApiError(429, "Too many codes requested. Please wait a few minutes.")
+        # A robot check (Cloudflare Turnstile) when it is set up, and a cap on sign-in emails for the whole site a day:
+        # a script asking for codes to random addresses would otherwise use up the email service and block everyone.
+        if not await in_thread(guard.turnstile_ok, body.get("captcha"), self.client_ip()):
+            raise ApiError(400, "Please confirm you are not a robot, then ask for the code again.", "captcha")
+        if not guard.DAY.take("signin_email"):
+            raise ApiError(503, "Sign-in by email code is busy today. Please sign in with Google, or try again tomorrow.",
+                           "email_busy")
         try:
             code = await in_thread(self.auth.send_code, email, self.site_url() + "/auth-callback.html")
         except auth.AuthError as e:
@@ -333,6 +340,8 @@ class OrdersHandler(BaseHandler):
     async def post(self):
         profile = await self.require_profile()
         body = self.body_json()
+        if not guard.ORDERS.allow(profile["id"]):
+            raise ApiError(429, "Too many orders started. Please wait a while, or write to us if a payment is stuck.")
         try:
             order = await in_thread(billing.create_order, self.db, profile["id"], str(body.get("kind") or ""),
                                     _uuid(body.get("examinerId")), body.get("submissionId"),
@@ -577,6 +586,8 @@ class SpeakingAnswerHandler(BaseHandler):
         # Only recorded audio is accepted. Browsers cannot send these types to another
         # site without a CORS preflight, which this server never allows, so no CSRF.
         self.chunks, self.size = [], 0
+        if not guard.origin_allowed(self.request.headers, self.request.path):   # (BaseHandler.prepare is not used here)
+            raise tornado.web.HTTPError(403, "Please use the site's address")
         if self.request.headers.get("Sec-Fetch-Site") == "cross-site":
             raise tornado.web.HTTPError(403, "Cross-site request blocked")
         origin = self.request.headers.get("Origin")
@@ -587,6 +598,22 @@ class SpeakingAnswerHandler(BaseHandler):
         if speaking.base_mime(self.request.headers.get("Content-Type")) not in speaking.AUDIO_TYPES:
             raise ApiError(415, "This audio format is not supported.")
         self.profile = await self.require_profile()
+        # Each recording waits in memory until it is complete: only so many at the same moment (the page retries).
+        if not guard.UPLOADS.enter():
+            raise ApiError(503, "Many answers are being saved right now. Retrying…", "busy")
+        self.gated = True
+
+    def _leave(self):
+        if getattr(self, "gated", False):
+            self.gated = False
+            guard.UPLOADS.leave()
+
+    def on_finish(self):
+        self._leave()
+
+    def on_connection_close(self):
+        self._leave()
+        super().on_connection_close()
 
     def data_received(self, chunk):
         self.size += len(chunk)
@@ -599,6 +626,8 @@ class SpeakingAnswerHandler(BaseHandler):
         data = b"".join(self.chunks)
         mime = self.request.headers.get("Content-Type")
         duration = self.request.headers.get("X-Duration")
+        if not guard.DAY.take("upload_mb", max(1, -(-len(data) // (1024 * 1024)))):
+            raise ApiError(503, "Recording is paused on the site for today. Please try again tomorrow.", "uploads_full")
 
         def save():
             sub = speaking.own_submission(self.db, submission_id, self.profile["id"])
@@ -715,9 +744,14 @@ class RecordingHandler(BaseHandler):
 
     async def get(self, recording_id):
         profile = await self.require_profile()
+        if not guard.RECORDING_FETCHES.allow(profile["id"]):
+            raise ApiError(429, "Too many requests for recordings. Please wait a few minutes.")
         rid = _uuid(recording_id)
         row = await in_thread(speaking.recording_for, self.db, profile, rid) if rid else None
-        data = await in_thread(self.store.files.get, row["path"]) if row else None
+        data = guard.RECORDINGS.get(row["path"]) if row else None
+        if row and data is None:
+            data = await in_thread(self.store.files.get, row["path"])
+            guard.RECORDINGS.put(row["path"], data)
         if data is None:
             raise ApiError(404, "Recording not found.")
         self.set_header("Content-Type", row["mime"])
@@ -768,7 +802,8 @@ class EventsHandler(BaseHandler):
         if not EVENTS_PER_IP.allow(self.client_ip()):
             raise ApiError(429, "Too many events.")
         body = self.body_json()
-        self.track(event.pop("name"), client_id=_uuid(body.get("clientId")), user_id=self.current_user, **event)
+        if guard.DAY.take("event"):   # over the day's budget, events are dropped quietly
+            self.track(event.pop("name"), client_id=_uuid(body.get("clientId")), user_id=self.current_user, **event)
         self.set_status(204)
         self.finish()
 
@@ -786,6 +821,8 @@ class FeedbackHandler(BaseHandler):
             raise ApiError(e.status, str(e))
         if not FEEDBACK_PER_IP.allow(self.client_ip()):
             raise ApiError(429, "Thank you! You have sent several messages already; please try again later.")
+        if not guard.DAY.take("feedback"):
+            raise ApiError(429, "Thank you! We have received many messages today; please try again tomorrow.")
         row = dict(fields, client_id=_uuid(body.get("clientId")), user_id=self.current_user)
         try:
             saved = await in_thread(self.db.insert, "feedback", row)

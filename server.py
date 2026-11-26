@@ -66,7 +66,7 @@ def load_dotenv(path):
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
-from mockexam import accounts, ai, ai_safety, ai_usage, analytics, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, seo, speaking, speaking_adaptive, speaking_ai, storage, writing  # noqa: E402
+from mockexam import accounts, ai, ai_safety, ai_usage, analytics, guard, api, auth, billing, content, content_sync, google_signin, notify, pool, practice, scoring, seo, speaking, speaking_adaptive, speaking_ai, storage, writing  # noqa: E402
 from mockexam.web import (  # noqa: E402
     ADMIN_TOKEN, MAX_BODY_BYTES, SECURITY_HEADERS, SESSION_COOKIE, SESSION_DAYS, BaseHandler, in_thread,
 )
@@ -405,6 +405,7 @@ class ConfigHandler(BaseHandler):
             # whether the older way, through Supabase, is switched on.
             "auth": {"email": True, "dev": AUTH.name == "dev", "googleClientId": google.client_id or None,
                      "google": google.enabled or await in_thread(AUTH.google_enabled)},
+            "turnstileSiteKey": guard.turnstile_site_key() if guard.turnstile_on() else None,
             "speakingKeepDays": speaking.KEEP_DAYS,
             "commerce": accounts.commerce_enabled(),
             "checks": accounts.checks_enabled(),
@@ -434,6 +435,19 @@ class TestHandler(BaseHandler):
         send_cached_json(self, cat.public_json(test))
 
 
+def check_submit_rate(handler, profile):
+    """Raises 429 when this account (or, signed out, this address) has sent too many answers in the last hour."""
+    ok = guard.SUBMITS_USER.allow(profile["id"]) if profile else guard.SUBMITS_IP.allow(handler.client_ip())
+    if not ok:
+        raise api.ApiError(429, "Too many answers sent in a short time. Please wait a few minutes and send again.",
+                           "too_many")
+
+
+def worth_saving(profile):
+    """Signed-out attempts are saved up to a number a day for the whole site; the result is shown either way."""
+    return bool(profile) or guard.DAY.take("anon_save")
+
+
 class ScoredSubmitHandler(BaseHandler):
     """Marks a reading or listening test, stores the attempt and returns the results."""
 
@@ -454,6 +468,7 @@ class ScoredSubmitHandler(BaseHandler):
         if not test or test.get("module") != self.MODULE:
             return self.send_error_json(404, f"{self.MODULE.title()} test not found")
         profile = await require_test_access(self, test)
+        check_submit_rate(self, profile)
         body = self.body_json()
 
         raw_answers = body.get("answers") or {}
@@ -485,7 +500,7 @@ class ScoredSubmitHandler(BaseHandler):
             "breakdown": self.breakdown(result),
         }
         try:
-            result["attemptId"] = await in_thread(self.save, record)
+            result["attemptId"] = await in_thread(self.save, record) if worth_saving(profile) else None
         except Exception:
             log.exception("Could not save %s attempt", self.MODULE)
             result["attemptId"] = None
@@ -517,6 +532,7 @@ class WritingSubmitHandler(BaseHandler):
         if not test or test.get("module") != "writing":
             return self.send_error_json(404, "Writing test not found")
         profile = await require_test_access(self, test)
+        check_submit_rate(self, profile)
         body = self.body_json()
 
         raw = body.get("responses") or {}
@@ -591,7 +607,7 @@ class WritingSubmitHandler(BaseHandler):
             "overall_band": result["overallBand"],
         }
         try:
-            result["submissionId"] = await in_thread(STORE.save_writing_submission, record)
+            result["submissionId"] = await in_thread(STORE.save_writing_submission, record) if worth_saving(profile) else None
         except Exception:
             log.exception("Could not save writing submission")
             result["submissionId"] = None
@@ -932,6 +948,10 @@ class StaticHandler(tornado.web.StaticFileHandler):
 
     CACHE_SCOPE = "public"
 
+    def prepare(self):
+        if not guard.origin_allowed(self.request.headers, self.request.path):
+            raise tornado.web.HTTPError(403)
+
     def set_default_headers(self):
         for k, v in SECURITY_HEADERS.items():
             self.set_header(k, v)
@@ -954,7 +974,19 @@ class AudioHandler(StaticHandler):
 
     CACHE_SCOPE = "private"
 
+    def visitor(self):
+        return BaseHandler.client_ip(self)
+
+    def on_finish(self):
+        try:
+            guard.audio_sent(self.visitor(), int(self._headers.get("Content-Length") or 0) if self.get_status() < 300 else 0)
+        except (TypeError, ValueError):
+            pass
+
     async def prepare(self):
+        super().prepare()
+        if not guard.audio_allowed(self.visitor()):
+            raise tornado.web.HTTPError(429)
         test_id = (self.path_args[0] if self.path_args else "").split("/", 1)[0]
         test = (await catalog()).by_id.get(test_id) if test_id else None
         if not test or accounts.test_access(test) == "free":
@@ -1061,7 +1093,7 @@ def main():
     server_max_body = max(MAX_BODY_BYTES, speaking.MAX_RECORDING_BYTES + 64 * 1024)
     app.listen(PORT, address="0.0.0.0", max_body_size=server_max_body)
     log.info("%s running on http://0.0.0.0:%d (storage=%s, sign-in=%s, AI marking=%s)",
-             SITE_NAME, PORT, STORE.name, AUTH.name, f"on ({ai.model_name()})" if writing.ai_configured() else "off")
+             SITE_NAME, PORT, STORE.name, AUTH.name, f"on (writing {ai.model_name('writing')}, listening {ai.model_name('listen')}, rating {ai.model_name('rate')})" if writing.ai_configured() else "off")
     log.info("Loaded %d reading, %d listening, %d writing and %d speaking tests",
              counts["reading"], counts["listening"], counts["writing"], counts["speaking"])
     if STORE.name == "supabase" and os.environ.get("DB_KEEP_WARM", "1") != "0":

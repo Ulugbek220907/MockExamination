@@ -77,7 +77,8 @@ _INSTRUCTION_PATTERNS = [
     r"\b(?:as an ai|large language model|llm)\b[^.\n]{0,40}\b(?:must|should|will|have to|are required)\b",
     # chat-format tokens and fake headers
     r"<\|?(?:im_start|im_end|system|endoftext)\|?>|\[/?INST\]|<</?SYS>>|</?(?:system|instructions?|assistant)>",
-    r"^\s*(?:#+\s*)?(?:system|instructions?|assistant)\s*:",
+    # (spaces and tabs only, never line breaks: "\s*" here made a page of blank lines take seconds to check)
+    r"^[ \t]{0,20}(?:#{1,6}[ \t]{0,4})?(?:system|instructions?|assistant)[ \t]{0,4}:",
     # Russian and Uzbek, the site's other languages
     r"\b(?:игнорир\w*|не обращай\w* внимани\w*|забудь\w*)\b[^.\n]{0,40}\b(?:инструкц\w*|правил\w*|указани\w*)",
     r"\b(?:постав\w*|дай\w*|оцени\w*)\b[^.\n]{0,25}\b(?:балл\w*|band|оценк\w*)\s*" + _BAND_WORDS,
@@ -208,13 +209,14 @@ def fence(text, label="CANDIDATE_TEXT"):
 # 5. What comes back
 # --------------------------------------------------------------------------
 
-_URL = re.compile(r"(?:https?://|www\.)\S+|\b[\w.+-]+@[\w-]+\.[\w.-]+\b|\b[\w-]+\.(?:com|net|org|io|uz|ru|xyz|top)\b(?:/\S*)?",
-                  re.IGNORECASE)
+# Every repeat is bounded, so a long run of letters and dots cannot make the check slow.
+_URL = re.compile(r"(?:https?://|www\.)\S{1,300}|\b[\w.+-]{1,64}@[\w-]{1,63}\.[\w.-]{1,63}\b"
+                  r"|\b[\w-]{1,63}\.(?:com|net|org|io|uz|ru|xyz|top)\b(?:/\S{0,300})?", re.IGNORECASE)
 
 
 def clean_feedback(value, limit=1500):
     """One feedback text: links and email addresses removed, cut to a sensible length."""
-    text = _URL.sub("", str(value or "")).strip()
+    text = _URL.sub("", str(value or "")[: limit * 2]).strip()
     text = re.sub(r"[ \t]{2,}", " ", text)
     if len(text) > limit:
         text = text[:limit].rsplit(" ", 1)[0] + "…"

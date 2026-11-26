@@ -481,7 +481,7 @@ def _assess_task(task, response_text, analysis, screen=None):
     try:
         data, meta = ai.complete_json(
             system_prompt(task["taskNumber"]), _build_task_message(task, response_text, analysis, screen),
-            ASSESSMENT_SCHEMA, "writing_assessment", max_tokens=12000)
+            ASSESSMENT_SCHEMA, "writing_assessment", max_tokens=12000, step="writing")
     except ai.AiError as e:
         err = AssessmentUnavailable(str(e))
         err.cost = getattr(e, "cost", 0.0)

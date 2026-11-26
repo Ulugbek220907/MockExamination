@@ -23,12 +23,13 @@
   /** An order's amount in its own money (card orders are kept in US cents). */
   const orderMoney = (o) => (o.currency === "USD" ? usd(o.amount) : money(o.amount));
   const PASSES = [
-    ["full", "Full pass", "All four papers: Listening, Reading, Writing and Speaking"],
+    ["full", "All-in-one pass", "All four papers: Listening, Reading, Writing and Speaking"],
     ["speaking", "Speaking pass", "All Speaking tests with the AI examiner"],
     ["writing", "Writing pass", "All Writing tests with AI marking"],
     ["lr", "Listening and Reading pass", "All Listening and Reading tests"],
   ];
   const PASS_NAMES = Object.fromEntries(PASSES.map(([k, n]) => [k, n]));
+  const PASS_SHORT = { full: "All-in-one", speaking: "Speaking", writing: "Writing", lr: "Listening and Reading" };
   const MODULE_NAMES = { listening: "Listening", reading: "Reading", writing: "Writing", speaking: "Speaking" };
   const planPrice = (b, scope, months) => ((b.plans || {})[scope] || {})[String(months)];
   /**
@@ -41,7 +42,7 @@
     const local = providers.filter((p) => p === "click" || p === "payme").map((p) => (p === "click" ? "Click" : "Payme"));
     return { cards, local, localOnly: !cards && local.length > 0, names: local.join(" or ") };
   };
-  /** The pass the student holds that opens `scope` (the same pass, or the Full pass), or null. */
+  /** The pass the student holds that opens `scope` (the same pass, or the All-in-one pass), or null. */
   const ownedPass = (scope) => {
     const plan = state.me && state.me.plan;
     const passes = (plan && plan.active && plan.passes) || [];
@@ -52,9 +53,9 @@
   /** One line on whether a pass renews, true for the ways of paying that are on. */
   const renewalLine = (b) => {
     const info = payInfo(b);
-    if (info.localOnly) return t("One payment for 1 or 3 months; buy again when it ends");
+    if (info.localOnly) return t("One payment for a month; buy again when it ends");
     if (info.cards && info.local.length) return t("By card it renews until you cancel; with {methods} it is one payment", { methods: info.names });
-    return t("Renews every 1 or 3 months until you cancel; cancel any time in your account");
+    return t("Renews every month until you cancel; cancel any time in your account");
   };
   const monthsText = (m) => (m === 1 ? "monthly" : `${m} months`);
   const longDate = (iso) => {
@@ -304,11 +305,29 @@
     events.forEach((name) => document.addEventListener(name, warm, { capture: true, passive: true }));
   }
 
+  /** Cloudflare Turnstile's script, loaded once, only when the sign-in window needs it. */
+  let turnstilePromise = null;
+  function turnstileReady() {
+    if (window.turnstile) return Promise.resolve(window.turnstile);
+    if (!turnstilePromise) {
+      turnstilePromise = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+        script.async = true;
+        script.onload = () => (window.turnstile ? resolve(window.turnstile) : reject(new Error("no turnstile")));
+        script.onerror = () => { turnstilePromise = null; reject(new Error("turnstile did not load")); };
+        document.head.appendChild(script);
+      });
+    }
+    return turnstilePromise;
+  }
+
   function login(reason) {
     if (user()) return Promise.resolve(true);
     return new Promise((resolve) => {
       const googleId = state.config.auth && state.config.auth.googleClientId;   // Google's own button (set GOOGLE_CLIENT_ID)
       const googleViaSupabase = !googleId && state.config.auth && state.config.auth.google;   // the older redirect
+      const captchaKey = state.config.turnstileSiteKey;   // Cloudflare's robot check before a code is emailed, when set up
       const orLine = `<div class="auth-or"><span>${t("or use your email")}</span></div>`;
       const googleBlock = googleId
         ? `<div class="google-block">
@@ -324,6 +343,7 @@
             <label for="auth-email">${t("Email address")}</label>
             <input id="auth-email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="you@example.com" />
             <p class="form-error" role="alert" hidden></p>
+            ${captchaKey ? `<div class="captcha-slot" data-captcha></div>` : ""}
             <button type="submit" class="btn-primary btn-lg">${t("Send me a code")}</button>
             <p class="auth-new muted-text small-text">${esc(t("signin.new"))}</p>
           </form>
@@ -368,11 +388,32 @@
         b.classList.toggle("is-busy", on);
       };
 
+      // The robot check: invisible for most people (it shows a box only when Cloudflare is unsure). Its answer is good
+      // for one code, so it is reset after each request.
+      let captcha = { token: "", id: null };
+      if (captchaKey) {
+        turnstileReady().then((ts) => {
+          const slot = el.querySelector("[data-captcha]");
+          if (!slot || done) return;
+          captcha.id = ts.render(slot, {
+            sitekey: captchaKey, appearance: "interaction-only", action: "signin",
+            callback: (token) => { captcha.token = token; },
+            "expired-callback": () => { captcha.token = ""; },
+            "error-callback": () => { captcha.token = ""; },
+          });
+        }).catch(() => {});
+      }
+      const waitForCaptcha = async () => {
+        for (let i = 0; captchaKey && !captcha.token && i < 40; i++) await new Promise((r) => setTimeout(r, 150));
+        return captcha.token;
+      };
+
       const sendCode = async () => {
         showError("email", "");
         busy("email", true);
         try {
-          const res = await U.api("/api/auth/code", { method: "POST", body: JSON.stringify({ email }) });
+          const token = await waitForCaptcha();
+          const res = await U.api("/api/auth/code", { method: "POST", body: JSON.stringify({ email, captcha: token || undefined }) });
           const emailTarget = el.querySelector("[data-email]");
           if (emailTarget) emailTarget.textContent = res.email;
           const hint = el.querySelector(".dev-hint");
@@ -388,6 +429,10 @@
           return false;
         } finally {
           busy("email", false);
+          if (captchaKey && window.turnstile && captcha.id !== null) {
+            captcha.token = "";
+            try { window.turnstile.reset(captcha.id); } catch (e) { /* the widget is gone with the window */ }
+          }
         }
       };
 
@@ -511,7 +556,7 @@
         <ul class="plan-points">
           <li>${t("Full results, answer explanations and listening transcripts")}</li>
           <li>${esc(renewalLine(b))}</li>
-          <li>${t("The Full pass opens all four papers and costs less than buying the parts")}</li>
+          <li>${t("The All-in-one pass opens all four papers and costs less than buying the parts")}</li>
         </ul>
         ${signedIn ? "" : `<p class="muted-text">${t("Already have the pass? Sign in to continue.")}</p>`}`,
       buttons: [
@@ -524,23 +569,23 @@
     return false;
   }
 
-  /** A single paper instead of the Full pass: Speaking, Writing, or Listening and Reading, monthly or for 3 months. Resolves {scope, months} or null. */
-  /** The passes for one paper at a time; with `focus` ("writing", "speaking", "lr") that paper's pass and the Full pass. */
+  /** The passes for one paper at a time; with `focus` ("writing", "speaking", "lr") that paper's pass and the All-in-one
+   * pass beside it. Resolves {scope, months} or null. */
   function chooseSinglePass(b, focus) {
     const info = payInfo(b);
     const both = info.cards && info.local.length > 0;     // dollars for a card, so'm for Click: show both
     const row = ([key, name, what]) => {
       const own = ownedPass(key);
-      // A pass already held says so. Inside a Full pass, or on a card plan that renews by itself, buying it again would
+      // A pass already held says so. Inside an All-in-one pass, or on a card plan that renews by itself, buying it again would
       // only pay twice; a one-time pass (Click) can be added to, and the new one starts when the current one ends.
       const blocked = Boolean(own && (own.renews || own.scope === "full"));
       const date = own ? `<strong>${esc(longDate(own.endsAt))}</strong>` : "";
-      const note = !own ? "" : `<em class="single-own">${own.scope === "full" ? t("Included in your Full pass until {date}", { date })
+      const note = !own ? "" : `<em class="single-own">${own.scope === "full" ? t("Included in your All-in-one pass until {date}", { date })
         : own.renews ? t("You have this: renews on {date}", { date }) : t("You have this: active until {date}. A new one starts when it ends.", { date })}</em>`;
       return `
       <div class="single-row">
         <div class="single-name"><strong>${esc(t(name.replace(" pass", "")))}</strong><span>${esc(t(what))}</span>${note}</div>
-        <div class="single-buttons">${blocked ? "" : ["1", "3"].map((m) => planPrice(b, key, m) ? `
+        <div class="single-buttons">${blocked ? "" : ["1"].map((m) => planPrice(b, key, m) ? `
           <button type="button" class="single-btn" data-scope="${key}" data-months="${m}">
             <span>${m === "1" ? t("Monthly") : t("3 months")}</span><strong>${esc(priceOf(b, planPrice(b, key, m)))}</strong>
             ${both ? `<small>${esc(money(planPrice(b, key, m).uzs))}</small>` : ""}
@@ -689,24 +734,33 @@
     const b = await billing().catch(() => ({ plans: {}, providers: [] }));
     const selling = commerce();
     const tests = (window.app && window.app.tests) || [];
-    const month = planPrice(b, "full", 1);
-    const three = planPrice(b, "full", 3);
-    if (!month || !three) { main.innerHTML = `<section class="page"><h1>${t("Price")}</h1></section>`; return; }
+    const count = (m) => tests.filter((x) => !m || x.module === m).length;
+    const price = (scope) => planPrice(b, scope, 1);
+    if (!price("full")) { main.innerHTML = `<section class="page"><h1>${t("Price")}</h1></section>`; return; }
     if (user()) await refreshMe().catch(() => {});             // what the student holds is shown, and not offered twice
     const info = payInfo(b);
     const inSoum = info.localOnly;                               // only so'm payments are on: prices are shown in so'm
     const val = (p) => (inSoum ? p.uzs : p.usd);
     const fmt = (n) => (inSoum ? money(n) : usd(n));
-    const sum = val(month) * 3;                                  // what three monthly payments cost
-    const save = Math.round((1 - val(three) / sum) * 100);
-    const feats = [
-      t("All 4 papers, {n} tests", { n: U.number(tests.length) }),
-      b.aiCaps && b.aiCaps.writing ? t("AI marking: {w} Writing scripts and {s} Speaking tests a month", { w: b.aiCaps.writing, s: b.aiCaps.speaking })
-        : t("AI marking for Speaking and Writing"),
-      t("Explanations and listening transcripts"),
-      inSoum ? t("One payment, no renewal") : t("Cancel any time"),
-    ];
-    const list = `<ul class="plan-list">${feats.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>`;
+    const caps = b.aiCaps || {};
+    // The three single passes together, against the All-in-one pass: the saving is real and worth saying.
+    const parts = ["speaking", "writing", "lr"].map(price).filter(Boolean);
+    const separate = parts.length === 3 ? parts.reduce((n, p) => n + val(p), 0) : 0;
+    const save = separate ? Math.round((1 - val(price("full")) / separate) * 100) : 0;
+    const renew = inSoum ? t("One payment, no renewal") : t("Cancel any time");
+    const feats = {
+      full: [t("All 4 papers, {n} tests", { n: U.number(count()) }),
+        caps.writing ? t("AI marking: {w} Writing scripts and {s} Speaking tests a month", { w: caps.writing, s: caps.speaking }) : t("AI marking for Speaking and Writing"),
+        t("Explanations and listening transcripts"), renew],
+      speaking: [t("{n} Speaking tests", { n: U.number(count("speaking")) }),
+        caps.speaking ? t("{n} tests rated by the AI examiner a month", { n: caps.speaking }) : t("Rated by the AI examiner"),
+        t("Listen back to your answers"), renew],
+      writing: [t("{n} Writing tests", { n: U.number(count("writing")) }),
+        caps.writing ? t("{n} scripts marked by the AI examiner a month", { n: caps.writing }) : t("Marked by the AI examiner"),
+        t("Model answers and automatic checks"), renew],
+      lr: [t("{l} Listening and {r} Reading tests", { l: U.number(count("listening")), r: U.number(count("reading")) }),
+        t("Marked at once, with explanations"), t("Listening transcripts"), renew],
+    };
     // Both ways of paying are on: the card price is the main one, and the so'm price (one payment) goes under it.
     const soum = (p) => (info.cards && info.local.length
       ? `<p class="plan-local">${t("or {price} with {methods} · one payment, no renewal", { price: esc(money(p.uzs)), methods: esc(info.names) })}</p>` : "");
@@ -714,39 +768,42 @@
       : info.cards && info.local.length
         ? t("Cards: secure payment by Dodo Payments, renews until you cancel. {methods}: one payment in so'm, no renewal.", { methods: esc(info.names) })
         : t("Secure card payment by Dodo Payments. Renews until you cancel.");
-    const fullOwned = ownedPass("full") && ownedPass("full").scope === "full" ? ownedPass("full") : null;
     const heldPasses = (state.me && state.me.plan && state.me.plan.active && state.me.plan.passes) || [];
     const held = heldPasses.length ? `<p class="plans-held">${t("You have")}: ${heldPasses.map((p) => `${esc(t(PASS_NAMES[p.scope] || "Pass"))}, ${p.renews
       ? t("renews on {date}", { date: `<strong>${esc(longDate(p.endsAt))}</strong>` }) : t("active until {date}", { date: `<strong>${esc(longDate(p.endsAt))}</strong>` })}`).join(" · ")}.
       ${heldPasses.some((p) => !p.renews) ? t("A pass you add starts when the current one of the same kind ends.") : ""}</p>` : "";
-    const act = (months, primary) => (!selling ? `<p class="muted-text">${t("Opening soon")}</p>`
-      : fullOwned && fullOwned.renews ? `<p class="plan-held">${t("You have this pass: it renews on {date}", { date: `<strong>${esc(longDate(fullOwned.endsAt))}</strong>` })}</p>`
-      : `<button type="button" class="${primary ? "btn-primary" : "btn-secondary"} btn-lg plan-btn" data-action="buy-plan" data-scope="full" data-months="${months}">${fullOwned ? t("Add Full pass") : t("Get Full pass")}</button>`);
+    // What each card's button does, given what the student holds: a renewing pass (or one inside All-in-one) is not
+    // sold twice; a one-time pass can be added to and starts when the current one ends.
+    const act = (scope, primary) => {
+      if (!selling) return `<p class="muted-text">${t("Opening soon")}</p>`;
+      const own = ownedPass(scope);
+      const name = t(PASS_NAMES[scope]);
+      if (own && own.scope === "full" && scope !== "full") return `<p class="plan-held">${t("Included in your All-in-one pass")}</p>`;
+      if (own && own.renews) return `<p class="plan-held">${t("You have this pass: it renews on {date}", { date: `<strong>${esc(longDate(own.endsAt))}</strong>` })}</p>`;
+      return `<button type="button" class="${primary ? "btn-primary" : "btn-secondary"} btn-lg plan-btn" data-action="buy-plan" data-scope="${scope}" data-months="1"
+        data-track="price_${scope}">${own ? t("Add {name}", { name }) : t("Get {name}", { name })}</button>`;
+    };
+    const card = (scope) => {
+      const p = price(scope);
+      if (!p) return "";
+      const best = scope === "full";
+      return `
+          <article class="plan-card${best ? " is-best" : ""}">
+            ${best && save > 0 ? `<span class="plan-badge">${t("Best value")} · ${t("Save {n}%", { n: save })}</span>` : ""}
+            <h2>${esc(t(PASS_SHORT[scope]))}</h2>
+            <p class="plan-price">${best && separate ? `<s>${esc(fmt(separate))}</s> ` : ""}<span>${esc(fmt(val(p)))}</span> <small>${t("/ month")}</small></p>
+            <p class="plan-per${best ? "" : " is-plain"}">${best && separate ? t("All 4 papers for less than 3 separate passes") : esc(t(PASSES.find(([k]) => k === scope)[2]))}</p>
+            ${soum(p)}
+            ${act(scope, best)}
+            <ul class="plan-list">${feats[scope].map((f) => `<li>${esc(f)}</li>`).join("")}</ul>
+          </article>`;
+    };
     main.innerHTML = `
       <section class="page plans-page">
-        <h1>${t("Choose your plan")}</h1>
-        <p class="plans-sub">${inSoum ? t("Every test, AI marking and explanations.") : t("Every test, AI marking and explanations. Cancel any time.")}</p>
+        <h1>${t("Choose your pass")}</h1>
+        <p class="plans-sub">${t("One month of tests and AI marking. Take every paper, or only the one you need.")}</p>
         ${held}
-        <div class="plan-cards">
-          <article class="plan-card">
-            <h2>${t("Monthly")}</h2>
-            <p class="plan-price"><span>${esc(fmt(val(month)))}</span> <small>${inSoum ? t("/ 1 month") : t("/ month")}</small></p>
-            <p class="plan-per is-plain">${inSoum ? t("One payment, no renewal") : t("Pay month by month")}</p>
-            ${soum(month)}
-            ${act(1, false)}
-            ${list}
-          </article>
-          <article class="plan-card is-best">
-            <span class="plan-badge">${t("Best value")} · ${t("Save {n}%", { n: save })}</span>
-            <h2>${t("3 months")}</h2>
-            <p class="plan-price"><s>${esc(fmt(sum))}</s> <span>${esc(fmt(val(three)))}</span> <small>${t("/ 3 months")}</small></p>
-            <p class="plan-per">${t("Just {price} a month", { price: esc(fmt(Math.round(val(three) / 3))) })}</p>
-            ${soum(three)}
-            ${act(3, true)}
-            ${list}
-          </article>
-        </div>
-        ${selling ? `<p class="plans-alt"><button type="button" class="btn-link" data-action="single-pass">${t("Need only one paper? Choose Speaking, Writing or Listening and Reading")}</button></p>` : ""}
+        <div class="plan-cards plan-cards-4">${["full", "speaking", "writing", "lr"].map(card).join("")}</div>
         <p class="plans-foot">${foot}
           <a href="#/terms">${t("Terms of use")}</a> · <a href="#/refunds">${t("Refund policy")}</a></p>
       </section>`;
@@ -1518,7 +1575,7 @@
         } catch (err) { U.toast(err.message, "warn"); }
       });
     } else if (tab === "ai") {
-      // What the AI examiner cost (as OpenRouter reported it for each job) and who used it most: docs/AI_COSTS.md.
+      // What the AI examiner cost (as OpenRouter reported it for each job) and who used it most: docs/COSTS.md.
       const d = await U.api("/api/admin/ai-usage", { fresh: true });
       const dollars = (n) => (n == null ? "–" : `$${Number(n).toFixed(n < 1 ? 3 : 2)}`);
       const a = d.allowances || {};
@@ -1530,8 +1587,10 @@
         <div class="table-scroll"><table class="history-table funnel-table">
           <thead><tr><th scope="col">Jobs</th><th scope="col">All</th><th scope="col">Free accounts</th><th scope="col">Cost</th><th scope="col">Average</th><th scope="col">Free today</th></tr></thead>
           <tbody>${line("writing")}${line("speaking")}</tbody></table></div>
+        ${d.recordingsMB != null ? `<p class="lead-text">Speaking recordings stored now: <strong>${U.number(Math.round(d.recordingsMB))} MB</strong>
+          <span class="muted-text">(the free Supabase plan holds 1 024 MB of files: move to Pro before it fills, docs/COSTS.md)</span></p>` : ""}
         <p class="muted-text small-text">Allowances in any 30 days: with a pass ${a.pass ? `${a.pass.writing.month} Writing (${a.pass.writing.day} a day) and ${a.pass.speaking.month} Speaking (${a.pass.speaking.day} a day)` : "–"};
-          free account ${a.free ? `${a.free.writing.month} Writing and ${a.free.speaking.month} Speaking` : "–"}. Change them with environment variables (docs/AI_COSTS.md).</p>
+          free account ${a.free ? `${a.free.writing.total} Writing and ${a.free.speaking.total} Speaking, once` : "–"}. Change them with environment variables (docs/COSTS.md).</p>
         <h2 class="section-title">Who used it most</h2>
         ${d.top.length ? `<div class="table-scroll"><table class="history-table">
           <thead><tr><th>Account</th><th>Passes</th><th>Writing</th><th>Speaking</th><th>Cost</th></tr></thead>

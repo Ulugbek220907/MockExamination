@@ -47,15 +47,17 @@ def _int_env(name, default):
 
 # The passes: {kind: {months: (price in so'm, price in US cents)}}. so'm for Payme and Click when they are connected; dollars for Dodo.
 # The so'm price reads like the dollar one ($3.99 -> 39 000 so'm): at about 12 000 so'm to the dollar that is a discount of
-# roughly a fifth for paying locally, where the fees are lower. docs/AI_COSTS.md shows what each pass earns after fees,
+# roughly a fifth for paying locally, where the fees are lower. docs/COSTS.md shows what each pass earns after fees,
 # tax and the AI marking it includes.
+# Passes are sold month by month only (3-month passes were retired in November 2026: a monthly price can follow the
+# cost of AI marking; card subscriptions bought for 3 months before then keep renewing as they were).
 PLAN_PRICES = {
-    "full": {1: (79000, 799), 3: (199000, 1999)},   # the prices live here, not in environment variables
-    "speaking": {1: (59000, 599), 3: (149000, 1499)},
-    "writing": {1: (49000, 499), 3: (119000, 1199)},
-    "lr": {1: (39000, 399), 3: (99000, 999)},
+    "full": {1: (79000, 799)},   # the prices live here, not in environment variables
+    "speaking": {1: (59000, 599)},
+    "writing": {1: (49000, 499)},
+    "lr": {1: (39000, 399)},
 }
-PLAN_MONTHS = (1, 3)
+PLAN_MONTHS = (1,)
 PRICES = {
     "plan": PLAN_PRICES["full"][1][0],
     "writing_check": _int_env("WRITING_CHECK_PRICE", 10000),
@@ -64,7 +66,7 @@ PRICES = {
 PLAN_DAYS = _int_env("PLAN_DAYS", 30)   # days in one month of a pass
 PLAN_FIRST_BONUS_DAYS = _int_env("PLAN_FIRST_BONUS_DAYS", 30)
 CURRENCY = "so'm"
-PASS_TITLES = {"full": "Full pass", "speaking": "Speaking pass", "writing": "Writing pass", "lr": "Listening and Reading pass"}
+PASS_TITLES = {"full": "All-in-one pass", "speaking": "Speaking pass", "writing": "Writing pass", "lr": "Listening and Reading pass"}
 
 PAYME = {
     "merchant_id": os.environ.get("PAYME_MERCHANT_ID", "").strip(),
@@ -289,7 +291,7 @@ def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope=
         for held in accounts.plan_status(db, user_id)["passes"]:
             if held["renews"] and held["scope"] in (scope, "full"):
                 raise BillingError(
-                    "Your Full pass already opens every paper, and it renews on its own." if held["scope"] == "full" and scope != "full"
+                    "Your All-in-one pass already opens every paper, and it renews on its own." if held["scope"] == "full" and scope != "full"
                     else "You already have this pass, and it renews on its own. Cancel the renewal in your account first if you want to change it.")
         uzs, usd = PLAN_PRICES[scope][months]
         if currency == "USD":
