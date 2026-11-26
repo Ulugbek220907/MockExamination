@@ -46,12 +46,14 @@ def _int_env(name, default):
 
 
 # The passes: {kind: {months: (price in so'm, price in US cents)}}. so'm for Payme and Click when they are connected; dollars for Dodo.
-# The USD prices are higher than the so'm ones because Dodo's fixed 40 cents weighs more on small sales.
+# The so'm price reads like the dollar one ($3.99 -> 39 000 so'm): at about 12 000 so'm to the dollar that is a discount of
+# roughly a fifth for paying locally, where the fees are lower. docs/AI_COSTS.md shows what each pass earns after fees,
+# tax and the AI marking it includes.
 PLAN_PRICES = {
     "full": {1: (79000, 799), 3: (199000, 1999)},   # the prices live here, not in environment variables
-    "speaking": {1: (49000, 599), 3: (119000, 1499)},
-    "writing": {1: (39000, 499), 3: (99000, 1199)},
-    "lr": {1: (29000, 399), 3: (69000, 999)},
+    "speaking": {1: (59000, 599), 3: (149000, 1499)},
+    "writing": {1: (49000, 499), 3: (119000, 1199)},
+    "lr": {1: (39000, 399), 3: (99000, 999)},
 }
 PLAN_MONTHS = (1, 3)
 PRICES = {
@@ -190,9 +192,10 @@ def public_config(enabled=True):
 
 
 def ai_caps():
-    """What a pass includes of AI marking in any 30 days."""
-    from . import speaking_ai, writing
-    return {"speaking": speaking_ai.PER_USER_PER_MONTH, "writing": writing.AI_PER_MONTH}
+    """What a pass includes of AI marking in any 30 days, and what a free account gets (ai_usage.py)."""
+    from . import ai_usage
+    caps = ai_usage.caps()
+    return {**caps["pass"], "free": caps["free"]}
 
 
 def plan_title(scope, months):

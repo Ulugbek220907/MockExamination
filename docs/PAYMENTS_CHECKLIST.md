@@ -4,7 +4,7 @@ Run this once before taking real money, and again after any change to `mockexam/
 the prices, or the Payme / Click cabinet settings. It takes about 30 minutes and costs one plan
 payment, which you refund at the end.
 
-What is sold: passes for 1 or 3 months: Full (all four papers), Speaking, Writing, and Listening + Reading. A student pays by card in US dollars through Dodo (a subscription that renews every 1 or 3 months until the student cancels) or in so'm through Click (Uzcard and Humo: one payment that does not renew), and Payme works like Click. Examiner checks (Writing 10 000 so'm, Speaking 20 000 so'm) are sold only when `EXAMINER_CHECKS_ENABLED=1`. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): Full 79 000 / 199 000 so'm ($7.99 / $19.99), Speaking 49 000 / 119 000 ($5.99 / $14.99), Writing 39 000 / 99 000 ($4.99 / $11.99), Listening + Reading 29 000 / 69 000 ($3.99 / $9.99). Prices come from the server, never from the browser.
+What is sold: passes for 1 or 3 months: Full (all four papers), Speaking, Writing, and Listening + Reading. A student pays by card in US dollars through Dodo (a subscription that renews every 1 or 3 months until the student cancels) or in so'm through Click (Uzcard and Humo: one payment that does not renew), and Payme works like Click. Examiner checks (Writing 10 000 so'm, Speaking 20 000 so'm) are sold only when `EXAMINER_CHECKS_ENABLED=1`. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): Full 79 000 / 199 000 so'm ($7.99 / $19.99), Speaking 59 000 / 149 000 ($5.99 / $14.99), Writing 49 000 / 119 000 ($4.99 / $11.99), Listening + Reading 39 000 / 99 000 ($3.99 / $9.99): the so'm price reads like the dollar one. Prices come from the server, never from the browser. docs/AI_COSTS.md shows what each pass earns after fees, tax and AI marking.
 
 ## 1. Environment variables (Render → the testday service → Environment)
 
@@ -17,7 +17,7 @@ What is sold: passes for 1 or 3 months: Full (all four papers), Speaking, Writin
 | `EXAMINER_CHECKS_ENABLED` | examiner checks | Leave off (default) until you have examiners: nothing about examiners or checks shows or sells. `1` offers them (with `COMMERCE_ENABLED=1`). |
 | `WRITING_CHECK_PRICE`, `SPEAKING_CHECK_PRICE` | prices | In so'm: the examiner checks (defaults 10000 / 20000). The passes are priced in `billing.PLAN_PRICES`; the old `PLAN_PRICE` variable is no longer read, so delete it on Render. |
 | `DODO_PAYMENTS_API_KEY`, `DODO_PAYMENTS_WEBHOOK_KEY`, `DODO_PRODUCTS` | Dodo (card, US dollars) | The API key (`dodo_test_...` or `dodo_live_...`), the webhook signing secret (`whsec_...`) and the product of each pass: `full-1=pdt_x,full-3=pdt_y,speaking-1=...` (kind of pass, a dash, the months). See section 7. |
-| `SPEAKING_AI_PER_MONTH`, `WRITING_AI_PER_MONTH` | AI caps | AI-rated Speaking tests and AI-marked Writing scripts in any 30 days (defaults 12 and 20): what the prices assume. |
+| `SPEAKING_AI_PER_MONTH`, `WRITING_AI_PER_MONTH` and the others in docs/AI_COSTS.md | AI allowances | With a pass: 12 AI-rated Speaking tests and 30 AI-marked Writing scripts in any 30 days; a free account: 1 and 2. What the prices assume. If `WRITING_AI_PER_MONTH=20` is set on Render from before, delete it. |
 | `PLAN_DAYS`, `PLAN_FIRST_BONUS_DAYS` | plan length | Defaults 30 and 30. |
 | `PAYME_MERCHANT_ID`, `PAYME_KEY` | Payme | From the Payme business cabinet. `PAYME_KEY` is the **production** key. |
 | `PAYME_TEST` | Payme | `1` only while testing in the Payme sandbox. Remove it (or set `0`) for real money. |
@@ -182,7 +182,7 @@ password at the first sign-in.
    IKPU code. TestDay sells one kind of thing (access to an online practice platform), so one IKPU on the service is
    enough and the site does not call the OFD API. Ask Click (or your accountant) which IKPU code applies and that it
    is set on the service.
-5. **First payment.** From a second account, on a phone, buy the cheapest pass (Listening + Reading, 1 month, 29 000
+5. **First payment.** From a second account, on a phone, buy the cheapest pass (Listening + Reading, 1 month, 39 000
    so'm) with your own Uzcard or Humo card. Expected: you come back to the site, **Account** says the pass is active,
    Admin → Orders shows the order **Paid** with provider `click`, and the Render log has no line starting
    "Click payment ... cannot be applied".

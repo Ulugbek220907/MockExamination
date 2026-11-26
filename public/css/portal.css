@@ -375,6 +375,8 @@ h1, h2, h3 { letter-spacing: -0.02em; text-wrap: balance; }
 .notice-info { background: var(--info-soft); border-color: #bcd0ef; color: #173c75; }
 .notice-warn { background: var(--warn-soft); border-color: #ecd096; color: var(--warn); }
 .notice-success { background: var(--ok-soft); border-color: #b5dcc3; color: #154f2c; }
+.notice .notice-act { align-self: flex-start; margin-top: 10px; }
+.check-note { margin: 0 0 14px; font-size: var(--t-small); }
 
 
 /* Recent rides (history) ------------------------------------------------------------ */
@@ -794,8 +796,17 @@ body:not(.in-exam) .modal-close:hover { background: var(--ground); color: var(--
 .single-btn:hover, .single-btn:focus-visible { background: var(--ink); color: var(--ground); }
 .single-btn:hover small, .single-btn:focus-visible small { color: var(--ground); }
 .single-btn:hover span, .single-btn:focus-visible span { color: var(--ground); }
-.site-links a.nav-cta { border: 1.5px solid var(--ink); border-radius: 999px; padding: 0 18px; margin-left: 4px; font-weight: 600; text-decoration: none; }
-.site-links a.nav-cta:hover { background: var(--ink); color: var(--ground); }
+/* The pass, offered next to the account: a small ink pill with the gold mark (gold is for ornament on ink). */
+.nav-pass {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 14px 0 12px; border-radius: 999px;
+  background: var(--ink); color: var(--ground); font-size: 0.9375rem; font-weight: 600; text-decoration: none; white-space: nowrap;
+}
+.nav-pass:hover { background: var(--ink-hover); }
+.account-slot .nav-pass { margin-right: 6px; }
+.nav-pass:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.nav-pass-mark { color: var(--gold); font-size: 0.95em; line-height: 1; }
+.nav-pass-short { display: none; }
+@media (max-width: 520px) { .nav-pass-long { display: none; } .nav-pass-short { display: inline; } .nav-pass { padding: 0 12px 0 10px; } }
 
 /* The pass picker (which pass, for how long) and the table of passes on the Price page. */
 .pass-picker { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
@@ -1398,7 +1409,7 @@ html { -webkit-tap-highlight-color: transparent; }
 button, a, input, select, label, summary { touch-action: manipulation; }
 
 /* Signed in: the header has no "About" (it stays in the footer) */
-body.signed-in .site-links [data-nav="about"] { display: none; }
+body.signed-in .site-links [data-nav="about"], body.signed-in .site-links [data-nav="pricing"] { display: none; }
 
 /* Home for a signed-in student ---------------------------------------------------------------- */
 .dash { padding-top: clamp(0.5rem, 0rem + 2vw, 1.5rem); }
@@ -1423,6 +1434,16 @@ body.signed-in .site-links [data-nav="about"] { display: none; }
 .dash-meter span { display: block; height: 100%; background: var(--ink); border-radius: 6px; }
 .dash-count { font-size: var(--t-small); color: var(--ink-2); }
 .dash-done { font-size: var(--t-small); color: var(--muted); }
+/* "30 more tests with a pass": quiet, under the free tests the student is working through. */
+.dash-more { margin: 0; }
+.dash-more-btn {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: var(--t-small); font-weight: 600; color: var(--ink);
+}
+.dash-more-mark { color: var(--star); }
+.dash-more-text { text-decoration: underline; text-underline-offset: 3px; }
+.dash-more-btn:hover .dash-more-text { text-decoration-thickness: 2px; }
+.single-ai { margin: 0 0 4px; font-weight: 600; color: var(--ink); }
 .dash-act { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 8px; }
 .dash-act .btn-primary, .dash-act .btn-secondary { min-height: 44px; }
 .dash-extra { font-size: var(--t-small); font-weight: 550; color: var(--ink); align-self: flex-start; min-height: 32px; display: inline-flex; align-items: center; }

@@ -363,7 +363,10 @@
     };
     const m = messages[data.assessmentStatus];
     if (!m) return "";
-    return `<div class="notice notice-${m[0]}"><strong>${esc(m[1])}</strong><span>${esc(m[2] || "")}</span></div>`;
+    // A free account that has used its AI marking: the Writing pass is offered right here, where it is needed.
+    const offer = data.assessmentCode === "free_used"
+      ? `<button type="button" class="btn-primary btn-sm notice-act" data-action="single-pass" data-scope="writing" data-track="writing_ai_used">${tr("Get more with a pass")}</button>` : "";
+    return `<div class="notice notice-${m[0]}"><strong>${esc(m[1])}</strong><span>${esc(m[2] || "")}</span>${offer}</div>`;
   }
 
   function criteriaHTML(task) {
@@ -425,6 +428,7 @@
           ${assessed ? `<span class="task-band">${tr("Band {band}", { band: S.formatBand(assessed.band) })}</span>` : ""}
         </div>
         ${assessed ? `
+          ${(assessed.checks || []).map((c) => `<p class="notice notice-warn check-note">${esc(c)}</p>`).join("")}
           <p class="lead-text">${esc(assessed.summary)}</p>
           ${criteriaHTML(assessed)}
           <div class="feedback-columns">
