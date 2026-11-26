@@ -855,10 +855,10 @@
           a.src = test.parts[0].questions[0].audio.src;
         } catch (e) {}
       }
-      const allow = this.config.aiAllowances || { pass: { speaking: { month: 12, day: 3 } }, free: { speaking: { month: 1 } } };
+      const allow = this.config.aiAllowances || { pass: { speaking: { month: 30, day: 3 } }, free: { speaking: { total: 1 } } };
       const allowance = Account.hasModule("speaking") || ["admin", "examiner"].includes(Account.role())
         ? t("Your pass includes {month} rated tests in any 30 days, up to {day} a day.", allow.pass.speaking)
-        : t("A free account includes {n} rated test in any 30 days; a Speaking pass includes {m}.", { n: allow.free.speaking.month, m: allow.pass.speaking.month });
+        : t("A free account includes {n} rated test, once; a Speaking pass includes {m} a month.", { n: allow.free.speaking.total, m: allow.pass.speaking.month });
       const instructions = module === "speaking" && withAi
         ? [
           `You talk with the <strong>examiner</strong>, face to face on screen, as in the real test. The examiner asks every question out loud; you answer by speaking. Like a real examiner, it does not reply to your answers.`,
@@ -1185,7 +1185,7 @@
       const days = Number(this.config.speakingKeepDays) || 60;
       const p = this.prices || {};
       const plans = this.plans || {};
-      const caps = this.aiCaps || { speaking: 12, writing: 30, free: { speaking: 1, writing: 2 } };
+      const caps = this.aiCaps || { speaking: 30, writing: 30, free: { speaking: 1, writing: 1 } };
       const price = (n) => (n ? esc(U.money(n)) : "…");
       const commerce = this.checks();   // "commerce" here means: examiner checks are offered (passes are described either way)
       // The ways of paying that are on: Dodo (cards, US dollars) and/or Click or Payme (so'm, one payment). Until the
@@ -1209,7 +1209,7 @@
           ${section("terms.account", {}, "terms.account")}
           ${section("terms.pass", {
             full: price(plans.full && plans.full["1"].uzs), speakingCap: caps.speaking, writingCap: caps.writing,
-            freeSpeakingCap: (caps.free || {}).speaking ?? 1, freeWritingCap: (caps.free || {}).writing ?? 2,
+            freeSpeakingCap: (caps.free || {}).speaking ?? 1, freeWritingCap: (caps.free || {}).writing ?? 1,
             localNote: local && cards ? t("terms.pass.local", { methods: esc(local) }) : "",
           }, local && !cards ? "terms.pass.once" : "terms.pass")}
           ${commerce ? section("terms.checks", { writing: price(p.writing_check), speaking: price(p.speaking_check) }) : ""}

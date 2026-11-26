@@ -1,14 +1,15 @@
 """
 How much AI marking each person gets. The allowances live here, in one place, so the passes stay priced for them.
-docs/AI_COSTS.md has the sums behind the numbers.
+docs/COSTS.md has the sums behind the numbers.
 
                                  Writing scripts                 Speaking tests
-  a pass that covers the paper   30 in any 30 days, 3 a day      12 in any 30 days, 3 a day
-  a free account                 2 in any 30 days, 1 a day       1 in any 30 days
+  a pass that covers the paper   30 in any 30 days, 3 a day      30 in any 30 days, 3 a day
+  a free account                 1, once                         1, once
   an admin or an examiner        no personal limit
 
 A Writing "script" is Task 1 and Task 2 marked together; a Speaking "test" is every answer listened to and rated.
-Each number can be changed with the environment variable named next to it below. On top of the personal allowances:
+A free account's one marking is for good: it does not come back the next month. Each number can be changed with the
+environment variable named next to it below. On top of the personal allowances:
 
   - all free accounts together get AI_FREE_WRITING_PER_DAY scripts and AI_FREE_SPEAKING_PER_DAY tests a day, so a flood
     of new accounts cannot spend the AI budget. Counted in memory: a restart starts the count again, which is fine for
@@ -19,7 +20,7 @@ Each number can be changed with the environment variable named next to it below.
   - the site-wide day caps stay (AI_DAILY_LIMIT and AI_PER_IP_PER_HOUR in server.py, SPEAKING_AI_DAILY_LIMIT).
 
 Every refusal comes with a code, so the page can offer the pass where that helps:
-  free_used    a free account has used its allowance (the page offers the pass)
+  free_used    a free account has used its one marking (the page offers the pass)
   day_used     today's allowance is used
   month_used   the 30-day allowance is used
   cost_used    the 30-day spending net was reached
@@ -53,16 +54,16 @@ def _money_env(name, default):
 
 MODULES = ("writing", "speaking")
 
-# {module: {tier: (per 30 days, per day)}}. None means no limit.
+# {module: {"pass": (per 30 days, per day), "free": (ever, None)}}.
 def _limits():
     return {
         "writing": {
             "pass": (_int_env("WRITING_AI_PER_MONTH", 30), _int_env("WRITING_AI_PER_DAY", 3)),
-            "free": (_int_env("WRITING_AI_FREE_PER_MONTH", 2), _int_env("WRITING_AI_FREE_PER_DAY", 1)),
+            "free": (_int_env("WRITING_AI_FREE_TOTAL", 1), None),
         },
         "speaking": {
-            "pass": (_int_env("SPEAKING_AI_PER_MONTH", 12), _int_env("SPEAKING_AI_PER_DAY", 3)),
-            "free": (_int_env("SPEAKING_AI_FREE_PER_MONTH", 1), _int_env("SPEAKING_AI_FREE_PER_DAY", 1)),
+            "pass": (_int_env("SPEAKING_AI_PER_MONTH", 30), _int_env("SPEAKING_AI_PER_DAY", 3)),
+            "free": (_int_env("SPEAKING_AI_FREE_TOTAL", 1), None),
         },
     }
 
@@ -86,9 +87,10 @@ def caps():
 
 
 def allowances():
-    """Every allowance for the pages: {"pass": {"writing": {"month": 30, "day": 3}, ...}, "free": {...}}."""
+    """Every allowance for the pages: {"pass": {"writing": {"month": 30, "day": 3}, ...}, "free": {"writing": {"total": 1}, ...}}."""
     lim = _limits()
-    return {tier: {m: {"month": lim[m][tier][0], "day": lim[m][tier][1]} for m in MODULES} for tier in ("pass", "free")}
+    return {"pass": {m: {"month": lim[m]["pass"][0], "day": lim[m]["pass"][1]} for m in MODULES},
+            "free": {m: {"total": lim[m]["free"][0]} for m in MODULES}}
 
 
 class Refused(Exception):
@@ -129,6 +131,15 @@ def _jobs(db, module, user_id, since, limit):
                 ((r["assessment"].get("usage") or {}).get("calls", 1) if isinstance(r["assessment"], dict) else 1)]
     return db.select("speaking_submissions", {"user_id": user_id, "mode": "ai", "created_at": ("gte", iso(since))},
                      order=[("created_at", "desc")], limit=limit)
+
+
+def jobs_ever(db, module, user_id, limit):
+    """How many AI jobs for the paper this person has ever had (counted up to `limit`)."""
+    if module == "writing":
+        rows = db.select("writing_submissions", {"user_id": user_id}, order=[("created_at", "desc")], limit=max(limit, 1) * 5 + 20)
+        return min(limit, len([r for r in rows if r.get("assessment") and
+                               ((r["assessment"].get("usage") or {}).get("calls", 1) if isinstance(r["assessment"], dict) else 1)]))
+    return len(db.select("speaking_submissions", {"user_id": user_id, "mode": "ai"}, limit=limit))
 
 
 def usage(db, module, user_id, at=None):
@@ -225,18 +236,16 @@ def check(db, profile, plan, module, at=None):
         return tier
     month_cap, day_cap = _limits()[module][tier]
     one, many, done = WHAT[module]
-    used = usage(db, module, profile["id"], at)
     if tier == "free":
+        # One marking for good: whatever this account has had before (on a pass too) counts.
         pass_month = _limits()[module]["pass"][0]
-        if used["month"] >= month_cap:
-            raise Refused(f"Your free account includes {_plural(month_cap, one, many)} {done} by the AI examiner in any "
-                          f"30 days, and you have used {'it' if month_cap == 1 else 'them'}. {WITHOUT[module]} "
+        if jobs_ever(db, module, profile["id"], month_cap + 1) >= month_cap:
+            raise Refused(f"Your free account includes {_plural(month_cap, one, many)} {done} by the AI examiner, and "
+                          f"you have used {'it' if month_cap == 1 else 'them'}. {WITHOUT[module]} "
                           f"A {module.capitalize()} pass includes {pass_month} a month.", "free_used")
-        if used["day"] >= day_cap:
-            raise Refused(f"Your free account includes {_plural(day_cap, one, many)} {done} by the AI examiner a day. "
-                          f"{WITHOUT[module]} Try again tomorrow, or get a {module.capitalize()} pass for "
-                          f"{pass_month} a month.", "free_used")
+        used = usage(db, module, profile["id"], at)
     else:
+        used = usage(db, module, profile["id"], at)
         if used["month"] >= month_cap:
             raise Refused(f"You have had {_plural(month_cap, one, many)} {done} by the AI examiner in the last 30 days, "
                           f"which is what a pass includes. {WITHOUT[module]} Your allowance comes back day by day.",
@@ -281,5 +290,12 @@ def summary(db, days=30, at=None):
                 p[module] += 1
                 p["cost"] = round(p["cost"] + c, 4)
     top = sorted(people.values(), key=lambda p: (-p["cost"], -(p["writing"] + p["speaking"])))[:15]
+    # Recordings kept now (finished tests' recordings are deleted after SPEAKING_KEEP_DAYS): the free database plan
+    # holds 1 GB of files, so this is the number that says when to move to a paid plan.
+    try:
+        recs = db.select("recordings", {"created_at": ("gte", since)}, limit=50000)
+        stored_mb = round(sum(int(r.get("size") or 0) for r in recs) / (1024 * 1024), 1)
+    except Exception:  # noqa: BLE001 - the page still shows the rest
+        stored_mb = None
     return {"days": days, "modules": out, "top": top, "freeToday": FREE_BUDGET.snapshot(), "freePerDay": free_per_day(),
-            "allowances": allowances()}
+            "allowances": allowances(), "recordingsMB": stored_mb}

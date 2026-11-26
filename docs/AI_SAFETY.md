@@ -29,7 +29,7 @@ what TestDay does about each. The code is `mockexam/ai_safety.py` (the checks), 
 | LLM06 Excessive agency | The model has no tools, no web access, and cannot change anything: it returns JSON that the server checks. |
 | LLM07 System prompt leakage | The prompts hold only public IELTS descriptors and marking rules, no secrets; they tell the model not to repeat them. |
 | LLM09 Misinformation | Every band is labelled a practice estimate, not an official IELTS result. |
-| LLM10 Unbounded consumption | Per-person allowances (AI_COSTS.md), a spending net per person, a day budget for all free accounts, one Writing script at a time per person, per-IP and site-wide day caps, a cap on output tokens, script and recording size limits, and silence never sent. |
+| LLM10 Unbounded consumption | Per-person allowances (COSTS.md), a spending net per person, a day budget for all free accounts, one Writing script at a time per person, per-IP and site-wide day caps, a cap on output tokens, script and recording size limits, and silence never sent. |
 
 ## Checks on a Writing script, in order
 
@@ -49,6 +49,18 @@ what TestDay does about each. The code is `mockexam/ai_safety.py` (the checks), 
 Silence is not sent. Each answer is listened to with the same security rules, and the model reports whether the
 candidate spoke English, answered the question, sounded memorised, and spoke to the marker. The whole-test rating gets
 each transcript between random fences. The same output checks apply (corrections and vocabulary must quote a transcript).
+
+## What the model test showed (26 November 2026)
+
+- **False safety blocks.** Gemini 3.8 Flash's own safety filter refused a perfectly ordinary read-aloud recording
+  ("He then walked from there, out of that room…"), and let the same recording through on the next try. The site used
+  to report this as "the API key was refused". Now a block is retried, and if the model keeps refusing, the fallback
+  model (`AI_MODEL_FALLBACK`) gets one try; the listening model (Gemini 3.1 Flash-Lite) blocked nothing in the test.
+- **Calibration.** On the 12 official IELTS Speaking samples (examiner bands 5 to 9), every model rated candidates
+  too low with the old rating prompt (Gemini 3.8 Flash: one band too low on average). The prompt told the examiner
+  that "most candidates score 5 to 7" and to choose the band the candidate "fully fits"; it now asks for the band
+  that fits best, as a certified examiner would, neither harsher nor kinder. The error fell to about two thirds of a
+  band (ranking r = 0.93). docs/COSTS.md has the full comparison.
 
 ## Where the data goes
 

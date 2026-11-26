@@ -4,7 +4,7 @@ Run this once before taking real money, and again after any change to `mockexam/
 the prices, or the Payme / Click cabinet settings. It takes about 30 minutes and costs one plan
 payment, which you refund at the end.
 
-What is sold: passes for 1 or 3 months: Full (all four papers), Speaking, Writing, and Listening + Reading. A student pays by card in US dollars through Dodo (a subscription that renews every 1 or 3 months until the student cancels) or in so'm through Click (Uzcard and Humo: one payment that does not renew), and Payme works like Click. Examiner checks (Writing 10 000 so'm, Speaking 20 000 so'm) are sold only when `EXAMINER_CHECKS_ENABLED=1`. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): Full 79 000 / 199 000 so'm ($7.99 / $19.99), Speaking 59 000 / 149 000 ($5.99 / $14.99), Writing 49 000 / 119 000 ($4.99 / $11.99), Listening + Reading 39 000 / 99 000 ($3.99 / $9.99): the so'm price reads like the dollar one. Prices come from the server, never from the browser. docs/AI_COSTS.md shows what each pass earns after fees, tax and AI marking.
+What is sold: monthly passes: All-in-one (all four papers), Speaking, Writing, and Listening + Reading. A student pays by card in US dollars through Dodo (a subscription that renews every month until the student cancels) or in so'm through Click (Uzcard and Humo: one payment that does not renew), and Payme works like Click. Examiner checks (Writing 10 000 so'm, Speaking 20 000 so'm) are sold only when `EXAMINER_CHECKS_ENABLED=1`. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): All-in-one 79 000 so'm ($7.99), Speaking 59 000 ($5.99), Writing 49 000 ($4.99), Listening + Reading 39 000 ($3.99), a month: the so'm price reads like the dollar one. 3-month passes are no longer sold (card subscriptions bought for 3 months before keep renewing). Prices come from the server, never from the browser. docs/COSTS.md shows what each pass earns after fees, tax and AI marking.
 
 ## 1. Environment variables (Render → the testday service → Environment)
 
@@ -17,7 +17,7 @@ What is sold: passes for 1 or 3 months: Full (all four papers), Speaking, Writin
 | `EXAMINER_CHECKS_ENABLED` | examiner checks | Leave off (default) until you have examiners: nothing about examiners or checks shows or sells. `1` offers them (with `COMMERCE_ENABLED=1`). |
 | `WRITING_CHECK_PRICE`, `SPEAKING_CHECK_PRICE` | prices | In so'm: the examiner checks (defaults 10000 / 20000). The passes are priced in `billing.PLAN_PRICES`; the old `PLAN_PRICE` variable is no longer read, so delete it on Render. |
 | `DODO_PAYMENTS_API_KEY`, `DODO_PAYMENTS_WEBHOOK_KEY`, `DODO_PRODUCTS` | Dodo (card, US dollars) | The API key (`dodo_test_...` or `dodo_live_...`), the webhook signing secret (`whsec_...`) and the product of each pass: `full-1=pdt_x,full-3=pdt_y,speaking-1=...` (kind of pass, a dash, the months). See section 7. |
-| `SPEAKING_AI_PER_MONTH`, `WRITING_AI_PER_MONTH` and the others in docs/AI_COSTS.md | AI allowances | With a pass: 12 AI-rated Speaking tests and 30 AI-marked Writing scripts in any 30 days; a free account: 1 and 2. What the prices assume. If `WRITING_AI_PER_MONTH=20` is set on Render from before, delete it. |
+| `SPEAKING_AI_PER_MONTH`, `WRITING_AI_PER_MONTH` and the others in docs/COSTS.md | AI allowances | With a pass: 30 AI-rated Speaking tests and 30 AI-marked Writing scripts in any 30 days; a free account: one of each, once. What the prices assume. If `WRITING_AI_PER_MONTH` or `SPEAKING_AI_PER_MONTH` is set on Render from before, delete it. |
 | `PLAN_DAYS`, `PLAN_FIRST_BONUS_DAYS` | plan length | Defaults 30 and 30. |
 | `PAYME_MERCHANT_ID`, `PAYME_KEY` | Payme | From the Payme business cabinet. `PAYME_KEY` is the **production** key. |
 | `PAYME_TEST` | Payme | `1` only while testing in the Payme sandbox. Remove it (or set `0`) for real money. |
@@ -103,7 +103,7 @@ was started; an examiner check until the examiner starts it.
   that is already being marked;
 - paid tests and their audio open the moment an order is paid, and lock again the moment
   it is refunded;
-- a pass that renews on its own (a card subscription) is not sold a second time, by card or by Click, and a Full pass that
+- a pass that renews on its own (a card subscription) is not sold a second time, by card or by Click, and an All-in-one pass that
   renews blocks every single-paper pass; a one-time pass (Click) can be added to, and the new one starts when the first ends;
 - Click: the payment link follows Click's documentation (amount as `N.NN`, order number as
   `transaction_param`); Prepare and Complete over HTTP with the MD5 signature (wrong signature
@@ -121,8 +121,8 @@ Uzcard or Humo and cannot charge in so'm.
 
 1. **Supabase first.** Run the last block of `supabase/schema.sql` ("Passes for one paper or two ... Dodo") in the
    SQL editor, before the site with the new passes is live. It is safe to run again.
-2. **Dodo dashboard (test mode).** Create the 8 products as **Subscription** products (USD, tax inclusive; repeat payment every 1 month or every 3 months; Subscription Period 20 years; no trial). The pricing model cannot be changed later, so a one-time product cannot be reused: Full, Speaking, Writing and
-   Listening and Reading, each for 1 and 3 months. Create an API key (Developer → API Keys) and a webhook
+2. **Dodo dashboard (test mode).** Create the 4 products as **Subscription** products (USD, tax inclusive; repeat payment every month; Subscription Period 20 years; no trial). The pricing model cannot be changed later, so a one-time product cannot be reused: All-in-one ("full" in DODO_PRODUCTS), Speaking, Writing and
+   Listening and Reading, one month each (3-month products are no longer sold; keep any that exist, for students who bought them). Create an API key (Developer → API Keys) and a webhook
    (Developer → Webhooks) at `https://www.testday.uz/api/pay/dodo/webhook` for `payment.succeeded`,
    `payment.failed`, `payment.cancelled`, `refund.succeeded`, `refund.failed`, `subscription.cancelled` and `subscription.expired`. In Settings → Subscriptions turn on the grace period, and in Settings → Recovery turn on Payment Retries, so a declined renewal is retried before access stops.
 3. **Render.** Set the three `DODO_*` variables of section 1. The key's prefix decides test or live:
@@ -141,8 +141,8 @@ How renewals work: every charge, the first and each renewal, calls the webhook. 
 
 ## 8. Click (Uzcard and Humo, in so'm)
 
-A pass paid with Click is **one payment**: it opens the pass for the 1 or 3 months chosen and does not renew (a card
-payment through Dodo does). The first Full pass of one month paid this way comes with the extra free month, as with
+A pass paid with Click is **one payment**: it opens the pass for one month and does not renew (a card
+payment through Dodo does). The first All-in-one pass paid this way comes with the extra free month, as with
 Payme. The site shows both ways of paying on the Price page and says which one renews.
 
 **What Click gives you:** the login of the merchant cabinet (merchant.click.uz) and, for the service, `SERVICE_ID`,

@@ -3,7 +3,12 @@ AI models through OpenRouter (https://openrouter.ai), one OpenAI-compatible API
 in front of many model providers.
 
     OPENROUTER_API_KEY    turns AI marking on (Writing, and Speaking with the AI examiner)
-    AI_MODEL              the model, default google/gemini-3.8-flash (must accept audio for Speaking)
+    AI_MODEL              the model for anything that is not one of the steps below (each step has a tested
+                          default in STEP_MODELS), default google/gemini-3.8-flash
+    AI_MODEL_WRITING      marking a Writing task (text)
+    AI_MODEL_LISTEN       listening to one Speaking answer (must accept audio)
+    AI_MODEL_RATE         rating a whole Speaking test from its transcripts and notes (text)
+    AI_MODEL_FALLBACK     tried once when the chosen model keeps failing (busy, down, or blocked by its own filter)
     AI_REASONING          how hard the model thinks: low, medium (default) or high
     AI_DATA_COLLECTION    deny (default): only model providers that do not store or train on what we send. If no
                           provider of the model qualifies, the request goes the normal way and the log says so loudly.
@@ -60,8 +65,26 @@ def configured():
     return bool(_env("OPENROUTER_API_KEY"))
 
 
-def model_name():
+# What each step uses unless the environment says otherwise. Chosen on 26 November 2026 by testing the candidates on
+# the same material (docs/COSTS.md): Gemini 3.1 Flash-Lite listens to each Speaking answer and marks Writing (about a
+# quarter of the cost, the same Writing bands as 3.8 Flash on 17 of 20 criteria, no false safety blocks); Gemini 3.8
+# Flash rates the whole Speaking test, one call per test, where it was the closest to official IELTS examiners.
+STEP_MODELS = {"writing": "google/gemini-3.1-flash-lite", "listen": "google/gemini-3.1-flash-lite", "rate": DEFAULT_MODEL}
+STEP_ENV = {"writing": "AI_MODEL_WRITING", "listen": "AI_MODEL_LISTEN", "rate": "AI_MODEL_RATE"}
+
+
+def model_name(step=None):
+    """The model for a step ("writing", "listen", "rate"): its own setting, else the tested default for that step.
+    AI_MODEL is the model for anything else (and for every step when a step has no default)."""
+    if step in STEP_ENV and _env(STEP_ENV[step]):
+        return _env(STEP_ENV[step])
+    if step in STEP_MODELS:
+        return STEP_MODELS[step]
     return _env("AI_MODEL") or DEFAULT_MODEL
+
+
+def fallback_model():
+    return _env("AI_MODEL_FALLBACK") or DEFAULT_MODEL
 
 
 def reasoning_level():
@@ -124,6 +147,12 @@ def _post(body, timeout):
         log.warning("OpenRouter HTTP %s: %s", e.code, detail)
         if e.code == 429:
             raise AiError("The AI examiner is busy right now. Please try again in a minute.", retryable=True) from e
+        if e.code == 403 and ("SAFETY" in detail or "blocked" in detail.lower()):
+            # The model's own safety filter stopped an ordinary answer (it happens with harmless speech, and not every
+            # time): not a problem with the key, and worth one more try.
+            err = AiError("The AI examiner could not assess this answer. Please try again.", retryable=True)
+            err.blocked = True
+            raise err from e
         if e.code in (401, 403):
             raise AiError("AI marking is not set up correctly on this site (the API key was refused).") from e
         if e.code == 402:
@@ -152,7 +181,30 @@ def _cost(usage):
 _fallback_logged = False
 
 
-def complete_json(system, content, schema, name, max_tokens=8000, reasoning=None, timeout=180, attempts=3):
+def complete_json(system, content, schema, name, max_tokens=8000, reasoning=None, timeout=180, attempts=3, step=None):
+    """
+    complete_json_with() with the step's model; if that model keeps failing for a reason another model may not have
+    (busy, unavailable, its own safety filter), the fallback model is tried once. The cost of both is returned.
+    """
+    model = model_name(step)
+    try:
+        return complete_json_with(model, system, content, schema, name, max_tokens, reasoning, timeout, attempts)
+    except AiError as e:
+        fallback = fallback_model()
+        if fallback == model or not getattr(e, "retryable", False) and not isinstance(e, NoEndpoint) and not getattr(e, "blocked", False):
+            raise
+        log.warning("AI %s: %s failed (%s); trying %s", name, model, e, fallback)
+        try:
+            data, meta = complete_json_with(fallback, system, content, schema, name, max_tokens, reasoning, timeout, 1)
+        except AiError as e2:
+            e2.cost = round(getattr(e2, "cost", 0.0) + getattr(e, "cost", 0.0), 6)
+            raise
+        meta["cost"] = round(meta.get("cost", 0.0) + getattr(e, "cost", 0.0), 6)
+        meta["fallback"] = True
+        return data, meta
+
+
+def complete_json_with(model, system, content, schema, name, max_tokens=8000, reasoning=None, timeout=180, attempts=3):
     """
     Ask the model for JSON that follows `schema`. `content` is a string or a list of
     parts (text_part, audio_part). Returns (data, meta): meta has the model, the last
@@ -164,7 +216,7 @@ def complete_json(system, content, schema, name, max_tokens=8000, reasoning=None
         raise AiError("AI marking is not enabled on this site yet.")
     policy = data_policy()
     body = {
-        "model": model_name(),
+        "model": model,
         "messages": [{"role": "system", "content": system}, {"role": "user", "content": content}],
         "response_format": {"type": "json_schema", "json_schema": {"name": name, "strict": True, "schema": schema}},
         "reasoning": {"effort": reasoning or reasoning_level(), "exclude": True},
@@ -209,7 +261,7 @@ def complete_json(system, content, schema, name, max_tokens=8000, reasoning=None
             result = parse_json(_message_text(choice.get("message") or {}))
             log.info("AI %s: model=%s %.1fs tokens in=%s out=%s cost=%s", name, data.get("model"),
                      time.monotonic() - started, usage.get("prompt_tokens"), usage.get("completion_tokens"), usage.get("cost"))
-            return result, {"model": data.get("model") or model_name(), "usage": usage, "cost": round(spent, 6),
+            return result, {"model": data.get("model") or model, "usage": usage, "cost": round(spent, 6),
                             "tokensIn": tokens_in, "tokensOut": tokens_out, "attempts": attempt}
         except AiError as e:
             last = e
