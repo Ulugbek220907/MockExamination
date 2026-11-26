@@ -4,11 +4,32 @@ Two bots, both run by the website itself (Telegram sends updates to the site; no
 
 | Bot | What it does |
 |---|---|
-| **@testdayuzbot** (students) | `/start` menu; the **IELTS band calculator** (a Telegram widget that works inside the chat); **My results**, a widget with the latest band per paper, the overall estimate, the target and the days to the exam, refreshed whenever it comes on screen; messages when a **Speaking result is ready**, when a **pass ends within 3 days**, and **7 days and 1 day before the exam** (at 9:00 Tashkent time). Uzbek by default, Russian or English when the student's Telegram is in those languages. |
+| **@testdayuzbot** (students) | `/start` menu; the **IELTS band calculator** (a message whose buttons change the numbers in place); **My results**: the latest band per paper with bars, the overall estimate, the target and how far it is, the days to the exam, with a Refresh button; messages when a **Speaking result is ready**, when a **pass ends within 3 days**, and **7 days and 1 day before the exam** (at 9:00 Tashkent time). Uzbek by default, Russian or English when the student's Telegram is in those languages. |
 | **@testdaysupportbot** (support) | A student writes (text, photo, voice); the message reaches the owner's Telegram with a line `💬 #u<id> name @username · email`. The owner **replies to that line** (or to the copied message) and the reply goes back to the student. |
 
-Widgets are Telegram's interactive messages (Bot API 10.4, November 2026). For now they work in private chats with
-the bot only, and cannot be forwarded: exactly what these two need.
+### Widgets: refused by Telegram for now
+
+Widgets are Telegram's interactive HTML messages (Bot API 10.4, 9 November 2026). The bot has a widget version of
+both the calculator and the results card (`mockexam/telegram_widgets.py`), but **since 13 November 2026 Telegram
+refuses widgets from ordinary bots** with `Bad Request: INPUT_MEDIA_WIDGET_NOT_ALLOWED`, even in private chats. The
+Bot API team confirmed it ("general bots aren't allowed to use widgets even in private chats"; "it is impossible to
+enable widgets in production"; no date, and no way to apply: tdlib/telegram-bot-api issue 947). No BotFather setting
+changes this.
+
+So the bot tries a widget, and when Telegram refuses it sends the ordinary-message version at once (the student sees
+no difference in speed) and does not try widgets again for 6 hours (`TELEGRAM_WIDGET_RETRY_HOURS`). When Telegram
+allows widgets again they come back by themselves. `TELEGRAM_WIDGETS=off` stops the tries completely. The Render log
+shows one line `widgets refused (...)` every 6 hours while it lasts; that is expected.
+
+## Connecting and changing the Telegram account
+
+- **It stays connected** until the student presses **Disconnect** on the Account page, sends `/stop` to the bot, or
+  blocks the bot (the next message fails and the site disconnects it). Signing out of the site does not disconnect it.
+- **One TestDay account ↔ one Telegram account.** To move to another Telegram: Account → **Use another Telegram** →
+  open the link in the Telegram account you want → Start. The new one is connected, and the old one is told that
+  messages will no longer come there. Connecting a Telegram that was on another TestDay account moves it the same way.
+- The Account page notices the connection by itself (it checks while waiting and when you come back to the tab), so
+  no reload is needed.
 
 ## Setting it up
 

@@ -1471,3 +1471,6 @@ body.signed-in .site-links [data-nav="about"], body.signed-in .site-links [data-
 
 /* Admin → Click: the keys check sits clear of the list below it */
 .click-check { margin: 18px 0 28px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+/* Account → Telegram: "Use another Telegram" and "Disconnect" side by side */
+.inline-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }

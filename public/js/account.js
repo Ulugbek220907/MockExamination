@@ -933,7 +933,8 @@
     }).catch(() => { /* U.need has shown a toast */ });
     bindGoalForm(main, () => progress.then((res) => draw(res, false)));
     bindTelegramCard(main);
-    fresh.then(() => renderAccountSlot());
+    // The page is drawn from what this browser remembered; the server's answer may say Telegram is connected now.
+    fresh.then(() => { renderAccountSlot(); redrawTelegramCard(main); });
     if (window.app) window.app.loadHistory();
   }
 
@@ -945,37 +946,75 @@
           <div class="account-card" id="telegram-card">
             <h2>${t("Telegram")}</h2>
             ${tg.connected
-              ? `<p>${t("Connected to {bot}: your results, the band calculator and reminders come there.", { bot: `<a href="https://t.me/${esc(tg.bot)}" target="_blank" rel="noopener">@${esc(tg.bot)}</a>` })}</p>
-                 <button type="button" class="btn-secondary" data-telegram="off">${t("Disconnect")}</button>`
+              ? `<p class="plan-active">✓ ${t("Connected to {bot}: your results, the band calculator and reminders come there.", { bot: `<a href="https://t.me/${esc(tg.bot)}" target="_blank" rel="noopener">@${esc(tg.bot)}</a>` })}</p>
+                 <p class="muted-text small-text">${t("It stays connected until you disconnect it here or send /stop to the bot.")}</p>
+                 <div class="inline-actions">
+                   <button type="button" class="btn-secondary" data-telegram="on">${t("Use another Telegram")}</button>
+                   <button type="button" class="btn-link" data-telegram="off">${t("Disconnect")}</button>
+                 </div>`
               : `<p>${t("Get your results, the band calculator and reminders before your exam in Telegram.")}</p>
                  <button type="button" class="btn-primary" data-telegram="on">${t("Connect Telegram")}</button>`}
+            ${state.telegramWaiting ? `<p class="muted-text small-text">${t("Waiting for you to press Start in Telegram…")}</p>` : ""}
           </div>`;
   }
 
+  /** Draw the card again from what the server says now, and say so when the connection changed. */
+  function redrawTelegramCard(root, before) {
+    const card = root.querySelector("#telegram-card");
+    if (!card || !document.body.contains(card)) return false;
+    const now = (user() || {}).telegram || {};
+    card.outerHTML = telegramCardHTML(user());
+    bindTelegramCard(root);
+    if (before !== undefined && now.connected && before !== now.connected) U.toast(t("Telegram is connected ✓"));
+    return true;
+  }
+
+  // After "Connect", the student finishes in Telegram: look for the connection for a few minutes, and at once when
+  // they come back to this tab, so the card changes without reloading the page.
+  function waitForTelegram(root) {
+    clearInterval(state.telegramTimer);
+    const started = Date.now();
+    const check = async () => {
+      if (!state.telegramWaiting) return;
+      await refreshMe();
+      const tg = (user() || {}).telegram || {};
+      const card = root.querySelector("#telegram-card");
+      const done = tg.connected && tg.ref !== state.telegramWaiting.was;
+      if (done || !card || !document.body.contains(card) || Date.now() - started > 5 * 60 * 1000) {
+        clearInterval(state.telegramTimer);
+        document.removeEventListener("visibilitychange", onVisible);
+        state.telegramWaiting = null;
+        redrawTelegramCard(root, false);
+      }
+    };
+    const onVisible = () => { if (document.visibilityState === "visible") check(); };
+    document.addEventListener("visibilitychange", onVisible);
+    state.telegramTimer = setInterval(check, 4000);
+  }
+
   function bindTelegramCard(root) {
-    const btn = root.querySelector("[data-telegram]");
-    if (!btn) return;
-    btn.addEventListener("click", async () => {
+    root.querySelectorAll("#telegram-card [data-telegram]").forEach((btn) => btn.addEventListener("click", async () => {
       // The window is opened at once, inside the tap, so phones do not block it; its address follows.
       const win = btn.dataset.telegram === "on" ? window.open("", "_blank") : null;
       try {
         if (btn.dataset.telegram === "on") {
           const { url } = await U.api("/api/telegram/link", { method: "POST", body: "{}" });
           if (win) win.location.href = url; else location.href = url;
+          state.telegramWaiting = { was: ((user() || {}).telegram || {}).ref || null };
+          redrawTelegramCard(root);
+          waitForTelegram(root);
           U.toast(t("Press Start in Telegram to finish."));
         } else {
           await U.api("/api/telegram/link", { method: "DELETE", body: "{}" });
           await refreshMe();
-          const card = root.querySelector("#telegram-card");
-          if (card) card.outerHTML = telegramCardHTML(user());
-          bindTelegramCard(root);
+          redrawTelegramCard(root);
           U.toast(t("Telegram is disconnected."));
         }
       } catch (err) {
         if (win) win.close();
         U.toast(err.message, "warn");
       }
-    });
+    }));
   }
 
   /* ================================================================ examiners */

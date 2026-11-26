@@ -3471,6 +3471,7 @@ class TelegramTests(AccountApiBase):
             patcher.start()
             self.addCleanup(patcher.stop)
         telegram_bot._columns_cache.clear()
+        telegram_bot._widgets_off_until = 0.0
 
     def hook(self, bot, update, secret=None):
         return self.fetch(f"/api/telegram/hook/{bot}", method="POST", body=json.dumps(update),
@@ -3597,6 +3598,114 @@ class TelegramTests(AccountApiBase):
         with mock.patch.object(telegram_bot, "call", blocked):
             self.assertFalse(telegram_bot.notify(db, student["id"], "exam_1"))
         self.assertIsNone(db.select("profiles", {"id": student["id"]})[0].get("telegram_id"))
+
+    def refuse_widgets(self):
+        """Telegram as it is since 13 November 2026: every sendWidget is refused."""
+        recorder = telegram_bot.call
+
+        def call(bot, method, payload=None, timeout=10):
+            if method == "sendWidget":
+                self.calls.append((bot, method, payload or {}))
+                raise telegram_bot.TelegramError("sendWidget: Bad Request: INPUT_MEDIA_WIDGET_NOT_ALLOWED", 400)
+            return recorder(bot, method, payload, timeout)
+        patcher = mock.patch.object(telegram_bot, "call", call)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def test_refused_widgets_fall_back_to_messages(self):
+        self.refuse_widgets()
+        self.hook("student", self.message(61, "/calc", lang="en"))
+        sent = self.said("sendMessage")[-1]
+        self.assertEqual(sent["chat_id"], 61)
+        self.assertEqual(sent["parse_mode"], "HTML")
+        self.assertIn("IELTS band calculator", sent["text"])
+        self.assertIn("Overall band: <b>6.5</b>", sent["text"])      # 7.0, 7.0, 6.0, 6.0
+        self.assertEqual(len(self.said("sendWidget")), 1)
+        # Refused once: the next ones go straight to messages, without asking Telegram again.
+        self.hook("student", self.message(61, "/calc", lang="en"))
+        self.assertEqual(len(self.said("sendWidget")), 1)
+        self.assertEqual(len(self.said("sendMessage")), 2)
+        # ...until the retry time has passed.
+        telegram_bot._widgets_off_until = time.time() - 1
+        self.hook("student", self.message(61, "/calc", lang="en"))
+        self.assertEqual(len(self.said("sendWidget")), 2)
+        with mock.patch.dict(os.environ, {"TELEGRAM_WIDGETS": "off"}):
+            telegram_bot._widgets_off_until = 0.0
+            self.hook("student", self.message(61, "/calc", lang="en"))
+            self.assertEqual(len(self.said("sendWidget")), 2)
+
+    def test_calculator_buttons_change_the_message(self):
+        keyboard = telegram_widgets.calc_keyboard("uz")
+        datas = [b.get("callback_data") for row in keyboard["inline_keyboard"] for b in row if b.get("callback_data")]
+        self.assertTrue(all(len(d.encode()) <= 64 for d in datas))
+        self.assertIn("k35.30.12.12", datas)                           # Listening +5
+        tap = lambda data: self.hook("student", {"update_id": 20, "callback_query": {
+            "id": "t", "from": {"id": 62, "language_code": "en"}, "data": data,
+            "message": {"message_id": 501, "chat": {"id": 62, "type": "private"}}}})
+        tap("k39.37.16.15")
+        edit = self.said("editMessageText")[-1]
+        self.assertEqual((edit["chat_id"], edit["message_id"]), (62, 501))
+        self.assertIn("39/40 → <b>9.0</b>", edit["text"])
+        self.assertIn("Overall band: <b>8.5</b>", edit["text"])       # 9.0 + 8.5 + 8.0 + 7.5 = 8.25 → 8.5
+        tap("k99.99.99.99")                                            # kept inside the limits
+        self.assertIn("40/40", self.said("editMessageText")[-1]["text"])
+        before = len(self.said("editMessageText"))
+        for junk in ("k_", "k1.2", "kx.1.1.1", "k1.1.1.1.1"):
+            tap(junk)
+        self.assertEqual(len(self.said("editMessageText")), before)
+        self.assertEqual(telegram_widgets.calc_parse("k3.4.5.6"), (3, 4, 5, 6))
+        # The value button and a step past the end do nothing.
+        top = telegram_widgets.calc_keyboard("en", (40, 0, 18, 0))
+        self.assertEqual(top["inline_keyboard"][0][-1]["callback_data"], "k_")
+        self.assertEqual(top["inline_keyboard"][1][0]["callback_data"], "k_")
+
+    def test_results_as_a_message(self):
+        self.refuse_widgets()
+        db = server.STORE.db
+        student = _profile(db, "tg.results@example.com")
+        db.update("profiles", {"id": student["id"]}, {"name": "<b>Ali</b> & co", "target_band": 7})
+        telegram_bot.connect(db, student["id"], 63)
+        self.hook("student", self.message(63, "/results", lang="en"))
+        sent = self.said("sendMessage")[-1]
+        self.assertEqual(sent["parse_mode"], "HTML")
+        self.assertIn("&lt;b&gt;Ali&lt;/b&gt; &amp; co", sent["text"])   # the student's name is text, not markup
+        self.assertIn("Target: <b>7.0</b>", sent["text"])
+        self.assertIn("No tests yet", sent["text"])
+        self.assertEqual(sent["reply_markup"]["inline_keyboard"][0][0]["callback_data"], "rr")
+        self.hook("student", {"update_id": 21, "callback_query": {"id": "u", "from": {"id": 63, "language_code": "en"}, "data": "rr",
+                                                                  "message": {"message_id": 600, "chat": {"id": 63, "type": "private"}}}})
+        self.assertEqual(self.said("editMessageText")[-1]["message_id"], 600)
+        self.assertIn("Updated", self.said("answerCallbackQuery")[-1]["text"])
+        # Someone who is not connected gets nothing from "refresh".
+        before = len(self.said("editMessageText"))
+        self.hook("student", {"update_id": 22, "callback_query": {"id": "v", "from": {"id": 64}, "data": "rr",
+                                                                  "message": {"message_id": 601, "chat": {"id": 64, "type": "private"}}}})
+        self.assertEqual(len(self.said("editMessageText")), before)
+        text = telegram_widgets.progress_text("uz", telegram_widgets.progress_state(
+            {"target_band": 7}, [{"module": m, "band": 6.5} for m in ("listening", "reading", "writing", "speaking")],
+            datetime.date(2026, 11, 26)))
+        self.assertIn("▰▰▰▰▰▰▰▱▱", text)
+        self.assertIn("maqsadgacha yana 0.5", text)
+
+    def test_moving_to_another_telegram(self):
+        cookie, _ = self.login("tg.move@example.com")
+        db = server.STORE.db
+        uid = db.select("profiles", {"email": "tg.move@example.com"})[0]["id"]
+        telegram_bot.connect(db, uid, 71)
+        first = self.call("GET", "/api/me", cookie=cookie)[1]["user"]["telegram"]
+        self.assertTrue(first["connected"])
+        self.assertNotIn("71", json.dumps(first))                     # the browser is not given the Telegram id
+        code = self.call("POST", "/api/telegram/link", {}, cookie=cookie)[1]["url"].split("start=")[1]
+        self.hook("student", self.message(72, f"/start {code}"))
+        second = self.call("GET", "/api/me", cookie=cookie)[1]["user"]["telegram"]
+        self.assertTrue(second["connected"])
+        self.assertNotEqual(first["ref"], second["ref"])               # the page sees the change
+        self.assertEqual(db.select("profiles", {"id": uid})[0]["telegram_id"], 72)
+        self.assertTrue(any(p["chat_id"] == 71 and "boshqa Telegram" in p["text"] for p in self.said("sendMessage")))
+        # Connecting the same Telegram again tells nobody anything.
+        before = len([p for p in self.said("sendMessage") if p["chat_id"] == 72])
+        telegram_bot.connect(db, uid, 72)
+        self.assertEqual(len([p for p in self.said("sendMessage") if p["chat_id"] == 72]), before)
 
     def test_without_tokens_nothing_is_offered(self):
         with mock.patch.dict(os.environ, {"TELEGRAM_STUDENT_BOT_TOKEN": ""}):

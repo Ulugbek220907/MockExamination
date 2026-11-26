@@ -75,7 +75,7 @@ def _public_user(profile):
     return {"id": profile["id"], "email": profile["email"], "name": profile.get("name") or "", "role": profile["role"],
             "goal": accounts.public_goal(profile),
             "telegram": {"available": telegram_bot.configured("student"), "connected": bool(profile.get("telegram_id")),
-                         "bot": telegram_bot.student_username()}}
+                         "ref": telegram_bot.chat_ref(profile.get("telegram_id")), "bot": telegram_bot.student_username()}}
 
 
 def clean_name(value):
