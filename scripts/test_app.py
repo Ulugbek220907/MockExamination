@@ -4155,6 +4155,300 @@ class InstallAndMigrationTests(AccountApiBase):
             self.assertRegex(sql, rf"add column if not exists {column}\b")
 
 
+CLICK_ENV = {"service_id": "777", "merchant_id": "4242", "secret_key": "click-secret", "merchant_user_id": "55"}
+
+
+class FakeClickMerchant:
+    """A local stand-in for api.click.uz/v2/merchant: remembers every call, answers (status, json) from `replies(method, path)`."""
+
+    def __init__(self, replies):
+        import http.server
+        import threading
+        owner = self
+        self.calls = []
+        self.replies = replies
+
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def handle_any(self):
+                owner.calls.append((self.command, self.path, self.headers.get("Auth")))
+                status, payload = owner.replies(self.command, self.path)
+                out = json.dumps(payload).encode()
+                self.send_response(status)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(out)))
+                self.end_headers()
+                self.wfile.write(out)
+
+            do_GET = do_DELETE = do_POST = handle_any
+
+            def log_message(self, *args):
+                pass
+
+        self.httpd = http.server.HTTPServer(("127.0.0.1", 0), Handler)
+        threading.Thread(target=self.httpd.serve_forever, daemon=True).start()
+
+    @property
+    def base_url(self):
+        return f"http://127.0.0.1:{self.httpd.server_port}/v2/merchant"
+
+    def close(self):
+        self.httpd.shutdown()
+        self.httpd.server_close()
+
+
+class ClickMerchantApiTests(unittest.TestCase):
+    """The calls the site makes to Click (click_merchant.py): the Auth header, the paths, and what goes wrong."""
+
+    def api(self, fake=None):
+        from mockexam import click_merchant
+        return click_merchant.MerchantApi("777", "55", "click-secret", base_url=fake.base_url if fake else click_merchant.BASE_URL)
+
+    def test_auth_header_is_merchant_user_digest_and_timestamp(self):
+        header = self.api().auth_header(at=1700000000)
+        digest = hashlib.sha1(b"1700000000click-secret").hexdigest()      # sha1(timestamp + secret_key), as Click documents
+        self.assertEqual(header, f"55:{digest}:1700000000")
+
+    def test_reversal_and_lookup_are_signed_requests_to_the_documented_paths(self):
+        import datetime
+        fake = FakeClickMerchant(lambda m, path: (200, {"error_code": 0, "error_note": "Success", "payment_id": 987654}))
+        self.addCleanup(fake.close)
+        api = self.api(fake)
+        self.assertEqual(api.payment_by_merchant_trans_id(12, datetime.date(2026, 11, 25))["payment_id"], 987654)
+        self.assertEqual(api.reverse("987654")["payment_id"], 987654)
+        self.assertEqual(api.payment_status("987654")["error_code"], 0)
+        self.assertEqual([(m, path) for m, path, _ in fake.calls], [
+            ("GET", "/v2/merchant/payment/status_by_mti/777/12/2026-11-25"),
+            ("DELETE", "/v2/merchant/payment/reversal/777/987654"),
+            ("GET", "/v2/merchant/payment/status/777/987654")])
+        for _, _, auth in fake.calls:
+            user, digest, stamp = auth.split(":")
+            self.assertEqual(user, "55")
+            self.assertEqual(digest, hashlib.sha1((stamp + "click-secret").encode()).hexdigest())
+            self.assertLess(abs(int(stamp) - time.time()), 10)
+
+    def test_what_click_refuses_and_what_goes_wrong_on_the_way(self):
+        from mockexam import click_merchant
+        fake = FakeClickMerchant(lambda m, path: (200, {"error_code": -5, "error_note": "Payment not found"}))
+        self.addCleanup(fake.close)
+        with self.assertRaises(click_merchant.ClickMerchantError) as cm:
+            self.api(fake).reverse("1")
+        self.assertEqual((cm.exception.code, cm.exception.status), (-5, 502))
+        self.assertIn("Payment not found", str(cm.exception))
+        denied = FakeClickMerchant(lambda m, path: (401, {"error": "Not Authorized"}))
+        self.addCleanup(denied.close)
+        with self.assertRaises(click_merchant.ClickMerchantError) as cm:
+            self.api(denied).reverse("1")
+        self.assertIn("401", str(cm.exception))
+        gone = FakeClickMerchant(lambda m, path: (200, {}))
+        down = self.api(gone)
+        gone.close()                                                     # nothing is listening any more
+        with self.assertRaises(click_merchant.ClickMerchantError) as cm:
+            down.reverse("1")
+        self.assertEqual(cm.exception.status, 503)
+        with self.assertRaises(click_merchant.ClickMerchantError):       # no merchant user: no call is made at all
+            click_merchant.MerchantApi("777", "", "click-secret").reverse("1")
+
+
+class ClickIntegrationTests(AccountApiBase):
+    """Click from the student's press of Pay to the admin's refund: the link, the signed callbacks over HTTP, the money going back."""
+
+    def setUp(self):
+        super().setUp()
+        self.db = self._app.settings["store"].db
+        patcher = mock.patch.dict(billing.CLICK, CLICK_ENV)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def form(self, order, action, click_id=None, prepare_id="", amount=None, error="0", paydoc="5550001", secret="click-secret"):
+        click_id = click_id or str(9000 + order["id"])           # Click's ids are never used twice
+        f = {"click_trans_id": click_id, "service_id": "777", "click_paydoc_id": paydoc, "merchant_trans_id": str(order["id"]),
+             "amount": f"{float(amount if amount is not None else order['amount']):.1f}", "action": str(action), "error": error,
+             "error_note": "", "sign_time": "2026-11-25 10:00:00"}
+        if action == 1:
+            f["merchant_prepare_id"] = str(prepare_id)
+        raw = (f["click_trans_id"] + f["service_id"] + secret + f["merchant_trans_id"] + (f.get("merchant_prepare_id", "") if action == 1 else "")
+               + f["amount"] + f["action"] + f["sign_time"])
+        f["sign_string"] = hashlib.md5(raw.encode()).hexdigest()
+        return f
+
+    def click_says(self, f, action):
+        """Click's own request: a form, no cookie, no Origin."""
+        import urllib.parse
+        r = self.fetch(f"/api/pay/click/{action}", method="POST", body=urllib.parse.urlencode(f),
+                       headers={"Content-Type": "application/x-www-form-urlencoded"})
+        self.assertEqual(r.code, 200)
+        self.assertTrue(r.headers["Content-Type"].startswith("application/json"))
+        return json.loads(r.body)
+
+    def paid_order(self, email, scope="lr", months=1, paydoc="5550001"):
+        cookie, data = self.login(email)
+        order = billing.create_order(self.db, data["user"]["id"], "plan", scope=scope, months=months)
+        prep = self.click_says(self.form(order, 0, paydoc=paydoc), "prepare")
+        self.assertEqual(prep["error"], 0)
+        done = self.click_says(self.form(order, 1, prepare_id=prep["merchant_prepare_id"], paydoc=paydoc), "complete")
+        self.assertEqual(done["error"], 0)
+        return cookie, data["user"]["id"], billing.get_order(self.db, order["id"])
+
+    def admin(self):
+        return self.login("owner@example.com")[0]
+
+    def fake_click(self, replies):
+        from mockexam import click_merchant
+        fake = FakeClickMerchant(replies)
+        self.addCleanup(fake.close)
+        patcher = mock.patch.object(billing, "click_merchant_api", lambda: click_merchant.MerchantApi(
+            "777", billing.CLICK["merchant_user_id"], "click-secret", base_url=fake.base_url))
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        return fake
+
+    def test_the_payment_link_follows_click_documentation(self):
+        import urllib.parse
+        cookie, data = self.login("click.link@example.com")
+        order = billing.create_order(self.db, data["user"]["id"], "plan", scope="speaking", months=3)
+        r, body = self.call("POST", f"/api/orders/{order['id']}/pay", {"method": "click"}, cookie=cookie)
+        self.assertEqual(r.code, 200, body)
+        url = urllib.parse.urlsplit(body["redirect"])
+        self.assertEqual((url.scheme, url.netloc, url.path), ("https", "my.click.uz", "/services/pay/"))
+        query = urllib.parse.parse_qs(url.query)
+        return_url = query.pop("return_url")[0]
+        self.assertEqual(query, {
+            "service_id": ["777"], "merchant_id": ["4242"], "amount": ["119000.00"],   # the amount as N.NN
+            "transaction_param": [str(order["id"])]})                                  # comes back as merchant_trans_id
+        self.assertTrue(return_url.endswith("/#/account?paid=1"))                      # the student lands on the account page
+
+    def test_click_is_offered_next_to_cards_and_a_card_order_cannot_use_it(self):
+        with mock.patch.dict(os.environ, DODO_ENV):
+            r, body = self.call("GET", "/api/billing")
+            self.assertEqual(body["providers"], ["click", "dodo"])
+            self.assertTrue(body["cardPasses"])
+            cookie, data = self.login("click.mix@example.com")
+            usd_order = billing.create_order(self.db, data["user"]["id"], "plan", currency="USD")
+            r, body = self.call("POST", f"/api/orders/{usd_order['id']}/pay", {"method": "click"}, cookie=cookie)
+            self.assertEqual(r.code, 400)          # dollars are paid by card; Click takes so'm
+
+    def test_a_student_pays_and_the_pass_opens_with_clicks_number_saved(self):
+        cookie, uid, order = self.paid_order("click.student@example.com", scope="lr", months=3, paydoc="5550777")
+        self.assertEqual((order["status"], order["provider"], order["amount"]), ("paid", "click", 69000))
+        self.assertEqual(order["external_id"], "5550777")        # the number Click's Merchant API needs to give the money back
+        plan = accounts.plan_status(self.db, uid)
+        self.assertTrue(plan["active"] and not plan["renews"])   # one payment: it does not renew
+        self.assertEqual([p["scope"] for p in plan["passes"]], ["lr"])
+
+    def test_callbacks_with_a_wrong_signature_or_amount_change_nothing(self):
+        cookie, data = self.login("click.bad@example.com")
+        order = billing.create_order(self.db, data["user"]["id"], "plan")
+        self.assertEqual(self.click_says(self.form(order, 0, secret="not-the-secret"), "prepare")["error"], -1)
+        self.assertEqual(self.click_says(self.form(order, 0, amount=1000), "prepare")["error"], -2)
+        self.assertEqual(self.db.select("click_transactions", {"order_id": order["id"]}), [])
+        self.assertEqual(billing.get_order(self.db, order["id"])["status"], "pending")
+
+    def test_a_click_number_belongs_to_one_order(self):
+        cookie, data = self.login("click.reuse@example.com")
+        first = billing.create_order(self.db, data["user"]["id"], "plan")
+        second = billing.create_order(self.db, data["user"]["id"], "plan")
+        self.assertEqual(self.click_says(self.form(first, 0, click_id="8101"), "prepare")["error"], 0)
+        self.assertEqual(self.click_says(self.form(second, 0, click_id="8101"), "prepare")["error"], -8)
+
+    def test_a_payment_that_cannot_be_applied_is_reported_to_the_owner(self):
+        cookie, data = self.login("click.late@example.com")
+        # The order is cancelled between Prepare and Complete: Click has the money, so the owner is told.
+        order = billing.create_order(self.db, data["user"]["id"], "plan")
+        prep = self.click_says(self.form(order, 0), "prepare")
+        billing.cancel_unpaid_order(self.db, billing.get_order(self.db, order["id"]))
+        with self.assertLogs("mockexam.billing", level="ERROR") as logs:
+            done = self.click_says(self.form(order, 1, prepare_id=prep["merchant_prepare_id"]), "complete")
+        self.assertEqual(done["error"], -9)
+        self.assertIn("return the money", logs.output[0])
+        # The same order paid twice through two Click payments: the second is reported, the pass is given once.
+        order2 = billing.create_order(self.db, data["user"]["id"], "plan")
+        a = self.click_says(self.form(order2, 0, click_id="7001"), "prepare")
+        b = self.click_says(self.form(order2, 0, click_id="7002"), "prepare")
+        self.assertEqual(self.click_says(self.form(order2, 1, click_id="7001", prepare_id=a["merchant_prepare_id"]), "complete")["error"], 0)
+        with self.assertLogs("mockexam.billing", level="ERROR"):
+            self.assertEqual(self.click_says(self.form(order2, 1, click_id="7002", prepare_id=b["merchant_prepare_id"]), "complete")["error"], -4)
+        self.assertEqual(len(self.db.select("subscription_periods", {"user_id": data["user"]["id"]})), 1)
+
+    def test_admin_refund_gives_the_money_back_through_click(self):
+        cookie, uid, order = self.paid_order("click.refund@example.com", paydoc="5550001")
+        fake = self.fake_click(lambda m, path: (200, {"error_code": 0, "error_note": "Success", "payment_id": 987654,
+                                                      "merchant_trans_id": str(order["id"])}))
+        r, data = self.call("POST", f"/api/admin/orders/{order['id']}/refund", {}, cookie=self.admin())
+        self.assertEqual((r.code, data["order"]["status"], data["note"]), (200, "refunded", None))
+        self.assertFalse(accounts.plan_status(self.db, uid)["active"])
+        (look, reverse) = fake.calls                      # asked Click which payment is this order's, then reversed that one
+        self.assertEqual(look[0], "GET")
+        self.assertRegex(look[1], rf"^/v2/merchant/payment/status_by_mti/777/{order['id']}/\d{{4}}-\d{{2}}-\d{{2}}$")
+        self.assertEqual(reverse[:2], ("DELETE", "/v2/merchant/payment/reversal/777/987654"))
+
+    def test_refund_uses_the_saved_number_when_click_does_not_know_the_order(self):
+        cookie, uid, order = self.paid_order("click.refund2@example.com", paydoc="5550002")
+
+        def replies(method, path):
+            if method == "GET":
+                return 200, {"error_code": -5, "error_note": "Payment not found"}
+            return 200, {"error_code": 0, "error_note": "Success"}
+        fake = self.fake_click(replies)
+        r, data = self.call("POST", f"/api/admin/orders/{order['id']}/refund", {}, cookie=self.admin())
+        self.assertEqual((r.code, data["order"]["status"]), (200, "refunded"))
+        self.assertEqual(fake.calls[-1][:2], ("DELETE", "/v2/merchant/payment/reversal/777/5550002"))
+
+    def test_when_click_refuses_the_order_stays_paid_until_the_admin_marks_it(self):
+        cookie, uid, order = self.paid_order("click.refund3@example.com", paydoc="5550003")
+        fake = self.fake_click(lambda m, path: (200, {"error_code": -1, "error_note": "Cancel is not allowed", "payment_id": 5}))
+        admin = self.admin()
+        r, data = self.call("POST", f"/api/admin/orders/{order['id']}/refund", {}, cookie=admin)
+        self.assertEqual(r.code, 502)
+        self.assertEqual(data["code"], "provider_refund_failed")
+        self.assertIn("Cancel is not allowed", data["error"])
+        self.assertIn("mark the order as refunded", data["error"])
+        self.assertEqual(billing.get_order(self.db, order["id"])["status"], "paid")       # nothing was taken back
+        self.assertTrue(accounts.plan_status(self.db, uid)["active"])
+        calls = len(fake.calls)
+        r, data = self.call("POST", f"/api/admin/orders/{order['id']}/refund", {"manual": True}, cookie=admin)   # returned by hand
+        self.assertEqual((r.code, data["order"]["status"], data["note"]), (200, "refunded", None))
+        self.assertEqual(len(fake.calls), calls)                                                          # Click was not asked again
+        self.assertFalse(accounts.plan_status(self.db, uid)["active"])
+
+    def test_without_the_merchant_user_the_admin_is_told_to_return_the_money_in_the_cabinet(self):
+        cookie, uid, order = self.paid_order("click.refund4@example.com", paydoc="5550004")
+        with mock.patch.dict(billing.CLICK, {"merchant_user_id": ""}):
+            r, data = self.call("POST", f"/api/admin/orders/{order['id']}/refund", {}, cookie=self.admin())
+        self.assertEqual((r.code, data["order"]["status"]), (200, "refunded"))
+        self.assertIn("Click cabinet", data["note"])
+        self.assertFalse(accounts.plan_status(self.db, uid)["active"])
+
+
+class PaymentWordingTests(unittest.TestCase):
+    """The pages say what each way of paying does: a card renews, Click is one payment."""
+
+    def read(self, name):
+        with open(os.path.join(PUBLIC_DIR, "js", name), encoding="utf-8") as f:
+            return f.read()
+
+    def test_legal_text_has_a_version_for_every_mix_of_payment_methods(self):
+        strings, app = self.read("strings.js"), self.read("app.js")
+        for key in ("terms.payment", "terms.payment.both", "terms.payment.local", "terms.pass", "terms.pass.once",
+                    "terms.pass.local", "privacy.payments", "privacy.where", "privacy.where.free", "about.privacy.5"):
+            self.assertIn(f'"{key}":', strings, key)
+        self.assertIn("{methods}", strings[strings.index('"terms.payment.both"'):][:900])
+        self.assertIn("{localNote}", strings[strings.index('"terms.pass":'):][:1400])
+        for key in ("privacy.where", "privacy.where.free"):
+            line = strings[strings.index(f'"{key}":'):].split("\n")[0]
+            self.assertIn("{payments}", line, key)
+            self.assertNotIn("Payme and Click", line, key)
+        for key in ("terms.pass.once", "terms.payment.both", "terms.payment.local"):
+            self.assertIn(f'"{key}"', app, key)
+
+    def test_price_page_and_chooser_say_which_payment_renews(self):
+        account = self.read("account.js")
+        self.assertIn("one payment, no renewal", account)
+        self.assertIn("const payInfo", account)
+        self.assertIn("Dodo Payments, renews until you cancel", account)    # the footer when both ways are on
+        # The pass prices follow the money people pay in: dollars, or so'm when only Click or Payme is on.
+        self.assertIn("priceOf(b, plans[scope][\"1\"])", account)
+
+
 class SeoPageTests(AccountApiBase):
     """The pages search engines land on (mockexam/seo.py), robots.txt, the sitemap, and the plain section addresses."""
 

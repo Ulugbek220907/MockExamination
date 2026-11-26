@@ -830,6 +830,7 @@ class AdminOrderActionHandler(AdminHandler):
         order = await in_thread(billing.get_order, self.db, order_id)
         if not order:
             raise ApiError(404, "Order not found.")
+        note = None
         try:
             if action == "confirm":
                 order = await in_thread(billing.fulfil_order, self.db, order["id"], order.get("provider") or "manual")
@@ -838,14 +839,16 @@ class AdminOrderActionHandler(AdminHandler):
                     raise billing.BillingError("Only paid orders can be refunded.")
                 if not billing.can_refund(self.db, order):
                     raise billing.BillingError("The examiner has already started this check, so it cannot be refunded.")
-                await in_thread(billing.refund_at_provider, order)   # Dodo gives the money back; Payme and Click do it themselves
+                # Dodo and Click are asked to give the money back; {"manual": true} says the admin has returned it already.
+                if not self.body_json().get("manual"):
+                    note = await in_thread(billing.refund_at_provider, order)
                 order = await in_thread(billing.refund_order, self.db, order)
             else:
                 await in_thread(billing.cancel_unpaid_order, self.db, order)
                 order = await in_thread(billing.get_order, self.db, order["id"])
         except (billing.BillingError, checks.CheckError) as e:
             _raise(e)
-        self.send_json({"order": billing.public_order(order)})
+        self.send_json({"order": billing.public_order(order), "note": note})
 
 
 class AdminExaminersHandler(AdminHandler):

@@ -12,7 +12,8 @@ How money arrives
            the student pays on Dodo's page and Dodo calls POST /api/pay/dodo/webhook for every charge. Each charge is
            an order of its own (the later ones are made by the webhook) and adds one period to the pass.
   Payme  – Payme calls POST /api/pay/payme (JSON-RPC, Merchant API).
-  Click  – Click calls POST /api/pay/click/prepare and /complete (SHOP API).
+  Click  – Click calls POST /api/pay/click/prepare and /complete (SHOP API): Uzcard and Humo cards in so'm, one payment
+           for the pass (it does not renew). Refunds go back through the Merchant API (click_merchant.py).
 
 Fulfilment is idempotent: the plan period and the examiner check are keyed
 by the order id, so a repeated callback never gives anything twice.
@@ -29,7 +30,7 @@ import threading
 import time
 import urllib.parse
 
-from . import accounts, analytics, checks, dodo, notify
+from . import accounts, analytics, checks, click_merchant, dodo, notify
 from .db import iso, now, parse_time
 
 log = logging.getLogger("mockexam.billing")
@@ -73,7 +74,13 @@ CLICK = {
     "service_id": os.environ.get("CLICK_SERVICE_ID", "").strip(),
     "merchant_id": os.environ.get("CLICK_MERCHANT_ID", "").strip(),
     "secret_key": os.environ.get("CLICK_SECRET_KEY", "").strip(),
+    # The Merchant API user (to give money back from the admin page); without it refunds are done in Click's cabinet.
+    "merchant_user_id": os.environ.get("CLICK_MERCHANT_USER_ID", "").strip(),
 }
+
+
+def click_merchant_api():
+    return click_merchant.MerchantApi(CLICK["service_id"], CLICK["merchant_user_id"], CLICK["secret_key"])
 
 KIND_TITLES = {
     "plan": "Pass",
@@ -83,9 +90,10 @@ KIND_TITLES = {
 
 
 class BillingError(Exception):
-    def __init__(self, message, status=400):
+    def __init__(self, message, status=400, code=None):
         super().__init__(message)
         self.status = status
+        self.code = code
 
 
 def providers():
@@ -264,14 +272,16 @@ def checkout(order, method, return_url, profile=None, cancel_url=None):
         base = "https://checkout.test.paycom.uz/" if PAYME["test"] else "https://checkout.paycom.uz/"
         return {"redirect": base + token}
     if method == "click":
+        # The payment page as Click documents it (docs.click.uz, "Платежная ссылка"): the amount as N.NN, and
+        # transaction_param is the order number, which comes back as merchant_trans_id in Prepare and Complete.
         query = urllib.parse.urlencode({
             "service_id": CLICK["service_id"],
             "merchant_id": CLICK["merchant_id"],
-            "amount": order["amount"],
+            "amount": f"{float(order['amount']):.2f}",
             "transaction_param": order["id"],
             "return_url": return_url,
         })
-        return {"redirect": f"https://my.click.uz/services/pay?{query}"}
+        return {"redirect": f"https://my.click.uz/services/pay/?{query}"}
     raise BillingError("This payment method is not available.")
 
 
@@ -332,12 +342,61 @@ def refund_order(db, order):
 
 
 def refund_at_provider(order):
-    """Ask the payment provider to give the money back (only Dodo needs it: Payme and Click cancel on their side)."""
-    if order.get("provider") == "dodo" and order.get("external_id"):
+    """
+    Ask the payment provider to give the money back: Dodo and Click are asked from here. Returns a note for the admin
+    when the money has to be returned by hand (Payme, or Click without CLICK_MERCHANT_USER_ID), otherwise None.
+    Raises BillingError (code "provider_refund_failed" for Click) when the provider refuses.
+    """
+    provider = order.get("provider")
+    if provider == "dodo" and order.get("external_id"):
         try:
             dodo.refund(order["external_id"])
         except dodo.DodoError as e:
             raise BillingError(str(e), e.status)
+        return None
+    if provider == "click":
+        return _refund_at_click(order)
+    if provider == "payme":
+        return "Return the money in the Payme Business cabinet: the pass has been taken back here, but Payme has not been asked."
+    return None
+
+
+def _click_days(paid_at):
+    """The days Click may have dated a payment on: its own day (Uzbekistan, UTC+5, no daylight saving) and the UTC day."""
+    paid = paid_at or now()
+    local = paid.astimezone(datetime.timezone(datetime.timedelta(hours=5)))
+    return list(dict.fromkeys([local.date(), paid.astimezone(datetime.timezone.utc).date()]))
+
+
+def _click_payment_id(api, order):
+    """Click's number for this order's payment: asked from Click by our order number, else the one saved at Complete."""
+    last = None
+    for day in _click_days(parse_time(order.get("paid_at"))):
+        try:
+            found = api.payment_by_merchant_trans_id(order["id"], day)
+        except click_merchant.ClickMerchantError as e:
+            last = e
+            continue
+        if found.get("payment_id"):
+            return str(found["payment_id"])
+    if order.get("external_id"):
+        return str(order["external_id"])
+    raise last or click_merchant.ClickMerchantError("Click has no record of this payment.", 404)
+
+
+def _refund_at_click(order):
+    api = click_merchant_api()
+    if not api.configured:
+        return ("Click was not asked to return the money, because CLICK_MERCHANT_USER_ID is not set on the server. "
+                "Return it to the student in the Click cabinet (merchant.click.uz); the pass has been taken back here.")
+    try:
+        api.reverse(_click_payment_id(api, order))
+    except click_merchant.ClickMerchantError as e:
+        raise BillingError(
+            f"{e} Click returns a payment only in the month it was made, and on the first day of the next month. If you "
+            "have returned the money yourself in the Click cabinet, mark the order as refunded.",
+            e.status, code="provider_refund_failed")
+    return None
 
 
 def cancel_unpaid_order(db, order):
@@ -758,6 +817,8 @@ class ClickApi:
             txn = self.db.insert("click_transactions", {
                 "click_trans_id": click_id, "order_id": order["id"], "amount": float(f["amount"]), "status": "prepared",
             }, ignore_conflict="click_trans_id") or self.db.select("click_transactions", {"click_trans_id": click_id})[0]
+            if txn["order_id"] != order["id"]:   # a Click number is used once, for one order
+                return self._reply(f, -8)
             return self._reply(f, 0, merchant_prepare_id=txn["id"])
         except Exception:
             log.exception("Click prepare failed")
@@ -785,11 +846,19 @@ class ClickApi:
                 return self._reply(f, -9)
             problem = self._order_problem(f, order)
             if problem:
+                # Click has taken the money, and we cannot give the pass: the owner is told (this is logged as an error,
+                # which goes to Telegram) and the money is returned from the Click cabinet.
+                log.error("Click payment %s for order %s was taken but cannot be applied (%s: %s); return the money",
+                          f.get("click_trans_id"), order["id"] if order else f.get("merchant_trans_id"), problem,
+                          CLICK_NOTES.get(problem))
                 return self._reply(f, problem)
-            fulfil_order(self.db, order["id"], "click")
+            # Click's own number of the payment is what its Merchant API needs to return the money later.
+            fulfil_order(self.db, order["id"], "click", external_id=f.get("click_paydoc_id") or f.get("click_trans_id"))
             self.db.update("click_transactions", {"id": txn["id"]}, {"status": "completed", "completed_at": iso(now())})
             return self._reply(f, 0, merchant_confirm_id=txn["id"])
-        except BillingError:
+        except BillingError as e:
+            log.error("Click payment %s was taken but order %s could not be paid: %s; return the money",
+                      f.get("click_trans_id"), f.get("merchant_trans_id"), e)
             return self._reply(f, -9)
         except Exception:
             log.exception("Click complete failed")
