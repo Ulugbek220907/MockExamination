@@ -2347,6 +2347,9 @@ class PaymeTests(unittest.TestCase):
 
     def test_auth_and_validation(self):
         self.assertEqual(_payme(self.api, "CheckPerformTransaction", {}, key="wrong")["error"]["code"], -32504)
+        # Every answer carries the request's id, the refused login included (Payme's sandbox matches them by id).
+        refused = self.api.handle(json.dumps({"id": 8989, "method": "CheckPerformTransaction", "params": {}}).encode(), "Basic bm9wZQ==")
+        self.assertEqual((refused["id"], refused["error"]["code"]), (8989, -32504))
         self.assertEqual(_payme(self.api, "Nope", {})["error"]["code"], -32601)
         r = _payme(self.api, "CheckPerformTransaction", {"amount": self.amount, "account": self.account})
         self.assertEqual(r["result"], {"allow": True})
