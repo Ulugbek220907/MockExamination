@@ -149,6 +149,24 @@ def _click_seen(action, f, result, ip=None):
              entry["amount"], entry["ip"] or "?", entry["error"], entry["note"])
 
 
+def payme_status():
+    """Admin → Payme: what the site has (never the key itself)."""
+    return {"merchantId": PAYME["merchant_id"], "key": {"set": bool(PAYME["key"]), "length": len(PAYME["key"])},
+            "test": PAYME["test"], "accountField": PAYME["account_field"], "ikpu": PAYME["ikpu"],
+            "packageCode": PAYME["package_code"], "vatPercent": PAYME["vat_percent"],
+            "commerce": accounts.commerce_enabled()}
+
+
+def payme_test_order(db, user_id, scope="full"):
+    """An unpaid order for Payme's sandbox (test.paycom.uz): only while PAYME_TEST=1, for an admin's own account. The
+    sandbox asks for an order number and its amount in tiyin; when it pays the order, the admin's account gets the pass,
+    as a real payment would."""
+    if not PAYME["test"]:
+        raise BillingError("Test orders are made only while PAYME_TEST=1.")
+    order = create_order(db, user_id, "plan", scope=scope, months=1)
+    return {"orderId": order["id"], "amount": order["amount"], "tiyin": int(order["amount"]) * 100, "scope": scope}
+
+
 def click_status():
     """The Click settings the admin page shows. The secret key is never shown, only whether it is there and how long it is."""
     return {

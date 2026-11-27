@@ -243,4 +243,9 @@ Steps for the owner:
    `PAYME_VAT_PERCENT` (0 unless the business pays VAT).
 3. In the Payme business cabinet set the endpoint `https://www.testday.uz/api/pay/payme` and the account field
    `order_id`, then run all of Payme's sandbox checks (section 3).
+   **Selling can stay off for this:** while `PAYME_TEST=1` the Payme address answers even with `COMMERCE_ENABLED` off.
+   The sandbox (test.paycom.uz) asks for an order number and its amount in tiyin: sign in as admin, open
+   **Admin → Payme → Make a test order**, and type the number and the tiyin amount it shows. Make a new order for each
+   test that pays or cancels one. "Wrong amount": the same order with another amount. "No such account": any number
+   that is not an order. The admin account gets the pass each time the sandbox pays an order (harmless).
 4. Put the production key, remove `PAYME_TEST`, redeploy, and make one small real purchase and a refund (section 4).

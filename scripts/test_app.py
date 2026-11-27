@@ -2581,6 +2581,32 @@ class CommerceOffTests(AccountApiBase):
         with mock.patch.dict(os.environ, {"COMMERCE_ENABLED": "1"}):
             self.assertTrue(json.loads(self.fetch("/api/config").body)["commerce"])
 
+    def test_payme_sandbox_works_while_selling_is_off(self):
+        import base64
+        auth = {"Authorization": "Basic " + base64.b64encode(b"Paycom:sandbox-key").decode(), "Content-Type": "application/json"}
+        ask = lambda method, params: self.fetch("/api/pay/payme", method="POST", headers=auth,
+                                                body=json.dumps({"id": 1, "method": method, "params": params}))
+        owner, _ = self.login("owner@example.com")
+        student, _ = self.login("payme.student@example.com")
+        with mock.patch.dict(billing.PAYME, {"merchant_id": "m-1", "key": "sandbox-key", "test": False}):
+            self.assertEqual(ask("CheckPerformTransaction", {}).code, 404)           # selling off, not testing: nothing
+            self.assertEqual(self.call("POST", "/api/admin/payme", {}, cookie=owner)[0].code, 400)
+        with mock.patch.dict(billing.PAYME, {"merchant_id": "m-1", "key": "sandbox-key", "test": True}):
+            r, info = self.call("GET", "/api/admin/payme", cookie=owner)
+            self.assertTrue(info["endpoint"].endswith("/api/pay/payme"))
+            self.assertEqual((info["accountField"], info["key"]), ("order_id", {"set": True, "length": 11}))
+            self.assertNotIn("sandbox-key", json.dumps(info))                        # the key itself is never shown
+            self.assertEqual(self.call("POST", "/api/admin/payme", {}, cookie=student)[0].code, 403)
+            r, order = self.call("POST", "/api/admin/payme", {"scope": "full"}, cookie=owner)
+            self.assertEqual((r.code, order["tiyin"]), (200, billing.PLAN_PRICES["full"][1][0] * 100))
+            account = {"order_id": str(order["orderId"])}
+            r = ask("CheckPerformTransaction", {"amount": order["tiyin"], "account": account})
+            self.assertEqual(json.loads(r.body)["result"]["allow"], True)
+            r = ask("CheckPerformTransaction", {"amount": order["tiyin"] + 100, "account": account})
+            self.assertEqual(json.loads(r.body)["error"]["code"], -31001)
+        # The rest of the site still sells nothing.
+        self.assertEqual(self.call("GET", "/api/billing")[1]["prices"], {})
+
     def test_five_tests_are_free_and_the_rest_are_coming_soon(self):
         r, data = self.call("GET", "/api/tests")
         by_module = {}
