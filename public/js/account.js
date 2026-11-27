@@ -933,7 +933,8 @@
     }).catch(() => { /* U.need has shown a toast */ });
     bindGoalForm(main, () => progress.then((res) => draw(res, false)));
     bindTelegramCard(main);
-    fresh.then(() => renderAccountSlot());
+    // The page is drawn from what this browser remembered; the server's answer may say Telegram is connected now.
+    fresh.then(() => { renderAccountSlot(); redrawTelegramCard(main); });
     if (window.app) window.app.loadHistory();
   }
 
@@ -945,37 +946,75 @@
           <div class="account-card" id="telegram-card">
             <h2>${t("Telegram")}</h2>
             ${tg.connected
-              ? `<p>${t("Connected to {bot}: your results, the band calculator and reminders come there.", { bot: `<a href="https://t.me/${esc(tg.bot)}" target="_blank" rel="noopener">@${esc(tg.bot)}</a>` })}</p>
-                 <button type="button" class="btn-secondary" data-telegram="off">${t("Disconnect")}</button>`
+              ? `<p class="plan-active">✓ ${t("Connected to {bot}: your results, the band calculator and reminders come there.", { bot: `<a href="https://t.me/${esc(tg.bot)}" target="_blank" rel="noopener">@${esc(tg.bot)}</a>` })}</p>
+                 <p class="muted-text small-text">${t("It stays connected until you disconnect it here or send /stop to the bot.")}</p>
+                 <div class="inline-actions">
+                   <button type="button" class="btn-secondary" data-telegram="on">${t("Use another Telegram")}</button>
+                   <button type="button" class="btn-link" data-telegram="off">${t("Disconnect")}</button>
+                 </div>`
               : `<p>${t("Get your results, the band calculator and reminders before your exam in Telegram.")}</p>
                  <button type="button" class="btn-primary" data-telegram="on">${t("Connect Telegram")}</button>`}
+            ${state.telegramWaiting ? `<p class="muted-text small-text">${t("Waiting for you to press Start in Telegram…")}</p>` : ""}
           </div>`;
   }
 
+  /** Draw the card again from what the server says now, and say so when the connection changed. */
+  function redrawTelegramCard(root, before) {
+    const card = root.querySelector("#telegram-card");
+    if (!card || !document.body.contains(card)) return false;
+    const now = (user() || {}).telegram || {};
+    card.outerHTML = telegramCardHTML(user());
+    bindTelegramCard(root);
+    if (before !== undefined && now.connected && before !== now.connected) U.toast(t("Telegram is connected ✓"));
+    return true;
+  }
+
+  // After "Connect", the student finishes in Telegram: look for the connection for a few minutes, and at once when
+  // they come back to this tab, so the card changes without reloading the page.
+  function waitForTelegram(root) {
+    clearInterval(state.telegramTimer);
+    const started = Date.now();
+    const check = async () => {
+      if (!state.telegramWaiting) return;
+      await refreshMe();
+      const tg = (user() || {}).telegram || {};
+      const card = root.querySelector("#telegram-card");
+      const done = tg.connected && tg.ref !== state.telegramWaiting.was;
+      if (done || !card || !document.body.contains(card) || Date.now() - started > 5 * 60 * 1000) {
+        clearInterval(state.telegramTimer);
+        document.removeEventListener("visibilitychange", onVisible);
+        state.telegramWaiting = null;
+        redrawTelegramCard(root, false);
+      }
+    };
+    const onVisible = () => { if (document.visibilityState === "visible") check(); };
+    document.addEventListener("visibilitychange", onVisible);
+    state.telegramTimer = setInterval(check, 4000);
+  }
+
   function bindTelegramCard(root) {
-    const btn = root.querySelector("[data-telegram]");
-    if (!btn) return;
-    btn.addEventListener("click", async () => {
+    root.querySelectorAll("#telegram-card [data-telegram]").forEach((btn) => btn.addEventListener("click", async () => {
       // The window is opened at once, inside the tap, so phones do not block it; its address follows.
       const win = btn.dataset.telegram === "on" ? window.open("", "_blank") : null;
       try {
         if (btn.dataset.telegram === "on") {
           const { url } = await U.api("/api/telegram/link", { method: "POST", body: "{}" });
           if (win) win.location.href = url; else location.href = url;
+          state.telegramWaiting = { was: ((user() || {}).telegram || {}).ref || null };
+          redrawTelegramCard(root);
+          waitForTelegram(root);
           U.toast(t("Press Start in Telegram to finish."));
         } else {
           await U.api("/api/telegram/link", { method: "DELETE", body: "{}" });
           await refreshMe();
-          const card = root.querySelector("#telegram-card");
-          if (card) card.outerHTML = telegramCardHTML(user());
-          bindTelegramCard(root);
+          redrawTelegramCard(root);
           U.toast(t("Telegram is disconnected."));
         }
       } catch (err) {
         if (win) win.close();
         U.toast(err.message, "warn");
       }
-    });
+    }));
   }
 
   /* ================================================================ examiners */
@@ -1448,7 +1487,7 @@
     const tab = params.get("tab") || "payments";
     const paymentsLabel = () => { const n = (state.me.todo || {}).payments || 0; return `Payments to confirm${n ? ` (${n})` : ""}`; };
     const tabs = [["payments", paymentsLabel()], ["orders", "All orders"], ["examiners", "Examiners"], ["users", "Users"],
-      ["insights", "Revenue, funnel & feedback"], ["ai", "AI"], ["click", "Click"], ["tests", "Tests"]];
+      ["insights", "Revenue, funnel & feedback"], ["ai", "AI"], ["click", "Click"], ["payme", "Payme"], ["tests", "Tests"]];
     main.innerHTML = `
       <section class="page admin-page">
         <h1>Admin</h1>
@@ -1678,6 +1717,43 @@
           result.textContent = err.message;
         }
         check.disabled = false;
+      });
+    } else if (tab === "payme") {
+      // Payme (Uzcard and Humo, in so'm): what the cabinet needs, and test orders for the sandbox at test.paycom.uz.
+      const c = await U.api("/api/admin/payme", { fresh: true });
+      const row = (k, v) => `<tr><th scope="row">${esc(k)}</th><td>${v}</td></tr>`;
+      const none = (text) => `<span class="muted-text">${esc(text)}</span>`;
+      body.innerHTML = `
+        <p class="lead-text">Payme: the settings the site has, what to give Payme, and orders for testing in Payme's sandbox.</p>
+        <div class="table-scroll"><table class="history-table click-settings"><tbody>
+          ${row("Endpoint URL, for Payme", `<code>${esc(c.endpoint)}</code>`)}
+          ${row("Account parameter, for Payme", `<code>${esc(c.accountField)}</code> (the order number)`)}
+          ${row("Merchant (kassa) ID", c.merchantId ? esc(c.merchantId) : none("not set: PAYME_MERCHANT_ID"))}
+          ${row("Key", c.key.set ? `set (${c.key.length} characters)${c.test ? " — must be the TEST key now" : ""}` : none("not set: PAYME_KEY"))}
+          ${row("Mode", c.test ? "<strong>Sandbox</strong> (PAYME_TEST=1): the Payme address answers even while selling is off" : c.commerce ? "Live" : none("Off: selling is off and PAYME_TEST is not 1, so the Payme address answers 404"))}
+          ${row("MXIK (IKPU)", c.ikpu ? esc(c.ikpu) : none("not set: PAYME_IKPU (needed for receipts)"))}
+          ${row("Package code", c.packageCode ? esc(c.packageCode) : none("not set: PAYME_PACKAGE_CODE"))}
+          ${row("VAT", `${esc(c.vatPercent)}%`)}
+        </tbody></table></div>
+        <h2 class="section-title">Sandbox test order</h2>
+        ${c.test ? `<p class="muted-text small-text">In test.paycom.uz, a test needs an unpaid order: make one here and type its number as the
+          account (<code>${esc(c.accountField)}</code>) and the amount in tiyin. Make a new order for each test that pays or cancels one
+          (CreateTransaction, PerformTransaction, CancelTransaction). For "wrong amount" use any other amount; for "no such order" any number
+          that is not an order. When the sandbox pays an order, your admin account gets that pass, as with a real payment.</p>
+          <p class="click-check"><button type="button" class="btn-primary" id="payme-order">Make a test order (All-in-one)</button>
+          <span id="payme-order-result" role="status"></span></p>`
+          : `<p class="muted-text small-text">Set <code>PAYME_TEST=1</code> and the test key on Render (then redeploy) to make orders for the sandbox.</p>`}`;
+      const make = body.querySelector("#payme-order");
+      if (make) make.addEventListener("click", async () => {
+        make.disabled = true;
+        const out = body.querySelector("#payme-order-result");
+        try {
+          const r = await U.api("/api/admin/payme", { method: "POST", body: JSON.stringify({ scope: "full" }) });
+          out.innerHTML = `Order <strong>${esc(r.orderId)}</strong> · amount <strong>${esc(r.tiyin)}</strong> tiyin (${esc(U.number(r.amount))} so'm)`;
+        } catch (err) {
+          out.textContent = err.message;
+        }
+        make.disabled = false;
       });
     } else if (tab === "insights") {
       const [stats, { feedback }] = await Promise.all([

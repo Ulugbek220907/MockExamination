@@ -75,7 +75,7 @@ def _public_user(profile):
     return {"id": profile["id"], "email": profile["email"], "name": profile.get("name") or "", "role": profile["role"],
             "goal": accounts.public_goal(profile),
             "telegram": {"available": telegram_bot.configured("student"), "connected": bool(profile.get("telegram_id")),
-                         "bot": telegram_bot.student_username()}}
+                         "ref": telegram_bot.chat_ref(profile.get("telegram_id")), "bot": telegram_bot.student_username()}}
 
 
 def clean_name(value):
@@ -864,6 +864,29 @@ class AdminClickHandler(AdminHandler):
         self.send_json(info)
 
 
+class AdminPaymeHandler(AdminHandler):
+    """Admin → Payme: the settings, the address and account field for the Payme cabinet, and (POST, while PAYME_TEST=1)
+    a test order for the sandbox."""
+
+    async def get(self):
+        await self.require_admin()
+        info = billing.payme_status()
+        info["endpoint"] = f"{self.site_url()}/api/pay/payme"
+        self.send_json(info)
+
+    async def post(self):
+        profile = await self.require_admin()
+        if not profile:
+            raise ApiError(403, "Sign in with your admin account to make a test order.")
+        body = self.body_json()
+        scope = body.get("scope") if body.get("scope") in billing.PLAN_PRICES else "full"
+        try:
+            out = await in_thread(billing.payme_test_order, self.db, profile["id"], scope)
+        except billing.BillingError as e:
+            _raise(e)
+        self.send_json(out)
+
+
 class AdminClickCheckHandler(AdminHandler):
     async def post(self):
         await self.require_admin()
@@ -1031,11 +1054,11 @@ class AdminPlanHandler(AdminHandler):
         self.send_json({"plan": await in_thread(accounts.plan_status, self.db, profile["id"])})
 
 
-def commerce_only(handler_class):
-    """The same handler, but answering 404 while the site sells nothing (COMMERCE_ENABLED is off)."""
+def commerce_only(handler_class, unless=None):
+    """The same handler, but answering 404 while the site sells nothing (COMMERCE_ENABLED is off), unless `unless()`."""
     class Gated(handler_class):
         async def prepare(self):
-            if not accounts.commerce_enabled():
+            if not accounts.commerce_enabled() and not (unless and unless()):
                 raise ApiError(404, "Not available.")
             result = super().prepare()
             if result is not None:
@@ -1072,7 +1095,7 @@ def routes():
         (r"/api/orders", commerce_only(OrdersHandler)),
         (r"/api/orders/(\d+)/pay", commerce_only(OrderPayHandler)),
         (r"/api/subscriptions/cancel", commerce_only(SubscriptionCancelHandler)),
-        (r"/api/pay/payme", commerce_only(PaymeHandler)),
+        (r"/api/pay/payme", commerce_only(PaymeHandler, unless=lambda: billing.PAYME["test"])),   # open for the sandbox
         (r"/api/pay/click/(prepare|complete)", commerce_only(ClickHandler)),
         (r"/api/pay/dodo/webhook", DodoWebhookHandler),
         (r"/api/examiners", checks_only(ExaminersHandler)),
@@ -1090,6 +1113,7 @@ def routes():
         (r"/api/speaking/submissions/(\d+)", SpeakingSubmissionHandler),
         (r"/api/speaking/recordings/([0-9a-f\-]{36})", RecordingHandler),
         (r"/api/admin/click", AdminClickHandler),
+        (r"/api/admin/payme", AdminPaymeHandler),
         (r"/api/admin/click/check", AdminClickCheckHandler),
         (r"/api/admin/ai-usage", AdminAiUsageHandler),
         (r"/api/telegram/link", TelegramLinkHandler),

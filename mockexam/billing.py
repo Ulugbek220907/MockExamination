@@ -52,8 +52,8 @@ def _int_env(name, default):
 # Passes are sold month by month only (3-month passes were retired in November 2026: a monthly price can follow the
 # cost of AI marking; card subscriptions bought for 3 months before then keep renewing as they were).
 PLAN_PRICES = {
-    "full": {1: (79000, 799)},   # the prices live here, not in environment variables
-    "speaking": {1: (59000, 599)},
+    "full": {1: (109000, 1099)},   # the prices live here, not in environment variables
+    "speaking": {1: (69000, 699)},
     "writing": {1: (49000, 499)},
     "lr": {1: (39000, 399)},
 }
@@ -147,6 +147,24 @@ def _click_seen(action, f, result, ip=None):
     CLICK_RECENT.appendleft(entry)
     log.info("Click %s: order=%s trans=%s amount=%s from=%s -> %s %s", action, entry["order"], entry["clickTransId"],
              entry["amount"], entry["ip"] or "?", entry["error"], entry["note"])
+
+
+def payme_status():
+    """Admin → Payme: what the site has (never the key itself)."""
+    return {"merchantId": PAYME["merchant_id"], "key": {"set": bool(PAYME["key"]), "length": len(PAYME["key"])},
+            "test": PAYME["test"], "accountField": PAYME["account_field"], "ikpu": PAYME["ikpu"],
+            "packageCode": PAYME["package_code"], "vatPercent": PAYME["vat_percent"],
+            "commerce": accounts.commerce_enabled()}
+
+
+def payme_test_order(db, user_id, scope="full"):
+    """An unpaid order for Payme's sandbox (test.paycom.uz): only while PAYME_TEST=1, for an admin's own account. The
+    sandbox asks for an order number and its amount in tiyin; when it pays the order, the admin's account gets the pass,
+    as a real payment would."""
+    if not PAYME["test"]:
+        raise BillingError("Test orders are made only while PAYME_TEST=1.")
+    order = create_order(db, user_id, "plan", scope=scope, months=1)
+    return {"orderId": order["id"], "amount": order["amount"], "tiyin": int(order["amount"]) * 100, "scope": scope}
 
 
 def click_status():

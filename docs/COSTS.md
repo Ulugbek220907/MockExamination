@@ -119,10 +119,15 @@ to the dollar.
 |---|---|---|---|---|
 | Listening + Reading | 39 000 so'm / $3.99 | $3.05 / $3.22 | $0 | $3.05 / $3.22 |
 | Writing | 49 000 so'm / $4.99 | $3.83 / $4.12 | $0.19 | $3.64 / $3.93 |
-| Speaking | 59 000 so'm / $5.99 | $4.61 / $5.02 | $1.59 | $3.02 / $3.43 |
-| All-in-one | 79 000 so'm / $7.99 | $6.18 / $6.83 | $1.78 | $4.40 / $5.05 |
+| Speaking | 69 000 so'm / $6.99 | $5.40 / $5.92 | $1.59 | $3.81 / $4.33 |
+| All-in-one | 109 000 so'm / $10.99 | $8.53 / $9.53 | $1.78 | $6.75 / $7.75 |
 
 Most students use far less than the full allowance, so the real margin is higher.
+
+Prices set on 27 November 2026, before the first sale: All-in-one up from 79 000 / $7.99, Speaking up from
+59 000 / $5.99, after comparing the Uzbek IELTS platforms (about 45 000 to 199 000 so'm a month), courses (700 000 to
+1 600 000 a month) and the exam fee (about 2 660 000). The Dodo products' prices are set in the Dodo dashboard and must
+match (docs/PAYMENTS_CHECKLIST.md, section 7).
 
 **Break-even:** about 3–5 paying students cover today's fixed costs (~$8–15); about 15–20 cover the grown stack
 (~$55–60, with Supabase Pro and Resend Pro).

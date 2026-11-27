@@ -4,8 +4,9 @@ TestDay's two Telegram bots, run by the website itself (webhooks; no extra servi
   @testdayuzbot (TELEGRAM_STUDENT_BOT_TOKEN)
     /start                the menu: band calculator, my results, connect my TestDay account, open the site
     /start <link code>    connects the Telegram account to a TestDay account (the code comes from the site's Account page)
-    the band calculator   a widget that works entirely inside Telegram
-    my results            a widget with the latest bands; it asks the bot for fresh numbers when it comes on screen
+    the band calculator   a message whose buttons change the numbers in place (or a widget, when Telegram allows it)
+    my results            the latest bands, the target and the days to the exam (a message, or a widget that asks
+                          the bot for fresh numbers when it comes on screen)
     messages it sends     a Speaking result ready, a pass ending soon, the exam in 7 days and tomorrow
 
   @testdaysupportbot (TELEGRAM_SUPPORT_BOT_TOKEN)
@@ -209,12 +210,25 @@ def profile_for_chat(db, chat_id):
     return rows[0] if rows else None
 
 
+def chat_ref(chat_id):
+    """A short mark that changes when the account is connected to another Telegram (the site shows "connected" again
+    without giving the browser the Telegram id itself)."""
+    if not chat_id:
+        return None
+    return hmac.new(webhook_secret().encode(), f"ref:{int(chat_id)}".encode(), hashlib.sha256).hexdigest()[:10]
+
+
 def connect(db, user_id, chat_id):
-    """Link the Telegram user to the TestDay account (one Telegram account to one TestDay account)."""
+    """Link the Telegram user to the TestDay account: one Telegram account to one TestDay account, both ways. A TestDay
+    account that was connected to another Telegram moves to this one, and the old chat is told."""
     for other in db.select("profiles", {"telegram_id": int(chat_id)}, limit=5):
         if other["id"] != user_id:
             db.update("profiles", {"id": other["id"]}, {"telegram_id": None})
+    before = db.select("profiles", {"id": user_id}, limit=1)
+    old_chat = before[0].get("telegram_id") if before else None
     rows = db.update("profiles", {"id": user_id}, {"telegram_id": int(chat_id)})
+    if old_chat and int(old_chat) != int(chat_id):
+        quietly("student", "sendMessage", {"chat_id": int(old_chat), "text": WORDS["uz"]["moved"]})
     return rows[0] if rows else None
 
 
@@ -240,6 +254,7 @@ WORDS = {
         "exam_7": "📅 IELTS imtihoningizga 7 kun qoldi. Bugun bitta to'liq test ishlab ko'ring!",
         "exam_1": "📅 Imtihon ertaga! Yaxshi dam oling. Omad! 🍀", "practice": "Mashq qilish",
         "slow": "Biroz sekinroq, iltimos 🙂",
+        "moved": "Bu TestDay hisobi endi boshqa Telegram akkauntiga ulandi, shuning uchun bu yerga xabar kelmaydi. Qayta ulash uchun saytdagi Hisob sahifasidan foydalaning.",
     },
     "ru": {
         "hello": "Здравствуйте! Это бот TestDay: тренировка IELTS Listening, Reading, Writing и Speaking.\n\n"
@@ -254,6 +269,7 @@ WORDS = {
         "exam_7": "📅 До экзамена IELTS 7 дней. Пройдите сегодня один полный тест!",
         "exam_1": "📅 Экзамен завтра! Хорошо отдохните. Удачи! 🍀", "practice": "Тренироваться",
         "slow": "Чуть помедленнее, пожалуйста 🙂",
+        "moved": "Этот аккаунт TestDay теперь подключён к другому Telegram, поэтому сюда сообщения больше не придут. Подключить снова можно на странице аккаунта на сайте.",
     },
     "en": {
         "hello": "Hello! This is the TestDay bot: IELTS Listening, Reading, Writing and Speaking practice.\n\n"
@@ -268,6 +284,7 @@ WORDS = {
         "exam_7": "📅 Your IELTS exam is in 7 days. Take one full test today!",
         "exam_1": "📅 Your exam is tomorrow! Rest well. Good luck! 🍀", "practice": "Practise",
         "slow": "A little slower, please 🙂",
+        "moved": "This TestDay account is now connected to another Telegram account, so messages will no longer come here. You can connect this one again on the site's Account page.",
     },
 }
 
@@ -303,10 +320,50 @@ def menu(lang, linked):
 # --------------------------------------------------------------------------
 
 STUDENT_MESSAGES = guard.Window("TELEGRAM_MESSAGES_PER_USER_PER_MINUTE", 20, 60)
+CALC_TAPS = guard.Window("TELEGRAM_CALC_TAPS_PER_USER_PER_MINUTE", 90, 60)
+
+# Since 13 November 2026 Telegram refuses widgets from ordinary bots (INPUT_MEDIA_WIDGET_NOT_ALLOWED), with no date for
+# their return. After a refusal the bot sends ordinary messages and tries a widget again WIDGET_RETRY_HOURS later, so
+# widgets come back by themselves once Telegram allows them. TELEGRAM_WIDGETS=off never tries.
+_widgets_off_until = 0.0
+
+
+def widgets_on():
+    if _env("TELEGRAM_WIDGETS", "auto").lower() in ("off", "0", "no", "false"):
+        return False
+    return time.time() >= _widgets_off_until
+
+
+def send_widget(payload):
+    """sendWidget, or None when Telegram refuses it (the caller then sends the ordinary message)."""
+    global _widgets_off_until
+    if not widgets_on():
+        return None
+    try:
+        return call("student", "sendWidget", payload)
+    except TelegramError as e:
+        if e.code in (400, 403) or "WIDGET" in str(e):
+            hours = float(_env("TELEGRAM_WIDGET_RETRY_HOURS", "6") or 6)
+            _widgets_off_until = time.time() + hours * 3600
+            log.info("Telegram: widgets refused (%s); ordinary messages for the next %g hours", e, hours)
+        else:
+            log.warning("Telegram: widget not sent: %s", e)
+        return None
 
 
 def send_calculator(chat_id, lang):
-    return call("student", "sendWidget", {"chat_id": chat_id, "html": telegram_widgets.calculator_html(lang)})
+    t = telegram_widgets.words(lang)
+    sent = send_widget({"chat_id": chat_id, "html": telegram_widgets.calculator_html(lang), "caption": f"📊 {t['calc']}"})
+    if sent:
+        return sent
+    return call("student", "sendMessage", {"chat_id": chat_id, "text": telegram_widgets.calc_text(lang),
+                                           "parse_mode": "HTML", "reply_markup": telegram_widgets.calc_keyboard(lang)})
+
+
+def results_keyboard(lang):
+    t, w = telegram_widgets.words(lang), WORDS[lang]
+    return {"inline_keyboard": [[{"text": f"🔄 {t['refresh']}", "callback_data": "rr"}, {"text": w["calc"], "callback_data": "calc"}],
+                                [{"text": f"🌐 {t['open']}", "url": f"{SITE}/#/account"}]]}
 
 
 def send_results(db, progress, chat_id, lang):
@@ -315,8 +372,22 @@ def send_results(db, progress, chat_id, lang):
         return call("student", "sendMessage", {"chat_id": chat_id, "text": WORDS[lang]["not_linked"],
                                                "reply_markup": menu(lang, False)})
     state = results_state(db, progress, profile)
-    return call("student", "sendWidget", {"chat_id": chat_id, "html": telegram_widgets.progress_html(lang),
-                                          "chat_data": state, "allow_queries": True})
+    sent = send_widget({"chat_id": chat_id, "html": telegram_widgets.progress_html(lang), "chat_data": state,
+                        "allow_queries": True, "caption": f"📈 {telegram_widgets.words(lang)['card']}"})
+    if sent:
+        return sent
+    return call("student", "sendMessage", {"chat_id": chat_id, "text": telegram_widgets.progress_text(lang, state),
+                                           "parse_mode": "HTML", "reply_markup": results_keyboard(lang)})
+
+
+def _edit(chat_id, message_id, text, keyboard):
+    """Change a message in place; "not modified" (the same numbers) is not an error."""
+    try:
+        call("student", "editMessageText", {"chat_id": chat_id, "message_id": message_id, "text": text,
+                                            "parse_mode": "HTML", "reply_markup": keyboard})
+    except TelegramError as e:
+        if "not modified" not in str(e):
+            log.warning("Telegram: could not update a message: %s", e)
 
 
 def results_state(db, progress, profile):
@@ -342,7 +413,24 @@ def handle_student(db, progress, update):
     if "callback_query" in update:
         cb = update["callback_query"]
         lang = lang_of(cb.get("from"))
-        chat_id = ((cb.get("message") or {}).get("chat") or {}).get("id") or (cb.get("from") or {}).get("id")
+        message = cb.get("message") or {}
+        chat_id = (message.get("chat") or {}).get("id") or (cb.get("from") or {}).get("id")
+        data = str(cb.get("data") or "")
+        if data.startswith("k") or data == "rr":     # a calculator button, or "refresh" on a results message
+            state = telegram_widgets.calc_parse(data)
+            refresh = data == "rr" and message.get("message_id")
+            profile = profile_for_chat(db, chat_id) if refresh else None
+            note = telegram_widgets.words(lang)["updated"] + " ✓" if profile else None
+            quietly("student", "answerCallbackQuery", {"callback_query_id": cb["id"], **({"text": note} if note else {})})
+            if not message.get("message_id") or not CALC_TAPS.allow(chat_id):
+                return
+            if state:
+                _edit(chat_id, message["message_id"], telegram_widgets.calc_text(lang, state),
+                      telegram_widgets.calc_keyboard(lang, state))
+            elif profile:
+                _edit(chat_id, message["message_id"],
+                      telegram_widgets.progress_text(lang, results_state(db, progress, profile)), results_keyboard(lang))
+            return
         quietly("student", "answerCallbackQuery", {"callback_query_id": cb["id"]})
         if not STUDENT_MESSAGES.allow(chat_id):
             return
