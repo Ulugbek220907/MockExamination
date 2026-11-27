@@ -163,7 +163,7 @@ def payme_test_order(db, user_id, scope="full"):
     as a real payment would."""
     if not PAYME["test"]:
         raise BillingError("Test orders are made only while PAYME_TEST=1.")
-    order = create_order(db, user_id, "plan", scope=scope, months=1)
+    order = create_order(db, user_id, "plan", scope=scope, months=1, sandbox=True)
     return {"orderId": order["id"], "amount": order["amount"], "tiyin": int(order["amount"]) * 100, "scope": scope}
 
 
@@ -326,7 +326,7 @@ def user_orders(db, user_id, limit=50):
     return out
 
 
-def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope="full", months=1, currency="UZS"):
+def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope="full", months=1, currency="UZS", sandbox=False):
     if kind not in PRICES:
         raise BillingError("Unknown product.")
     if kind != "plan" and not accounts.checks_enabled():
@@ -343,7 +343,7 @@ def create_order(db, user_id, kind, examiner_id=None, submission_id=None, scope=
         if scope not in PLAN_PRICES or months not in PLAN_PRICES[scope]:
             raise BillingError("Unknown pass.")
         # A pass that renews on its own (a card subscription) is not bought a second time: that would charge twice.
-        for held in accounts.plan_status(db, user_id)["passes"]:
+        for held in ([] if sandbox else accounts.plan_status(db, user_id)["passes"]):   # a sandbox order is never charged
             if held["renews"] and held["scope"] in (scope, "full"):
                 raise BillingError(
                     "Your All-in-one pass already opens every paper, and it renews on its own." if held["scope"] == "full" and scope != "full"
@@ -395,7 +395,7 @@ def checkout(order, method, return_url, profile=None, cancel_url=None):
             "l=uz",
         ]
         token = base64.b64encode(";".join(params).encode("utf-8")).decode("ascii")
-        base = "https://checkout.test.paycom.uz/" if PAYME["test"] else "https://checkout.paycom.uz/"
+        base = "https://test.paycom.uz/" if PAYME["test"] else "https://checkout.paycom.uz/"   # the sandbox has no checkout.test host
         return {"redirect": base + token}
     if method == "click":
         # The payment page as Click documents it (docs.click.uz, "Платежная ссылка"): the amount as N.NN, and

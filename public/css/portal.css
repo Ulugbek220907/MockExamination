@@ -1474,3 +1474,15 @@ body.signed-in .site-links [data-nav="about"], body.signed-in .site-links [data-
 
 /* Account → Telegram: "Use another Telegram" and "Disconnect" side by side */
 .inline-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+
+/* The four pass cards share their rows: title, price, line under it, so'm price, button, then each item of the
+   list. A longer line in one card makes that row taller in all four, so everything lines up across the page. */
+@supports (grid-template-rows: subgrid) {
+  .plan-cards.plan-cards-4 { row-gap: 34px; }
+  .plan-cards-4 .plan-card { display: grid; grid-row: span 9; grid-template-rows: subgrid; row-gap: 10px; align-content: start; }
+  .plan-cards-4 .plan-list { grid-row: span 4; grid-template-rows: subgrid; row-gap: 8px; margin: 6px 0 0; }
+  .plan-cards-4 .plan-btn { align-self: start; }
+}
+.plan-cards-4 .plan-local:empty { display: block; min-height: 0; }
+.plan-local strong { color: var(--ink); font-weight: 700; }
+.plan-btn { white-space: nowrap; }

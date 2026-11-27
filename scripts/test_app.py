@@ -2606,6 +2606,16 @@ class CommerceOffTests(AccountApiBase):
             self.assertEqual(json.loads(r.body)["error"]["code"], -31001)
         # The rest of the site still sells nothing.
         self.assertEqual(self.call("GET", "/api/billing")[1]["prices"], {})
+        # An admin who already holds a renewing All-in-one pass can still make sandbox orders (nothing is charged).
+        held = {"active": True, "passes": [{"scope": "full", "renews": True, "endsAt": "2026-12-30"}], "hadPaidPlan": True}
+        with mock.patch.dict(billing.PAYME, {"merchant_id": "m-1", "key": "sandbox-key", "test": True}), \
+                mock.patch.object(accounts, "plan_status", return_value=held):
+            self.assertEqual(self.call("POST", "/api/admin/payme", {}, cookie=owner)[0].code, 200)
+            # The sandbox's payment page is test.paycom.uz (checkout.test.paycom.uz answers "provider not found").
+            order = billing.create_order(server.STORE.db, server.STORE.db.select("profiles", {"email": "owner@example.com"})[0]["id"],
+                                         "plan", scope="lr", months=1, sandbox=True)
+            url = billing.checkout(order, "payme", "https://www.testday.uz/#/account")["redirect"]
+            self.assertTrue(url.startswith("https://test.paycom.uz/"), url)
 
     def test_five_tests_are_free_and_the_rest_are_coming_soon(self):
         r, data = self.call("GET", "/api/tests")
