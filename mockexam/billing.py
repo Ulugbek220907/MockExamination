@@ -709,15 +709,20 @@ class PaymeApi:
     def handle(self, body, authorization):
         request_id = None
         try:
-            if not self._authorized(authorization):
-                raise PaymeError(-32504)
+            # The request is read first so that every answer, a refusal of the login included, carries its "id":
+            # JSON-RPC asks for it, and Payme's sandbox matches answers to requests by it.
             try:
                 payload = json.loads(body or b"{}")
             except ValueError:
+                payload = None
+            if isinstance(payload, dict) and isinstance(payload.get("id"), (int, str)):
+                request_id = payload.get("id")
+            if not self._authorized(authorization):
+                raise PaymeError(-32504)
+            if payload is None:
                 raise PaymeError(-32700)
             if not isinstance(payload, dict) or not isinstance(payload.get("params", {}), dict):
                 raise PaymeError(-32600)
-            request_id = payload.get("id")
             method = payload.get("method")
             handler = {
                 "CheckPerformTransaction": self.check_perform,
