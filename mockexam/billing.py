@@ -52,8 +52,8 @@ def _int_env(name, default):
 # Passes are sold month by month only (3-month passes were retired in November 2026: a monthly price can follow the
 # cost of AI marking; card subscriptions bought for 3 months before then keep renewing as they were).
 PLAN_PRICES = {
-    "full": {1: (79000, 799)},   # the prices live here, not in environment variables
-    "speaking": {1: (59000, 599)},
+    "full": {1: (109000, 1099)},   # the prices live here, not in environment variables
+    "speaking": {1: (69000, 699)},
     "writing": {1: (49000, 499)},
     "lr": {1: (39000, 399)},
 }

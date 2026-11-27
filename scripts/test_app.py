@@ -2454,12 +2454,12 @@ class PaymeReceiptTests(unittest.TestCase):
             detail = self.check(order)["detail"]
         self.assertEqual(detail["receipt_type"], 0)
         item = detail["items"][0]
-        self.assertEqual(item, {"title": "TestDay: IELTS tayyorgarlik, Speaking (1 oy)", "price": 5900000, "count": 1,
+        self.assertEqual(item, {"title": "TestDay: IELTS tayyorgarlik, Speaking (1 oy)", "price": 6900000, "count": 1,
                                 "code": "10305008003000000", "package_code": "1514296", "vat_percent": 0})
         full = billing.create_order(self.db, _profile(self.db, "receipt.full@example.com")["id"], "plan", scope="full", months=1)
         with mock.patch.dict(billing.PAYME, {"ikpu": "1", "package_code": "2", "vat_percent": "12", "units": "1501"}):
             item = self.check(full)["detail"]["items"][0]
-        self.assertEqual((item["vat_percent"], item["units"], item["price"]), (12, 1501, 7900000))
+        self.assertEqual((item["vat_percent"], item["units"], item["price"]), (12, 1501, 10900000))
         self.assertIn("barcha bo'limlar", item["title"])
 
     def test_the_payment_link_follows_the_get_method(self):
@@ -5148,7 +5148,7 @@ class ClickIntegrationTests(AccountApiBase):
         query = urllib.parse.parse_qs(url.query)
         return_url = query.pop("return_url")[0]
         self.assertEqual(query, {
-            "service_id": ["777"], "merchant_id": ["4242"], "amount": ["59000.00"],   # the amount as N.NN
+            "service_id": ["777"], "merchant_id": ["4242"], "amount": ["69000.00"],   # the amount as N.NN
             "transaction_param": [str(order["id"])]})                                  # comes back as merchant_trans_id
         self.assertTrue(return_url.endswith("/#/account?paid=1"))                      # the student lands on the account page
 

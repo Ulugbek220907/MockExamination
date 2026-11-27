@@ -4,7 +4,7 @@ Run this once before taking real money, and again after any change to `mockexam/
 the prices, or the Payme / Click cabinet settings. It takes about 30 minutes and costs one plan
 payment, which you refund at the end.
 
-What is sold: monthly passes: All-in-one (all four papers), Speaking, Writing, and Listening + Reading. A student pays by card in US dollars through Dodo (a subscription that renews every month until the student cancels) or in so'm through Click (Uzcard and Humo: one payment that does not renew), and Payme works like Click. Examiner checks (Writing 10 000 so'm, Speaking 20 000 so'm) are sold only when `EXAMINER_CHECKS_ENABLED=1`. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): All-in-one 79 000 so'm ($7.99), Speaking 59 000 ($5.99), Writing 49 000 ($4.99), Listening + Reading 39 000 ($3.99), a month: the so'm price reads like the dollar one. 3-month passes are no longer sold (card subscriptions bought for 3 months before keep renewing). Prices come from the server, never from the browser. docs/COSTS.md shows what each pass earns after fees, tax and AI marking.
+What is sold: monthly passes: All-in-one (all four papers), Speaking, Writing, and Listening + Reading. A student pays by card in US dollars through Dodo (a subscription that renews every month until the student cancels) or in so'm through Click (Uzcard and Humo: one payment that does not renew), and Payme works like Click. Examiner checks (Writing 10 000 so'm, Speaking 20 000 so'm) are sold only when `EXAMINER_CHECKS_ENABLED=1`. Prices are in `mockexam/billing.py` (`PLAN_PRICES`, so'm and US cents): All-in-one 109 000 so'm ($10.99), Speaking 69 000 ($6.99), Writing 49 000 ($4.99), Listening + Reading 39 000 ($3.99), a month: the so'm price reads like the dollar one. 3-month passes are no longer sold (card subscriptions bought for 3 months before keep renewing). Prices come from the server, never from the browser. docs/COSTS.md shows what each pass earns after fees, tax and AI marking.
 
 ## 1. Environment variables (Render → the testday service → Environment)
 
@@ -131,6 +131,8 @@ Uzcard or Humo and cannot charge in so'm.
    has no product in `DODO_PRODUCTS` cannot be paid by card.
 4. **Test.** With `COMMERCE_ENABLED=1`, buy a pass with Dodo's test card `4242 4242 4242 4242` (any future expiry,
    CVV 123). The order becomes Paid with provider `dodo`; **Account** shows the pass and its papers.
+   **Prices:** the dollar price of each product is set here, in Dodo, and must match `PLAN_PRICES`: All-in-one
+   $10.99, Speaking $6.99, Writing $4.99, Listening + Reading $3.99 (since 27 November 2026).
 5. **Live.** Switch the Dodo dashboard to live mode, make the live products, key and webhook, and replace the three
    variables (a new product id for each pass). Repeat step 4 with a real card and refund it.
 
