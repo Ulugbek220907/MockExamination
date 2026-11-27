@@ -762,8 +762,9 @@
         t("Marked at once, with explanations"), t("Listening transcripts"), renew],
     };
     // Both ways of paying are on: the card price is the main one, and the so'm price (one payment) goes under it.
-    const soum = (p) => (info.cards && info.local.length
-      ? `<p class="plan-local">${t("or {price} with {methods} · one payment, no renewal", { price: esc(money(p.uzs)), methods: esc(info.names) })}</p>` : "");
+    // Every card has the same rows in the same order (the cards share them, so prices, buttons and lists line up).
+    const soum = (p) => `<p class="plan-local">${info.cards && info.local.length
+      ? t("or {price} with {methods}", { price: `<strong>${esc(money(p.uzs))}</strong>`, methods: esc(info.names) }) : ""}</p>`;
     const foot = inSoum ? t("Secure payment by {methods}. One payment, no renewal.", { methods: esc(info.names) })
       : info.cards && info.local.length
         ? t("Cards: secure payment by Dodo Payments, renews until you cancel. {methods}: one payment in so'm, no renewal.", { methods: esc(info.names) })
@@ -780,8 +781,9 @@
       const name = t(PASS_NAMES[scope]);
       if (own && own.scope === "full" && scope !== "full") return `<p class="plan-held">${t("Included in your All-in-one pass")}</p>`;
       if (own && own.renews) return `<p class="plan-held">${t("You have this pass: it renews on {date}", { date: `<strong>${esc(longDate(own.endsAt))}</strong>` })}</p>`;
+      // The card's title names the pass, so the button stays short and on one line in every card.
       return `<button type="button" class="${primary ? "btn-primary" : "btn-secondary"} btn-lg plan-btn" data-action="buy-plan" data-scope="${scope}" data-months="1"
-        data-track="price_${scope}">${own ? t("Add {name}", { name }) : t("Get {name}", { name })}</button>`;
+        data-track="price_${scope}" aria-label="${esc(own ? t("Add {name}", { name }) : t("Get {name}", { name }))}">${own ? t("Add this pass") : t("Get this pass")}</button>`;
     };
     const card = (scope) => {
       const p = price(scope);
