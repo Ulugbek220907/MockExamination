@@ -218,7 +218,9 @@ class BillingError(Exception):
 def providers():
     """Payment methods that are switched on, in the order they are offered."""
     out = []
-    if PAYME["merchant_id"] and PAYME["key"]:
+    # In sandbox mode (PAYME_TEST=1) Payme is not offered to students: its sandbox has no real payment page. The sandbox
+    # tests still reach /api/pay/payme, with orders made in Admin → Payme.
+    if PAYME["merchant_id"] and PAYME["key"] and not PAYME["test"]:
         out.append("payme")
     if CLICK["service_id"] and CLICK["merchant_id"] and CLICK["secret_key"]:
         out.append("click")

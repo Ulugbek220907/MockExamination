@@ -2614,11 +2614,16 @@ class CommerceOffTests(AccountApiBase):
         with mock.patch.dict(billing.PAYME, {"merchant_id": "m-1", "key": "sandbox-key", "test": True}), \
                 mock.patch.object(accounts, "plan_status", return_value=held):
             self.assertEqual(self.call("POST", "/api/admin/payme", {}, cookie=owner)[0].code, 200)
-            # The sandbox's payment page is test.paycom.uz (checkout.test.paycom.uz answers "provider not found").
+            # Students are not sent to Payme in sandbox mode: the sandbox has no real payment page.
+            self.assertNotIn("payme", billing.providers())
             order = billing.create_order(server.STORE.db, server.STORE.db.select("profiles", {"email": "owner@example.com"})[0]["id"],
                                          "plan", scope="lr", months=1, sandbox=True)
+            with self.assertRaises(billing.BillingError):
+                billing.checkout(order, "payme", "https://www.testday.uz/#/account")
+        with mock.patch.dict(billing.PAYME, {"merchant_id": "m-1", "key": "live-key", "test": False}):
+            self.assertIn("payme", billing.providers())
             url = billing.checkout(order, "payme", "https://www.testday.uz/#/account")["redirect"]
-            self.assertTrue(url.startswith("https://test.paycom.uz/"), url)
+            self.assertTrue(url.startswith("https://checkout.paycom.uz/"), url)
 
     def test_five_tests_are_free_and_the_rest_are_coming_soon(self):
         r, data = self.call("GET", "/api/tests")

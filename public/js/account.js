@@ -824,6 +824,7 @@
     }
     const u = user();
     const plan = state.me.plan;
+    const planSeen = JSON.stringify(plan || null);   // what this page is drawn with, to redraw if the server knows better
     const shop = commerce();
     // Back from the payment page: the pass opens when the payment service has told us (a few seconds).
     const justPaid = /[?&]paid=1/.test(location.hash) || /[?&]payment_id=/.test(location.search);
@@ -936,7 +937,14 @@
     bindGoalForm(main, () => progress.then((res) => draw(res, false)));
     bindTelegramCard(main);
     // The page is drawn from what this browser remembered; the server's answer may say Telegram is connected now.
-    fresh.then(() => { renderAccountSlot(); redrawTelegramCard(main); });
+    // A pass bought or refunded since this browser last looked: draw the page again with it (once: the second drawing
+    // starts from the same pass, so it does not repeat).
+    fresh.then(() => {
+      renderAccountSlot();
+      const page = main.querySelector(".account-page");
+      if (page && document.body.contains(page) && JSON.stringify((state.me && state.me.plan) || null) !== planSeen) renderAccount(main);
+      else redrawTelegramCard(main);
+    });
     if (window.app) window.app.loadHistory();
   }
 
