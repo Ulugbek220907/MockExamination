@@ -56,21 +56,25 @@ A model saying "critical" is not evidence: check the code, then keep the check a
 2. **A spending limit on the OpenRouter key** used by the site (OpenRouter → Keys → the key → credit limit, for
    example $30 a month). If everything else failed, this still caps the AI bill. Delete the key used for the model
    test once you have checked the results.
-3. **Cloudflare in front of testday.uz** (free plan): it hides the server, absorbs floods, and caches the Listening
-   audio so Render's bandwidth is not used for repeats.
-   - Add the site to Cloudflare, move the nameservers, keep the DNS records, turn the orange cloud on for `testday.uz`
-     and `www`. SSL/TLS mode: **Full (strict)**.
-   - On Render, set `TRUST_CLOUDFLARE=1` (so limits count the visitor, not Cloudflare).
-   - Security → WAF: turn on the free managed rules. Add one **rate-limiting rule**: path starts with `/api/`,
-     more than 100 requests in 10 seconds from one address → block for 10 minutes.
-   - Caching → Cache Rules: "Cache everything" for `/audio/examiners/*`, `/css/*`, `/js/*`, `/img/*` (respect the
-     origin's cache headers).
-   - Do **not** turn on "Bot Fight Mode" or "Under Attack" for the whole site: they would stop Click, Payme and Dodo
-     from reaching `/api/pay/...`. If you ever need "Under Attack", add a Configuration Rule that sets the security
-     level to "Essentially off" for paths starting with `/api/pay/` first.
-   - Optional, strongest: Rules → Transform Rules → add a request header `X-Origin-Secret` with a long random value,
-     and set the same value as `ORIGIN_SECRET` on Render. The server then refuses anyone who goes around Cloudflare
-     to `testday.onrender.com`.
+3. **Cloudflare in front of testday.uz** (free plan). Set up on 28 November 2026:
+   - The site `testday.uz` in the owner's Cloudflare account, with every DNS record copied from ahost.uz: the site
+     (`testday.uz` → Render's 216.24.57.1, `www` → `ielts-mock-exam.onrender.com`, both proxied) and, **DNS only**,
+     the email records (SPF, DMARC, `resend._domainkey`, `send` → Resend, `default._domainkey`, MX, `mail`, `ftp`).
+     It is active once the nameservers at ahost.uz are `dan.ns.cloudflare.com` and `thea.ns.cloudflare.com`.
+   - SSL/TLS **Full (strict)**, Always Use HTTPS, TLS 1.2 or newer, Brotli.
+   - Rate limiting: more than 100 requests to `/api/` in 10 seconds from one address are blocked (the free plan
+     blocks for 10 seconds at a time, again while the flood goes on). Payments and Telegram are not counted.
+   - A configuration rule: `/api/pay/` and `/api/telegram/hook/` are never challenged (Click, Payme, Dodo and
+     Telegram are servers and cannot solve a challenge). Cloudflare's free managed rules are on by default.
+   - Caching: Cloudflare's defaults. Versioned files (`?v=`) are cached for a year; the Listening audio is
+     **not** cached at Cloudflare, because most of it is for pass holders only (the site marks it private).
+   - On Render: `TRUST_CLOUDFLARE=1`, so the limits count each visitor and not Cloudflare. Check after the switch:
+     signed in as admin, open `/api/admin/request-info`: `seenAs` must be your own address, not a Cloudflare one.
+   - Do **not** turn on "Bot Fight Mode" or "Under Attack" for the whole site: they would stop Click, Payme and Dodo.
+     If you need "Under Attack", the configuration rule above already keeps `/api/pay/` working.
+   - Later, optional: a Transform Rule that adds a request header `X-Origin-Secret` with a long random value, and the
+     same value as `ORIGIN_SECRET` on Render. The server then refuses anyone who goes around Cloudflare to
+     `ielts-mock-exam.onrender.com`. Make the value yourself; never paste it in a chat.
 4. **A robot check on sign-in** (optional; free): Cloudflare → Turnstile → add a widget for `testday.uz` and
    `www.testday.uz`, mode "Managed". Put the site key in `TURNSTILE_SITE_KEY` and the secret in
    `TURNSTILE_SECRET_KEY` on Render. Most people never see it; scripts asking for codes are stopped.

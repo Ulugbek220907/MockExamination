@@ -2625,6 +2625,18 @@ class CommerceOffTests(AccountApiBase):
             url = billing.checkout(order, "payme", "https://www.testday.uz/#/account")["redirect"]
             self.assertTrue(url.startswith("https://checkout.paycom.uz/"), url)
 
+    def test_admin_sees_the_address_the_limits_count(self):
+        owner, _ = self.login("owner@example.com")
+        student, _ = self.login("ip.student@example.com")
+        self.assertEqual(self.call("GET", "/api/admin/request-info", cookie=student)[0].code, 403)
+        headers = {"X-Forwarded-For": "203.0.113.9, 104.16.0.5", "CF-Connecting-IP": "198.51.100.7"}
+        with mock.patch.dict(os.environ, {"TRUST_CLOUDFLARE": "1"}):
+            r = self.fetch("/api/admin/request-info", headers={**headers, "Cookie": owner})
+            self.assertEqual(json.loads(r.body)["seenAs"], "198.51.100.7")       # the visitor, given by Cloudflare
+        with mock.patch.dict(os.environ, {"TRUST_CLOUDFLARE": "0"}):
+            r = self.fetch("/api/admin/request-info", headers={**headers, "Cookie": owner})
+            self.assertEqual(json.loads(r.body)["seenAs"], "104.16.0.5")         # Cloudflare's own address
+
     def test_five_tests_are_free_and_the_rest_are_coming_soon(self):
         r, data = self.call("GET", "/api/tests")
         by_module = {}
