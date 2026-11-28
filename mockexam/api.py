@@ -887,6 +887,19 @@ class AdminPaymeHandler(AdminHandler):
         self.send_json(out)
 
 
+class AdminRequestInfoHandler(AdminHandler):
+    """What the server sees of this request: tells whether the per-address limits count each visitor (behind
+    Cloudflare they need TRUST_CLOUDFLARE=1, or every visitor looks like one of Cloudflare's addresses)."""
+
+    async def get(self):
+        await self.require_admin()
+        h = self.request.headers
+        self.send_json({"seenAs": self.client_ip(), "remoteIp": self.request.remote_ip,
+                        "forwardedFor": h.get("X-Forwarded-For", ""), "cfConnectingIp": h.get("CF-Connecting-IP", ""),
+                        "cfRay": h.get("CF-Ray", ""), "trustCloudflare": guard.trust_cloudflare(),
+                        "originSecretSet": bool(os.environ.get("ORIGIN_SECRET", "").strip())})
+
+
 class AdminClickCheckHandler(AdminHandler):
     async def post(self):
         await self.require_admin()
@@ -1114,6 +1127,7 @@ def routes():
         (r"/api/speaking/recordings/([0-9a-f\-]{36})", RecordingHandler),
         (r"/api/admin/click", AdminClickHandler),
         (r"/api/admin/payme", AdminPaymeHandler),
+        (r"/api/admin/request-info", AdminRequestInfoHandler),
         (r"/api/admin/click/check", AdminClickCheckHandler),
         (r"/api/admin/ai-usage", AdminAiUsageHandler),
         (r"/api/telegram/link", TelegramLinkHandler),
